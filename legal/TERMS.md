@@ -45,10 +45,12 @@ Web: <https://bio.neteng.pro>
 [SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info/):
 `CC-BY-4.0 OR GPL-3.0-or-later`
 
-# <a id="top">Terms of Use</a>
+<a name="top"></a>
+
+# Terms of Use
 
 **Network Pro Strategies**  
-**Effective Date:** 3/9/2025
+**Effective Date:** 3/15/2025
 
 &nbsp;
 
@@ -111,13 +113,6 @@ these Terms.**
 
 We may update these Terms of Use periodically. Changes will be posted on this page with an updated effective date. Updates will comply with applicable changes to the **Arizona Revised Statutes and United States Code**.
 
-&nbsp;
-
-⚠️ **_If you do not agree with any part of these Terms of Use, you must
-discontinue use of all Network Pro platforms immediately._**
-
-&nbsp;
-
 <sub>[Top](#top)</sub>
 
 ---
@@ -125,7 +120,7 @@ discontinue use of all Network Pro platforms immediately._**
 <span style="font-size: 12px; font-weight: bold; text-align: center;">
 
 [Home](https://netwk.pro) &nbsp; | &nbsp; Terms of Use  
-[Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; [Copyright and Licensing](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
+[Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; [Licensing](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
 
 </span>
 

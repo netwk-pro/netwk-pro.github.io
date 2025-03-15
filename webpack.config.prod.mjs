@@ -96,6 +96,7 @@ export default merge(common, {
         { from: "LICENSE.md", to: "LICENSE.md" },
         { from: "README.md", to: "README.md" },
         { from: "404.html", to: "404.html" },
+        { from: "CODE_OF_CONDUCT.md", to: "CODE_OF_CONDUCT.md" }
         { from: "CNAME", to: "." }, // Correct path to copy CNAME to the root directory
       ],
     }),

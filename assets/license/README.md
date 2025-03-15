@@ -49,7 +49,7 @@ Web: <https://bio.neteng.pro>
 # Copyright and Licensing
 
 **Network Pro Strategies**  
-**Effective Date:** 3/13/2025
+**Effective Date:** 3/15/2025
 
 &nbsp;
 
@@ -152,8 +152,7 @@ Network Pro is available under the following licenses:
 
 ### _Contact_
 
-For questions not covered here, or to request permissions not covered by the
-scope of either license, please email us at `support (at) neteng.pro`.
+For inquiries not addressed here or to request additional permissions beyond either license, please contact us via our [contact form](https://contact.neteng.pro) or email `support (at) neteng.pro`.
 
 <sub>[Top](#top)</sub>
 
@@ -275,7 +274,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 <span style="font-size: 12px; font-weight: bold; text-align: center;">
 
 [Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/TERMS.md)  
-[Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; Copyright and Licensing
+[Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; Licensing
 
 </span>
 
@@ -286,6 +285,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 Copyright &copy; 2025 by  
 **[Network Pro Strategies](https://netwk.pro/)** (Network Pro)
 
-Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
 
 </span>
