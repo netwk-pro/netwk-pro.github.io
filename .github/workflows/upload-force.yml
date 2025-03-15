@@ -3,8 +3,8 @@
 #
 # Deploy static content from ./dist to GitHub Pages when manually triggered.
 # This workflow should only be used when deploying to GitHub Pages must be
-# performed regardless of the outcome of the "Build/Test Webpack, Publish to
-# npmjs" workflow.
+# performed regardless of the outcome of the "Build/Test, Publish to Registries"
+# workflow.
 
 name: Deploy to GitHub Pages (Forced)
 

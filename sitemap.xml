@@ -8,7 +8,7 @@
 
     <loc>https://netwk.pro</loc>
 
-    <lastmod>2025-03-09</lastmod>
+    <lastmod>2025-03-15</lastmod>
 
     <changefreq>weekly</changefreq>
 
@@ -20,9 +20,9 @@
 
     <loc>https://netwk.pro/README.md</loc>
 
-    <lastmod>2025-03-09</lastmod>
+    <lastmod>2025-03-15</lastmod>
 
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
 
     <priority>0.7</priority>
 
@@ -32,9 +32,9 @@
 
     <loc>https://netwk.pro/LICENSE.md</loc>
 
-    <lastmod>2025-03-09</lastmod>
+    <lastmod>2025-03-15</lastmod>
 
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
 
     <priority>0.6</priority>
 
@@ -44,7 +44,7 @@
 
     <loc>https://netwk.pro/legal/TERMS.md</loc>
 
-    <lastmod>2025-03-09</lastmod>
+    <lastmod>2025-03-15</lastmod>
 
     <changefreq>yearly</changefreq>
 
@@ -56,7 +56,7 @@
 
     <loc>https://netwk.pro/legal/PRIVACY.md</loc>
 
-    <lastmod>2025-03-09</lastmod>
+    <lastmod>2025-03-15</lastmod>
 
     <changefreq>yearly</changefreq>
 
@@ -68,7 +68,7 @@
 
     <loc>https://netwk.pro/legal.html</loc>
 
-    <lastmod>2025-03-09</lastmod>
+    <lastmod>2025-03-13</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -104,9 +104,9 @@
 
     <loc>https://netwk.pro/assets/license/README.md</loc>
 
-    <lastmod>2025-03-09</lastmod>
+    <lastmod>2025-03-15</lastmod>
 
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
 
     <priority>0.4</priority>
 
@@ -116,7 +116,7 @@
 
     <loc>https://netwk.pro/assets/license/CC-BY-4.0.xmp</loc>
 
-    <lastmod>2025-02-02</lastmod>
+    <lastmod>2025-03-13</lastmod>
 
     <changefreq>yearly</changefreq>
 
@@ -140,7 +140,7 @@
 
     <loc>https://netwk.pro/404.html</loc>
 
-    <lastmod>2025-03-09</lastmod>
+    <lastmod>2025-03-13</lastmod>
 
     <changefreq>yearly</changefreq>
 
