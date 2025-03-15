@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 # This file is part of Network Pro
 #
-# Deploy static content from ./dist to GitHub Pages when the "Build
-# Webpack, Publish to js" workflow completes successfully (OR) when manually
+# Deploy static content from ./dist to GitHub Pages when the "Build/Test, 
+# Publish to Registries" workflow completes successfully (OR) when manually
 # triggered.
 
-name: Deploy to GH Pages
+name: Deploy to GitHub Pages
 
 on:
   workflow_run:

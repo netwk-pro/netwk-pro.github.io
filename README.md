@@ -44,7 +44,9 @@ Web: <https://bio.neteng.pro>
 
 [SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info/): `CC-BY-4.0 OR GPL-3.0-or-later`
 
-# <a id="top">Network Pro Strategies</a>
+<a name="top"></a>
+
+# Network Pro Strategies
 
 [![Build Webpack, Publish to Registries](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/webpack.yml/badge.svg)](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/webpack.yml) [![Deploy to GitHub Pages](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/upload.yml/badge.svg)](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/upload.yml)  
 [![npm version](https://img.shields.io/npm/v/%40neteng-pro%2Fnetwk-pro-web?registry_uri=https%3A%2F%2Fregistry.npmjs.com&style=flat&logo=npm&logoSize=auto&labelColor=fffff&color=0c7ebe)](https://www.npmjs.com/package/@neteng-pro/netwk-pro-web) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
@@ -67,15 +69,13 @@ Our **blend of deep technical expertise and business insight** ensures that secu
 
 🔹 [Let’s connect](https://contact.neteng.pro) to discuss how we can help secure and strengthen your business today.
 
-&nbsp;
-
 <sub>[Top](#top)</sub>
 
----
-
 &nbsp;
 
-## <a id="about-me">🚀 About Me</a>
+<a name="about-me"></a>
+
+## 🚀 About Me
 
 **GitHub Profile:**  
 [https://github.com/SunDevil311](https://github.com/SunDevil311)
@@ -118,10 +118,10 @@ Let’s work together to **enhance your network security posture** and create a 
 
 &nbsp;
 
-<span style="font-size: 14px; font-weight: bold; text-align: center;">
+<span style="font-size: 12px; font-weight: bold; text-align: center;">
 
-[Terms of Use](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/TERMS.md) &nbsp; | &nbsp; [Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md)  
-[Copyright and Licensing](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
+[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/TERMS.md)  
+[Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; [Copyright and Licensing](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
 
 </span>
 
@@ -129,7 +129,8 @@ Let’s work together to **enhance your network security posture** and create a 
 
 <span style="font-size: 12px; text-align: center;">
 
-Copyright &copy; 2025 by **[Network Pro Strategies](https://netwk.pro/)** (Network Pro)
+Copyright &copy; 2025 by  
+**[Network Pro Strategies](https://netwk.pro/)** (Network Pro)
 
 Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 

@@ -44,7 +44,9 @@ Web: <https://bio.neteng.pro>
 [SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info/):
 `CC-BY-4.0 OR GPL-3.0-or-later`
 
-# <a id="top">Copyright and Licensing</a>
+<a name="top"></a>
+
+# Copyright and Licensing
 
 **Network Pro Strategies**  
 **Effective Date:** 3/13/2025
@@ -69,13 +71,17 @@ Web: <https://bio.neteng.pro>
 
 ---
 
-## <a id="lmaterial">Licensed Material</a>
+<a name="lmaterial"></a>
+
+## Licensed Material
 
 For copyright and licensing purposes, _"Licensed Material"_ refers to all public websites and public repositories. This includes all associated code (e.g., HTML, CSS, JavaScript, Markdown). **This definition explicitly excludes the Network Pro Strategies company as a whole.**
 
 ---
 
-### <a id="netwk-pro">_Use of Abbreviated Business Name_</a>
+<a name="netwk-pro"></a>
+
+### _Use of Abbreviated Business Name_
 
 For clarity, our _full business name_, **Network Pro Strategies**, and our abbreviated name, **Network Pro**, are legally equivalent. All references to 'Network Pro,' whether in text or code, shall be interpreted as references to the full business name with equal authority.
 
@@ -85,7 +91,9 @@ well as any business-related documentation.**
 
 ---
 
-## <a id="copyright">Copyright</a>
+<a name="copyright"></a>
+
+## Copyright
 
 Copyright &copy; 2025 by **[Network Pro Strategies](https://netwk.pro/) (Network Pro)**
 
@@ -97,13 +105,17 @@ guarantees regarding the Licensed Material and assumes no liability for its use.
 
 ---
 
-### <a id="graphics">_Graphics_</a>
+<a name="graphics"></a>
+
+### _Graphics_
 
 All rights to original website graphics are **strictly reserved.** These graphics **are not** covered under CC BY 4.0 or the GPL. The copyright holder retains exclusive rights to their use and distribution. To request an exception, see [Contact](#contact).
 
 ---
 
-## <a id="licensing">Licensing</a>
+<a name="licensing"></a>
+
+## Licensing
 
 Network Pro is available under the following licenses:
 
@@ -115,7 +127,9 @@ Network Pro is available under the following licenses:
 
 <!-- markdownlint-disable MD001 -->
 
-### <a id="questions">_Are you sure you can do that?_</a>
+<a name="questions"></a>
+
+### _Are you sure you can do that?_
 
 <!-- markdownlint-enable MD001 -->
 
@@ -134,7 +148,9 @@ Network Pro is available under the following licenses:
 
 &nbsp;
 
-### <a id="contact">_Contact_</a>
+<a name="contact"></a>
+
+### _Contact_
 
 For questions not covered here, or to request permissions not covered by the
 scope of either license, please email us at `support (at) neteng.pro`.
@@ -143,7 +159,9 @@ scope of either license, please email us at `support (at) neteng.pro`.
 
 ---
 
-## <a id="cc-by">Creative Commons Attribution 4.0 International</a>
+<a name="cc-by"></a>
+
+## Creative Commons Attribution 4.0 International
 
 <sup>Formats:
 [Markdown](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/assets/license/CC-BY-4.0.md)
@@ -185,7 +203,9 @@ this License—may be available as further defined within this document.
 
 ---
 
-## <a id="gnu-gpl">GNU General Public License</a>
+<a name="gnu-gpl"></a>
+
+## GNU General Public License
 
 <sup>Formats:
 [Markdown](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/assets/license/COPYING.md)
@@ -254,8 +274,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 <span style="font-size: 12px; font-weight: bold; text-align: center;">
 
-[Terms of Use](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/TERMS.md) &nbsp; | &nbsp; [Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md)  
-Copyright and Licensing
+[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/TERMS.md)  
+[Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; Copyright and Licensing
 
 </span>
 
@@ -263,7 +283,8 @@ Copyright and Licensing
 
 <span style="font-size: 12px; text-align: center;">
 
-Copyright &copy; 2025 by **[Network Pro Strategies](https://netwk.pro/)** (Network Pro)
+Copyright &copy; 2025 by  
+**[Network Pro Strategies](https://netwk.pro/)** (Network Pro)
 
 Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
