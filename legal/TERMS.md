@@ -50,7 +50,7 @@ Web: <https://bio.neteng.pro>
 # Terms of Use
 
 **Network Pro Strategies**  
-**Effective Date:** 3/15/2025
+**Effective Date:** 3/16/2025
 
 &nbsp;
 
@@ -79,11 +79,15 @@ including but not limited to:
 
 - **Social media accounts (e.g., Facebook, Instagram, X, and similar platforms)**
 
+<sub>[Top](#top)</sub>
+
 ## 3. Disclaimer of Warranties
 
 Network Pro provides its platforms and services on an "as is" and "as available"
 basis without warranties of any kind, whether express or implied. We do not
 guarantee the accuracy, reliability, availability, or security of our services.
+
+<sub>[Top](#top)</sub>
 
 ## 4. Assumption of Risk
 
@@ -91,23 +95,33 @@ Your use of Network Pro platforms is entirely at your own risk. We do not
 guarantee the security, integrity, or reliability of data stored on external or
 third-party infrastructure.
 
+<sub>[Top](#top)</sub>
+
 ## 5. Limitation of Liability
 
 To the fullest extent permitted by law, Network Pro, its affiliates, owners, operators, and contributors shall not be liable for any direct, indirect, incidental, consequential, or punitive damages, including but not limited to data loss, loss of profits, or damages arising from reliance on or use of our platforms.
+
+<sub>[Top](#top)</sub>
 
 ## 6. Indemnification
 
 By using Network Pro's platforms, you agree to indemnify, defend, and hold
 harmless Network Pro, its affiliates, owners, operators, and contributors from any claims, damages, liabilities, losses, or expenses (including legal fees) arising from or related to your use of our services.
 
+<sub>[Top](#top)</sub>
+
 ## 7. Governing Law and Jurisdiction
 
 **Network Pro Strategies** is an unincorporated business based in Maricopa County, Arizona. Any legal action or dispute arising from these Terms of Use shall be subject to the exclusive jurisdiction of the state and federal courts located in Maricopa County, Arizona, including the U.S. District Court for the District of Arizona. These Terms of Use shall be governed by and construed in accordance with the [Arizona Revised Statutes](https://www.azleg.gov/arstitle/) (A.R.S.) and applicable provisions of the [United States Code](https://uscode.house.gov/) (U.S.C.).
+
+<sub>[Top](#top)</sub>
 
 ## 8. Acceptance of Terms
 
 By accessing or using any of Network Pro’s platforms, whether specifically listed in this document or not, you acknowledge and agree to these Terms of Use. **Continued use of our services constitutes ongoing acceptance of
 these Terms.**
+
+<sub>[Top](#top)</sub>
 
 ## 9. Changes to This Policy
 
@@ -117,20 +131,20 @@ We may update these Terms of Use periodically. Changes will be posted on this pa
 
 ---
 
-<span style="font-size: 12px; font-weight: bold; text-align: center;">
+<div style="font-size: 12px; font-weight: bold; text-align: center;">
 
 [Home](https://netwk.pro) &nbsp; | &nbsp; Terms of Use  
 [Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; [Licensing](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
 
-</span>
+</div>
 
 &nbsp;
 
-<span style="font-size: 12px; text-align: center;">
+<div style="font-size: 12px; text-align: center;">
 
-Copyright &copy; 2025 by  
-**[Network Pro Strategies](https://netwk.pro/)** (Network Pro)
+Copyright &copy; 2025  
+**[Network Pro Strategies](https://netwk.pro/)** (Network Pro&trade;)
 
 Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-</span>
+</div>

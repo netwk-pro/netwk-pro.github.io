@@ -51,7 +51,7 @@ Web: <https://bio.neteng.pro>
 # Privacy Policy
 
 **Network Pro Strategies**  
-**Effective Date:** 3/9/2025
+**Effective Date:** 3/16/2025
 
 &nbsp;
 
@@ -105,7 +105,7 @@ We do not sell or rent personal information. However, we may share your data in 
 
 ## 5. Data Security
 
-We implement industry-standard security measures to protect your data. Our website employs encryption via TLS 1.2 or 1.3 only. However, no method of transmission over the Internet or electronic storage is completely secure, and we cannot guarantee absolute security. In compliance with **A.R.S. § 18-552**, we will notify affected individuals in the event of a data breach involving personal information.
+We implement industry-standard security measures to protect your data. However, no method of transmission over the Internet or electronic storage is completely secure, and we cannot guarantee absolute security. In compliance with **A.R.S. § 18-552**, we will notify affected individuals in the event of a data breach involving personal information.
 
 ## 6. Your Rights and Choices
 
@@ -117,7 +117,7 @@ Under applicable state and federal law, you may have the following rights regard
 - **Opt out of marketing communications** at any time.
 - **Restrict or object to data processing** under certain conditions, as permitted by law.
 
-To exercise these rights, please use our [contact form](https://tr.ee/HAI1inalZH) or email us at `support (at) neteng.pro`.
+To exercise these rights, please use our [contact form](https://contact.neteng.pro) or email us at `support (at) neteng.pro`.
 
 ## 7. Third-Party Links
 
@@ -146,20 +146,20 @@ support (at) neteng.pro
 
 ---
 
-<span style="font-size: 12px; font-weight: bold; text-align: center;">
+<div style="font-size: 12px; font-weight: bold; text-align: center;">
 
 [Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/TERMS.md)  
 Privacy Policy &nbsp; | &nbsp; [Licensing](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
 
-</span>
+</div>
 
 &nbsp;
 
-<span style="font-size: 12px; text-align: center;">
+<div style="font-size: 12px; text-align: center;">
 
-Copyright &copy; 2025 by  
-**[Network Pro Strategies](https://netwk.pro/) (Network Pro)**
+Copyright &copy; 2025  
+**[Network Pro Strategies](https://netwk.pro/)** (Network Pro&trade;)
 
 Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-</span>
+</div>

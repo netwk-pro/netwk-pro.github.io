@@ -4,8 +4,7 @@ This file is part of Network Pro.
 ========================================================================== */
 
 /*
-Network Pro Strategies (Network Pro)
-Copyright © 2024-2025 Scott Lopez
+Copyright © 2025 Network Pro Strategies (Network Pro)
 
 ---
 
@@ -42,6 +41,39 @@ Author: Scott Lopez
 Email: <contact@neteng.pro>
 Web: <https://bio.neteng.pro>
 */
+
+/* ==========================================================================
+   Document Spacing
+   ========================================================================== */
+
+/* Ensures backgrounds scale up to 1920px but stop expanding beyond */
+.full-width-section {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto; /* Centers background */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Content container constrained to 1200px */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 12px; /* Half of gutter for balance */
+}
+
+/* Header & Footer now follow the same container width */
+header,
+footer {
+  width: 100%;
+}
+
+header .container,
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 12px;
+}
 
 /* ==========================================================================
    Responsive Tables
@@ -104,7 +136,6 @@ Web: <https://bio.neteng.pro>
 .soc td {
   border-collapse: collapse;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
   overflow: hidden;
   padding: 8px;
   word-break: normal;
@@ -113,7 +144,6 @@ Web: <https://bio.neteng.pro>
 .soc th {
   border-collapse: collapse;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
   font-weight: normal;
   overflow: hidden;
   padding: 8px;
@@ -151,7 +181,6 @@ Web: <https://bio.neteng.pro>
 .tg td {
   border-collapse: collapse;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
   overflow: hidden;
   padding: 10px 5px;
   word-break: normal;
@@ -160,8 +189,6 @@ Web: <https://bio.neteng.pro>
 .tg th {
   border-collapse: collapse;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: normal;
   overflow: hidden;
   padding: 10px 5px;
   word-break: normal;
@@ -199,7 +226,6 @@ Web: <https://bio.neteng.pro>
 }
 
 .index1 {
-  font-size: 16px;
   font-style: italic;
   font-weight: bold;
   text-align: center;
@@ -216,13 +242,11 @@ Web: <https://bio.neteng.pro>
 }
 
 .voice1 {
-  font-size: 16px;
   font-weight: bold;
   text-align: center;
 }
 
 .voice2 {
-  font-size: 16px;
   font-style: italic;
   text-align: center;
 }

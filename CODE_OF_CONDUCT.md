@@ -121,7 +121,7 @@ representative at an online or offline event.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the abuse team at [abuse@neteng.pro](mailto:abuse@neteng.pro). All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances.
 
-The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
+The abuse team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
 
 Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project’s leadership.
 
@@ -152,20 +152,20 @@ For answers to common questions about this code of conduct, see the FAQ at
 
 ---
 
-<span style="font-size: 12px; font-weight: bold; text-align: center;">
+<div style="font-size: 12px; font-weight: bold; text-align: center;">
 
 [Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/TERMS.md)  
 [Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; [Licensing](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
 
-</span>
+</div>
 
 &nbsp;
 
-<span style="font-size: 12px; text-align: center;">
+<div style="font-size: 12px; text-align: center;">
 
-Copyright &copy; 2025 by  
-**[Network Pro Strategies](https://netwk.pro/)** (Network Pro)
+Copyright &copy; 2025  
+**[Network Pro Strategies](https://netwk.pro/)** (Network Pro&trade;)
 
 Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-</span>
+</div>

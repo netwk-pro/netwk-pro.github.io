@@ -49,13 +49,13 @@ Web: <https://bio.neteng.pro>
 # Network Pro Strategies
 
 [![Build Webpack, Publish to Registries](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/webpack.yml/badge.svg)](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/webpack.yml) [![Deploy to GitHub Pages](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/upload.yml/badge.svg)](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/upload.yml)  
-[![npm Version](https://img.shields.io/npm/v/%40neteng-pro%2Fnetwk-pro-web?registry_uri=https%3A%2F%2Fregistry.npmjs.com&style=flat&logo=npm&logoSize=auto&labelColor=fffff&color=0c7ebe)](https://www.npmjs.com/package/@neteng-pro/netwk-pro-web) [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https:/github.com/netwk-pro/netwk-pro.github.io/CODE_OF_CONDUCT.md)
+[![npm Version](https://img.shields.io/npm/v/%40neteng-pro%2Fnetwk-pro-web?registry_uri=https%3A%2F%2Fregistry.npmjs.com&style=flat&logo=npm&logoSize=auto&labelColor=fffff&color=0c7ebe)](https://www.npmjs.com/package/@neteng-pro/netwk-pro-web) [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/CODE_OF_CONDUCT.md)
 
 &nbsp;
 
 ## **Securing Your Business with Expertise & Innovation**
 
-At Network Pro, we bring **over a decade of expertise** in networking, cybersecurity, information security, and IT to help businesses stay secure, compliant, and resilient. We specialize in **network security, cybersecurity, and privacy consulting**, offering both **strategic advisory services and hands-on implementation** to protect critical infrastructure and minimize risk.
+At Network Pro&trade;, we bring **over a decade of expertise** in networking, cybersecurity, information security, and IT to help businesses stay secure, compliant, and resilient. We specialize in **network security, cybersecurity, and privacy consulting**, offering both **strategic advisory services and hands-on implementation** to protect critical infrastructure and minimize risk.
 
 ### **Why Network Pro?**
 
@@ -129,8 +129,8 @@ Let’s work together to **enhance your network security posture** and create a 
 
 <span style="font-size: 12px; text-align: center;">
 
-Copyright &copy; 2025 by  
-**[Network Pro Strategies](https://netwk.pro/)** (Network Pro)
+Copyright &copy; 2025  
+**[Network Pro Strategies](https://netwk.pro/)** (Network Pro&trade;)
 
 Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
