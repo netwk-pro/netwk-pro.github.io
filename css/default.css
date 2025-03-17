@@ -127,12 +127,6 @@ footer .container {
    Custom CSS
    ========================================================================== */
 
-.center-nav {
-  font-size: 14px;
-  padding: 10px;
-  text-align: center;
-}
-
 .logo {
   display: block;
   margin-left: auto;
@@ -146,13 +140,9 @@ footer .container {
 }
 
 .index2 {
-  font-size: 22px;
+  font-size: 1.375em;
+  line-height: 1.75em;
   font-variant: small-caps;
-  text-align: center;
-}
-
-.copyright {
-  font-size: 12px;
   text-align: center;
 }
 
