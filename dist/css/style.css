@@ -42,18 +42,13 @@ body{
   background-color:#191919;
   color:#fafafa;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:16px;
   margin:10px;
 }
 a{
-  align-content:center;
   text-decoration:none;
 }
 a:link{
   color:#ffc627;
-}
-a:visited{
-  color:#7f6227;
 }
 a:hover{
   color:#ffc627;
@@ -62,6 +57,22 @@ a:hover{
 a:active{
   color:#ffc627;
   text-decoration:underline;
+}
+a:focus{
+  background-color:#ffc627;
+  color:#191919;
+}
+a:visited{
+  color:#7f6227;
+}
+a:visited:hover{
+  color:#7f6227;
+}
+
+.center-nav{
+  font-size:14px;
+  padding:10px;
+  text-align:center;
 }
 .block{
   background:none;
@@ -174,7 +185,7 @@ a:active{
   }
 }
 
-.cright{
+.copyright{
   font-size:12px;
   text-align:center;
 }
