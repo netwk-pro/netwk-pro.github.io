@@ -92,7 +92,7 @@ export default merge(common, {
         { from: "favicon.ico", to: "favicon.ico" },
         { from: "favicon-180.png", to: "favicon-180.png" },
         { from: "favicon-192.png", to: "favicon-192.png" },
-        { from: "license.html", to: "license.html" },
+        { from: "legal.html", to: "legal.html" },
         { from: "LICENSE.md", to: "LICENSE.md" },
         { from: "README.md", to: "README.md" },
         { from: "404.html", to: "404.html" },
