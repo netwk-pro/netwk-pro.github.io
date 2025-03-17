@@ -104,24 +104,18 @@ body {
   background-color: #191919;
   color: #fafafa;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
   margin: 10px;
 }
 
 /* parent link element */
 a {
-  align-content: center;
+  /* align-content: center; */
   text-decoration: none;
 }
 
 /* unvisited link */
 a:link {
   color: #ffc627;
-}
-
-/* visited link */
-a:visited {
-  color: #7f6227;
 }
 
 /* mouse over link */
@@ -134,6 +128,29 @@ a:hover {
 a:active {
   color: #ffc627;
   text-decoration: underline;
+}
+
+/* focused link */
+/* Black text, gold background when focused */
+a:focus {
+  color: #191919;
+  background-color: #ffc627;
+}
+
+/* visited link */
+a:visited {
+  color: #7f6227;
+}
+
+/* visited and mouse over */
+a:visited:hover {
+  color: #7f6227;
+}
+
+.center-nav {
+  font-size: 14px;
+  padding: 10px;
+  text-align: center;
 }
 
 /* code block for legal text */
@@ -262,7 +279,7 @@ a:active {
   }
 }
 
-.cright {
+.copyright {
   font-size: 12px;
   text-align: center;
 }

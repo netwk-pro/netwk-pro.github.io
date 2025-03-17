@@ -231,7 +231,7 @@ owners to license your work under the terms of [CC BY 4.0](https://github.com/ne
 <span style="font-size: 12px; font-weight: bold; text-align: center;">
 
 [Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/TERMS.md)  
-[Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; [Copyright and Licensing](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
+[Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; [Licensing](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
 
 </span>
 

@@ -92,11 +92,11 @@ export default merge(common, {
         { from: "favicon.ico", to: "favicon.ico" },
         { from: "favicon-180.png", to: "favicon-180.png" },
         { from: "favicon-192.png", to: "favicon-192.png" },
-        { from: "legal.html", to: "legal.html" },
+        { from: "license.html", to: "license.html" },
         { from: "LICENSE.md", to: "LICENSE.md" },
         { from: "README.md", to: "README.md" },
         { from: "404.html", to: "404.html" },
-        { from: "CODE_OF_CONDUCT.md", to: "CODE_OF_CONDUCT.md" }
+        { from: "CODE_OF_CONDUCT.md", to: "CODE_OF_CONDUCT.md" },
         { from: "CNAME", to: "." }, // Correct path to copy CNAME to the root directory
       ],
     }),
