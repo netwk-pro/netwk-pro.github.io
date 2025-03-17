@@ -79,53 +79,6 @@ footer .container {
    Responsive Tables
    ========================================================================== */
 
-/* github table */
-.gh {
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin: 0 auto;
-}
-
-.gh td {
-  border-collapse: collapse;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  overflow: hidden;
-  padding: 10px 5px;
-  word-break: normal;
-}
-
-.gh th {
-  border-collapse: collapse;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: normal;
-  overflow: hidden;
-  padding: 10px 5px;
-  word-break: normal;
-}
-
-.gh .gh-tcell {
-  text-align: center;
-  vertical-align: middle;
-}
-
-@media screen and (width <= 767px) {
-  .gh {
-    width: auto !important;
-  }
-
-  .gh col {
-    width: auto !important;
-  }
-
-  .gh-wrap {
-    margin: auto 0;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: auto;
-  }
-}
-
 /* social media / font awesome table */
 .soc {
   border-collapse: collapse;
@@ -144,7 +97,6 @@ footer .container {
 .soc th {
   border-collapse: collapse;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: normal;
   overflow: hidden;
   padding: 8px;
   word-break: normal;
@@ -171,53 +123,15 @@ footer .container {
   }
 }
 
-/* badges table */
-.tg {
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin: 0 auto;
-}
-
-.tg td {
-  border-collapse: collapse;
-  font-family: Arial, Helvetica, sans-serif;
-  overflow: hidden;
-  padding: 10px 5px;
-  word-break: normal;
-}
-
-.tg th {
-  border-collapse: collapse;
-  font-family: Arial, Helvetica, sans-serif;
-  overflow: hidden;
-  padding: 10px 5px;
-  word-break: normal;
-}
-
-.tg .tg-cell {
-  text-align: center;
-  vertical-align: middle;
-}
-
-@media screen and (width <= 767px) {
-  .tg {
-    width: auto !important;
-  }
-
-  .tg col {
-    width: auto !important;
-  }
-
-  .tg-wrap {
-    margin: auto 0;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: auto;
-  }
-}
-
 /* ==========================================================================
-   CSS for index.html
+   Custom CSS
    ========================================================================== */
+
+.center-nav {
+  font-size: 14px;
+  padding: 10px;
+  text-align: center;
+}
 
 .logo {
   display: block;
@@ -237,8 +151,8 @@ footer .container {
   text-align: center;
 }
 
-.join {
-  font-weight: bold;
+.copyright {
+  font-size: 12px;
   text-align: center;
 }
 
@@ -248,5 +162,3 @@ footer .container {
   margin-left: 30px;
   padding-left: 10px;
 }
-
-

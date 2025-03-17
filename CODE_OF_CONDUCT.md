@@ -133,7 +133,7 @@ This Code of Conduct is adapted from the [Contributor Covenant][homepage],
 version 2.1, available at
 [https://www.contributor-covenant.org/version/2/1/code_of_conduct.html][v2.1].
 
-Enforcement section adapted from the
+The **Enforcement** section is adapted from the
 [Contributor Covenant][homepage],
 version 1.4, available at
 [https://www.contributor-covenant.org/version/1/4/code-of-conduct/][v1.4].
@@ -165,6 +165,8 @@ For answers to common questions about this code of conduct, see the FAQ at
 
 Copyright &copy; 2025  
 **[Network Pro Strategies](https://netwk.pro/)** (Network Pro&trade;)
+
+Network Pro&trade;, the shield logo, and the "Locking Down Networks" slogan are trademarks of Network Pro Strategies.
 
 Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
