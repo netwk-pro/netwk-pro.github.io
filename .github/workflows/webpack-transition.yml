@@ -1,0 +1,209 @@
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro
+#
+# When a release is created or this workflow is manually triggered, it will:
+# (1) confirm the CodeQL analysis was successful, (2) test JavaScript using
+# Mocha and Chai frameworks, (3) check linting with ESLint and formatting with
+# Prettier without making changes, (4) build the project using node 22.x on
+# ubuntu-24.04, and (5) publish the package to the npmjs and GPR registries.
+#
+# The workflow to upload static content to GitHub Pages (upload.yml) will
+# kick off following successful completion of this workflow.
+#
+# If needed, the upload-force.yml file can be manually triggered to force an
+# upload of static content from ./dist to GitHub Pages.
+#
+# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+
+name: Build/Test, Publish to Registries
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+
+jobs:
+  check-codeql:
+    name: Check CodeQL Analysis
+    runs-on: ubuntu-24.04
+    # Continue workflow even if this job fails due to inability to find and/or check CodeQL workflow
+    continue-on-error: true
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up GitHub CLI
+        run: sudo apt-get install gh
+
+      - name: Authenticate GitHub CLI
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: echo "${{ secrets.GH_PAT }}" | gh auth login --with-token
+
+      - name: Check CodeQL Workflow
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          gh run list --workflow "CodeQL" --json conclusion --jq '.[0].conclusion' > codeql_status.txt
+          CODEQL_STATUS=$(cat codeql_status.txt)
+          if [[ "$CODEQL_STATUS" != "success" ]]; then
+            echo "CodeQL Analysis did not succeed. Exiting..."
+            exit 1
+          fi
+          rm codeql_status.txt
+
+  build:
+    needs: check-codeql
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4.2.0
+        with:
+          node-version: 22.x
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v4.2.0
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-22.x-build-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-22.x-build-
+            ${{ runner.os }}-node-22.x-
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests using Mocha and Chai frameworks
+        run: npm run test
+        continue-on-error: true
+
+      - name: Check linting and formatting
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Build project
+        run: npm run build
+
+      - name: Ensure dist directory exists
+        run: mkdir -p dist
+
+      - name: Copy package.json to dist directory
+        run: cp package.json dist/
+
+  publish-npm:
+    needs: [check-codeql, build]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Set up .npmrc file for npmjs
+        run: |
+          echo "@neteng-pro:registry=https://registry.npmjs.org/" > ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
+
+      - name: Login to npmjs registry
+        run: npm login --registry=https://registry.npmjs.org/ --scope=@neteng-pro --always-auth --username "sundevil311" --authToken ${{secrets.NPM_TOKEN }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4.2.0
+        with:
+          node-version: 22.x
+          registry-url: https://registry.npmjs.org/
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v4.2.0
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-22.x-publish-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-22.x-publish-
+            ${{ runner.os }}-node-22.x-
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Set up Git user
+        run: |
+          git config --global user.email "github@sl.neteng.cc"
+          git config --global user.name "SunDevil311"
+
+      - name: Ensure dist directory exists
+        run: mkdir -p dist
+
+      - name: Copy package.json to dist directory
+        run: cp package.json dist/
+
+      - name: Publish package
+        working-directory: ./dist
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-gpr:
+    needs: [check-codeql, build]
+    runs-on: ubuntu-24.04
+    # Complete workflow even if this job fails
+    continue-on-error: true
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Set up .npmrc file for GPR
+        run: |
+          echo "@netwk-pro:registry=https://npm.pkg.github.com/" > ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PAT }}" >> ~/.npmrc
+
+      - name: Login to GitHub Package Registry
+        run: npm login --registry=https://npm.pkg.github.com/ --scope=@netwk-pro --always-auth --username "sundevil311" --authToken ${{ secrets.GH_PAT }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4.2.0
+        with:
+          node-version: 22.x
+          registry-url: https://npm.pkg.github.com/
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v4.2.0
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-22.x-publish-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-22.x-publish-
+            ${{ runner.os }}-node-22.x-
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Set up Git user
+        run: |
+          git config --global user.email "github@sl.neteng.cc"
+          git config --global user.name "SunDevil311"
+
+      - name: Ensure dist directory exists
+        run: mkdir -p dist
+
+      - name: Copy package.json to dist directory
+        run: cp package.json dist/
+
+      - name: Update package name for GPR
+        run: |
+          sed -i 's/"name": ".*"/"name": "@netwk-pro\/netwk-pro-web"/' dist/package.json
+
+      - name: Publish package
+        working-directory: ./dist
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
