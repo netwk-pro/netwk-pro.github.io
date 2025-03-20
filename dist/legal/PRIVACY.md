@@ -51,9 +51,24 @@ Web: <https://bio.neteng.pro>
 # Privacy Policy
 
 **Network Pro Strategies**  
-**Effective Date:** 3/16/2025
+**Effective Date:** 3/19/2025
 
 &nbsp;
+
+- [Introduction](#intro)
+  - [Information We Collect](#collect)
+  - [Credit Card Information](#cc)
+- [New Technology](#newtech)
+- [How We Use Your Information](#use)
+- [Sharing and Disclosure](#sharing)
+- [Data Security](#security)
+- [Your Rights and Choices](#rights)
+- [Third-Party Links](#links)
+- [Disclaimers](#disclaim)
+- [Changes to This Policy](#changes)
+- [More Information](#more)
+
+<a name="intro"></a>
 
 ## 1. Introduction
 
@@ -61,7 +76,11 @@ Network Pro Strategies ("Company," "we," "us," or "our") is committed to protect
 
 This policy complies with applicable laws and regulations in Maricopa County, Arizona, including the **[Arizona Revised Statutes](https://www.azleg.gov/arstitle/) (A.R.S.)** and relevant federal laws under the **[United States Code](https://uscode.house.gov/) (U.S.C.)** as interpreted by the **United States District Court for the District of Arizona**.
 
-## **2. Information We Collect**
+<sub>[Top](#top)</sub>
+
+<a name="collect"></a>
+
+## 2. Information We Collect
 
 We may collect and process the following types of information:
 
@@ -70,19 +89,31 @@ We may collect and process the following types of information:
 - **Technical Data**: IP address, browser type, device information, and analytics data.
 - **Client Data**: Information provided in connection with our consulting services.
 
-### **Future Collection of Payment Information**
+<a name="cc"></a>
 
-As we plan to accept credit and debit card payments, we may collect and process the following **payment information**:
+### **Credit Card Information**
 
-- **Cardholder Name**
-- **Debit/Credit Card Number**
-- **Expiration Date**
-- **CVV Code**
-- **Magnetic Stripe Data** (if applicable)
+In certain cases, we may collect credit card details, including expiration dates, when processing invoices.
 
-To ensure security and compliance, we will process payment information strictly for transaction purposes. Once a payment is completed and funds are verified, all payment data will be securely disposed of within **90 days**.
+All submitted credit card information is encrypted and protected using SSL/TLS encryption. We use this information solely to process and complete transactions, sharing it with third parties only as necessary for payment processing.
 
-## 3. How We Use Your Information
+Once a payment is completed and funds are verified, all payment data is securely disposed of within **90 days**.
+
+<sub>[Top](#top)</sub>
+
+<a name="newtech"></a>
+
+## 3. New Technology
+
+Technology on the internet is constantly evolving, and so is our use of new technology. We encourage users to review this privacy policy periodically for updates on how we implement and utilize emerging technologies.
+
+By using any of our websites or platforms, you acknowledge and accept our Privacy Policy.
+
+<sub>[Top](#top)</sub>
+
+<a name="use"></a>
+
+## 4. How We Use Your Information
 
 We use the information we collect to:
 
@@ -93,7 +124,11 @@ We use the information we collect to:
 - Improve website functionality and user experience.
 - Conduct analytics and business development.
 
-## 4. Sharing and Disclosure
+<sub>[Top](#top)</sub>
+
+<a name="sharing"></a>
+
+## 5. Sharing and Disclosure
 
 **Data Sharing Policy**
 
@@ -103,11 +138,19 @@ We do not sell or rent personal information. However, we may share your data in 
 - **Legal Compliance**: We may disclose information if required by law, subpoena, or government request, including to comply with **A.R.S. Title 13** and applicable provisions of **Title 18 of the U.S.C.**.
 - **Business Transfers**: If our company undergoes a merger, acquisition, or sale of assets, we will make every reasonable effort to prevent the sharing of personal information. If a transfer of data is unavoidable, we will take all necessary steps to ensure continued protection and compliance with our privacy commitments.
 
-## 5. Data Security
+<sub>[Top](#top)</sub>
+
+<a name="security"></a>
+
+## 6. Data Security
 
 We implement industry-standard security measures to protect your data. However, no method of transmission over the Internet or electronic storage is completely secure, and we cannot guarantee absolute security. In compliance with **A.R.S. § 18-552**, we will notify affected individuals in the event of a data breach involving personal information.
 
-## 6. Your Rights and Choices
+<sub>[Top](#top)</sub>
+
+<a name="rights"></a>
+
+## 7. Your Rights and Choices
 
 **Your Data Rights**
 
@@ -119,27 +162,45 @@ Under applicable state and federal law, you may have the following rights regard
 
 To exercise these rights, please use our [contact form](https://contact.neteng.pro) or email us at `support (at) neteng.pro`.
 
-## 7. Third-Party Links
+<sub>[Top](#top)</sub>
+
+<a name="links"></a>
+
+## 8. Third-Party Links
 
 Our website may contain links to third-party sites. We are not responsible for the privacy practices of these external websites.
 
-## 8. Disclaimers
+<sub>[Top](#top)</sub>
+
+<a name="disclaim"></a>
+
+## 9. Disclaimers
 
 - **No Legal or Professional Liability**: Network Pro Strategies provides information and recommendations based on industry best practices and expertise. However, we do not guarantee the accuracy, effectiveness, or completeness of our public advocacy efforts and are not liable for any decisions made based on our advice. _This limitation **does not** apply to our consulting and implementation services._
 - **No Guarantees**: While we strive to provide high-quality security and privacy consulting, we do not guarantee specific outcomes or results from our services unless otherwise specified. _This clause does not apply to specific outcomes or results if they are defined within the scope of work._
 - **Limitation of Liability**: Network Pro Strategies shall not be held liable for any direct, indirect, incidental, or consequential damages arising from the use of our services.
 - **Third-Party Services**: We may recommend or integrate third-party vendors for certain services. However, we are not responsible for the actions, policies, or reliability of these third parties.
 
-## 9. Changes to This Policy
+<sub>[Top](#top)</sub>
+
+<a name="changes"></a>
+
+## 10. Changes to This Policy
 
 We may update this Privacy Policy periodically. Changes will be posted on this page with an updated effective date. Updates will comply with applicable changes to the **Arizona Revised Statutes and United States Code**.
 
-## 10. Contact Us
+<sub>[Top](#top)</sub>
+
+<a name="more"></a>
+
+## 11. More Information
+
+For more information about protecting your privacy, you may wish to visit <https://www.privacyalliance.org/>.
 
 For any questions or concerns regarding this Privacy Policy, please contact us at:
 
 Network Pro Strategies  
-support (at) neteng.pro  
+`support (at) neteng.pro`  
 (623) 252-4350
 
 <sub>[Top](#top)</sub>
@@ -149,7 +210,7 @@ support (at) neteng.pro
 <div style="font-size: 12px; font-weight: bold; text-align: center;">
 
 [Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/TERMS.md)  
-Privacy Policy &nbsp; | &nbsp; [Licensing](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
+Privacy Policy &nbsp; | &nbsp; [Legal](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
 
 </div>
 

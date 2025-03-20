@@ -70,19 +70,21 @@ a:visited:hover{
 }
 
 .center-nav{
-  font-size:14px;
+  font-size:.875em;
   padding:10px;
+}
+.block,.center-nav{
+  line-height:1.125em;
   text-align:center;
 }
 .block{
   background:none;
   border:none;
   border-radius:0;
-  font-size:12px;
+  font-size:.75em;
   height:50vh;
   outline:none;
   resize:none;
-  text-align:center;
   width:100%;
 }
 
@@ -118,7 +120,8 @@ a:visited:hover{
 .bnav td,.bnav th{
   border-style:none;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:14px;
+  font-size:.875em;
+  line-height:1.125em;
   overflow:hidden;
   padding:10px;
   word-break:normal;
@@ -157,7 +160,8 @@ a:visited:hover{
 .bnav2 td,.bnav2 th{
   border-style:none;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:14px;
+  font-size:.875em;
+  line-height:1.125em;
   overflow:hidden;
   word-break:normal;
 }
@@ -186,7 +190,8 @@ a:visited:hover{
 }
 
 .copyright{
-  font-size:12px;
+  font-size:.75em;
+  line-height:1.125em;
   text-align:center;
 }
 

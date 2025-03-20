@@ -51,12 +51,6 @@ footer .container,header .container{
   }
 }
 
-.center-nav{
-  font-size:14px;
-  padding:10px;
-  text-align:center;
-}
-
 .logo{
   display:block;
   margin-left:auto;
@@ -73,13 +67,9 @@ footer .container,header .container{
 }
 
 .index2{
-  font-size:22px;
+  font-size:1.375em;
   font-variant:small-caps;
-}
-
-.copyright{
-  font-size:12px;
-  text-align:center;
+  line-height:1.75em;
 }
 
 .bquote{
