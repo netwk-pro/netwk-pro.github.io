@@ -52,7 +52,17 @@ Web: <https://bio.neteng.pro>
 **Network Pro Strategies**  
 **Effective Date:** 3/16/2025
 
-&nbsp;
+- [Introduction](#intro)
+- [Platforms Covered](#platforms)
+- [Disclaimer of Warranties](#disclaim)
+- [Assumption of Risk](#risk)
+- [Limitation of Liability](#limit)
+- [Indemnification](#indemnify)
+- [Governing Law and Jurisdiction](#law)
+- [Acceptance of Terms](#terms)
+- [Changes to This Policy](#changes)
+
+<a name="intro"></a>
 
 ## 1. Introduction
 
@@ -61,6 +71,10 @@ Welcome! By accessing or using any of the platforms operated by Network Pro Stra
 > 📌 Note: This is not an exhaustive list of platforms to which these terms
 > apply. Additional platforms not explicitly mentioned may still be subject to
 > these Terms.
+
+<sub>[Top](#top)</sub>
+
+<a name="platforms"></a>
 
 ## 2. Platforms Covered
 
@@ -81,6 +95,8 @@ including but not limited to:
 
 <sub>[Top](#top)</sub>
 
+<a name="disclaim"></a>
+
 ## 3. Disclaimer of Warranties
 
 Network Pro provides its platforms and services on an "as is" and "as available"
@@ -88,6 +104,8 @@ basis without warranties of any kind, whether express or implied. We do not
 guarantee the accuracy, reliability, availability, or security of our services.
 
 <sub>[Top](#top)</sub>
+
+<a name="risk"></a>
 
 ## 4. Assumption of Risk
 
@@ -97,11 +115,15 @@ third-party infrastructure.
 
 <sub>[Top](#top)</sub>
 
+<a name="limit"></a>
+
 ## 5. Limitation of Liability
 
 To the fullest extent permitted by law, Network Pro, its affiliates, owners, operators, and contributors shall not be liable for any direct, indirect, incidental, consequential, or punitive damages, including but not limited to data loss, loss of profits, or damages arising from reliance on or use of our platforms.
 
 <sub>[Top](#top)</sub>
+
+<a name="indemnify"></a>
 
 ## 6. Indemnification
 
@@ -110,11 +132,15 @@ harmless Network Pro, its affiliates, owners, operators, and contributors from a
 
 <sub>[Top](#top)</sub>
 
+<a name="law"></a>
+
 ## 7. Governing Law and Jurisdiction
 
 **Network Pro Strategies** is an unincorporated business based in Maricopa County, Arizona. Any legal action or dispute arising from these Terms of Use shall be subject to the exclusive jurisdiction of the state and federal courts located in Maricopa County, Arizona, including the U.S. District Court for the District of Arizona. These Terms of Use shall be governed by and construed in accordance with the [Arizona Revised Statutes](https://www.azleg.gov/arstitle/) (A.R.S.) and applicable provisions of the [United States Code](https://uscode.house.gov/) (U.S.C.).
 
 <sub>[Top](#top)</sub>
+
+<a name="terms"></a>
 
 ## 8. Acceptance of Terms
 
@@ -122,6 +148,8 @@ By accessing or using any of Network Pro’s platforms, whether specifically lis
 these Terms.**
 
 <sub>[Top](#top)</sub>
+
+<a name="changes"></a>
 
 ## 9. Changes to This Policy
 
@@ -134,7 +162,7 @@ We may update these Terms of Use periodically. Changes will be posted on this pa
 <div style="font-size: 12px; font-weight: bold; text-align: center;">
 
 [Home](https://netwk.pro) &nbsp; | &nbsp; Terms of Use  
-[Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; [Licensing](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
+[Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; [Legal](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
 
 </div>
 
