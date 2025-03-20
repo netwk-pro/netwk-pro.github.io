@@ -195,7 +195,7 @@ We may update this Privacy Policy periodically. Changes will be posted on this p
 
 ## 11. More Information
 
-For more information about protecting your privacy, you may wish to visit <http://www.privacyalliance.org/> or <http://www.privacylaw.net/>.
+For more information about protecting your privacy, you may wish to visit <https://www.privacyalliance.org/>.
 
 For any questions or concerns regarding this Privacy Policy, please contact us at:
 
