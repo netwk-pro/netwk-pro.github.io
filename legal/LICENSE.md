@@ -152,7 +152,7 @@ For inquiries not addressed here or to request additional permissions beyond eit
 
 <a name="cc-by"></a>
 
-## 3. Creative Commons Attribution 4.0 International
+## 4. Creative Commons Attribution 4.0 International
 
 <sup>Formats:
 [Markdown](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/assets/license/CC-BY-4.0.md)
@@ -194,7 +194,7 @@ this License—may be available as further defined within this document.
 
 <a name="gnu-gpl"></a>
 
-## 4. GNU General Public License
+## 5. GNU General Public License
 
 <sup>Formats:
 [Markdown](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/assets/license/COPYING.md)
@@ -227,7 +227,7 @@ this material. If not, see
 
 <a name="tm"></a>
 
-## 5. Trademarks
+## 6. Trademarks
 
 The following trademarks are owned by Network Pro Strategies:
 
@@ -239,7 +239,7 @@ The following trademarks are owned by Network Pro Strategies:
 
 <a name="changes"></a>
 
-## 6. Changes to Legal Information
+## 7. Changes to Legal Information
 
 We may update this Legal Information periodically. Any changes will be posted on this page with the revised effective date. Updates will align with applicable amendments to the **Arizona Revised Statutes** and **United States Code**.
 
