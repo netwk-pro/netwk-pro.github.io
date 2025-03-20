@@ -49,7 +49,7 @@ Web: <https://bio.neteng.pro>
 # Legal
 
 **Network Pro Strategies**  
-**Effective Date:** 3/19/2025
+**Effective Date:** 3/20/2025
 
 &nbsp;
 
@@ -64,6 +64,7 @@ Web: <https://bio.neteng.pro>
 - [GNU GPL](#gnu-gpl)
 - [Trademarks](#tm)
 - [Changes to Legal Information](#changes)
+- [Attribution](#attribute)
 
 ---
 
@@ -245,14 +246,12 @@ We may update this Legal Information periodically. Any changes will be posted on
 
 <sub>[Top](#top)</sub>
 
----
+<a name="attribute"></a>
 
-<code style="background: none; border: none; border-radius: 0; height: 50vh; outline: none; resize: none; width: 100%;">
+## 8. Attribution
 
-**_Website base structure provided by HTML5 Boilerplate:_**  
+Website base structure provided by HTML5 Boilerplate:  
 <https://html5boilerplate.com/>
-
-</code>
 
 ```markdown
 ################################################################################
