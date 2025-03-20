@@ -28,7 +28,6 @@ footer .container,header .container{
 .gh td,.gh th{
   border-collapse:collapse;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:16px;
   overflow:hidden;
   padding:10px 5px;
   word-break:normal;
@@ -90,37 +89,6 @@ footer .container,header .container{
     overflow-x:auto;
   }
 }
-.tg{
-  border-collapse:collapse;
-  border-spacing:0;
-  margin:0 auto;
-}
-
-.tg td,.tg th{
-  border-collapse:collapse;
-  font-family:Arial,Helvetica,sans-serif;
-  overflow:hidden;
-  padding:10px 5px;
-  word-break:normal;
-}
-
-.tg .tg-cell{
-  text-align:center;
-  vertical-align:middle;
-}
-
-@media screen and (width <= 767px){
-
-  .tg,.tg col{
-    width:auto !important;
-  }
-
-  .tg-wrap{
-    margin:auto 0;
-    -webkit-overflow-scrolling:touch;
-    overflow-x:auto;
-  }
-}
 
 .logo{
   display:block;
@@ -138,8 +106,9 @@ footer .container,header .container{
 }
 
 .index2{
-  font-size:22px;
+  font-size:1.375em;
   font-variant:small-caps;
+  line-height:1.75em;
 }
 
 .join{
@@ -153,5 +122,3 @@ footer .container,header .container{
   margin-left:30px;
   padding-left:10px;
 }
-
-
