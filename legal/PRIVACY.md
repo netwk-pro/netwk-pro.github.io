@@ -51,22 +51,24 @@ Web: <https://bio.neteng.pro>
 # Privacy Policy
 
 **Network Pro Strategies**  
-**Effective Date:** 3/19/2025
+**Effective Date:** 3/21/2025
 
 &nbsp;
 
-- [Introduction](#intro)
-  - [Information We Collect](#collect)
-  - [Credit Card Information](#cc)
-- [New Technology](#newtech)
-- [How We Use Your Information](#use)
-- [Sharing and Disclosure](#sharing)
-- [Data Security](#security)
-- [Your Rights and Choices](#rights)
-- [Third-Party Links](#links)
-- [Disclaimers](#disclaim)
-- [Changes to This Policy](#changes)
-- [More Information](#more)
+1. [Introduction](#intro)
+2. [Information We Collect](#collect)
+    - [Credit Card Information](#cc)
+3. [New Technology](#newtech)
+4. [How We Use Your Information](#use)
+5. [Sharing and Disclosure](#sharing)
+6. [Data Security](#security)
+7. [Your Rights and Choices](#rights)
+8. [Third-Party Links](#links)
+9. [Disclaimers](#disclaim)
+10. [Changes to This Policy](#changes)
+11. [More Information](#more)
+
+---
 
 <a name="intro"></a>
 

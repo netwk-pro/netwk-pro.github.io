@@ -49,9 +49,20 @@ Web: <https://bio.neteng.pro>
 # Contributor Covenant Code of Conduct
 
 **Network Pro Strategies**  
-**Effective Date:** 3/15/2025
+**Effective Date:** 3/21/2025
 
 &nbsp;
+
+- [Our Pledge](#pledge)
+- [Our Standards](#standards)
+- [Responsibilities](#response)
+- [Scope](#scope)
+- [Enforcement](#enforce)
+- [Attribution](#attribute)
+
+---
+
+<a name="pledge"></a>
 
 ## Our Pledge
 
@@ -64,6 +75,8 @@ identity and orientation.
 
 We pledge to act and interact in ways that contribute to an open, welcoming,
 diverse, inclusive, and healthy community.
+
+<a name="standards"></a>
 
 ## Our Standards
 
@@ -91,7 +104,9 @@ Examples of unacceptable behavior include:
 
 <sub>[Top](#top)</sub>
 
-## Enforcement Responsibilities
+<a name="response"></a>
+
+## Responsibilities
 
 Company and community leaders are responsible for clarifying and enforcing our standards of
 acceptable behavior and will take appropriate and fair corrective action in
@@ -107,6 +122,8 @@ Network Pro Strategies reserves the right, at its sole discretion, to remove, ed
 
 <sub>[Top](#top)</sub>
 
+<a name="scope"></a>
+
 ## Scope
 
 This Code of Conduct applies within all community spaces, and also applies when
@@ -117,6 +134,8 @@ representative at an online or offline event.
 
 <sub>[Top](#top)</sub>
 
+<a name="enforce"></a>
+
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the abuse team at [abuse@neteng.pro](mailto:abuse@neteng.pro). All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances.
@@ -126,6 +145,8 @@ The abuse team is obligated to maintain confidentiality with regard to the repor
 Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project’s leadership.
 
 <sub>[Top](#top)</sub>
+
+<a name="attribute"></a>
 
 ## Attribution
 
