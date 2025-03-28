@@ -57,7 +57,7 @@ Web: <https://bio.neteng.pro>
 
 1. [Introduction](#intro)
 2. [Information We Collect](#collect)
-    - [Credit Card Information](#cc)
+   - [Credit Card Information](#cc)
 3. [New Technology](#newtech)
 4. [How We Use Your Information](#use)
 5. [Sharing and Disclosure](#sharing)
