@@ -69,7 +69,7 @@ Our **blend of deep technical expertise and business insight** ensures that secu
 
 <sub>[Top](#top)</sub>
 
-&nbsp;
+---
 
 <a name="about-me"></a>
 
@@ -96,16 +96,17 @@ Let’s work together to **enhance your network security posture** and create a 
 
 &nbsp;
 
-&nbsp; **<github@sl.neteng.cc>**  
-<img decoding="async" loading="lazy" src="https://netwk.pro/img/qr/pgp.png" width="150px" height="150px" alt="PGP Key"><br />&nbsp;
+<img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/pgp.png" width="150px" height="150px" alt="PGP Key"><br />
 <span style="font-size: 14px">
-<b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/github@sl.neteng.cc.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/github@sl.neteng.cc.asc" type="text/plain">asc</a>
+&nbsp; **[github@sl.neteng.cc](https://keys.openpgp.org/search?q=github%40sl.neteng.cc)**  
+&nbsp; <b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/github@sl.neteng.cc.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/github@sl.neteng.cc.asc" type="text/plain">asc</a>
 </span>
 
 &nbsp;
 
-&nbsp; **<support@neteng.pro>**  
 <span style="font-size: 14px">
+
+&nbsp; **[support@neteng.pro](https://keys.openpgp.org/search?q=support%40neteng.pro)**  
 <b>&nbsp; PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/support@neteng.pro.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/support@neteng.pro.asc" type="text/plain">asc</a>
 </span>
 
