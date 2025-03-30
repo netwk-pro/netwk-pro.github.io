@@ -47,6 +47,7 @@ Web: <https://bio.neteng.pro>
 # Support
 
 For support requests related to Network Pro Strategies (Network Pro), please use one of the following contact methods:  
+
 - [Stack Overflow Teams](https://stack.neteng.pro) ([`Network Pro`](https://stack.neteng.pro) tag)
 - [GitHub Discussions](https://discuss.neteng.pro)
 - [Discord](https://discord.neteng.pro)
@@ -63,6 +64,8 @@ For support requests related to Network Pro Strategies (Network Pro), please use
 
 &nbsp;
 
+<!-- markdownlint-disable MD012 -->
+
 <span style="font-size: 12px; text-align: center;">
 
 Copyright &copy; 2025 by  
@@ -72,3 +75,4 @@ Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and
 
 </span>
 
+<!-- markdownlint-enable MD0012 -->

@@ -48,17 +48,17 @@ Web: <https://bio.neteng.pro>
 
 /* Ensures backgrounds scale up to 1920px but stop expanding beyond */
 .full-width-section {
-  width: 100%;
-  max-width: 1920px;
-  margin: 0 auto; /* Centers background */
-  background-size: cover;
   background-position: center;
+  background-size: cover;
+  margin: 0 auto; /* Centers background */
+  max-width: 1920px;
+  width: 100%;
 }
 
 /* Content container constrained to 1200px */
 .container {
-  max-width: 1200px;
   margin: 0 auto;
+  max-width: 1200px;
   padding: 0 12px; /* Half of gutter for balance */
 }
 
@@ -70,8 +70,8 @@ footer {
 
 header .container,
 footer .container {
-  max-width: 1200px;
   margin: 0 auto;
+  max-width: 1200px;
   padding: 20px 12px;
 }
 
@@ -187,8 +187,8 @@ footer .container {
 
 .index2 {
   font-size: 1.375em;
-  line-height: 1.75em;
   font-variant: small-caps;
+  line-height: 1.75em;
   text-align: center;
 }
 

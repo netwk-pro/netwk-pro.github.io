@@ -55,7 +55,7 @@ Web: <https://bio.neteng.pro>
 
 At Network Pro&trade;, we bring **over a decade of expertise** in networking, cybersecurity, information security, and IT to help businesses stay secure, compliant, and resilient. We specialize in **network security, cybersecurity, and privacy consulting**, offering both **strategic advisory services and hands-on implementation** to protect critical infrastructure and minimize risk.
 
-### **Why Network Pro?**
+### **Why Network Pro&trade;?**
 
 ✔ **Security with a Business Focus** – Our approach goes beyond just protection. We integrate cutting-edge security solutions with your business objectives, ensuring optimized operations and long-term resilience.
 
@@ -82,7 +82,11 @@ I am a **Network Security & Cybersecurity Engineer** with **10+ years of experie
 
 With expertise in **global and regional projects**, I specialize in building resilient security architectures that fortify networks against modern cyber threats while optimizing performance.
 
+<!-- markdownlint-disable MD001 -->
+
 #### **Technologies & Systems I Specialize In:**
+
+<!-- markdownlint-enable MD001 -->
 
 - [Palo Alto Networks](https://www.paloaltonetworks.com)
 - [PAN-OS Next-Gen Firewalls](https://docs.paloaltonetworks.com/pan-os)

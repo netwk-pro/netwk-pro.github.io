@@ -82,7 +82,11 @@ I am a **Network Security & Cybersecurity Engineer** with **10+ years of experie
 
 With expertise in **global and regional projects**, I specialize in building resilient security architectures that fortify networks against modern cyber threats while optimizing performance.
 
+<!-- markdownlint-disable MD001 -->
+
 #### **Technologies & Systems I Specialize In:**
+
+<!-- markdownlint-enable MD001 -->
 
 - [Palo Alto Networks](https://www.paloaltonetworks.com)
 - [PAN-OS Next-Gen Firewalls](https://docs.paloaltonetworks.com/pan-os)

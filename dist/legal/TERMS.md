@@ -50,27 +50,29 @@ Web: <https://bio.neteng.pro>
 # Terms of Use
 
 **Network Pro Strategies**  
-**Effective Date:** 3/16/2025
+**Effective Date:** 3/29/2025
 
 &nbsp;
 
-- [Introduction](#intro)
-- [Platforms Covered](#platforms)
-- [Disclaimer of Warranties](#disclaim)
-- [Assumption of Risk](#risk)
-- [Limitation of Liability](#limit)
-- [Indemnification](#indemnify)
-- [Governing Law and Jurisdiction](#law)
-- [Acceptance of Terms](#terms)
-- [Changes to This Policy](#changes)
+1. [Introduction](#intro)
+2. [Platforms Covered](#platforms)
+3. [Disclaimer of Warranties](#disclaim)
+4. [Assumption of Risk](#risk)
+5. [Limitation of Liability](#limit)
+6. [Indemnification](#indemnify)
+7. [Governing Law and Jurisdiction](#law)
+8. [Acceptance of Terms](#terms)
+9. [Changes to This Policy](#changes)
+
+---
 
 <a name="intro"></a>
 
 ## 1. Introduction
 
-Welcome! By accessing or using any of the platforms operated by Network Pro Strategies ("Company," "we," "us," or "our"), you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these terms, please refrain from using our services. _For the purposes of this document, "Network Pro Strategies" and "Network Pro" collectively refer to the business, its owners, operators, and all associated platforms._
+Welcome! By accessing or using any of the platforms operated by Network Pro Strategies ("Company," "we," "us," or "our"), you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, please refrain from using our services.
 
-> 📌 Note: This is not an exhaustive list of platforms to which these terms
+> 📌 Note: This is not an exhaustive list of platforms to which these Terms
 > apply. Additional platforms not explicitly mentioned may still be subject to
 > these Terms.
 
@@ -80,8 +82,7 @@ Welcome! By accessing or using any of the platforms operated by Network Pro Stra
 
 ## 2. Platforms Covered
 
-These Terms of Use apply to all platforms associated with Network Pro,
-including but not limited to:
+These Terms of Use apply to all platforms associated with the Company, including but not limited to:
 
 - **GitHub**
 
@@ -101,9 +102,9 @@ including but not limited to:
 
 ## 3. Disclaimer of Warranties
 
-Network Pro provides its platforms and services on an "as is" and "as available"
-basis without warranties of any kind, whether express or implied. We do not
-guarantee the accuracy, reliability, availability, or security of our services.
+Our platforms and services are provided "as is" and "as available," without any express or implied warranties. We make no guarantees regarding their accuracy, reliability, availability, or security.
+
+**_This disclaimer does not apply to our consulting and implementation services, nor any payment portals or associated services._**
 
 <sub>[Top](#top)</sub>
 
@@ -111,9 +112,9 @@ guarantee the accuracy, reliability, availability, or security of our services.
 
 ## 4. Assumption of Risk
 
-Your use of Network Pro platforms is entirely at your own risk. We do not
-guarantee the security, integrity, or reliability of data stored on external or
-third-party infrastructure.
+Your use of our platforms is at your own risk. We do not guarantee the security, integrity, or reliability of data stored on external or third-party infrastructure.
+
+**_This disclaimer does not apply to our consulting and implementation services, nor any payment portals or associated services._**
 
 <sub>[Top](#top)</sub>
 
@@ -121,7 +122,7 @@ third-party infrastructure.
 
 ## 5. Limitation of Liability
 
-To the fullest extent permitted by law, Network Pro, its affiliates, owners, operators, and contributors shall not be liable for any direct, indirect, incidental, consequential, or punitive damages, including but not limited to data loss, loss of profits, or damages arising from reliance on or use of our platforms.
+To the fullest extent permitted by law, the Company, its affiliates, owners, operators, and contributors shall not be liable for any direct, indirect, incidental, consequential, or punitive damages, including but not limited to data loss, loss of profits, or damages arising from reliance on or use of our platforms.
 
 <sub>[Top](#top)</sub>
 
@@ -129,8 +130,8 @@ To the fullest extent permitted by law, Network Pro, its affiliates, owners, ope
 
 ## 6. Indemnification
 
-By using Network Pro's platforms, you agree to indemnify, defend, and hold
-harmless Network Pro, its affiliates, owners, operators, and contributors from any claims, damages, liabilities, losses, or expenses (including legal fees) arising from or related to your use of our services.
+By using our platforms, you agree to indemnify, defend, and hold
+harmless the Company, its affiliates, owners, operators, and contributors from any claims, damages, liabilities, losses, or expenses (including legal fees) arising from or related to your use of our services.
 
 <sub>[Top](#top)</sub>
 
@@ -138,7 +139,7 @@ harmless Network Pro, its affiliates, owners, operators, and contributors from a
 
 ## 7. Governing Law and Jurisdiction
 
-**Network Pro Strategies** is an unincorporated business based in Maricopa County, Arizona. Any legal action or dispute arising from these Terms of Use shall be subject to the exclusive jurisdiction of the state and federal courts located in Maricopa County, Arizona, including the U.S. District Court for the District of Arizona. These Terms of Use shall be governed by and construed in accordance with the [Arizona Revised Statutes](https://www.azleg.gov/arstitle/) (A.R.S.) and applicable provisions of the [United States Code](https://uscode.house.gov/) (U.S.C.).
+Network Pro Strategies is an unincorporated business based in Maricopa County, Arizona. Any legal action or dispute arising from these Terms of Use shall be subject to the exclusive jurisdiction of the state and federal courts located in Maricopa County, Arizona, including the U.S. District Court for the District of Arizona. These Terms of Use shall be governed by and construed in accordance with the **[Arizona Revised Statutes](https://www.azleg.gov/arstitle/) (A.R.S.)** and applicable provisions of the **[United States Code](https://uscode.house.gov/) (U.S.C.)**.
 
 <sub>[Top](#top)</sub>
 
@@ -146,7 +147,7 @@ harmless Network Pro, its affiliates, owners, operators, and contributors from a
 
 ## 8. Acceptance of Terms
 
-By accessing or using any of Network Pro’s platforms, whether specifically listed in this document or not, you acknowledge and agree to these Terms of Use. **Continued use of our services constitutes ongoing acceptance of
+By accessing or using any of our platforms, whether specifically listed in this document or not, you acknowledge and agree to these Terms of Use. **Continued use of our services constitutes ongoing acceptance of
 these Terms.**
 
 <sub>[Top](#top)</sub>
@@ -155,7 +156,7 @@ these Terms.**
 
 ## 9. Changes to This Policy
 
-We may update these Terms of Use periodically. Changes will be posted on this page with an updated effective date. Updates will comply with applicable changes to the **Arizona Revised Statutes and United States Code**.
+We may update these Terms of Use periodically. Changes will be posted on this page with an updated effective date. Updates will comply with applicable changes to the **Arizona Revised Statutes** and **United States Code**.
 
 <sub>[Top](#top)</sub>
 
