@@ -92,8 +92,6 @@ With expertise in **global and regional projects**, I specialize in building res
 - [PAN-OS Next-Gen Firewalls](https://docs.paloaltonetworks.com/pan-os)
 - [Panorama](https://docs.paloaltonetworks.com/panorama)
 
-<!-- markdownlint-enable MD001 -->
-
 Let’s work together to **enhance your network security posture** and create a future-ready cybersecurity strategy.
 
 &nbsp;
