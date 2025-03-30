@@ -49,14 +49,14 @@ Web: <https://bio.neteng.pro>
 # Legal
 
 **Network Pro Strategies**  
-**Effective Date:** 3/24/2025
+**Effective Date:** 3/29/2025
 
 &nbsp;
 
 1. [Ownership of Copyrights and Trademarks](#copyright)
    - [Copyright Usage & Restrictions](#usage)
    - [Trademarks](#trade)
-2. [Abbreviated Business Name](#netwk-pro)
+2. [Use of Brand Name](#netwk-pro)
 3. [Licensed Material](#lmaterial)
 4. [Licensing](#licensing)
    - [Are you sure you can do that?](#questions)
@@ -78,7 +78,7 @@ All content on this website—including text, graphics, logos, icons, images, au
 
 ### **Copyright Usage & Restrictions**
 
-The content and software on this site may only be used for informational, shopping, or news-related purposes. Any other use—including reproduction, modification, distribution, transmission, republication, display, or performance—is strictly prohibited without prior written consent. **_Use of any text or software is subject to applicable license terms._**
+The content and software on this site may only be used for informational, shopping, or news-related purposes. Any other use—including reproduction, modification, distribution, transmission, republication, display, or performance—is strictly prohibited without prior written consent. **_Use of any text, content, or software is subject to applicable license terms._**
 
 To request permission for other uses, see [Contact](#contact).
 
@@ -105,13 +105,13 @@ The following trademarks are the exclusive property of **Network Pro Strategies*
 
 <a name="netwk-pro"></a>
 
-## 2. Use of Abbreviated Business Name
+## 2. Use of Brand Name
 
-For clarity, our _full business name_, **Network Pro Strategies**, and our abbreviated name, **Network Pro&trade;**, are legally equivalent. All references to "Network Pro&trade;," whether in text or code, shall be interpreted as references to the full business name with equal authority.
+For clarity, our _full business name_, **Network Pro Strategies**, and our brand name, **Network Pro&trade;**, are legally equivalent. All references to "Network Pro&trade;," whether in text or code, shall be interpreted as references to the full business name with equal authority.
 
-**This equivalency applies across all media and contexts, including but not
+**_This equivalency applies across all media and contexts, including but not
 limited to: legal notices, website content, GitHub repositories and code, as
-well as any business-related documentation.**
+well as any business-related documentation._**
 
 <sub>[Top](#top)</sub>
 

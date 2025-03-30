@@ -86,6 +86,8 @@ With expertise in **global and regional projects**, I specialize in building res
 
 #### **Technologies & Systems I Specialize In:**
 
+<!-- markdownlint-enable MD001 -->
+
 - [Palo Alto Networks](https://www.paloaltonetworks.com)
 - [PAN-OS Next-Gen Firewalls](https://docs.paloaltonetworks.com/pan-os)
 - [Panorama](https://docs.paloaltonetworks.com/panorama)

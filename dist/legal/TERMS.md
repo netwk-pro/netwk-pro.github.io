@@ -50,7 +50,7 @@ Web: <https://bio.neteng.pro>
 # Terms of Use
 
 **Network Pro Strategies**  
-**Effective Date:** 3/21/2025
+**Effective Date:** 3/29/2025
 
 &nbsp;
 
@@ -70,9 +70,9 @@ Web: <https://bio.neteng.pro>
 
 ## 1. Introduction
 
-Welcome! By accessing or using any of the platforms operated by Network Pro Strategies ("Company," "we," "us," or "our"), you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these terms, please refrain from using our services.
+Welcome! By accessing or using any of the platforms operated by Network Pro Strategies ("Company," "we," "us," or "our"), you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, please refrain from using our services.
 
-> 📌 Note: This is not an exhaustive list of platforms to which these terms
+> 📌 Note: This is not an exhaustive list of platforms to which these Terms
 > apply. Additional platforms not explicitly mentioned may still be subject to
 > these Terms.
 
@@ -104,7 +104,7 @@ These Terms of Use apply to all platforms associated with the Company, including
 
 Our platforms and services are provided "as is" and "as available," without any express or implied warranties. We make no guarantees regarding their accuracy, reliability, availability, or security.
 
-**_This disclaimer does not apply to payment portals or related services._**
+**_This disclaimer does not apply to our consulting and implementation services, nor any payment portals or associated services._**
 
 <sub>[Top](#top)</sub>
 
@@ -114,7 +114,7 @@ Our platforms and services are provided "as is" and "as available," without any 
 
 Your use of our platforms is at your own risk. We do not guarantee the security, integrity, or reliability of data stored on external or third-party infrastructure.
 
-**_This clause does not apply to payment portals or related services._**
+**_This disclaimer does not apply to our consulting and implementation services, nor any payment portals or associated services._**
 
 <sub>[Top](#top)</sub>
 
@@ -139,7 +139,7 @@ harmless the Company, its affiliates, owners, operators, and contributors from a
 
 ## 7. Governing Law and Jurisdiction
 
-**Network Pro Strategies** is an unincorporated business based in Maricopa County, Arizona. Any legal action or dispute arising from these Terms of Use shall be subject to the exclusive jurisdiction of the state and federal courts located in Maricopa County, Arizona, including the U.S. District Court for the District of Arizona. These Terms of Use shall be governed by and construed in accordance with the [Arizona Revised Statutes](https://www.azleg.gov/arstitle/) (A.R.S.) and applicable provisions of the [United States Code](https://uscode.house.gov/) (U.S.C.).
+Network Pro Strategies is an unincorporated business based in Maricopa County, Arizona. Any legal action or dispute arising from these Terms of Use shall be subject to the exclusive jurisdiction of the state and federal courts located in Maricopa County, Arizona, including the U.S. District Court for the District of Arizona. These Terms of Use shall be governed by and construed in accordance with the **[Arizona Revised Statutes](https://www.azleg.gov/arstitle/) (A.R.S.)** and applicable provisions of the **[United States Code](https://uscode.house.gov/) (U.S.C.)**.
 
 <sub>[Top](#top)</sub>
 
@@ -156,7 +156,7 @@ these Terms.**
 
 ## 9. Changes to This Policy
 
-We may update these Terms of Use periodically. Changes will be posted on this page with an updated effective date. Updates will comply with applicable changes to the **Arizona Revised Statutes and United States Code**.
+We may update these Terms of Use periodically. Changes will be posted on this page with an updated effective date. Updates will comply with applicable changes to the **Arizona Revised Statutes** and **United States Code**.
 
 <sub>[Top](#top)</sub>
 

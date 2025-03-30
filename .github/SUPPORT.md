@@ -67,6 +67,8 @@ For support requests related to Network Pro Strategies (Network Pro), please use
 
 &nbsp;
 
+<!-- markdownlint-disable MD012 -->
+
 <span style="font-size: 12px; text-align: center;">
 
 Copyright &copy; 2025 by  
@@ -75,3 +77,5 @@ Copyright &copy; 2025 by
 Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 </span>
+
+<!-- markdownlint-enable MD0012 -->
