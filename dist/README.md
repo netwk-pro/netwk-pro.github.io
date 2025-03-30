@@ -92,13 +92,23 @@ With expertise in **global and regional projects**, I specialize in building res
 - [PAN-OS Next-Gen Firewalls](https://docs.paloaltonetworks.com/pan-os)
 - [Panorama](https://docs.paloaltonetworks.com/panorama)
 
+<!-- markdownlint-enable MD001 -->
+
 Let’s work together to **enhance your network security posture** and create a future-ready cybersecurity strategy.
 
 &nbsp;
 
-<img src="https://netwk.pro/img/qr/pgp.png" width="150px" height="150px" alt="PGP Key"><br />&nbsp;
+&nbsp; **<github@sl.neteng.cc>**  
+<img decoding="async" loading="lazy" src="https://netwk.pro/img/qr/pgp.png" width="150px" height="150px" alt="PGP Key"><br />&nbsp;
 <span style="font-size: 14px">
-<b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/support_at_neteng_pro.aexpk" type="application/pgp-keys">aexpk</a> | <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/support_at_neteng_pro.asc" type="text/plain">asc</a>
+<b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/github@sl.neteng.cc.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/github@sl.neteng.cc.asc" type="text/plain">asc</a>
+</span>
+
+&nbsp;
+
+&nbsp; **<support@neteng.pro>**  
+<span style="font-size: 14px">
+<b>&nbsp; PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/support@neteng.pro.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/support@neteng.pro.asc" type="text/plain">asc</a>
 </span>
 
 &nbsp; <!-- space for clarity -->

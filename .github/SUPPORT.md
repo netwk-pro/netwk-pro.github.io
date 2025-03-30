@@ -49,8 +49,11 @@ Web: <https://bio.neteng.pro>
 For support requests related to Network Pro Strategies (Network Pro), please use one of the following contact methods:  
 
 - [Stack Overflow Teams](https://stack.neteng.pro) ([`Network Pro`](https://stack.neteng.pro) tag)
+
 - [GitHub Discussions](https://discuss.neteng.pro)
+
 - [Discord](https://discord.neteng.pro)
+
 - [Contact Form](https://contact.neteng.pro)
 
 ---
