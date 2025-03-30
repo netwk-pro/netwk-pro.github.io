@@ -51,13 +51,13 @@ Web: <https://bio.neteng.pro>
 # Privacy Policy
 
 **Network Pro Strategies**  
-**Effective Date:** 3/21/2025
+**Effective Date:** 3/29/2025
 
 &nbsp;
 
 1. [Introduction](#intro)
 2. [Information We Collect](#collect)
-    - [Credit Card Information](#cc)
+   - [Credit Card Information](#cc)
 3. [New Technology](#newtech)
 4. [How We Use Your Information](#use)
 5. [Sharing and Disclosure](#sharing)
@@ -76,7 +76,7 @@ Web: <https://bio.neteng.pro>
 
 Network Pro Strategies ("Company," "we," "us," or "our") is committed to protecting the privacy of our clients and website visitors. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or engage our security and privacy consulting services.
 
-This policy complies with applicable laws and regulations in Maricopa County, Arizona, including the **[Arizona Revised Statutes](https://www.azleg.gov/arstitle/) (A.R.S.)** and relevant federal laws under the **[United States Code](https://uscode.house.gov/) (U.S.C.)** as interpreted by the **United States District Court for the District of Arizona**.
+This policy complies with applicable laws and regulations in Maricopa County, Arizona, including the **[Arizona Revised Statutes](https://www.azleg.gov/arstitle/) (A.R.S.)** and relevant federal laws under the **[United States Code](https://uscode.house.gov/) (U.S.C.)** as interpreted by the United States District Court for the District of Arizona.
 
 <sub>[Top](#top)</sub>
 
@@ -97,7 +97,7 @@ We may collect and process the following types of information:
 
 In certain cases, we may collect credit card details, including expiration dates, when processing invoices.
 
-All submitted credit card information is encrypted and protected using SSL/TLS encryption. We use this information solely to process and complete transactions, sharing it with third parties only as necessary for payment processing.
+All submitted credit card information is encrypted and protected using TLS encryption. We use this information solely to process and complete transactions, sharing it with third parties only as necessary for payment processing.
 
 Once a payment is completed and funds are verified, all payment data is securely disposed of within **90 days**.
 
@@ -122,7 +122,7 @@ We use the information we collect to:
 - Provide, operate, and improve our services.
 - Communicate with you regarding inquiries, contracts, and service updates.
 - Process payment information for services rendered.
-- Ensure security and compliance with legal obligations under **A.R.S. Title 18, § 18-551 and § 18-552 (Arizona Data Breach Notification Law)**.
+- Ensure security and compliance with legal obligations under **A.R.S. Title 18, § 18-551 and § 18-552** (Arizona Data Breach Notification Law).
 - Improve website functionality and user experience.
 - Conduct analytics and business development.
 
@@ -137,7 +137,9 @@ We use the information we collect to:
 We do not sell or rent personal information. However, we may share your data in the following circumstances:
 
 - **With Service Providers**: We may share information with trusted third-party vendors who assist in our business operations, such as payment processing, analytics, and customer support.
+
 - **Legal Compliance**: We may disclose information if required by law, subpoena, or government request, including to comply with **A.R.S. Title 13** and applicable provisions of **Title 18 of the U.S.C.**.
+
 - **Business Transfers**: If our company undergoes a merger, acquisition, or sale of assets, we will make every reasonable effort to prevent the sharing of personal information. If a transfer of data is unavoidable, we will take all necessary steps to ensure continued protection and compliance with our privacy commitments.
 
 <sub>[Top](#top)</sub>
@@ -178,9 +180,16 @@ Our website may contain links to third-party sites. We are not responsible for t
 
 ## 9. Disclaimers
 
-- **No Legal or Professional Liability**: Network Pro Strategies provides information and recommendations based on industry best practices and expertise. However, we do not guarantee the accuracy, effectiveness, or completeness of our public advocacy efforts and are not liable for any decisions made based on our advice. _This limitation **does not** apply to our consulting and implementation services._
-- **No Guarantees**: While we strive to provide high-quality security and privacy consulting, we do not guarantee specific outcomes or results from our services unless otherwise specified. _This clause does not apply to specific outcomes or results if they are defined within the scope of work._
+- **No Legal or Professional Liability**: Network Pro Strategies provides information and recommendations based on industry best practices and expertise. However, we do not guarantee the accuracy, effectiveness, or completeness of our public advocacy and awareness efforts and are not liable for any decisions made based on our advice.
+
+  **_This limitation does not apply to our consulting and implementation services._**
+
+- **No Guarantees**: While we strive to provide high-quality security and privacy consulting, we do not guarantee specific outcomes or results from our services unless otherwise specified.
+
+  **_This clause does not apply to specific outcomes or results if they are defined within the scope of work._**
+
 - **Limitation of Liability**: Network Pro Strategies shall not be held liable for any direct, indirect, incidental, or consequential damages arising from the use of our services.
+
 - **Third-Party Services**: We may recommend or integrate third-party vendors for certain services. However, we are not responsible for the actions, policies, or reliability of these third parties.
 
 <sub>[Top](#top)</sub>
@@ -189,7 +198,7 @@ Our website may contain links to third-party sites. We are not responsible for t
 
 ## 10. Changes to This Policy
 
-We may update this Privacy Policy periodically. Changes will be posted on this page with an updated effective date. Updates will comply with applicable changes to the **Arizona Revised Statutes and United States Code**.
+We may update this Privacy Policy periodically. Changes will be posted on this page with an updated effective date. Updates will comply with applicable changes to the **Arizona Revised Statutes** and **United States Code**.
 
 <sub>[Top](#top)</sub>
 
