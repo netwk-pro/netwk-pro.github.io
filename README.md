@@ -99,7 +99,7 @@ Let’s work together to **enhance your network security posture** and create a 
 <img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/pgp.png" width="150px" height="150px" alt="PGP Key"><br />
 <span style="font-size: 14px">
 &nbsp; **[github@sl.neteng.cc](https://keys.openpgp.org/search?q=github%40sl.neteng.cc)**  
-&nbsp; <b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/github@sl.neteng.cc.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/github@sl.neteng.cc.asc" type="text/plain">asc</a>
+&nbsp; <b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/github@sl.neteng.cc.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/github@sl.neteng.cc.asc" type="text/plain">asc</a>
 </span>
 
 &nbsp;
@@ -107,7 +107,7 @@ Let’s work together to **enhance your network security posture** and create a 
 <span style="font-size: 14px">
 
 &nbsp; **[support@neteng.pro](https://keys.openpgp.org/search?q=support%40neteng.pro)**  
-<b>&nbsp; PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/support@neteng.pro.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/files/support@neteng.pro.asc" type="text/plain">asc</a>
+<b>&nbsp; PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/support@neteng.pro.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/support@neteng.pro.asc" type="text/plain">asc</a>
 </span>
 
 &nbsp; <!-- space for clarity -->

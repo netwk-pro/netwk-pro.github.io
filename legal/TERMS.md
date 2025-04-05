@@ -54,6 +54,8 @@ Web: <https://bio.neteng.pro>
 
 &nbsp;
 
+## Contents
+
 1. [Introduction](#intro)
 2. [Platforms Covered](#platforms)
 3. [Disclaimer of Warranties](#disclaim)
@@ -63,6 +65,8 @@ Web: <https://bio.neteng.pro>
 7. [Governing Law and Jurisdiction](#law)
 8. [Acceptance of Terms](#terms)
 9. [Changes to This Policy](#changes)
+
+> _These Terms of Use specifically govern the use of services and platforms made available via this website and its associated web properties. For provisions governing our consulting and implementation services, please refer to the applicable [Terms and Conditions](https://netwk.pro/terms.html)._
 
 ---
 

@@ -19,7 +19,7 @@ This file is part of Network Pro.
 
 /* ==========================================================================
    Base styles: opinionated defaults
-   ========================================================================== */
+========================================================================== */
 
 html {
   color: #222;
@@ -94,7 +94,7 @@ textarea {
 
 /* ==========================================================================
    Author's custom styles
-   ========================================================================== */
+========================================================================== */
 
 /*
  * Additional line added to hr{} under 'Base Styles'
@@ -292,7 +292,7 @@ a:visited:hover {
 
 /* ==========================================================================
    Helper classes
-   ========================================================================== */
+========================================================================== */
 
 /*
  * Hide visually and from screen readers
@@ -372,7 +372,7 @@ a:visited:hover {
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
-   ========================================================================== */
+========================================================================== */
 
 @media only screen and (width >= 35em) {
   /* Style adjustments for viewports that meet the condition */
@@ -389,7 +389,7 @@ a:visited:hover {
    Print styles.
    Inlined to avoid the additional HTTP request:
    https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
+========================================================================== */
 
 /* stylelint-disable order/properties-order -- Maintain spreadsheet consistency */
 @media print {

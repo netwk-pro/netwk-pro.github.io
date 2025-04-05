@@ -44,8 +44,6 @@ Web: <https://bio.neteng.pro>
 [SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info/):
 `CC-BY-4.0 OR GPL-3.0-or-later`
 
-<!-- markdownlint-disable MD036 -->
-
 <a id="top"></a>
 
 # Privacy Policy
@@ -54,6 +52,8 @@ Web: <https://bio.neteng.pro>
 **Effective Date:** 3/29/2025
 
 &nbsp;
+
+## Contents
 
 1. [Introduction](#intro)
 2. [Information We Collect](#collect)
@@ -78,7 +78,7 @@ Network Pro Strategies ("Company," "we," "us," or "our") is committed to protect
 
 This policy complies with applicable laws and regulations in Maricopa County, Arizona, including the **[Arizona Revised Statutes](https://www.azleg.gov/arstitle/) (A.R.S.)** and relevant federal laws under the **[United States Code](https://uscode.house.gov/) (U.S.C.)** as interpreted by the United States District Court for the District of Arizona.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="collect"></a>
 
@@ -101,7 +101,7 @@ All submitted credit card information is encrypted and protected using TLS encry
 
 Once a payment is completed and funds are verified, all payment data is securely disposed of within **90 days**.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="newtech"></a>
 
@@ -111,7 +111,7 @@ Technology on the internet is constantly evolving, and so is our use of new tech
 
 By using any of our websites or platforms, you acknowledge and accept our Privacy Policy.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="use"></a>
 
@@ -126,13 +126,17 @@ We use the information we collect to:
 - Improve website functionality and user experience.
 - Conduct analytics and business development.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="sharing"></a>
 
 ## 5. Sharing and Disclosure
 
+<!-- markdownlint-disable MD036 -->
+
 **Data Sharing Policy**
+
+<!-- markdownlint-enable MD036 -->
 
 We do not sell or rent personal information. However, we may share your data in the following circumstances:
 
@@ -142,7 +146,7 @@ We do not sell or rent personal information. However, we may share your data in 
 
 - **Business Transfers**: If our company undergoes a merger, acquisition, or sale of assets, we will make every reasonable effort to prevent the sharing of personal information. If a transfer of data is unavoidable, we will take all necessary steps to ensure continued protection and compliance with our privacy commitments.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="security"></a>
 
@@ -150,13 +154,17 @@ We do not sell or rent personal information. However, we may share your data in 
 
 We implement industry-standard security measures to protect your data. However, no method of transmission over the Internet or electronic storage is completely secure, and we cannot guarantee absolute security. In compliance with **A.R.S. § 18-552**, we will notify affected individuals in the event of a data breach involving personal information.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="rights"></a>
 
 ## 7. Your Rights and Choices
 
+<!-- markdownlint-disable MD036 -->
+
 **Your Data Rights**
+
+<!-- markdownlint-enable MD036 -->
 
 Under applicable state and federal law, you may have the following rights regarding your personal data:
 
@@ -166,7 +174,7 @@ Under applicable state and federal law, you may have the following rights regard
 
 To exercise these rights, please use our [contact form](https://contact.neteng.pro) or email us at `support (at) neteng.pro`.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="links"></a>
 
@@ -174,7 +182,7 @@ To exercise these rights, please use our [contact form](https://contact.neteng.p
 
 Our website may contain links to third-party sites. We are not responsible for the privacy practices of these external websites.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="disclaim"></a>
 
@@ -192,7 +200,7 @@ Our website may contain links to third-party sites. We are not responsible for t
 
 - **Third-Party Services**: We may recommend or integrate third-party vendors for certain services. However, we are not responsible for the actions, policies, or reliability of these third parties.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="changes"></a>
 
@@ -200,7 +208,7 @@ Our website may contain links to third-party sites. We are not responsible for t
 
 We may update this Privacy Policy periodically. Changes will be posted on this page with an updated effective date. Updates will comply with applicable changes to the **Arizona Revised Statutes** and **United States Code**.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="more"></a>
 
@@ -214,7 +222,7 @@ Network Pro Strategies
 `support (at) neteng.pro`  
 (623) 252-4350
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 ---
 

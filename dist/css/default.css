@@ -78,3 +78,8 @@ footer .container,header .container{
   margin-left:30px;
   padding-left:10px;
 }
+
+.small-text{
+  font-size:.75em;
+  line-height:1.125em;
+}

@@ -8,7 +8,7 @@
 
     <loc>https://netwk.pro/index.html</loc>
 
-    <lastmod>2025-04-01</lastmod>
+    <lastmod>2025-04-05</lastmod>
 
     <changefreq>daily</changefreq>
 
@@ -30,13 +30,25 @@
 
   <url>
 
+    <loc>https://netwk.pro/terms.html</loc>
+
+    <lastmod>2025-04-05</lastmod>
+
+    <changefreq>monthly</changefreq>
+
+    <priority>0.8</priority>
+
+  </url>
+
+  <url>
+
     <loc>https://netwk.pro/README.md</loc>
 
-    <lastmod>2025-03-31</lastmod>
+    <lastmod>2025-04-05</lastmod>
 
     <changefreq>weekly</changefreq>
 
-    <priority>0.7</priority>
+    <priority>0.6</priority>
 
   </url>
 
@@ -44,47 +56,11 @@
 
     <loc>https://netwk.pro/LICENSE.md</loc>
 
-    <lastmod>2025-03-29</lastmod>
+    <lastmod>2025-04-05</lastmod>
 
     <changefreq>monthly</changefreq>
 
-    <priority>0.6</priority>
-
-  </url>
-
-  <url>
-
-    <loc>https://netwk.pro/legal/LICENSE.md</loc>
-
-    <lastmod>2025-03-29</lastmod>
-
-    <changefreq>monthly</changefreq>
-
-    <priority>0.6</priority>
-
-  </url>
-
-  <url>
-
-    <loc>https://netwk.pro/legal/TERMS.md</loc>
-
-    <lastmod>2025-03-29</lastmod>
-
-    <changefreq>monthly</changefreq>
-
-    <priority>0.6</priority>
-
-  </url>
-
-  <url>
-
-    <loc>https://netwk.pro/legal/PRIVACY.md</loc>
-
-    <lastmod>2025-03-29</lastmod>
-
-    <changefreq>monthly</changefreq>
-
-    <priority>0.6</priority>
+    <priority>0.5</priority>
 
   </url>
 
