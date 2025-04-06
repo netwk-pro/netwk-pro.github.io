@@ -82,7 +82,6 @@ export default merge(common, {
       patterns: [
         { from: "img", to: "img", globOptions: { dot: false } },
         { from: "css", to: "css", globOptions: { dot: false } },
-        { from: "pages", to: "pages", globOptions: { dot: false } },
         { from: "legal", to: "legal", globOptions: { dot: false } },
         { from: "js/vendor", to: "js/vendor" },
         { from: "robots.txt", to: "robots.txt" },

@@ -194,7 +194,7 @@ jobs:
 
       - name: Update package name for GPR
         run: |
-          sed -i 's/"name": ".*"/"name": "@netwk-pro\/netwk-pro-web"/' dist/package.json
+          sed -i 's/"name": ".*"/"name": "@netwk-pro\/web"/' dist/package.json
 
       - name: Publish package
         working-directory: ./dist
