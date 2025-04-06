@@ -6,7 +6,9 @@
 # Allow crawling of html, md, xml, and txt only
 User-agent: *
 Disallow: *.json$
+Disallow: *.css$
 Disallow: *.mjs$
 Disallow: *.js$
 Disallow: /css
+Disallow: /img
 Disallow: /js

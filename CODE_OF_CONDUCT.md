@@ -41,10 +41,10 @@ Email: <contact@neteng.pro>
 Web: <https://bio.neteng.pro>
 -->
 
+<a name="top"></a>
+
 [SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info/):
 `CC-BY-4.0 OR GPL-3.0-or-later`
-
-<a name="top"></a>
 
 # Contributor Covenant Code of Conduct
 
@@ -52,6 +52,8 @@ Web: <https://bio.neteng.pro>
 **Effective Date:** 3/21/2025
 
 &nbsp;
+
+## Contents
 
 - [Our Pledge](#pledge)
 - [Our Standards](#standards)
@@ -102,7 +104,7 @@ Examples of unacceptable behavior include:
 - Other conduct which could reasonably be considered inappropriate in a
   professional setting
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="response"></a>
 
@@ -120,7 +122,7 @@ decisions when appropriate.
 
 Network Pro Strategies reserves the right, at its sole discretion, to remove, edit, or reject any contributions that are contrary to or detrimental to its business interests.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="scope"></a>
 
@@ -132,7 +134,7 @@ Examples of representing our company or community include using an official emai
 posting via an official social media account, or acting as an appointed
 representative at an online or offline event.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="enforce"></a>
 
@@ -144,7 +146,7 @@ The abuse team is obligated to maintain confidentiality with regard to the repor
 
 Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project’s leadership.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="attribute"></a>
 
@@ -169,7 +171,7 @@ For answers to common questions about this code of conduct, see the FAQ at
 [FAQ]: https://www.contributor-covenant.org/faq
 [translations]: https://www.contributor-covenant.org/translations
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 ---
 
