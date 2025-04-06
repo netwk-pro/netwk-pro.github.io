@@ -3,12 +3,10 @@
 #
 # www.robotstxt.org/
 
-# Allow crawling of html, md, xml, and txt only
 User-agent: *
+Disallow: *.jasonc$
 Disallow: *.json$
-Disallow: *.css$
 Disallow: *.mjs$
+Disallow: *.cjs
 Disallow: *.js$
-Disallow: /css
-Disallow: /img
 Disallow: /js
