@@ -96,18 +96,18 @@ Let’s work together to **enhance your network security posture** and create a 
 
 &nbsp;
 
-<img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/pgp.png" width="150px" height="150px" alt="PGP Key"><br />
+<img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/pgp-github.png" width="150px" height="150px" alt="PGP Key - github@sl.neteng.cc"><br />
 <span style="font-size: 14px">
 &nbsp; **[github@sl.neteng.cc](https://keys.openpgp.org/search?q=github%40sl.neteng.cc)**  
-&nbsp; <b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/github@sl.neteng.cc.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/github@sl.neteng.cc.asc" type="text/plain">asc</a>
+&nbsp; <b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/github@sl.neteng.cc.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/github@sl.neteng.cc.asc" type="application/pgp-keys">asc</a>
 </span>
 
 &nbsp;
 
+<img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/pgp-support.png" width="150px" height="150px" alt="PGP Key - support@neteng.pro"><br />
 <span style="font-size: 14px">
-
 &nbsp; **[support@neteng.pro](https://keys.openpgp.org/search?q=support%40neteng.pro)**  
-<b>&nbsp; PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/support@neteng.pro.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/support@neteng.pro.asc" type="text/plain">asc</a>
+<b>&nbsp; PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/support@neteng.pro.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/support@neteng.pro.asc" type="application/pgp-keys">asc</a>
 </span>
 
 &nbsp; <!-- space for clarity -->
