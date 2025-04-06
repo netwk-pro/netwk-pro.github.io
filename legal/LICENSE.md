@@ -46,7 +46,7 @@ Web: <https://bio.neteng.pro>
 
 <a name="top"></a>
 
-# Legal
+# Legal, Copyright, and Licensing
 
 **Network Pro Strategies**  
 **Effective Date:** 4/5/2025
@@ -177,7 +177,7 @@ For any inquiries not covered in this notice, or to request permission to use co
 ## 5. Creative Commons Attribution 4.0 International
 
 <sup>Formats:
-[Markdown](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/assets/license/CC-BY-4.0.md) | [Text](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/assets/license/CC-BY-4.0.txt) | [RDFa](https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/license/CC-BY-4.0-rdfa.xml) | [XMP](https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/license/CC-BY-4.0.xml)</sup>
+[Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.txt) | [RDFa](https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0-rdfa.xml) | [XMP](https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0.xml)</sup>
 
 Network Pro Strategies (the "Licensed Material") is licensed under **Creative
 Commons Attribution 4.0 International** ("CC BY 4.0")
@@ -215,7 +215,7 @@ this License—may be available as further defined within this document.
 ## 6. GNU General Public License
 
 <sup>Formats:
-[Markdown](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/assets/license/COPYING.md) | [Text](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/assets/license/COPYING.txt) | [RDFa](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/assets/license/COPYING-rdfa.xml) | [ODT](https://github.com/netwk-pro/netwk-pro.github.io/raw/refs/heads/master/assets/license/COPYING.odt)</sup>
+[Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.txt) | [RDFa](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING-rdfa.xml) | [ODT](https://github.com/netwk-pro/netwk-pro-legal/raw/refs/heads/master/assets/license/COPYING.odt)</sup>
 
 Network Pro Strategies (Network Pro&trade;) is free software: you can redistribute it
 and/or modify it under the terms of the **GNU General Public License** ("GNU
@@ -285,8 +285,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 <div style="font-size: 12px; font-weight: bold; text-align: center;">
 
-[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/TERMS.md)  
-[Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; Legal
+[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro-legal/blob/master/TERMS.md)  
+[Privacy Policy](https://github.com/netwk-pro/netwk-pro-legal/blob/master/PRIVACY.md) &nbsp; | &nbsp; Legal
 
 </div>
 

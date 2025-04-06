@@ -46,7 +46,7 @@ Web: <https://bio.neteng.pro>
 
 <a name="top"></a>
 
-# Legal
+# Legal, Copyright, and Licensing
 
 **Network Pro Strategies**  
 **Effective Date:** 4/5/2025

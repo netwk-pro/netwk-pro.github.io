@@ -222,7 +222,7 @@ included in the project:
     with a clear title and description.
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project
-owners to license your work under the terms of [CC BY 4.0](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/assets/license/CC-BY-4.0.md) and the [GNU GPL](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/assets/license/COPYING.md).
+owners to license your work under the terms of [CC BY 4.0](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.md) and the [GNU GPL](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.md).
 
 <sub>[Top](#top)</sub>
 
@@ -230,8 +230,8 @@ owners to license your work under the terms of [CC BY 4.0](https://github.com/ne
 
 <span style="font-size: 12px; font-weight: bold; text-align: center;">
 
-[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/TERMS.md)  
-[Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; [Licensing](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
+[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro-legal/blob/master/TERMS.md)  
+[Privacy Policy](https://github.com/netwk-pro/netwk-pro-legal/blob/master/PRIVACY.md) &nbsp; | &nbsp; [Licensing](https://github.com/netwk-pro/netwk-pro-legal/blob/master/LICENSE.md)
 
 </span>
 

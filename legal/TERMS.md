@@ -47,10 +47,10 @@ Web: <https://bio.neteng.pro>
 
 <a name="top"></a>
 
-# Terms of Use
+# Website Terms of Use
 
 **Network Pro Strategies**  
-**Effective Date:** 3/29/2025
+**Effective Date:** 4/6/2025
 
 &nbsp;
 
@@ -169,7 +169,7 @@ We may update these Terms of Use periodically. Changes will be posted on this pa
 <div style="font-size: 12px; font-weight: bold; text-align: center;">
 
 [Home](https://netwk.pro) &nbsp; | &nbsp; Terms of Use  
-[Privacy Policy](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/legal/PRIVACY.md) &nbsp; | &nbsp; [Legal](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/LICENSE.md)
+[Privacy Policy](https://github.com/netwk-pro/netwk-pro-legal/blob/master/PRIVACY.md) &nbsp; | &nbsp; [Legal](https://github.com/netwk-pro/netwk-pro-legal/blob/master/LICENSE.md)
 
 </div>
 
