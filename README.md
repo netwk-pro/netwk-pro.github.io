@@ -67,7 +67,7 @@ Our **blend of deep technical expertise and business insight** ensures that secu
 
 🔹 [Let’s connect](https://contact.neteng.pro) to discuss how we can help secure and strengthen your business today.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 ---
 
@@ -96,31 +96,25 @@ Let’s work together to **enhance your network security posture** and create a 
 
 &nbsp;
 
-<img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/pgp-github.png" width="150px" height="150px" alt="PGP Key - github@sl.neteng.cc"><br />
-<span style="font-size: 14px">
-&nbsp; **[github@sl.neteng.cc](https://keys.openpgp.org/search?q=github%40sl.neteng.cc)**  
-&nbsp; <b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/github@sl.neteng.cc.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/github@sl.neteng.cc.asc" type="application/pgp-keys">asc</a>
-</span>
+|                                                                                                                  <img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/pgp-github.png" width="150px" height="150px" alt="PGP Key - github@sl.neteng.cc">                                                                                                                   |                                                                                                                <img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/pgp-support.png" width="150px" height="150px" alt="PGP Key - support@neteng.pro">                                                                                                                 |
+| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| **[github@sl.neteng.cc](https://keys.openpgp.org/search?q=github%40sl.neteng.cc)**<br /><b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/github@sl.neteng.cc.aexpk" type="application/pgp-keys">aexpk</a> <b>&#448;</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/github@sl.neteng.cc.asc" type="application/pgp-keys">asc</a> | **[support@neteng.pro](https://keys.openpgp.org/search?q=support%40neteng.pro)**<br /><b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/support@neteng.pro.aexpk" type="application/pgp-keys">aexpk</a> <b>&#448;</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/support@neteng.pro.asc" type="application/pgp-keys">asc</a> |
+
+| <img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/vcard.png" width="150px" height="150px" alt="vCard"> |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                          <b>vCard:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/contact.vcf">vcf</a>                           |
 
 &nbsp;
 
-<img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/pgp-support.png" width="150px" height="150px" alt="PGP Key - support@neteng.pro"><br />
-<span style="font-size: 14px">
-&nbsp; **[support@neteng.pro](https://keys.openpgp.org/search?q=support%40neteng.pro)**  
-<b>&nbsp; PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/support@neteng.pro.aexpk" type="application/pgp-keys">aexpk</a> <b>|</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/support@neteng.pro.asc" type="application/pgp-keys">asc</a>
-</span>
-
-&nbsp; <!-- space for clarity -->
-
 ## 🔗 Links
 
-|  [![linktr.ee](https://img.shields.io/badge/linktree-43E55E?style=for-the-badge&logo=linktree&logoColor=white)](https://linktr.ee/scottlopez)  | [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/scottlopez) |
-| :--------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------: |
-| [![mastodon](https://img.shields.io/badge/Mastodon-6364FF?style=for-the-badge&logo=Mastodon&logoColor=white)](https://noc.social/@sundevil311) |  [![xda](https://img.shields.io/badge/xda%20developers-2DAAE9?style=for-the-badge&logo=xda-developers&logoColor=white)](https://xda.neteng.pro)   |
+|     [![linktr.ee](https://img.shields.io/badge/linktree-43E55E?style=for-the-badge&logo=linktree&logoColor=white)](https://bio.neteng.pro)     |     [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://lin.neteng.pro)      |
+| :--------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![mastodon](https://img.shields.io/badge/Mastodon-6364FF?style=for-the-badge&logo=Mastodon&logoColor=white)](https://noc.social/@sundevil311) | [![xda](https://img.shields.io/badge/xda%20developers-2DAAE9?style=for-the-badge&logo=xda-developers&logoColor=white)](https://xda.neteng.pro) |
 
-&nbsp; <!-- space for clarity -->
+&nbsp;
 
-<sub>[Top](#top) | [About Me](#about-me)</sub>
+<sub>[Back to top](#top) | [About Me](#about-me)</sub>
 
 ---
 
