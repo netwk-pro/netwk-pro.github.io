@@ -27,7 +27,7 @@ body:
     id: reduced-test-case
     attributes:
       label: Reduced test cases
-      description: Include links [reduced test case](https://css-tricks.com/reduced-test-cases/) links.
+      description: Include [reduced test case](https://css-tricks.com/reduced-test-cases/) links.
     validations:
       required: false
   - type: dropdown
@@ -58,7 +58,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: What version of Network Pro Strategies are you using?
+      label: If applicable, what version of Network Pro Strategies are you using?
       placeholder: "e.g., v0.2.0 or v0.3.5"
     validations:
       required: true

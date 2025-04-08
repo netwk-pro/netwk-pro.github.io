@@ -7,6 +7,9 @@
 # Run Mocha test framework
 npm run test
 
+# Lint all JavaScript and TypeScript files
+npx eslint --cache --cache-location .eslintcache --ext .js,.jsx,.ts,.tsx --ignore-pattern node_modules/ --ignore-pattern dist/ .
+
 # Run markdownlint-cli2 on all Markdown files and allow commit to proceed even if there are linting errors
 npx markdownlint-cli2 "**/*.md" "#node_modules/**" "#dist/**" "#pages/**" || true
 

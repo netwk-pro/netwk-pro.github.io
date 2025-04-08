@@ -46,7 +46,7 @@ Web: <https://bio.neteng.pro>
 
 # Support
 
-For support requests related to Network Pro Strategies (Network Pro), please use one of the following contact methods:  
+For support requests related to Network Pro Strategies (Network Pro&trade;), please use one of the following contact methods:  
 
 - [Stack Overflow Teams](https://stack.neteng.pro) ([`Network Pro`](https://stack.neteng.pro) tag)
 
@@ -55,6 +55,8 @@ For support requests related to Network Pro Strategies (Network Pro), please use
 - [Discord](https://discord.neteng.pro)
 
 - [Contact Form](https://contact.neteng.pro)
+
+- Email us at `support (at) neteng.pro`
 
 ---
 

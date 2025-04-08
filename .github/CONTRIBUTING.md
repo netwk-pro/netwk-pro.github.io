@@ -73,7 +73,7 @@ restrictions:
 - Please **do not** derail or troll issues. Keep the discussion on topic and
   respect the opinions of others.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="bugs"></a>
 
@@ -93,7 +93,7 @@ Guidelines for bug reports:
 3. **Isolate the problem** &mdash; ideally create a [reduced test
    case](https://css-tricks.com/reduced-test-cases/) and a live example.
 
-A good bug report shouldn't leave others needing to chase you up for more
+A good bug report shouldn't leave others needing to chase you down for more
 information. Please try to be as detailed as possible in your report. What is
 your environment? What steps will reproduce the issue? What browser(s) and OS
 experience the problem? What would you expect to be the outcome? All these
@@ -117,7 +117,7 @@ Example:
 > causing the bug, and potential solutions (and your opinions on their
 > merits).
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="features"></a>
 
@@ -128,7 +128,7 @@ fits with the scope and aims of the project. It's up to _you_ to make a strong
 case to convince the project's developers of the merits of this feature. Please
 provide as much detail and context as possible.
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 <a name="pull-requests"></a>
 
@@ -184,19 +184,27 @@ included in the project:
    Ensure that your `node` and `npm` versions are compatible with the `engines`
    specification in `package.json`.
 
-5. Commit your changes in logical chunks. Please adhere to these [git commit
+5. Lint your code locally. As reflected in the dependencies, the following
+   linting tools should be used:
+   - [Prettier](https://prettier.io/)
+   - [ESLint](https://eslint.org/)
+   - [markdownlint](https://github.com/DavidAnson/markdownlint) and
+     [markdownlint2](https://github.com/DavidAnson/markdownlint-cli2)
+   - [stylelint](https://stylelint.io/)
+
+6. Commit your changes in logical chunks. Please adhere to these [git commit
    message guidelines](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
    or your code is unlikely be merged into the main project. Use Git's
    [interactive rebase](https://help.github.com/articles/about-git-rebase/)
    feature to tidy up your commits before making them public.
 
-6. Locally merge (or rebase) the upstream development branch into your topic branch:
+7. Locally merge (or rebase) the upstream development branch into your topic branch:
 
    ```bash
    git pull [--rebase] upstream main
    ```
 
-7. Update any applicable test cases and run tests:
+8. Update any applicable test cases and run tests:
 
    ```bash
    npm run test
@@ -204,33 +212,38 @@ included in the project:
 
    Tests must cover changes and pass to be accepted.
 
-8. Run build and commit changes to dist:
+9. Run build and commit changes to dist:
 
    ```bash
    npm run build
    git add dist/
    git commit
    ```
+<!-- markdownlint-disable MD029 -->
 
-9. Push your topic branch up to your fork:
+10. Push your topic branch up to your fork:
 
    ```bash
    git push origin <topic-branch-name>
    ```
 
-10. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
+11. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
     with a clear title and description.
+
+<!-- markdownlint-enable MD029 -->
+
+&nbsp;
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project
 owners to license your work under the terms of [CC BY 4.0](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.md) and the [GNU GPL](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.md).
 
-<sub>[Top](#top)</sub>
+<sub>[Back to top](#top)</sub>
 
 ---
 
 <span style="font-size: 12px; font-weight: bold; text-align: center;">
 
-[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro-legal/blob/master/TERMS.md)  
+[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro-legal/blob/master/legal/TERMS.md)  
 [Privacy Policy](https://github.com/netwk-pro/netwk-pro-legal/blob/master/PRIVACY.md) &nbsp; | &nbsp; [Licensing](https://github.com/netwk-pro/netwk-pro-legal/blob/master/LICENSE.md)
 
 </span>
