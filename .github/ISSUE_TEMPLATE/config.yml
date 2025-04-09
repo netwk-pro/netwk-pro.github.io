@@ -1,10 +1,12 @@
+# .github/ISSUE_TEMPLATE/config.yml
+#
 # SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 # This file is part of Network Pro
 
 blank_issues_enabled: false
 contact_links:
   - name: Ask the community
-    url: https://github.com/netwk-pro/netwk-pro.github.io/discussions/new
+    url: https://github.com/netwk-pro/netwk-pro.github.io/discussions
     about: Ask and discuss questions with other Network Pro Strategies community members.
   - name: Commonly asked questions
     url: https://stackoverflowteams.com/c/netwk-pro/questions

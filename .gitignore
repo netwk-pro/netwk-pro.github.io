@@ -1,3 +1,5 @@
+# .gitignore
+#
 # SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 # This file is part of Network Pro.
 #
@@ -9,6 +11,7 @@
 .github/workflows/disabled/
 .orig/
 .webpack_cache/
+docs/
 python-venv/
 crypto.mjs
 server.mjs

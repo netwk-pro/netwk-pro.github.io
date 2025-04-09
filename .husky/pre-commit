@@ -4,8 +4,8 @@
 # SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 # This file is part of Network Pro.
 
-# Run Mocha test framework
-npm run test
+# Run Mocha and Chai test suite
+npm test
 
 # Lint all JavaScript and TypeScript files
 npx eslint --cache --cache-location .eslintcache --ext .js,.jsx,.ts,.tsx --ignore-pattern node_modules/ --ignore-pattern dist/ .

@@ -4,6 +4,11 @@
   This file is part of Network Pro
 */
 
+// amazonq-ignore-next-line
+const autoprefixer = require('autoprefixer');
+
 module.exports = {
-  plugins: [require("autoprefixer")],
+    plugins: [
+        autoprefixer
+    ]
 };

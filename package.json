@@ -1,6 +1,6 @@
 {
   "name": "@networkpro/web",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "private": false,
   "description": "Locking Down Networks, Unlocking Confidence — Network Pro",
   "keywords": [
@@ -31,7 +31,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "mocha test/**/*.mjs",
+    "test:coverage": "c8 mocha test/**/*.mjs",
     "lint": "npx eslint && prettier --check .",
     "fix": "npx eslint --fix && prettier --write .",
     "clean": "rm -rf dist/* && npm update",
@@ -45,9 +46,11 @@
     "astroturf-loader": "^1.0.0",
     "autoprefixer": "^10.4.20",
     "browserslist": "^4.24.4",
+    "c8": "^10.1.3",
     "globalthis": "^1.0.4",
     "normalize.css": "^8.0.1",
-    "postcss-cli": "^11.0.0"
+    "postcss-cli": "^11.0.0",
+    "safe-stable-stringify": "^2.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.9",
