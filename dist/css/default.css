@@ -51,6 +51,36 @@ footer .container,header .container{
   }
 }
 
+.foss{
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+.foss td,.foss th{
+  border-collapse:collapse;
+  font-family:Arial,Helvetica,sans-serif;
+  overflow:hidden;
+  padding:10px 5px;
+  word-break:normal;
+}
+
+.foss .foss-cell{
+  text-align:center;
+  vertical-align:middle;
+}
+
+@media screen and (width <= 767px){
+
+  .foss,.foss col{
+    width:auto !important;
+  }
+
+  .foss-wrap{
+    -webkit-overflow-scrolling:touch;
+    overflow-x:auto;
+  }
+}
+
 .logo{
   display:block;
   margin-left:auto;
@@ -60,16 +90,25 @@ footer .container,header .container{
 .index1{
   font-style:italic;
   font-weight:700;
-}
-
-.index1,.index2{
+  letter-spacing:-.035em;
+  line-height:2.125rem;
   text-align:center;
 }
 
 .index2{
-  font-size:1.375em;
+  text-align:center;
+}
+
+.index2,.subhead{
+  font-size:1.5em;
   font-variant:small-caps;
+  letter-spacing:-.035em;
   line-height:1.75em;
+}
+
+.bolditalic{
+  font-style:italic;
+  font-weight:700;
 }
 
 .bquote{

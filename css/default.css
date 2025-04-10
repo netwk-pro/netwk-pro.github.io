@@ -123,6 +123,47 @@ footer .container {
   }
 }
 
+.foss {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.foss td {
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+
+.foss th {
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+
+.foss .foss-cell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media screen and (width <= 767px) {
+  .foss {
+    width: auto !important;
+  }
+
+  .foss col {
+    width: auto !important;
+  }
+
+  .foss-wrap {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+  }
+}
+
 /* ==========================================================================
    Custom CSS
 ========================================================================== */
@@ -136,14 +177,29 @@ footer .container {
 .index1 {
   font-style: italic;
   font-weight: bold;
+  letter-spacing: -0.035em;
+  line-height: 2.125rem;
   text-align: center;
 }
 
 .index2 {
-  font-size: 1.375em;
+  font-size: 1.5em;
   font-variant: small-caps;
+  letter-spacing: -0.035em;
   line-height: 1.75em;
   text-align: center;
+}
+
+.subhead {
+  font-size: 1.5em;
+  font-variant: small-caps;
+  letter-spacing: -0.035em;
+  line-height: 1.75em;
+}
+
+.bolditalic {
+  font-style: italic;
+  font-weight: bold;
 }
 
 .bquote {
