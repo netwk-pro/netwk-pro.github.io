@@ -90,14 +90,14 @@ Copyright &copy; 2025 **[Network Pro Strategies](https://netwk.pro)** (Network P
 
 ## 2. Trademark Ownership
 
-The following trademarks are the exclusive property of **Network Pro Strategies**:
+The following trademarks are the exclusive property of the Company:
 
 - **Brand Name:** Network Pro&trade;
-- **Domain Names:** "netwk.pro," "neteng.pro," "neteng.cc"
-- **Logo:** The "shield logo" displayed on our homepage
-- **Slogan:** _Locking Down Networks, Unlocking Confidence&trade;_
+- **Domain Names:** netwk.pro, neteng.pro, neteng.cc
+- **Logo:** The shield logo displayed on our homepage
+- **Slogan:** "Locking Down Networks, Unlocking Confidence&trade;"
 
-"Network Pro" and all associated marks are registered or common law trademarks in the United States and other countries. Unauthorized use—including any use likely to cause confusion, misrepresentation, or disparagement—is strictly prohibited.
+Unauthorized use—including use likely to cause confusion, misrepresentation, or disparagement—is strictly prohibited.
 
 <sub>[Back to top](#top)</sub>
 
