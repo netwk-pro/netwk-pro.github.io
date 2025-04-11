@@ -1,8 +1,8 @@
 {
   "name": "@networkpro/web",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "private": false,
-  "description": "Locking Down Networks, Unlocking Confidence — Network Pro",
+  "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "networking",
     "security",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/netwk-pro/netwk-pro.github.io.git"
+    "url": "git+https://github.com/netwk-pro/netwk-pro.github.io.git"
   },
   "license": "CC-BY-4.0 OR GPL-3.0-or-later",
   "author": {

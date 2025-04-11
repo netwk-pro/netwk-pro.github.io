@@ -1,6 +1,6 @@
-<!-- legal/LICENSE.md -->
-
 <!-- =========================================================================
+legal/LICENSE.md
+
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== -->
@@ -51,132 +51,100 @@ Web: <https://bio.neteng.pro>
 # Legal, Copyright, and Licensing
 
 **Network Pro Strategies**  
-**Effective Date:** 4/5/2025
-
-&nbsp;
-
-## Contents
-
-1. [Ownership of Copyrights and Trademarks](#copyright)
-   - [Copyright Usage & Restrictions](#usage)
-   - [Trademarks](#trade)
-2. [Use of Brand Name](#netwk-pro)
-3. [Licensed Material](#lmaterial)
-4. [Licensing](#licensing)
-   - [Are you sure you can do that?](#questions)
-   - [Contact](#contact)
-5. [CC BY 4.0](#cc-by)
-6. [GNU GPL](#gnu-gpl)
-7. [Changes to Legal Information](#changes)
-8. [Attribution](#attribute)
-
----
-
-<a name="copyright"></a>
-
-## 1. Ownership of Copyrights and Trademarks
-
-All content on this website—including text, graphics, logos, icons, images, audio clips, and software—is the exclusive property of **Network Pro Strategies** ("Company," "The Licensor," "we," "us," or "our") and protected under U.S. and international copyright laws. Any software used on this site is either owned by **Network Pro Strategies** or licensed from third-party suppliers, also subject to copyright protection.
-
-<a name="usage"></a>
-
-### **Copyright Usage & Restrictions**
-
-The content and software on this site may be used solely for informational, shopping, or news-related purposes. Any other use—including, but not limited to, reproduction, modification, distribution, transmission, republication, display, or performance—is strictly prohibited without prior written permission. **_Use of any text, content, or software is governed by the applicable license terms._**
-
-To request permission for any other use, please refer to the [Contact](#contact) section.
-
-&nbsp;
-
-**Copyright &copy; 2025 [Network Pro Strategies](https://netwk.pro/)** (Network Pro&trade;)
-
-**Disclaimer:** Network Pro Strategies is provided **_as is_** and **_as available_**, without any express or implied warranties. The Licensor makes no representations or guarantees regarding the Licensed Material and assumes no liability for its use.
-
-> _Unless otherwise noted, Network Pro Strategies (Network Pro&trade;) in its entirety is available exclusively under the licenses outlined herein._
-
-<a name="trade"></a>
-
-### **Trademarks**
-
-The following trademarks are the exclusive property of **Network Pro Strategies**:
-
-- **Domain Names:** "netwk.pro," "neteng.pro," "neteng.cc"
-- **Brand Name:** Network Pro&trade;
-- **Logo:** The "shield logo" displayed on our homepage
-- **Slogan:** _Locking Down Networks, Unlocking Confidence&trade;_
-
-"netwk.pro" and all associated marks are registered or common law trademarks in the United States and other countries. Unauthorized use—including any use likely to cause confusion, misrepresentation, or disparagement—is strictly prohibited.
-
-<sub>[Back to top](#top)</sub>
-
-<a name="netwk-pro"></a>
-
-## 2. Use of Brand Name
-
-For clarity, our _full business name_, **Network Pro Strategies**, and our brand name, **Network Pro&trade;**, are legally equivalent. All references to "Network Pro&trade;," whether in text or code, shall be interpreted as references to the full business name with equal authority.
-
-**_This equivalency applies across all media and contexts, including but not
-limited to: legal notices, website content, GitHub repositories and code, as
-well as any business-related documentation._**
-
-<sub>[Back to top](#top)</sub>
-
-<a name="lmaterial"></a>
-
-## 3. Licensed Material
-
-For copyright and licensing purposes, _"Licensed Material"_ includes all public websites and repositories, encompassing text and associated code (e.g., HTML, CSS, JavaScript, Markdown). **This definition explicitly excludes the Network Pro Strategies company as a whole.**
-
-The Network Pro Strategies public website serves primarily as an advocacy and awareness platform. While it is referred to as Network Pro&trade;, the company itself remains a distinct and separate entity.
-
-<sub>[Back to top](#top)</sub>
-
-<a name="licensing"></a>
-
-## 4. Licensing
-
-Network Pro Strategies is available under the following licenses:
-
-- **[Creative Commons Attribution 4.0 International](#cc-by)** ("CC BY 4.0")
-- **[GNU General Public License](#gnu-gpl)** ("GNU GPL"), either version 3 of
-  the license, or (at your option) any later version
+**Effective Date:** 4/10/2025
 
 &nbsp;
 
 <!-- markdownlint-disable MD001 -->
 
-<a name="questions"></a>
-
-### **Are you sure you can do that?**
+### Table of Contents
 
 <!-- markdownlint-enable MD001 -->
 
-- "You may offer the licensed material under other licenses in addition to the
-  CC license (a practice commonly referred to as 'dual licensing')."
+1. [Copyright](#ownership)
+2. [Trademark Ownership](#trademark)
+3. [Restrictions on Branding and Graphics](#branding)
+4. [Licensed Material Definition](#licensed-material)
+5. [License Terms](#licenses)
+   - [Dual Licensing Notes](#dlnotes)
+6. [Creative Commons License (CC BY 4.0)](#cc-by)
+7. [GNU General Public License (GPL)](#gnu-gpl)
+8. [Third-Party Code and Licenses](#third-party)
+9. [Prohibited Uses](#prohibited-uses)
+10. [Modifications and Liability Disclaimer](#disclaimer)
+11. [Contact](#contact)
+12. [Revisions](#revisions)
+13. [Attribution](#attribution)
 
-  _[Separate agreements | Creative Commons FAQ](https://creativecommons.org/faq/#can-i-enter-into-separate-or-supplemental-agreements-with-users-of-my-work)_
+---
 
-- Both the [GNU GPL](https://www.gnu.org/licenses/license-list.html#GPLOther)
-  and [CC BY 4.0](https://www.gnu.org/licenses/license-list.html#ccby) are
-  categorized as "free licenses, compatible with the GNU GPL."
+<a name="ownership"></a>
 
-  _[Licenses for Other Works | GNU - Various Licenses and Comments About Them](https://www.gnu.org/licenses/license-list.html#OtherLicenses)_
+## 1. Copyright
 
-- [What does it mean to say a license is “compatible with the GPL?" | GNU GPL FAQ](https://www.gnu.org/licenses/gpl-faq.html#WhatDoesCompatMean)
+All content—including text, software, logos, graphics, documentation, and other materials—provided by **Network Pro Strategies** (“Network Pro”, “Company”, “Licensor”) is protected by U.S. and international copyright laws.
+
+Copyright &copy; 2025 **[Network Pro Strategies](https://netwk.pro)** (Network Pro&trade;)
+
+<a name="trademark"></a>
+
+## 2. Trademark Ownership
+
+The following trademarks are the exclusive property of **Network Pro Strategies**:
+
+- **Brand Name:** Network Pro&trade;
+- **Domain Names:** "netwk.pro," "neteng.pro," "neteng.cc"
+- **Logo:** The "shield logo" displayed on our homepage
+- **Slogan:** _Locking Down Networks, Unlocking Confidence&trade;_
+
+"Network Pro" and all associated marks are registered or common law trademarks in the United States and other countries. Unauthorized use—including any use likely to cause confusion, misrepresentation, or disparagement—is strictly prohibited.
+
+<sub>[Back to top](#top)</sub>
+
+<a name="branding"></a>
+
+## 3. Restrictions on Branding and Graphics
+
+Licensing under CC BY 4.0 and GNU GPL **does not** grant rights to use Network Pro's trademarks, visual branding, domain names, logo designs, or other proprietary identifiers.
+
+**Explicit, written permission is required for any use of visual assets or branding.** This includes use in derivative works, promotional materials, websites, or software that may imply association or endorsement.
+
+<sub>[Back to top](#top)</sub>
+
+<a name="licensed-material"></a>
+
+## 4. Licensed Material Definition
+
+"Licensed Material" refers exclusively to the **public code and documentation** provided in Network Pro’s open repositories and websites, excluding third-party content, brand assets, and commercial backend systems.
+
+The company **Network Pro Strategies** itself is not licensed under the terms herein.
+
+<sub>[Back to top](#top)</sub>
+
+<a name="licenses"></a>
+
+## 5. License Terms
+
+This work is dual-licensed under:
+
+- [Creative Commons Attribution 4.0 International (CC BY 4.0)](#cc-by)
+- [GNU General Public License v3.0 or later (GNU GPL)](#gnu-gpl)
 
 &nbsp;
 
-<a name="contact"></a>
+<a name="dlnotes"></a>
 
-### **Contact**
+### **Dual Licensing Notes**
 
-For any inquiries not covered in this notice, or to request permission to use content beyond the scope permitted by applicable licenses, please contact us through our [contact form](https://contact.neteng.pro) or by emailing `support (at) neteng.pro`.
+- You may choose to use the work under either license, or both where appropriate.
+- See Creative Commons FAQ: [Separate agreements](https://creativecommons.org/faq/#can-i-enter-into-separate-or-supplemental-agreements-with-users-of-my-work)
+- See GPL compatibility: [GPL FAQ](https://www.gnu.org/licenses/gpl-faq.html#WhatDoesCompatMean)
 
 <sub>[Back to top](#top)</sub>
 
 <a name="cc-by"></a>
 
-## 5. Creative Commons Attribution 4.0 International
+## 6. Creative Commons Attribution 4.0 International
 
 <sup>Formats:
 [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.txt) | [RDFa](https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0-rdfa.xml) | [XMP](https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0.xml)</sup>
@@ -186,20 +154,11 @@ Commons Attribution 4.0 International** ("CC BY 4.0")
 [<img decoding="async" loading="lazy" style="display: inline-block; height: 18px !important; margin-left: 3px; vertical-align: text-bottom; text-decoration: none;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" />](https://creativecommons.org/licenses/by/4.0/)
 [<img decoding="async" loading="lazy" style="display: inline-block; height: 18px !important; margin-left: 3px; vertical-align: text-bottom; text-decoration: none;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY" />](https://creativecommons.org/licenses/by/4.0/).
 
-Per the terms of the License, you are free to distribute, remix, adapt, and
-build upon the Licensed Material for any purpose, even commercially. You must
-give appropriate credit, provide a link to the License, and indicate if changes
-were made.
+Per the terms of the License, you are free to distribute, remix, adapt, and build upon the Licensed Material for any purpose, even commercially. You must give appropriate credit, provide a link to the License, and indicate if changes were made.
 
-The Licensor offers the Licensed Material as-is and as-available, and makes no
-representations or warranties of any kind concerning the Licensed Material,
-whether express, implied, statutory, or other. This includes, without
-limitation, warranties of title, merchantability, fitness for a particular
-purpose, non-infringement, absence of latent or other defects, accuracy, or the
-presence or absence of errors, whether or not known or discoverable.
+The Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable.
 
-Permissions beyond the scope of this License—or instead of those permitted by
-this License—may be available as further defined within this document.
+Permissions beyond the scope of this License—or instead of those permitted by this License—may be available as further defined within this document.
 
 <code style="background: none; border: none; border-radius: 0; height: 50vh; outline: none; resize: none; width: 100%;">
 
@@ -214,23 +173,16 @@ this License—may be available as further defined within this document.
 
 <a name="gnu-gpl"></a>
 
-## 6. GNU General Public License
+## 7. GNU General Public License (GPL)
 
 <sup>Formats:
 [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.txt) | [RDFa](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING-rdfa.xml) | [ODT](https://github.com/netwk-pro/netwk-pro-legal/raw/refs/heads/master/assets/license/COPYING.odt)</sup>
 
-Network Pro Strategies (Network Pro&trade;) is free software: you can redistribute it
-and/or modify it under the terms of the **GNU General Public License** ("GNU
-GPL") as published by the [Free Software Foundation](https://www.fsf.org/),
-either version 3 of the License, or (at your option) any later version.
+Network Pro Strategies (Network Pro) is free software: you can redistribute it and/or modify it under the terms of the **GNU General Public License** ("GNU GPL") as published by the [Free Software Foundation](https://www.fsf.org/), either version 3 of the License, or (at your option) any later version.
 
-This material is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE. See the GNU General Public License for more details.
+This material is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with
-this material. If not, see
-<[https://www.gnu.org/licenses/](https://www.gnu.org/licenses/)>.
+You should have received a copy of the GNU General Public License along with this material. If not, see <[https://www.gnu.org/licenses/](https://www.gnu.org/licenses/)>.
 
 <code style="background: none; border: none; border-radius: 0; height: 50vh; outline: none; resize: none; width: 100%;">
 
@@ -243,17 +195,65 @@ this material. If not, see
 
 <sub>[Back to top](#top)</sub>
 
-<a name="changes"></a>
+<a name="third-party"></a>
 
-## 7. Changes to Legal Information
+## 9. Third-Party Code and Licenses
 
-We may update this Legal Information periodically. Any changes will be posted on this page with the revised effective date. Updates will align with applicable amendments to the **Arizona Revised Statutes** and **United States Code**.
+Some components may incorporate or interact with third-party libraries or assets. **Each third-party component remains subject to its own license** and is not covered by Network Pro's licensing terms.
+
+Users are responsible for reviewing and complying with third-party license terms.
 
 <sub>[Back to top](#top)</sub>
 
-<a name="attribute"></a>
+<a name="prohibited-uses"></a>
 
-## 8. Attribution
+## 9. Prohibited Uses
+
+The following are strictly prohibited without prior written consent:
+
+- Use of any Network Pro trademarks, logos, domain names, or slogans
+- Representation or implication of endorsement by Network Pro
+- Misuse or misrepresentation of Network Pro intellectual property
+- Integration of branding into derivative or redistributed works
+
+<sub>[Back to top](#top)</sub>
+
+<a name="disclaimer"></a>
+
+## 10. Modifications and Liability Disclaimer
+
+Any modifications to the Licensed Material are made at your own risk.
+
+```markdown
+THE LICENSED MATERIAL IS PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND.
+NETWORK PRO DISCLAIMS ALL LIABILITY FOR DAMAGES ARISING OUT OF OR IN
+CONNECTION WITH USE, MODIFICATION, OR DISTRIBUTION OF THE LICENSED MATERIAL.
+```
+
+This includes, but is not limited to, implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
+
+<sub>[Back to top](#top)</sub>
+
+<a name="contact"></a>
+
+## 11. Contact
+
+For legal inquiries or permission requests, contact us via our [Contact Form](https://contact.neteng.pro) or email at:  
+📧 `support (at) neteng.pro`
+
+<sub>[Back to top](#top)</sub>
+
+<a name="revisions"></a>
+
+## 12. Revisions
+
+This legal document may be updated to comply with changes in law or policy. The revised version will be posted with an updated effective date.
+
+<sub>[Back to top](#top)</sub>
+
+<a name="attribution"></a>
+
+## 13. Attribution
 
 Website base structure provided by HTML5 Boilerplate:  
 <https://html5boilerplate.com/>
