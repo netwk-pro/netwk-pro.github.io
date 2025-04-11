@@ -72,10 +72,10 @@ a:visited:hover{
 .center-nav{
   font-size:.875em;
   padding:10px;
+  text-align:center;
 }
 .block,.center-nav{
   line-height:1.125em;
-  text-align:center;
 }
 .block{
   background:none;

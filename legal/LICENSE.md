@@ -1,5 +1,5 @@
 <!-- =========================================================================
-legal/LICENSE.md
+LICENSE.md
 
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
@@ -51,7 +51,7 @@ Web: <https://bio.neteng.pro>
 # Legal, Copyright, and Licensing
 
 **Network Pro Strategies**  
-**Effective Date:** 4/10/2025
+**Effective Date:** April 11, 2025
 
 &nbsp;
 
@@ -105,9 +105,9 @@ The following trademarks are the exclusive property of **Network Pro Strategies*
 
 ## 3. Restrictions on Branding and Graphics
 
-Licensing under CC BY 4.0 and GNU GPL **does not** grant rights to use Network Pro's trademarks, visual branding, domain names, logo designs, or other proprietary identifiers.
+Licensing under CC BY 4.0 or the GNU GPL **expressly excludes** any rights to use the Company’s trademarks, trade dress, logos, visual branding, or other proprietary identifiers.
 
-**Explicit, written permission is required for any use of visual assets or branding.** This includes use in derivative works, promotional materials, websites, or software that may imply association or endorsement.
+**Such elements are not part of the Licensed Material and remain the exclusive property of the Company.** Any use of these elements—including within derivative works or promotional content—requires the Company’s prior written consent.
 
 <sub>[Back to top](#top)</sub>
 
@@ -115,9 +115,9 @@ Licensing under CC BY 4.0 and GNU GPL **does not** grant rights to use Network P
 
 ## 4. Licensed Material Definition
 
-"Licensed Material" refers exclusively to the **public code and documentation** provided in Network Pro’s open repositories and websites, excluding third-party content, brand assets, and commercial backend systems.
+“Licensed Material” refers solely to the publicly available code and documentation distributed through the Company’s open repositories and websites. It expressly excludes all third-party content, proprietary brand assets (including logos, trademarks, and visual designs), and any internal or commercial backend systems.
 
-The company **Network Pro Strategies** itself is not licensed under the terms herein.
+For clarity, the Company itself is not licensed under, nor subject to, the terms of the open-source or content licenses described in this document.
 
 <sub>[Back to top](#top)</sub>
 
@@ -178,7 +178,7 @@ Permissions beyond the scope of this License—or instead of those permitted by 
 <sup>Formats:
 [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.txt) | [RDFa](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING-rdfa.xml) | [ODT](https://github.com/netwk-pro/netwk-pro-legal/raw/refs/heads/master/assets/license/COPYING.odt)</sup>
 
-Network Pro Strategies (Network Pro) is free software: you can redistribute it and/or modify it under the terms of the **GNU General Public License** ("GNU GPL") as published by the [Free Software Foundation](https://www.fsf.org/), either version 3 of the License, or (at your option) any later version.
+Network Pro Strategies (Network Pro&trade;) is free software: you can redistribute it and/or modify it under the terms of the **GNU General Public License** ("GNU GPL") as published by the [Free Software Foundation](https://www.fsf.org/), either version 3 of the License, or (at your option) any later version.
 
 This material is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
@@ -199,9 +199,11 @@ You should have received a copy of the GNU General Public License along with thi
 
 ## 9. Third-Party Code and Licenses
 
-Some components may incorporate or interact with third-party libraries or assets. **Each third-party component remains subject to its own license** and is not covered by Network Pro's licensing terms.
+Some components of the Licensed Material may include or interface with third-party libraries, frameworks, or assets. **Each third-party component is governed solely by its own license terms** and is expressly excluded from the scope of this document.
 
-Users are responsible for reviewing and complying with third-party license terms.
+The inclusion, reference, or linking of any third-party content **does not constitute endorsement, approval, or warranty** by the Company.
+
+**It is the user's responsibility** to review, understand, and comply with all applicable third-party licenses before use, modification, or distribution.
 
 <sub>[Back to top](#top)</sub>
 
@@ -209,12 +211,12 @@ Users are responsible for reviewing and complying with third-party license terms
 
 ## 9. Prohibited Uses
 
-The following are strictly prohibited without prior written consent:
+**The following activities are strictly prohibited and may constitute infringement or unfair competition under applicable law, unless explicitly authorized in writing by the Company:**
 
-- Use of any Network Pro trademarks, logos, domain names, or slogans
-- Representation or implication of endorsement by Network Pro
-- Misuse or misrepresentation of Network Pro intellectual property
-- Integration of branding into derivative or redistributed works
+- Use of any Company trademarks, logos, domain names, slogans, or other brand identifiers
+- Any representation—explicit or implied—that suggests endorsement, affiliation, or partnership with the Company
+- Misuse, unauthorized use, or misrepresentation of the Company’s intellectual property
+- Incorporation of any Company branding or protected identifiers into derivative works, forks, distributions, or promotional materials
 
 <sub>[Back to top](#top)</sub>
 
@@ -222,15 +224,11 @@ The following are strictly prohibited without prior written consent:
 
 ## 10. Modifications and Liability Disclaimer
 
-Any modifications to the Licensed Material are made at your own risk.
+Modifications, redistribution, or any use of the Licensed Material are performed entirely at your own risk.
 
-```markdown
-THE LICENSED MATERIAL IS PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND.
-NETWORK PRO DISCLAIMS ALL LIABILITY FOR DAMAGES ARISING OUT OF OR IN
-CONNECTION WITH USE, MODIFICATION, OR DISTRIBUTION OF THE LICENSED MATERIAL.
-```
+> THE LICENSED MATERIAL IS PROVIDED “AS IS” AND “AS AVAILABLE,” WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES. TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE COMPANY DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND ACCURACY.
 
-This includes, but is not limited to, implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
+**The Company shall not be liable for any direct, indirect, incidental, consequential, special, exemplary, or punitive damages arising from or related to the use, reproduction, modification, or distribution of the Licensed Material**—including, without limitation, any claims or disputes brought by third parties, whether in contract, tort, or otherwise..
 
 <sub>[Back to top](#top)</sub>
 
@@ -238,7 +236,7 @@ This includes, but is not limited to, implied warranties of merchantability, fit
 
 ## 11. Contact
 
-For legal inquiries or permission requests, contact us via our [Contact Form](https://contact.neteng.pro) or email at:  
+Contact the Company via our [contact form](https://contact.neteng.pro) or email:  
 📧 `support (at) neteng.pro`
 
 <sub>[Back to top](#top)</sub>
@@ -247,7 +245,7 @@ For legal inquiries or permission requests, contact us via our [Contact Form](ht
 
 ## 12. Revisions
 
-This legal document may be updated to comply with changes in law or policy. The revised version will be posted with an updated effective date.
+This legal page may be updated to comply with legal or operational changes. The current effective date is listed at the top of this document.
 
 <sub>[Back to top](#top)</sub>
 
