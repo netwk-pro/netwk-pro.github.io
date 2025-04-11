@@ -171,7 +171,7 @@ We may update these Terms of Use periodically. Changes will be posted on this pa
 <div style="font-size: 12px; font-weight: bold; text-align: center;">
 
 [Home](https://netwk.pro) &nbsp; | &nbsp; Terms of Use  
-[Privacy Policy](https://github.com/netwk-pro/netwk-pro-legal/blob/master/PRIVACY.md) &nbsp; | &nbsp; [Legal](https://github.com/netwk-pro/netwk-pro-legal/blob/master/LICENSE.md)
+[Privacy Policy](https://github.com/netwk-pro/netwk-pro-legal/blob/master/PRIVACY.md) &nbsp; | &nbsp; [Legal](https://netwk.pro/legal.html)
 
 </div>
 

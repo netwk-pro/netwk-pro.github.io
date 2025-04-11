@@ -533,6 +533,6 @@ either version 3 of the License, or (at your option) any later version.
 
 <span style="text-align: center; font-size: 14px; font-weight: bold;">
 
-[Terms and Conditions](https://github.com/NetEng-Pro/neteng-pro.github.io/blob/master/pages/terms.md) &nbsp; | &nbsp; [Copyright and Licensing](https://github.com/NetEng-Pro/neteng-pro.github.io/blob/master/LICENSE.md)
+[Terms and Conditions](https://github.com/NetEng-Pro/neteng-pro.github.io/blob/master/pages/terms.md) &nbsp; | &nbsp; [Legal](https://netwk.pro/legal.html)
 
 </span>
