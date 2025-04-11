@@ -103,6 +103,9 @@ jobs:
       contents: read
       packages: write
     steps:
+      - name: Login to npmjs registry
+        run: npm login --registry=https://registry.npmjs.org/ --scope=@networkpro --always-auth --auth-type=legacy --username "sundevil311" --authToken ${{ secrets.NPM_TOKEN }}
+
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
 
