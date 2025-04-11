@@ -104,7 +104,7 @@ jobs:
       packages: write
     steps:
       - name: Login to npmjs registry
-        run: npm login --registry=https://registry.npmjs.org/ --scope=@networkpro --always-auth --auth-type=legacy --username "sundevil311" --authToken ${{ secrets.NPM_TOKEN }}
+        run: npm login --registry=https://registry.npmjs.org/ --scope=@networkpro --always-auth --auth-type=legacy --username "sundevil311" --authToken ${{ secrets.NPM_NETPRO }}
 
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
@@ -156,7 +156,7 @@ jobs:
       packages: write
     steps:
       - name: Login to GitHub Package Registry
-        run: npm login --registry=https://npm.pkg.github.com/ --scope=@netwk-pro --always-auth --auth-type=legacy --username "sundevil311" --authToken ${{ secrets.GH_PAT }}
+        run: npm login --registry=https://npm.pkg.github.com/ --scope=@netwk-pro --always-auth --auth-type=legacy --username "sundevil311" --authToken ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
@@ -200,4 +200,4 @@ jobs:
         working-directory: ./dist
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
