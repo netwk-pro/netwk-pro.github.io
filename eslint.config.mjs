@@ -17,9 +17,11 @@ const IGNORED_FILES = [
   "**/dist/**",
   "**/node_modules/**",
   "**/assets/license/**",
+  "**/coverage/**",
   "**/babel.config.json",
   "**/package.json",
   "**/package-lock.json",
+  "**/stylelint.config.js",
 ];
 
 const GLOBALS = {

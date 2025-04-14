@@ -97,7 +97,6 @@ footer .container {
 .gh th {
   border-collapse: collapse;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: normal;
   overflow: hidden;
   padding: 10px 5px;
   word-break: normal;
@@ -142,7 +141,6 @@ footer .container {
 .soc th {
   border-collapse: collapse;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: normal;
   overflow: hidden;
   padding: 8px;
   word-break: normal;
@@ -186,10 +184,11 @@ footer .container {
 }
 
 .index2 {
-  font-size: 1.375em;
+  font-size: 1.25em;
   font-variant: small-caps;
-  line-height: 1.75em;
+  line-height: 1.625em;
   text-align: center;
+  letter-spacing: -0.015em;
 }
 
 .join {

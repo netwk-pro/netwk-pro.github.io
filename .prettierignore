@@ -14,9 +14,9 @@
 **/dist
 **/node_modules
 **/assets/license
+**/coverage
+**/build
 postcss.config.js
 eslint.config.mjs
 babel.config.json
 stylelint.config.js
-build
-coverage
