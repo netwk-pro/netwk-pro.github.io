@@ -186,9 +186,9 @@ footer .container {
 .index2 {
   font-size: 1.25em;
   font-variant: small-caps;
+  letter-spacing: -0.015em;
   line-height: 1.625em;
   text-align: center;
-  letter-spacing: -0.015em;
 }
 
 .join {

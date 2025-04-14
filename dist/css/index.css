@@ -33,10 +33,6 @@ footer .container,header .container{
   word-break:normal;
 }
 
-.gh th{
-  font-weight:400;
-}
-
 .gh .gh-tcell{
   text-align:center;
   vertical-align:middle;
@@ -66,10 +62,6 @@ footer .container,header .container{
   overflow:hidden;
   padding:8px;
   word-break:normal;
-}
-
-.soc th{
-  font-weight:400;
 }
 
 .soc .soc-fa{
@@ -106,9 +98,10 @@ footer .container,header .container{
 }
 
 .index2{
-  font-size:1.375em;
+  font-size:1.25em;
   font-variant:small-caps;
-  line-height:1.75em;
+  letter-spacing:-.015em;
+  line-height:1.625em;
 }
 
 .join{

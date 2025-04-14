@@ -83,7 +83,7 @@ export default merge(common, {
       patterns: [
         { from: "img", to: "img", globOptions: { dot: false } },
         { from: "css", to: "css", globOptions: { dot: false } },
-        { from: "legal", to: "legal", globOptions: { dot: false } },
+        { from: "html", to: "html", globOptions: { dot: false } },
         { from: "js/vendor", to: "js/vendor" },
         { from: "robots.txt", to: "robots.txt" },
         { from: "site.webmanifest", to: "site.webmanifest" },
@@ -95,7 +95,6 @@ export default merge(common, {
         { from: "favicon-512.png", to: "favicon-512.png" },
         { from: "legal.html", to: "legal.html" },
         { from: "terms.html", to: "terms.html" },
-        { from: "spotlight.html", to: "spotlight.html" },
         { from: "404.html", to: "404.html" },
         { from: "LICENSE.md", to: "LICENSE.md" },
         { from: "README.md", to: "README.md" },

@@ -8,14 +8,9 @@
 
 
 ### Custom Ignores ###
-.github/workflows/disabled/
 .orig/
-.webpack_cache/
-docs/
 python-venv/
-crypto.mjs
-server.mjs
-tests.mjs
+docs/
 
 
 ### Node ###
@@ -151,6 +146,7 @@ out
 ### Node Patch ###
 # Serverless Webpack directories
 .webpack/
+.webpack_cache/
 
 # Optional stylelint cache
 

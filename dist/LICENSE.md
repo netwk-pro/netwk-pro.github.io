@@ -51,7 +51,7 @@ Web: <https://bio.neteng.pro>
 # Legal, Copyright, and Licensing
 
 **Network Pro Strategies**  
-**Effective Date:** April 11, 2025
+**Effective Date:** April 14, 2025
 
 &nbsp;
 
@@ -156,8 +156,6 @@ Commons Attribution 4.0 International** ("CC BY 4.0")
 
 Per the terms of the License, you are free to distribute, remix, adapt, and build upon the Licensed Material for any purpose, even commercially. You must give appropriate credit, provide a link to the License, and indicate if changes were made.
 
-The Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable.
-
 Permissions beyond the scope of this License—or instead of those permitted by this License—may be available as further defined within this document.
 
 <code style="background: none; border: none; border-radius: 0; height: 50vh; outline: none; resize: none; width: 100%;">
@@ -179,8 +177,6 @@ Permissions beyond the scope of this License—or instead of those permitted by 
 [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.txt) | [RDFa](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING-rdfa.xml) | [ODT](https://github.com/netwk-pro/netwk-pro-legal/raw/refs/heads/master/assets/license/COPYING.odt)</sup>
 
 Network Pro Strategies (Network Pro&trade;) is free software: you can redistribute it and/or modify it under the terms of the **GNU General Public License** ("GNU GPL") as published by the [Free Software Foundation](https://www.fsf.org/), either version 3 of the License, or (at your option) any later version.
-
-This material is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this material. If not, see <[https://www.gnu.org/licenses/](https://www.gnu.org/licenses/)>.
 
@@ -228,7 +224,7 @@ Modifications, redistribution, or any use of the Licensed Material are performed
 
 > THE LICENSED MATERIAL IS PROVIDED “AS IS” AND “AS AVAILABLE,” WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES. TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE COMPANY DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND ACCURACY.
 
-**The Company shall not be liable for any direct, indirect, incidental, consequential, special, exemplary, or punitive damages arising from or related to the use, reproduction, modification, or distribution of the Licensed Material**—including, without limitation, any claims or disputes brought by third parties, whether in contract, tort, or otherwise..
+**The Company shall not be liable for any direct, indirect, incidental, consequential, special, exemplary, or punitive damages arising from or related to the use, reproduction, modification, or distribution of the Licensed Material**—including, without limitation, any claims or disputes brought by third parties, whether in contract, tort, or otherwise.
 
 <sub>[Back to top](#top)</sub>
 
@@ -236,7 +232,7 @@ Modifications, redistribution, or any use of the Licensed Material are performed
 
 ## 11. Contact
 
-Contact the Company via our [contact form](https://contact.neteng.pro) or email:  
+The Company may be contacted via our [contact form](https://contact.neteng.pro) or email at:  
 📧 `support (at) neteng.pro`
 
 <sub>[Back to top](#top)</sub>
@@ -254,11 +250,9 @@ This legal page may be updated to comply with legal or operational changes. The 
 ## 13. Attribution
 
 Website base structure provided by HTML5 Boilerplate:  
-<https://html5boilerplate.com/>
+<[https://html5boilerplate.com/](https://html5boilerplate.com/)>
 
 ```markdown
-################################################################################
-
 Copyright (c) HTML5 Boilerplate
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -292,13 +286,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 &nbsp;
 
-<div style="font-size: 12px; text-align: center;">
+<span style="font-size: 12px; text-align: center;">
 
 Copyright &copy; 2025  
 **[Network Pro Strategies](https://netwk.pro/)** (Network Pro&trade;)
 
-Network Pro&trade;, the shield logo, and the "Locking Down Networks" slogan are trademarks of Network Pro Strategies.
+Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slogan are [trademarks](#trademark) of Network Pro Strategies.
 
 Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
 
-</div>
+</span>

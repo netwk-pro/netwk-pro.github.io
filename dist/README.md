@@ -69,68 +69,26 @@ Our **blend of deep technical expertise and business insight** ensures that secu
 
 🔹 [Let’s connect](https://contact.neteng.pro) to discuss how we can help secure and strengthen your business today.
 
+&nbsp;
+
+|                                                                                                                      <img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/pgp-github.png" width="150px" height="150px" alt="PGP Key - github@sl.neteng.cc">                                                                                                                       |                                                                                                                    <img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/pgp-support.png" width="150px" height="150px" alt="PGP Key - support@neteng.pro">                                                                                                                     |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| **[github@sl.neteng.cc](https://keys.openpgp.org/search?q=github%40sl.neteng.cc)**<br /><b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/bin/github@sl.neteng.cc.aexpk" type="application/pgp-keys">aexpk</a> <b>&#448;</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/bin/github@sl.neteng.cc.asc" type="application/pgp-keys">asc</a> | **[support@neteng.pro](https://keys.openpgp.org/search?q=support%40neteng.pro)**<br /><b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/bin/support@neteng.pro.aexpk" type="application/pgp-keys">aexpk</a> <b>&#448;</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/bin/support@neteng.pro.asc" type="application/pgp-keys">asc</a> |
+
+| <img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/vcard.png" width="150px" height="150px" alt="vCard"> |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                        <b>vCard:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/bin/contact.vcf">vcf</a>                         |
+
 <sub>[Back to top](#top)</sub>
 
 ---
 
-<a name="about-me"></a>
-
-## 🚀 About Me
-
-**GitHub Profile:**  
-[https://github.com/SunDevil311](https://github.com/SunDevil311)
-
-I am a **Network Security & Cybersecurity Engineer** with **10+ years of experience** designing, implementing, and securing complex network infrastructures. My passion lies in advancing cybersecurity standards through continuous innovation, ensuring that businesses stay ahead of evolving threats with **secure, scalable, and efficient solutions**.
-
-With expertise in **global and regional projects**, I specialize in building resilient security architectures that fortify networks against modern cyber threats while optimizing performance.
-
-<!-- markdownlint-disable MD001 -->
-
-#### **Technologies & Systems I Specialize In:**
-
-<!-- markdownlint-enable MD001 -->
-
-- [Palo Alto Networks](https://www.paloaltonetworks.com)
-- [PAN-OS Next-Gen Firewalls](https://docs.paloaltonetworks.com/pan-os)
-- [Panorama](https://docs.paloaltonetworks.com/panorama)
-
-Let’s work together to **enhance your network security posture** and create a future-ready cybersecurity strategy.
-
-&nbsp;
-
-|                                                                                                                  <img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/pgp-github.png" width="150px" height="150px" alt="PGP Key - github@sl.neteng.cc">                                                                                                                   |                                                                                                                <img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/pgp-support.png" width="150px" height="150px" alt="PGP Key - support@neteng.pro">                                                                                                                 |
-| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| **[github@sl.neteng.cc](https://keys.openpgp.org/search?q=github%40sl.neteng.cc)**<br /><b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/github@sl.neteng.cc.aexpk" type="application/pgp-keys">aexpk</a> <b>&#448;</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/github@sl.neteng.cc.asc" type="application/pgp-keys">asc</a> | **[support@neteng.pro](https://keys.openpgp.org/search?q=support%40neteng.pro)**<br /><b>PGP Key:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/support@neteng.pro.aexpk" type="application/pgp-keys">aexpk</a> <b>&#448;</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/support@neteng.pro.asc" type="application/pgp-keys">asc</a> |
-
-| <img decoding="async" loading="lazy" src="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/img/qr/vcard.png" width="150px" height="150px" alt="vCard"> |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                          <b>vCard:</b> <a href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/contact.vcf">vcf</a>                           |
-
-&nbsp;
-
-## 🔗 Links
-
-|     [![linktr.ee](https://img.shields.io/badge/linktree-43E55E?style=for-the-badge&logo=linktree&logoColor=white)](https://bio.neteng.pro)     |     [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://lin.neteng.pro)      |
-| :--------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------: |
-| [![mastodon](https://img.shields.io/badge/Mastodon-6364FF?style=for-the-badge&logo=Mastodon&logoColor=white)](https://noc.social/@sundevil311) | [![xda](https://img.shields.io/badge/xda%20developers-2DAAE9?style=for-the-badge&logo=xda-developers&logoColor=white)](https://xda.neteng.pro) |
-
-&nbsp;
-
-<sub>[Back to top](#top) | [About Me](#about-me)</sub>
-
----
-
-| [![cc-by](https://forthebadge.com/images/badges/cc-by.png)](https://creativecommons.org/licenses/by/4.0/) | [![gnu-gpl](https://img.shields.io/badge/LICENSE-GPLv3-red?style=for-the-badge&labelColor=9b9b9b&color=d0021b)](https://www.gnu.org/licenses/gpl-3.0.html) | [![fsf](https://netwk.pro/img/fsf-member.png)](https://my.fsf.org/join?referrer=6725885) |
-| :-------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |
-
-&nbsp;
-
-<span style="font-size: 12px; font-weight: bold; text-align: center;">
+<div style="font-size: 12px; font-weight: bold; text-align: center;">
 
 [Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro-legal/blob/master/TERMS.md)  
 [Privacy Policy](https://github.com/netwk-pro/netwk-pro-legal/blob/master/PRIVACY.md) &nbsp; | &nbsp; [Legal](https://netwk.pro/legal.html)
 
-</span>
+</div>
 
 &nbsp;
 
@@ -139,8 +97,8 @@ Let’s work together to **enhance your network security posture** and create a 
 Copyright &copy; 2025  
 **[Network Pro Strategies](https://netwk.pro/)** (Network Pro&trade;)
 
-Network Pro&trade;, the shield logo, and the "Locking Down Networks" slogan are trademarks of Network Pro Strategies.
+Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slogan are [trademarks](https://netwk.pro/legal.html#trademark) of Network Pro Strategies.
 
-Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
 
 </span>
