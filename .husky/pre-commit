@@ -7,14 +7,15 @@
 # Run Mocha and Chai test suite
 npm test
 
-# Lint all JavaScript and TypeScript files
-npx eslint --cache --cache-location .eslintcache --ext .js,.jsx,.ts,.tsx --ignore-pattern node_modules/ --ignore-pattern dist/ --ignore-pattern coverage/ .
+# Lint all JavaScript files
+# Exclude .dist/js/ due to unknown issue
+npx eslint --cache --cache-location .eslintcache --ext .js,.cjs,.mjs --ignore-pattern node_modules/ --ignore-pattern dist/js/ --ignore-pattern coverage/ .
 
-# Run markdownlint-cli2 on all Markdown files and allow commit to proceed even if there are linting errors
-npx markdownlint-cli2 "**/*.{md,markdown}" "#node_modules/**" "#dist/**" "#pages/**" "#coverage/**" || true
+# Run markdownlint-cli2 on all Markdown files
+npx markdownlint-cli2 "**/*.{md,markdown}" "#node_modules/**" "#coverage/**"
 
-# Run stylelint against all CSS and SCSS files and allow commit to proceed even if there are linting errors
-npx stylelint "**/*.css" "**/*.scss" "!coverage/" || true
+# Run stylelint against all CSS files
+npx stylelint "**/*.css" "!node_modules/" "!dist/" "!coverage/"
 
 # Run prettier against all staged files
 FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
