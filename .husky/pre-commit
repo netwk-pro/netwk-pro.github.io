@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 # This file is part of Network Pro.
 
-# Run Mocha test framework
+# Run Mocha and Chai test suite
 npm test
 
 # Lint all JavaScript files

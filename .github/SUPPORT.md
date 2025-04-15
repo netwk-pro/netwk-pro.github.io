@@ -58,28 +58,28 @@ For support requests related to Network Pro Strategies (Network Pro&trade;), ple
 
 - [Contact Form](https://contact.neteng.pro)
 
+- [Privacy Rights Request Form](https://privacy.neteng.pro)
+
 - Email us at `support (at) neteng.pro`
 
 ---
 
 <span style="font-size: 12px; font-weight: bold; text-align: center;">
 
-[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro-legal/blob/master/TERMS.md)  
+[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://netwk.pro/terms-of-use.html)  
 [Privacy Policy](https://github.com/netwk-pro/netwk-pro-legal/blob/master/PRIVACY.md) &nbsp; | &nbsp; [Legal](https://netwk.pro/legal.html)
 
 </span>
 
 &nbsp;
 
-<!-- markdownlint-disable MD012 -->
-
 <span style="font-size: 12px; text-align: center;">
 
-Copyright &copy; 2025 by  
-**[Network Pro Strategies](https://netwk.pro/)** (Network Pro)
+Copyright &copy; 2025  
+**[Network Pro Strategies](https://netwk.pro/)** (Network Pro&trade;)
+
+Network Pro&trade;, the shield logo, and the "Locking Down Netwspan&trade;" slogan are [trademarks](https://netwk.pro/legal.html#trademark) of Network Pro Strategies.
 
 Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 </span>
-
-<!-- markdownlint-enable MD0012 -->

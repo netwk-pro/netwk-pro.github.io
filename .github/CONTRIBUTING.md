@@ -237,7 +237,7 @@ included in the project:
 &nbsp;
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project
-owners to license your work under the terms of [CC BY 4.0](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.md) and the [GNU GPL](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.md).
+owners to license your work under the terms of [CC BY 4.0](https://netwk.pro/legal.html#cc-by) and the [GNU GPL](https://netwk.pro/legal.html#gnu-gpl).
 
 <sub>[Back to top](#top)</sub>
 
@@ -245,7 +245,7 @@ owners to license your work under the terms of [CC BY 4.0](https://github.com/ne
 
 <span style="font-size: 12px; font-weight: bold; text-align: center;">
 
-[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro-legal/blob/master/legal/TERMS.md)  
+[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://netwk.pro/terms-of-use.html)  
 [Privacy Policy](https://github.com/netwk-pro/netwk-pro-legal/blob/master/PRIVACY.md) &nbsp; | &nbsp; [Legal](https://netwk.pro/legal.html)
 
 </span>

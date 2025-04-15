@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro
+
+name: Feature request
+description: Suggest new or updated features to include in Network Pro Strategies.
+title: "Suggest a new feature"
+labels: [feature]
+assignees: [SunDevil311]
+body:
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      description: Take a couple minutes to help our maintainers work faster.
+      options:
+        - label: I have [searched](https://github.com/netwk-pro/netwk-pro.github.io/issues?utf8=%E2%9C%93&q=is%3Aissue) for duplicate or closed issues
+          required: true
+        - label: I have read the [contributing guidelines](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/.github/CONTRIBUTING.md)
+          required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Provide detailed information for what we should add, including relevant links to prior art, screenshots, or live demos whenever possible.
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation and context
+      description: Tell us why this change is needed or helpful, and what problems it may help solve.
+    validations:
+      required: true

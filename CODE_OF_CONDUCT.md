@@ -66,7 +66,7 @@ Web: <https://bio.neteng.pro>
 
 ---
 
-<a name="pledge"></a>
+<section id="pledge">
 
 ## Our Pledge
 
@@ -80,7 +80,9 @@ identity and orientation.
 We pledge to act and interact in ways that contribute to an open, welcoming,
 diverse, inclusive, and healthy community.
 
-<a name="standards"></a>
+</section>
+
+<section id="standards">
 
 ## Our Standards
 
@@ -108,7 +110,9 @@ Examples of unacceptable behavior include:
 
 <sub>[Back to top](#top)</sub>
 
-<a name="response"></a>
+</section>
+
+<section id="response">
 
 ## Responsibilities
 
@@ -126,7 +130,9 @@ Network Pro Strategies reserves the right, at its sole discretion, to remove, ed
 
 <sub>[Back to top](#top)</sub>
 
-<a name="scope"></a>
+</section>
+
+<section id="scope">
 
 ## Scope
 
@@ -138,7 +144,9 @@ representative at an online or offline event.
 
 <sub>[Back to top](#top)</sub>
 
-<a name="enforce"></a>
+</section>
+
+<section id="enforce">
 
 ## Enforcement
 
@@ -150,7 +158,9 @@ Project maintainers who do not follow or enforce the Code of Conduct in good fai
 
 <sub>[Back to top](#top)</sub>
 
-<a name="attribute"></a>
+</section>
+
+<section id="attribute">
 
 ## Attribution
 
@@ -175,11 +185,13 @@ For answers to common questions about this code of conduct, see the FAQ at
 
 <sub>[Back to top](#top)</sub>
 
+</section>
+
 ---
 
 <div style="font-size: 12px; font-weight: bold; text-align: center;">
 
-[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro-legal/blob/master/TERMS.md)  
+[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://netwk.pro/terms-of-use.html)  
 [Privacy Policy](https://github.com/netwk-pro/netwk-pro-legal/blob/master/PRIVACY.md) &nbsp; | &nbsp; [Legal](https://netwk.pro/legal.html)
 
 </div>
