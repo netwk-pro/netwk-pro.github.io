@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 # This file is part of Network Pro.
 
-# Run Mocha and Chai test suite
+# Run Mocha test framework
 npm test
 
 # Lint all JavaScript files
@@ -12,10 +12,10 @@ npm test
 npx eslint --cache --cache-location .eslintcache --ext .js,.cjs,.mjs --ignore-pattern node_modules/ --ignore-pattern dist/js/ --ignore-pattern coverage/ .
 
 # Run markdownlint-cli2 on all Markdown files
-npx markdownlint-cli2 "**/*.{md,markdown}" "#node_modules/**" "#coverage/**"
+npx markdownlint-cli2 "**/*.{md,markdown}" "#node_modules/**" "#pages/**" "#coverage/**"
 
 # Run stylelint against all CSS files
-npx stylelint "**/*.css" "!node_modules/" "!dist/" "!coverage/"
+npx stylelint "**/*.css" "!node_modules/**" "!dist/**" "!coverage/**"
 
 # Run prettier against all staged files
 FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
