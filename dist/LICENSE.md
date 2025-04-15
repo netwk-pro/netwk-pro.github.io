@@ -78,6 +78,8 @@ Web: <https://bio.neteng.pro>
 
 ---
 
+**Formats Available:** [HTML](legal.html) | Markdown
+
 <a name="ownership"></a>
 
 ## 1. Copyright
@@ -146,13 +148,12 @@ This work is dual-licensed under:
 
 ## 6. Creative Commons Attribution 4.0 International
 
-<sup>Formats:
-[Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.txt) | [RDFa](https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0-rdfa.xml) | [XMP](https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0.xml)</sup>
+<sup>Formats: [HTML](https://github.com/netwk-pro/netwk-pro-legal/bblob/master/assets/license/CC-BY-4.0.html) | [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.txt) | [RDFa](https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0-rdfa.xml) | [XMP](https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0.xml)</sup>
 
-Network Pro Strategies (the "Licensed Material") is licensed under **Creative
-Commons Attribution 4.0 International** ("CC BY 4.0")
-[<img decoding="async" loading="lazy" style="display: inline-block; height: 18px !important; margin-left: 3px; vertical-align: text-bottom; text-decoration: none;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" />](https://creativecommons.org/licenses/by/4.0/)
-[<img decoding="async" loading="lazy" style="display: inline-block; height: 18px !important; margin-left: 3px; vertical-align: text-bottom; text-decoration: none;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY" />](https://creativecommons.org/licenses/by/4.0/).
+Network Pro&trade; (the "Licensed Material") is licensed under **Creative
+Commons Attribution 4.0 International** (CC BY 4.0)
+[<img decoding="async" loading="lazy" style="display: inline-block; height: 18px !important; margin-left: 3px; vertical-align: text-bottom; text-decoration: none;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="Creative Commons BY" />](https://creativecommons.org/licenses/by/4.0/)
+[<img decoding="async" loading="lazy" style="display: inline-block; height: 18px !important; margin-left: 3px; vertical-align: text-bottom; text-decoration: none;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="Creative Commons BY" />](https://creativecommons.org/licenses/by/4.0/).
 
 Per the terms of the License, you are free to distribute, remix, adapt, and build upon the Licensed Material for any purpose, even commercially. You must give appropriate credit, provide a link to the License, and indicate if changes were made.
 
@@ -173,10 +174,9 @@ Permissions beyond the scope of this License—or instead of those permitted by 
 
 ## 7. GNU General Public License (GPL)
 
-<sup>Formats:
-[Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.txt) | [RDFa](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING-rdfa.xml) | [ODT](https://github.com/netwk-pro/netwk-pro-legal/raw/refs/heads/master/assets/license/COPYING.odt)</sup>
+<sup>Formats: [HTML](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.html) | [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.txt) | [RDFa](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING-rdfa.xml) | [ODT](https://github.com/netwk-pro/netwk-pro-legal/raw/refs/heads/master/assets/license/COPYING.odt)</sup>
 
-Network Pro Strategies (Network Pro&trade;) is free software: you can redistribute it and/or modify it under the terms of the **GNU General Public License** ("GNU GPL") as published by the [Free Software Foundation](https://www.fsf.org/), either version 3 of the License, or (at your option) any later version.
+Network Pro&trade; is free software: you can redistribute it and/or modify it under the terms of the **GNU General Public License** (GNU GPL) as published by the [Free Software Foundation](https://www.fsf.org/), either version 3 of the License, or (at your option) any later version.
 
 You should have received a copy of the GNU General Public License along with this material. If not, see <[https://www.gnu.org/licenses/](https://www.gnu.org/licenses/)>.
 
@@ -232,7 +232,7 @@ Modifications, redistribution, or any use of the Licensed Material are performed
 
 ## 11. Contact
 
-The Company may be contacted via our [contact form](https://contact.neteng.pro) or email at:  
+The Company may be contacted via our [contact form](https://contact.neteng.pro) or by email at:  
 📧 `support (at) neteng.pro`
 
 <sub>[Back to top](#top)</sub>
@@ -279,14 +279,14 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 <div style="font-size: 12px; font-weight: bold; text-align: center;">
 
-[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://github.com/netwk-pro/netwk-pro-legal/blob/master/TERMS.md)  
+[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://netwk.pro/terms-of-use.html)  
 [Privacy Policy](https://github.com/netwk-pro/netwk-pro-legal/blob/master/PRIVACY.md) &nbsp; | &nbsp; Legal
 
 </div>
 
 &nbsp;
 
-<span style="font-size: 12px; text-align: center;">
+<div style="font-size: 12px; text-align: center;">
 
 Copyright &copy; 2025  
 **[Network Pro Strategies](https://netwk.pro/)** (Network Pro&trade;)
@@ -295,4 +295,4 @@ Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slog
 
 Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
 
-</span>
+</div>
