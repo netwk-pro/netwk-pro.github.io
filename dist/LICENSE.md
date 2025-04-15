@@ -148,7 +148,7 @@ This work is dual-licensed under:
 
 ## 6. Creative Commons Attribution 4.0 International
 
-<sup>Formats: [HTML](https://github.com/netwk-pro/netwk-pro-legal/bblob/master/assets/license/CC-BY-4.0.html) | [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.txt) | [RDFa](https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0-rdfa.xml) | [XMP](https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0.xml)</sup>
+<sup>Formats: [HTML](https://legal.netwk.pro/html/CC-BY-4.0.html) | [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.txt) | [RDFa](https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0-rdfa.xml) | [XMP](https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0.xml)</sup>
 
 Network Pro&trade; (the "Licensed Material") is licensed under **Creative
 Commons Attribution 4.0 International** (CC BY 4.0)
@@ -174,7 +174,7 @@ Permissions beyond the scope of this License—or instead of those permitted by 
 
 ## 7. GNU General Public License (GPL)
 
-<sup>Formats: [HTML](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.html) | [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.txt) | [RDFa](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING-rdfa.xml) | [ODT](https://github.com/netwk-pro/netwk-pro-legal/raw/refs/heads/master/assets/license/COPYING.odt)</sup>
+<sup>Formats: [HTML](https://legal.netwk.pro/html/COPYING.html) | [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.txt) | [RDFa](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING-rdfa.xml) | [ODT](https://github.com/netwk-pro/netwk-pro-legal/raw/refs/heads/master/assets/license/COPYING.odt)</sup>
 
 Network Pro&trade; is free software: you can redistribute it and/or modify it under the terms of the **GNU General Public License** (GNU GPL) as published by the [Free Software Foundation](https://www.fsf.org/), either version 3 of the License, or (at your option) any later version.
 
