@@ -10,11 +10,9 @@
   max-width:1200px;
   padding:0 12px;
 }
-
 footer,header{
   width:100%;
 }
-
 
 footer .container,header .container{
   margin:0 auto;
@@ -27,17 +25,9 @@ footer .container,header .container{
   margin:0 auto;
 }
 
-.soc td{
+.soc td,.soc th{
   border-collapse:collapse;
-  font-family:Arial, Helvetica, sans-serif;
-  overflow:hidden;
-  padding:8px;
-  word-break:normal;
-}
-
-.soc th{
-  border-collapse:collapse;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   overflow:hidden;
   padding:8px;
   word-break:normal;
@@ -49,11 +39,8 @@ footer .container,header .container{
 }
 
 @media screen and (width <= 767px){
-  .soc{
-    width:auto !important;
-  }
 
-  .soc col{
+  .soc,.soc col{
     width:auto !important;
   }
 
@@ -69,17 +56,9 @@ footer .container,header .container{
   border-spacing:0;
 }
 
-.foss td{
+.foss td,.foss th{
   border-collapse:collapse;
-  font-family:Arial, Helvetica, sans-serif;
-  overflow:hidden;
-  padding:10px 5px;
-  word-break:normal;
-}
-
-.foss th{
-  border-collapse:collapse;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   overflow:hidden;
   padding:10px 5px;
   word-break:normal;
@@ -91,11 +70,8 @@ footer .container,header .container{
 }
 
 @media screen and (width <= 767px){
-  .foss{
-    width:auto !important;
-  }
 
-  .foss col{
+  .foss,.foss col{
     width:auto !important;
   }
 
@@ -113,21 +89,17 @@ footer .container,header .container{
 
 .index1{
   font-style:italic;
-  font-weight:bold;
+  font-weight:700;
   letter-spacing:-.035em;
   line-height:2.125rem;
   text-align:center;
 }
 
 .index2{
-  font-size:1.5em;
-  font-variant:small-caps;
-  letter-spacing:-.035em;
-  line-height:1.75em;
   text-align:center;
 }
 
-.subhead{
+.index2,.subhead{
   font-size:1.5em;
   font-variant:small-caps;
   letter-spacing:-.035em;
@@ -136,7 +108,7 @@ footer .container,header .container{
 
 .bolditalic{
   font-style:italic;
-  font-weight:bold;
+  font-weight:700;
 }
 
 .bquote{
