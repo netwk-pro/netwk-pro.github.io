@@ -6,16 +6,20 @@ This file is part of Network Pro.
 ========================================================================= */
 
 import autoprefixer from "autoprefixer";
-import path from "path";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 import webpack from "webpack";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 export default {
-  mode: "none", // Explicitly set the mode (overridden by merge)
+  mode: "none",
   entry: {
     app: "./js/app.js",
   },
   output: {
-    path: path.resolve(process.cwd(), "dist"),
+    path: path.resolve(__dirname, "dist"),
     filename: "js/[name].[contenthash].js",
     chunkFilename: "js/[name].[contenthash].js",
     chunkFormat: "array-push",

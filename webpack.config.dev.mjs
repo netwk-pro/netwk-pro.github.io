@@ -5,37 +5,36 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================= */
 
-import path from "path";
 import { merge } from "webpack-merge";
 import common from "./webpack.common.mjs";
 
 export default merge(common, {
-  mode: "development", // Set the mode to development
-  devtool: "inline-source-map", // Enable inline source maps for better debugging
-  stats: "errors-only", // Show only errors in console
+  mode: "development",
+  devtool: "inline-source-map",
+  stats: "errors-only",
   infrastructureLogging: {
-    level: "error", // Suppress Webpack internal logs
+    level: "error",
   },
   devServer: {
-    liveReload: true, // Enable live reloading
-    hot: true, // Enable hot module replacement
-    open: true, // Automatically open the browser
+    liveReload: true,
+    hot: true,
+    open: true,
     client: { progress: true },
-    watchFiles: ["./**/*"], // More efficient live reloading
+    watchFiles: ["./**/*"],
     static: {
-      directory: path.resolve(process.cwd(), "./"), // Serve static files from the root directory
+      directory: new URL("./", import.meta.url).pathname,
     },
   },
   output: {
-    chunkFormat: "array-push", // Specify the chunk format
-    path: path.resolve(process.cwd(), "dist"), // Output directory for compiled assets
-    filename: "js/[name].bundle.js", // Output file name for better caching in development
-    chunkFilename: "js/[name].chunk.js", // File name for dynamically loaded chunks
-    clean: true, // Clean the output directory before emit
+    chunkFormat: "array-push",
+    path: new URL("./dist", import.meta.url).pathname,
+    filename: "js/[name].bundle.js",
+    chunkFilename: "js/[name].chunk.js",
+    clean: true,
   },
   cache: {
     type: "filesystem",
-    cacheDirectory: path.resolve(process.cwd(), ".webpack_cache"),
+    cacheDirectory: new URL("./.webpack_cache", import.meta.url).pathname,
   },
-  target: "web", // Ensure the target is set to 'web' for browser environments
+  target: "web",
 });
