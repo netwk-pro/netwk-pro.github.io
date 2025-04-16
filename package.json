@@ -38,7 +38,7 @@
     "clean": "rm -rf dist/* && npm update",
     "ci": "rm -rf dist/* node_modules package-lock.json && npm install",
     "start": "webpack serve --open --config webpack.config.dev.mjs",
-    "build": "webpack --config webpack.config.prod.mjs",
+    "build": "webpack --config webpack.config.prod.mjs && node scripts/optimize-html.js",
     "prepare": "husky"
   },
   "dependencies": {

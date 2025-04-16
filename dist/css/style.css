@@ -76,11 +76,9 @@ a:visited:hover{
 
 .center-nav{
   font-size:.875em;
+  line-height:1.125em;
   padding:10px;
   text-align:center;
-}
-.block,.center-nav{
-  line-height:1.125em;
 }
 .block{
   background:none;
@@ -88,6 +86,7 @@ a:visited:hover{
   border-radius:0;
   font-size:.75em;
   height:50vh;
+  line-height:1.125em;
   outline:none;
   resize:none;
   width:100%;
@@ -119,10 +118,17 @@ a:visited:hover{
 }
 
 .bnav td{
+  border-style:none;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:.875em;
   font-weight:bold;
+  line-height:1.125em;
+  overflow:hidden;
+  padding:10px;
+  word-break:normal;
 }
 
-.bnav td,.bnav th{
+.bnav th{
   border-style:none;
   font-family:Arial, Helvetica, sans-serif;
   font-size:.875em;
@@ -139,8 +145,11 @@ a:visited:hover{
 }
 
 @media screen and (width <= 767px){
+  .bnav{
+    width:auto !important;
+  }
 
-  .bnav,.bnav col{
+  .bnav col{
     width:auto !important;
   }
 
@@ -158,21 +167,24 @@ a:visited:hover{
 }
 
 .bnav2 td{
+  border-style:none;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:.875em;
   font-weight:bold;
+  line-height:1.125em;
+  overflow:hidden;
   padding:10px;
+  word-break:normal;
 }
 
-.bnav2 td,.bnav2 th{
+.bnav2 th{
   border-style:none;
   font-family:Arial, Helvetica, sans-serif;
   font-size:.875em;
   line-height:1.125em;
   overflow:hidden;
-  word-break:normal;
-}
-
-.bnav2 th{
   padding:12px;
+  word-break:normal;
 }
 
 .bnav2 .bnav2-cell{
@@ -182,8 +194,11 @@ a:visited:hover{
 }
 
 @media screen and (width <= 767px){
+  .bnav2{
+    width:auto !important;
+  }
 
-  .bnav2,.bnav2 col{
+  .bnav2 col{
     width:auto !important;
   }
 
@@ -275,11 +290,11 @@ a:visited:hover{
   
   blockquote,pre{
     border:1px solid #999;
+    page-break-inside:avoid;
   }
 
   
-  blockquote,
-  img,pre,tr{
+  img,tr{
     page-break-inside:avoid;
   }
 

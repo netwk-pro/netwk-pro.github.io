@@ -8,8 +8,6 @@ This file is part of Network Pro.
 import CompressionPlugin from "compression-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
-import { glob } from "glob";
-import HtmlWebpackPlugin from "html-webpack-plugin";
 import path, { dirname } from "path";
 import TerserPlugin from "terser-webpack-plugin";
 import { fileURLToPath } from "url";
@@ -20,19 +18,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default async function () {
-  const htmlFiles = await glob("./*.html");
-
-  const htmlPlugins = htmlFiles.map((file) => {
-    const filename = path.basename(file);
-    return new HtmlWebpackPlugin({
-      template: file,
-      filename,
-      minify: false,
-      inject: true,
-      scriptLoading: "defer",
-    });
-  });
-
   return merge(common, {
     mode: "production",
     output: {
@@ -104,7 +89,6 @@ export default async function () {
                 discardComments: {
                   removeAll: true,
                   removeAllButFirst: false,
-                  preserveAllSpecialComments: true,
                 },
                 normalizeWhitespace: false,
                 cssDeclarationSorter: false,
@@ -114,6 +98,9 @@ export default async function () {
                 minifyParams: false,
                 minifySelectors: false,
                 minifyFontValues: false,
+                discardUnused: false,
+                mergeRules: false,
+                restructureRules: false,
               },
             ],
           },
@@ -135,9 +122,9 @@ export default async function () {
         threshold: 10240,
         minRatio: 0.8,
       }),
-      ...htmlPlugins,
       new CopyPlugin({
         patterns: [
+          { from: "*.html", to: "[name][ext]" }, // Copy HTML files to root
           { from: "img", to: "img", globOptions: { dot: false } },
           { from: "css", to: "css", globOptions: { dot: false } },
           { from: "html", to: "html", globOptions: { dot: false } },

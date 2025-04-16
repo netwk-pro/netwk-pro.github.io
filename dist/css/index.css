@@ -27,7 +27,15 @@ footer .container,header .container{
   margin:0 auto;
 }
 
-.gh td,.gh th{
+.gh td{
+  border-collapse:collapse;
+  font-family:Arial, Helvetica, sans-serif;
+  overflow:hidden;
+  padding:10px 5px;
+  word-break:normal;
+}
+
+.gh th{
   border-collapse:collapse;
   font-family:Arial, Helvetica, sans-serif;
   overflow:hidden;
@@ -41,8 +49,11 @@ footer .container,header .container{
 }
 
 @media screen and (width <= 767px){
+  .gh{
+    width:auto !important;
+  }
 
-  .gh,.gh col{
+  .gh col{
     width:auto !important;
   }
 
@@ -58,7 +69,15 @@ footer .container,header .container{
   margin:0 auto;
 }
 
-.soc td,.soc th{
+.soc td{
+  border-collapse:collapse;
+  font-family:Arial, Helvetica, sans-serif;
+  overflow:hidden;
+  padding:8px;
+  word-break:normal;
+}
+
+.soc th{
   border-collapse:collapse;
   font-family:Arial, Helvetica, sans-serif;
   overflow:hidden;
@@ -72,8 +91,11 @@ footer .container,header .container{
 }
 
 @media screen and (width <= 767px){
+  .soc{
+    width:auto !important;
+  }
 
-  .soc,.soc col{
+  .soc col{
     width:auto !important;
   }
 
@@ -93,9 +115,6 @@ footer .container,header .container{
 .index1{
   font-style:italic;
   font-weight:bold;
-}
-
-.index1,.index2{
   text-align:center;
 }
 
@@ -104,6 +123,7 @@ footer .container,header .container{
   font-variant:small-caps;
   letter-spacing:-.015em;
   line-height:1.625em;
+  text-align:center;
 }
 
 .join{
