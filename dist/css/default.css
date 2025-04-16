@@ -10,9 +10,11 @@
   max-width:1200px;
   padding:0 12px;
 }
+
 footer,header{
   width:100%;
 }
+
 
 footer .container,header .container{
   margin:0 auto;
@@ -27,7 +29,7 @@ footer .container,header .container{
 
 .soc td,.soc th{
   border-collapse:collapse;
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   overflow:hidden;
   padding:8px;
   word-break:normal;
@@ -58,7 +60,7 @@ footer .container,header .container{
 
 .foss td,.foss th{
   border-collapse:collapse;
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   overflow:hidden;
   padding:10px 5px;
   word-break:normal;
@@ -89,7 +91,7 @@ footer .container,header .container{
 
 .index1{
   font-style:italic;
-  font-weight:700;
+  font-weight:bold;
   letter-spacing:-.035em;
   line-height:2.125rem;
   text-align:center;
@@ -108,7 +110,7 @@ footer .container,header .container{
 
 .bolditalic{
   font-style:italic;
-  font-weight:700;
+  font-weight:bold;
 }
 
 .bquote{

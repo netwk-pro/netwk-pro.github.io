@@ -20,7 +20,7 @@ hr{
 }
 
 pre{
-  font-family:monospace,monospace;
+  font-family:monospace, monospace;
   font-size:1em;
 }
 
@@ -34,12 +34,15 @@ abbr[title]{
   text-decoration:underline dotted;
 }
 
-b,strong{
+b,
+strong{
   font-weight:bolder;
 }
 
-code,kbd,samp{
-  font-family:monospace,monospace;
+code,
+kbd,
+samp{
+  font-family:monospace, monospace;
   font-size:1em;
 }
 
@@ -47,7 +50,8 @@ small{
   font-size:80%;
 }
 
-sub,sup{
+sub,
+sup{
   font-size:75%;
   line-height:0;
   position:relative;
@@ -66,31 +70,46 @@ img{
   border-style:none;
 }
 
-button,input,optgroup,select,textarea{
+button,
+input,
+optgroup,
+select,
+textarea{
   font-family:inherit;
   font-size:100%;
   line-height:1.15;
   margin:0;
 }
 
-button,input{
+button,
+input{
   overflow:visible;
 }
 
-button,select{
+button,
+select{
   text-transform:none;
 }
-[type=button],[type=reset],[type=submit],button{
+
+[type="button"],
+[type="reset"],
+[type="submit"],button{
   -webkit-appearance:button;
   appearance:button;
 }
 
-[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{
+
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner,button::-moz-focus-inner{
   border-style:none;
   padding:0;
 }
 
-[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{
+
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring,button:-moz-focusring{
   outline:1px dotted ButtonText;
 }
 
@@ -115,22 +134,24 @@ textarea{
   overflow:auto;
 }
 
-[type=checkbox],[type=radio]{
+[type="checkbox"],
+[type="radio"]{
   box-sizing:border-box;
   padding:0;
 }
 
-[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button{
   height:auto;
 }
 
-[type=search]{
+[type="search"]{
   -webkit-appearance:textfield;
   appearance:textfield;
   outline-offset:-2px;
 }
 
-[type=search]::-webkit-search-decoration{
+[type="search"]::-webkit-search-decoration{
   -webkit-appearance:none;
 }
 
