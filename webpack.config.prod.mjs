@@ -15,7 +15,6 @@ import path from "path";
 import TerserPlugin from "terser-webpack-plugin";
 import { fileURLToPath } from "url";
 import { merge } from "webpack-merge";
-import { GenerateSW } from "workbox-webpack-plugin"; // Service Worker integration
 import common from "./webpack.common.mjs";
 
 // Define __filename for ES module
@@ -157,35 +156,6 @@ export default merge(common, {
         { from: "LICENSE.md", to: "LICENSE.md" },
         { from: "README.md", to: "README.md" },
         { from: "CNAME", to: "." },
-      ],
-    }),
-    new GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true,
-      runtimeCaching: [
-        {
-          urlPattern:
-            /\.(?:html|js|css|png|jpg|jpeg|svg|gif|webp|woff2?|ttf|eot|ico|json)$/,
-          handler: "CacheFirst",
-          options: {
-            cacheName: "network-pro-assets",
-            expiration: {
-              maxEntries: 50,
-              maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
-            },
-          },
-        },
-        {
-          urlPattern: /^https:\/\/fonts\.(?:googleapis|gstatic)\.com\/.*/i,
-          handler: "StaleWhileRevalidate",
-          options: {
-            cacheName: "google-fonts",
-            expiration: {
-              maxEntries: 30,
-              maxAgeSeconds: 365 * 24 * 60 * 60, // 1 year
-            },
-          },
-        },
       ],
     }),
   ],
