@@ -39,6 +39,23 @@ export const sanitizeLogData = (data) => {
   }
 };
 
+// Service Worker registration
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.mjs")
+      .then((registration) => {
+        console.log(
+          "Service Worker registered with scope:",
+          registration.scope
+        );
+      })
+      .catch((error) => {
+        console.error("Service Worker registration failed:", error);
+      });
+  });
+}
+
 // Polyfill for 'self' to ensure it is defined
 (function (global) {
   const self = global.self || global;

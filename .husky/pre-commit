@@ -9,13 +9,13 @@ npm test
 
 # Lint all JavaScript files
 # Exclude .dist/js/ due to unknown issue
-npx eslint --cache --cache-location .eslintcache --ext .js,.cjs,.mjs --ignore-pattern node_modules/ --ignore-pattern dist/js/ --ignore-pattern coverage/ .
+npx eslint --cache --cache-location .eslintcache --ext .js,.cjs,.mjs --ignore-pattern node_modules/ --ignore-pattern dist/ --ignore-pattern coverage/ --ignore-pattern pages/ .
 
 # Run markdownlint-cli2 on all Markdown files
-npx markdownlint-cli2 "**/*.{md,markdown}" "#node_modules/**" "#pages/**" "#coverage/**"
+npx markdownlint-cli2 "**/*.{md,markdown}" "#node_modules/**" "#pages/**" "#coverage/**" "#dist/**/"
 
 # Run stylelint against all CSS files
-npx stylelint "**/*.css" "!node_modules/**" "!dist/**" "!coverage/**"
+npx stylelint "**/*.css" "!node_modules/**" "!dist/**" "!coverage/**" "!pages/**"
 
 # Run prettier against all staged files
 FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')

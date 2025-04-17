@@ -5,7 +5,6 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================= */
 
-import autoprefixer from "autoprefixer";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import webpack from "webpack";
@@ -50,18 +49,9 @@ export default {
             loader: "css-loader",
             options: { modules: { auto: true } }, // Auto-detect CSS Modules
           },
+          "postcss-loader", // Automatically references 'postcss.config.js'
           {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: [
-                  autoprefixer({
-                    add: true,
-                    remove: false,
-                  }),
-                ],
-              },
-            },
+            loader: "postcss-loader", // Automatically uses 'postcss.config.js'
           },
         ],
       },

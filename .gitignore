@@ -10,6 +10,7 @@
 ### Custom Ignores ###
 .orig/
 docs/
+pages/
 python-venv/
 
 
