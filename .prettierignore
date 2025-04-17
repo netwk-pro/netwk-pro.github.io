@@ -21,4 +21,3 @@ postcss.config.mjs
 eslint.config.mjs
 babel.config.json
 stylelint.config.js
-service-worker.mjs
