@@ -85,8 +85,6 @@ export default merge(common, {
   },
   optimization: {
     minimize: true, // Minify the output
-    usedExports: true, // Enable tree shaking by marking unused exports
-    sideEffects: false, // Ensure unused modules are dropped (requires "sideEffects" in package.json or this setting)
     runtimeChunk: "single", // Separate runtime code for better caching
     splitChunks: {
       chunks: "all", // Split all chunks (async and initial)

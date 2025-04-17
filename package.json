@@ -1,7 +1,6 @@
 {
   "name": "@networkpro/web",
-  "version": "0.10.4",
-  "sideEffects": false,
+  "version": "0.10.5",
   "private": false,
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
