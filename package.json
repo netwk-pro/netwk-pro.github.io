@@ -34,7 +34,8 @@
   "scripts": {
     "test": "mocha test/**/*.mjs",
     "test:coverage": "c8 mocha test/**/*.mjs",
-    "lint": "npx eslint && prettier --check .",
+    "lint": "eslint .",
+    "format": "prettier --check .",
     "fix": "npx eslint --fix && prettier --write .",
     "clean": "rm -rf dist/* && npm update",
     "ci": "rm -rf dist/* node_modules package-lock.json && npm install",
