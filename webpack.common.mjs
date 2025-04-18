@@ -28,7 +28,7 @@ export default {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: [
           {
@@ -49,9 +49,9 @@ export default {
             loader: "css-loader",
             options: { modules: { auto: true } }, // Auto-detect CSS Modules
           },
-          "postcss-loader", // Automatically references 'postcss.config.js'
+          "postcss-loader", // Automatically references 'postcss.config.mjs'
           {
-            loader: "postcss-loader", // Automatically uses 'postcss.config.js'
+            loader: "postcss-loader", // Automatically uses'postcss.config.mjs'
           },
         ],
       },
@@ -89,6 +89,6 @@ export default {
     }),
   ],
   resolve: {
-    extensions: [".js", ".json"],
+    extensions: [".mjs", ".js", ".cjs", ".json"],
   },
 };

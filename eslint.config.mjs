@@ -38,9 +38,9 @@ const ESLINT_RULES = {
   "mocha/no-exclusive-tests": "error",
   "mocha/no-skipped-tests": "warn",
   "mocha/no-hooks-for-single-case": "warn",
-  "indent": "off", // Turn off the 'indent' rule, managed by Prettier
-  "quotes": "off", // Turn off the 'quotes' rule, managed by Prettier
-  "semi": "off", // Turn off the 'semi' rule, managed by Prettier
+  "indent": "off", // Turn off the 'indent' rule, managed by prettier
+  "quotes": "off", // Turn off the 'quotes' rule, managed by prettier
+  "semi": "off", // Turn off the 'semi' rule, managed by prettier
 };
 
 export default [

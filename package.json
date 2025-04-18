@@ -1,6 +1,6 @@
 {
   "name": "@networkpro/web",
-  "version": "0.10.7",
+  "version": "0.10.8",
   "private": false,
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
@@ -36,7 +36,7 @@
     "lint": "eslint .",
     "format": "prettier --check .",
     "lint:format": "eslint . && prettier --check .",
-    "fix": "npx eslint --fix && prettier --write .",
+    "fix": "eslint --fix . && prettier --write .",
     "clean": "rm -rf dist/* && npm update",
     "ci": "rm -rf dist/* node_modules package-lock.json && npm install",
     "start": "webpack serve --open --config webpack.config.dev.mjs",
