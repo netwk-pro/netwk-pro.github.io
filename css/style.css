@@ -146,55 +146,6 @@ a:visited:hover {
   color: #7f6227;
 }
 
-.center-nav {
-  font-size: 0.875em;
-  line-height: 1.125em;
-  padding: 10px;
-  text-align: center;
-}
-
-/* code block for legal text */
-.block {
-  background: none;
-  border: none;
-  border-radius: 0;
-  font-size: 0.75em;
-  height: 50vh;
-  line-height: 1.125em;
-  outline: none;
-  resize: none;
-  width: 100%;
-}
-
-.prewrap {
-  display: block;
-  white-space: pre-wrap;
-}
-
-.emphasis {
-  font-style: italic;
-  font-weight: bold;
-}
-
-.hr-styled {
-  margin: auto;
-  width: 75%;
-}
-
-.center-text {
-  text-align: center;
-}
-
-.copyright {
-  font-size: 0.75em;
-  line-height: 1.125em;
-  text-align: center;
-}
-
-.visited {
-  color: #7f6227;
-}
-
 /*! ==========================================================================
    Helper classes
 =========================================================================== */
