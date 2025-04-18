@@ -14,6 +14,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import path from "path";
 import TerserPlugin from "terser-webpack-plugin";
 import { fileURLToPath } from "url";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"; // Import the Bundle Analyzer plugin
 import { merge } from "webpack-merge";
 import common from "./webpack.common.mjs";
 
@@ -159,6 +160,12 @@ export default merge(common, {
         { from: "README.md", to: "README.md" },
         { from: "CNAME", to: "." },
       ],
+    }),
+    new BundleAnalyzerPlugin({
+      // Add the Bundle Analyzer plugin
+      analyzerMode: "static", // Generate a static HTML file for the report
+      reportFilename: "bundle-report.html", // Name of the generated report file
+      openAnalyzer: false, // Do not automatically open the report
     }),
   ],
   module: {
