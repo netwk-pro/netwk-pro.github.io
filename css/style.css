@@ -185,108 +185,14 @@ a:visited:hover {
   text-align: center;
 }
 
-.bnav {
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin: 0 auto;
-}
-
-.bnav td {
-  border-style: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.875em;
-  font-weight: bold;
-  line-height: 1.125em;
-  overflow: hidden;
-  padding: 10px;
-  word-break: normal;
-}
-
-.bnav th {
-  border-style: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.875em;
-  line-height: 1.125em;
-  overflow: hidden;
-  padding: 10px;
-  word-break: normal;
-}
-
-.bnav .bnav-cell {
-  align-content: center;
-  text-align: center;
-  vertical-align: middle;
-}
-
-@media screen and (width <= 767px) {
-  .bnav {
-    width: auto !important;
-  }
-
-  .bnav col {
-    width: auto !important;
-  }
-
-  .bnav-wrap {
-    margin: auto 0;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: auto;
-  }
-}
-
-.bnav2 {
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin: 0 auto;
-}
-
-.bnav2 td {
-  border-style: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.875em;
-  font-weight: bold;
-  line-height: 1.125em;
-  overflow: hidden;
-  padding: 10px;
-  word-break: normal;
-}
-
-.bnav2 th {
-  border-style: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.875em;
-  line-height: 1.125em;
-  overflow: hidden;
-  padding: 12px;
-  word-break: normal;
-}
-
-.bnav2 .bnav2-cell {
-  align-content: center;
-  text-align: center;
-  vertical-align: middle;
-}
-
-@media screen and (width <= 767px) {
-  .bnav2 {
-    width: auto !important;
-  }
-
-  .bnav2 col {
-    width: auto !important;
-  }
-
-  .bnav2-wrap {
-    margin: auto 0;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: auto;
-  }
-}
-
 .copyright {
   font-size: 0.75em;
   line-height: 1.125em;
   text-align: center;
+}
+
+.visited {
+  color: #7f6227;
 }
 
 /*! ==========================================================================

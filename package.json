@@ -1,6 +1,7 @@
 {
   "name": "@networkpro/web",
-  "version": "0.10.8",
+  "sideEffects": false,
+  "version": "0.10.9",
   "private": false,
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
@@ -86,6 +87,7 @@
     "stylelint-config-standard-scss": "^14.0.0",
     "terser-webpack-plugin": "^5.3.11",
     "webpack": "^5.98.0",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0",
     "webpack-merge": "^5.10.0"

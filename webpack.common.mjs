@@ -15,12 +15,12 @@ const __dirname = dirname(__filename);
 export default {
   mode: "none", // Shared base configuration without specifying dev/prod mode
   entry: {
-    app: "./js/app.js",
+    app: "./js/app.mjs",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "js/[name].[contenthash].js",
-    chunkFilename: "js/[name].[contenthash].js",
+    filename: "js/[name].[contenthash].mjs",
+    chunkFilename: "js/[name].[contenthash].mjs",
     chunkFormat: "array-push",
     clean: true, // Cleans the 'dist' folder before each build
   },
@@ -57,6 +57,7 @@ export default {
   optimization: {
     usedExports: true, // Enable tree-shaking
     sideEffects: false,
+    concatenateModules: true, // Module concatenation
     splitChunks: {
       chunks: "all",
       minSize: 20000,

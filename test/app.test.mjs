@@ -6,7 +6,7 @@
 */
 
 import { expect } from "chai";
-import { sanitizeLogData } from "../js/app.js";
+import { sanitizeLogData } from "../js/app.mjs";
 
 describe("Log Sanitization Tests", () => {
   // Store original console.log

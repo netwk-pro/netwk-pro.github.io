@@ -61,9 +61,9 @@ const htmlPlugins = htmlFilePaths.map(
 export default merge(common, {
   mode: "production", // Enables production optimizations, including tree shaking
   output: {
-    filename: "js/[name].[contenthash].js", // Include content hash for long-term caching
+    filename: "js/[name].[contenthash].mjs", // Include content hash for long-term caching
     path: path.resolve(process.cwd(), "dist"),
-    chunkFilename: "js/[name].[contenthash].js", // Cache-busting for chunks
+    chunkFilename: "js/[name].[contenthash].mjs", // Cache-busting for chunks
     chunkFormat: "array-push",
     clean: true,
   },
@@ -83,7 +83,9 @@ export default merge(common, {
     maxAssetSize: 512000,
   },
   optimization: {
+    usedExports: true, // Marks used exports
     minimize: true, // Minify the output
+    concatenateModules: true, // Module concatenation
     runtimeChunk: "single", // Separate runtime code for better caching
     splitChunks: {
       chunks: "all", // Split all chunks (async and initial)
