@@ -75,7 +75,7 @@ export default merge(common, {
   },
   target: "web",
   resolve: {
-    extensions: [".mjs", ".js", ".cjs"], // Prioritize modern JavaScript files
+    extensions: [".mjs", ".js", ".cjs", ".json"], // Prioritize modern JavaScript files
   },
   performance: {
     hints: "warning",
@@ -162,18 +162,28 @@ export default merge(common, {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"], // Extract CSS into separate files
+        test: /\.(js|mjs)$/, // Match both .js and .mjs files
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env"],
+            },
+          },
+          "astroturf/loader", // Add CSS-in-JS loader
+        ],
       },
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader", // Transpile JavaScript for compatibility
-          options: {
-            presets: ["@babel/preset-env"],
+        test: /\.css$/i,
+        use: [
+          MiniCssExtractPlugin.loader, // Extract CSS into separate files
+          {
+            loader: "css-loader",
+            options: { modules: { auto: true } }, // Enable CSS Modules
           },
-        },
+          "postcss-loader", // Add PostCSS processing
+        ],
       },
     ],
   },

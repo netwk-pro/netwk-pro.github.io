@@ -102,9 +102,6 @@ This file is part of Network Pro.
 
     <link rel="manifest" href="site.webmanifest" />
     <meta name="theme-color" content="#ffc627" />
-
-    <meta http-equiv="Referrer-Policy" content="no-referrer" />
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
   </head>
 
   <body>
@@ -112,9 +109,7 @@ This file is part of Network Pro.
     <header id="header-nav">
       <div class="container">
         <nav class="center-nav">
-          <a rel="noopener noreferrer" href="https://netwk.pro/" target="_self"
-            >home</a
-          >
+          <a rel="noopener noreferrer" href="./" target="_self">home</a>
           &nbsp; | &nbsp;
           <a
             rel="noopener noreferrer"
@@ -197,19 +192,21 @@ This file is part of Network Pro.
 
           <hr />
 
-          <p
-            ><strong>Formats Available:</strong> &nbsp;<span
-              style="color: #7f6227"
-              >HTML</span
+          <section id="formats">
+            <p
+              ><strong>Formats Available:</strong> &nbsp;<span
+                style="color: #7f6227"
+                >HTML</span
+              >
+              |
+              <a
+                rel="nooopener noreferrer"
+                href="https://github.com/netwk-pro/netwk-pro-legal/blob/master/TERMS.md"
+                target="_blank"
+                >Markdown</a
+              ></p
             >
-            |
-            <a
-              rel="nooopener noreferrer"
-              href="https://github.com/netwk-pro/netwk-pro-legal/blob/master/TERMS.md"
-              target="_self"
-              >Markdown</a
-            ></p
-          >
+          </section>
 
           <section id="introduction">
             <h2>1. Introduction</h2>
@@ -219,6 +216,8 @@ This file is part of Network Pro.
               agree to be bound by these Terms of Use ("Terms"). If you do not
               agree to these Terms, please refrain from using our services.</p
             >
+
+            <span class="small-text"><a href="#top">Back to top</a></span>
           </section>
 
           <section id="platforms">
@@ -299,7 +298,7 @@ This file is part of Network Pro.
             <span class="small-text"><a href="#top">Back to top</a></span>
           </section>
 
-          <section id="indemnification>">
+          <section id="indemnification">
             <h2>7. Indemnification</h2>
             <p
               >You agree to indemnify, defend, and hold harmless the Company,
@@ -403,7 +402,7 @@ This file is part of Network Pro.
                   <td class="bnav-cell" colspan="2">
                     <a
                       rel="noopener noreferrer"
-                      href="https://netwk.pro/legal.html"
+                      href="./legal.html"
                       target="_self"
                       >Legal</a
                     ></td
@@ -426,8 +425,8 @@ This file is part of Network Pro.
                   <td class="bnav2-nav"
                     ><a
                       rel="noopener noreferrer"
-                      href="https://creativecommons.org/licenses/by/4.0/"
-                      target="_blank"
+                      href="./legal.html#cc-by"
+                      target="_self"
                       ><img
                         decoding="async"
                         loading="lazy"
@@ -438,8 +437,8 @@ This file is part of Network Pro.
                   <td class="bnav2-nav"
                     ><a
                       rel="noopener noreferrer"
-                      href="https://www.gnu.org/licenses/gpl-3.0.html"
-                      target="_blank"
+                      href="./legal.html#gnu-gpl"
+                      target="_self"
                       ><img
                         decoding="async"
                         loading="lazy"
@@ -455,8 +454,6 @@ This file is part of Network Pro.
         <!-- END BADGES -->
       </div>
     </div>
-
-    &nbsp;
 
     <!-- BEGIN FOOTER -->
     <footer id="licensing">
@@ -482,7 +479,7 @@ This file is part of Network Pro.
             Networks&trade;" slogan are
             <a
               rel="noopener noreferrer"
-              href="https://netwk.pro/legal.html#trademark"
+              href="./legal.html#trademark"
               target="_self"
               >trademarks</a
             >
@@ -492,7 +489,7 @@ This file is part of Network Pro.
           <p>
             Licensed under
             <a
-              href="https://creativecommons.org/licenses/by/4.0/"
+              href="./legal.html#cc-by"
               target="_blank"
               rel="license noopener noreferrer"
               style="display: inline-block"
@@ -534,7 +531,7 @@ This file is part of Network Pro.
             /></a>
             and the
             <a
-              href="https://www.gnu.org/licenses/gpl-3.0.html"
+              href="./legal.html#gnu-gpl"
               target="_blank"
               rel="license noopener noreferrer"
               ><b>GNU GPL</b></a

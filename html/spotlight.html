@@ -81,7 +81,9 @@ This file is part of Network Pro.
     <meta property="og:title" content="FOSS Spotlight — Network Pro" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://netwk.pro/html/spotlight.html" />
-    <meta property="og:image" content="img/banner-og-1200x630.png" />
+    <meta
+      property="og:image"
+      content="https://netwk.pro/img/banner-og-1200x630.png" />
     <meta property="og:image:alt" content="Network Pro Strategies" />
     <meta
       property="og:description"
@@ -101,7 +103,9 @@ This file is part of Network Pro.
     <meta
       name="twitter:description"
       content="FOSS Spotlight | Security, Networking, Privacy — Network Pro" />
-    <meta name="twitter:image" content="img/banner-og-1200x630.png" />
+    <meta
+      name="twitter:image"
+      content="https://netwk.pro/img/banner-og-1200x630.png" />
     <meta name="twitter:image:alt" content="Network Pro Strategies" />
     <!-- Meta Tags Generated via dnschecker.org -->
 
@@ -121,9 +125,6 @@ This file is part of Network Pro.
 
     <link rel="manifest" href="https://netwk.pro/site.webmanifest" />
     <meta name="theme-color" content="#ffc627" />
-
-    <meta http-equiv="Referrer-Policy" content="no-referrer" />
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
   </head>
 
   <body>
@@ -172,36 +173,116 @@ This file is part of Network Pro.
     <div class="full-width-section">
       <div class="container">
         <!-- BEGIN TITLE -->
-        <a name="top"></a>
-
-        <span class="small-text"
-          ><a
-            rel="noopener noreferrer"
-            href="https://spdx.dev/learn/handling-license-info/"
-            target="_blank"
-            >SPDX License Identifier</a
-          >: &nbsp;<code>CC-BY-4.0 OR GPL-3.0-or-later</code></span
+        <section name="top">
+          <span class="small-text"
+            ><a
+              rel="noopener noreferrer"
+              href="https://spdx.dev/learn/handling-license-info/"
+              target="_blank"
+              >SPDX License Identifier</a
+            >: &nbsp;<code>CC-BY-4.0 OR GPL-3.0-or-later</code></span
+          ></section
         >
 
-        <hgroup id="site-title">
+        <section id="site-title">
           <h1>FOSS Spotlight</h1>
           <p><strong>Weekly Highlights of Exceptional FOSS Projects</strong></p>
-        </hgroup>
+        </section>
         <!-- END TITLE -->
 
         &nbsp;
 
         <!-- BEGIN MAIN CONTENT -->
-        <div id="main-content">
+        <section id="main-content">
           <nav id="toc">
-            <h2>Table of Contents</h2>
+            <h3>Table of Contents</h3>
             <ul>
+              <li><a href="acode">Acode</a></li>
               <li><a href="#linksheet">LinkSheet Nightly</a></li>
               <li><a href="#urlcheck">URLCheck</a></li>
             </ul>
           </nav>
 
           <hr />
+
+          <section id="acode">
+            <div class="foss-wrap">
+              <table class="foss">
+                <tbody>
+                  <tr>
+                    <td class="foss-cell"
+                      ><img
+                        src="https://netwk.pro/img/posts/acode.png"
+                        width="50px"
+                        height="50px"
+                        alt="Acode"
+                    /></td>
+                    <td class="foss-cell"><h2>Acode</h2></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p
+              >Discover Acode, the open-source code editor that brings the power
+              of a full-fledged IDE to your Android device. Whether you're
+              tweaking HTML, crafting CSS, or debugging JavaScript, Acode has
+              you covered.</p
+            >
+
+            <p
+              >✨ <span class="bolditalic">Why Acode?</span><br />
+              ✔️ Lightweight & fast<br />
+              ✔️ Supports over 100 programming languages<br />
+              ✔️ Offline functionality—no internet needed<br />
+              ✔️ Integrated Git support<br />
+              ✔️ Customizable themes & syntax highlighting
+            </p>
+
+            <p
+              >Perfect for developers on the go, students, or anyone passionate
+              about coding and open-source software.</p
+            >
+
+            <p class="bquote"
+              >Note: We recommend you use only the F-Droid or GitHub versions,
+              as the Play Store version contains ads.</p
+            >
+
+            &nbsp;
+
+            <p
+              ><strong>GitHub:</strong>
+              <a
+                rel="noopener noreferrer"
+                href="https://github.com/Acode-Foundation/Acode"
+                target="_blank"
+                >github.com/Acode-Foundation/Acode</a
+              ><br />
+              <strong>F-Droid:</strong>
+              <a
+                rel="noopener noreferrer"
+                href="https://f-droid.org/packages/com.foxdebug.acode/"
+                target="_blank"
+                >f-droid.org/packages/com.foxdebug.acode</a
+              ><br />
+              <strong>Website:</strong>
+              <a
+                rel="noopener noreferrer"
+                href="https://acode.app/"
+                target="_blank"
+                >acode.pro</a
+              ></p
+            >
+
+            <span class="small-text"><a href="#top">Back to top</a></span>
+          </section>
+
+          &nbsp;
+
+          <hr class="hr-styled" />
+
+          &nbsp;
 
           <section id="linksheet">
             <div class="foss-wrap">
@@ -211,8 +292,8 @@ This file is part of Network Pro.
                     <td class="foss-cell"
                       ><img
                         src="https://netwk.pro/img/posts/linksheet.png"
-                        width="50px"
-                        height="50px"
+                        width="50"
+                        height="50"
                         alt="LinkSheet Nightly"
                     /></td>
                     <td class="foss-cell"><h2>LinkSheet Nightly</h2></td>
@@ -229,16 +310,16 @@ This file is part of Network Pro.
               control.</p
             >
 
-            <p><span class="bolditalic">Why LinkSheet?</span><br /> </p
-            ><p
-              ><b>Regain Choice:</b> Decide which app opens your links,
-              bypassing Android's default restrictions.<br />
-              <b>Custom Preferences:</b> Set your preferred browser or app for
-              specific hosts.<br />
-              <b>Enhanced Privacy:</b> Prevent unwanted app launches and ensure
-              links open where you intend.<br />
-              <b>User-Friendly Interface:</b> Enjoy a sleek, Material Design
-              that integrates seamlessly with your device.</p
+            <p
+              ><span class="bolditalic">Why LinkSheet?</span><br />
+              ✔️ <strong>Regain Choice:</strong> Decide which app opens your
+              links, bypassing Android's default restrictions.<br />
+              ✔️ <strong>Custom Preferences:</strong> Set your preferred browser
+              or app for specific hosts.<br />
+              ✔️ <strong>Enhanced Privacy:</strong> Prevent unwanted app
+              launches and ensure links open where you intend.<br />
+              ✔️ <strong>User-Friendly Interface:</strong> Enjoy a sleek,
+              Material Design that integrates seamlessly with your device.</p
             >
 
             <a
@@ -260,15 +341,18 @@ This file is part of Network Pro.
                 Obtanium App Config</a
               ></p
             >
+
+            &nbsp;
+
             <p
-              ><b>GitHub:</b>
+              ><strong>GitHub:</strong>
               <a
                 rel="noopener noreferrer"
                 href="https://github.com/LinkSheet/LinkSheet"
                 target="_blank">
                 github.com/LinkSheet/LinkSheet</a
               ><br />
-              <b>GitHub Releases:</b>
+              <strong>GitHub Releases:</strong>
               <a
                 rel="noopener noreferrer"
                 href="https://github.com/LinkSheet/nightly"
@@ -276,12 +360,14 @@ This file is part of Network Pro.
                 >github.com/LinkSheet/nightly</a
               ></p
             >
-            <sub><a href="#top">Back to top</a></sub>
+            <span class="small-text"><a href="#top">Back to top</a></span>
           </section>
 
           &nbsp;
 
           <hr class="hr-styled" />
+
+          &nbsp;
 
           <section id="urlcheck">
             <div class="foss-wrap">
@@ -308,9 +394,9 @@ This file is part of Network Pro.
               threats.</p
             >
 
-            <p><span class="bolditalic">🔍 Why you need it:</span></p>
             <p
-              >✔️ <b>Automatic URL screening:</b> Set it as your default browser
+              ><span class="bolditalic">🔍 Why you need it:</span><br />
+              ✔️ <b>Automatic URL screening:</b> Set it as your default browser
               for real-time link analysis.<br />
               ✔️ <b>Full transparency:</b> Know what's behind a link before you
               click.<br />
@@ -318,15 +404,17 @@ This file is part of Network Pro.
               minimal effort!
             </p>
 
+            &nbsp;
+
             <p
-              ><b>GitHub:</b>
+              ><strong>GitHub:</strong>
               <a
                 rel="noopener noreferrer"
                 href="https://github.com/TrianguloY/URLCheck"
                 target="_blank"
                 >github.com/TrianguloY/URLCheck</a
               ><br />
-              <b>F-Droid:</b>
+              <strong>F-Droid:</strong>
               <a
                 rel="noopener noreferrer"
                 href="https://f-droid.org/packages/com.trianguloy.urlchecker/"
@@ -334,7 +422,7 @@ This file is part of Network Pro.
                 >f-droid.org/packages/com.trianguloy.urlchecker/</a
               ></p
             >
-            <sub><a href="#top">Back to top</a></sub>
+            <span class="small-text"><a href="#top">Back to top</a></span>
           </section>
           <!-- END MAIN CONTENT -->
 
@@ -462,8 +550,8 @@ This file is part of Network Pro.
                     <td class="bnav2-nav"
                       ><a
                         rel="noopener noreferrer"
-                        href="https://creativecommons.org/licenses/by/4.0/"
-                        target="_blank"
+                        href="https://netwk.pro/legal.html#cc-by"
+                        target="_self"
                         ><img
                           decoding="async"
                           loading="lazy"
@@ -474,8 +562,8 @@ This file is part of Network Pro.
                     <td class="bnav2-nav"
                       ><a
                         rel="noopener noreferrer"
-                        href="https://www.gnu.org/licenses/gpl-3.0.html"
-                        target="_blank"
+                        href="https://netwk.pro/legal.html#gnu-gpl"
+                        target="_self"
                         ><img
                           decoding="async"
                           loading="lazy"
@@ -489,10 +577,8 @@ This file is part of Network Pro.
             </div>
           </section>
           <!-- END BADGES -->
-        </div>
+        </section>
       </div>
-
-      &nbsp;
 
       <!-- BEGIN FOOTER -->
       <footer id="licensing">
@@ -528,8 +614,8 @@ This file is part of Network Pro.
             <p>
               Licensed under
               <a
-                href="https://creativecommons.org/licenses/by/4.0/"
-                target="_blank"
+                href="https://netwk.pro/legal.html#cc-by"
+                target="_self"
                 rel="license noopener noreferrer"
                 style="display: inline-block"
                 ><b>CC BY 4.0</b></a
@@ -570,8 +656,8 @@ This file is part of Network Pro.
               /></a>
               and the
               <a
-                href="https://www.gnu.org/licenses/gpl-3.0.html"
-                target="_blank"
+                href="https://netwk.pro/legal.html#gnu-gpl"
+                target="_self"
                 rel="license noopener noreferrer"
                 ><b>GNU GPL</b></a
               >, as published by the

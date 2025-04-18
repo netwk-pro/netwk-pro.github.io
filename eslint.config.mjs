@@ -16,7 +16,6 @@ const IGNORED_FILES = [
   "**/.vscode/**",
   "**/dist/**",
   "**/node_modules/**",
-  "**/assets/license/**",
   "**/coverage/**",
   "**/pages/**",
   "**/babel.config.json",
@@ -26,7 +25,7 @@ const IGNORED_FILES = [
 
 const GLOBALS = {
   ...globals.browser,
-  ...globals.node, // Include Node.js globals
+  ...globals.node,
   ...globals.mocha,
   self: "readonly",
   location: "readonly",
@@ -46,7 +45,7 @@ const ESLINT_RULES = {
 export default [
   js.configs.recommended,
   {
-    files: ["**/*.js", "**/*.mjs", "**/*.cjs", "**/test/**/*.mjs"],
+    files: ["**/*.mjs", "**/*.js", "**/*.cjs", "**/test/**/*.mjs"],
     ignores: IGNORED_FILES,
     plugins: { mocha },
     languageOptions: {

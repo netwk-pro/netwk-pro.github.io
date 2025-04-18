@@ -13,7 +13,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default {
-  mode: "none",
+  mode: "none", // Shared base configuration without specifying dev/prod mode
   entry: {
     app: "./js/app.js",
   },
@@ -22,13 +22,13 @@ export default {
     filename: "js/[name].[contenthash].js",
     chunkFilename: "js/[name].[contenthash].js",
     chunkFormat: "array-push",
-    clean: true,
+    clean: true, // Cleans the 'dist' folder before each build
   },
-  target: "web",
+  target: "web", // Targeting browser environments
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|mjs)$/, // Matches both .js and .mjs files
         exclude: /node_modules/,
         use: [
           {
@@ -38,32 +38,29 @@ export default {
               cacheDirectory: true, // Enable caching for faster builds
             },
           },
-          "astroturf/loader",
+          "astroturf/loader", // CSS-in-JS loader
         ],
       },
       {
         test: /\.css$/,
         use: [
-          "style-loader",
+          "style-loader", // Injects CSS into the DOM
           {
             loader: "css-loader",
             options: { modules: { auto: true } }, // Auto-detect CSS Modules
           },
-          "postcss-loader", // Automatically references 'postcss.config.mjs'
-          {
-            loader: "postcss-loader", // Automatically uses'postcss.config.mjs'
-          },
+          "postcss-loader", // PostCSS processing
         ],
       },
     ],
   },
   optimization: {
-    usedExports: true,
+    usedExports: true, // Enable tree-shaking
     sideEffects: false,
     splitChunks: {
       chunks: "all",
       minSize: 20000,
-      maxSize: 100000, // Increased max chunk size
+      maxSize: 100000, // Increased max chunk size for better performance
       minChunks: 1,
       cacheGroups: {
         defaultVendors: {
@@ -79,7 +76,7 @@ export default {
         },
       },
     },
-    runtimeChunk: "single",
+    runtimeChunk: "single", // Extract runtime code for better caching
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -89,6 +86,6 @@ export default {
     }),
   ],
   resolve: {
-    extensions: [".mjs", ".js", ".cjs", ".json"],
+    extensions: [".mjs", ".js", ".cjs", ".json"], // Prioritize modern JavaScript extensions
   },
 };
