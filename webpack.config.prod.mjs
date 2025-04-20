@@ -130,14 +130,14 @@ export default merge(common, {
     new CompressionPlugin({
       filename: "[path][base].br", // Brotli compression
       algorithm: "brotliCompress",
-      test: /\.(js|css|html|svg)$/,
+      test: /\.(js|mjs|css|html|svg)$/,
       threshold: 10240, // Compress files larger than 10 KB
       minRatio: 0.7,
     }),
     new CompressionPlugin({
       filename: "[path][base].gz", // Gzip compression
       algorithm: "gzip",
-      test: /\.(js|css|html|svg)$/,
+      test: /\.(js|mjs|css|html|svg)$/,
       threshold: 10240,
       minRatio: 0.8,
     }),
