@@ -51,7 +51,7 @@ Web: <https://bio.neteng.pro>
 # Legal, Copyright, and Licensing
 
 **Network Pro Strategies**  
-**Effective Date:** April 20, 2025
+**Effective Date:** April 21, 2025
 
 &nbsp;
 
@@ -144,7 +144,7 @@ This work is dual-licensed under:
 
 <a name="cc-by"></a>
 
-## 6. Creative Commons Attribution 4.0 International
+## 6. Creative Commons License (CC BY 4.0)
 
 <sup>Formats: [HTML](https://legal.netwk.pro/html/CC-BY-4.0.html) | [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.txt) | [RDFa](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0-rdfa.xml) | [XMP](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.xml)</sup>
 
@@ -160,9 +160,9 @@ Permissions beyond the scope of this License—or instead of those permitted by 
 <code style="background: none; border: none; border-radius: 0; height: 50vh; outline: none; resize: none; width: 100%;">
 
 - SPDX Reference:  
-  <https://spdx.org/licenses/CC-BY-4.0.html>
+  [https://spdx.org/licenses/CC-BY-4.0.html](https://spdx.org/licenses/CC-BY-4.0.html)
 - Canonical URL:  
-  <https://creativecommons.org/licenses/by/4.0/>
+  [https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)
 
 </code>
 
@@ -181,9 +181,9 @@ You should have received a copy of the GNU General Public License along with thi
 <code style="background: none; border: none; border-radius: 0; height: 50vh; outline: none; resize: none; width: 100%;">
 
 - SPDX Reference:  
-   <https://spdx.org/licenses/GPL-3.0-or-later.html>
+   [https://spdx.org/licenses/GPL-3.0-or-later.html](https://spdx.org/licenses/GPL-3.0-or-later.html)
 - Canonical URL:  
-   <https://www.gnu.org/licenses/gpl-3.0.html>
+   [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)
 
 </code>
 
@@ -248,7 +248,7 @@ This legal page may be updated to comply with legal or operational changes. The 
 ## 13. Attribution
 
 Website base structure provided by HTML5 Boilerplate:  
-<[https://html5boilerplate.com/](https://html5boilerplate.com/)>
+&lt;[https://html5boilerplate.com/](https://html5boilerplate.com/)>&gt;
 
 ```markdown
 Copyright (c) HTML5 Boilerplate
