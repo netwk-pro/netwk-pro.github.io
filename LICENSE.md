@@ -51,7 +51,7 @@ Web: <https://bio.neteng.pro>
 # Legal, Copyright, and Licensing
 
 **Network Pro Strategies**  
-**Effective Date:** April 14, 2025
+**Effective Date:** April 20, 2025
 
 &nbsp;
 
@@ -66,19 +66,19 @@ Web: <https://bio.neteng.pro>
 3. [Restrictions on Branding and Graphics](#branding)
 4. [Licensed Material Definition](#licensed-material)
 5. [License Terms](#licenses)
-   - [Dual Licensing Notes](#dlnotes)
-6. [Creative Commons License (CC BY 4.0)](#cc-by)
-7. [GNU General Public License (GPL)](#gnu-gpl)
-8. [Third-Party Code and Licenses](#third-party)
-9. [Prohibited Uses](#prohibited-uses)
-10. [Modifications and Liability Disclaimer](#disclaimer)
-11. [Contact](#contact)
-12. [Revisions](#revisions)
-13. [Attribution](#attribution)
+6. [Dual Licensing Notes](#dlnotes)
+7. [Creative Commons License (CC BY 4.0)](#cc-by)
+8. [GNU General Public License (GPL)](#gnu-gpl)
+9. [Third-Party Code and Licenses](#third-party)
+10. [Prohibited Uses](#prohibited-uses)
+11. [Modifications and Liability Disclaimer](#disclaimer)
+12. [Contact](#contact)
+13. [Revisions](#revisions)
+14. [Attribution](#attribution)
 
 ---
 
-**Formats Available:** [HTML](legal.html) | Markdown
+**Formats Available:** [HTML](./legal.html) | Markdown
 
 <a name="ownership"></a>
 
@@ -132,11 +132,9 @@ This work is dual-licensed under:
 - [Creative Commons Attribution 4.0 International (CC BY 4.0)](#cc-by)
 - [GNU General Public License v3.0 or later (GNU GPL)](#gnu-gpl)
 
-&nbsp;
-
 <a name="dlnotes"></a>
 
-### **Dual Licensing Notes**
+## 6. Dual Licensing Notes
 
 - You may choose to use the work under either license, or both where appropriate.
 - See Creative Commons FAQ: [Separate agreements](https://creativecommons.org/faq/#can-i-enter-into-separate-or-supplemental-agreements-with-users-of-my-work)
@@ -148,7 +146,7 @@ This work is dual-licensed under:
 
 ## 6. Creative Commons Attribution 4.0 International
 
-<sup>Formats: [HTML](https://legal.netwk.pro/html/CC-BY-4.0.html) | [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.txt) | [RDFa](https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0-rdfa.xml) | [XMP](https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0.xml)</sup>
+<sup>Formats: [HTML](https://legal.netwk.pro/html/CC-BY-4.0.html) | [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.txt) | [RDFa](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0-rdfa.xml) | [XMP](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.xml)</sup>
 
 Network Pro&trade; (the "Licensed Material") is licensed under **Creative
 Commons Attribution 4.0 International** (CC BY 4.0)
@@ -279,8 +277,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 <div style="font-size: 12px; font-weight: bold; text-align: center;">
 
-[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://netwk.pro/terms-of-use.html)  
-[Privacy Policy](https://netwk.pro/privacy.html) &nbsp; | &nbsp; Legal
+[Home](./) &nbsp; | &nbsp; [Terms of Use](./terms-of-use.html)  
+[Privacy Policy](./privacy.html) &nbsp; | &nbsp; Legal
 
 </div>
 
@@ -293,6 +291,6 @@ Copyright &copy; 2025
 
 Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slogan are [trademarks](#trademark) of Network Pro Strategies.
 
-Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
+Licensed under **[CC BY 4.0](#cc-by)** and the **[GNU GPL](#gnu-gpl)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
 
 </div>
