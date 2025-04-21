@@ -14,6 +14,7 @@ pages/
 python-venv/
 dist/bundle-report.html
 
+
 ### Node ###
 # Logs
 logs

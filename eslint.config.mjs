@@ -18,7 +18,6 @@ const IGNORED_FILES = [
   "**/node_modules/**",
   "**/coverage/**",
   "**/pages/**",
-  "**/babel.config.json",
   "**/package.json",
   "**/package-lock.json",
 ];
