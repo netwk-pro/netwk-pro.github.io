@@ -9,13 +9,13 @@ npm test
 
 # Lint all JavaScript files
 # Exclude .dist/js/ due to unknown issue
-npx eslint --cache --cache-location .eslintcache --ext .js,.cjs,.mjs --ignore-pattern node_modules/ --ignore-pattern dist/ --ignore-pattern coverage/ --ignore-pattern pages/ .
+npx eslint --cache --cache-location .eslintcache --ext .js,.cjs,.mjs --ignore-pattern node_modules/ --ignore-pattern dist/ --ignore-pattern coverage/ --ignore-pattern .cache/ --ignore-pattern .webpack_cache/ --ignore-pattern site/ --ignore-pattern docs_raw/ .
 
 # Run markdownlint-cli2 on all Markdown files
-npx markdownlint-cli2 "**/*.{md,markdown}" "#node_modules/**" "#pages/**" "#coverage/**" "#dist/**"
+npx markdownlint-cli2 "**/*.{md,markdown}" "#node_modules/**" "#pages/**" "#coverage/**" "#dist/**" "#.cache/**" "#.webpack_cache/**" "#site/**" "#docs_raw/**"
 
 # Run stylelint against all CSS files
-npx stylelint "**/*.css" "!node_modules/**" "!dist/**" "!coverage/**" "!pages/**"
+npx stylelint "**/*.css" "!node_modules/**" "!dist/**" "!coverage/**" "!docs_raw/**" "!.cache" "!.webpack_cache" "!site" "!docs_raw"
 
 # Run prettier against all staged files
 FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')

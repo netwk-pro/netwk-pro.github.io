@@ -77,7 +77,7 @@ jobs:
             ${{ runner.os }}-node-lts-
             ${{ runner.os }}-node-
 
-      - name: Install dependencies
+      - name: Install Node.js dependencies
         run: npm ci
 
       - name: Run tests using Mocha and Chai test suite
@@ -87,8 +87,22 @@ jobs:
         run: npm run lint:format
         continue-on-error: true
 
-      - name: Build project
+      - name: Build Node.js project
         run: npm run build
+
+      # MkDocs Integration Begins
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install MkDocs and plugins
+        run: |
+          pip install mkdocs mkdocs-material
+
+      - name: Build MkDocs documentation
+        run: mkdocs build --strict
+      # MkDocs Integration Ends
 
       - name: Ensure dist directory exists
         run: mkdir -p dist

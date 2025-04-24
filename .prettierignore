@@ -7,16 +7,19 @@
 
 .*
 **/*.xml
-**/.vscode
 **/.git
 **/.svn
 **/.hg
+**/.cache
+**/.webpack_cache
+**/.vscode
+**/assets/license
+**/build
+**/coverage
 **/dist
 **/node_modules
-**/assets/license
-**/coverage
-**/build
-**/pages
+**/site
+**/docs_raw
 postcss.config.mjs
 eslint.config.mjs
 babel.config.json

@@ -1,13 +1,22 @@
+---
+title: Secure Secure Shell
+summary: Secure shell (SSHD) hardening guide.
+tags:
+  - security
+  - documentation
+---
+
+<!-- markdownlint-disable-file -->
+
 # Secure Secure Shell
 
-> <span style="font-size: small;">**_Originally published on 1/4/2015 as "Secure Secure Shell" by [stribika](https://github.com/stribika) at:  
-> https://blog.stribik.technology/2015/01/04/secure-secure-shell.html_**</span>
+> <div style="font-size: small;">**_Originally published on 1/4/2015 as "Secure Secure Shell" by [stribika](https://github.com/stribika) at:  
+> https://blog.stribik.technology/2015/01/04/secure-secure-shell.html_**
 >
-> <span style="font-size: small;">Mirrored to preserve information. Minor changes have been made. This is noted where applicable. Also see:  
-> https://security.stackexchange.com/questions/143442/what-are-ssh-keygen-best-practices</span>
-
-> > 📝 **_NOTE:_** Despite this article's age, I've yet to come across a better source of information with regard to SSH configuration.  
-> > ~ SunDevil311 ~
+> Mirrored to preserve information. Minor changes have been made. This is noted where applicable. Also see:  
+> <https://security.stackexchange.com/questions/143442/what-are-ssh-keygen-best-practices>
+>
+> > 📝 **_NOTE:_** Despite this article's age, we've yet to come across a better source of information with regard to SSH configuration.</div>
 
 - [Skip to the good part.](#sshd)
 
@@ -451,7 +460,7 @@ You can be even more careful by starting a new sshd instance on a different port
 Can you make these changes?
 If the answer is yes, then...
 
-![NSA Happy Dance](/assets/nsa-happy-dance.png "Happy Dance!!")
+![NSA Happy Dance](https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/nsa-happy-dance.png "Happy Dance!!")
 
 If the answer is no, it's probably due to compatibility problems.
 You can try to convince the other side to upgrade their security and turn it into a yes.
@@ -519,20 +528,10 @@ I promise not to use `git push -f`.
 [bug779880]: <https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=779880>  
 [sloth]: <https://www.mitls.org/downloads/transcript-collisions.pdf>
 
----
+<div style="font-size: 12px; text-align: center;">
 
-<code style="height: 50vh; width: 100%; background: transparent; border: none; border-radius: 0; resize: none; outline: none;">
+<p>Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slogan are <a href="./Legal/#trademark" target="_self">trademarks</a> of Network Pro Strategies.</p>
 
-**[Network Pro](https://netwk.pro/)** (NetEng-Pro), a Free/Libre and Open Source Software Community  
-Copyright &copy; 2024-2025 **[Scott Lopez](https://bio.neteng.pro)**
+<p>Licensed under <a href="./Legal/#cc-by" target="_self"><strong>CC BY 4.0</strong></a> and the <a href="./Legal/#gnu-gpl" target="_self"><strong>GNU GPL</strong></a>, as published by the <a rel="noopener noreferrer" href="https://fsf.org" target="_blank">Free Software Foundation</a>, either version 3 of the License, or (at your option) any later version.</p>
 
-Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the Free Software Foundation,  
-either version 3 of the License, or (at your option) any later version.
-
-</code>
-
-<span style="text-align: center; font-size: 14px; font-weight: bold;">
-
-[Terms and Conditions](https://github.com/NetEng-Pro/neteng-pro.github.io/blob/master/pages/terms.md) &nbsp; | &nbsp; [Legal](https://netwk.pro/legal.html)
-
-</span>
+</div>

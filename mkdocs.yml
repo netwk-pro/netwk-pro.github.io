@@ -1,5 +1,9 @@
 site_name: Network Pro Strategies
-site_url: https://netwk.pro
+site_url: https://netwk.pro/docs/
+repo_url: https://github.com/netwk-pro/netwk-pro.github.io
+repo_name: netwk-pro/netwk-pro.github.io
+docs_dir: docs_raw
+site_dir: dist/docs
 
 theme:
   name: material
@@ -7,42 +11,41 @@ theme:
   font: false
   logo: img/logo.png
   favicon: img/favicon.png
-
   palette:
-    primary: cyan
-    accent: light blue
-
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
+      primary: amber
+      accent: yellow
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
-
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: amber
+      accent: yellow
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
-
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: amber
+      accent: yellow
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-
   features:
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
-    - navigation.tabs.sticky
     - toc.follow
     - toc.integrate
     - navigation.top
     - search.suggest
 
 extra:
+  base_url: /docs/
   consent:
     title: Cookie Consent
     description: >-
@@ -70,3 +73,11 @@ plugins:
   - privacy
   - search
   - tags
+
+nav:
+  - README.md
+  - Legal, Copyright, and Licensing: legal.md
+  - Contributing:
+      - conduct.md
+  - Security:
+      - secure-secure-shell.md
