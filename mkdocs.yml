@@ -1,7 +1,7 @@
 site_name: Network Pro Strategies
 site_url: https://netwk.pro/docs/
 repo_url: https://github.com/netwk-pro/netwk-pro.github.io
-repo_name: netwk-pro/netwk-pro.github.io
+repo_name: netwk-pro.github.io
 docs_dir: docs_raw
 site_dir: dist/docs
 

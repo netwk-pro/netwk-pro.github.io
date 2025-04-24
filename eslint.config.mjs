@@ -24,10 +24,6 @@ const IGNORED_FILES = [
   "**/node_modules/**",
   "coverage/**",
   "**/coverage/**",
-  "site/**",
-  "**/site/**",
-  "docs_raw/**",
-  "**/docs_raw/**",
   "package.json",
   "package-lock.json"
 ];

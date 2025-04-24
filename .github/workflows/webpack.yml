@@ -83,10 +83,6 @@ jobs:
       - name: Run tests using Mocha and Chai test suite
         run: npm test
 
-      - name: Check linting and formatting
-        run: npm run lint:format
-        continue-on-error: true
-
       - name: Build Node.js project
         run: npm run build
 

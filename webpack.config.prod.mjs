@@ -24,7 +24,7 @@ const __filename = fileURLToPath(import.meta.url);
 // Recursively find all HTML files, excluding specific directories
 const findHtmlFiles = (
   dir,
-  excludeDirs = ["node_modules", "dist", "coverage"]
+  excludeDirs = ["node_modules", "dist", "coverage", "docs_raw"]
 ) => {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const entryPath = path.resolve(dir, entry.name);

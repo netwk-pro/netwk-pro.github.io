@@ -14,7 +14,11 @@ tags:
 
 <a name="top"></a>
 
+<!-- markdownlint-disable MD025 -->
+
 # Contributor Covenant Code of Conduct
+
+<!-- markdownlint-enable MD025 -->
 
 **Network Pro Strategies**  
 **Effective Date:** 3/21/2025
