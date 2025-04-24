@@ -1,0 +1,72 @@
+site_name: Network Pro Strategies
+site_url: https://netwk.pro
+
+theme:
+  name: material
+  language: en
+  font: false
+  logo: img/logo.png
+  favicon: img/favicon.png
+
+  palette:
+    primary: cyan
+    accent: light blue
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - toc.follow
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+
+extra:
+  consent:
+    title: Cookie Consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+    cookies:
+      analytics:
+        name: Google Analytics
+        checked: false
+      github:
+        name: GitHub
+        checked: false
+    actions:
+      - reject
+      - accept
+      - manage
+
+copyright: >
+  Copyright &copy; 2025 Network Pro Strategies (Network Pro&trade;) –
+  <a href="#__consent">Change cookie settings</a>
+
+plugins:
+  - privacy
+  - search
+  - tags
