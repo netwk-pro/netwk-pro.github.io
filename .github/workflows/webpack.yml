@@ -96,9 +96,9 @@ jobs:
         run: |
           pip install mkdocs mkdocs-material mkdocs-rss-plugin
 
-      # Temporary workaround for erroneous MkDocs config warning
+      # Strict mode temporarily disabled as workaround for mkdocs-material
       - name: Build MkDocs documentation
-        run: mkdocs build --strict 2>/dev/null
+        run: mkdocs build
       # MkDocs Integration Ends
 
       - name: Ensure dist directory exists
