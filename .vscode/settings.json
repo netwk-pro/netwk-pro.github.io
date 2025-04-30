@@ -49,6 +49,16 @@
     "#attribute",
     "./Legal.md#trademark",
     "./Legal/",
-    "#sshd"
+    "#sshd",
+    "#1-intro",
+    "#2-scope",
+    "#3-disclaimer",
+    "#4-risk",
+    "#5-liability",
+    "#7-client",
+    "#8-law",
+    "#9-acceptance",
+    "#10-exceptions",
+    "#11-changes"
   ]
 }

@@ -1,7 +1,7 @@
 site_name: Network Pro Strategies
 site_url: https://netwk.pro/docs/
-repo_url: https://github.com/netwk-pro/netwk-pro.github.io
-repo_name: netwk-pro.github.io
+repo_url: https://github.com/netwk-pro/netwk-pro-blog
+repo_name: GitHub
 docs_dir: docs_raw
 site_dir: dist/docs
 
@@ -39,8 +39,9 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
+    - navigation.indexes
     - toc.follow
-    - toc.integrate
+    #- toc.integrate
     - navigation.top
     - search.suggest
 
@@ -59,11 +60,27 @@ extra:
         checked: false
       github:
         name: GitHub
-        checked: false
+        checked: true
     actions:
       - reject
       - accept
       - manage
+  social:
+    - icon: fontawesome/brands/instagram
+      name: Network Pro on Instagram
+      link: https://instagram.com/netwk_pro/
+    - icon: fontawesome/brands/facebook
+      name: Network Pro on Facebook
+      link: https://facebook.com/neteng.pro/
+    - icon: fontawesome/brands/linkedin
+      name: Network Pro on LinkedIn
+      link: https://linkedin.com/company/netwk-pro/
+    - icon: fontawesome/brands/mastodon
+      name: Network Pro on Mastoon
+      link: https://noc.social/@neteng_pro/
+    - icon: fontawesome/solid/at
+      name: Contact Us
+      link: https://contact.neteng.pro/
 
 copyright: >
   Copyright &copy; 2025 Network Pro Strategies (Network Pro&trade;) –
@@ -72,12 +89,29 @@ copyright: >
 plugins:
   - privacy
   - search
-  - tags
+  - meta
+  - blog:
+      #blog_toc: true
+      archive_date_format: MMMM yyyy
+  - tags:
+      tags_file: tags.md
+  - rss:
+      match_path: "blog/posts/.*"
+      date_from_meta:
+        as_creation: date.created
+        as_update: date.updated
 
 nav:
-  - README.md
-  - Legal, Copyright, and Licensing: legal.md
+  - About Us: README.md
+  - Blog:
+      - blog/index.md
+  - Legal Documentation:
+      - legal.md
+      - privacy.md
+      - terms-use.md
+      - terms-conditions.md
   - Contributing:
       - conduct.md
-  - Security:
-      - secure-secure-shell.md
+  - Tags:
+      - tags.md
+  - Back to Website: https://netwk.pro/

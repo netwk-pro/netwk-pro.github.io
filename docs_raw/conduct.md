@@ -1,31 +1,28 @@
 ---
+date:
+  created: 2025-03-21
+  updated: 2025-04-30
 title: Contributor Covenant Code of Conduct
 summary: The Contributor Covenant Code of Conduct for Network Pro Strategies public repositories.
-authors:
-  - Scott Lopez
 tags:
   - code-of-conduct
   - network-pro
   - documentation
 ---
 
-[SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info/):
-`CC-BY-4.0 OR GPL-3.0-or-later`
+<sup>[SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info/):
+`CC-BY-4.0 OR GPL-3.0-or-later`</sup>
 
 <a name="top"></a>
 
-<!-- markdownlint-disable MD025 -->
-
 # Contributor Covenant Code of Conduct
 
-<!-- markdownlint-enable MD025 -->
+<!-- markdownlint-disable-file -->
 
 **Network Pro Strategies**  
 **Effective Date:** 3/21/2025
 
 &nbsp;
-
-## Contents
 
 - [Our Pledge](#pledge)
 - [Our Standards](#standards)
@@ -151,8 +148,8 @@ For answers to common questions about this code of conduct, see the FAQ at
 
 <div style="font-size: 12px; text-align: center;">
 
-<p>Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slogan are <a href="./Legal/#trademark" target="_self">trademarks</a> of Network Pro Strategies.</p>
+<p>Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slogan are <a href="../legal/#trademark" target="_self">trademarks</a> of Network Pro Strategies.</p>
 
-<p>Licensed under <a href="./Legal/#cc-by" target="_self"><strong>CC BY 4.0</strong></a> and the <a href="./Legal/#gnu-gpl" target="_self"><strong>GNU GPL</strong></a>, as published by the <a rel="noopener noreferrer" href="https://fsf.org" target="_blank">Free Software Foundation</a>, either version 3 of the License, or (at your option) any later version.</p>
+<p>Licensed under <a href="../legal/#trademark" target="_self"><strong>CC BY 4.0</strong></a> and the <a href="../legal/#trademark" target="_self"><strong>GNU GPL</strong></a>, as published by the <a rel="noopener noreferrer" href="https://fsf.org" target="_blank">Free Software Foundation</a>, either version 3 of the License, or (at your option) any later version.</p>
 
 </div>

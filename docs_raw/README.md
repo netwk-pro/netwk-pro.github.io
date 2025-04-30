@@ -1,24 +1,25 @@
 ---
+date:
+  created: 2025-01-01
+  updated: 2025-04-30
 title: About Us
 summary: Learn more about Network Pro Strategies (Network Pro&trade;).
 authors:
-  - Scott Lopez
+  - team
 tags:
   - about
   - network-pro
   - documentation
 ---
 
-[SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info/):
-`CC-BY-4.0 OR GPL-3.0-or-later`
+<sup>[SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info/):
+`CC-BY-4.0 OR GPL-3.0-or-later`</sup>
 
 <a name="top"></a>
 
-<!-- markdownlint-disable MD025 -->
-
 # Network Pro Strategies
 
-<!-- markdownlint-enable MD025 -->
+<!-- markdownlint-disable-file -->
 
 </section>
 
@@ -58,6 +59,6 @@ You can find our PGP keys and a vCard containing our contact information for you
 
 <p>Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slogan are <a href="./Legal/#trademark" target="_self">trademarks</a> of Network Pro Strategies.</p>
 
-<p>Licensed under <a href="./Legal/#cc-by" target="_self"><strong>CC BY 4.0</strong></a> and the <a href="./Legal/#gnu-gpl" target="_self"><strong>GNU GPL</strong></a>, as published by the <a rel="noopener noreferrer" href="https://fsf.org" target="_blank">Free Software Foundation</a>, either version 3 of the License, or (at your option) any later version.</p>
+<p>Licensed under <a href="./Legal/#trademark" target="_self"><strong>CC BY 4.0</strong></a> and the <a href="./Legal/#trademark" target="_self"><strong>GNU GPL</strong></a>, as published by the <a rel="noopener noreferrer" href="https://fsf.org" target="_blank">Free Software Foundation</a>, either version 3 of the License, or (at your option) any later version.</p>
 
 </div>

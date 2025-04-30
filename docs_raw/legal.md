@@ -1,29 +1,34 @@
 ---
+date:
+  created: 2025-04-21
+  updated: 2025-04-30
 title: Legal, Copyright, and Licensing
 summary: Legal, copyright, and licensing information for Network Pro Strategies public repositories.
 authors:
-  - Scott Lopez
+  - team
 tags:
   - legal
+  - usage
+  - copyright
+  - trademark
+  - licensing
   - network-pro
   - documentation
 ---
 
-<!-- markdownlint-disable-file -->
-
-[SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info/):
-`CC-BY-4.0 OR GPL-3.0-or-later`
+<sup>[SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info/):
+`CC-BY-4.0 OR GPL-3.0-or-later`</sup>
 
 <a name="top"></a>
 
 # Legal, Copyright, and Licensing
 
+<!-- markdownlint-disable-file -->
+
 **Network Pro Strategies**  
 **Effective Date:** April 21, 2025
 
 &nbsp;
-
-### Table of Contents
 
 1. [Copyright](#ownership)
 2. [Trademark Ownership](#trademark)
@@ -42,7 +47,7 @@ tags:
 
 ---
 
-**Formats Available:** [HTML](https://netwk.pro/legal.html) | Markdown
+**Formats Available:** [HTML](https://netwk.pro/legal.html) | <span style="visited">Markdown</span>
 
 <a name="ownership"></a>
 

@@ -1,14 +1,21 @@
 ---
+date:
+  created: 2015-01-04
+  updated: 2025-04-30
 title: Secure Secure Shell
 summary: Secure shell (SSHD) hardening guide.
+authors:
+  - team
+categories:
+  - Security
 tags:
   - security
-  - documentation
+  - post
 ---
 
-<!-- markdownlint-disable-file -->
-
 # Secure Secure Shell
+
+<!-- markdownlint-disable-file -->
 
 > <div style="font-size: small;">**_Originally published on 1/4/2015 as "Secure Secure Shell" by [stribika](https://github.com/stribika) at:  
 > https://blog.stribik.technology/2015/01/04/secure-secure-shell.html_**
@@ -24,6 +31,8 @@ You may have heard that the NSA can decrypt SSH at least some of the time.
 If you have not, then read the [latest batch of Snowden documents][snowden-docs] now. All of it. This post will still be here when you finish. My goal with this post here is to make NSA analysts sad.
 
 TL;DR: Scan this post for fixed width fonts, these will be the config file snippets and commands you have to use.
+
+<!-- more -->
 
 _Warning_: You will need a recent OpenSSH version.
 It should work with 6.5 but I have only tested 6.7 and connections to Github.
@@ -530,8 +539,8 @@ I promise not to use `git push -f`.
 
 <div style="font-size: 12px; text-align: center;">
 
-<p>Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slogan are <a href="./Legal/#trademark" target="_self">trademarks</a> of Network Pro Strategies.</p>
+<p>Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slogan are <a href="../../../../../Legal/#trademark" target="_self">trademarks</a> of Network Pro Strategies.</p>
 
-<p>Licensed under <a href="./Legal/#cc-by" target="_self"><strong>CC BY 4.0</strong></a> and the <a href="./Legal/#gnu-gpl" target="_self"><strong>GNU GPL</strong></a>, as published by the <a rel="noopener noreferrer" href="https://fsf.org" target="_blank">Free Software Foundation</a>, either version 3 of the License, or (at your option) any later version.</p>
+<p>Licensed under <a href="../../../../../Legal/#trademark" target="_self"><strong>CC BY 4.0</strong></a> and the <a href="../../../../../Legal/#trademark" target="_self"><strong>GNU GPL</strong></a>, as published by the <a rel="noopener noreferrer" href="https://fsf.org" target="_blank">Free Software Foundation</a>, either version 3 of the License, or (at your option) any later version.</p>
 
 </div>

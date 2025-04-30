@@ -1,16 +1,19 @@
 {
   "name": "@networkpro/web",
   "sideEffects": false,
-  "version": "0.11.1",
+  "version": "0.12.0",
   "private": false,
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
-    "networking",
     "security",
+    "networking",
     "privacy",
     "cybersecurity",
     "advisory",
-    "consulting"
+    "consulting",
+    "android",
+    "linux",
+    "blog"
   ],
   "homepage": "https://netwk.pro",
   "bugs": {
@@ -37,7 +40,8 @@
     "lint": "eslint --ignore-pattern .cache/** --ignore-pattern node_modules/** --ignore-pattern .webpack_cache/** --ignore-pattern dist/** --config eslint.config.mjs .",
     "format": "prettier --check .",
     "lint:format": "npm run lint && npm run format",
-    "fix": "eslint --ignore-pattern .cache/** --ignore-pattern node_modules/** --ignore-pattern .webpack_cache/** --ignore-pattern dist/** --config eslint.config.mjs --fix . && prettier --write .",
+    "lint:fix": "eslint --ignore-pattern .cache/** --ignore-pattern node_modules/** --ignore-pattern .webpack_cache/** --ignore-pattern dist/** --config eslint.config.mjs --fix .",
+    "format:fix": "prettier --write .",
     "clean": "rm -rf dist/* && npm update",
     "ci": "rm -rf dist/* node_modules package-lock.json && npm install",
     "start": "webpack serve --open --config webpack.config.dev.mjs",
