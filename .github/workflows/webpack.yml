@@ -94,7 +94,7 @@ jobs:
 
       - name: Install MkDocs and plugins
         run: |
-          pip install mkdocs mkdocs-material
+          pip install mkdocs mkdocs-material mkdocs-rss-plugin
 
       - name: Build MkDocs documentation
         run: mkdocs build --strict
