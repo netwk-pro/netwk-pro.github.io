@@ -55,19 +55,29 @@ Web: <https://bio.neteng.pro>
 [![Build Webpack, Publish to Registries](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/webpack.yml/badge.svg?branch=master)](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/webpack.yml) [![Deploy to GitHub Pages](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/upload.yml/badge.svg)](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/upload.yml)  
 [![npm Version](https://img.shields.io/npm/v/%40networkpro%2Fweb?registry_uri=https%3A%2F%2Fregistry.npmjs.com&style=flat&logo=npm&logoSize=auto&labelColor=fffff&color=0c7ebe)](https://www.npmjs.com/package/@networkpro/web) [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/CODE_OF_CONDUCT.md)
 
-## **Securing Your Business with Expertise & Innovation**
+## Security That Respects You
 
-At Network Pro&trade;, we bring **over a decade of expertise** in networking, cybersecurity, information security, and IT to help businesses stay secure, compliant, and resilient. We specialize in **network security, cybersecurity, and privacy consulting**, offering both **strategic advisory services and hands-on implementation** to protect critical infrastructure and minimize risk.
+At **Network Pro Strategies (Network Pro&trade;)**, we deliver network security, cybersecurity, and digital privacy consulting with clarity, credibility, and care. We believe that real security doesn’t have to come at the cost of user autonomy, and that privacy-minded solutions can be both practical and powerful.
 
-### **Why Network Pro&trade;?**
+Our approach is built on a simple principle: **the best security is the one that fits.** That means we don’t push ideologies—we apply what works. We advocate for and implement **free and open source solutions** where they offer competitive functionality, control, and visibility. When proprietary platforms are better suited, we deploy them responsibly and securely—ensuring every recommendation is grounded in **technical merit**, **scalability**, and **client goals**.
 
-✔ **Security with a Business Focus** – Our approach goes beyond just protection. We integrate cutting-edge security solutions with your business objectives, ensuring optimized operations and long-term resilience.
+### **What We Do**
 
-✔ **Expert-Led Consulting & Implementation** – Whether you need strategic guidance or real-world deployment, we tailor solutions to fit your unique security challenges.
+As a remote-first consultancy, we support clients across industries and geographies with a focus on:
 
-✔ **Advocacy & Education** – We’re committed to empowering businesses, policymakers, and the public with the knowledge and tools needed to navigate today’s complex digital landscape.
+- **Network Hardening & Perimeter Defense**
+- **Firewall Architecture & Policy Optimization**
+- **Cloud Security & Zero Trust Implementation**
+- **Secure Infrastructure Design & Implementation**
+- **Risk Reduction & Security Posture Assessment**
 
-Our **blend of deep technical expertise and business insight** ensures that security is not just a safeguard&mdash;it’s a **strategic advantage** that enhances efficiency, customer trust, and operational excellence.
+Our consulting engagements range from tactical one-off solutions to strategic, long-term partnerships. Whether it’s helping a business segment its internal network, lock down its cloud footprint, or plan scalable defenses—we deliver clear value, with zero fluff.
+
+We also believe education is a core pillar of real-world security. That’s why we invest in raising awareness—across both technical and general audiences—on best practices in digital privacy, secure design, and threat mitigation.
+
+**Network Pro&trade; exists to bring strong, thoughtful security to organizations that value integrity—without sacrificing agility or trust.** We don’t just secure infrastructure. We secure confidence.
+
+&nbsp;
 
 🔹 [Let’s connect](https://contact.neteng.pro) to discuss how we can help secure and strengthen your business today.
 

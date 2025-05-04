@@ -1,7 +1,7 @@
 ---
 date:
   created: 2015-01-04
-  updated: 2025-04-30
+  updated: 2025-05-04
 title: Secure Secure Shell
 summary: Secure shell (SSHD) hardening guide.
 authors:
@@ -17,13 +17,21 @@ tags:
 
 <!-- markdownlint-disable-file -->
 
-> <div style="font-size: small;">**_Originally published on 1/4/2015 as "Secure Secure Shell" by [stribika](https://github.com/stribika) at:  
-> https://blog.stribik.technology/2015/01/04/secure-secure-shell.html_**
+<div style="font-size: small; font-style: italic;">
+
+> **Originally published on 1/4/2015 by [stribika](https://github.com/stribika) at:  
+> [https://blog.stribik.technology/2015/01/04/secure-secure-shell.html](https://blog.stribik.technology/2015/01/04/secure-secure-shell.html)**
 >
-> Mirrored to preserve information. Minor changes have been made. This is noted where applicable. Also see:  
+> Mirrored to preserve information. Minor changes have been made, and this is noted where applicable. Also see:  
 > <https://security.stackexchange.com/questions/143442/what-are-ssh-keygen-best-practices>
->
-> > 📝 **_NOTE:_** Despite this article's age, we've yet to come across a better source of information with regard to SSH configuration.</div>
+
+</div>
+
+<div style="font-size: small;">
+
+> > 📝 **_NOTE:_** Despite this article's age, we've yet to come across a better source of information with regard to SSH configuration.
+
+</div>
 
 - [Skip to the good part.](#sshd)
 
@@ -88,22 +96,22 @@ k = KDF(s) k = KDF(s)</code></pre>
 
 ## <a id="sshd">SSHD Configuration</a>
 
-> Emphasis added, it was not present in the originally published article.  
-> Key exchange **1** (curve25519-sha256) is ideal, **8** is also acceptable.
+> **_NOTE:_** Emphasis added, it was not present in the originally published article.  
+> Key exchange **1** (curve25519-sha256) alone is ideal, **8** is also acceptable for interoperability.
 
 OpenSSH supports 11 key exchange protocols:
 
 1. **[curve25519-sha256][libsshdoc]: ECDH over [Curve25519][curve25519] with SHA2**
-1. ~~[diffie-hellman-group1-sha1][rfc4253]: 1024 bit DH with SHA1~~
-1. ~~[diffie-hellman-group14-sha1][rfc4253]: 2048 bit DH with SHA1~~
+1. [diffie-hellman-group1-sha1][rfc4253]: 1024 bit DH with SHA1
+1. [diffie-hellman-group14-sha1][rfc4253]: 2048 bit DH with SHA1
 1. [diffie-hellman-group14-sha256][dh-draft]: 2048 bit DH with SHA2
 1. [diffie-hellman-group16-sha512][dh-draft]: 4096 bit DH with SHA2
 1. [diffie-hellman-group18-sha512][dh-draft]: 8192 bit DH with SHA2
-1. ~~[diffie-hellman-group-exchange-sha1][rfc4419]: Custom DH with SHA1~~
+1. [diffie-hellman-group-exchange-sha1][rfc4419]: Custom DH with SHA1
 1. **_[diffie-hellman-group-exchange-sha256][rfc4419]: Custom DH with SHA2_**
-1. ~~ecdh-sha2-nistp256: ECDH over NIST P-256 with SHA2~~
-1. ~~ecdh-sha2-nistp384: ECDH over NIST P-384 with SHA2~~
-1. ~~ecdh-sha2-nistp521: ECDH over NIST P-521 with SHA2~~
+1. ecdh-sha2-nistp256: ECDH over NIST P-256 with SHA2
+1. ecdh-sha2-nistp384: ECDH over NIST P-384 with SHA2
+1. ecdh-sha2-nistp521: ECDH over NIST P-521 with SHA2
 
 We have to look at 3 things here:
 
@@ -121,6 +129,8 @@ We have to look at 3 things here:
 We are left with **1** and **8**, as well as **4-6** which were added in [OpenSSH 7.3][73release].
 **1** is better and it's perfectly OK to only support that but for interoperability (with Eclipse, WinSCP), **8** can be included.
 
+> **_NOTE:_**: 8 should no longer be necessary in newer versions of WinSCP. If in doubt, test with only 1 first. Add 8 if it won't connect otherwise.
+
 Recommended `/etc/ssh/sshd_config` snippet:
 
 <pre><code id="server-kex">KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256</code></pre>
@@ -133,6 +143,8 @@ Recommended `/etc/ssh/ssh_config` snippet:
 
 Host *
     KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256</code></pre>
+
+> **_NOTE:_** GitHub should no longer need a separate setting, as they've transitioned away from SSH keys. They should not require an exception regardless.
 
 If you chose to enable **8**, open `/etc/ssh/moduli` if exists, and delete lines where the 5th column is less than 2000.
 
@@ -246,26 +258,26 @@ Create the ssh-user group with `sudo groupadd ssh-user`, then add each ssh user 
 
 ## Symmetric ciphers
 
-> Emphasis added.
+> **_NOTE:_** Emphasis added.
 
 Symmetric ciphers are used to encrypt the data after the initial key exchange and authentication is complete.
 
 Here we have quite a few algorithms (10-14 were removed in [OpenSSH 7.6][76release]):
 
-1. ~~3des-cbc~~
-1. ~~aes128-cbc~~
-1. ~~aes192-cbc~~
-1. ~~aes256-cbc~~
+1. 3des-cbc
+1. aes128-cbc
+1. aes192-cbc
+1. aes256-cbc
 1. aes128-ctr
 1. aes192-ctr
 1. aes256-ctr
 1. **_<aes128-gcm@openssh.com>_**
 1. **_<aes256-gcm@openssh.com>_**
-1. ~~arcfour~~
-1. ~~arcfour128~~
-1. ~~arcfour256~~
-1. ~~blowfish-cbc~~
-1. ~~cast128-cbc~~
+1. arcfour
+1. arcfour128
+1. arcfour256
+1. blowfish-cbc
+1. cast128-cbc
 1. **<chacha20-poly1305@openssh.com>**
 
 We have to consider the following:
@@ -327,21 +339,21 @@ SSH by default, uses this method.
 
 Here are the available MAC choices:
 
-1. ~~hmac-md5~~
-1. ~~hmac-md5-96~~
-1. ~~hmac-sha1~~
-1. ~~hmac-sha1-96~~
+1. hmac-md5
+1. hmac-md5-96
+1. hmac-sha1
+1. hmac-sha1-96
 1. hmac-sha2-256
 1. hmac-sha2-512
-1. ~~umac-64~~
+1. umac-64
 1. umac-128
-1. ~~<hmac-md5-etm@openssh.com>~~
-1. ~~<hmac-md5-96-etm@openssh.com>~~
-1. ~~<hmac-sha1-etm@openssh.com>~~
-1. ~~<hmac-sha1-96-etm@openssh.com>~~
+1. <hmac-md5-etm@openssh.com>
+1. <hmac-md5-96-etm@openssh.com>
+1. <hmac-sha1-etm@openssh.com>
+1. <hmac-sha1-96-etm@openssh.com>
 1. **<hmac-sha2-256-etm@openssh.com>**
 1. **<hmac-sha2-512-etm@openssh.com>**
-1. ~~<umac-64-etm@openssh.com>~~
+1. <umac-64-etm@openssh.com>
 1. <umac-128-etm@openssh.com>
 
 The selection considerations:
