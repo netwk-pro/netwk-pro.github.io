@@ -15,7 +15,7 @@ export default {
     {
       files: ["**/*.html"], // Target HTML files
       customSyntax: "postcss-html", // Use postcss-html to handle embedded CSS in HTML
-      processor: "stylelint-processor-arbitrary-tags", // Use the new processor
+      processor: "@mapbox/stylelint-processor-arbitrary-tags", // Use the new processor
     },
   ],
   rules: {

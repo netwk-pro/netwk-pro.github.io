@@ -29,7 +29,7 @@ tags:
 
 &nbsp;
 
-1. [Introduction](#1-intro)
+1. [Introduction](#1-introduction)
 2. [Scope of Services](#2-scope)
 3. [Disclaimer of Warranties](#3-disclaimer)
 4. [Assumption of Risk](#4-risk)
@@ -47,7 +47,7 @@ tags:
 
 **Formats Available:** [HTML](https://netwk.pro/terms-and-conditions.html) | <span class="visited">Markdown</span>
 
-<a name="#1-intro"></a>
+<a name="#1-introduction"></a>
 
 ## 1. Introduction
 

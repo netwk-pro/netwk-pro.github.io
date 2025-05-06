@@ -93,6 +93,7 @@
     "#10-exceptions",
     "#11-changes",
     "./legal/",
-    "../../../../../legal/"
+    "../../../../../legal/",
+    "../legal/"
   ]
 }
