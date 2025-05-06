@@ -9,7 +9,6 @@
 
 ### Custom Ignores ###
 .orig/
-dist
 .webpack_cache/
 
 
@@ -105,7 +104,6 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/

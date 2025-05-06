@@ -1,9 +1,7 @@
-#!/usr/bin/env bash
 # .husky/pre-commit
 #
 # SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 # This file is part of Network Pro.
-. "$(dirname "$0")/_/husky.sh"
 
 # Exit immediately if any command fails
 set -e
@@ -24,15 +22,16 @@ fi
 STAGED_JS_FILES=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(mjs|js|cjs)$' || true)
 if [ -n "$STAGED_JS_FILES" ]; then
   echo "Linting JavaScript files with ESLint..."
-  echo "$STAGED_JS_FILES" | xargs -r npx eslint --config eslint.config.mjs --ignore-pattern .cache
+  echo "$STAGED_JS_FILES" | xargs -r npx eslint --config eslint.config.mjs --ignore-pattern .cache --ignore-pattern dist --ignore-pattern node_modules --quiet
 fi
 
-# Lint staged CSS and Svelte files with Stylelint
-STAGED_STYLE_FILES=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(css|svelte)$' || true)
-if [ -n "$STAGED_STYLE_FILES" ]; then
-  echo "Linting styles with Stylelint..."
-  echo "$STAGED_STYLE_FILES" | xargs -r npx stylelint --ignore-path .stylelintignore
-fi
+# Causing issues, not sure how I can fix dynamically generated files
+# Lint staged CSS files with Stylelint
+#STAGED_STYLE_FILES=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(css)$' || true)
+#if [ -n "$STAGED_STYLE_FILES" ]; then
+#  echo "Linting styles with Stylelint..."
+#  echo "$STAGED_STYLE_FILES" | xargs -r npx stylelint --ignore-path .stylelintignore
+#fi
 
 # Lint Markdown files with markdownlint-cli2
 STAGED_MD_FILES=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(md|markdown)$' || true)

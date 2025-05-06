@@ -12,9 +12,6 @@
 # The workflow to upload static content to GitHub Pages (upload.yml) will
 # kick off following successful completion of this workflow.
 #
-# If needed, the upload-force.yml file can be manually triggered to force an
-# upload of static content from ./dist to GitHub Pages.
-#
 # For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
 
 name: Build/Test, Publish to Registries
@@ -81,7 +78,7 @@ jobs:
         run: npm ci
 
       - name: Run tests using Mocha and Chai test suite
-        run: npm test
+        run: npm run test
 
       - name: Build Node.js project
         run: npm run build

@@ -1,0 +1,25 @@
+{
+  "short_name": "Network Pro",
+  "name": "Network Pro Strategies",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/favicon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon-splash.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#191919",
+  "theme_color": "#ffc627"
+}
