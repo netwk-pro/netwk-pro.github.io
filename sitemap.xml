@@ -10,7 +10,7 @@
 
     <loc>https://netwk.pro/index.html</loc>
 
-    <lastmod>2025-04-18</lastmod>
+    <lastmod>2025-05-05</lastmod>
 
     <changefreq>weekly</changefreq>
 
@@ -32,9 +32,69 @@
 
   <url>
 
+    <loc>https://netwk.pro/docs/</loc>
+
+    <lastmod>2025-05-05</lastmod>
+
+    <changefreq>weekly</changefreq>
+
+    <priority>0.7</priority>
+
+  </url>
+
+  <url>
+
+    <loc>https://netwk.pro/docs/legal/</loc>
+
+    <lastmod>2025-05-05</lastmod>
+
+    <changefreq>weekly</changefreq>
+
+    <priority>0.7</priority>
+
+  </url>
+
+  <url>
+
+    <loc>https://netwk.pro/docs/privacy/</loc>
+
+    <lastmod>2025-05-05</lastmod>
+
+    <changefreq>weekly</changefreq>
+
+    <priority>0.7</priority>
+
+  </url>
+
+  <url>
+
+    <loc>https://netwk.pro/docs/terms-use/</loc>
+
+    <lastmod>2025-05-05</lastmod>
+
+    <changefreq>weekly</changefreq>
+
+    <priority>0.7</priority>
+
+  </url>
+
+  <url>
+
+    <loc>https://netwk.pro/docs/terms-conditions/</loc>
+
+    <lastmod>2025-05-05</lastmod>
+
+    <changefreq>weekly</changefreq>
+
+    <priority>0.7</priority>
+
+  </url>
+
+  <url>
+
     <loc>https://netwk.pro/legal.html</loc>
 
-    <lastmod>2025-04-18</lastmod>
+    <lastmod>2025-05-05</lastmod>
 
     <changefreq>weekly</changefreq>
 
@@ -46,7 +106,7 @@
 
     <loc>https://netwk.pro/privacy.html</loc>
 
-    <lastmod>2025-04-18</lastmod>
+    <lastmod>2025-05-05</lastmod>
 
     <changefreq>weekly</changefreq>
 
@@ -58,7 +118,7 @@
 
     <loc>https://netwk.pro/terms-and-conditions.html</loc>
 
-    <lastmod>2025-04-18</lastmod>
+    <lastmod>2025-05-05</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -70,7 +130,7 @@
 
     <loc>https://netwk.pro/terms-of-use.html</loc>
 
-    <lastmod>2025-04-18</lastmod>
+    <lastmod>2025-05-05</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -82,7 +142,7 @@
 
     <loc>https://netwk.pro/README.md</loc>
 
-    <lastmod>2025-04-18</lastmod>
+    <lastmod>2025-05-05</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -94,7 +154,7 @@
 
     <loc>https://netwk.pro/LICENSE.md</loc>
 
-    <lastmod>2025-04-14</lastmod>
+    <lastmod>2025-05-05</lastmod>
 
     <changefreq>monthly</changefreq>
 

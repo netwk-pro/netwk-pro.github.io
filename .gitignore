@@ -3,13 +3,14 @@
 # SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 # This file is part of Network Pro.
 #
-# Created by https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,dreamweaver
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode,dreamweaver
+# Created by https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode
 
 
 ### Custom Ignores ###
 .orig/
-dist/bundle-report.html
+dist
+.webpack_cache/
 
 
 ### Node ###
@@ -104,6 +105,7 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
+dist
 
 # Gatsby files
 .cache/
@@ -145,13 +147,11 @@ out
 ### Node Patch ###
 # Serverless Webpack directories
 .webpack/
-.webpack_cache/
 
 # Optional stylelint cache
 
 # SvelteKit build / generate output
 .svelte-kit
-
 
 ### VisualStudioCode ###
 .vscode/*
@@ -159,6 +159,7 @@ out
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+!.vscode/customData.json
 !.vscode/*.code-snippets
 
 # Local History for Visual Studio Code
@@ -172,15 +173,4 @@ out
 .history
 .ionide
 
-
-### Dreamweaver ###
-# DW Dreamweaver added files
-_notes
-_compareTemp
-configs/
-dwsync.xml
-dw_php_codehinting.config
-*.mno
-
-
-# End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,dreamweaver
+# End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode

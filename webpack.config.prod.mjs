@@ -24,7 +24,7 @@ const __filename = fileURLToPath(import.meta.url);
 // Recursively find all HTML files, excluding specific directories
 const findHtmlFiles = (
   dir,
-  excludeDirs = ["node_modules", "dist", "coverage", "docs_raw"]
+  excludeDirs = ["node_modules", "dist", "coverage", "docs_raw"],
 ) => {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const entryPath = path.resolve(dir, entry.name);
@@ -56,7 +56,7 @@ const htmlPlugins = htmlFilePaths.map(
         collapseWhitespace: false, // Do not collapse whitespace globally
         preserveLineBreaks: false, // Remove excessive line breaks
       },
-    })
+    }),
 );
 
 export default merge(common, {

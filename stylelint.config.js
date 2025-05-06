@@ -8,9 +8,15 @@ This file is part of Network Pro.
 /** @type {import('stylelint').Config} */
 export default {
   extends: [
-    "stylelint-config-standard",
-    "stylelint-config-standard-scss",
+    "stylelint-config-recommended",
     "stylelint-config-alphabetical-order",
+  ],
+  overrides: [
+    {
+      files: ["**/*.html"], // Target HTML files
+      customSyntax: "postcss-html", // Use postcss-html to handle embedded CSS in HTML
+      processor: "stylelint-processor-arbitrary-tags", // Use the new processor
+    },
   ],
   rules: {
     "property-no-vendor-prefix": null,
@@ -28,8 +34,17 @@ export default {
         ignoreFontFamilyNames: ["monospace"],
       },
     ],
+    "selector-class-pattern": [
+      "^(?!fa-).*$", // Enforce naming conventions except for classes starting with "fa-"
+      {
+        message:
+          "Class names must not start with 'fa-' (FontAwesome classes are ignored)",
+      },
+    ],
+
+    // Additional rules can be added below if needed
   },
-  reportDescriptionlessDisables: true,
-  reportInvalidScopeDisables: true,
-  reportNeedlessDisables: true,
+  reportDescriptionlessDisables: true, // Report disables without descriptions
+  reportInvalidScopeDisables: true, // Report invalid scope disables
+  reportNeedlessDisables: true, // Report unnecessary disables
 };

@@ -23,6 +23,8 @@ tags:
 
 </section>
 
+![npmjs](https://img.shields.io/badge/npmjs-white?style=flat&logo=npm&logoColor=%23CB3837&labelColor=white&color=grey&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40networkpro%2Fweb) &nbsp; ![GitHub Package Registry](https://img.shields.io/badge/GitHub_Package_Registry-white?style=flat&logo=github&logoColor=%23181717&labelColor=white&color=grey&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40networkpro%2Fweb)
+
 ## Security That Respects You
 
 At **Network Pro Strategies (Network Pro&trade;)**, we deliver network security, cybersecurity, and digital privacy consulting with clarity, credibility, and care. We believe that real security doesn’t have to come at the cost of user autonomy, and that privacy-minded solutions can be both practical and powerful.

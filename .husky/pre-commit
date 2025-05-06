@@ -3,30 +3,53 @@
 #
 # SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 # This file is part of Network Pro.
+. "$(dirname "$0")/_/husky.sh"
 
-# Run Mocha and Chai test suite
-npm test
+# Exit immediately if any command fails
+set -e
 
-# Lint all JavaScript files
-# Exclude .dist/js/ due to unknown issue
-npx eslint --cache --cache-location .eslintcache --ext .js,.cjs,.mjs --ignore-pattern node_modules/ --ignore-pattern dist/ --ignore-pattern coverage/ --ignore-pattern .cache/ --ignore-pattern .webpack_cache/ --ignore-pattern site/ --ignore-pattern docs_raw/ .
+# Function to handle script failures
+on_error() {
+  echo "Error: The pre-commit hook failed. Please resolve the issues and try committing again." >&2
+}
+trap 'on_error' ERR
 
-# Run markdownlint-cli2 on all Markdown files
-npx markdownlint-cli2 "**/*.{md,markdown}" "#node_modules/**" "#pages/**" "#coverage/**" "#dist/**" "#.cache/**" "#.webpack_cache/**" "#site/**" "#docs_raw/**"
+# Run tests with Mocha and Chai
+if [ -d "tests" ]; then
+  echo "Running tests with Mocha and Chai..."
+  mocha test/**/*.mjs --reporter spec --timeout 10000
+fi
 
-# Run stylelint against all CSS files
-npx stylelint "**/*.css" "!node_modules/**" "!dist/**" "!coverage/**" "!docs_raw/**" "!.cache" "!.webpack_cache" "!site" "!docs_raw"
+# Lint staged JavaScript files with ESLint
+STAGED_JS_FILES=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(mjs|js|cjs)$' || true)
+if [ -n "$STAGED_JS_FILES" ]; then
+  echo "Linting JavaScript files with ESLint..."
+  echo "$STAGED_JS_FILES" | xargs -r npx eslint --config eslint.config.mjs --ignore-pattern .cache
+fi
 
-# Run prettier against all staged files
-FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
-[ -z "$FILES" ] && exit 0
+# Lint staged CSS and Svelte files with Stylelint
+STAGED_STYLE_FILES=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(css|svelte)$' || true)
+if [ -n "$STAGED_STYLE_FILES" ]; then
+  echo "Linting styles with Stylelint..."
+  echo "$STAGED_STYLE_FILES" | xargs -r npx stylelint --ignore-path .stylelintignore
+fi
 
-# Prettify all selected files
-echo "$FILES" | xargs ./node_modules/.bin/prettier --ignore-unknown --write
+# Lint Markdown files with markdownlint-cli2
+STAGED_MD_FILES=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(md|markdown)$' || true)
+if [ -n "$STAGED_MD_FILES" ]; then
+  echo "Linting Markdown files with markdownlint-cli2..."
+  echo "$STAGED_MD_FILES" | xargs -r npx markdownlint-cli2 "**/*.{md,markdown}" "#node_modules/**" "#dist/**" "#.cache/**"
+fi
 
-# Add back the modified/prettified files to staging
-echo "$FILES" | xargs git add
+# Format staged files with Prettier
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMR || true)
+if [ -n "$STAGED_FILES" ]; then
+  echo "Formatting files with Prettier..."
+  echo "$STAGED_FILES" | xargs -r npx prettier --ignore-unknown --write
+  echo "$STAGED_FILES" | xargs -r git add
+fi
 
+# Recheck the index to ensure no changes are missed
 git update-index --again
 
 exit 0

@@ -61,7 +61,7 @@ describe("Log Sanitization Tests", () => {
       const result = await sanitizeLogData(maliciousInput);
       expect(result).to.not.include("\n");
       expect(result).to.equal(
-        "normal_user 2023-12-25 12:00:00 - Admin login successful"
+        "normal_user 2023-12-25 12:00:00 - Admin login successful",
       );
     });
 

@@ -1,15 +1,47 @@
 {
-  "prettier.configPath": ".prettierrc",
-  "prettier.htmlWhitespaceSensitivity": "strict",
-  "prettier.bracketSameLine": true,
-  "prettier.jsxSingleQuote": true,
-  "prettier.quoteProps": "consistent",
+  "notebook.defaultFormatter": "esbenp.prettier-vscode",
+  // Editor settings
   "editor.defaultFoldingRangeProvider": "esbenp.prettier-vscode",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "notebook.defaultFormatter": "esbenp.prettier-vscode",
+  "[markdown]": {
+    "editor.defaultFoldingRangeProvider": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.htmlWhitespaceSensitivity": "strict",
+  // ESLint configuration
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+  ],
+  "eslint.lintTask.enable": true,
   "eslint.useESLintClass": true,
   "eslint.useFlatConfig": true,
-  "eslint.lintTask.enable": true,
+  // Stylelint configuration
+  "stylelint.configBasedir": "D:\\Netwk-Pro\\git\\netwk-pro.github.io\\",
+  "stylelint.configFile": "stylelint.config.js",
+  "stylelint.customSyntax": "postcss-html",
+  "stylelint.ignoreDisables": false,
+  "stylelint.reportDescriptionlessDisables": true,
+  "stylelint.reportInvalidScopeDisables": true,
+  "stylelint.reportNeedlessDisables": true,
+  "stylelint.validate": [
+    "css",
+    "html",
+    "postcss"
+  ],
+  // Custom CSS data for FontAwesome classes
+  "css.customData": [
+    ".vscode/customData.json" // Path to your custom data file
+  ],
+  "css.styleSheets": ["**/*.css", "css/**/*.css"],
+  "css.format.braceStyle": "expand",
+  // Material for MkDocs schema
   "yaml.schemas": {
     "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
   },
@@ -21,7 +53,7 @@
     "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
     "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format",
     "tag:yaml.org,2002:python/object/apply:pymdownx.slugs.slugify mapping"
-    ],
+  ],
   "markdown.validate.ignoredLinks": [
     "#top",
     "#netwk-pro",
@@ -59,6 +91,8 @@
     "#8-law",
     "#9-acceptance",
     "#10-exceptions",
-    "#11-changes"
+    "#11-changes",
+    "./legal/",
+    "../../../../../legal/"
   ]
 }

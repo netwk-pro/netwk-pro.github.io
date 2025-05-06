@@ -1,7 +1,7 @@
 ---
 date:
   created: 2025-04-30
-  updated: 2025-05-04
+  updated: 2025-05-05
 title: Our Blog is Live!
 summary: Launch of the official blog of Network Pro Strategies (Network Pro&trade;).
 authors:
@@ -35,6 +35,8 @@ This blog represents our commitment to providing value through:
 - 💼 **SMBs and enterprises** needing tailored, scalable security that protects business continuity
 - 🏛️ **Government and compliance-sensitive sectors** where resilience and data integrity are mission-critical
 - 👨‍💻 **Technologists and privacy-conscious communities** seeking reliable strategies and tools that don’t trade transparency for control
+
+<!-- more -->
 
 ---
 

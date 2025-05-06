@@ -217,9 +217,9 @@ footer .container {
 .bnav td {
   border-style: none;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.875em;
+  font-size: 0.875rem;
   font-weight: bold;
-  line-height: 1.125em;
+  line-height: 1.125rem;
   overflow: hidden;
   padding: 10px;
   word-break: normal;
@@ -228,8 +228,8 @@ footer .container {
 .bnav th {
   border-style: none;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.875em;
-  line-height: 1.125em;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
   overflow: hidden;
   padding: 10px;
   word-break: normal;
@@ -266,9 +266,9 @@ footer .container {
 .bnav2 td {
   border-style: none;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.875em;
+  font-size: 0.875rem;
   font-weight: bold;
-  line-height: 1.125em;
+  line-height: 1.125rem;
   overflow: hidden;
   padding: 10px;
   word-break: normal;
@@ -277,8 +277,8 @@ footer .container {
 .bnav2 th {
   border-style: none;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.875em;
-  line-height: 1.125em;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
   overflow: hidden;
   padding: 12px;
   word-break: normal;
@@ -315,8 +315,8 @@ footer .container {
 .pgp td {
   border-style: none;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.875em;
-  line-height: 1.125em;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
   overflow: hidden;
   padding: 10px;
   word-break: normal;
@@ -327,8 +327,8 @@ footer .container {
   border-style: solid;
   border-width: 1px;
   font-family: Arial, sans-serif;
-  font-size: 0.875em;
-  line-height: 1.125em;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
   overflow: hidden;
   padding: 10px;
   word-break: normal;
@@ -377,10 +377,10 @@ footer .container {
 }
 
 .index-title2 {
-  font-size: 1.25em;
+  font-size: 1.25rem;
   font-variant: small-caps;
   letter-spacing: -0.015em;
-  line-height: 1.625em;
+  line-height: 1.625rem;
   text-align: center;
 }
 
@@ -393,18 +393,25 @@ footer .container {
 }
 
 .index2 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-variant: small-caps;
   letter-spacing: -0.035em;
-  line-height: 1.75em;
+  line-height: 1.75rem;
+  text-align: center;
+}
+
+.index3 {
+  font-size: 1.5rem;
+  letter-spacing: -0.035em;
+  line-height: 1.75rem;
   text-align: center;
 }
 
 .subhead {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-variant: small-caps;
   letter-spacing: -0.035em;
-  line-height: 1.75em;
+  line-height: 1.75rem;
 }
 
 .bolditalic {
@@ -419,9 +426,20 @@ footer .container {
   padding-left: 10px;
 }
 
+.large-text {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
 .small-text {
-  font-size: 0.75em;
-  line-height: 1.125em;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+}
+
+.large-text-center {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  text-align: center;
 }
 
 .join {
@@ -434,7 +452,7 @@ footer .container {
   white-space: pre-wrap;
 }
 
-.emphasis {
+.remphasis {
   font-style: italic;
   font-weight: bold;
 }
@@ -449,8 +467,8 @@ footer .container {
 }
 
 .copyright {
-  font-size: 0.75em;
-  line-height: 1.125em;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
   text-align: center;
 }
 
@@ -459,8 +477,8 @@ footer .container {
 }
 
 .center-nav {
-  font-size: 0.875em;
-  line-height: 1.125em;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
   padding: 5px;
   text-align: center;
 }
@@ -470,8 +488,8 @@ footer .container {
   background: none;
   border: none;
   border-radius: 0;
-  font-size: 0.75em;
-  line-height: 1.125em;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
   outline: none;
   resize: none;
   width: 100%;
