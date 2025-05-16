@@ -30,6 +30,11 @@ const config = {
     paths: {
       base: "", // Always deploy to the root of the domain
     },
+    // Service worker configuration
+    serviceWorker: {
+      register: true, // Auto-register the service worker
+      files: (filepath) => !/\.DS_Store/.test(filepath), // Exclude .DS_Store files from the service worker
+    },
     prerender: {
       // Handle HTTP errors during prerendering
       handleHttpError: ({ path, _referrer, message }) => {

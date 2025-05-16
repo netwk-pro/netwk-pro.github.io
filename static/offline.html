@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- ======================================================================
+    SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+    This file is part of Network Pro.
+    ============================================+========================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Offline | Site Unavailable</title>
+    <link rel="stylesheet" href="/offline.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="icon">📶</div>
+      <h1>You're offline</h1>
+      <p
+        >It looks like you've lost your internet connection. The page you're
+        trying to view requires an active connection.</p
+      >
+
+      <div class="status">
+        Network status: Offline<br />
+        Last checked: <span id="timestamp">Just now</span>
+      </div>
+
+      <button class="retry-button" onclick="window.location.reload()">
+        Try Again
+      </button>
+
+      <div class="help-text">
+        Need help? Visit our
+        <a href="https://dev.netwk.pro/contact" id="contact-link"
+          >contact page</a
+        >
+        when you're back online.
+      </div>
+    </div>
+
+    <script>
+      // Update timestamp every minute
+      function updateTimestamp() {
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+        document.getElementById("timestamp").textContent = timeStr;
+      }
+
+      // Check connection status periodically
+      function checkConnection() {
+        if (navigator.onLine) {
+          window.location.reload();
+        }
+      }
+
+      // Initial timestamp
+      updateTimestamp();
+
+      // Check connection every 30 seconds
+      setInterval(checkConnection, 30000);
+      setInterval(updateTimestamp, 60000);
+
+      // Also listen for online event
+      window.addEventListener("online", () => {
+        window.location.reload();
+      });
+
+      // Prevent default action for offline links
+      document
+        .getElementById("support-link")
+        .addEventListener("click", function (e) {
+          if (!navigator.onLine) {
+            e.preventDefault();
+            alert("This link will be available when you are back online.");
+          }
+        });
+    </script>
+  </body>
+</html>

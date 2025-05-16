@@ -1,0 +1,120 @@
+/*! ==========================================================================
+src/lib/styles/css/offline.css
+
+SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+This file is part of Network Pro.
+=========================================================================== */
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  margin: 10px;
+  color: #fafafa;
+  text-align: center;
+  background-color: #191919;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #fafafa;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  font-size: 4rem;
+  color: #ff5252;
+  margin-bottom: 1rem;
+}
+
+.retry-button {
+  padding: 12px 24px;
+  border: none;
+  font-size: 1rem;
+  color: #fafafa;
+  background-color: #2e7d32;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 1rem;
+}
+
+.retry-button:hover {
+  background-color: #388e3c;
+}
+
+.status {
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: #bdbdbd;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+/* Link styles from the user's CSS */
+a {
+  text-decoration: none;
+}
+
+/* unvisited link */
+a:link {
+  color: #ffc627;
+}
+
+/* mouse over link */
+a:hover {
+  color: #ffc627;
+  text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+  color: #ffc627;
+  text-decoration: underline;
+}
+
+/* focused link */
+a:focus {
+  color: #191919; /* Black text when focused */
+  background-color: #ffc627; /* Gold background when focused */
+}
+
+/* visited link */
+a:visited {
+  color: #7f6227;
+}
+
+/* visited and mouse over */
+a:visited:hover {
+  color: #7f6227;
+}
+
+/* For the help text with link */
+.help-text {
+  font-size: 0.9rem;
+  color: #bdbdbd;
+  margin-top: 2rem;
+}

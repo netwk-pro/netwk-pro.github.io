@@ -10,6 +10,7 @@ This file is part of Network Pro.
   import Footer from "$lib/components/layout/Footer.svelte";
   import HeaderDefault from "$lib/components/layout/HeaderDefault.svelte";
   import HeaderHome from "$lib/components/layout/HeaderHome.svelte";
+  import { registerServiceWorker } from "$lib/serviceWorkerRegister";
 
   // Import logo images and favicons and format for preloading
   import { browser } from "$app/environment";
@@ -31,6 +32,9 @@ This file is part of Network Pro.
     // Preload Apple Touch icon
     const touchImg = new Image();
     touchImg.src = appleTouchIcon;
+
+    // Register the service worker
+    registerServiceWorker();
   }
 
   // Import global and FontAwesome styles and web fonts

@@ -1,0 +1,7 @@
+/*! ==========================================================================
+src/lib/styles/css/offline.css
+
+SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+This file is part of Network Pro.
+=========================================================================== */
+html,body{height:100%;margin:0;padding:0}body{color:#fafafa;text-align:center;background-color:#191919;flex-direction:column;justify-content:center;align-items:center;margin:10px;padding:0 1rem;font-family:Arial,Helvetica,sans-serif;display:flex}.container{max-width:600px;margin:0 auto}h1{color:#fafafa;margin-bottom:1rem;font-size:2rem}p{margin-bottom:1.5rem;font-size:1.1rem;line-height:1.5}.icon{color:#ff5252;margin-bottom:1rem;font-size:4rem}.retry-button{color:#fafafa;cursor:pointer;background-color:#2e7d32;border:none;border-radius:4px;margin-top:1rem;padding:12px 24px;font-family:Arial,Helvetica,sans-serif;font-size:1rem;transition:background-color .2s}.retry-button:hover{background-color:#388e3c}.status{color:#bdbdbd;background-color:#ffffff0d;border-radius:4px;margin:1rem 0;padding:1rem;font-size:.9rem}a{text-decoration:none}a:link{color:#ffc627}a:hover,a:active{color:#ffc627;text-decoration:underline}a:focus{color:#191919;background-color:#ffc627}a:visited,a:visited:hover{color:#7f6227}.help-text{color:#bdbdbd;margin-top:2rem;font-size:.9rem}
