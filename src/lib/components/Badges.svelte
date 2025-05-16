@@ -11,7 +11,7 @@ This file is part of Network Pro.
   import { ccBadge, gplBadge } from "$lib";
 
   // Log the base path to verify its value
-  console.log("Base path:", base);
+  //console.log("Base path:", base);
 
   const ccbyLink = `${base}/license#cc-by`;
   const gplLink = `${base}/license#gnu-gpl`;

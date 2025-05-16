@@ -9,7 +9,7 @@ This file is part of Network Pro.
   import { base } from "$app/paths";
 
   // Log the base path to verify its value
-  console.log("Base path:", base);
+  //console.log("Base path:", base);
 
   /**
    * URL to the FOSS Spotlight page, using the base path
@@ -113,8 +113,8 @@ This file is part of Network Pro.
     <a
       {rel}
       href="https://github.com/netwk-pro/netwk-pro.github.io/discussions"
-      target={targetBlank}>GitHub Discussions</a>
-    !
+      target={targetBlank}>GitHub Discussions</a
+    >!
   </em>
 </p>
 <!-- END HOME CONTENT -->

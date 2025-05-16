@@ -9,7 +9,7 @@ This file is part of Network Pro.
   import { base } from "$app/paths";
 
   // Log the base path to verify its value
-  console.log("Base path:", base);
+  //console.log("Base path:", base);
 
   const aboutLink = `${base}/about`;
   const blogLink = "https://blog.netwk.pro";
