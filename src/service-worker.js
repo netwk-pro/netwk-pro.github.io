@@ -19,7 +19,6 @@ const sw = self;
 import { build, files, version } from "$service-worker";
 
 const CACHE = `cache-${version}`;
-
 const ASSETS = [
   ...build, // the app itself
   ...files, // everything in `static`
@@ -32,9 +31,6 @@ const ASSETS = [
 sw.addEventListener(
   "install",
   (/** @type {{ waitUntil: (arg0: Promise<void>) => void; }} */ event) => {
-    /**
-     * @type {Promise<void>}
-     */
     const addFilesToCache = caches
       .open(CACHE)
       .then((cache) => cache.addAll(ASSETS))
@@ -53,9 +49,6 @@ sw.addEventListener(
 sw.addEventListener(
   "activate",
   (/** @type {{ waitUntil: (arg0: Promise<void>) => void; }} */ event) => {
-    /**
-     * @type {Promise<void>}
-     */
     const deleteOldCaches = caches.keys().then(async (keys) => {
       for (const key of keys) {
         if (key !== CACHE) await caches.delete(key);
@@ -83,18 +76,17 @@ sw.addEventListener(
       if (response) return response;
       try {
         return await fetch(event.request);
-      } catch (err) {
+      } catch {
         if (event.request.mode === "navigate") {
-          // Always await and check for undefined
           const offlineResponse = await caches.match("/offline.html");
           if (offlineResponse) return offlineResponse;
-          // Always return a Response object
           return new Response(
             "<!doctype html><title>Offline</title><h1>You are offline.</h1>",
             { headers: { "Content-Type": "text/html; charset=utf-8" } },
           );
         }
-        throw err;
+        // For other requests, return a generic error response
+        return Response.error();
       }
     });
 
