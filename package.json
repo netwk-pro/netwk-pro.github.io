@@ -2,7 +2,7 @@
   "name": "@networkpro/dev-sveltekit",
   "private": false,
   "sideEffects": false,
-  "version": "0.10.3",
+  "version": "0.10.4",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "security",

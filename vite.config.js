@@ -16,4 +16,14 @@ export default defineConfig({
       //}
     }),
   ],
+  // Manually specify the entry points for the service worker and app
+  // To be used if standard config is non-functional
+  //build: {
+  //rollupOptions: {
+  //input: {
+  //main: "src/app.html", // app entry
+  //sw: "src/service-worker.js", // ensures inclusion
+  //},
+  //},
+  //},
 });

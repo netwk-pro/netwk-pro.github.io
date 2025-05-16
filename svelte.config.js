@@ -7,16 +7,15 @@ This file is part of Network Pro.
 
 import adapter from "@sveltejs/adapter-netlify"; // Netlify adapter for deployment
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte"; // Vite preprocessor for Svelte
-import { mdsvex } from "mdsvex"; // mdsvex for Markdown support
-import preprocess from "svelte-preprocess"; // svelte-preprocess for additional preprocessing features
 
 const config = {
   // Preprocessors for enhanced functionality (vitePreprocess + mdsvex for Markdown support + svelte-preprocess for PostCSS)
   preprocess: [
-    vitePreprocess(), // Simplified (TypeScript is natively supported)
-    mdsvex({ extensions: [".svx", ".md"] }), // Configure mdsvex with .svx and .md extensions
-    preprocess({
-      postcss: true, // Enable PostCSS support
+    vitePreprocess({
+      postcss: true,
+      mdsvex: {
+        extensions: [".svx", ".md"],
+      },
     }),
   ],
 
@@ -29,11 +28,6 @@ const config = {
     // Paths configuration for deployment
     paths: {
       base: "", // Always deploy to the root of the domain
-    },
-    // Service worker configuration
-    serviceWorker: {
-      register: true, // Auto-register the service worker
-      files: (filepath) => !/\.DS_Store/.test(filepath), // Exclude .DS_Store files from the service worker
     },
     prerender: {
       // Handle HTTP errors during prerendering

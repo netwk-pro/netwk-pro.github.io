@@ -10,7 +10,8 @@ This file is part of Network Pro.
   import Footer from "$lib/components/layout/Footer.svelte";
   import HeaderDefault from "$lib/components/layout/HeaderDefault.svelte";
   import HeaderHome from "$lib/components/layout/HeaderHome.svelte";
-  import { registerServiceWorker } from "$lib/serviceWorkerRegister";
+  // TODO: Testing in progress
+  import { registerServiceWorker } from "$lib/registerServiceWorker.js";
 
   // Import logo images and favicons and format for preloading
   import { browser } from "$app/environment";
@@ -18,6 +19,12 @@ This file is part of Network Pro.
   import logoWbp from "$lib/img/logo-web.webp";
   import faviconSvg from "$lib/img/favicon.svg";
   import appleTouchIcon from "$lib/img/icon-180x180.png";
+
+  /**
+   * @type {string}
+   * Style class for the mobile-web-app-capable meta tag.
+   */
+  const webApp = "mobile-web-app-capable";
 
   if (browser) {
     // Preload logo images
@@ -33,6 +40,7 @@ This file is part of Network Pro.
     const touchImg = new Image();
     touchImg.src = appleTouchIcon;
 
+    // TODO: Testing in progress
     // Register the service worker
     registerServiceWorker();
   }
@@ -66,8 +74,9 @@ This file is part of Network Pro.
   {/if}
 
   <!-- PWA-specific meta tags -->
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name={webApp} content="yes" />
+  <meta name={"apple-" + webApp} content="yes" />
   <meta
     name="apple-mobile-web-app-status-bar-style"
     content="black-translucent" />

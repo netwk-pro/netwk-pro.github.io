@@ -5,91 +5,86 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
-/**
- * @typedef {any} Files - SvelteKit build files
- * @typedef {string} Version - SvelteKit version string
- */
-
-/**
- * Use a simpler approach to type the service worker context
- * @type {any}
- */
+/** @type {ServiceWorkerGlobalScope} */
 const sw = self;
 
 import { build, files, version } from "$service-worker";
 
+/** @type {string} */
 const CACHE = `cache-${version}`;
-const ASSETS = [
-  ...build, // the app itself
-  ...files, // everything in `static`
-];
+
+/** @type {string[]} */
+const ASSETS = Array.from(new Set([...build, ...files, "/offline.html"]));
+
+console.log("[SW] Assets to cache:", ASSETS); // Helps debug duplicates
 
 /**
- * Install event handler
- * @param {Event} event - The install event
+ * @param {ExtendableEvent} event
  */
-sw.addEventListener(
-  "install",
-  (/** @type {{ waitUntil: (arg0: Promise<void>) => void; }} */ event) => {
-    const addFilesToCache = caches
+sw.addEventListener("install", (event) => {
+  /** @type {ExtendableEvent} */ (event).waitUntil(
+    caches
       .open(CACHE)
       .then((cache) => cache.addAll(ASSETS))
-      .then(() => {
-        sw.skipWaiting();
-      });
-
-    event.waitUntil(addFilesToCache);
-  },
-);
+      .then(() => sw.skipWaiting()),
+  );
+});
 
 /**
- * Activate event handler
- * @param {Event} event - The activate event
+ * @param {ExtendableEvent} event
  */
-sw.addEventListener(
-  "activate",
-  (/** @type {{ waitUntil: (arg0: Promise<void>) => void; }} */ event) => {
-    const deleteOldCaches = caches.keys().then(async (keys) => {
-      for (const key of keys) {
-        if (key !== CACHE) await caches.delete(key);
+sw.addEventListener("activate", (event) => {
+  /** @type {ExtendableEvent} */ (event).waitUntil(
+    (async () => {
+      const tasks = [];
+
+      if (sw.registration.navigationPreload) {
+        tasks.push(sw.registration.navigationPreload.enable());
       }
-      sw.clients.claim();
-    });
 
-    event.waitUntil(deleteOldCaches);
-  },
-);
+      tasks.push(
+        caches.keys().then((keys) =>
+          Promise.all(
+            keys.map((key) => {
+              if (key !== CACHE) return caches.delete(key);
+            }),
+          ),
+        ),
+      );
+
+      await Promise.all(tasks);
+      await sw.clients.claim();
+    })(),
+  );
+});
 
 /**
- * Fetch event handler
- * @param {Event} event - The fetch event with request property
+ * @param {FetchEvent} event
  */
-sw.addEventListener(
-  "fetch",
-  (
-    /** @type {{ request: Request; respondWith: (arg0: Promise<Response>) => void; }} */ event,
-  ) => {
-    // Only cache GET requests
-    if (event.request.method !== "GET") return;
+sw.addEventListener("fetch", (event) => {
+  /** @type {FetchEvent} */ (event).respondWith(
+    (async () => {
+      const cached = await caches.match(event.request);
+      if (cached) return cached;
 
-    const fetchResponse = caches.match(event.request).then(async (response) => {
-      if (response) return response;
       try {
+        if (event.request.mode === "navigate") {
+          const preloadResponse = await event.preloadResponse;
+          if (preloadResponse) return preloadResponse;
+        }
+
         return await fetch(event.request);
       } catch {
         if (event.request.mode === "navigate") {
-          const offlineResponse = await caches.match("/offline.html");
-          if (offlineResponse) return offlineResponse;
-          return new Response(
-            "<!doctype html><title>Offline</title><h1>You are offline.</h1>",
-            { headers: { "Content-Type": "text/html; charset=utf-8" } },
-          );
+          const offline = await caches.match("/offline.html");
+          if (offline) return offline;
+          return new Response("<h1>Offline</h1>", {
+            headers: { "Content-Type": "text/html" },
+          });
         }
-        // For other requests, return a generic error response
+
         return Response.error();
       }
-    });
-
-    event.respondWith(fetchResponse);
-  },
-);
+    })(),
+  );
+});
