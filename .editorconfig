@@ -1,0 +1,60 @@
+# .editorconfig
+#
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro.
+#
+# EditorConfig helps developers define and maintain consistent
+# coding styles between different editors and IDEs
+# See http://editorconfig.org/ for full details
+
+; top-most EditorConfig file
+root = true
+
+; define basic and global for any file
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+max_line_length = 80
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+; DOS/Windows batch scripts -
+[*.{bat,cmd}]
+end_of_line = crlf
+
+; Cascading Stylesheets -
+[*.css]
+indent_size = 2
+
+; HTML files -
+[*.{html,htm}]
+indent_size = 2
+
+; JavaScript files -
+[*.{mjs,js,ts}]
+curly_bracket_next_line = true
+quote_type = single
+
+; JSON files (normal and commented version) -
+[*.{json,jsonc}]
+indent_size = 2
+quote_type = double
+
+; Make - match it own default syntax
+[Makefile]
+indent_style = tab
+
+; Markdown files - preserve trail spaces that means break line
+[*.{md,markdown}]
+trim_trailing_whitespace = false
+
+; PowerShell - match defaults for New-ModuleManifest and PSScriptAnalyzer Invoke-Formatter
+[*.{ps1,psd1,psm1}]
+charset = utf-8-bom
+end_of_line = crlf
+
+; YML config files - match it own default syntax
+[*.{yaml,yml}]
+indent_size = 2

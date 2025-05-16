@@ -1,0 +1,10 @@
+/*! ==========================================================================
+src/lib/styles/css/global.css
+
+SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+This file is part of Network Pro.
+========================================================================== */
+
+@import "./normalize.css";
+@import "./style.css";
+@import "./default.css";

@@ -1,0 +1,76 @@
+/*!
+ * Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ * Copyright 2024 Fonticons, Inc.
+ */
+:root, :host {
+  --fa-style-family-brands: 'Font Awesome 6 Brands';
+  --fa-font-brands: normal 400 1em/1 'Font Awesome 6 Brands'; }
+
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.ttf") format("truetype"); }
+
+.fab,
+.fa-brands {
+  font-weight: 400; }
+
+.fa-square-instagram {
+  --fa: "\e055"; }
+
+.fa-instagram-square {
+  --fa: "\e055"; }
+
+.fa-threads {
+  --fa: "\e618"; }
+
+.fa-linkedin-in {
+  --fa: "\f0e1"; }
+
+.fa-square-twitter {
+  --fa: "\f081"; }
+
+.fa-twitter-square {
+  --fa: "\f081"; }
+
+.fa-500px {
+  --fa: "\f26e"; }
+
+.fa-mastodon {
+  --fa:"\f4f6"; }
+
+.fa-square-github {
+  --fa: "\f092"; }
+
+.fa-github-square {
+  --fa: "\f092"; }
+
+.fa-x-twitter {
+  --fa: "\e61b"; }
+
+.fa-square-facebook {
+  --fa: "\f082"; }
+
+.fa-facebook-square {
+  --fa: "\f082"; }
+
+.fa-linkedin {
+  --fa: "\f08c"; }
+
+.fa-instagram {
+  --fa: "\f16d"; }
+
+.fa-facebook {
+  --fa: "\f09a"; }
+
+.fa-github {
+  --fa: "\f09b"; }
+
+.fa-twitter {
+  --fa: "\f099"; }
+
+.fa-square-x-twitter {
+  --fa: "\e61a"; }

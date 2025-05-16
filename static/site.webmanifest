@@ -1,0 +1,64 @@
+{
+  "name": "Network Pro Strategies",
+  "short_name": "Network Pro",
+  "description": "Access our expert cybersecurity services anytime, anywhere with our streamlined Progressive Web App. Optimized for speed, security, and mobile use, this app offers a seamless experience to explore our solutions, view project highlights, and get in touch—all in one place.",
+  "start_url": "/?utm_source=homescreen",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "minimal-ui"],
+  "background_color": "#191919",
+  "theme_color": "#ffc627",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/icon-512x512-maskable.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-splash.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "orientation": "any",
+  "scope": "/",
+  "categories": ["business", "security", "technology", "network", "privacy"],
+  "shortcuts": [
+    {
+      "name": "Consulting Services",
+      "short_name": "Services",
+      "description": "Explore our cybersecurity services",
+      "url": "/about?utm_source=shortcut",
+      "icons": [
+        {
+          "src": "/icon-services.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "description": "Connect with a cybersecurity specialist",
+      "url": "/contact?utm_source=shortcut",
+      "icons": [
+        {
+          "src": "/icon-contact.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+# .prettierignore
+#
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro.
+
+# Custom ignores
+.markdownlint.jsonc
+
+
+# FontAwesome
+src/lib/styles/css/brands.css
+
+# Minified CSS and CSS imports
+*.min.css
+src/lib/styles/fa-global.css
+src/lib/styles/css/global.css
+
+# SvelteKit
+.svelte-kit/*
+src/lib/*.js
+src/lib/data/*.js
+src/lib/styles/global.css
+
+# Node.js dependencies
+node_modules
+
+# Build artifacts
+build
+.vite
+.cache
+coverage
+
+# Temporary files
+*.lock
+*.tmp
+*.swp
+*.bak
+
+# Static assets
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.gif
+**/*.svg
+**/*.woff
+**/*.woff2
+**/*.ttf
+**/*.eot
+
+# Generated files
+**/*.d.ts
+**/generated/*
+
+# Configuration files
+package.json
+package-lock.json

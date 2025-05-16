@@ -1,0 +1,46 @@
+{
+  // Editor settings
+  "editor.defaultFoldingRangeProvider": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[markdown]": {
+    "editor.defaultFoldingRangeProvider": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode",
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // ESLint configuration
+  "eslint.workingDirectories": ["D:\\Netwk-Pro\\git\\dev-svelte"],
+  "eslint.validate": ["svelte", "javascript", "javascriptreact"],
+  "eslint.lintTask.enable": true,
+  "eslint.lintTask.options": "--ext .mjs,.js,.svelte --config eslint.config.mjs .",
+  "eslint.useESLintClass": true,
+  "eslint.useFlatConfig": true,
+  "eslint.codeActionsOnSave.mode": "problems",
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "svelte"
+  ],
+  // Stylelint configuration
+  "stylelint.configBasedir": "D:\\Netwk-Pro\\git\\dev-svelte",
+  "stylelint.configFile": "stylelint.config.js",
+  "stylelint.customSyntax": "postcss-html",
+  "stylelint.validate": ["css", "postcss", "html", "svelte"],
+  // Custom CSS data for FontAwesome classes
+  "css.customData": [
+    ".vscode/customData.json" // Path to your custom data file
+  ],
+  "markdown.validate.ignoredLinks": ["#bugs", "#features", "#top"]
+}

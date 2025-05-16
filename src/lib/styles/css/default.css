@@ -1,0 +1,454 @@
+/*! ==========================================================================
+src/lib/styles/default.css
+
+SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+This file is part of Network Pro.
+========================================================================== */
+
+/* ==========================================================================
+   Document Spacing
+========================================================================== */
+
+/* Ensures backgrounds scale up to 1920px but stop expanding beyond */
+.full-width-section {
+  width: 100%;
+  margin: 0 auto; /* Centers background */
+  background-position: center;
+  background-size: cover;
+  max-width: 1920px;
+}
+
+/* Content container constrained to 1200px */
+.container {
+  padding: 0 12px; /* Half of gutter for balance */
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Header & Footer follow the same container width */
+header,
+footer {
+  width: 100%;
+}
+
+header .container,
+footer .container {
+  padding: 20px 12px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* ==========================================================================
+   Responsive Tables
+========================================================================== */
+
+/* github table */
+.gh {
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.gh td {
+  padding: 10px 5px;
+  border-collapse: collapse;
+  overflow: hidden;
+  word-break: normal;
+}
+
+.gh th {
+  padding: 10px 5px;
+  border-collapse: collapse;
+  overflow: hidden;
+  word-break: normal;
+}
+
+.gh .gh-tcell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media screen and (width <= 767px) {
+  .gh {
+    width: auto !important;
+  }
+
+  .gh col {
+    width: auto !important;
+  }
+
+  .gh-wrap {
+    margin: auto 0;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+  }
+}
+
+/* social media table */
+.soc {
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.soc td {
+  padding: 8px;
+  border-collapse: collapse;
+  overflow: hidden;
+  word-break: normal;
+}
+
+.soc th {
+  padding: 8px;
+  border-collapse: collapse;
+  overflow: hidden;
+  word-break: normal;
+}
+
+.soc .soc-fa {
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media screen and (width <= 767px) {
+  .soc {
+    width: auto !important;
+  }
+
+  .soc col {
+    width: auto !important;
+  }
+
+  .soc-wrap {
+    margin: auto 0;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+  }
+}
+
+.foss {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.foss td {
+  padding: 10px 5px;
+  border-collapse: collapse;
+  overflow: hidden;
+  word-break: normal;
+}
+
+.foss th {
+  padding: 10px 5px;
+  border-collapse: collapse;
+  overflow: hidden;
+  word-break: normal;
+}
+
+.foss .foss-cell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media screen and (width <= 767px) {
+  .foss {
+    width: auto !important;
+  }
+
+  .foss col {
+    width: auto !important;
+  }
+
+  .foss-wrap {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+  }
+}
+
+.bnav {
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.bnav td {
+  padding: 10px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 1.125rem;
+  border-style: none;
+  overflow: hidden;
+  word-break: normal;
+}
+
+.bnav th {
+  padding: 10px;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  border-style: none;
+  overflow: hidden;
+  word-break: normal;
+}
+
+.bnav .bnav-cell {
+  text-align: center;
+  align-content: center;
+  vertical-align: middle;
+}
+
+@media screen and (width <= 767px) {
+  .bnav {
+    width: auto !important;
+  }
+
+  .bnav col {
+    width: auto !important;
+  }
+
+  .bnav-wrap {
+    margin: auto 0;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+  }
+}
+
+.bnav2 {
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.bnav2 td {
+  padding: 10px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 1.125rem;
+  border-style: none;
+  overflow: hidden;
+  word-break: normal;
+}
+
+.bnav2 th {
+  padding: 12px;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  border-style: none;
+  overflow: hidden;
+  word-break: normal;
+}
+
+.bnav2 .bnav2-cell {
+  text-align: center;
+  align-content: center;
+  vertical-align: middle;
+}
+
+@media screen and (width <= 767px) {
+  .bnav2 {
+    width: auto !important;
+  }
+
+  .bnav2 col {
+    width: auto !important;
+  }
+
+  .bnav2-wrap {
+    margin: auto 0;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+  }
+}
+
+.pgp {
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.pgp td {
+  padding: 10px;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  border-style: none;
+  overflow: hidden;
+  word-break: normal;
+}
+
+.pgp th {
+  padding: 10px;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  word-break: normal;
+}
+
+.pgp .pgp-col1 {
+  text-align: right;
+  padding-right: 1rem; /* Add spacing between columns */
+  vertical-align: middle;
+}
+
+.pgp .pgp-col2 {
+  text-align: left;
+  padding-left: 1rem; /* Add spacing between columns */
+  vertical-align: middle;
+}
+
+@media screen and (width <= 767px) {
+  .pgp {
+    width: auto !important;
+  }
+
+  .pgp col {
+    width: auto !important;
+  }
+
+  .pgp-wrap {
+    margin: auto 0;
+    margin-top: 2rem;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+  }
+}
+
+/* ==========================================================================
+   Custom CSS
+========================================================================== */
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.index-title1 {
+  font-weight: bold;
+  text-align: center;
+  font-style: italic;
+}
+
+.index-title2 {
+  font-size: 1.25rem;
+  line-height: 1.625rem;
+  letter-spacing: -0.015em;
+  text-align: center;
+  font-variant: small-caps;
+}
+
+.index1 {
+  font-weight: bold;
+  line-height: 2.125rem;
+  letter-spacing: -0.035em;
+  text-align: center;
+  font-style: italic;
+}
+
+.index2 {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  letter-spacing: -0.035em;
+  text-align: center;
+  font-variant: small-caps;
+}
+
+.index3 {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  letter-spacing: -0.035em;
+  text-align: center;
+}
+
+.subhead {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  letter-spacing: -0.035em;
+  font-variant: small-caps;
+}
+
+.bolditalic {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.bquote {
+  border-left: 3px solid #9e9e9e;
+  font-style: italic;
+  margin-left: 30px;
+  padding-left: 10px;
+}
+
+.small-text {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+}
+
+.large-text-center {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  text-align: center;
+}
+
+.prewrap {
+  display: block;
+  white-space: pre-wrap;
+}
+
+.hr-styled {
+  width: 75%;
+  margin: auto;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.copyright {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  text-align: center;
+}
+
+.visited {
+  color: #7f6227;
+}
+
+.center-nav {
+  padding: 5px;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  text-align: center;
+}
+
+/* code block for legal text */
+.block {
+  width: 100%;
+  border: none;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  background: none;
+  border-radius: 0;
+  outline: none;
+  resize: none;
+}
+
+.fingerprint {
+  display: block;
+  font-weight: bold;
+  white-space: pre-line; /* Ensures newlines are respected for "\n" */
+}
+
+.pgp-image {
+  width: 125px;
+  height: 125px;
+}
+
+.spacer {
+  margin: 2rem 0;
+}
+
+.separator {
+  margin: 0 0.5rem;
+}

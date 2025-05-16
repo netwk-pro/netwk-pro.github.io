@@ -1,0 +1,71 @@
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro
+
+name: Report a bug
+description: Tell us about a bug or issue you may have identified in Network Pro Strategies (@networkpro/web).
+title: Provide a general summary of the issue
+labels:
+  - bug
+assignees: SunDevil311
+body:
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      description: Take a couple minutes to help our maintainers work faster.
+      options:
+        - label: I have
+            [searched](https://github.com/netwk-pro/netwk-pro.github.io/issues?utf8=%E2%9C%93&q=is%3Aissue)
+            for duplicate or closed issues
+          required: true
+        - label: I have read the [contributing
+            guidelines](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/.github/CONTRIBUTING.md)
+          required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Describe the issue
+      description:
+        Provide a summary of the issue and what you expected to happen,
+        including specific steps to reproduce.
+    validations:
+      required: true
+  - type: textarea
+    id: reduced-test-case
+    attributes:
+      label: Reduced test cases
+      description: Include [reduced test
+        case](https://css-tricks.com/reduced-test-cases/) links.
+    validations:
+      required: false
+  - type: dropdown
+    id: os
+    attributes:
+      label: What operating system(s) are you seeing the problem on?
+      multiple: true
+      options:
+        - Windows
+        - macOS
+        - Android
+        - iOS
+        - Linux
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: What browser(s) are you seeing the problem on?
+      multiple: true
+      options:
+        - Chrome
+        - Safari
+        - Firefox
+        - Microsoft Edge
+        - Opera
+        - Development Environment
+  - type: input
+    id: version
+    attributes:
+      label: If applicable, what version of @networkpro/web are you using?
+      placeholder: e.g., v0.2.0 or v0.3.5
+    validations:
+      required: true

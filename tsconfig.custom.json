@@ -1,0 +1,39 @@
+/* ==========================================================================
+tsconfig.custom.json
+
+NOTE: This file is for reference only and is not actively used in the build.
+The project uses the SvelteKit-generated .svelte-kit/tsconfig.json extended by
+jsconfig.json for actual TypeScript configuration.
+
+SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+This file is part of Network Pro.
+========================================================================== */
+
+{
+  "extends": "./.svelte-kit/tsconfig.json", // Extend SvelteKit's generated tsconfig
+  "compilerOptions": {
+    "baseUrl": ".", // Base path for resolving non-relative imports
+    "paths": {
+      "$lib": ["src/lib"], // Alias for the lib directory
+      "$lib/*": ["src/lib/*"], // Alias for lib subdirectories
+      "$types": [".svelte-kit/types"] // Alias for SvelteKit types
+    }
+  },
+  "include": [
+    "src/**/*.ts", // Include TypeScript files
+    "src/**/*.js", // Include JavaScript files
+    "src/**/*.svelte", // Include Svelte files
+    "tests/**/*.ts", // Include TypeScript test files
+    "tests/**/*.js", // Include JavaScript test files
+    "tests/**/*.svelte", // Include Svelte test files
+    ".svelte-kit/types/**/*.d.ts" // Include SvelteKit-generated types
+  ],
+  "exclude": [
+    "node_modules/**", // Exclude node_modules
+    "dist/**", // Exclude distribution folder
+    "src/service-worker.js", // Exclude service workers
+    "src/service-worker/**/*.js",
+    "src/service-worker.ts",
+    "src/service-worker/**/*.ts"
+  ]
+}

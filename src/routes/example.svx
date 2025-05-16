@@ -1,0 +1,9 @@
+# Welcome to My Page
+
+This is an example of an `.svx` file with Markdown and Svelte.
+
+<script>
+	let count = 0;
+</script>
+
+<button on:click={() => count++}>Clicked {count} times</button>

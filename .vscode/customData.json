@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "selectors": [
+    {
+      "name": ".fas",
+      "description": "FontAwesome v6 solid icon class"
+    },
+    {
+      "name": ".fa-solid",
+      "description": "FontAwesome old solid icon class"
+    },
+    {
+      "name": ".fab",
+      "description": "FontAwesome v6 brand icon class"
+    },
+    {
+      "name": ".fa-brands",
+      "description": "FontAwsome old brand icon class"
+    },
+    {
+      "name": ".fa-square-instagram",
+      "description": "FontAwesome brands Instagram icon class"
+    },
+    {
+      "name": ".fa-square-github",
+      "description": "FontAwesome brands GitHub icon class"
+    },
+    {
+      "name": ".fa-linkedin",
+      "description": "FontAwesome brands LinkedIn icon class"
+    },
+    {
+      "name": ".fa-square-facebook",
+      "description": "FontAwesome brands Facebook icon class"
+    },
+    {
+      "name": ".fa-mastodon",
+      "description": "FontAwesome brands Pinterest icon class"
+    },
+    {
+      "name": ".fa-arrow-up-right",
+      "description": "FontAwesome arrow up right icon class"
+    },
+    {
+      "name": ".fa-arrow-up-right-from-square",
+      "description": "FontAwesome arrow up right from square icon class"
+    },
+    {
+      "name": ".fa-file-arrow-down",
+      "description": "FontAwesome download file icon class"
+    },
+    {
+      "name": ".fa-2x",
+      "description": "FontAwesome 2x extra large icon size class"
+    },
+    {
+      "name": ".fa-lg",
+      "description": "FontAwesome large icon size class"
+    },
+    {
+      "name": ".fa-sm",
+      "description": "FontAwesome small icon size class"
+    },
+    {
+      "name": ".fa-xs",
+      "description": "FontAwesome extra small icon size class"
+    },
+    {
+      "name": ".fa-2xs",
+      "description": "FontAwesome 2x extra small icon size class"
+    }
+  ]
+}
