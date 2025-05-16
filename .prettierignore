@@ -19,7 +19,7 @@ src/lib/styles/css/global.css
 .svelte-kit/*
 src/lib/*.js
 src/lib/data/*.js
-src/lib/styles/global.css
+src/lib/styles/*.js
 
 # Node.js dependencies
 node_modules

@@ -79,11 +79,23 @@ sw.addEventListener(
     // Only cache GET requests
     if (event.request.method !== "GET") return;
 
-    /**
-     * @type {Promise<Response>}
-     */
-    const fetchResponse = caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
+    const fetchResponse = caches.match(event.request).then(async (response) => {
+      if (response) return response;
+      try {
+        return await fetch(event.request);
+      } catch (err) {
+        if (event.request.mode === "navigate") {
+          // Always await and check for undefined
+          const offlineResponse = await caches.match("/offline.html");
+          if (offlineResponse) return offlineResponse;
+          // Always return a Response object
+          return new Response(
+            "<!doctype html><title>Offline</title><h1>You are offline.</h1>",
+            { headers: { "Content-Type": "text/html; charset=utf-8" } },
+          );
+        }
+        throw err;
+      }
     });
 
     event.respondWith(fetchResponse);
