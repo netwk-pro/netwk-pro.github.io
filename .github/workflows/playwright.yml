@@ -11,6 +11,14 @@ on:
     branches: [master]
   workflow_dispatch:
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment
+permissions:
+  contents: read # Required to check out the repository
+  id-token: write # Required for authentication operations
+  checks: write # Required for publishing test results as checks
+  pages: write # Optional: only if publishing reports to GitHub Pages
+  actions: read # Optional: to read workflow information
+
 jobs:
   test:
     timeout-minutes: 60
@@ -46,7 +54,8 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload Playwright test results
+        uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: playwright-report

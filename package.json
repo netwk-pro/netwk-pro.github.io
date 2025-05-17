@@ -2,7 +2,7 @@
   "name": "@networkpro/dev-sveltekit",
   "private": false,
   "sideEffects": false,
-  "version": "0.10.6",
+  "version": "0.10.7",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "security",
@@ -35,7 +35,7 @@
     "node": ">=22"
   },
   "main": "src/app.html",
-  "style": "src/lib/styles/global.css",
+  "style": "src/lib/styles/global.min.css",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
