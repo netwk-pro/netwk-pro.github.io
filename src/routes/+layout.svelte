@@ -10,11 +10,11 @@ This file is part of Network Pro.
   import Footer from "$lib/components/layout/Footer.svelte";
   import HeaderDefault from "$lib/components/layout/HeaderDefault.svelte";
   import HeaderHome from "$lib/components/layout/HeaderHome.svelte";
+  import { browser } from "$app/environment";
   // TODO: Testing in progress
   import { registerServiceWorker } from "$lib/registerServiceWorker.js";
 
   // Import logo images and favicons and format for preloading
-  import { browser } from "$app/environment";
   import logoPng from "$lib/img/logo-web.png";
   import logoWbp from "$lib/img/logo-web.webp";
   import faviconSvg from "$lib/img/favicon.svg";

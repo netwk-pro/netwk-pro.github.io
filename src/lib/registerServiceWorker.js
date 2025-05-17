@@ -7,6 +7,16 @@ This file is part of Network Pro.
 
 export function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
+    // Skip registration in Firefox during development
+    const isFirefox = navigator.userAgent.indexOf('Firefox') !== -1;
+    const isDevelopment = window.location.hostname === 'localhost' ||
+                         window.location.hostname === '127.0.0.1';
+
+    if (isFirefox && isDevelopment) {
+      console.log('Service Worker registration skipped in Firefox development mode');
+      return;
+    }
+
     // Wait until after the page fully loads for better performance
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('service-worker.js')

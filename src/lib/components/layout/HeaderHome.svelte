@@ -12,6 +12,7 @@ This file is part of Network Pro.
   //console.log("Base path:", base);
 
   const aboutLink = `${base}/about`;
+  const fossLink = `${base}/foss-spotlight`;
   const blogLink = "https://blog.netwk.pro";
 
   /**
@@ -29,6 +30,7 @@ This file is part of Network Pro.
    */
   const nav = [
     { label: "about", href: aboutLink, target: "_self", external: false },
+    { label: "foss", href: fossLink, target: "_self", external: false },
     {
       label: "blog",
       href: blogLink,
@@ -71,7 +73,11 @@ This file is part of Network Pro.
     {/if}
     <!-- Separator logic -->
     {#if index < nav.length - 1}
-      <span class="separator">|</span>
+      {#if label === "blog"}
+        <br />
+      {:else}
+        <span class="separator">|</span>
+      {/if}
     {/if}
   {/each}
 </nav>
