@@ -1,3 +1,13 @@
 [build]
   command = "npm run build"
   publish = "build"
+
+[[plugins]]
+package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+  buildDir = "build"
+  filePath = "static/sitemap.xml"
+  trailingSlash = true
+  changeFreq = "monthly"
+  priority = 0.5

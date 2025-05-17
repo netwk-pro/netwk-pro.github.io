@@ -141,7 +141,7 @@ jobs:
 
       - name: Update package name for GPR
         run: |
-          sed -i 's/"name": ".*"/"name": "@netwk-pro\/dev-sveltekit"/' build/package.json
+          sed -i 's/"name": ".*"/"name": "@netwk-pro\/dev-sveltekit"/' package.json
 
       - name: Publish package to GPR
         run: npm publish
