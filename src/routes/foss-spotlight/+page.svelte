@@ -25,7 +25,7 @@ This file is part of Network Pro.
   const spaceStyle = "spacer";
 </script>
 
-<link rel="canonical" href="https://dev.netwk.pro/foss-spotlight" />
+<link rel="canonical" href="https://netwk.pro/foss-spotlight" />
 
 <section id="license">
   <FullWidthSection>

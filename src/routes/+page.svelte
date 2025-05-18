@@ -26,7 +26,7 @@ This file is part of Network Pro.
   const spaceStyle = "spacer";
 </script>
 
-<link rel="canonical" href="https://dev.netwk.pro" />
+<link rel="canonical" href="https://netwk.pro" />
 
 <section id="home-page" data-testid="home-page">
   <FullWidthSection>
