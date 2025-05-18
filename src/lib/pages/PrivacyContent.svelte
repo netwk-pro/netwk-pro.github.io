@@ -21,7 +21,7 @@ This file is part of Network Pro.
    * URL to the privacy policy in Markdown format
    * @type {string}
    */
-  const privacyLink = "https://netwk.pro/docs/privacy";
+  const privacyLink = "https://docs.netwk.pro/privacy";
 
   /**
    * Table of Contents Links
@@ -43,13 +43,14 @@ This file is part of Network Pro.
 
   /**
    * Contact Information
-   * @type {{ company: string, email: string, phone: string, effectiveDate: string }}
+   * @type {{ company: string, email: string, secure: string, phone: string, effectiveDate: string }}
    */
   const contactInfo = {
     company: "Network Pro Strategies",
     email: "support (at) neteng.pro",
+    secure: "contact (at) s.neteng.pro",
     phone: "(623) 252-4350",
-    effectiveDate: "May 8, 2025",
+    effectiveDate: "May 18, 2025",
   };
 
   /**
@@ -210,7 +211,7 @@ This file is part of Network Pro.
           rel={constants.rel}
           href={prightsLink}
           target={constants.targetBlank}>Privacy Rights Request Form</a>
-        or email us at <code>{contactInfo.email}</code>.
+        or email us at <code>{contactInfo.secure}</code>.
       </p>
     {:else if link.id === "third-party"}
       <p>
@@ -232,7 +233,8 @@ This file is part of Network Pro.
       <p>For questions, contact:</p>
       <p>
         <strong>{contactInfo.company}</strong><br />
-        📧 Email: <code>{contactInfo.email}</code><br />
+        📧 General Inquiries: <code>{contactInfo.email}</code><br />
+        🔐 Secure Contact: <code>{contactInfo.secure}</code><br />
         📞 Phone: {contactInfo.phone}
       </p>
     {/if}

@@ -21,7 +21,7 @@ This file is part of Network Pro.
    * Markdown version of the Terms and Conditions document
    * @type {string}
    */
-  const tandcLink = "https://netwk.pro/docs/terms-conditions";
+  const tandcLink = "https://docs.netwk.pro/terms-conditions";
 
   /**
    * Common constants used throughout the component

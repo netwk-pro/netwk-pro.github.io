@@ -6,6 +6,24 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
+  import { base } from "$app/paths";
+
+  // Log the base path to verify its value
+  //console.log("Base path:", base);
+
+  /**
+   * URLs using the base path
+   * @type {string}
+   */
+  const homeLink = base || "/";
+  const contactLink = `${base}/contact`;
+
+  /**
+   * URL to the internal MkDocs documentation
+   * @type {string}
+   */
+  const legalLink = "https://docs.netwk.pro/legal";
+
   /**
    * Table of Contents Links
    * @type {{ id: string, text: string }[]}
@@ -32,7 +50,7 @@ This file is part of Network Pro.
    */
   const constants = {
     company: "Network Pro Strategies",
-    effectiveDate: "May 8, 2025",
+    effectiveDate: "May 18, 2025",
     classSmall: "small-text",
     rel: "noopener noreferrer",
     hrefTop: "#top",
@@ -84,8 +102,7 @@ This file is part of Network Pro.
       <strong>Formats Available:</strong> &nbsp;<span class="visited"
         >HTML</span>
       |
-      <a href="https://network.pro/docs/legal" target={constants.targetSelf}
-        >Markdown</a>
+      <a href={legalLink} target={constants.targetSelf}>Markdown</a>
     </sup>
   </p>
 </section>
@@ -105,7 +122,7 @@ This file is part of Network Pro.
       <p>
         Copyright &copy; 2025
         <strong>
-          <a href="https://netwk.pro" target={constants.targetBlank}>
+          <a href={homeLink} target={constants.targetBlank}>
             Network Pro Strategies
           </a>
         </strong>
@@ -208,12 +225,14 @@ This file is part of Network Pro.
         |
         <a
           rel={constants.rel}
-          href="https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0-rdfa.xml"
+          download
+          href="https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0-rdfa.xml"
           target={constants.targetBlank}>RDFa</a>
         |
         <a
           rel={constants.rel}
-          href="https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.xml"
+          download
+          href="https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0.xml"
           target={constants.targetBlank}>XMP</a>
       </p>
 
@@ -311,11 +330,13 @@ This file is part of Network Pro.
         |
         <a
           rel={constants.rel}
-          href="https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING-rdfa.xml"
+          download
+          href="https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/COPYING-rdfa.xml"
           target={constants.targetBlank}>RDFa</a>
         |
         <a
           rel={constants.rel}
+          download
           href="https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/COPYING.odt"
           target={constants.targetBlank}>ODT</a>
       </p>
@@ -443,12 +464,10 @@ This file is part of Network Pro.
     {:else if link.id === "contact"}
       <p>
         The Company can be contacted via our
-        <a
-          rel={constants.rel}
-          href="https://contact.neteng.pro"
-          target={constants.targetBlank}>contact form</a>
+        <a rel={constants.rel} href={contactLink} target={constants.targetBlank}
+          >contact form</a>
         or by email at:<br />
-        📧 <code>support (at) neteng.pro</code>
+        📧 <code>contact (at) s.neteng.pro</code>
       </p>
     {:else if link.id === "revisions"}
       <p>

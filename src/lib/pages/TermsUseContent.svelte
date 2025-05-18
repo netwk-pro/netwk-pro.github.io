@@ -33,7 +33,7 @@ This file is part of Network Pro.
    * Markdown version of the Terms of Use document
    * @type {string}
    */
-  const termsLink = "https://netwk.pro/docs/terms-use";
+  const termsLink = "https://docs.netwk.pro/terms-use";
 
   /**
    * Table of Contents Links
