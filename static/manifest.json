@@ -1,10 +1,15 @@
 {
+  "id": "/",
+  "start_url": "/?utm_source=homescreen",
+  "scope": "/",
   "name": "Network Pro Strategies",
   "short_name": "Network Pro",
   "description": "Access our expert cybersecurity services anytime, anywhere with our streamlined Progressive Web App. Optimized for speed, security, and mobile use, this app offers a seamless experience to explore our solutions, view project highlights, and get in touch—all in one place.",
-  "start_url": "/?utm_source=homescreen",
+  "lang": "en-US",
+  "dir": "ltr",
   "display": "standalone",
   "display_override": ["window-controls-overlay", "minimal-ui"],
+  "orientation": "any",
   "background_color": "#191919",
   "theme_color": "#ffc627",
   "icons": [
@@ -22,7 +27,7 @@
       "src": "/icon-512x512-maskable.png",
       "type": "image/png",
       "sizes": "512x512",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
       "src": "/icon-splash.png",
@@ -30,6 +35,8 @@
       "sizes": "512x512"
     }
   ],
+  "categories": ["business", "security", "technology", "network", "privacy"],
+  "prefer_related_applications": false,
   "screenshots": [
     {
       "src": "/screenshots/desktop-home.png",
@@ -60,9 +67,6 @@
       "label": "FOSS Spotlight on mobile"
     }
   ],
-  "orientation": "any",
-  "scope": "/",
-  "categories": ["business", "security", "technology", "network", "privacy"],
   "shortcuts": [
     {
       "name": "Consulting Services",

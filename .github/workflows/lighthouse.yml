@@ -1,0 +1,37 @@
+# .github/workflows/lighthouse.yml
+#
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro
+
+name: Lighthouse Audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  audit:
+    name: Run Lighthouse CI
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli
+
+      - name: Run Lighthouse against Production
+        run: |
+          lhci autorun \
+            --collect.url=https://netwk.pro \
+            --collect.settings.onlyCategories=pwa \
+            --upload.target=temporary-public-storage

@@ -1,3 +1,10 @@
+/* ==========================================================================
+playwright.config.js
+
+SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+This file is part of Network Pro.
+========================================================================== */
+
 // @ts-check
 import { defineConfig, devices } from "@playwright/test";
 
