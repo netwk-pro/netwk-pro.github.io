@@ -113,7 +113,7 @@ This file is part of Network Pro.
       |
       <a
         rel={constants.rel}
-        href="https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/onboard/consulting-terms.pdf"
+        href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/consulting-terms.pdf"
         target={constants.targetBlank}>
         PDF <span class="fas fa-file-arrow-down"></span>
       </a>

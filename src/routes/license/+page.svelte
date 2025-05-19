@@ -11,6 +11,7 @@ This file is part of Network Pro.
   import LicenseContent from "$lib/pages/LicenseContent.svelte";
   import LegalNav from "$lib/components/LegalNav.svelte";
   import SocialMedia from "$lib/components/SocialMedia.svelte";
+  import MetaTags from "$lib/components/MetaTags.svelte";
 
   /**
    * @type {string}
@@ -23,7 +24,11 @@ This file is part of Network Pro.
    * Style class for the div element.
    */
   const spaceStyle = "spacer";
+
+  export let data;
 </script>
+
+<MetaTags title={data.meta.title} description={data.meta.description} />
 
 <link rel="canonical" href="https://netwk.pro/license" />
 

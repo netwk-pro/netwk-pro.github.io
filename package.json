@@ -2,7 +2,7 @@
   "name": "@networkpro/web",
   "private": false,
   "sideEffects": false,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "security",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/netwk-pro/dev-sveltekit.git"
+    "url": "git+https://github.com/netwk-pro/netwk-pro.github.io.git"
   },
   "license": "CC-BY-4.0 OR GPL-3.0-or-later",
   "author": {
@@ -66,7 +66,7 @@
     "@netlify/plugin-sitemap": "^0.8.1",
     "@playwright/test": "^1.52.0",
     "@sveltejs/adapter-netlify": "^5.0.2",
-    "@sveltejs/kit": "^2.21.0",
+    "@sveltejs/kit": "^2.21.1",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/svelte": "^5.2.7",
