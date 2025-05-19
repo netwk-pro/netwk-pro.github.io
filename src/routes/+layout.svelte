@@ -12,8 +12,8 @@ This file is part of Network Pro.
   import Footer from "$lib/components/layout/Footer.svelte";
   import HeaderDefault from "$lib/components/layout/HeaderDefault.svelte";
   import HeaderHome from "$lib/components/layout/HeaderHome.svelte";
+  import PWAInstallButton from "$lib/components/PWAInstallButton.svelte";
   import { browser } from "$app/environment";
-  // TODO: Testing in progress
   import { registerServiceWorker } from "$lib/registerServiceWorker.js";
   import "$lib/styles";
 
@@ -47,7 +47,6 @@ This file is part of Network Pro.
     // Preload Apple Touch icon
     touchImg.src = appleTouchIcon;
 
-    // TODO: Testing in progress
     // Register the service worker
     registerServiceWorker();
   }
@@ -92,9 +91,11 @@ This file is part of Network Pro.
     {#if data.pathname === "/"}
       <!-- Render the Home Header for the root route -->
       <HeaderHome />
+      <PWAInstallButton />
     {:else}
       <!-- Render the Default Header for all other routes -->
       <HeaderDefault />
+      <PWAInstallButton />
     {/if}
   </ContainerSection>
 </header>

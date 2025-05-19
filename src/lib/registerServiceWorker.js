@@ -5,25 +5,31 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
+/**
+ * Registers the service worker and handles update lifecycle, install prompt, and
+ * browser/environment compatibility checks. This supports offline usage and PWA behavior.
+ */
 export function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
     // Skip registration in Firefox during development
-    const isFirefox = navigator.userAgent.indexOf('Firefox') !== -1;
-    const isDevelopment = window.location.hostname === 'localhost' ||
-                         window.location.hostname === '127.0.0.1';
+    const isFirefox = navigator.userAgent.includes('Firefox');
+    const isDevelopment =
+      window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1';
 
     if (isFirefox && isDevelopment) {
       console.log('Service Worker registration skipped in Firefox development mode');
       return;
     }
 
-    // Wait until after the page fully loads for better performance
+    // Wait until after full page load for performance optimization
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('service-worker.js')
+      navigator.serviceWorker
+        .register('service-worker.js')
         .then((registration) => {
           console.log('Service Worker registered with scope:', registration.scope);
 
-          // Track installation of new service worker
+          // Track installation of a new service worker
           registration.addEventListener('updatefound', () => {
             const newWorker = registration.installing;
             console.log('New service worker installing...');
@@ -40,7 +46,7 @@ export function registerServiceWorker() {
               ) {
                 updatePrompted = true;
 
-                // Custom prompt: reload to update
+                // Custom prompt: ask user to reload for latest content
                 if (confirm('New content is available. Reload to update?')) {
                   window.location.reload();
                 }
@@ -52,13 +58,21 @@ export function registerServiceWorker() {
           console.error('Service Worker registration failed:', error);
         });
 
-      // Ensure page reloads when new service worker takes control
+      // Ensure the page reloads automatically when the new service worker takes control
       let refreshing = false;
       navigator.serviceWorker.addEventListener('controllerchange', () => {
         if (!refreshing) {
           refreshing = true;
           window.location.reload();
         }
+      });
+
+      // Optional PWA install prompt logic
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        window.dispatchEvent(new CustomEvent('pwa-install-available', {
+          detail: /** @type {BeforeInstallPromptEvent} */ (e)
+        }));
       });
     });
   }
