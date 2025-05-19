@@ -16,21 +16,32 @@
   import faviconSvg from "$lib/img/favicon.svg";
   import appleTouchIcon from "$lib/img/icon-180x180.png";
 
+  /**
+   * @type {string}
+   * Style class for the mobile-web-app-capable meta tag.
+   * OpenGraph URL for the website.
+   * Company name for the website.
+   * Twitter account for the website.
+   */
   const webApp = "mobile-web-app-capable";
   const ogUrl = "https://netwk.pro";
   const companyName = "Network Pro Strategies";
   const twitterAct = "@NetEng_Pro";
 
   if (browser) {
+    // Preload logo images
     [logoPng, logoWbp].forEach((src) => {
       const img = new Image();
       img.src = src;
     });
 
+    // Preload favicon SVG
     const touchImg = new Image();
+    // Preload Apple Touch icon
     touchImg.src = appleTouchIcon;
 
     // TODO: Testing in progress
+    // Register the service worker
     registerServiceWorker();
   }
 
@@ -40,10 +51,12 @@
   const metaDescription =
     data?.meta?.description ||
     "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro™";
+
+  // Pathname normalization takes place in +layout.js
 </script>
 
 <svelte:head>
-  <!-- Static only, dynamic content moved to src/lib/MetaTags.svelte -->
+  <!-- Static only, dynamic content moved to $lib/components/MetaTags.svelte -->
   <link rel="preload" href={logoWbp} as="image" type="image/webp" />
   <link rel="preload" href={logoPng} as="image" type="image/png" />
   <link rel="preload" href={faviconSvg} as="image" type="image/svg+xml" />
