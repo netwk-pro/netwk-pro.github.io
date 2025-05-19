@@ -1,5 +1,5 @@
 <!-- ==========================================================================
-src/routes/+layout.svelte.svelte
+src/routes/+layout.svelte
 
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
@@ -86,22 +86,28 @@ This file is part of Network Pro.
     content="bx4ham0zkpvzztzu213bhpt76m9siq" />
 </svelte:head>
 
+<!-- BEGIN HEADER -->
 <header id="header-nav">
   <ContainerSection>
     {#if data.pathname === "/"}
+      <!-- Render the Home Header for the root route -->
       <HeaderHome />
     {:else}
+      <!-- Render the Default Header for all other routes -->
       <HeaderDefault />
     {/if}
   </ContainerSection>
 </header>
+<!-- END HEADER -->
 
 <main>
   <slot />
 </main>
 
+<!-- BEGIN FOOTER -->
 <footer id="licensing">
   <ContainerSection>
     <Footer />
   </ContainerSection>
 </footer>
+<!-- END FOOTER -->
