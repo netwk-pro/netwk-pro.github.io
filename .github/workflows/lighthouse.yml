@@ -42,3 +42,9 @@ jobs:
             --collect.url=https://netwk.pro \
             --collect.settings.onlyCategories=pwa \
             --upload.target=temporary-public-storage
+
+      - name: Save Lighthouse report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: .lighthouseci/*.report.html
