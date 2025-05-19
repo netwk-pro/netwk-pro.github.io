@@ -14,8 +14,8 @@ test.describe("Mobile Responsiveness", () => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto("/");
 
-    // Wait for the title to be updated (not `%sveltekit.title%`)
-    await page.waitForFunction(() => document.title !== "%sveltekit.title%");
+    // Wait for the correct title to appear (CSP-safe)
+    await expect(page).toHaveTitle(/Locking Down Networks/);
 
     // Verify the main heading is visible
     const mainHeading = page.locator("h2");
