@@ -51,7 +51,7 @@ Web: <https://bio.neteng.pro>
 # Legal, Copyright, and Licensing
 
 **Network Pro Strategies**  
-**Effective Date:** May 8, 2025
+**Effective Date:** May 18, 2025
 
 &nbsp;
 
@@ -74,11 +74,10 @@ Web: <https://bio.neteng.pro>
 11. [Modifications and Liability Disclaimer](#disclaimer)
 12. [Contact](#contact)
 13. [Revisions](#revisions)
-14. [Attribution](#attribution)
 
 ---
 
-**Formats Available:** [HTML](./legal) | Markdown
+**Formats Available:** [HTML](https://netwk.pro/license) | Markdown
 
 <a name="ownership"></a>
 
@@ -144,7 +143,7 @@ This work is dual-licensed under:
 
 <a name="cc-by"></a>
 
-## 6. Creative Commons License (CC BY 4.0)
+## 7. Creative Commons License (CC BY 4.0)
 
 <sup>Formats: [HTML](https://legal.netwk.pro/html/CC-BY-4.0.html) | [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.txt) | [RDFa](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0-rdfa.xml) | [XMP](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.xml)</sup>
 
@@ -170,7 +169,7 @@ Permissions beyond the scope of this License—or instead of those permitted by 
 
 <a name="gnu-gpl"></a>
 
-## 7. GNU General Public License (GPL)
+## 8. GNU General Public License (GPL)
 
 <sup>Formats: [HTML](https://legal.netwk.pro/html/COPYING.html) | [Markdown](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.md) | [Text](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.txt) | [RDFa](https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING-rdfa.xml) | [ODT](https://github.com/netwk-pro/netwk-pro-legal/raw/refs/heads/master/assets/license/COPYING.odt)</sup>
 
@@ -203,7 +202,7 @@ The inclusion, reference, or linking of any third-party content **does not const
 
 <a name="prohibited-uses"></a>
 
-## 9. Prohibited Uses
+## 10. Prohibited Uses
 
 **The following activities are strictly prohibited and may constitute infringement or unfair competition under applicable law, unless explicitly authorized in writing by the Company:**
 
@@ -216,7 +215,7 @@ The inclusion, reference, or linking of any third-party content **does not const
 
 <a name="disclaimer"></a>
 
-## 10. Modifications and Liability Disclaimer
+## 11. Modifications and Liability Disclaimer
 
 Modifications, redistribution, or any use of the Licensed Material are performed entirely at your own risk.
 
@@ -228,16 +227,16 @@ Modifications, redistribution, or any use of the Licensed Material are performed
 
 <a name="contact"></a>
 
-## 11. Contact
+## 12. Contact
 
-The Company may be contacted via our [contact form](https://contact.neteng.pro) or by email at:  
-📧 `support (at) neteng.pro`
+The Company may be contacted via our [contact form](https://netwk.pro/contact) or by email at:  
+📧 `contact (at) s.neteng.pro`
 
 <sub>[Back to top](#top)</sub>
 
 <a name="revisions"></a>
 
-## 12. Revisions
+## 13. Revisions
 
 This legal page may be updated to comply with legal or operational changes. The current effective date is listed at the top of this document.
 
@@ -245,40 +244,12 @@ This legal page may be updated to comply with legal or operational changes. The 
 
 <a name="attribution"></a>
 
-## 13. Attribution
-
-Website base structure provided by HTML5 Boilerplate:  
-&lt;[https://html5boilerplate.com/](https://html5boilerplate.com/)>&gt;
-
-```markdown
-Copyright (c) HTML5 Boilerplate
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
-
-<sub>[Back to top](#top)</sub>
-
 ---
 
 <div style="font-size: 12px; font-weight: bold; text-align: center;">
 
-[Home](./) &nbsp; | &nbsp; [Terms of Use](./terms-of-use)  
-[Privacy Policy](./privacy-policy) &nbsp; | &nbsp; Legal
+[Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://netwk.pro/terms-of-use)  
+[Privacy Policy](https://netwk.pro/privacy-policy) &nbsp; | &nbsp; Legal
 
 </div>
 

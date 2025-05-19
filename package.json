@@ -2,7 +2,7 @@
   "name": "@networkpro/web",
   "private": false,
   "sideEffects": false,
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "security",
@@ -58,6 +58,8 @@
     "test:watch": "vitest --config vitest.config.client.js --watch",
     "test:coverage": "npm run test:client -- --run --coverage && npm run test:server -- --run --coverage",
     "css:bundle": "node scripts/bundleCss.js",
+    "head:flatten": "node scripts/flattenHeaders.js",
+    "head:validate": "node scripts/validateHeaders.js",
     "checkout": "npm run test:all && npm run lint:all && npm run check"
   },
   "devDependencies": {

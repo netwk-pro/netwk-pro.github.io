@@ -30,6 +30,36 @@
       "sizes": "512x512"
     }
   ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-home.png",
+      "type": "image/png",
+      "sizes": "1920x1080",
+      "form_factor": "wide",
+      "label": "Homescreen of Network Pro Strategies"
+    },
+    {
+      "src": "/screenshots/desktop-about.png",
+      "type": "image/png",
+      "sizes": "1920x1080",
+      "form_factor": "wide",
+      "label": "About Network Pro Strategies"
+    },
+    {
+      "src": "/screenshots/mobile-home.png",
+      "type": "image/png",
+      "sizes": "1080x1920",
+      "form_factor": "narrow",
+      "label": "Mobile view of Network Pro Strategies homepage"
+    },
+    {
+      "src": "/screenshots/mobile-foss.png",
+      "type": "image/png",
+      "sizes": "1080x1920",
+      "form_factor": "narrow",
+      "label": "FOSS Spotlight on mobile"
+    }
+  ],
   "orientation": "any",
   "scope": "/",
   "categories": ["business", "security", "technology", "network", "privacy"],

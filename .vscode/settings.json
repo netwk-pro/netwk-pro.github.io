@@ -42,5 +42,22 @@
   "css.customData": [
     ".vscode/customData.json" // Path to your custom data file
   ],
-  "markdown.validate.ignoredLinks": ["#bugs", "#features", "#top"]
+  "markdown.validate.ignoredLinks": [
+    "#bugs",
+    "#features",
+    "#top",
+    "#ownership",
+    "#trademark",
+    "#branding",
+    "#licensed-material",
+    "#licenses",
+    "#dlnotes",
+    "#cc-by",
+    "#gnu-gpl",
+    "#third-party",
+    "#prohibited-uses",
+    "#disclaimer",
+    "#contact",
+    "#revisions"
+  ]
 }

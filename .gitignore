@@ -16,6 +16,8 @@ devices-list.json
 # Scripts
 scripts/*
 !scripts/bundleCss.js
+!scripts/flattenHeaders.js
+!scripts/validateHeaders.js
 
 # Source maps
 *.map
