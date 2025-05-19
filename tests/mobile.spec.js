@@ -30,8 +30,8 @@ test.describe("Mobile Responsiveness", () => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto("/");
 
-    // Wait for the title to be updated (not `%sveltekit.title%`)
-    await page.waitForFunction(() => document.title !== "%sveltekit.title%");
+    // Wait for the correct title to appear (CSP-safe)
+    await expect(page).toHaveTitle(/Locking Down Networks/);
 
     // Check that there are no overlapping elements
     const body = await page.locator("body").boundingBox();
@@ -46,8 +46,8 @@ test.describe("Mobile Responsiveness", () => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto("/");
 
-    // Wait for the title to be updated (not `%sveltekit.title%`)
-    await page.waitForFunction(() => document.title !== "%sveltekit.title%");
+    // Wait for the correct title to appear (CSP-safe)
+    await expect(page).toHaveTitle(/Locking Down Networks/);
 
     // Check the "about" link is tappable and visible
     const aboutLink = page.locator("a", { hasText: "about" });
