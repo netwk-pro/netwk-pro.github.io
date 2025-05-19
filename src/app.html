@@ -2,39 +2,41 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- =====================================================================
     SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
     This file is part of Network Pro.
-    ===================================================================== -->
+    ====================================================================== -->
 
     <title>%sveltekit.title%</title>
     <meta name="description" content="%sveltekit.description%" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="Network Pro Strategies" />
 
-    <!-- Preconnect optimizations for LinkedIn -->
-    <link rel="preconnect" href="https://snap.licdn.com" crossorigin />
-    <link rel="preconnect" href="https://px.ads.linkedin.com" crossorigin />
+    <!-- Optional CSP for Dev -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://snap.licdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://px.ads.linkedin.com; connect-src 'self' https://px.ads.linkedin.com;" />
 
-    <!-- FontAwesome is self-hosted, so its preconnect has been removed -->
-
-    <!-- Keep only the ICO favicon for maximum compatibility -->
+    <!-- Favicon: Keep only ICO for max compatibility -->
     <link
       rel="icon"
       href="%sveltekit.assets%/favicon.ico"
       sizes="any"
       type="image/x-icon" />
 
-    <!-- SVG and PNG favicons will be added by the layout component -->
+    <!-- Preconnects (placed early to optimize connection time) -->
+    <link rel="preconnect" href="https://snap.licdn.com" crossorigin />
+    <link rel="preconnect" href="https://px.ads.linkedin.com" crossorigin />
 
+    <!-- Manifest + theme color -->
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#ffc627" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <meta name="author" content="Network Pro Strategies" />
-    <meta
-      name="robots"
-      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="generator" content="SvelteKit 2.21.1" />
 
     %sveltekit.head%
   </head>

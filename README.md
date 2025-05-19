@@ -52,7 +52,7 @@ Web: <https://bio.neteng.pro>
 
 </section>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/94ec8cc0-4712-409a-b54e-2dfbe7024a42/deploy-status)](https://app.netlify.com/sites/networkpro/deploys) [![NPM Version](https://img.shields.io/npm/v/%40networkpro%2Fdev-sveltekit?registry_uri=https%3A%2F%2Fregistry.npmjs.com&style=flat&logo=npm&logoSize=auto&color=%23CB3837)](https://www.npmjs.com/package/@networkpro/dev-sveltekit) [![Build and Publish to Registries](https://github.com/netwk-pro/dev-sveltekit/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/netwk-pro/dev-sveltekit/actions/workflows/build-and-publish.yml)  
+[![Netlify Status](https://api.netlify.com/api/v1/badges/93910633-3fdb-4bb3-a9bf-5d91ccfeebf9/deploy-status)](https://app.netlify.com/projects/networkpro-web/deploys) [![NPM Version](https://img.shields.io/npm/v/%40networkpro%2Fweb?registry_uri=https%3A%2F%2Fregistry.npmjs.com&style=flat&logo=npm&logoSize=auto&color=%23CB3837)](https://www.npmjs.com/package/@networkpro/web) [![Build and Publish to Registries](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/build-and-publish.yml)  
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier) [![stylelint](https://img.shields.io/badge/stylelint-%23747474?style=flat&logo=stylelint&logoSize=auto&labelColor=%23263238)](https://stylelint.io/)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/CODE_OF_CONDUCT.md)
 
@@ -80,7 +80,7 @@ We also believe education is a core pillar of real-world security. That’s why 
 
 &nbsp;
 
-🔹 [Let’s connect](https://contact.neteng.pro) to discuss how we can help secure and strengthen your business today.
+🔹 [Let’s connect](https://netwk.pro/contact) to discuss how we can help secure and strengthen your business today.
 
 ---
 
@@ -109,8 +109,8 @@ You can find our PGP keys and a vCard containing our contact information for you
 Copyright &copy; 2025  
 **[Network Pro Strategies](https://netwk.pro/)** (Network Pro&trade;)
 
-Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slogan are [trademarks](https://netwk.pro/legal#trademark) of Network Pro Strategies.
+Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slogan are [trademarks](https://netwk.pro/license#trademark) of Network Pro Strategies.
 
-Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and the **[GNU GPL](https://spdx.org/licenses/GPL-3.0-or-later.html)**, as published by the [Free Software Foundation](https://fsf.org), either version 3 of the License, or (at your option) any later version.
+Licensed under **[CC BY 4.0](https://netwk.pro/license#cc-by)** and the **[GNU GPL](https://netwk.pro/license#gnu-gpl)**, as published by the [Free Software Foundation](https://fsf.org), either version 3 of the License, or (at your option) any later version.
 
 </span>
