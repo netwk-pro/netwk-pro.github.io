@@ -15,8 +15,10 @@ describe("/+page.svelte", () => {
     const mockData = {
       pathname: "/", // Required because layout uses it
       meta: {
-        title: "Home — Network Pro™",
-        description: "Welcome to Network Pro — Security, Networking, Privacy.",
+        title:
+          "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro™",
+        description:
+          "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro™",
       },
     };
 
