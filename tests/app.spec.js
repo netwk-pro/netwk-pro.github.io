@@ -15,8 +15,8 @@ test.describe("Desktop Tests", () => {
     await page.setViewportSize({ width: 1280, height: 720 });
     await page.goto("/");
 
-    // Wait for the title to be updated (not `%sveltekit.title%`)
-    await page.waitForFunction(() => document.title !== "%sveltekit.title%");
+    // Wait for the correct title to appear (CSP-safe)
+    await expect(page).toHaveTitle(/Locking Down Networks/);
 
     // Verify the page title contains the expected partial match
     const title = await page.title();
