@@ -37,11 +37,7 @@ jobs:
         run: npm install -g @lhci/cli
 
       - name: Run Lighthouse against Production
-        run: |
-          lhci autorun \
-            --collect.url=https://netwk.pro \
-            --collect.settings.onlyCategories=pwa \
-            --upload.target=temporary-public-storage
+        run: lhci autorun
 
       - name: Save Lighthouse report
         uses: actions/upload-artifact@v4
