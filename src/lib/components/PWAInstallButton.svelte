@@ -58,13 +58,14 @@ This file is part of Network Pro.
     id="pwa-install"
     class="install-button"
     on:click={promptInstall}
-    transition:fade={{ duration: 300 }}>
+    transition:fade={{ duration: 600 }}>
     Install App
   </button>
 {/if}
 
 <style>
   .install-button {
+    display: block;
     padding: 0.5rem 1rem;
     border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -76,6 +77,8 @@ This file is part of Network Pro.
     border-radius: 6px;
     cursor: pointer;
     font-family: inherit;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 1rem;
   }
 
