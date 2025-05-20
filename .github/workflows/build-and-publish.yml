@@ -62,26 +62,20 @@ jobs:
           node-version: lts/*
           check-latest: true
           cache: npm
-
-      - name: Cache Node.js modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-lts-${{ hashFiles('package-lock.json', 'package.json', '.npmrc') }}
-          restore-keys: |
-            ${{ runner.os }}-node-lts-build-
-            ${{ runner.os }}-node-lts-
-            ${{ runner.os }}-
+          cache-dependency-path: package-lock.json
 
       - name: Install Node.js dependencies
         run: npm ci
 
+      # Test to ensure the package is working
       - name: Build Node.js project
         run: npm run build
 
+      # Remove build artifacts to avoid publishing them
       - name: Clean build directory
         run: rm -rf build/
 
+      # Upload clean source code
       - name: Upload repository artifacts
         uses: actions/upload-artifact@v4
         with:
