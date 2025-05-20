@@ -33,8 +33,11 @@ jobs:
           check-latest: true
           cache: npm
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Run Lighthouse against Production
-        run: lhci autorun --config=.lighthouserc.mjs
+        run: npx lhci autorun --config=.lighthouserc.mjs
 
       - name: Save Lighthouse report
         uses: actions/upload-artifact@v4
