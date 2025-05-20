@@ -17,7 +17,9 @@ const config = {
     upload: {
       target: "temporary-public-storage",
     },
-    // Save local reports in both HTML and JSON
+    assert: {
+      preset: "lighthouse:recommended",
+    },
     output: ["html"],
     outputPath: ".lighthouseci",
   },
