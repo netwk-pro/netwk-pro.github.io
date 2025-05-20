@@ -66,7 +66,7 @@ jobs:
       - name: Rename Lighthouse report
         run: |
           mkdir -p .lighthouseci
-          REPORT=$(find .lighthouseci -name "*.report.html" | head -n 1)
+          REPORT=$(ls -t .lighthouseci/lhr-*.html | head -n 1)
           if [ -n "$REPORT" ]; then
             mv "$REPORT" .lighthouseci/report.html
           else
