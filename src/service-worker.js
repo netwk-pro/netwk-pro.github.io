@@ -14,19 +14,33 @@ import { build, files, version } from "$service-worker";
 const CACHE = `cache-${version}`;
 
 /** @type {string[]} */
-const ASSETS = Array.from(new Set([...build, ...files, "/offline.html"]));
+const ASSETS = Array.from(
+  new Set(
+    [...build, ...files, "/offline.html"].filter(
+      (path) =>
+        !path.startsWith("http") &&
+        !path.includes("licdn.com") &&
+        !path.includes("googletagmanager.com"), // add others here if needed
+    ),
+  ),
+);
 
-console.log("[SW] Assets to cache:", ASSETS); // Helps debug duplicates
+console.log("[SW] Assets to precache:", ASSETS); // Helps debug duplicates
 
 /**
  * @param {ExtendableEvent} event
  */
 sw.addEventListener("install", (event) => {
-  /** @type {ExtendableEvent} */ (event).waitUntil(
-    caches
-      .open(CACHE)
-      .then((cache) => cache.addAll(ASSETS))
-      .then(() => sw.skipWaiting()),
+  event.waitUntil(
+    (async () => {
+      const cache = await caches.open(CACHE);
+      try {
+        await cache.addAll(ASSETS);
+        sw.skipWaiting();
+      } catch (err) {
+        console.warn("[SW] Failed to precache some assets:", err);
+      }
+    })(),
   );
 });
 
@@ -64,8 +78,10 @@ sw.addEventListener("activate", (event) => {
 sw.addEventListener("fetch", (event) => {
   /** @type {FetchEvent} */ (event).respondWith(
     (async () => {
-      const cached = await caches.match(event.request);
-      if (cached) return cached;
+      if (new URL(event.request.url).origin === location.origin) {
+        const cached = await caches.match(event.request);
+        if (cached) return cached;
+      }
 
       try {
         if (event.request.mode === "navigate") {
