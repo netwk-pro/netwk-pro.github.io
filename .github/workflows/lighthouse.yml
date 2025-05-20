@@ -44,13 +44,17 @@ jobs:
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install -y ./google-chrome-stable_current_amd64.deb
 
-      - name: Run Lighthouse CI
-        env:
-          LHCI_SKIP_DEVTOOLS: true
+      - name: Collect Lighthouse results
         run: |
-          npx @lhci/cli autorun \
+          npx @lhci/cli collect \
             --chrome-path=$(which google-chrome) \
             --config=.lighthouserc.cjs
+
+      - name: Assert Lighthouse results
+        run: npx @lhci/cli assert --config=.lighthouserc.cjs
+
+      - name: Upload Lighthouse results
+        run: npx @lhci/cli upload --config=.lighthouserc.cjs
 
       - name: Save Lighthouse report
         uses: actions/upload-artifact@v4
