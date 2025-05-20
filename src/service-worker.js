@@ -8,41 +8,56 @@ This file is part of Network Pro.
 /** @type {ServiceWorkerGlobalScope} */
 const sw = self;
 
+const disallowedHosts = ["licdn.com", "googletagmanager.com"];
+
 import { build, files, version } from "$service-worker";
 
 /** @type {string} */
 const CACHE = `cache-${version}`;
 
 /** @type {string[]} */
+const excludedAssets = [];
+
+/** @type {string[]} */
 const ASSETS = Array.from(
   new Set(
     [...build, ...files, "/offline.html"].filter((path) => {
-      const exclude =
-        path.startsWith("http") ||
-        path.includes("licdn.com") ||
-        path.includes("googletagmanager.com") ||
-        [
-          "/img/banner-1280x640.png",
-          "/img/banner-og-1200x630.png",
-          "/img/logo-transparent.png",
-          "/img/logo.png",
-          "/img/svelte.png",
-          "/robots.txt",
-          "/screenshots/desktop-foss.png",
-          "/sitemap.xml",
-          "/CNAME",
-        ].includes(path);
+      try {
+        const url = new URL(path, location.origin);
+        const hostname = url.hostname;
 
-      if (exclude) {
-        console.log("[SW] Excluding from cache:", path);
+        const shouldExclude =
+          path.startsWith("http") ||
+          disallowedHosts.some(
+            (host) => hostname === host || hostname.endsWith(`.${host}`),
+          ) ||
+          [
+            "/img/banner-1280x640.png",
+            "/img/banner-og-1200x630.png",
+            "/img/logo-transparent.png",
+            "/img/logo.png",
+            "/img/svelte.png",
+            "/robots.txt",
+            "/screenshots/desktop-foss.png",
+            "/sitemap.xml",
+            "/CNAME",
+          ].includes(path);
+
+        if (shouldExclude) excludedAssets.push(path);
+        return !shouldExclude;
+      } catch (err) {
+        console.warn("[SW] URL parse failed, skipping path:", path, err);
+        excludedAssets.push(path);
+        return true;
       }
-
-      return !exclude;
     }),
   ),
 );
 
-console.log("[SW] Assets to precache:", ASSETS); // Helps debug duplicates
+const uniqueExcludedAssets = [...new Set(excludedAssets)].sort();
+
+console.log("[SW] Assets to precache:", ASSETS);
+console.log("[SW] Excluded assets:", uniqueExcludedAssets);
 
 /**
  * @param {ExtendableEvent} event
