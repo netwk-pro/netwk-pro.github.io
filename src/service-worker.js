@@ -16,12 +16,29 @@ const CACHE = `cache-${version}`;
 /** @type {string[]} */
 const ASSETS = Array.from(
   new Set(
-    [...build, ...files, "/offline.html"].filter(
-      (path) =>
-        !path.startsWith("http") &&
-        !path.includes("licdn.com") &&
-        !path.includes("googletagmanager.com"), // add others here if needed
-    ),
+    [...build, ...files, "/offline.html"].filter((path) => {
+      const exclude =
+        path.startsWith("http") ||
+        path.includes("licdn.com") ||
+        path.includes("googletagmanager.com") ||
+        [
+          "/img/banner-1280x640.png",
+          "/img/banner-og-1200x630.png",
+          "/img/logo-transparent.png",
+          "/img/logo.png",
+          "/img/svelte.png",
+          "/robots.txt",
+          "/screenshots/desktop-foss.png",
+          "/sitemap.xml",
+          "/CNAME",
+        ].includes(path);
+
+      if (exclude) {
+        console.log("[SW] Excluding from cache:", path);
+      }
+
+      return !exclude;
+    }),
   ),
 );
 
