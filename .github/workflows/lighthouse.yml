@@ -60,10 +60,15 @@ jobs:
       - name: Upload Lighthouse results
         run: npx @lhci/cli upload --config=.lighthouserc.cjs
 
+      - name: Rename report for artifact upload
+        run: |
+          mkdir -p .lighthouseci
+          mv .lighthouseci/*-lhr.report.html .lighthouseci/report.html || true
+
       - name: Save Lighthouse report
         uses: actions/upload-artifact@v4
         with:
           name: lighthouse-report
-          path: .lighthouseci/*.report.html
+          path: .lighthouseci/report.html
           include-hidden-files: true
           if-no-files-found: ignore

@@ -13,12 +13,12 @@ const config = {
       settings: {
         onlyCategories: ["pwa"],
       },
+      output: ["html"],
+      outputPath: ".lighthouseci",
     },
     upload: {
       target: "temporary-public-storage",
     },
-    output: ["html"],
-    outputPath: ".lighthouseci",
   },
 };
 
