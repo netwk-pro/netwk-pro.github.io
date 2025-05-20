@@ -34,16 +34,7 @@ jobs:
           node-version: lts/*
           check-latest: true
           cache: npm
-
-      - name: Cache Node.js modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-lts-${{ hashFiles('package-lock.json', 'package.json', '.npmrc') }}
-          restore-keys: |
-            ${{ runner.os }}-node-lts-build-
-            ${{ runner.os }}-node-lts-
-            ${{ runner.os }}-
+          cache-dependency-path: package-lock.json
 
       - name: Install Node.js dependencies
         run: npm ci
