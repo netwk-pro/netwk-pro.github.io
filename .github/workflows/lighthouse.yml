@@ -23,7 +23,7 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -33,11 +33,24 @@ jobs:
           check-latest: true
           cache: npm
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm ci
 
-      - name: Run Lighthouse against Production
-        run: npx lhci autorun --config=.lighthouserc.mjs
+      - name: Build Site
+        run: npm run build
+
+      - name: Install Google Chrome
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install -y ./google-chrome-stable_current_amd64.deb
+
+      - name: Run Lighthouse CI
+        env:
+          LHCI_SKIP_DEVTOOLS: true
+        run: |
+          npx @lhci/cli autorun \
+            --chrome-path=$(which google-chrome) \
+            --config=.lighthouserc.cjs
 
       - name: Save Lighthouse report
         uses: actions/upload-artifact@v4
@@ -45,3 +58,4 @@ jobs:
           name: lighthouse-report
           path: .lighthouseci/*.report.html
           include-hidden-files: true
+          if-no-files-found: ignore
