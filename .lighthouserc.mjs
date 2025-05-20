@@ -18,7 +18,7 @@ const config = {
       target: "temporary-public-storage",
     },
     // Save local reports in both HTML and JSON
-    output: ["html", "json"],
+    output: ["html"],
     outputPath: ".lighthouseci",
   },
 };
