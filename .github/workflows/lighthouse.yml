@@ -73,25 +73,20 @@ jobs:
       - name: List contents of .lighthouseci
         run: ls -al .lighthouseci || true
 
-      - name: Rename Lighthouse HTML & JSON reports
+      - name: Rename Lighthouse reports
         run: |
           mkdir -p .lighthouseci
-          HTML_REPORT=$(ls -t .lighthouseci/lhr-*.html | head -n 1)
-          JSON_REPORT=$(ls -t .lighthouseci/lhr-*.report.json | head -n 1)
+          LATEST_JSON=$(ls -t .lighthouseci/*.json | head -n 1)
+          LATEST_HTML=$(ls -t .lighthouseci/*.html | head -n 1)
 
-          if [ -n "$HTML_REPORT" ]; then
-            mv "$HTML_REPORT" .lighthouseci/report.html
+          if [[ -f "$LATEST_JSON" && -f "$LATEST_HTML" ]]; then
+            cp "$LATEST_HTML" .lighthouseci/report.html
+            cp "$LATEST_JSON" .lighthouseci/report.json
           else
-            echo "No Lighthouse HTML report found"
+            echo "No Lighthouse report files found."
           fi
 
-          if [ -n "$JSON_REPORT" ]; then
-            mv "$JSON_REPORT" .lighthouseci/report.json
-          else
-            echo "No Lighthouse JSON report found"
-          fi
-
-      - name: Save Lighthouse reports
+      - name: Upload Lighthouse reports
         uses: actions/upload-artifact@v4
         with:
           name: lighthouse-reports
