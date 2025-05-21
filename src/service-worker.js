@@ -26,22 +26,26 @@ const ASSETS = Array.from(
         const url = new URL(path, location.origin);
         const hostname = url.hostname;
 
+        const IGNORE_PATHS = new Set([
+          "/img/banner-1280x640.png",
+          "/img/banner-og-1200x630.png",
+          "/img/logo-transparent.png",
+          "/img/logo.png",
+          "/img/svelte.png",
+          "/webfonts/fa-brands-400.ttf",
+          "/webfonts/fa-solid-900.ttf",
+          "/robots.txt",
+          "/screenshots/desktop-foss.png",
+          "/sitemap.xml",
+          "/CNAME",
+        ]);
+
         const shouldExclude =
           path.startsWith("http") ||
           disallowedHosts.some(
             (host) => hostname === host || hostname.endsWith(`.${host}`),
           ) ||
-          [
-            "/img/banner-1280x640.png",
-            "/img/banner-og-1200x630.png",
-            "/img/logo-transparent.png",
-            "/img/logo.png",
-            "/img/svelte.png",
-            "/robots.txt",
-            "/screenshots/desktop-foss.png",
-            "/sitemap.xml",
-            "/CNAME",
-          ].includes(path);
+          IGNORE_PATHS.has(path);
 
         if (shouldExclude) excludedAssets.push(path);
         return !shouldExclude;

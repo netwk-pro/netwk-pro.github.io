@@ -21,6 +21,9 @@ const fallbackMeta = {
     "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro™",
 };
 
+import { browser } from "$app/environment";
+import { registerServiceWorker } from "$lib/registerServiceWorker.js";
+
 export const prerender = "auto";
 export const trailingSlash = "never";
 
@@ -30,6 +33,11 @@ export const trailingSlash = "never";
  */
 export function load({ url }) {
   const normalizedPathname = url.pathname.replace(/\/+$/, "") || "/";
+
+  if (browser) {
+    // Move service worker registration here
+    registerServiceWorker();
+  }
 
   return {
     pathname: normalizedPathname,

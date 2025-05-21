@@ -14,40 +14,31 @@ This file is part of Network Pro.
   /** @type {BeforeInstallPromptEvent | null} */
   let deferredPrompt = null;
 
-  /**
-   * @typedef {CustomEvent<BeforeInstallPromptEvent>} PWAInstallAvailableEvent
-   */
-
   onMount(() => {
     /**
-     * Listen for the custom event fired by registerServiceWorker.js
-     * to enable a custom install experience.
-     *
-     * TypeScript / svelte-check does not recognize custom events by default,
-     * so we cast the base Event to CustomEvent manually.
+     * @param {Event} e
      */
-    window.addEventListener(
-      "pwa-install-available",
-      (/** @type {Event} */ e) => {
-        const customEvent = /** @type {PWAInstallAvailableEvent} */ (e);
-        deferredPrompt = customEvent.detail;
-        show = true;
-      },
-    );
+    function handleInstallPrompt(e) {
+      /** @type {CustomEvent<BeforeInstallPromptEvent>} */
+      const customEvent = /** @type {CustomEvent} */ (e);
+      deferredPrompt = customEvent.detail;
+      show = true;
+    }
+
+    window.addEventListener("pwa-install-available", handleInstallPrompt);
+
+    return () => {
+      window.removeEventListener("pwa-install-available", handleInstallPrompt);
+    };
   });
 
-  /**
-   * Trigger the native install prompt and handle user response
-   */
   async function promptInstall() {
     if (!deferredPrompt) return;
 
     deferredPrompt.prompt();
-
     const { outcome } = await deferredPrompt.userChoice;
     console.log(`User response to PWA install prompt: ${outcome}`);
 
-    // Always hide the button after interaction
     show = false;
     deferredPrompt = null;
   }

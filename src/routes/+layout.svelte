@@ -14,7 +14,6 @@ This file is part of Network Pro.
   import HeaderHome from "$lib/components/layout/HeaderHome.svelte";
   import PWAInstallButton from "$lib/components/PWAInstallButton.svelte";
   import { browser } from "$app/environment";
-  import { registerServiceWorker } from "$lib/registerServiceWorker.js";
   import "$lib/styles";
 
   // Import favicon images
@@ -22,18 +21,6 @@ This file is part of Network Pro.
   import logoWbp from "$lib/img/logo-web.webp";
   import faviconSvg from "$lib/img/favicon.svg";
   import appleTouchIcon from "$lib/img/icon-180x180.png";
-
-  /**
-   * @type {string}
-   * Style class for the mobile-web-app-capable meta tag.
-   * OpenGraph URL for the website.
-   * Company name for the website.
-   * Twitter account for the website.
-   */
-  const webApp = "mobile-web-app-capable";
-  const ogUrl = "https://netwk.pro";
-  const companyName = "Network Pro Strategies";
-  const twitterAct = "@NetEng_Pro";
 
   if (browser) {
     // Preload logo images
@@ -46,10 +33,17 @@ This file is part of Network Pro.
     const touchImg = new Image();
     // Preload Apple Touch icon
     touchImg.src = appleTouchIcon;
-
-    // Register the service worker
-    registerServiceWorker();
   }
+
+  /**
+   * @type {string}
+   * OpenGraph URL for the website.
+   * Company name for the website.
+   * Twitter account for the website.
+   */
+  const ogUrl = "https://netwk.pro";
+  const companyName = "Network Pro Strategies";
+  const twitterAct = "@NetEng_Pro";
 
   // fallback values if data.meta not set
   const metaTitle =
@@ -62,7 +56,7 @@ This file is part of Network Pro.
 </script>
 
 <svelte:head>
-  <!-- Static only, dynamic content moved to $lib/components/MetaTags.svelte -->
+  <!-- Dynamic preloads only, meta moved to $lib/components/MetaTags.svelte -->
   <link rel="preload" href={logoWbp} as="image" type="image/webp" />
   <link rel="preload" href={logoPng} as="image" type="image/png" />
   <link rel="preload" href={faviconSvg} as="image" type="image/svg+xml" />
@@ -71,18 +65,8 @@ This file is part of Network Pro.
   <link rel="icon" href={faviconSvg} type="image/svg+xml" />
   <link rel="apple-touch-icon" href={appleTouchIcon} />
 
-  <!-- PWA -->
-  <link rel="manifest" href="/manifest.json" />
-  <meta name={webApp} content="yes" />
-  <meta name={"apple-" + webApp} content="yes" />
-  <meta
-    name="apple-mobile-web-app-status-bar-style"
-    content="black-translucent" />
+  <!-- Static moved to app.html 2025-05-21 -->
   <meta name="theme-color" content="#ffc627" />
-
-  <meta
-    name="facebook-domain-verification"
-    content="bx4ham0zkpvzztzu213bhpt76m9siq" />
 </svelte:head>
 
 <!-- BEGIN HEADER -->
