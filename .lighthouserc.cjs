@@ -5,21 +5,25 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
-/** @type {import('lighthouse').Config} */
-const config = {
+module.exports = {
   ci: {
     collect: {
       url: ["https://netwk.pro"],
+      numberOfRuns: 1,
       settings: {
-        onlyCategories: ["pwa"],
+        onlyCategories: [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo",
+        ],
+        disableFullPageScreenshot: true, // Optional: stabilizes viewer
       },
-      output: ["html"],
-      outputPath: ".lighthouseci",
     },
     upload: {
-      target: "temporary-public-storage",
+      target: "filesystem",
+      outputDir: "./.lighthouseci",
+      reporter: ["html", "json"],
     },
   },
 };
-
-module.exports = config;

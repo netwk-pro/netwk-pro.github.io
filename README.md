@@ -93,6 +93,14 @@ You can find our PGP keys and a vCard containing our contact information for you
 
 <sub>[Back to top](#top)</sub>
 
+&nbsp;
+
+## Node.js Version Management
+
+This repository includes `.nvmrc` and `.node-version` files for compatibility with tools like `nvm`, `asdf`, and GitHub Actions.
+
+The `engines` field in `package.json` enforces the required Node and NPM version.
+
 ---
 
 <div style="font-size: 12px; font-weight: bold; text-align: center;">
