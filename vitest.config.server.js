@@ -1,3 +1,10 @@
+/* =========================================================================
+vitest.config.server.js
+
+SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+This file is part of Network Pro.
+========================================================================= */
+
 import { sveltekit } from "@sveltejs/kit/vite";
 import lightningcssPlugin from "vite-plugin-lightningcss";
 import { defineConfig } from "vitest/config";
@@ -15,8 +22,8 @@ export default defineConfig({
   test: {
     name: "server",
     environment: "node",
-    include: ["src/**/*.{test,spec}.{js,mjs}"],
-    exclude: ["src/**/*.svelte.{test,spec}.{js,mjs}"],
+    include: ["tests/unit/**/*.{test}.{js,mjs}"],
+    exclude: ["tests/unit/**/*.svelte.{test}.{js,mjs}"],
     reporters: ["default", "json"],
     outputFile: {
       json: "./reports/server/results.json",

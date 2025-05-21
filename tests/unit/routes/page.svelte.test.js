@@ -8,7 +8,7 @@ This file is part of Network Pro.
 import "@testing-library/jest-dom/vitest";
 import { render, screen } from "@testing-library/svelte";
 import { describe, expect, test } from "vitest";
-import Page from "./+page.svelte";
+import Page from "../../../src/routes/+page.svelte";
 
 describe("/+page.svelte", () => {
   test("should render the home page section", () => {
