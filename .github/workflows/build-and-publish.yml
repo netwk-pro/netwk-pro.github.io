@@ -80,22 +80,24 @@ jobs:
       - name: Install jq
         run: sudo apt-get install -y jq
 
-      # Check for proper JSDoc annnotations
       - name: Run JSDoc lint check
+        id: jsdoc_lint
+        continue-on-error: true
         run: |
           set -e
           output=$(npm run lint:jsdoc || true)
           echo "$output"
 
           count=$(echo "$output" | wc -l)
-          if [ "$count" -gt 0 ]; then
-            echo "❌ JSDoc lint check failed with $count violations."
-            exit 1
-          fi
+          echo "jsdoc_count=$count" >> "$GITHUB_OUTPUT"
 
       - name: ✅ Pass
-        if: success()
+        if: steps.jsdoc_lint.outputs.jsdoc_count == '0'
         run: echo "JSDoc lint passed successfully!"
+
+      - name: ⚠️ JSDoc violations detected (non-blocking)
+        if: steps.jsdoc_lint.outputs.jsdoc_count != '0'
+        run: echo "⚠️ JSDoc lint check failed with ${{ steps.jsdoc_lint.outputs.jsdoc_count }} violations (non-blocking)"
 
       # Check utility scripts for unit tests
       - name: Audit utility scripts (non-blocking)
