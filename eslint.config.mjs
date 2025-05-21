@@ -75,6 +75,17 @@ export default [
       "jsdoc/check-types": "warn", // Checks if types in JSDoc are defined correctly
       "jsdoc/require-param": "warn", // Requires @param in JSDoc
       "jsdoc/require-returns": "warn", // Requires @returns in JSDoc
+      "jsdoc/require-jsdoc": [
+        "warn",
+        {
+          publicOnly: true,
+          require: {
+            FunctionDeclaration: true,
+            MethodDefinition: true,
+            ClassDeclaration: true,
+          },
+        },
+      ],
     },
   },
 

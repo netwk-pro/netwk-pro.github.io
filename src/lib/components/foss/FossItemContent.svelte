@@ -6,6 +6,8 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
+  /* eslint-disable svelte/no-at-html-tags */
+
   import FossFeatures from "$lib/components/foss/FossFeatures.svelte";
   // Import directly from $lib by way of image utility
   import { obtainiumPng, obtainiumWbp } from "$lib";
@@ -85,14 +87,17 @@ This file is part of Network Pro.
 
   <h3>{fossItem.headline}</h3>
 
-  {@html fossItem.headlineDescription}
+  <!-- Trusted input, from internal CMS -->
+  {@html fossItem.detailsDescription}
 
   <FossFeatures features={fossItem.features} />
 
+  <!-- Trusted input, from internal CMS -->
   {@html fossItem.detailsDescription}
 
   {#each fossItem.notes as note}
     <blockquote class="bquote">
+      <!-- Trusted input, from internal CMS -->
       {@html note}
     </blockquote>
   {/each}
