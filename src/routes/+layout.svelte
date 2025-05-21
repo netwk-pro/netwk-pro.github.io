@@ -35,16 +35,6 @@ This file is part of Network Pro.
     touchImg.src = appleTouchIcon;
   }
 
-  /**
-   * @type {string}
-   * OpenGraph URL for the website.
-   * Company name for the website.
-   * Twitter account for the website.
-   */
-  const ogUrl = "https://netwk.pro";
-  const companyName = "Network Pro Strategies";
-  const twitterAct = "@NetEng_Pro";
-
   // fallback values if data.meta not set
   const metaTitle =
     data?.meta?.title || "Security, Networking, Privacy — Network Pro™";
