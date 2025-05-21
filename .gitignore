@@ -18,6 +18,7 @@ scripts/*
 !scripts/bundleCss.js
 !scripts/flattenHeaders.js
 !scripts/validateHeaders.js
+!scripts/checkNode.js
 
 # Source maps
 *.map
