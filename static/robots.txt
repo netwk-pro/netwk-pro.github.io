@@ -6,7 +6,22 @@
 # www.robotstxt.org/
 
 User-agent: *
-Disallow: *.jsonc$
-Disallow: *.json$
-Disallow: *.mjs$
-Disallow: *.js$
+
+# Disallow dev and CI/CD artifacts
+Disallow: /tests/
+Disallow: /scripts/
+Disallow: /playwright-report/
+Disallow: /reports/
+Disallow: /coverage/
+Disallow: /build/
+Disallow: /.lighthouseci/
+
+# Disallow stub routes that redirect externally
+Disallow: /contact
+Disallow: /privacy-rights
+
+# Allow everything else
+Allow: /
+
+# Inform bots where to find the sitemap
+Sitemap: https://netwk.pro/sitemap.xml
