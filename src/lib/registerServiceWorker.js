@@ -10,6 +10,13 @@ This file is part of Network Pro.
  * browser/environment compatibility checks. This supports offline usage and PWA behavior.
  */
 export function registerServiceWorker() {
+  const disableSW = window?.__DISABLE_SW__ || false;
+
+  if (disableSW) {
+    console.warn("⚠️ Service Worker registration disabled via diagnostic mode.");
+    return;
+  }
+
   if ('serviceWorker' in navigator) {
     // Skip registration in Firefox during development
     const isFirefox = navigator.userAgent.includes('Firefox');
