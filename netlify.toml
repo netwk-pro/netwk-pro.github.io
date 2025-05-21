@@ -1,3 +1,15 @@
 [build]
   command = "npm run build"
   publish = "build"
+
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap"
+
+	[plugins.inputs]
+	baseUrl = "https://netwk.pro"
+	sitemapPath = "/sitemap.xml"
+	ignorePeriod = 0
+	providers = [
+		"google",
+		"yandex"
+	]
