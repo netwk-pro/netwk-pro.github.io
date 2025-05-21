@@ -23,10 +23,15 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-24.04
+    env:
+      ENV_MODE: ci
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Log ENV_MODE
+        run: 'echo "ENV_MODE is set to: $ENV_MODE"'
 
       - name: Set up Node.js
         uses: actions/setup-node@v4

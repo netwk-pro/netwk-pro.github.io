@@ -11,14 +11,11 @@
 *.local
 list-devices.js
 devices-list.json
+USAGE.md
 
 
 # Scripts
-scripts/*
-!scripts/bundleCss.js
-!scripts/flattenHeaders.js
-!scripts/validateHeaders.js
-!scripts/checkNode.js
+scripts/multipleBundleCss.js
 
 # Source maps
 *.map
@@ -39,6 +36,7 @@ Thumbs.db
 
 # Env
 .env.*
+!.env.template
 !.env.example
 !.env.test
 

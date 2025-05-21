@@ -1,12 +1,16 @@
 /* ==========================================================================
-tests/env.test.js
+tests/checkVersions.test.js
 
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
+/**
+ * Unit test for scripts/checkVersions.js
+ */
+
 import { describe, expect, it } from "vitest";
-import { checkVersions } from "../scripts/checkEnv.js";
+import { checkVersions } from "../scripts/checkVersions.js";
 
 describe("checkVersions()", () => {
   it("should match current Node and NPM versions to engine ranges", () => {

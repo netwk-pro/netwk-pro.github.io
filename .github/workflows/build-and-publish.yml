@@ -52,9 +52,14 @@ jobs:
   build:
     needs: check-codeql
     runs-on: ubuntu-24.04
+    env:
+      ENV_MODE: ci
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Log ENV_MODE
+        run: 'echo "ENV_MODE is set to: $ENV_MODE"'
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -92,6 +97,10 @@ jobs:
         if: success()
         run: echo "JSDoc lint passed successfully!"
 
+      # Check utility scripts for unit tests
+      - name: Audit utility scripts (non-blocking)
+        run: npm run audit:scripts || true
+
       # Test to ensure the package is working
       - name: Build Node.js project
         run: npm run build
@@ -110,7 +119,12 @@ jobs:
   publish-npmjs:
     needs: build
     runs-on: ubuntu-24.04
+    env:
+      ENV_MODE: ci
     steps:
+      - name: Log ENV_MODE
+        run: 'echo "ENV_MODE is set to: $ENV_MODE"'
+
       - name: Download repository artifacts
         uses: actions/download-artifact@v4
         with:
@@ -149,7 +163,12 @@ jobs:
   publish-gpr:
     needs: build
     runs-on: ubuntu-24.04
+    env:
+      ENV_MODE: ci
     steps:
+      - name: Log ENV_MODE
+        run: 'echo "ENV_MODE is set to: $ENV_MODE"'
+
       - name: Download repository artifacts
         uses: actions/download-artifact@v4
         with:
