@@ -1,5 +1,5 @@
 /* ==========================================================================
-src/routes/page.svelte.test.js
+tests/unit/routes/page.svelte.test.js
 
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
