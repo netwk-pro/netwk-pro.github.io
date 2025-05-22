@@ -13,6 +13,8 @@ This file is part of Network Pro.
   import HeaderDefault from "$lib/components/layout/HeaderDefault.svelte";
   import HeaderHome from "$lib/components/layout/HeaderHome.svelte";
   import PWAInstallButton from "$lib/components/PWAInstallButton.svelte";
+  import { onMount } from "svelte";
+  import { registerServiceWorker } from "$lib/registerServiceWorker.js";
   import { browser } from "$app/environment";
   import "$lib/styles";
 
@@ -21,6 +23,10 @@ This file is part of Network Pro.
   import logoWbp from "$lib/img/logo-web.webp";
   import faviconSvg from "$lib/img/favicon.svg";
   import appleTouchIcon from "$lib/img/icon-180x180.png";
+
+  onMount(() => {
+    registerServiceWorker();
+  });
 
   if (browser) {
     // Preload logo images
