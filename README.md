@@ -75,8 +75,6 @@ npm -v
 
 ---
 
-&nbsp;
-
 ## 📜 Available Scripts
 
 The following CLI commands are available via `npm run <script>` or `pnpm run <script>`.
@@ -174,8 +172,6 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 &nbsp;
 
 ---
-
-&nbsp;
 
 ## 🧾 License
 
