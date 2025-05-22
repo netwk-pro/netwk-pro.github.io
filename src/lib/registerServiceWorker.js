@@ -10,10 +10,21 @@ This file is part of Network Pro.
  * browser/environment compatibility checks. This supports offline usage and PWA behavior.
  */
 export function registerServiceWorker() {
-  const disableSW = window?.__DISABLE_SW__ || false;
+  const disableSW = window?.__DISABLE_SW__ || location.search.includes("nosw");
 
   if (disableSW) {
     console.warn("⚠️ Service Worker registration disabled via diagnostic mode.");
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (const registration of registrations) {
+          registration.unregister().then((success) => {
+            console.log("🧹 SW unregistered from registerServiceWorker.js:", success);
+          });
+        }
+      });
+    }
+
     return;
   }
 
