@@ -50,15 +50,7 @@ const meta = {
     description:
       "FOSS Spotlight | Security, Networking, Privacy — Network Pro™",
   },
-  "/contact": {
-    title: "Contact Form — Network Pro™",
-    description: "Contact Form | Security, Networking, Privacy — Network Pro™",
-  },
-  "/privacy-rights": {
-    title: "Privacy Rights Request Form — Network Pro™",
-    description:
-      "Privacy Rights Request Form | Security, Networking, Privacy — Network Pro™",
-  },
+  // Excludes redirect-only routes like /contact, /consultation, /privacy-rights
 };
 
 /** @type {MetaData} */

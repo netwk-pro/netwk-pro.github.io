@@ -16,8 +16,8 @@ This file is part of Network Pro.
 
 import fs from "fs";
 
-const HEADERS_PATH = "./static/_headers"; // update if needed
-const OUTPUT_PATH = "./static/_headers.flattened";
+const HEADERS_PATH = "./.headers_new"; // update if needed
+const OUTPUT_PATH = "./_headers.flattened";
 
 const lines = fs.readFileSync(HEADERS_PATH, "utf-8").split("\n");
 const output = [];
