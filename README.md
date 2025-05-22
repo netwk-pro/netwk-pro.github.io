@@ -5,6 +5,10 @@
 
 &nbsp;
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/93910633-3fdb-4bb3-a9bf-5d91ccfeebf9/deploy-status)](https://app.netlify.com/projects/networkpro-web/deploys) [![NPM Version](https://img.shields.io/npm/v/%40networkpro%2Fweb?registry_uri=https%3A%2F%2Fregistry.npmjs.com&style=flat&logo=npm&logoSize=auto&color=%23CB3837)](https://www.npmjs.com/package/@networkpro/web) [![Build and Publish to Registries](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/build-and-publish.yml)  
+[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier) [![stylelint](https://img.shields.io/badge/stylelint-%23747474?style=flat&logo=stylelint&logoSize=auto&labelColor=%23263238)](https://stylelint.io/)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/CODE_OF_CONDUCT.md)
+
 ## 🚀 Project Overview
 
 This is the official web presence for **[Network Pro Strategies](https://netwk.pro/about)**, a privacy-forward consultancy specializing in network engineering, information security, and public advocacy focused on cybersecurity and digital privacy.
