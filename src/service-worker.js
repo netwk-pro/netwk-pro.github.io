@@ -18,27 +18,27 @@ const CACHE = `cache-${version}`;
 /** @type {string[]} */
 const excludedAssets = [];
 
+const IGNORE_PATHS = new Set([
+  "/img/banner-1280x640.png",
+  "/img/banner-og-1200x630.png",
+  "/img/logo-transparent.png",
+  "/img/logo.png",
+  "/img/svelte.png",
+  "/webfonts/fa-brands-400.ttf",
+  "/webfonts/fa-solid-900.ttf",
+  "/robots.txt",
+  "/screenshots/desktop-foss.png",
+  "/sitemap.xml",
+  "/CNAME",
+]);
+
 /** @type {string[]} */
-const ASSETS = Array.from(
-  new Set(
+const ASSETS = [
+  ...new Set(
     [...build, ...files, "/offline.html"].filter((path) => {
       try {
         const url = new URL(path, location.origin);
         const hostname = url.hostname;
-
-        const IGNORE_PATHS = new Set([
-          "/img/banner-1280x640.png",
-          "/img/banner-og-1200x630.png",
-          "/img/logo-transparent.png",
-          "/img/logo.png",
-          "/img/svelte.png",
-          "/webfonts/fa-brands-400.ttf",
-          "/webfonts/fa-solid-900.ttf",
-          "/robots.txt",
-          "/screenshots/desktop-foss.png",
-          "/sitemap.xml",
-          "/CNAME",
-        ]);
 
         const shouldExclude =
           path.startsWith("http") ||
@@ -56,7 +56,7 @@ const ASSETS = Array.from(
       }
     }),
   ),
-);
+];
 
 const uniqueExcludedAssets = [...new Set(excludedAssets)].sort();
 
@@ -109,6 +109,7 @@ sw.addEventListener("activate", (event) => {
       await Promise.all(tasks);
       await sw.clients.claim();
       console.log("[SW] clients.claim() called");
+      console.log("[SW] Scope:", sw.registration.scope);
     })(),
   );
 });
