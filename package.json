@@ -2,17 +2,18 @@
   "name": "@networkpro/web",
   "private": false,
   "sideEffects": false,
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
-    "security",
-    "networking",
-    "privacy",
-    "cybersecurity",
     "advisory",
     "consulting",
-    "android",
-    "linux"
+    "cybersecurity",
+    "networking",
+    "privacy",
+    "pwa",
+    "security",
+    "svelte",
+    "sveltekit"
   ],
   "homepage": "https://netwk.pro",
   "bugs": {
@@ -84,7 +85,7 @@
   "postinstall": "npm run check:node"
 },
   "dependencies": {
-    "svelte": "5.31.1"
+    "svelte": "5.32.1"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.9",
@@ -102,7 +103,7 @@
     "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-jsdoc": "^50.6.17",
-    "eslint-plugin-svelte": "^3.8.2",
+    "eslint-plugin-svelte": "^3.9.0",
     "globals": "^16.1.0",
     "jsdom": "^26.1.0",
     "lightningcss": "^1.30.1",

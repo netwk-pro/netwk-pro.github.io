@@ -17,7 +17,7 @@ This file is part of Network Pro.
 // validate-headers.js
 import fs from "fs";
 
-const file = "./static/_headers";
+const file = "./_headers";
 const lines = fs.readFileSync(file, "utf-8").split("\n");
 
 let currentPath = null;

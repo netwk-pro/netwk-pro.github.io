@@ -58,7 +58,7 @@ This file is part of Network Pro.
    */
   const constants = {
     company: "Network Pro Strategies",
-    effectiveDate: "May 8, 2025",
+    effectiveDate: "May 21, 2025",
     classSmall: "small-text",
     rel: "noopener noreferrer",
     hrefTop: "#top",
@@ -141,9 +141,10 @@ This file is part of Network Pro.
         These Terms of Use apply to all platforms associated with the Company,
         including but not limited to:
         <strong>
-          GitHub, our main website (hosted via GitHub Pages), communications on
-          Discord and/or Slack, Stack Overflow Teams, Nextcloud, and our social
-          media presence (e.g., Facebook, Instagram, X, and similar platforms).
+          GitHub, our main website (hosted via Netlify and GitHub Pages), Stack
+          Overflow Teams, Nextcloud, communications on Discord and/or Slack, and
+          our social media presence (e.g., Facebook, Instagram, X, and similar
+          platforms).
         </strong>
       </p>
     {:else if link.id === "acceptable-use"}
