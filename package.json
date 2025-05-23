@@ -2,7 +2,7 @@
   "name": "@networkpro/web",
   "private": false,
   "sideEffects": false,
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -85,7 +85,7 @@
   "postinstall": "npm run check:node"
 },
   "dependencies": {
-    "svelte": "5.32.1"
+    "svelte": "5.33.1"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.9",

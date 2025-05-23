@@ -13,9 +13,11 @@ This file is part of Network Pro.
 
   /**
    * URL to the Privacy Rights Request Form redirect route, using the base path
+   * URL to the Contact Form redirect route, using the base path
    * @type {string}
    */
   const prightsLink = `${base}/privacy-rights`;
+  const contactLink = `${base}/contact`;
 
   /**
    * URL to the privacy policy in Markdown format
@@ -50,7 +52,7 @@ This file is part of Network Pro.
     email: "support (at) neteng.pro",
     secure: "contact (at) s.neteng.pro",
     phone: "(623) 252-4350",
-    effectiveDate: "May 18, 2025",
+    effectiveDate: "May 23, 2025",
   };
 
   /**
@@ -179,14 +181,23 @@ This file is part of Network Pro.
       </p>
       <ul>
         <li
-          ><strong>With Service Providers:</strong> Information is shared with trusted
-          third-party vendors.</li>
+          ><strong>With Service Providers:</strong> We may share your
+          information with carefully selected third-party vendors under
+          enforceable, contractual agreements. These providers support essential
+          aspects of our operations&mdash;including, but not limited to, payment
+          processing, data analytics, and customer support services. All such
+          partnerships are structured to uphold our core principles of
+          <em>transparency, self-hosting, and prioritizing user privacy</em> across
+          all infrastructure and data flows.</li>
         <li
-          ><strong>Legal Compliance:</strong> Disclosed as required by law or court
-          order.</li>
+          ><strong>Legal Compliance:</strong> We may disclose information if required
+          to do so by applicable law, regulation, legal process, or enforceable governmental
+          request, including subpoenas or court orders.</li>
         <li
-          ><strong>Business Transfers:</strong> Transferred in case of mergers or
-          acquisitions.</li>
+          ><strong>Business Transfers:</strong> In connection with a merger, acquisition,
+          asset sale, or similar corporate transaction, we may disclose or transfer
+          personal information, provided that reasonable steps are taken to ensure
+          continued confidentiality and compliance with applicable privacy laws.</li>
       </ul>
     {:else if link.id === "security"}
       <p>
@@ -201,9 +212,11 @@ This file is part of Network Pro.
       <p><strong>Your Rights and Choices</strong></p>
       <ul>
         <li
-          ><strong>Access, update, or delete</strong> your personal information.</li>
+          ><strong>Access, update, or delete</strong> your personal information,
+          subject to legal and contractual limitations.</li>
         <li
-          ><strong>Restrict or object to processing</strong> under certain conditions.</li>
+          ><strong>Restrict or object to processing</strong> under certain conditions,
+          as permitted by law.</li>
         <li><strong>Opt out of direct marketing</strong></li>
       </ul>
       <p>
@@ -222,7 +235,8 @@ This file is part of Network Pro.
       <p>
         Network Pro Strategies offers informational content as a public service.
         No warranties are made regarding the accuracy or completeness of such
-        content. Consulting services are governed by separate contracts.
+        content. Consulting services are governed by separate contracts. We
+        disclaim liability for third-party services integrated or referenced.
       </p>
     {:else if link.id === "changes"}
       <p>
@@ -230,11 +244,16 @@ This file is part of Network Pro.
         posting.
       </p>
     {:else if link.id === "contact"}
-      <p>For questions, contact:</p>
+      <p
+        >For questions, please utilize our <a
+          rel={constants.rel}
+          href={contactLink}
+          target={constants.targetSelf}>Contact Form</a
+        > or contact us directly:</p>
       <p>
         <strong>{contactInfo.company}</strong><br />
         📧 General Inquiries: <code>{contactInfo.email}</code><br />
-        🔐 Secure Contact: <code>{contactInfo.secure}</code><br />
+        🔐 Secure Email: <code>{contactInfo.secure}</code><br />
         📞 Phone: {contactInfo.phone}
       </p>
     {/if}
