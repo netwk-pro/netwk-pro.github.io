@@ -58,7 +58,7 @@ This file is part of Network Pro.
    */
   const constants = {
     company: "Network Pro Strategies",
-    effectiveDate: "May 18, 2025",
+    effectiveDate: "May 23, 2025",
     classSmall: "small-text",
     rel: "noopener noreferrer",
     hrefTop: "#top",
