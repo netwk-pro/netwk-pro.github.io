@@ -7,6 +7,7 @@ This file is part of Network Pro.
 
 <script>
   import { base } from "$app/paths";
+  import { ccSvg, bySvg } from "$lib";
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
@@ -17,6 +18,13 @@ This file is part of Network Pro.
    */
   const homeLink = base || "/";
   const contactLink = `${base}/contact`;
+
+  /**
+   * Icons for Creative Commons
+   * @type {string}
+   */
+  const ccSrc = ccSvg;
+  const bySrc = bySvg;
 
   /**
    * URL to the internal MkDocs documentation
@@ -50,7 +58,7 @@ This file is part of Network Pro.
    */
   const constants = {
     company: "Network Pro Strategies",
-    effectiveDate: "May 18, 2025",
+    effectiveDate: "May 23, 2025",
     classSmall: "small-text",
     rel: "noopener noreferrer",
     hrefTop: "#top",
@@ -254,7 +262,7 @@ This file is part of Network Pro.
               text-decoration: none;
               vertical-align: text-bottom;
             "
-            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
+            src={ccSrc}
             alt="Creative Commons BY" />
         </a>
         <a
@@ -271,7 +279,7 @@ This file is part of Network Pro.
               text-decoration: none;
               vertical-align: text-bottom;
             "
-            src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
+            src={bySrc}
             alt="Creative Commons BY" />
         </a>.
       </p>
