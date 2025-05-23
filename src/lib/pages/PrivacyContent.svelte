@@ -248,8 +248,7 @@ This file is part of Network Pro.
         >For questions, please utilize our <a
           rel={constants.rel}
           href={contactLink}
-          target={constants.targetSelf}>Contact Form</a
-        > or contact us directly:</p>
+          target={constants.targetSelf}>Contact Form</a> or contact us directly:</p>
       <p>
         <strong>{contactInfo.company}</strong><br />
         📧 General Inquiries: <code>{contactInfo.email}</code><br />
