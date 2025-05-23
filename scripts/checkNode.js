@@ -1,17 +1,22 @@
 /* ==========================================================================
 scripts/checkNode.js
 
+Copyright © 2025 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
-========================================================================== */
+========================================================================= */
 
 /**
- * Utility to check Node.js and NPM version
+ * Utility to check Node.js and npm version
  * Ensures the current environment matches the required versions from package.json
+ *
+ * Behavior:
+ * - During `postinstall`: warns but does not exit
+ * - In all other cases (manual run, CI, verify): fails on mismatch
  *
  * @module scripts/
  * @author SunDevil311
- * @updated 2025-05-20
+ * @updated 2025-05-23
  */
 
 import { execSync } from "child_process";
@@ -23,32 +28,48 @@ import semver from "semver";
 const pkg = JSON.parse(fs.readFileSync(path.resolve("./package.json"), "utf8"));
 const { node: nodeRange, npm: npmRange } = pkg.engines;
 
-// Check Node version
+// Determine if this is running as part of npm's postinstall hook
+const isPostInstall = process.env.npm_lifecycle_event === "postinstall";
+
+let hasError = false;
+
+// Check Node.js version
 if (!semver.satisfies(process.version, nodeRange)) {
-  console.error(
-    `⚠️ Node version ${process.version} does not match required range: ${nodeRange}`,
-  );
-  process.exit(1);
+  const msg = `Node.js ${process.version} does not satisfy required range: ${nodeRange}`;
+  if (isPostInstall) {
+    console.warn(`⚠️  ${msg}`);
+  } else {
+    console.error(`❌ ${msg}`);
+    hasError = true;
+  }
 }
 
-// Check NPM version
-let npmVersion;
+// Check npm version
+let npmVersion = null;
 
 try {
   npmVersion = execSync("npm --version").toString().trim();
   if (!semver.satisfies(npmVersion, npmRange)) {
-    console.error(
-      `⚠️ NPM version ${npmVersion} does not match required range: ${npmRange}`,
-    );
-    process.exit(1);
+    const msg = `npm ${npmVersion} does not satisfy required range: ${npmRange}`;
+    if (isPostInstall) {
+      console.warn(`⚠️  ${msg}`);
+    } else {
+      console.error(`❌ ${msg}`);
+      hasError = true;
+    }
   }
 } catch (err) {
-  console.error("❌ Failed to check NPM version:", err.message);
+  console.error("❌ Failed to check npm version:", err.message);
   process.exit(1);
 }
 
-if (!process.env.CI || process.env.VERBOSE === "true") {
-  console.log(
-    `✅ Node (${process.version}) matches ${nodeRange}, and NPM (${npmVersion}) matches ${npmRange}`,
-  );
+// Final output
+if (!hasError) {
+  if (!process.env.CI || process.env.VERBOSE === "true") {
+    console.log(
+      `✅ Node (${process.version}) matches ${nodeRange}, and npm (${npmVersion}) matches ${npmRange}`,
+    );
+  }
+} else {
+  process.exit(1);
 }
