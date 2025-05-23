@@ -1,9 +1,10 @@
 /* ==========================================================================
 eslint.config.mjs
 
+Copyright © 2025 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
-========================================================================== */
+========================================================================= */
 
 import js from "@eslint/js"; // Provides ESLint core rules and recommended config
 import eslintConfigPrettier from "eslint-config-prettier"; // Prettier config to disable conflicting ESLint rules

@@ -2,7 +2,7 @@
   "name": "@networkpro/web",
   "private": false,
   "sideEffects": false,
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -34,7 +34,7 @@
     "node": ">=22.0.0 <25",
     "npm": ">=11.0.0 <12"
   },
-  "style": "src/lib/styles/global.min.css",
+  "style": "src/lib/styles/index.js",
 "scripts": {
   "dev": "vite dev",
   "preview": "vite preview",
