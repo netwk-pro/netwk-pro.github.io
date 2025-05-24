@@ -1,12 +1,14 @@
 <!-- ==========================================================================
 src/lib/components/RedirectPage.svelte
 
+Copyright © 2025 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
   import { onMount } from "svelte";
+  import FullWidthSection from "$lib/components/FullWidthSection.svelte";
 
   export let to;
   export let delay = 3;
@@ -30,14 +32,26 @@ This file is part of Network Pro.
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
-<div class="container">
-  <h1>Redirecting…</h1>
-  <p>You'll be taken to the destination in just a moment.</p>
-  <div class="loading-spinner" aria-hidden="true"></div>
-  <p>If nothing happens, <a href={to}>click here</a>.</p>
-</div>
+<!-- MAIN CONTENT -->
+
+<FullWidthSection centered>
+  <div class="redirect-content">
+    <h1>Redirecting…</h1>
+    <p>You'll be taken to the destination in just a moment.</p>
+    <div class="loading-spinner" aria-hidden="true"></div>
+    <p>If nothing happens, <a href={to}>click here</a>.</p>
+  </div>
+</FullWidthSection>
+
+<!-- END MAIN CONTENT -->
 
 <style>
+  .redirect-content {
+    text-align: center;
+    font-family: system-ui, sans-serif;
+    margin-top: 2rem; /* adjust as needed */
+  }
+
   .loading-spinner {
     width: 48px;
     height: 48px;
@@ -52,11 +66,5 @@ This file is part of Network Pro.
     to {
       transform: rotate(360deg);
     }
-  }
-
-  .container {
-    text-align: center;
-    font-family: system-ui, sans-serif;
-    margin-top: 5rem;
   }
 </style>

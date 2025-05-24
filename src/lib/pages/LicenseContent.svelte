@@ -1,9 +1,12 @@
 <!-- ==========================================================================
 src/lib/pages/LicenseContent.svelte
 
+Copyright © 2025 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== -->
+
+<!-- cspell:ignore lmaterial lterms dlnotes -->
 
 <script>
   import { base } from "$app/paths";
@@ -50,6 +53,7 @@ This file is part of Network Pro.
     { id: "disclaimer", text: "Modifications and Liability Disclaimer" },
     { id: "contact", text: "Contact" },
     { id: "revisions", text: "Revisions" },
+    { id: "authoritative", text: "Authoritative Version Clause" },
   ];
 
   /**
@@ -58,7 +62,7 @@ This file is part of Network Pro.
    */
   const constants = {
     company: "Network Pro Strategies",
-    effectiveDate: "May 23, 2025",
+    effectiveDate: "May 24, 2025",
     classSmall: "small-text",
     rel: "noopener noreferrer",
     hrefTop: "#top",
@@ -482,6 +486,24 @@ This file is part of Network Pro.
         This legal page may be updated to comply with legal or operational
         changes. The current effective date is listed at the top of this
         document.
+      </p>
+    {:else if link.id === "authoritative"}
+      <p>
+        In the event of any discrepancy between different versions, formats, or
+        distributions of any legal document issued by the Company—including but
+        not limited to license terms, policies, notices, or agreements—the
+        version published on the Company's primary website at <a
+          rel={constants.rel}
+          href={homeLink}
+          target={constants.targetSelf}>https://netwk.pro</a>
+        shall be deemed the official and controlling version.
+      </p>
+
+      <p>
+        It is your responsibility to review the most current version of any
+        applicable legal document before relying on its contents. Continued use
+        of the Company's materials, services, or Licensed Material constitutes
+        acceptance of the most current version then in effect.
       </p>
     {/if}
 

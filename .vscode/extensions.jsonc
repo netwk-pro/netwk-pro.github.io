@@ -1,0 +1,24 @@
+/* ==========================================================================
+extensions.jsonc
+
+NOTE: This file is for reference only and is not actively used by VS Code.
+VS Code uses the extensions.json file without comments for actual configuration.
+
+Copyright © 2025 Network Pro Strategies (Network Pro™)
+SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+This file is part of Network Pro.
+========================================================================== */
+
+{
+  "recommendations": [
+    "svelte.svelte-vscode", // Svelte language support
+    "esbenp.prettier-vscode", // Prettier formatting
+    "dbaeumer.vscode-eslint", // JavaScript/TypeScript linting
+    "stylelint.vscode-stylelint", // CSS/SASS/Svelte linting
+    "DavidAnson.vscode-markdownlint", // Markdown linting
+    "editorconfig.editorconfig", // Respect .editorconfig rules
+    "ms-playwright.playwright", // E2E testing with Playwright
+    "vitest.explorer", // Vitest test explorer panel
+    "streetsidesoftware.code-spell-checker" // Inline spell checking (comments, Markdown, etc.)
+  ]
+}

@@ -18,7 +18,7 @@ module.exports = {
           "best-practices",
           "seo",
         ],
-        disableFullPageScreenshot: true, // Optional: stabilizes viewer
+        disableFullPageScreenshot: true,
       },
     },
     upload: {

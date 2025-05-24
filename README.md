@@ -6,10 +6,10 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ====================================================================== -->
 
-# 🌐 Network Pro — Web Presence
+# 🌐 Network Pro&trade; — Web Presence
 
-> **Locking Down Networks, Unlocking Confidence™**  
-> _Security, Networking, Privacy — Network Pro™_
+> **Locking Down Networks, Unlocking Confidence&trade;**  
+> _Security, Networking, Privacy — Network Pro&trade;_
 
 &nbsp;
 
@@ -19,10 +19,10 @@ This file is part of Network Pro.
 
 ## 🚀 Project Overview
 
-This is the official web presence for **[Network Pro Strategies](https://netwk.pro/about)**, a privacy-forward consultancy specializing in network engineering, information security, and public advocacy focused on cybersecurity and digital privacy.
+This GitHub repository powers the official web presence of **[Network Pro Strategies](https://netwk.pro/about)** — a privacy-first consultancy specializing in cybersecurity, network engineering, and information security. We also lead public advocacy efforts promoting digital privacy and responsible cyber policy.
 
 Built with [SvelteKit](https://kit.svelte.dev/) and deployed via [Netlify](https://www.netlify.com/).  
-Blog and documentation subsites built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and deployed via [GitHub Pages](https://pages.github.com/).
+[Blog](https://github.com/netwk-pro/blog) and [documentation](https://github.com/netwk-pro/docs) subsites built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and deployed via [GitHub Pages](https://pages.github.com/).
 
 All infrastructure and data flows are designed with **maximum transparency, self-hosting, and user privacy** in mind.
 
@@ -71,7 +71,30 @@ ENV_MODE=dev  # Options: dev, test, ci, preview, prod
 
 &nbsp;
 
-#### **Version Enforcement**
+### 🧰 Local Setup Scripts
+
+To streamline onboarding and enforce project conventions, you may use the optional helper scripts:
+
+| File/Script                        | Description                                                                       |
+| ---------------------------------- | --------------------------------------------------------------------------------- |
+| `.env.template`                    | Template for local environment variables                                          |
+| `scripts/checkNode.js`             | Validates your Node.js and npm versions                                           |
+| `scripts/bootstrap.local.sh` (TBD) | Interactive setup for local configuration and tooling                             |
+| `.vscode/`                         | Editor recommendations compatible with [VSCodium](https://vscodium.com) / VS Code |
+
+To get started quickly:
+
+```bash
+cp .env.template .env
+npm install
+```
+
+> You can also use `bootstrap.local.sh` to automate the steps above and more (optional).  
+> `ENV_MODE` controls local tooling behavior — it is not used by the app runtime directly.
+
+&nbsp;
+
+### 💾 Version Enforcement
 
 To ensure consistent environments across contributors and CI systems, this project enforces specific Node.js and npm versions via the `"engines"` field in `package.json`:
 
@@ -90,9 +113,9 @@ npm run check:node
 
 This script runs `scripts/checkNode.js`, which compares your current Node.js and npm versions against the required ranges. During the install phase, it will log **warnings** for out-of-range versions but allow installation to continue. In all other contexts (manual runs, CI workflows, etc.), it will **fail** with a descriptive error if the versions are out of spec.
 
-**_Node Version Check (snippet from scripts/checkNode.js)_**
+**_Node Version Check (snippet from `scripts/checkNode.js`)_**
 
-```js
+```javascript
 const semver = require("semver");
 const { engines } = require("../package.json");
 
@@ -126,7 +149,7 @@ if (!hasError) {
 }
 ```
 
-For full compatibility, .nvmrc and .node-version files are provided to work seamlessly with version managers like nvm, asdf, and Volta. This ensures consistent environments across local development, CI pipelines, and deployment targets.
+For full compatibility, `.nvmrc` and `.node-version` files are provided to work seamlessly with version managers like nvm, asdf, and Volta. This ensures consistent environments across local development, CI pipelines, and deployment targets.
 
 To manually verify your environment:
 
@@ -134,6 +157,80 @@ To manually verify your environment:
 node -v     # Should fall within engines.node
 npm -v      # Should fall within engines.npm
 ```
+
+&nbsp;
+
+### 🧪 Testing
+
+This project uses a mix of automated performance, accessibility, and end-to-end testing tools to maintain quality across environments and deployments.
+
+| Tool                                                         | Purpose                                              | Usage Context       |
+| ------------------------------------------------------------ | ---------------------------------------------------- | ------------------- |
+| [`@playwright/test`](https://playwright.dev/docs/test-intro) | End-to-end testing framework with browser automation | Local + CI          |
+| [`@lhci/cli`](https://github.com/GoogleChrome/lighthouse-ci) | Lighthouse CI — automated performance audits         | CI (optional local) |
+| [`lighthouse`](https://github.com/GoogleChrome/lighthouse)   | Manual/scripted Lighthouse runs via CLI              | Local (global)      |
+
+> **Note:** `lighthouse` is intended to be installed globally (`npm i -g lighthouse)` or run via the `lighthouse` npm script, which uses the locally installed binary if available. You can also run Lighthouse through Chrome DevTools manually if preferred.
+
+<!-- markdownlint-disable MD028 -->
+
+> CI uses Chrome for Lighthouse audits. For local experimentation, you may run Lighthouse manually using [Brave](https://brave.com), which can reveal differences related to privacy features or tracking protection.
+
+<!-- markdownlint-enable MD028 -->
+
+&nbsp;
+
+#### Configuration Files
+
+| File                   | Description                                                              | Usage Context |
+| ---------------------- | ------------------------------------------------------------------------ | ------------- |
+| `playwright.config.js` | Configures Playwright test environment (browsers, timeouts, base URL)    | Local + CI    |
+| `.lighthouserc.cjs`    | Lighthouse CI config for defining audit targets, budgets, and assertions | CI            |
+
+&nbsp;
+
+#### Running Tests
+
+Local testing via Playwright:
+
+```bash
+npm run test:client     # Run client-side unit tests with Vitest
+npm run test:server     # Run server-side unit tests with Vitest
+npm run test:all        # Run full test suite
+npm run test:watch      # Watch mode for client tests
+npm run test:coverage   # Collect code coverage reports
+```
+
+Audit your app using Lighthouse:
+
+```bash
+# Run Lighthouse CI (via @lhci/cli) using the current build
+npm run lhci:run
+```
+
+Manual auditing with Lighthouse (e.g., via Brave or Chrome):
+
+```bash
+# Install globally (if not already installed)
+npm install -g lighthouse
+
+# Run Lighthouse manually against a deployed site
+lighthouse https://netwk.pro --view
+```
+
+You can also audit locally using Chrome DevTools → Lighthouse tab for on-the-fly testing and preview reports.
+
+> The repo uses `@lhci/cli` for CI-based audits. It is installed as a dev dependency and does not require a global install.
+
+<!-- markdownlint-disable MD028 -->
+
+> To trace the exact Chrome version and audit timestamp used in CI:
+>
+> ```bash
+> cat .lighthouseci/chrome-version.txt
+> ```
+
+<!-- markdownlint-disable MD028 -->
 
 ---
 
@@ -150,7 +247,7 @@ To streamline development and align with project conventions, we recommend the f
 | **[markdownlint](https://github.com/DavidAnson/markdownlint)**           | Markdown style checker and linter                         |
 | **[markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)** | Config-based CLI linter for Markdown                      |
 | **[EditorConfig](https://editorconfig.org/)**                            | Consistent line endings, spacing, and indentation         |
-| **Volta / nvm**                                                          | Node.js version manager for consistent tooling            |
+| **[Volta](https://volta.sh) / [nvm](https://github.com/nvm-sh/nvm)**     | Node.js version manager for consistent tooling            |
 
 > The `.vscode/` folder includes editor recommendations compatible with **VSCodium**. These are non-enforced and optional, but align with our formatter, linter, and language server configs.
 
@@ -183,14 +280,20 @@ All linting, formatting, and version settings are defined in versioned project c
 | File                      | Purpose                                                    |
 | ------------------------- | ---------------------------------------------------------- |
 | `.prettierrc`             | Prettier formatting rules                                  |
+| `.prettierignore`         | Files that should be ignored by Prettier                   |
 | `eslint.config.mjs`       | ESLint config with SvelteKit support                       |
-| `stylelint.config.js`       | CSS/SASS/Svelte style rules                                |
+| `stylelint.config.js`     | CSS/SASS/Svelte style rules                                |
+| `.stylelintignore`        | Files that should be ignored by Stylelint                  |
 | `.editorconfig`           | Base indentation and line ending settings                  |
 | `.nvmrc`, `.node-version` | Node.js version constraints for `nvm`, `asdf`, and `Volta` |
 | `.vscode/extensions.json` | Suggested extensions for VSCodium                          |
 | `.vscode/settings.json`   | Default workspace settings (non-binding)                   |
+| `.vscode/customData.json` | Custom CSS data for FontAwesome classes                    |
+| `cspell.json`             | Custom words and exclusions for spell checking             |
 
 These are the same rules used by CI and automation, so aligning your local setup avoids surprises later.
+
+> Note: `.vscode/extensions.json` defines a minimal recommended dev stack for VSCodium / VS Code. These extensions are **optional but thoughtfully curated** to improve developer experience without introducing bloat.
 
 ---
 
@@ -217,7 +320,7 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 | `prepare`     | Run SvelteKit sync                                           |
 | `check`       | Run SvelteKit sync and type check with `svelte-check`        |
 | `check:watch` | Watch mode for type checks                                   |
-| `check:node`  | Validate Node & NPM versions match package.json `engines`    |
+| `check:node`  | Validate Node & npm versions match package.json `engines`    |
 | `checkout`    | Full local validation: check versions, test, lint, typecheck |
 | `verify`      | Alias for `checkout`                                         |
 
@@ -233,7 +336,11 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 
 ---
 
+<!-- markdownlint-disable MD024 -->
+
 ### 🧪 Testing
+
+<!-- markdownlint-enable MD024 -->
 
 | Script          | Description                                  |
 | --------------- | -------------------------------------------- |
@@ -263,12 +370,10 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 
 ### 💡 Lighthouse / Performance
 
-| Script             | Description                                     |
-| ------------------ | ----------------------------------------------- |
-| `lhci`             | Alias for Lighthouse CI                         |
-| `lighthouse`       | Run local Lighthouse test and launch viewer     |
-| `lighthouse:local` | Build site, preview, and run Lighthouse locally |
-| `lhci:run`         | Run Lighthouse CI autorun                       |
+| Script     | Description               |
+| ---------- | ------------------------- |
+| `lhci`     | Alias for Lighthouse CI   |
+| `lhci:run` | Run Lighthouse CI autorun |
 
 ---
 

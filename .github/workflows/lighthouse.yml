@@ -1,5 +1,6 @@
 # .github/workflows/lighthouse.yml
 #
+# Copyright © 2025 Network Pro Strategies (Network Pro™)
 # SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 # This file is part of Network Pro
 
@@ -37,11 +38,22 @@ jobs:
           node-version: lts/*
           check-latest: true
           cache: npm
+          cache-dependency-path: package-lock.json
 
-      - name: Upgrade NPM
+      - name: Upgrade npm
         run: |
           corepack enable
           npm install -g npm@11.4.0
+
+      - name: Clean previous Lighthouse reports
+        run: |
+          if [ -d ".lighthouseci" ]; then
+            COUNT=$(find .lighthouseci -type f | wc -l)
+            echo "🧹 Removing $COUNT file(s) from .lighthouseci/"
+            rm -rf .lighthouseci
+          else
+            echo "🧹 No previous .lighthouseci/ directory to clean."
+          fi
 
       - name: Install Dependencies
         run: npm ci
@@ -54,11 +66,22 @@ jobs:
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install -y ./google-chrome-stable_current_amd64.deb
 
+      - name: Record Chrome version and timestamp
+        run: |
+          mkdir -p .lighthouseci
+          {
+            echo "Chrome Version: $(google-chrome --version)"
+            echo "Audit Timestamp: $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          } > .lighthouseci/chrome-version.txt
+
       - name: Collect Lighthouse results
         run: |
           npx @lhci/cli collect \
-            --chrome-path=$(which google-chrome) \
+            --chrome-path="$(which google-chrome)" \
             --config=.lighthouserc.cjs
+
+      - name: Log Chrome version used
+        run: cat .lighthouseci/chrome-version.txt
 
       #- name: Assert Lighthouse results (non-blocking)
       #  run: npx @lhci/cli assert --config=.lighthouserc.cjs
@@ -71,7 +94,7 @@ jobs:
         run: npx @lhci/cli upload --config=.lighthouserc.cjs
 
       - name: List contents of .lighthouseci
-        run: ls -al .lighthouseci || true
+        run: ls -al .lighthouseci
 
       - name: Rename Lighthouse reports
         run: |
@@ -93,5 +116,6 @@ jobs:
           path: |
             .lighthouseci/report.html
             .lighthouseci/report.json
+            .lighthouseci/chrome-version.txt
           include-hidden-files: true
           if-no-files-found: ignore
