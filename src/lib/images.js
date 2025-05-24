@@ -1,9 +1,12 @@
 /* ==========================================================================
 src/lib/images.js
 
+Copyright © 2025 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
+
+// cspell:ignore lsheet tosdr
 
 /**
  * Image import utility
@@ -11,7 +14,7 @@ This file is part of Network Pro.
  *
  * @module src/lib
  * @author SunDevil311
- * @updated 2025-05-15
+ * @updated 2025-05-24
  */
 
 // Import favicon images

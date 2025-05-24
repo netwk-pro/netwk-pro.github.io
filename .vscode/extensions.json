@@ -3,6 +3,11 @@
     "svelte.svelte-vscode",
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
-    "DavidAnson.vscode-markdownlint"
+    "stylelint.vscode-stylelint",
+    "DavidAnson.vscode-markdownlint",
+    "editorconfig.editorconfig",
+    "ms-playwright.playwright",
+    "vitest.explorer",
+    "streetsidesoftware.code-spell-checker"
   ]
 }

@@ -21,15 +21,15 @@ max_line_length = 80
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-; DOS/Windows batch scripts -
+; DOS/Windows batch scripts - use Windows-based EOL formatting
 [*.{bat,cmd}]
 end_of_line = crlf
 
-; Cascading Stylesheets -
+; Cascading Stylesheets - maintain desired indent size
 [*.css]
 indent_size = 2
 
-; HTML files -
+; HTML files - maintain desired indent size
 [*.{html,htm}]
 indent_size = 2
 
@@ -55,6 +55,10 @@ trim_trailing_whitespace = false
 [*.{ps1,psd1,psm1}]
 charset = utf-8-bom
 end_of_line = crlf
+
+; Svelte files - maintain desired indent size
+[*.svelte]
+indent_size = 2
 
 ; YML config files - match it own default syntax
 [*.{yaml,yml}]

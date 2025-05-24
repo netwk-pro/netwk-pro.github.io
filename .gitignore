@@ -14,6 +14,9 @@ list-devices.js
 devices-list.json
 
 
+# Lighthouse
+.lighthouseci
+
 # Scripts
 scripts/multipleBundleCss.js
 
@@ -198,6 +201,7 @@ package
 !.vscode/extensions.json
 !.vscode/customData.json
 !.vscode/*.code-snippets
+!.vscode/extensions.jsonc
 
 # Local History for Visual Studio Code
 .history/
