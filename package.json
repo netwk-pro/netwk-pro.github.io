@@ -2,7 +2,7 @@
   "name": "@networkpro/web",
   "private": false,
   "sideEffects": false,
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -120,6 +120,9 @@
   },
   "overrides": {
     "@sveltejs/kit": {
+      "cookie": "^0.7.0"
+    },
+    "@lhci/cli": {
       "cookie": "^0.7.0"
     }
   }
