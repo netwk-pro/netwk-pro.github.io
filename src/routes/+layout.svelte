@@ -25,10 +25,6 @@ This file is part of Network Pro.
   import faviconSvg from "$lib/img/favicon.svg";
   import appleTouchIcon from "$lib/img/icon-180x180.png";
 
-  onMount(() => {
-    registerServiceWorker();
-  });
-
   if (browser) {
     // Preload logo images
     [logoPng, logoWbp].forEach((src) => {
@@ -36,10 +32,15 @@ This file is part of Network Pro.
       img.src = src;
     });
 
-    // Preload favicon SVG
-    const touchImg = new Image();
     // Preload Apple Touch icon
+    const touchImg = new Image();
     touchImg.src = appleTouchIcon;
+
+    // Register the service worker only in the browser
+    onMount(() => {
+      console.log("[APP] onMount triggered in +layout.svelte");
+      registerServiceWorker();
+    });
   }
 
   // fallback values if data.meta not set

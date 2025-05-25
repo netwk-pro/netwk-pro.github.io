@@ -2,7 +2,7 @@
   "name": "@networkpro/web",
   "private": false,
   "sideEffects": false,
-  "version": "1.5.6",
+  "version": "1.6.0",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -37,9 +37,10 @@
   "style": "src/lib/styles/index.js",
   "scripts": {
     "dev": "vite dev",
-    "preview": "vite preview",
     "start": "npm run dev",
+    "dev:netlify": "netlify dev",
     "build": "vite build",
+    "preview": "vite preview",
     "build:netlify": "netlify build",
     "css:bundle": "node scripts/bundleCss.js",
     "prepare": "svelte-kit sync || echo ''",
@@ -62,7 +63,7 @@
     "lint:fix": "eslint . --ext .mjs,.js,.svelte --fix",
     "lint:jsdoc": "eslint . --ext .js,.mjs,.svelte --max-warnings=0",
     "lint:css": "stylelint \"**/*.{css,svelte}\" --ignore-path .stylelintignore",
-    "lint:md": "npx markdownlint-cli2 \"**/*.{md,markdown}\" \"#node_modules/**\" \"#build/**\"",
+    "lint:md": "npx markdownlint-cli2 \"**/*.{md,markdown}\" \"#node_modules/**\" \"#build/**\" \"#.netlify/**\"",
     "lint:all": "npm run lint && npm run lint:md && npm run lint:css && npm run format",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
@@ -74,6 +75,7 @@
     "postinstall": "npm run check:node"
   },
   "dependencies": {
+    "nodemailer": "^7.0.3",
     "svelte": "5.33.1"
   },
   "devDependencies": {
@@ -94,6 +96,7 @@
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-jsdoc": "^50.6.17",
     "eslint-plugin-svelte": "^3.9.0",
+    "fs-extra": "^11.3.0",
     "globals": "^16.1.0",
     "jsdom": "^26.1.0",
     "lightningcss": "^1.30.1",

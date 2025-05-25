@@ -2,14 +2,24 @@
   command = "npm run build"
   publish = "build"
 
+[build.environment]
+  NODE_ENV = "production"
+  NODE_VERSION = "22"
+
+[dev]
+  command = "npm run dev"
+  targetPort = 5173
+  port = 8888
+
+[functions."*"]
+  node_bundler = "esbuild"
+  included_files = ["netlify-functions/**"]
+
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
 
-	[plugins.inputs]
-	baseUrl = "https://netwk.pro"
-	sitemapPath = "/sitemap.xml"
-	ignorePeriod = 0
-	providers = [
-		"google",
-		"yandex"
-	]
+  [plugins.inputs]
+    baseUrl = "https://netwk.pro"
+    sitemapPath = "/sitemap.xml"
+    ignorePeriod = 0
+    providers = ["google", "yandex"]

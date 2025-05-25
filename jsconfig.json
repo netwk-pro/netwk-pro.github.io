@@ -18,7 +18,8 @@ This file is part of Network Pro.
     "strict": true,
     "moduleResolution": "bundler"
   },
-  "exclude": ["vite.config.js"] // Exclude the config file if needed
+  "exclude": ["vite.config.js"], // Exclude the config file if needed
+  "include": ["src", "src/global.d.ts", "src/service-worker.js"]
 
   // Path aliases are handled by https://svelte.dev/docs/kit/configuration#alias
   // except $lib which is handled by https://svelte.dev/docs/kit/configuration#files

@@ -6,12 +6,15 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
-window.addEventListener("beforeinstallprompt", (e) => {
-  // Prevent default install prompt
-  e.preventDefault();
+/**
+ * Client-side error handler for SvelteKit. Captures uncaught errors
+ * during client-side navigation or hydration.
+ *
+ * @param error - The uncaught error object
+ */
+export function handleError(error: Error) {
+  console.error("[CLIENT] Unhandled error:", error);
 
-  // Re-dispatch as a custom event so your component can respond
-  window.dispatchEvent(new CustomEvent("pwa-install-available", { detail: e }));
-});
-
-export {};
+  // Future: send to error reporting service
+  // e.g., Sentry.captureException(error);
+}
