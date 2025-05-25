@@ -1,7 +1,9 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "sideEffects": false,
+  "sideEffects": [
+  "./.netlify/shims.js"
+  ],
   "version": "1.6.0",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
