@@ -37,7 +37,10 @@ export async function handle({ event, resolve }) {
       "object-src 'none'",
       "frame-ancestors 'none'",
       "upgrade-insecure-requests",
-      "report-uri /.netlify/functions/cspReport",
+      "report-uri " +
+        (process.env.ENV_MODE === "prod"
+          ? "/.netlify/functions/cspReport"
+          : "/api/mock-csp"),
     ].join("; "),
   );
 
