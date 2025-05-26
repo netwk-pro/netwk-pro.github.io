@@ -19,6 +19,10 @@ test.describe("Desktop Tests", () => {
     }
 
     await page.setViewportSize({ width: 1280, height: 720 });
+
+    // Add a small timeout before navigating to the page
+    await page.waitForTimeout(1500); // Wait for 1.5 seconds
+
     await page.goto("/");
 
     // Wait for the page to fully load
@@ -33,6 +37,10 @@ test.describe("Desktop Tests", () => {
     page,
   }) => {
     await page.setViewportSize({ width: 1280, height: 720 });
+
+    // Add a small timeout before navigating to the page
+    await page.waitForTimeout(1500); // Wait for 1.5 seconds
+
     await page.goto("/");
 
     // Ensure the navigation bar is visible
@@ -48,6 +56,10 @@ test.describe("Desktop Tests", () => {
   // Simplified Footer Visibility Test
   test("should display the footer correctly", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 720 });
+
+    // Add a small timeout before navigating to the page
+    await page.waitForTimeout(1500); // Wait for 1.5 seconds
+
     await page.goto("/");
 
     // Check that the footer is visible
@@ -58,6 +70,10 @@ test.describe("Desktop Tests", () => {
   // Simplified Test for Clickable Links (e.g., 'about' link)
   test("should ensure the 'about' link is clickable", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 720 });
+
+    // Add a small timeout before navigating to the page
+    await page.waitForTimeout(1500); // Wait for 1.5 seconds
+
     await page.goto("/");
 
     // Ensure the "about" link is visible and clickable
@@ -84,6 +100,10 @@ test.describe("Mobile Tests", () => {
     }
 
     await page.setViewportSize({ width: 375, height: 667 }); // Mobile size (e.g., iPhone 6)
+
+    // Add a small timeout before navigating to the page
+    await page.waitForTimeout(1500); // Wait for 1.5 seconds
+
     await page.goto("/");
 
     // Wait for the page to fully load
@@ -96,6 +116,10 @@ test.describe("Mobile Tests", () => {
   // Simplified Test for mobile content visibility
   test("should display main content correctly on mobile", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 }); // Mobile size
+
+    // Add a small timeout before navigating to the page
+    await page.waitForTimeout(1500); // Wait for 1.5 seconds
+
     await page.goto("/");
 
     // Check that the main heading is visible on mobile

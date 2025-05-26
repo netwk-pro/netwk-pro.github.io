@@ -45,18 +45,19 @@ export async function handle({ event, resolve }) {
     response.headers.set(
       "Content-Security-Policy",
       [
-        "default-src 'self';", // Allow resources from same origin
-        "script-src 'self' 'unsafe-inline';", // Allow inline scripts
-        "style-src 'self' 'unsafe-inline';", // Allow inline styles
-        "img-src 'self' data:;", // Allow images from same origin and data URIs
-        "connect-src 'self';", // Allow connections only to same origin
-        "font-src 'self' data:;", // Allow fonts from same origin and data URIs
-        "form-action 'self';", // Allow forms to post to same origin
-        "base-uri 'self';", // Restrict base URIs to same origin
-        "object-src 'none';", // Block all object sources
-        "frame-ancestors 'none';", // Prevent framing of the site
-        "upgrade-insecure-requests;", // Automatically upgrade HTTP to HTTPS
-        `report-uri ${process.env.ENV_MODE === "prod" ? "/.netlify/functions/cspReport" : "/api/mock-csp"};`, // Add CSP report URI for violations
+        "default-src 'self';",
+        "script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com;", // Allow PostHog's script from both sources
+        "script-src-elem 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com;", // Allow inline scripts from PostHog's sources
+        "style-src 'self' 'unsafe-inline';",
+        "img-src 'self' data:;",
+        "connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com;", // Allow connections to both PostHog sources
+        "font-src 'self' data:;",
+        "form-action 'self';",
+        "base-uri 'self';",
+        "object-src 'none';",
+        "frame-ancestors 'none';",
+        "upgrade-insecure-requests;",
+        `report-uri ${process.env.ENV_MODE === "prod" ? "/.netlify/functions/cspReport" : "/api/mock-csp"};`,
       ].join(" "),
     );
   }
@@ -96,5 +97,3 @@ export async function handle({ event, resolve }) {
 
   return response;
 }
-
-// cspell:ignore licdn

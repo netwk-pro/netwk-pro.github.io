@@ -25,6 +25,10 @@ This file is part of Network Pro.
   import faviconSvg from "$lib/img/favicon.svg";
   import appleTouchIcon from "$lib/img/icon-180x180.png";
 
+  // Declare PostHog as null initially
+  /** @type {typeof import('$lib/components/PostHog.svelte').default | null} */
+  let PostHog = null;
+
   if (browser) {
     // Preload logo images
     [logoPng, logoWbp].forEach((src) => {
@@ -40,6 +44,11 @@ This file is part of Network Pro.
     onMount(() => {
       console.log("[APP] onMount triggered in +layout.svelte");
       registerServiceWorker();
+
+      // Dynamically import PostHog component only in the browser
+      import("$lib/components/PostHog.svelte").then((module) => {
+        PostHog = module.default;
+      });
     });
   }
 
@@ -49,8 +58,6 @@ This file is part of Network Pro.
   const metaDescription =
     data?.meta?.description ||
     "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro™";
-
-  // Pathname normalization takes place in +layout.js
 </script>
 
 <svelte:head>
@@ -82,6 +89,10 @@ This file is part of Network Pro.
   </ContainerSection>
 </header>
 <!-- END HEADER -->
+
+{#if PostHog}
+  <PostHog /> <!-- Add PostHog component when it's loaded -->
+{/if}
 
 <main>
   <slot />

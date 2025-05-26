@@ -19,6 +19,10 @@ test.describe("Mobile Tests", () => {
     }
 
     await page.setViewportSize({ width: 375, height: 667 }); // Mobile size (e.g., iPhone 6)
+
+    // Add a small timeout before navigating to the page
+    await page.waitForTimeout(1500); // Wait for 1.5 seconds
+
     await page.goto("/");
 
     // Wait for the page to load and for the title element to be available
@@ -44,6 +48,10 @@ test.describe("Mobile Tests", () => {
     }
 
     await page.setViewportSize({ width: 375, height: 667 }); // Mobile size
+
+    // Add a small timeout before navigating to the page
+    await page.waitForTimeout(1500); // Wait for 1.5 seconds
+
     await page.goto("/");
 
     // Wait for the page to load
@@ -63,6 +71,10 @@ test.describe("Mobile Tests", () => {
     }
 
     await page.setViewportSize({ width: 375, height: 667 }); // Mobile size
+
+    // Add a small timeout before navigating to the page
+    await page.waitForTimeout(1500); // Wait for 1.5 seconds
+
     await page.goto("/");
 
     // Wait for the page to load
@@ -77,3 +89,5 @@ test.describe("Mobile Tests", () => {
     await expect(page).toHaveURL(/\/about/);
   });
 });
+
+// cspell:ignore domcontentloaded
