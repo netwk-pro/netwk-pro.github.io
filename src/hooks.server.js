@@ -14,24 +14,50 @@ export async function handle({ event, resolve }) {
   // Create the response
   const response = await resolve(event);
 
-  // Set the Content Security Policy header allowing inline scripts
-  response.headers.set(
-    "Content-Security-Policy",
-    [
-      "default-src 'self';", // Allow resources from same origin
-      "script-src 'self' 'unsafe-inline';", // Allow inline scripts
-      "style-src 'self' 'unsafe-inline';", // Allow inline styles
-      "img-src 'self' data:;", // Allow images from same origin and data URIs
-      "connect-src 'self';", // Allow connections only to same origin
-      "font-src 'self' data:;", // Allow fonts from same origin and data URIs
-      "form-action 'self';", // Allow forms to post to same origin
-      "base-uri 'self';", // Restrict base URIs to same origin
-      "object-src 'none';", // Block all object sources
-      "frame-ancestors 'none';", // Prevent framing of the site
-      "upgrade-insecure-requests;", // Automatically upgrade HTTP to HTTPS
-      `report-uri ${process.env.ENV_MODE === "prod" ? "/.netlify/functions/cspReport" : "/api/mock-csp"};`, // Add CSP report URI for violations
-    ].join(" "),
-  );
+  // Check if the environment is for testing
+  const isTestEnvironment =
+    process.env.NODE_ENV === "test" || process.env.ENV_MODE === "ci";
+
+  // Set the Content Security Policy header
+  if (isTestEnvironment) {
+    // Relaxed CSP for testing: Allow inline scripts and eval
+    response.headers.set(
+      "Content-Security-Policy",
+      [
+        "default-src 'self';",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' ws://localhost:*;", // Allow inline and eval scripts, and websockets for local testing
+        "style-src 'self' 'unsafe-inline';", // Allow inline styles
+        "img-src 'self' data:;", // Allow images from same origin and data URIs
+        "connect-src 'self';", // Allow connections only to same origin
+        "font-src 'self' data:;", // Allow fonts from same origin and data URIs
+        "form-action 'self';", // Allow forms to post to same origin
+        "base-uri 'self';", // Restrict base URIs to same origin
+        "object-src 'none';", // Block all object sources
+        "frame-ancestors 'none';", // Prevent framing of the site
+        "upgrade-insecure-requests;", // Automatically upgrade HTTP to HTTPS
+        "report-uri /api/mock-csp;", // Mock CSP reports for testing
+      ].join(" "),
+    );
+  } else {
+    // Production or development environment: use a more restrictive CSP
+    response.headers.set(
+      "Content-Security-Policy",
+      [
+        "default-src 'self';", // Allow resources from same origin
+        "script-src 'self' 'unsafe-inline';", // Allow inline scripts
+        "style-src 'self' 'unsafe-inline';", // Allow inline styles
+        "img-src 'self' data:;", // Allow images from same origin and data URIs
+        "connect-src 'self';", // Allow connections only to same origin
+        "font-src 'self' data:;", // Allow fonts from same origin and data URIs
+        "form-action 'self';", // Allow forms to post to same origin
+        "base-uri 'self';", // Restrict base URIs to same origin
+        "object-src 'none';", // Block all object sources
+        "frame-ancestors 'none';", // Prevent framing of the site
+        "upgrade-insecure-requests;", // Automatically upgrade HTTP to HTTPS
+        `report-uri ${process.env.ENV_MODE === "prod" ? "/.netlify/functions/cspReport" : "/api/mock-csp"};`, // Add CSP report URI for violations
+      ].join(" "),
+    );
+  }
 
   // Set other security headers
   response.headers.set(
