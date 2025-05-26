@@ -17,6 +17,10 @@ export async function handle({ event, resolve }) {
   const isTest = process.env.NODE_ENV === "test";
   const isProd = process.env.ENV_MODE === "prod";
 
+  // ✅ DEBUG: Log environment context for validation in CI
+  console.log("[hooks.server.js] NODE_ENV =", process.env.NODE_ENV);
+  console.log("[hooks.server.js] ENV_MODE =", process.env.ENV_MODE);
+
   // Temporarily disable nonce injection; uncomment when re-enabling strict CSP
   // const response = await resolve(event, {
   //   transformPageChunk: ({ html }) => html.replace(/__cspNonce__/g, nonce),
