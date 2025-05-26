@@ -63,4 +63,3 @@ const defaultMeta = {
 
 // Export values
 export { defaultMeta, meta };
-
