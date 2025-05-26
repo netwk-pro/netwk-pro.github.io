@@ -89,7 +89,7 @@ This file is part of Network Pro.
   <h3>{fossItem.headline}</h3>
 
   <!-- Trusted input, from internal CMS -->
-  {@html fossItem.detailsDescription}
+  {@html fossItem.headlineDescription}
 
   <FossFeatures features={fossItem.features} />
 
@@ -157,3 +157,4 @@ This file is part of Network Pro.
   <span class="small-text"><a href="#top">Back to top</a></span>
 </section>
 <!-- END FOSS ITEMS -->
+
