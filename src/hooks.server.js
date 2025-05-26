@@ -85,6 +85,13 @@ export async function handle({ event, resolve }) {
   response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
   response.headers.set("X-Frame-Options", "DENY");
 
+  if (process.env.ENV_MODE !== "test" && process.env.ENV_MODE !== "ci") {
+    response.headers.set(
+      "Strict-Transport-Security",
+      "max-age=2592000; includeSubDomains;", // Use max-age of 30 days
+    );
+  }
+
   return response;
 }
 
