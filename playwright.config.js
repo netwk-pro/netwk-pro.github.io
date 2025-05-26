@@ -33,7 +33,7 @@ export default defineConfig({
 
   /* Shared settings for all projects */
   use: {
-    baseURL: "http://localhost:5173", // Update to use dev server URL
+    baseURL: "http://localhost:4173", // Update to use preview server URL
     trace: "on-first-retry",
     timeout: 30000, // Default action timeout of 30 seconds for each step
   },
@@ -77,11 +77,11 @@ export default defineConfig({
     },
   ],
 
-  /* Run your local dev server before starting the tests */
+  /* Run your local preview server before starting the tests */
   webServer: {
-    command: "npm run dev", // Use dev server
-    url: "http://localhost:5173", // Match the dev server URL
+    command: "npm run preview", // Use preview server
+    url: "http://localhost:4173", // Match the preview server URL
     reuseExistingServer: !process.env.CI,
-    timeout: 60 * 1000, // wait up to 60 seconds for dev server to be ready
+    timeout: 60 * 1000, // wait up to 60 seconds for preview to be ready
   },
 });
