@@ -25,7 +25,7 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-24.04
     env:
-      NODE_ENV: test
+      #NODE_ENV: test
       ENV_MODE: ci
 
     steps:
@@ -58,7 +58,8 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: NODE_ENV=test npx playwright test
+        #run: NODE_ENV=test npx playwright test
+        run: npx playwright test
 
       - name: Upload Playwright test results
         uses: actions/upload-artifact@v4
