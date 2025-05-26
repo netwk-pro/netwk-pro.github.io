@@ -14,6 +14,8 @@ export async function handle({ event, resolve }) {
   // Create the response
   const response = await resolve(event);
 
+  console.log("ENV_MODE:", process.env.ENV_MODE);
+
   // Check if the environment is for testing
   const isTestEnvironment =
     process.env.NODE_ENV === "test" || process.env.ENV_MODE === "ci";
