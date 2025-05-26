@@ -26,7 +26,7 @@ export async function handle({ event, resolve }) {
   //   transformPageChunk: ({ html }) => html.replace(/__cspNonce__/g, nonce),
   // });
 
-  //TODO: Create a unit test while revisiting nonce enforcement
+  //TODO: Create a unit test when revisiting nonce enforcement
 
   const response = await resolve(event); // Fallback while nonces are off
 
@@ -37,6 +37,7 @@ export async function handle({ event, resolve }) {
       "default-src 'self'",
 
       // Allow unsafe-inline only in test to prevent blocking hydration/playwright eval
+      // ✅ No inline scripts in production — 'unsafe-inline' only enabled in test mode
       `script-src 'self' ${isTest ? "'unsafe-inline'" : ""} https://snap.licdn.com`,
 
       // img-src relaxed in test mode for LinkedIn pixel

@@ -59,12 +59,7 @@
 
     <meta name="generator" content="SvelteKit 2.21.1" />
 
-    <script>
-      if (location.search.includes("nosw")) {
-        window.__DISABLE_SW__ = true;
-        console.warn("🧪 Service worker disabled via ?nosw flag in URL.");
-      }
-    </script>
+    <script src="/disableSw.js"></script>
 
     %sveltekit.head%
   </head>
@@ -73,7 +68,7 @@
 
     <!-- LinkedIn Insight Tag - Added 2025-05-14 10:05:06 by SunDevil311 -->
     <!-- Extracted to linkedin.js - Moved 2025-05-24 by SunDevil311 -->
-    <script src="/linkedin.js" async></script>
+    <script src="/linkedin.js" defer></script>
     <noscript>
       <img
         height="1"

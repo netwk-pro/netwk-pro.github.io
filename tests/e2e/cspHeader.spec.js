@@ -15,6 +15,7 @@ test("CSP header includes relaxed directives in test mode", async ({
 
   // Fetch the response headers
   const cspHeader = response.headers()["content-security-policy"];
+  console.log("🚨 CSP Header:", cspHeader); // ✅ DEBUG: Confirm test-mode CSP
 
   expect(cspHeader).toBeDefined();
 
