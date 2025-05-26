@@ -57,7 +57,7 @@ This file is part of Network Pro.
     },
     {
       label: "Markdown",
-      href: "https://netwk.pro/docs",
+      href: "https://docs.netwk.pro",
       target: "_self",
     },
   ];
