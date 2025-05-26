@@ -169,16 +169,18 @@ This project includes custom runtime configuration files for enhancing security,
 
 ### 🔐 `hooks.server.js`
 
-Located at `src/hooks.server.js`, this file is responsible for injecting dynamic security headers and handling CSP nonces. It includes:
+Located at src/hooks.server.js, this file is responsible for injecting dynamic security headers. It includes:
 
-- **Content Security Policy (CSP)** with optional nonce injection (disabled by default in dev)
-- **Permissions Policy** to explicitly disable unnecessary browser APIs
-- **X-Content-Type-Options**, **X-Frame-Options**, and **Referrer-Policy** headers
+- Content Security Policy (CSP) with support for relaxed directives (inline scripts allowed)
+- Permissions Policy to explicitly disable unnecessary browser APIs
+- X-Content-Type-Options, X-Frame-Options, and Referrer-Policy headers
 
-To re-enable CSP nonces for inline scripts:
+> 💡 The CSP nonce feature has been disabled. Inline scripts are now allowed through the policy using the "script-src 'self' 'unsafe-inline'" directive. If you wish to use nonces in the future, you can re-enable them by uncommenting the relevant sections in hooks.server.js and modifying your inline <script> tags.
 
-1. Uncomment the `transformPageChunk` block in `hooks.server.js`
-2. Add `nonce="**cspNonce**"` to inline `<script>` blocks in `app.html` or route templates
+To re-enable nonce generation for inline scripts in the future:
+
+1. Uncomment the nonce generation and injection logic in hooks.server.js.
+2. Add nonce="**cspNonce**" to inline <script> blocks in app.html or route templates.
 
 > 💡 The `[headers]` block in `netlify.toml` has been deprecated — all headers are now set dynamically from within SvelteKit.
 
