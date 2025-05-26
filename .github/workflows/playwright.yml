@@ -25,6 +25,7 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-24.04
     env:
+      NODE_ENV: test
       ENV_MODE: ci
 
     steps:
@@ -42,19 +43,22 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
 
-      - name: Upgrade NPM
+      - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.4.0
+          npm install -g npm@11.4.1
 
       - name: Install Node.js dependencies
         run: npm ci
+
+      - name: Build site
+        run: npm run build
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: NODE_ENV=test npx playwright test
 
       - name: Upload Playwright test results
         uses: actions/upload-artifact@v4
