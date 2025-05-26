@@ -23,9 +23,15 @@ import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import semver from "semver";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Load engines from package.json
-const pkg = JSON.parse(fs.readFileSync(path.resolve("./package.json"), "utf8"));
+const pkg = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, "../package.json"), "utf8"),
+);
 const { node: nodeRange, npm: npmRange } = pkg.engines;
 
 // Determine if this is running as part of npm's postinstall hook

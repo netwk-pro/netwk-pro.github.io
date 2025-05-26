@@ -4,8 +4,13 @@
   "words": [
     "acode",
     "autorun",
+    "beforeinstallprompt",
     "bootentry",
+    "Embedder",
+    "Ente",
+    "esbuild",
     "foss",
+    "geolocation",
     "homescreen",
     "lhci",
     "lighthouseci",
@@ -21,14 +26,18 @@
     "Nextcloud",
     "noopener",
     "noreferrer",
+    "nosniff",
+    "nosw",
     "obtainium",
+    "SIEM",
     "stylelintignore",
     "Subsite",
     "subsites",
     "urlcheck",
     "vcard",
     "vite",
-    "vitest"
+    "vitest",
+    "webfonts"
   ],
   "ignorePaths": [
     ".gitignore",

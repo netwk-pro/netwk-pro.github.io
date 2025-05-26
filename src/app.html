@@ -17,11 +17,6 @@
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="author" content="Network Pro Strategies" />
 
-    <!-- CSP for Dev -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://snap.licdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://px.ads.linkedin.com; connect-src 'self' https://px.ads.linkedin.com;" />
-
     <!-- Favicon: Keep only ICO for max compatibility -->
     <link
       rel="icon"
@@ -29,9 +24,7 @@
       sizes="any"
       type="image/x-icon" />
 
-    <!-- Preconnects (placed early to optimize connection time) -->
-    <link rel="preconnect" href="https://snap.licdn.com" crossorigin />
-    <link rel="preconnect" href="https://px.ads.linkedin.com" crossorigin />
+    <!-- LinkedIn preconnects removed 2025-05-26 by SunDevil311 -->
 
     <!-- Preload FontAwesome webfonts -->
     <link
@@ -56,59 +49,23 @@
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent" />
 
+    <!-- cspell:disable -->
     <meta
       name="facebook-domain-verification"
       content="bx4ham0zkpvzztzu213bhpt76m9siq" />
+    <!-- cspell:enable -->
 
     <meta name="generator" content="SvelteKit 2.21.1" />
 
-    <script>
-      if (location.search.includes("nosw")) {
-        window.__DISABLE_SW__ = true;
-        console.warn("🧪 Service worker disabled via ?nosw flag in URL.");
-      }
-    </script>
+    <script src="/disableSw.js"></script>
 
     %sveltekit.head%
   </head>
   <body>
     <div id="svelte">%sveltekit.body%</div>
 
-    <!-- LinkedIn Insight Tag - Added 2025-05-14 10:05:06 by SunDevil311 -->
-    <!-- Load LinkedIn script only after page content is fully loaded -->
-    <script type="text/javascript">
-      // Wait for window load event for optimal performance
-      window.addEventListener("load", function () {
-        // LinkedIn Partner ID
-        window._linkedin_partner_id = "7223748";
-        window._linkedin_data_partner_ids =
-          window._linkedin_data_partner_ids || [];
-        window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
+    <!-- LinkedIn Insight Tag removed 2025-05-26 by SunDevil311 -->
 
-        // Initialize lintrk if not already initialized
-        if (!window.lintrk) {
-          window.lintrk = function (a, b) {
-            window.lintrk.q.push([a, b]);
-          };
-          window.lintrk.q = [];
-        }
-
-        // Create and insert script element
-        var s = document.getElementsByTagName("script")[0];
-        var b = document.createElement("script");
-        b.type = "text/javascript";
-        b.async = true;
-        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-        s.parentNode.insertBefore(b, s);
-      });
-    </script>
-    <noscript>
-      <img
-        height="1"
-        width="1"
-        style="display: none"
-        alt=""
-        src="https://px.ads.linkedin.com/collect/?pid=7223748&fmt=gif" />
-    </noscript>
+    <!-- cspell:ignore preconnects webfonts lintrk -->
   </body>
 </html>
