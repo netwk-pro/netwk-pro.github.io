@@ -12,7 +12,10 @@ const sw = /** @type {ServiceWorkerGlobalScope} */ (
 );
 
 const isDev = location.hostname === "localhost";
-const disallowedHosts = ["licdn.com"];
+const disallowedHosts = [
+  "us.i.posthog.com", // Add PostHog to disallowed hosts
+  "posthog.com", // Add PostHog to disallowed hosts
+];
 
 import { build, files, version } from "$service-worker";
 
@@ -25,8 +28,8 @@ const excludedAssets = [];
 //TODO: Remove files in docs once migrated to documentation subsite
 
 const IGNORE_PATHS = new Set([
-  "/docs/Home.md",
   "/docs/extensions.md",
+  "/docs/Home.md",
   "/img/banner-1280x640.png",
   "/img/banner-og-1200x630.png",
   "/img/logo-transparent.png",
