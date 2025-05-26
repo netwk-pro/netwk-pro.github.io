@@ -88,10 +88,7 @@ export const fossData = [
         href: "https://play.google.com/store/apps/details?id=io.ente.auth",
       },
     ],
-    notes: [
-      "Note: PMX maintains Play Store, F-Droid, and GitHub versions. These are not interchangeable, as they all have different signatures. We recommend either the F-Droid or GitHub version, though they should all be identical in terms of functionality.",
-      "Further, PMX offers a paid version, PMX Pro, which offers significantly greater functionality. You have the option to send a minimal donation via the developer's website, or you can simply purchase it on the Play Store (it's currently $1.99). The developer also offers trial keys via Telegram so that you can test out PMX Pro.",
-    ],
+    notes: [],
   },
   {
     id: "pmx",
@@ -111,23 +108,40 @@ export const fossData = [
       </p>
     `,
     features: [
-      "Granular, On-Demand Permission Control",
-      "Sensitive Data Access Monitoring",
-      "Autostart Abuse Prevention",
-      "Clean, Ad-Free Interface",
-      "Wireless ADB Support (No Root)",
+      {
+        emoji: "⚡",
+        label: "Why Choose PMX?",
+        isIntro: true
+      },
+      {
+        emoji: "✔️",
+        label: "Granular, On-Demand Permission Control",
+        description: "Instantly block or allow app permissions with real-time control."
+      },
+      {
+        emoji: "✔️",
+        label: "Sensitive Data Access Monitoring",
+        description: "See which apps access your camera, mic, location, and more."
+      },
+      {
+        emoji: "✔️",
+        label: "Autostart Abuse Prevention",
+        description: "Halt apps that auto-launch and exploit background permissions."
+      },
+      {
+        emoji: "✔️",
+        label: "Clean, Ad-Free Interface",
+        description: "Lightweight UI with zero ads, trackers, or unnecessary bloat."
+      },
+      {
+        emoji: "✔️",
+        label: "Wireless ADB Support (No Root)",
+        description: "Advanced controls via ADB—wireless if supported—no root needed."
+      }
     ],
     detailsDescription: `
       <p>
         PMX offers a wealth of features for anyone evaluating mobile security tools, be they an IT professional, developer, or privacy-conscious user.
-      </p>
-      <p>
-        ⚡ <span class="bolditalic">Why Choose PMX?</span><br />
-        ✔️ <strong>Granular, On-Demand Permission Control:</strong> Instantly block or allow app permissions with real-time control.<br />
-        ✔️ <strong>Sensitive Data Access Monitoring:</strong> See which apps access your camera, mic, location, and more.<br />
-        ✔️ <strong>Autostart Abuse Prevention:</strong> Halt apps that auto-launch and exploit background permissions.<br />
-        ✔️ <strong>Clean, Ad-Free Interface:</strong> Lightweight UI with zero ads, trackers, or unnecessary bloat.<br />
-        ✔️ <strong>Wireless ADB Support (No Root):</strong> Advanced controls via ADB—wireless if supported—no root needed.<br />
       </p>
       <p>
         No ads. No tracking. Just privacy made easy.<br />
@@ -171,26 +185,55 @@ export const fossData = [
     headline:
       "Discover ToS;DR - The Open-Source Project That Translates Legal Jargon into Clarity",
     headlineDescription: `
-      <p>We've all been there&mdash;scrolling past walls of legal text and clicking “I agree” just to get on with it. But what exactly are we agreeing to?</p>
-      <p><strong>ToS;DR (Terms of Service; Didn't Read)</strong> is the open-source project that helps you find out—without needing a law degree.</p>
+      <p>
+        We've all been there&mdash;scrolling past walls of legal text and clicking “I agree” just to get on with it. But what exactly are we agreeing to?
+      </p>
+      <p>
+        <strong>ToS;DR (Terms of Service; Didn't Read)</strong> is the open-source project that helps you find out—without needing a law degree.
+      </p>
     `,
     features: [
-      "Community-driven ratings from A (best) to E (worst)",
-      "Clear summaries of complex terms and privacy policies",
-      "Highlights of key clauses—both good and bad",
-      "No account needed, completely free to use",
-      "Transparent, open-source code and contribution process",
+      {
+        emoji: "✨",
+        label: "Why ToS;DR?",
+        isIntro: true
+      },
+      {
+        emoji: "✔️",
+        label: "Community-driven ratings",
+        description: "from A (best) to E (worst)."
+      },
+      {
+        emoji: "✔️",
+        label: "Clear summaries of complex terms and privacy policies",
+        description: ""
+      },
+      {
+        emoji: "✔️",
+        label: "Highlights of key clauses",
+        description: "both good and bad."
+      },
+      {
+        emoji: "✔️",
+        label: "No account needed, completely free to use",
+        description: ""
+      },
+      {
+        emoji: "✔️",
+        label: "Transparent, open-source code and contribution process",
+        description: ""
+      }
     ],
     detailsDescription: `
-      <p>✨ <span class="bolditalic">Why ToS;DR?</span><br />
-      ✔️ Community-driven ratings from A (best) to E (worst)<br />
-      ✔️ Clear summaries of complex terms and privacy policies<br />
-      ✔️ Highlights of key clauses—both good and bad<br />
-      ✔️ No account needed, completely free to use<br />
-      ✔️ Transparent, open-source code and contribution process</p>
-      <p>Whether you're a privacy advocate, a curious user, or someone tired of blindly agreeing to questionable terms, ToS;DR helps you make informed decisions about the services you use every day.</p>
-      <p>💡 From browser extensions to a dedicated <strong>Android app on F-Droid</strong>, ToS;DR is privacy-conscious, ad-free, and built to empower.</p>
-      <p>Stay informed, protect your rights, and take back control of your digital life—one ToS at a time.</p>
+      <p>
+        Whether you're a privacy advocate, a curious user, or someone tired of blindly agreeing to questionable terms, ToS;DR helps you make informed decisions about the services you use every day.
+      </p>
+      <p>
+        💡 From browser extensions to a dedicated <strong>Android app on F-Droid</strong>, ToS;DR is privacy-conscious, ad-free, and built to empower.
+      </p>
+      <p>
+        Stay informed, protect your rights, and take back control of your digital life—one ToS at a time.
+      </p>
     `,
     links: [
       {
@@ -218,23 +261,46 @@ export const fossData = [
     headline:
       "Bring the power of a full-fledged IDE to your Android device with Acode!",
     headlineDescription: `
-      <p>Discover Acode, the open-source code editor that brings the power of a full-fledged IDE to your Android device. Whether you're tweaking HTML, crafting CSS, or debugging JavaScript, Acode has you covered.</p>
+      <p>
+        Discover Acode, the open-source code editor that brings the power of a full-fledged IDE to your Android device. Whether you're tweaking HTML, crafting CSS, or debugging JavaScript, Acode has you covered.
+      </p>
     `,
     features: [
-      "Lightweight & fast",
-      "Supports over 100 programming languages",
-      "Offline functionality—no internet needed",
-      "Integrated Git support",
-      "Customizable themes & syntax highlighting",
+      {
+        emoji: "✨",
+        label: "Why Acode?",
+        isIntro: true
+      },
+      {
+        emoji: "✔️",
+        label: "Lightweight & fast",
+        description: ""
+      },
+      {
+        emoji: "✔️",
+        label: "Supports over 100 programming languages",
+        description: ""
+      },
+      {
+        emoji: "✔️",
+        label: "Offline functionality",
+        description: "no internet needed."
+      },
+      {
+        emoji: "✔️",
+        label: "Integrated Git support",
+        description: ""
+      },
+      {
+        emoji: "✔️",
+        label: "Customizable themes & syntax highlighting",
+        description: ""
+      }
     ],
     detailsDescription: `
-      <p>✨ <span class="bolditalic">Why Acode?</span><br />
-      ✔️ Lightweight & fast<br />
-      ✔️ Supports over 100 programming languages<br />
-      ✔️ Offline functionality—no internet needed<br />
-      ✔️ Integrated Git support<br />
-      ✔️ Customizable themes & syntax highlighting</p>
-      <p>Perfect for developers on the go, students, or anyone passionate about coding and open-source software.</p>
+      <p>
+        Perfect for developers on the go, students, or anyone passionate about coding and open-source software.
+      </p>
     `,
     links: [
       { label: "GitHub", href: "https://github.com/Acode-Foundation/Acode" },

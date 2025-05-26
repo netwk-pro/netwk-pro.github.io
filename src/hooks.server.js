@@ -27,18 +27,18 @@ export async function handle({ event, resolve }) {
   response.headers.set(
     "Content-Security-Policy",
     [
-      "default-src 'self';",
-      `script-src 'self' 'nonce-${nonce}' 'unsafe-inline';`, // Remove LinkedIn sources from here
-      "style-src 'self' 'unsafe-inline';", // Allow inline styles (if necessary)
-      "img-src 'self' data:;",
-      "connect-src 'self';", // Remove LinkedIn's px.ads and snap.licdn domains
-      "font-src 'self' data:;",
-      "form-action 'self';",
-      "base-uri 'self';",
-      "object-src 'none';",
-      "frame-ancestors 'none';",
-      "upgrade-insecure-requests;",
-      `report-uri ${process.env.ENV_MODE === "prod" ? "/.netlify/functions/cspReport" : "/api/mock-csp"};`, // Reporting for violations
+      "default-src 'self';", // Allow resources from same origin
+      `script-src 'self' 'nonce-${nonce}' /immutable/assets/;`, // Allow inline scripts with nonce and scripts from /immutable/assets/
+      "style-src 'self' 'unsafe-inline';", // Allow inline styles
+      "img-src 'self' data:;", // Allow images from same origin and data URIs
+      "connect-src 'self';", // Only allow connections to same origin (LinkedIn removed)
+      "font-src 'self' data:;", // Allow fonts from same origin and data URIs
+      "form-action 'self';", // Allow forms to post to same origin
+      "base-uri 'self';", // Restrict base URIs to same origin
+      "object-src 'none';", // Block all object sources
+      "frame-ancestors 'none';", // Prevent framing of the site
+      "upgrade-insecure-requests;", // Automatically upgrade HTTP to HTTPS
+      `report-uri ${process.env.ENV_MODE === "prod" ? "/.netlify/functions/cspReport" : "/api/mock-csp"};`, // Add CSP report URI for violations
     ].join(" "),
   );
 
