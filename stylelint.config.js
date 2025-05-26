@@ -21,12 +21,6 @@ export default {
     "./src/lib/styles/css/brands.css", // Ignore FontAwesome CSS files
     "**/*.min.css", // Also ignore minified CSS files as a best practice
   ],
-  overrides: [
-    {
-      files: ["**/*.html", "**/*.svelte"], // Use postcss-html for HTML and Svelte files
-      customSyntax: "postcss-html",
-    },
-  ],
   rules: {
     "selector-pseudo-class-no-unknown": [
       true,
@@ -117,3 +111,5 @@ export default {
   reportInvalidScopeDisables: true, // Report invalid scope disables
   reportNeedlessDisables: true, // Report unnecessary disables
 };
+
+// cspell:ignore descriptionless

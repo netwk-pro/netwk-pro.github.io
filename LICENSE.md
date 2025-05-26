@@ -16,6 +16,9 @@ This file is part of Network Pro.
 **Network Pro Strategies**  
 **Effective Date:** May 18, 2025
 
+**Official Version Notice**  
+This document is provided for convenience only. In the event of any discrepancy, the authoritative version is the one published at [https://netwk.pro](https://netwk.pro).
+
 &nbsp;
 
 <!-- markdownlint-disable MD001 -->

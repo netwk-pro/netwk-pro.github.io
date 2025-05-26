@@ -1,8 +1,10 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "sideEffects": false,
-  "version": "1.5.6",
+  "sideEffects": [
+    "./.netlify/shims.js"
+  ],
+  "version": "1.6.0",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -37,9 +39,10 @@
   "style": "src/lib/styles/index.js",
   "scripts": {
     "dev": "vite dev",
-    "preview": "vite preview",
     "start": "npm run dev",
+    "dev:netlify": "netlify dev",
     "build": "vite build",
+    "preview": "vite preview",
     "build:netlify": "netlify build",
     "css:bundle": "node scripts/bundleCss.js",
     "prepare": "svelte-kit sync || echo ''",
@@ -62,7 +65,7 @@
     "lint:fix": "eslint . --ext .mjs,.js,.svelte --fix",
     "lint:jsdoc": "eslint . --ext .js,.mjs,.svelte --max-warnings=0",
     "lint:css": "stylelint \"**/*.{css,svelte}\" --ignore-path .stylelintignore",
-    "lint:md": "npx markdownlint-cli2 \"**/*.{md,markdown}\" \"#node_modules/**\" \"#build/**\"",
+    "lint:md": "npx markdownlint-cli2 \"**/*.{md,markdown}\" \"#node_modules/**\" \"#build/**\" \"#.netlify/**\"",
     "lint:all": "npm run lint && npm run lint:md && npm run lint:css && npm run format",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
@@ -74,13 +77,14 @@
     "postinstall": "npm run check:node"
   },
   "dependencies": {
+    "nodemailer": "^7.0.3",
+    "semver": "^7.7.2",
     "svelte": "5.33.1"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.9",
     "@eslint/js": "^9.27.0",
     "@lhci/cli": "^0.14.0",
-    "@netlify/plugin-sitemap": "^0.8.1",
     "@playwright/test": "^1.52.0",
     "@sveltejs/adapter-netlify": "^5.0.2",
     "@sveltejs/kit": "2.21.1",
@@ -102,10 +106,8 @@
     "mdsvex": "^0.12.6",
     "normalize.css": "^8.0.1",
     "postcss": "^8.5.3",
-    "postcss-html": "^1.8.0",
     "prettier": "^3.5.3",
     "prettier-plugin-svelte": "^3.4.0",
-    "semver": "^7.7.2",
     "stylelint": "^16.19.1",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended": "^16.0.0",
