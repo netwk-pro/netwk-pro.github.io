@@ -38,6 +38,8 @@ import obtainiumWbp from "$lib/img/obtainium.webp";
 // Import images for posts
 import acodePng from "$lib/img/posts/acode.png";
 import acodeWbp from "$lib/img/posts/acode.webp";
+import eauthPng from "$lib/img/posts/eauth.png";
+import eauthWbp from "$lib/img/posts/eauth.webp";
 import lsheetPng from "$lib/img/posts/linksheet.png";
 import lsheetWbp from "$lib/img/posts/linksheet.webp";
 import pmxPng from "$lib/img/posts/pmx.png";
@@ -60,6 +62,8 @@ export {
   bySvg,
   ccBadge,
   ccSvg,
+  eauthPng,
+  eauthWbp,
   faviconSvg,
   gplBadge,
   logoPng,
@@ -78,3 +82,5 @@ export {
   urlWbp,
   vcfSrc
 };
+
+// cspell:ignore eauth

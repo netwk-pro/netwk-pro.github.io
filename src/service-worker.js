@@ -22,7 +22,11 @@ const CACHE = `cache-${version}`;
 /** @type {string[]} */
 const excludedAssets = [];
 
+//TODO: Remove files in docs once migrated to documentation subsite
+
 const IGNORE_PATHS = new Set([
+  "/docs/Home.md",
+  "/docs/extensions.md",
   "/img/banner-1280x640.png",
   "/img/banner-og-1200x630.png",
   "/img/logo-transparent.png",

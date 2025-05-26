@@ -11,72 +11,56 @@ This file is part of Network Pro.
  * @type {import('@sveltejs/kit').Handle}
  */
 export async function handle({ event, resolve }) {
-  const nonce = crypto.randomUUID().replace(/-/g, "");
+  // Generate a random nonce for each request
+  const nonce = crypto.randomUUID().replace(/-/g, ""); // Generate and clean the nonce
+
+  // Store the nonce in event.locals so we can access it later
   event.locals.nonce = nonce;
 
-  const isTest = process.env.NODE_ENV === "test";
-  const isProd = process.env.ENV_MODE === "prod";
+  // Create the response
+  const response = await resolve(event, {
+    // Inject the nonce into the HTML
+    transformPageChunk: ({ html }) => html.replace(/__cspNonce__/g, nonce), // Replace placeholder with actual nonce
+  });
 
-  // ✅ DEBUG: Log environment context for validation in CI
-  console.log("[hooks.server.js] NODE_ENV =", process.env.NODE_ENV);
-  console.log("[hooks.server.js] ENV_MODE =", process.env.ENV_MODE);
-
-  // Temporarily disable nonce injection; uncomment when re-enabling strict CSP
-  // const response = await resolve(event, {
-  //   transformPageChunk: ({ html }) => html.replace(/__cspNonce__/g, nonce),
-  // });
-
-  //TODO: Create a unit test when revisiting nonce enforcement
-
-  const response = await resolve(event); // Fallback while nonces are off
-
-  // Content Security Policy: Adjusted to support test-mode LinkedIn tracking pixels
+  // Set the Content Security Policy header allowing nonces
   response.headers.set(
     "Content-Security-Policy",
     [
-      "default-src 'self'",
-
-      // Allow unsafe-inline only in test to prevent blocking hydration/playwright eval
-      // ✅ No inline scripts in production — 'unsafe-inline' only enabled in test mode
-      `script-src 'self' ${isTest ? "'unsafe-inline'" : ""} https://snap.licdn.com`,
-
-      // img-src relaxed in test mode for LinkedIn pixel
-      `img-src 'self' data: ${isTest ? "https://px.ads.linkedin.com" : ""}`,
-
-      "connect-src 'self' https://px.ads.linkedin.com https://snap.licdn.com",
-      "style-src 'self' 'unsafe-inline'",
-      "font-src 'self' data:",
-      "form-action 'self'",
-      "base-uri 'self'",
-      "object-src 'none'",
-      "frame-ancestors 'none'",
-      "upgrade-insecure-requests",
-
-      // Use mock CSP handler locally and Netlify function in prod
-      `report-uri ${
-        isProd ? "/.netlify/functions/cspReport" : "/api/mock-csp"
-      }`,
-    ].join("; "),
+      "default-src 'self';",
+      `script-src 'self' 'nonce-${nonce}' 'unsafe-inline';`, // Remove LinkedIn sources from here
+      "style-src 'self' 'unsafe-inline';", // Allow inline styles (if necessary)
+      "img-src 'self' data:;",
+      "connect-src 'self';", // Remove LinkedIn's px.ads and snap.licdn domains
+      "font-src 'self' data:;",
+      "form-action 'self';",
+      "base-uri 'self';",
+      "object-src 'none';",
+      "frame-ancestors 'none';",
+      "upgrade-insecure-requests;",
+      `report-uri ${process.env.ENV_MODE === "prod" ? "/.netlify/functions/cspReport" : "/api/mock-csp"};`, // Reporting for violations
+    ].join(" "),
   );
 
+  // Set other security headers
   response.headers.set(
     "Permissions-Policy",
     [
-      "fullscreen=(self)", // Allow fullscreen for PWA
-      "sync-xhr=()", // Disallow synchronous XHR to improve performance and prevent UI blocking
-      "camera=()", // Block camera access
-      "microphone=()", // Block microphone access
-      "geolocation=()", // Block geolocation
-      "clipboard-read=()", // Block clipboard access
-      "clipboard-write=()", // Block clipboard write
-      "payment=()", // Block Payment Request API
-      "usb=()", // Block USB device access
-      "hid=()", // Block Human Interface Devices
-      "gamepad=()", // Block gamepad input
-      "serial=()", // Block serial device access
-      "publickey-credentials-get=()", // Block WebAuthn unless explicitly required
-      "interest-cohort=()", // Disable FLoC (Federated Learning of Cohorts)
-      "topics=()", // Disable Topics API (FLoC v2)
+      "fullscreen=(self)",
+      "sync-xhr=()",
+      "camera=()",
+      "microphone=()",
+      "geolocation=()",
+      "clipboard-read=()",
+      "clipboard-write=()",
+      "payment=()",
+      "usb=()",
+      "hid=()",
+      "gamepad=()",
+      "serial=()",
+      "publickey-credentials-get=()",
+      "interest-cohort=()",
+      "topics=()",
     ].join(", "),
   );
 
@@ -86,3 +70,5 @@ export async function handle({ event, resolve }) {
 
   return response;
 }
+
+// cspell:ignore licdn

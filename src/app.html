@@ -24,9 +24,7 @@
       sizes="any"
       type="image/x-icon" />
 
-    <!-- Preconnects (placed early to optimize connection time) -->
-    <link rel="preconnect" href="https://snap.licdn.com" crossorigin />
-    <link rel="preconnect" href="https://px.ads.linkedin.com" crossorigin />
+    <!-- LinkedIn preconnects removed 2025-05-26 by SunDevil311 -->
 
     <!-- Preload FontAwesome webfonts -->
     <link
@@ -55,9 +53,14 @@
     <meta
       name="facebook-domain-verification"
       content="bx4ham0zkpvzztzu213bhpt76m9siq" />
-    <!-- cpsell:enable -->
+    <!-- cspell:enable -->
 
     <meta name="generator" content="SvelteKit 2.21.1" />
+
+    <script
+      nonce="__cspNonce__"
+      src="/_app/immutable/assets/entry.js"
+      type="module"></script>
 
     <script src="/disableSw.js"></script>
 
@@ -66,17 +69,8 @@
   <body>
     <div id="svelte">%sveltekit.body%</div>
 
-    <!-- LinkedIn Insight Tag - Added 2025-05-14 10:05:06 by SunDevil311 -->
-    <!-- Extracted to linkedin.js - Moved 2025-05-24 by SunDevil311 -->
-    <script src="/linkedin.js" defer></script>
-    <noscript>
-      <img
-        height="1"
-        width="1"
-        style="display: none"
-        alt=""
-        src="https://px.ads.linkedin.com/collect/?pid=7223748&fmt=gif" />
-    </noscript>
-    <!-- cspell:ignore preconnects webfonts -->
+    <!-- LinkedIn Insight Tag removed 2025-05-26 by SunDevil311 -->
+
+    <!-- cspell:ignore preconnects webfonts lintrk -->
   </body>
 </html>
