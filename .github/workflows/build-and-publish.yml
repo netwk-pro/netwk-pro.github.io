@@ -70,10 +70,10 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
 
-      - name: Upgrade NPM
+      - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.4.0
+          npm install -g npm@11.4.1
 
       - name: Install Node.js dependencies
         run: npm ci

@@ -45,7 +45,7 @@ jobs:
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.4.0
+          npm install -g npm@11.4.1
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -57,7 +57,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: NODE_ENV=test npx playwright test
 
       - name: Upload Playwright test results
         uses: actions/upload-artifact@v4

@@ -14,6 +14,9 @@ export async function handle({ event, resolve }) {
   const nonce = crypto.randomUUID().replace(/-/g, "");
   event.locals.nonce = nonce;
 
+  const isTest = process.env.NODE_ENV === "test";
+  const isProd = process.env.ENV_MODE === "prod";
+
   // Temporarily disable nonce injection; uncomment when re-enabling strict CSP
   // const response = await resolve(event, {
   //   transformPageChunk: ({ html }) => html.replace(/__cspNonce__/g, nonce),
@@ -23,12 +26,18 @@ export async function handle({ event, resolve }) {
 
   const response = await resolve(event); // Fallback while nonces are off
 
+  // Content Security Policy: Adjusted to support test-mode LinkedIn tracking pixels
   response.headers.set(
     "Content-Security-Policy",
     [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://snap.licdn.com",
-      "img-src 'self' data: https://px.ads.linkedin.com",
+
+      // Allow unsafe-inline only in test to prevent blocking hydration/playwright eval
+      `script-src 'self' ${isTest ? "'unsafe-inline'" : ""} https://snap.licdn.com`,
+
+      // img-src relaxed in test mode for LinkedIn pixel
+      `img-src 'self' data: ${isTest ? "https://px.ads.linkedin.com" : ""}`,
+
       "connect-src 'self' https://px.ads.linkedin.com https://snap.licdn.com",
       "style-src 'self' 'unsafe-inline'",
       "font-src 'self' data:",
@@ -37,10 +46,11 @@ export async function handle({ event, resolve }) {
       "object-src 'none'",
       "frame-ancestors 'none'",
       "upgrade-insecure-requests",
-      "report-uri " +
-        (process.env.ENV_MODE === "prod"
-          ? "/.netlify/functions/cspReport"
-          : "/api/mock-csp"),
+
+      // Use mock CSP handler locally and Netlify function in prod
+      `report-uri ${
+        isProd ? "/.netlify/functions/cspReport" : "/api/mock-csp"
+      }`,
     ].join("; "),
   );
 

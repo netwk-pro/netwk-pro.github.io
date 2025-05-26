@@ -7,6 +7,8 @@
 # This workflow will auto-assign an issue or PR to a specific user
 # when a new issue or PR is opened.
 
+# cspell:ignore pozil
+
 name: Auto Assign
 
 on:

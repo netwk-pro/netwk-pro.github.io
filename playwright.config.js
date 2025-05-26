@@ -84,5 +84,6 @@ export default defineConfig({
     command: "npm run preview",
     url: "http://localhost:4173",
     reuseExistingServer: !process.env.CI,
+    timeout: 60 * 1000, // wait up to 60 seconds for preview to be ready
   },
 });
