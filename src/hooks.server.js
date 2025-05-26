@@ -7,23 +7,23 @@ This file is part of Network Pro.
 ========================================================================== */
 
 /**
- * SvelteKit server hook to generate a per-request CSP nonce and inject it.
+ * SvelteKit server hook to inject Content Security Policy (CSP) without nonces.
  * @type {import('@sveltejs/kit').Handle}
  */
 export async function handle({ event, resolve }) {
-  // Generate a random nonce for each request
-  const nonce = crypto.randomUUID().replace(/-/g, ""); // Generate and clean the nonce
+  // Commented out the nonce generation for now
+  // const nonce = crypto.randomUUID().replace(/-/g, ""); // Generate and clean the nonce
 
-  // Store the nonce in event.locals so we can access it later
-  event.locals.nonce = nonce;
+  // Store the nonce in event.locals if needed later
+  // event.locals.nonce = nonce;
 
-  // Create the response
+  // Create the response without the nonce-related code
   const response = await resolve(event, {
-    // Inject the nonce into the HTML
-    transformPageChunk: ({ html }) => html.replace(/__cspNonce__/g, nonce), // Replace placeholder with actual nonce
+    // No need to inject nonce into the HTML anymore
+    transformPageChunk: ({ html }) => html, // Just pass the HTML as-is
   });
 
-  // Set the Content Security Policy header allowing nonces
+  // Set the Content Security Policy header allowing unsafe-inline (no nonce required)
   response.headers.set(
     "Content-Security-Policy",
     [
