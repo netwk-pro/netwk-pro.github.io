@@ -1,14 +1,8 @@
-<!-- ==========================================================================
-src/routes/+layout.svelte
-
-Copyright © 2025 Network Pro Strategies (Network Pro™)
-SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
-This file is part of Network Pro.
-========================================================================== -->
-
 <script>
   export let data;
 
+  import { meta, defaultMeta } from "$lib/meta.js"; // Import meta data
+  import MetaTags from "$lib/components/MetaTags.svelte"; // Import MetaTags component
   import ContainerSection from "$lib/components/ContainerSection.svelte";
   import Footer from "$lib/components/layout/Footer.svelte";
   import HeaderDefault from "$lib/components/layout/HeaderDefault.svelte";
@@ -43,18 +37,18 @@ This file is part of Network Pro.
     });
   }
 
-  // fallback values if data.meta not set
-  const metaTitle =
-    data?.meta?.title || "Security, Networking, Privacy — Network Pro™";
-  const metaDescription =
-    data?.meta?.description ||
-    "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro™";
+  // Get meta information based on the pathname
+  const currentMeta = meta[data?.pathname] || defaultMeta; // Fallback to default if no match
 
-  // Pathname normalization takes place in +layout.js
+  const metaTitle = currentMeta.title;
+  const metaDescription = currentMeta.description;
 </script>
 
 <svelte:head>
-  <!-- Dynamic preloads only, meta moved to $lib/components/MetaTags.svelte -->
+  <!-- Use MetaTags.svelte to set the title, description, and OpenGraph / Twitter meta tags -->
+  <MetaTags title={metaTitle} description={metaDescription} />
+
+  <!-- Preloading assets -->
   <link rel="preload" href={logoWbp} as="image" type="image/webp" />
   <link rel="preload" href={logoPng} as="image" type="image/png" />
   <link rel="preload" href={faviconSvg} as="image" type="image/svg+xml" />
