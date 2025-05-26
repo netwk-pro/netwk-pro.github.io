@@ -33,7 +33,7 @@ All infrastructure and data flows are designed with **maximum transparency, self
 ├── .github/workflows     # CI workflows and automation
 ├── .vscode/              # Recommended VS Code settings, extensions
 ├── netlify-functions/
-│   └── cspReport.js     # Serverless function to receive and log CSP violation reports
+│   └── cspReport.js      # Serverless function to receive and log CSP violation reports
 ├── scripts/              # Utility scripts
 ├── src/
 │   ├── lib/              # Reusable components, styles, utilities
