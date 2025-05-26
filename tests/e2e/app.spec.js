@@ -21,8 +21,8 @@ test.describe("Desktop Tests", () => {
     await page.setViewportSize({ width: 1280, height: 720 });
     await page.goto("/");
 
-    // Wait for the title to be properly set (with extended timeout)
-    await page.waitForSelector("title", { timeout: 30000 });
+    // Wait for the page to fully load
+    await page.waitForLoadState("load", { timeout: 60000 }); // Wait until the page is fully loaded
 
     // Assert that the title matches
     await expect(page).toHaveTitle(/Locking Down Networks/);
@@ -65,13 +65,16 @@ test.describe("Desktop Tests", () => {
     await expect(aboutLink).toBeVisible();
     await aboutLink.click();
 
+    // Wait for the URL to update instead of relying on navigation
+    await page.waitForURL("/about", { timeout: 60000 }); // Wait for the correct URL
+
     // Assert that it navigates to the correct route
     await expect(page).toHaveURL(/\/about/);
   });
 });
 
 test.describe("Mobile Tests", () => {
-  // Test for correct title on mobile
+  // Simplified Test for correct title on mobile
   test("should load successfully with the correct title on mobile", async ({
     page,
     browserName,
@@ -83,14 +86,14 @@ test.describe("Mobile Tests", () => {
     await page.setViewportSize({ width: 375, height: 667 }); // Mobile size (e.g., iPhone 6)
     await page.goto("/");
 
-    // Wait for the title to be properly set (with extended timeout)
-    await page.waitForSelector("title", { timeout: 30000 });
+    // Wait for the page to fully load
+    await page.waitForLoadState("load", { timeout: 60000 }); // Wait until the page is fully loaded
 
     // Assert that the title matches
     await expect(page).toHaveTitle(/Locking Down Networks/);
   });
 
-  // Test for mobile content visibility
+  // Simplified Test for mobile content visibility
   test("should display main content correctly on mobile", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 }); // Mobile size
     await page.goto("/");

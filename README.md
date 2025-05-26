@@ -39,7 +39,7 @@ All infrastructure and data flows are designed with **maximum transparency, self
 │   ├── lib/              # Reusable components, styles, utilities
 │   ├── routes/           # SvelteKit routes (+page.svelte, +page.server.js)
 │   ├── hooks.client.ts   # Handles PWA install prompt and logs client errors
-|   ├── hooks.server.js   # Injects CSP headers and permissions policy
+│   ├── hooks.server.js   # Injects CSP headers and permissions policy
 │   ├── app.html          # SvelteKit entry HTML with CSP/meta/bootentry
 │   └── service-worker.js # Custom Service Worker
 ├── static/               # Static assets served at root
