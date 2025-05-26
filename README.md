@@ -32,11 +32,14 @@ All infrastructure and data flows are designed with **maximum transparency, self
 .
 ├── .github/workflows     # CI workflows and automation
 ├── .vscode/              # Recommended VS Code settings, extensions
+├── netlify-functions/
+│   └── cspReport.js     # Serverless function to receive and log CSP violation reports
 ├── scripts/              # Utility scripts
 ├── src/
 │   ├── lib/              # Reusable components, styles, utilities
 │   ├── routes/           # SvelteKit routes (+page.svelte, +page.server.js)
-│   ├── hooks.client.ts   # Client-only lifecycle hooks (e.g., SW control)
+│   ├── hooks.client.ts   # Handles PWA install prompt and logs client errors
+|   ├── hooks.server.js   # Injects CSP headers and permissions policy
 │   ├── app.html          # SvelteKit entry HTML with CSP/meta/bootentry
 │   └── service-worker.js # Custom Service Worker
 ├── static/               # Static assets served at root
@@ -92,9 +95,9 @@ npm install
 > You can also use `bootstrap.local.sh` to automate the steps above and more (optional).  
 > `ENV_MODE` controls local tooling behavior — it is not used by the app runtime directly.
 
-&nbsp;
+---
 
-### 💾 Version Enforcement
+#### 💾 Version Enforcement
 
 To ensure consistent environments across contributors and CI systems, this project enforces specific Node.js and npm versions via the `"engines"` field in `package.json`:
 
@@ -160,7 +163,57 @@ npm -v      # Should fall within engines.npm
 
 &nbsp;
 
-### 🧪 Testing
+## 🛡️ Configuration
+
+This project includes custom runtime configuration files for enhancing security, error handling, and PWA functionality. These modules are used by the framework during server- and client-side lifecycle hooks.
+
+### 🔐 `hooks.server.js`
+
+Located at `src/hooks.server.js`, this file is responsible for injecting dynamic security headers and handling CSP nonces. It includes:
+
+- **Content Security Policy (CSP)** with optional nonce injection (disabled by default in dev)
+- **Permissions Policy** to explicitly disable unnecessary browser APIs
+- **X-Content-Type-Options**, **X-Frame-Options**, and **Referrer-Policy** headers
+
+To re-enable CSP nonces for inline scripts:
+
+1. Uncomment the `transformPageChunk` block in `hooks.server.js`
+2. Add `nonce="**cspNonce**"` to inline `<script>` blocks in `app.html` or route templates
+
+> 💡 The `[headers]` block in `netlify.toml` has been deprecated — all headers are now set dynamically from within SvelteKit.
+
+---
+
+### 🧭 `hooks.client.ts`
+
+This lightweight hook enhances client experience:
+
+- Handles the `beforeinstallprompt` event to support progressive web app (PWA) install flows
+- Provides a `handleError()` hook that logs uncaught client-side errors
+
+Located at `src/hooks.client.ts`, it is automatically used by the SvelteKit runtime during client boot.
+
+---
+
+### 📣 CSP Report Handler
+
+To receive and inspect CSP violation reports in development or production, the repo includes a Netlify-compatible function at:
+
+```bash
+netlify-functions/csp-report.js
+```
+
+This function receives reports sent to `/functions/csp-report` and logs them to the console. You can later integrate with logging tools or alerts (e.g., via email, Slack, or SIEM ingestion).
+
+Make sure to include the `report-uri` directive in your CSP header:
+
+```bash
+Content-Security-Policy: ...; report-uri /.netlify/functions/csp-report;
+```
+
+&nbsp;
+
+## 🧪 Testing
 
 This project uses a mix of automated performance, accessibility, and end-to-end testing tools to maintain quality across environments and deployments.
 
@@ -170,7 +223,7 @@ This project uses a mix of automated performance, accessibility, and end-to-end 
 | [`@lhci/cli`](https://github.com/GoogleChrome/lighthouse-ci) | Lighthouse CI — automated performance audits         | CI (optional local) |
 | [`lighthouse`](https://github.com/GoogleChrome/lighthouse)   | Manual/scripted Lighthouse runs via CLI              | Local (global)      |
 
-> **Note:** `lighthouse` is intended to be installed globally (`npm i -g lighthouse)` or run via the `lighthouse` npm script, which uses the locally installed binary if available. You can also run Lighthouse through Chrome DevTools manually if preferred.
+> **Note:** `lighthouse` is intended to be installed globally (`npm i -g lighthouse`) or run via the `lighthouse` npm script, which uses the locally installed binary if available. You can also run Lighthouse through Chrome DevTools manually if preferred.
 
 <!-- markdownlint-disable MD028 -->
 
@@ -180,7 +233,7 @@ This project uses a mix of automated performance, accessibility, and end-to-end 
 
 &nbsp;
 
-#### Configuration Files
+### Testing Configuration Files
 
 | File                   | Description                                                              | Usage Context |
 | ---------------------- | ------------------------------------------------------------------------ | ------------- |
@@ -189,7 +242,7 @@ This project uses a mix of automated performance, accessibility, and end-to-end 
 
 &nbsp;
 
-#### Running Tests
+### Running Tests
 
 Local testing via Playwright:
 
@@ -234,7 +287,7 @@ You can also audit locally using Chrome DevTools → Lighthouse tab for on-the-f
 
 ---
 
-### 🛠 Recommended Toolchain
+## 🛠 Recommended Toolchain
 
 To streamline development and align with project conventions, we recommend the following setup — especially for contributors without a strong existing preference.
 
@@ -273,7 +326,7 @@ npm run format:fix
 
 ---
 
-### ⚙️ Tooling Configuration
+## ⚙️ Tooling Configuration
 
 All linting, formatting, and version settings are defined in versioned project config files:
 
@@ -303,13 +356,14 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 
 ### 🔄 Development
 
-| Script          | Description                        |
-| --------------- | ---------------------------------- |
-| `dev`           | Start development server with Vite |
-| `preview`       | Preview production build locally   |
-| `build`         | Build the project with Vite        |
-| `build:netlify` | Build using Netlify CLI            |
-| `css:bundle`    | Bundle and minify CSS              |
+| Script          | Description                                                              |
+| --------------- | ------------------------------------------------------------------------ |
+| `dev`           | Start development server with Vite                                       |
+| `preview`       | Preview production build locally                                         |
+| `build`         | Build the project with Vite                                              |
+| `dev:netlify`   | Start local dev server using Netlify Dev (emulates serverless + headers) |
+| `build:netlify` | Build using Netlify CLI                                                  |
+| `css:bundle`    | Bundle and minify CSS                                                    |
 
 ---
 
