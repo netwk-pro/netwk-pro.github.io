@@ -33,11 +33,9 @@ export default defineConfig({
 
   /* Shared settings for all projects */
   use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: "http://localhost:4173",
-
-    /* Collect trace when retrying the failed test. */
     trace: "on-first-retry",
+    timeout: 30000, // Default action timeout of 30 seconds for each step
   },
 
   /* Configure projects */
