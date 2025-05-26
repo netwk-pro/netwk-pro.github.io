@@ -12,6 +12,8 @@ This file is part of Network Pro.
  * @property {string} description - The description of the page
  */
 
+import { meta as routeMeta } from "$lib/meta.js"; // Import meta from $lib/meta.js and alias it
+
 /**
  * Fallback metadata to satisfy typing in +layout.svelte and +page.svelte.
  * Actual meta content is provided per-route via +page.server.js.
@@ -32,8 +34,11 @@ export const trailingSlash = "never";
 export function load({ url }) {
   const normalizedPathname = url.pathname.replace(/\/+$/, "") || "/";
 
+  // Check if meta data for the route exists in `meta.js`, otherwise use the fallback
+  const currentMeta = routeMeta[normalizedPathname] || fallbackMeta;
+
   return {
     pathname: normalizedPathname,
-    meta: fallbackMeta, // Required to ensure meta always exists for typing
+    meta: currentMeta, // Return the meta data (either from the route or the fallback)
   };
 }
