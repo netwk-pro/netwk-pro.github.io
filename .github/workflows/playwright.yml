@@ -1,0 +1,69 @@
+# .github/workflows/playwright.yml
+#
+# Copyright © 2025 Network Pro Strategies (Network Pro™)
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro
+
+name: Playwright Tests
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment
+permissions:
+  contents: read # Required to check out the repository
+  id-token: write # Required for authentication operations
+  checks: write # Required for publishing test results as checks
+  pages: write # Optional: only if publishing reports to GitHub Pages
+  actions: read # Optional: to read workflow information
+
+jobs:
+  test:
+    timeout-minutes: 30
+    runs-on: ubuntu-24.04
+    env:
+      NODE_ENV: test
+      ENV_MODE: ci
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log ENV_MODE
+        run: 'echo "ENV_MODE is set to: $ENV_MODE"'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          check-latest: true
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Upgrade npm
+        run: |
+          corepack enable
+          npm install -g npm@11.4.1
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: NODE_ENV=test npx playwright test
+
+      - name: Upload Playwright test results
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
