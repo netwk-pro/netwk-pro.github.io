@@ -4,7 +4,7 @@
   "sideEffects": [
     "./.netlify/shims.js"
   ],
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -80,7 +80,7 @@
     "nodemailer": "^7.0.3",
     "playwright": "^1.52.0",
     "semver": "^7.7.2",
-    "svelte": "5.33.1"
+    "svelte": "5.33.2"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.9",
@@ -99,7 +99,7 @@
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-jsdoc": "^50.6.17",
     "eslint-plugin-svelte": "^3.9.0",
-    "globals": "^16.1.0",
+    "globals": "^16.2.0",
     "jsdom": "^26.1.0",
     "lightningcss": "^1.30.1",
     "markdownlint": "^0.38.0",
