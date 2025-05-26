@@ -6,19 +6,15 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== -->
 
-<!-- All HTML in fossItem is internal, CMS-generated content.
-     If source changes to user input, apply stricter sanitization or drop {@html}. -->
-
 <script>
   /* eslint-disable svelte/no-at-html-tags */
 
   import FossFeatures from "$lib/components/foss/FossFeatures.svelte";
-  // Import directly from $lib by way of image utility
+  // Import images and sanitization utility
   import { obtainiumPng, obtainiumWbp } from "$lib";
-  // Import DOMPurify sanitize utility
   import { sanitizeHTML } from "$lib/utils/sanitize.js";
 
-  /** @type {"noopener noreferrer"} */
+  /** @type {string} */
   const rel = "noopener noreferrer";
 
   /** @type {string} */
@@ -29,44 +25,14 @@ This file is part of Network Pro.
   const obtainiumLink2 =
     "https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/%7B%22id%22%3A%22io.ente.photos.independent%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2Fente-io%2Fente%22%2C%22author%22%3A%22ente-io%22%2C%22name%22%3A%22Ente%20Photos%22%2C%22preferredApkIndex%22%3A0%2C%22additionalSettings%22%3A%22%7B%5C%22includePrereleases%5C%22%3Afalse%2C%5C%22fallbackToOlderReleases%5C%22%3Atrue%2C%5C%22filterReleaseTitlesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22filterReleaseNotesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22verifyLatestTag%5C%22%3Afalse%2C%5C%22dontSortReleasesList%5C%22%3Atrue%2C%5C%22useLatestAssetDateAsReleaseDate%5C%22%3Afalse%2C%5C%22releaseTitleAsVersion%5C%22%3Afalse%2C%5C%22trackOnly%5C%22%3Afalse%2C%5C%22versionExtractionRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22matchGroupToUse%5C%22%3A%5C%22%5C%22%2C%5C%22versionDetection%5C%22%3Atrue%2C%5C%22releaseDateAsVersion%5C%22%3Afalse%2C%5C%22useVersionCodeAsOSVersion%5C%22%3Afalse%2C%5C%22apkFilterRegEx%5C%22%3A%5C%22ente-photos*%5C%22%2C%5C%22invertAPKFilter%5C%22%3Afalse%2C%5C%22autoApkFilterByArch%5C%22%3Atrue%2C%5C%22appName%5C%22%3A%5C%22%5C%22%2C%5C%22shizukuPretendToBeGooglePlay%5C%22%3Afalse%2C%5C%22allowInsecure%5C%22%3Afalse%2C%5C%22exemptFromBackgroundUpdates%5C%22%3Afalse%2C%5C%22skipUpdateNotifications%5C%22%3Afalse%2C%5C%22about%5C%22%3A%5C%22%5C%22%7D%22%2C%22overrideSource%22%3Anull%7D";
 
-  /** @type {"async"} */
-  const decoding = "async";
+  /** @type {boolean} */
+  export let isFirst = false;
 
-  /** @type {"lazy"} */
-  const loading = "lazy";
-
-  /**
-   * @type {{
-   *   id: string,
-   *   title: string,
-   *   images: {
-   *     webp: string,
-   *     png: string
-   *   },
-   *   imgAlt: string,
-   *   headline: string,
-   *   headlineDescription: string,
-   *   detailsDescription: string,
-   *   features: any[],
-   *   notes: string[],
-   *   links: Array<{
-   *     label?: string,
-   *     href?: string,
-   *     imgAlt?: string,
-   *     downloadText?: string,
-   *     downloadHref?: string,
-   *     hideLabels?: boolean
-   *   }>
-   * }}
-   */
+  /** @type {any} */
   export let fossItem;
 
-  /**
-   * Flag indicating if this is the first FOSS item in the list.
-   * Only the first item should use eager loading.
-   * @type {boolean}
-   */
-  export let isFirst = false;
+  // ✅ Debugging
+  console.log(fossItem); // Check the data passed to the component
 
   // ✅ Sanitize on init for SSR safety
   const safeDetails = sanitizeHTML(fossItem.detailsDescription);
@@ -81,12 +47,12 @@ This file is part of Network Pro.
         <tr>
           <td class="foss-cell">
             <picture>
-              <source srcset={fossItem.images.webp} type="image/webp" />
+              <source srcset={obtainiumWbp} type="image/webp" />
               <img
-                decoding={isFirst ? "sync" : decoding}
-                loading={isFirst ? "eager" : loading}
+                decoding={isFirst ? "sync" : "async"}
+                loading={isFirst ? "eager" : "lazy"}
                 fetchpriority={isFirst ? "high" : "auto"}
-                src={fossItem.images.png}
+                src={obtainiumPng}
                 alt={fossItem.imgAlt}
                 style="width: 50px; height: 50px" />
             </picture>
@@ -120,20 +86,15 @@ This file is part of Network Pro.
   <div class="linksheet">
     <!-- Special handling for LinkSheet's Obtainium link -->
     <div class="linksheet-entry">
-      <a
-        {rel}
-        href={fossItem.id === "eauth" ? obtainiumLink2 : obtainiumLink1}
-        target="_blank">
+      <a {rel} href={obtainiumLink1} target="_blank">
         <picture>
-          <source
-            srcset={fossItem.id === "eauth" ? eauthWbp : obtainiumWbp}
-            type="image/webp" />
+          <source srcset={obtainiumWbp} type="image/webp" />
           <img
-            decoding={isFirst ? "sync" : decoding}
-            loading={isFirst ? "eager" : loading}
+            decoding={isFirst ? "sync" : "async"}
+            loading={isFirst ? "eager" : "lazy"}
             fetchpriority={isFirst ? "high" : "auto"}
-            src={fossItem.id === "eauth" ? eauthPng : obtainiumPng}
-            alt={fossItem.id === "eauth" ? "Ente Auth" : "Obtainium"}
+            src={obtainiumPng}
+            alt="Obtainium"
             style="width: 207px; height: 80px" />
         </picture>
       </a>

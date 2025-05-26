@@ -325,20 +325,43 @@ export const fossData = [
     headline:
       "Restore link control on Android 12 and later with LinkSheet Nightly.",
     headlineDescription: `
-      <p>LinkSheet is a powerful tool that restores the ability to choose which app opens your links on Android 12 and later. With its Material Design interface, LinkSheet allows you to set custom preferences for specific hosts, enhancing your privacy and control.</p>
+      <p>
+        LinkSheet is a powerful tool that restores the ability to choose which app opens your links on Android 12 and later. With its Material Design interface, LinkSheet allows you to set custom preferences for specific hosts, enhancing your privacy and control.
+      </p>
     `,
     features: [
-      "Regain Choice: Decide which app opens your links, bypassing Android's default restrictions.",
-      "Custom Preferences: Set your preferred browser or app for specific hosts.",
-      "Enhanced Privacy: Prevent unwanted app launches and ensure links open where you intend.",
-      "User-Friendly Interface: Enjoy a sleek, Material Design that integrates seamlessly with your device.",
+      {
+        emoji: "✨",
+        label: "Why LinkSheet?",
+        isIntro: true
+      },
+      {
+        emoji: "✔️",
+        label: "Regain Choice",
+        description: "Decide which app opens your links, bypassing Android's default restrictions."
+      },
+      {
+        emoji: "✔️",
+        label: "Custom Preferences",
+        description: "Set your preferred browser or app for specific hosts."
+      },
+      {
+        emoji: "✔️",
+        label: "Enhanced Privacy",
+        description: "Prevent unwanted app launches and ensure links open where you intend."
+      },
+      {
+        emoji: "✔️",
+        label: "User-Friendly Interface",
+        description: "Enjoy a sleek, Material Design that integrates seamlessly with your device."
+      },
+      {
+        emoji: "✔️",
+        label: "Customizable themes & syntax highlighting",
+        description: ""
+      }
     ],
     detailsDescription: `
-      <p>✨ <span class="bolditalic">Why LinkSheet?</span><br />
-      ✔️ <strong>Regain Choice:</strong> Decide which app opens your links, bypassing Android's default restrictions.<br />
-      ✔️ <strong>Custom Preferences:</strong> Set your preferred browser or app for specific hosts.<br />
-      ✔️ <strong>Enhanced Privacy:</strong> Prevent unwanted app launches and ensure links open where you intend.<br />
-      ✔️ <strong>User-Friendly Interface:</strong> Enjoy a sleek, Material Design that integrates seamlessly with your device.</p>
     `,
     links: [
       {
@@ -369,18 +392,33 @@ export const fossData = [
     title: "URLCheck",
     headline: "Analyze and inspect links before opening them with URLCheck.",
     headlineDescription: `
-      <p>URLCheck is a must-have for privacy-conscious users! This app helps you analyze and inspect links before opening them, protecting you from trackers, malicious sites, and other online threats.</p>
+      <p>
+        URLCheck is a must-have for privacy-conscious users! This app helps you analyze and inspect links before opening them, protecting you from trackers, malicious sites, and other online threats.
+      </p>
     `,
     features: [
-      "Automatic URL screening: Set it as your default browser for real-time link analysis.",
-      "Full transparency: Know what's behind a link before you click.",
-      "Stronger privacy & security: Stay safe online with minimal effort.",
+      {
+        emoji: "🔍",
+        label: "Why you need it:",
+        isIntro: true
+      },
+      {
+        emoji: "✔️",
+        label: "Automatic URL Screening",
+        description: "Set it as your default browser for real-time link analysis."
+      },
+      {
+        emoji: "✔️",
+        label: "Full Transparency",
+        description: "Know what's behind a link before you click."
+      },
+      {
+        emoji: "✔️",
+        label: "Stronger Privacy & Security",
+        description: "Stay safe online with minimal effort!"
+      }
     ],
     detailsDescription: `
-      <p>🔍 <span class="bolditalic">Why you need it:</span><br />
-      ✔️ <b>Automatic URL screening:</b> Set it as your default browser for real-time link analysis.<br />
-      ✔️ <b>Full transparency:</b> Know what's behind a link before you click.<br />
-      ✔️ <b>Stronger privacy & security:</b> Stay safe online with minimal effort!</p>
     `,
     links: [
       { label: "GitHub", href: "https://github.com/TrianguloY/URLCheck" },

@@ -7,21 +7,22 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { sanitizeHTML } from "$lib/utils/sanitize.js";
+  import { fossData } from "$lib/data/fossData.js"; // Import fossData
+  import { sanitizeHTML } from "$lib/utils/sanitize.js"; // Import sanitize function
 
   /**
-   * Array of HTML strings representing FOSS features.
-   * @type {string[]}
+   * Sanitize and prepare features for display
    */
-  export let features = [];
-
-  // Sanitize each feature string
-  const safeFeatures = features.map(sanitizeHTML);
+  const safeFeatures = fossData.map((item) => ({
+    ...item, // Spread all properties
+    headlineDescription: sanitizeHTML(item.headlineDescription), // Sanitize HTML content
+    features: item.features.map(sanitizeHTML), // Sanitize each feature description
+  }));
 </script>
 
 <!-- BEGIN FOSS FEATURES -->
-<ul class="feature-list">
-  {#each features as feature}
+{#each safeFeatures as feature}
+  <ul class="feature-list">
     <li class:feature-intro={feature.isIntro}>
       <span class="emoji">{feature.emoji}</span>
       {#if feature.isIntro}
@@ -30,8 +31,8 @@ This file is part of Network Pro.
         <strong>{feature.label}</strong> - {feature.description}
       {/if}
     </li>
-  {/each}
-</ul>
+  </ul>
+{/each}
 
 <!-- END FOSS FEATURES -->
 
