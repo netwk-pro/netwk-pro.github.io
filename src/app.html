@@ -24,7 +24,24 @@
       sizes="any"
       type="image/x-icon" />
 
-    <!-- LinkedIn preconnects removed 2025-05-26 by SunDevil311 -->
+    <!-- Preconnect to PostHog domains -->
+    <link
+      rel="preconnect"
+      href="https://us.i.posthog.com"
+      crossorigin="anonymous" />
+    <link
+      rel="preconnect"
+      href="https://us-assets.i.posthog.com"
+      crossorigin="anonymous" />
+
+    <!-- Preload the PostHog script -->
+    <link
+      rel="preload"
+      href="https://us-assets.i.posthog.com/array/phc_Qshfo6AXzh4pS7aPigfqyeo4qj1qlyh7gDuHDeVMSR0/config.js"
+      as="script" />
+    <script
+      src="https://us-assets.i.posthog.com/array/phc_Qshfo6AXzh4pS7aPigfqyeo4qj1qlyh7gDuHDeVMSR0/config.js"
+      defer></script>
 
     <!-- Preload FontAwesome webfonts -->
     <link
