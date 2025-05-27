@@ -17,7 +17,9 @@ This file is part of Network Pro.
   import { onMount } from "svelte";
   import { registerServiceWorker } from "$lib/registerServiceWorker.js";
   import { browser } from "$app/environment";
-  import "$lib/styles";
+  import "$lib/styles/global.min.css";
+  import "$lib/styles/fa-global.css";
+  //import "$lib/styles";
 
   // Import favicon images
   import logoPng from "$lib/img/logo-web.png";
@@ -45,10 +47,17 @@ This file is part of Network Pro.
       console.log("[APP] onMount triggered in +layout.svelte");
       registerServiceWorker();
 
-      // Dynamically import PostHog component only in the browser
-      import("$lib/components/PostHog.svelte").then((module) => {
-        PostHog = module.default;
-      });
+      // Dynamically load the PostHog script once the page is fully loaded
+      if (typeof window !== "undefined") {
+        window.addEventListener("load", () => {
+          const script = document.createElement("script");
+          script.src =
+            "https://us-assets.i.posthog.com/array/phc_Qshfo6AXzh4pS7aPigfqyeo4qj1qlyh7gDuHDeVMSR0/config.js";
+          script.defer = true;
+          script.async = true; // Allow it to load asynchronously to not block the page
+          document.body.appendChild(script);
+        });
+      }
     });
   }
 
