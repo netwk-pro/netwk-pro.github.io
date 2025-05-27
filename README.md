@@ -30,23 +30,23 @@ All infrastructure and data flows are designed with **maximum transparency, self
 
 ```bash
 .
-├── .github/workflows     # CI workflows and automation
-├── .vscode/              # Recommended VS Code settings, extensions
+├── .github/workflows/     # CI workflows and automation
+├── .vscode/               # Recommended VS Code settings, extensions
 ├── netlify-functions/
-│   └── cspReport.js      # Serverless function to receive and log CSP violation reports
-├── scripts/              # Utility scripts
+│   └── cspReport.js       # Serverless function to receive and log CSP violation reports
+├── scripts/               # Utility scripts
 ├── src/
-│   ├── lib/              # Reusable components, styles, utilities
-│   ├── routes/           # SvelteKit routes (+page.svelte, +page.server.js)
-│   ├── hooks.client.ts   # Handles PWA install prompt and logs client errors
-│   ├── hooks.server.js   # Injects CSP headers and permissions policy
-│   ├── app.html          # SvelteKit entry HTML with CSP/meta/bootentry
-│   └── service-worker.js # Custom Service Worker
-├── static/               # Static assets served at root
+│   ├── lib/               # Reusable components, styles, utilities
+│   ├── routes/            # SvelteKit routes (+page.svelte, +page.server.js)
+│   ├── hooks.client.ts    # Handles PWA install prompt and logs client errors
+│   ├── hooks.server.js    # Injects CSP headers and permissions policy
+│   ├── app.html           # SvelteKit entry HTML with CSP/meta/bootentry
+│   └── service-worker.js  # Custom Service Worker
+├── static/                # Static assets served at root
 ├── tests/
-│   ├── e2e/              # End-to-end Playwright tests
-│   └── unit/             # Vite unit tests
-├── netlify.toml          # Netlify configuration
+│   ├── e2e/               # End-to-end Playwright tests
+│   └── unit/              # Vite unit tests
+├── netlify.toml           # Netlify configuration
 └── ...
 ```
 
@@ -169,18 +169,18 @@ This project includes custom runtime configuration files for enhancing security,
 
 ### 🔐 `hooks.server.js`
 
-Located at src/hooks.server.js, this file is responsible for injecting dynamic security headers. It includes:
+Located at `src/hooks.server.js`, this file is responsible for injecting dynamic security headers. It includes:
 
 - Content Security Policy (CSP) with support for relaxed directives (inline scripts allowed)
 - Permissions Policy to explicitly disable unnecessary browser APIs
 - X-Content-Type-Options, X-Frame-Options, and Referrer-Policy headers
 
-> 💡 The CSP nonce feature has been disabled. Inline scripts are now allowed through the policy using the "script-src 'self' 'unsafe-inline'" directive. If you wish to use nonces in the future, you can re-enable them by uncommenting the relevant sections in hooks.server.js and modifying your inline <script> tags.
+> 💡 The CSP nonce feature has been disabled. Inline scripts are now allowed through the policy using the `"script-src 'self' 'unsafe-inline'"` directive. If you wish to use nonces in the future, you can re-enable them by uncommenting the relevant sections in `hooks.server.js` and modifying your inline `<script>` tags.
 
 To re-enable nonce generation for inline scripts in the future:
 
-1. Uncomment the nonce generation and injection logic in hooks.server.js.
-2. Add nonce="**cspNonce**" to inline <script> blocks in app.html or route templates.
+1. Uncomment the nonce generation and injection logic in `hooks.server.js`.
+2. Add `nonce="**cspNonce**"` to inline `<script>` blocks in `app.html` or route templates.
 
 > 💡 The `[headers]` block in `netlify.toml` has been deprecated — all headers are now set dynamically from within SvelteKit.
 
@@ -246,7 +246,7 @@ This project uses a mix of automated performance, accessibility, and end-to-end 
 
 ### Running Tests
 
-Local testing via Playwright:
+Local testing via Vitest and Playwright:
 
 ```bash
 npm run test:client     # Run client-side unit tests with Vitest
@@ -254,6 +254,7 @@ npm run test:server     # Run server-side unit tests with Vitest
 npm run test:all        # Run full test suite
 npm run test:watch      # Watch mode for client tests
 npm run test:coverage   # Collect code coverage reports
+npm run test:e2e        # Runs Playwright E2E tests
 ```
 
 Audit your app using Lighthouse:
@@ -406,6 +407,7 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 | `test:server`   | Run server-side tests with Vitest            |
 | `test:watch`    | Watch mode for client tests                  |
 | `test:coverage` | Collect coverage from both client and server |
+| `test:e2e`      | Run Playwright E2E tests                     |
 
 ---
 

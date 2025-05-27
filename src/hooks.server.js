@@ -91,7 +91,7 @@ export async function handle({ event, resolve }) {
   if (process.env.ENV_MODE !== "test" && process.env.ENV_MODE !== "ci") {
     response.headers.set(
       "Strict-Transport-Security",
-      "max-age=2592000; includeSubDomains;", // Use max-age of 30 days
+      "max-age=31536000; includeSubDomains;", // No preload here
     );
   }
 
