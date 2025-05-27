@@ -4,7 +4,7 @@
   "sideEffects": [
     "./.netlify/shims.js"
   ],
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -61,6 +61,7 @@
     "test:server": "vitest --config vitest.config.server.js",
     "test:watch": "vitest --config vitest.config.client.js --watch",
     "test:coverage": "npm run test:client -- --run --coverage && npm run test:server -- --run --coverage",
+    "test:e2e": "npx playwright test",
     "lint": "eslint . --ext .mjs,.js,.svelte",
     "lint:fix": "eslint . --ext .mjs,.js,.svelte --fix",
     "lint:jsdoc": "eslint . --ext .js,.mjs,.svelte --max-warnings=0",
@@ -80,7 +81,7 @@
     "nodemailer": "^7.0.3",
     "posthog-js": "^1.246.0",
     "semver": "^7.7.2",
-    "svelte": "5.33.2"
+    "svelte": "5.33.3"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.9",
