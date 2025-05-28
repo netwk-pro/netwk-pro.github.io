@@ -14,53 +14,51 @@ export async function handle({ event, resolve }) {
   // Create the response
   const response = await resolve(event);
 
-  console.log("ENV_MODE:", process.env.ENV_MODE);
-
-  // Check if the environment is for testing
+  // Determine environment flags
+  // Default to development policy if neither test nor prod
   const isTestEnvironment =
     process.env.NODE_ENV === "test" || process.env.ENV_MODE === "ci";
+  const isProdEnvironment =
+    process.env.NODE_ENV === "production" || process.env.ENV_MODE === "prod";
 
-  // Set the Content Security Policy header
-  if (isTestEnvironment) {
-    // Relaxed CSP for testing: Allow inline scripts and eval
-    response.headers.set(
-      "Content-Security-Policy",
-      [
-        "default-src 'self';",
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' ws://localhost:*;", // Allow inline and eval scripts, and websockets for local testing
-        "style-src 'self' 'unsafe-inline';", // Allow inline styles
-        "img-src 'self' data:;", // Allow images from same origin and data URIs
-        "connect-src 'self';", // Allow connections only to same origin
-        "font-src 'self' data:;", // Allow fonts from same origin and data URIs
-        "form-action 'self';", // Allow forms to post to same origin
-        "base-uri 'self';", // Restrict base URIs to same origin
-        "object-src 'none';", // Block all object sources
-        "frame-ancestors 'none';", // Prevent framing of the site
-        "upgrade-insecure-requests;", // Automatically upgrade HTTP to HTTPS
-        "report-uri /api/mock-csp;", // Mock CSP reports for testing
-      ].join(" "),
-    );
-  } else {
-    // Production or development environment: use a more restrictive CSP
-    response.headers.set(
-      "Content-Security-Policy",
-      [
-        "default-src 'self';",
-        "script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com;", // Allow PostHog's script from both sources
-        "script-src-elem 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com;", // Allow inline scripts from PostHog's sources
-        "style-src 'self' 'unsafe-inline';",
-        "img-src 'self' data:;",
-        "connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com;", // Allow connections to both PostHog sources
-        "font-src 'self' data:;",
-        "form-action 'self';",
-        "base-uri 'self';",
-        "object-src 'none';",
-        "frame-ancestors 'none';",
-        "upgrade-insecure-requests;",
-        `report-uri ${process.env.ENV_MODE === "prod" ? "/.netlify/functions/cspReport" : "/api/mock-csp"};`,
-      ].join(" "),
-    );
+  if (!isProdEnvironment) {
+    console.log("ENV_MODE:", process.env.ENV_MODE);
   }
+
+  // Determine report URI
+  const reportUri = isProdEnvironment
+    ? "/.netlify/functions/cspReport"
+    : "/api/mock-csp";
+
+  // Construct base policy
+  const cspDirectives = [
+    "default-src 'self';",
+    "script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com;",
+    "script-src-elem 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com;",
+    "style-src 'self' 'unsafe-inline';",
+    "img-src 'self' data:;",
+    "connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com;",
+    "font-src 'self' data:;",
+    "form-action 'self';",
+    "base-uri 'self';",
+    "object-src 'none';",
+    "frame-ancestors 'none';",
+    "upgrade-insecure-requests;",
+    `report-uri ${reportUri};`,
+  ];
+
+  // Loosen up CSP for test environments
+  if (isTestEnvironment) {
+    cspDirectives[1] =
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' ws://localhost:*;";
+    cspDirectives[2] =
+      "script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' ws://localhost:*;";
+    cspDirectives[3] = "style-src 'self' 'unsafe-inline';";
+    cspDirectives[4] = "img-src 'self' data:;";
+    cspDirectives[5] = "connect-src 'self';";
+  }
+
+  response.headers.set("Content-Security-Policy", cspDirectives.join(" "));
 
   // Set other security headers
   response.headers.set(
@@ -79,8 +77,7 @@ export async function handle({ event, resolve }) {
       "gamepad=()",
       "serial=()",
       "publickey-credentials-get=()",
-      "interest-cohort=()",
-      "topics=()",
+      "browsing-topics=()",
     ].join(", "),
   );
 

@@ -19,7 +19,6 @@ This file is part of Network Pro.
   import { browser } from "$app/environment";
   import "$lib/styles/global.min.css";
   import "$lib/styles/fa-global.css";
-  //import "$lib/styles";
 
   // Import favicon images
   import logoPng from "$lib/img/logo-web.png";
@@ -32,31 +31,26 @@ This file is part of Network Pro.
   let PostHog = null;
 
   if (browser) {
-    // Preload logo images
-    [logoPng, logoWbp].forEach((src) => {
+    // Preload images
+    [logoPng, logoWbp, appleTouchIcon].forEach((src) => {
       const img = new Image();
       img.src = src;
     });
 
-    // Preload Apple Touch icon
-    const touchImg = new Image();
-    touchImg.src = appleTouchIcon;
-
-    // Register the service worker only in the browser
+    // Service worker + conditional PostHog
     onMount(() => {
       console.log("[APP] onMount triggered in +layout.svelte");
       registerServiceWorker();
 
-      // Dynamically load the PostHog script once the page is fully loaded
-      if (typeof window !== "undefined") {
-        window.addEventListener("load", () => {
-          const script = document.createElement("script");
-          script.src =
-            "https://us-assets.i.posthog.com/array/phc_Qshfo6AXzh4pS7aPigfqyeo4qj1qlyh7gDuHDeVMSR0/config.js";
-          script.defer = true;
-          script.async = true; // Allow it to load asynchronously to not block the page
-          document.body.appendChild(script);
+      const dnt = navigator.doNotTrack === "1" || window.doNotTrack === "1";
+      const gpc = navigator.globalPrivacyControl === true;
+
+      if (!dnt && !gpc) {
+        import("$lib/components/PostHog.svelte").then((module) => {
+          PostHog = module.default;
         });
+      } else {
+        console.log("[Privacy] Skipping PostHog due to DNT or GPC signal.");
       }
     });
   }
