@@ -32,7 +32,7 @@ This file is part of Network Pro.
   let PostHog = null;
 
   if (browser) {
-    // Preload core images
+    // Preload all core images (logos + apple touch)
     [logoPng, logoWbp, appleTouchIcon].forEach((src) => {
       const img = new Image();
       img.src = src;
