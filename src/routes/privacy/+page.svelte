@@ -1,5 +1,5 @@
 <!-- ==========================================================================
-src/routes/privacy-policy/+page.svelte
+src/routes/privacy/+page.svelte
 
 Copyright © 2025 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
@@ -31,9 +31,9 @@ This file is part of Network Pro.
 
 <MetaTags title={data.meta.title} description={data.meta.description} />
 
-<link rel="canonical" href="https://netwk.pro/privacy-policy" />
+<link rel="canonical" href="https://netwk.pro/privacy" />
 
-<section id="privacy-policy">
+<section id="privacy">
   <FullWidthSection>
     <!-- BEGIN PRIVACY POLICY -->
     <section id="main-content">

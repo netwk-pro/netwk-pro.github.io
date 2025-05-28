@@ -1,5 +1,5 @@
 /* ==========================================================================
-src/routes/privacy-policy/+page.server.js
+src/routes/privacy/+page.server.js
 
 Copyright © 2025 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
@@ -13,6 +13,6 @@ export const prerender = false;
 /** @type {import('./$types').PageServerLoad} */
 export function load() {
   return {
-    meta: meta["/privacy-policy"] || defaultMeta,
+    meta: meta["/privacy"] || defaultMeta,
   };
 }

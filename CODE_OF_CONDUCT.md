@@ -155,7 +155,7 @@ For answers to common questions about this code of conduct, see the FAQ at
 <div style="font-size: 12px; font-weight: bold; text-align: center;">
 
 [Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://netwk.pro/terms-of-use)  
-[Privacy Policy](https://netwk.pro/privacy-policy) &nbsp; | &nbsp; [Legal](https://netwk.pro/legal)
+[Privacy Policy](https://netwk.pro/privacy) &nbsp; | &nbsp; [Legal](https://netwk.pro/legal)
 
 </div>
 
