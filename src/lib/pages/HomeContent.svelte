@@ -90,7 +90,7 @@ This file is part of Network Pro.
 
 &nbsp;
 
-<h3 class={classIndex}>Featured</h3>
+<h3 class="index4">Featured</h3>
 
 <p class={classLarge}>
   <strong>

@@ -20,10 +20,10 @@ import { bundle } from "lightningcss";
 import path from "path";
 
 // Define the path to your input CSS file
-const inputFilePath = path.resolve("src/lib/styles/css/offline.css");
+const inputFilePath = path.resolve("src/lib/styles/css/global.css");
 
 // Define the path for the output CSS file
-const outputFilePath = path.resolve("static/offline.min.css");
+const outputFilePath = path.resolve("src/lib/styles/css/global.min.css");
 
 // Bundle and minify the CSS
 const { code, map } = bundle({
