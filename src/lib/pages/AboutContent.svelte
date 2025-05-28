@@ -56,7 +56,7 @@ This file is part of Network Pro.
       text: "CC-BY-4.0 OR GPL-3.0-or-later",
     },
     {
-      label: "Markdown",
+      label: "Docs",
       href: "https://docs.netwk.pro",
       target: "_self",
     },
@@ -103,9 +103,8 @@ This file is part of Network Pro.
 <section id="top">
   <span class="small-text">
     <a {rel} href={navLinks[0].href} target={navLinks[0].target}>
-      {navLinks[0].label}
-    </a>
-    :&nbsp;<code>{navLinks[0].text}</code>
+      {navLinks[0].label}</a
+    >: &nbsp;<code>{navLinks[0].text}</code>
   </span>
 </section>
 
@@ -193,7 +192,7 @@ This file is part of Network Pro.
 <div class="spacer"></div>
 
 <p>
-  <a {rel} href="https://contact.neteng.pro" target="_blank">Let's connect</a>
+  <a {rel} href="https://netwk.pro/contact" target="_blank">Let's connect</a>
   to discuss how we can help secure and strengthen your business today.
 </p>
 

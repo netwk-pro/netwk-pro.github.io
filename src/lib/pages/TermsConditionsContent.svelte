@@ -112,7 +112,7 @@ This file is part of Network Pro.
       <strong>Formats Available:</strong> &nbsp;<span class="visited"
         >HTML</span>
       |
-      <a href={tandcLink} target={constants.targetSelf}>Markdown</a>
+      <a href={tandcLink} target={constants.targetSelf}>Docs</a>
       |
       <a
         rel={constants.rel}
