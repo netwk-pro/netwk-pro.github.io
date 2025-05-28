@@ -35,6 +35,7 @@ This file is part of Network Pro.
   const tocLinks = [
     { id: "intro", text: "Introduction" },
     { id: "collect", text: "Information We Collect" },
+    { id: "tracking", text: "Web Analytics and Tracking" },
     { id: "payment", text: "Payment Information" },
     { id: "use", text: "Use of Information" },
     { id: "sharing", text: "Data Sharing" },
@@ -160,6 +161,39 @@ This file is part of Network Pro.
         <li
           ><strong>Client-Submitted Content</strong> related to our services</li>
       </ul>
+    {:else if link.id === "tracking"}
+      <p>
+        To better understand visitor behavior and optimize website
+        functionality, we use <strong>PostHog Cloud</strong>, a hosted version
+        of the open-source PostHog analytics platform. This tool helps us
+        evaluate site performance and user engagement through the collection of
+        non-personally identifiable technical data.
+      </p>
+      <p> PostHog Cloud may collect and process information such as: </p>
+      <ul>
+        <li>Pages visited and navigation behavior</li>
+        <li>Device type, browser version, and operating system</li>
+        <li
+          >Time spent on pages and interaction events (e.g., clicks, scrolls)</li>
+        <li>Referral URLs and outbound link activity</li>
+        <li>General geolocation (approximate, based on IP address)</li>
+      </ul>
+      <p>
+        We configure PostHog to prioritize user privacy. <strong
+          >Analytics tracking is automatically disabled when a user's browser
+          sends a “Do Not Track” (DNT) or “Global Privacy Control” (GPC /
+          Sec-GPC) signal.</strong> No further action is required—your browser settings
+        are honored by default.
+      </p>
+      <p>
+        PostHog Cloud is a third-party service, but we deploy it in a
+        privacy-conscious manner that avoids intrusive profiling and aligns with
+        data protection best practices. For more information, please refer to <a
+          rel={constants.rel}
+          href="https://posthog.com/privacy"
+          target={constants.targetBlank}>PostHog's Privacy Policy</a
+        >.
+      </p>
     {:else if link.id === "payment"}
       <p>
         When processing payments, we may collect credit card details and billing

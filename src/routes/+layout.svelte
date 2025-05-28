@@ -14,6 +14,7 @@ This file is part of Network Pro.
   import HeaderDefault from "$lib/components/layout/HeaderDefault.svelte";
   import HeaderHome from "$lib/components/layout/HeaderHome.svelte";
   import PWAInstallButton from "$lib/components/PWAInstallButton.svelte";
+  import { shouldTrackUser } from "$lib/utils/privacy.js";
   import { onMount } from "svelte";
   import { registerServiceWorker } from "$lib/registerServiceWorker.js";
   import { browser } from "$app/environment";
@@ -31,26 +32,35 @@ This file is part of Network Pro.
   let PostHog = null;
 
   if (browser) {
-    // Preload images
+    // Preload core images
     [logoPng, logoWbp, appleTouchIcon].forEach((src) => {
       const img = new Image();
       img.src = src;
     });
 
-    // Service worker + conditional PostHog
+    // Run setup when component mounts (only in browser)
     onMount(() => {
       console.log("[APP] onMount triggered in +layout.svelte");
       registerServiceWorker();
 
-      const dnt = navigator.doNotTrack === "1" || window.doNotTrack === "1";
-      const gpc = navigator.globalPrivacyControl === true;
+      const isDev = import.meta.env.MODE === "development";
 
-      if (!dnt && !gpc) {
+      console.log("ENV MODE =", import.meta.env.MODE); // Should be "development"
+      console.log("isDev =", isDev);
+      console.log("shouldTrackUser =", shouldTrackUser());
+
+      if (isDev || shouldTrackUser()) {
         import("$lib/components/PostHog.svelte").then((module) => {
           PostHog = module.default;
+
+          if (isDev) {
+            console.log("[Dev] ✅ PostHog component loaded (tracking enabled)");
+          }
         });
       } else {
-        console.log("[Privacy] Skipping PostHog due to DNT or GPC signal.");
+        console.log(
+          "[Privacy] ⛔ Skipping PostHog component due to DNT or GPC signal.",
+        );
       }
     });
   }

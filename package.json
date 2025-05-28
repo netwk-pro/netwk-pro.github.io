@@ -36,7 +36,6 @@
     "node": ">=22.0.0 <25",
     "npm": ">=11.0.0 <12"
   },
-  "style": "src/lib/styles/index.js",
   "scripts": {
     "dev": "vite dev",
     "start": "npm run dev",
@@ -106,7 +105,6 @@
     "markdownlint": "^0.38.0",
     "markdownlint-cli2": "^0.18.1",
     "mdsvex": "^0.12.6",
-    "normalize.css": "^8.0.1",
     "playwright": "^1.52.0",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
