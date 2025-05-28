@@ -26,7 +26,7 @@ const meta = {
     title: "About Us — Network Pro™",
     description: "About Us | Security, Networking, Privacy — Network Pro™",
   },
-  "/privacy-policy": {
+  "/privacy": {
     title: "Privacy Policy — Network Pro™",
     description:
       "Privacy Policy | Security, Networking, Privacy — Network Pro™",

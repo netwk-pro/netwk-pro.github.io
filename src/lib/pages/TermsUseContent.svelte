@@ -24,7 +24,7 @@ This file is part of Network Pro.
    * URL to Privacy Policy page, using the base path
    * @type {string}
    */
-  const privacyLink = `${base}/privacy-policy`;
+  const privacyLink = `${base}/privacy`;
 
   /**
    * URL to License page, using the base path

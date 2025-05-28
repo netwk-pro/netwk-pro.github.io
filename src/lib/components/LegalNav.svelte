@@ -13,7 +13,7 @@ This file is part of Network Pro.
   //console.log("Base path:", base);
 
   const termsLink = `${base}/terms-of-use`;
-  const privacyLink = `${base}/privacy-policy`;
+  const privacyLink = `${base}/privacy`;
   const licenseLink = `${base}/license`;
 
   /**

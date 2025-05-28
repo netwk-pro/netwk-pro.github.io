@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Sitemap last updated on 2025-05-18 -->
+<!-- Sitemap last updated on 2025-05-28 -->
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
@@ -7,7 +7,7 @@
 
     <loc>https://netwk.pro</loc>
 
-    <lastmod>2025-05-24</lastmod>
+    <lastmod>2025-05-28</lastmod>
 
     <changefreq>weekly</changefreq>
 
@@ -19,7 +19,7 @@
 
     <loc>https://netwk.pro/foss-spotlight</loc>
 
-    <lastmod>2025-05-18</lastmod>
+    <lastmod>2025-05-27</lastmod>
 
     <changefreq>weekly</changefreq>
 
@@ -53,9 +53,9 @@
 
   <url>
 
-    <loc>https://netwk.pro/privacy-policy</loc>
+    <loc>https://netwk.pro/privacy</loc>
 
-    <lastmod>2025-05-23</lastmod>
+    <lastmod>2025-05-28</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -67,7 +67,7 @@
 
     <loc>https://netwk.pro/license</loc>
 
-    <lastmod>2025-05-24</lastmod>
+    <lastmod>2025-05-27</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -79,7 +79,7 @@
 
     <loc>https://netwk.pro/terms-of-use</loc>
 
-    <lastmod>2025-05-21</lastmod>
+    <lastmod>2025-05-27</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -91,7 +91,7 @@
 
     <loc>https://netwk.pro/terms-conditions</loc>
 
-    <lastmod>2025-05-08</lastmod>
+    <lastmod>2025-05-27</lastmod>
 
     <changefreq>monthly</changefreq>
 
