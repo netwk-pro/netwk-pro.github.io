@@ -78,8 +78,7 @@ This file is part of Network Pro.
       href="https://spdx.dev/learn/handling-license-info"
       target={constants.targetBlank}>
       SPDX License Identifier
-    </a>
-    : &nbsp;<code>CC-BY-4.0 OR GPL-3.0-or-later</code>
+    </a>: &nbsp;<code>CC-BY-4.0 OR GPL-3.0-or-later</code>
   </span>
 </section>
 
@@ -122,7 +121,7 @@ This file is part of Network Pro.
         >HTML</span>
       |
       <a rel={constants.rel} href={termsLink} target={constants.targetSelf}
-        >Markdown</a>
+        >Docs</a>
     </sup>
   </p>
 </section>
