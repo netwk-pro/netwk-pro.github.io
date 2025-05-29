@@ -6,10 +6,17 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== -->
 
-<!-- cspell:ignore prights -->
+<!-- cspell:ignore prights prefs pdash -->
 
 <script>
   import { base } from "$app/paths";
+  import { onMount } from "svelte";
+  import { getTrackingPreferences } from "$lib/utils/trackingStatus.js";
+  /** @type {(type: 'enable' | 'disable') => void} */
+  import {
+    setTrackingPreference,
+    clearTrackingPreferences,
+  } from "$lib/utils/trackingCookies.js";
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
@@ -17,16 +24,20 @@ This file is part of Network Pro.
   /**
    * URL to the Privacy Rights Request Form redirect route, using the base path
    * URL to the Contact Form redirect route, using the base path
+   * URL to the Privacy Dashboard using the base path
    * @type {string}
    */
   const prightsLink = `${base}/privacy-rights`;
   const contactLink = `${base}/contact`;
+  const pdashLink = `${base}/privacy-dashboard`;
 
   /**
    * URL to the privacy policy in Markdown format
+   * External URL to the GPC website
    * @type {string}
    */
   const privacyLink = "https://docs.netwk.pro/privacy";
+  const gpcLink = "https://globalprivacycontrol.org/";
 
   /**
    * Table of Contents Links
@@ -56,7 +67,7 @@ This file is part of Network Pro.
     email: "support (at) neteng.pro",
     secure: "contact (at) s.neteng.pro",
     phone: "(623) 252-4350",
-    effectiveDate: "May 23, 2025",
+    effectiveDate: "May 28, 2025",
   };
 
   /**
@@ -78,6 +89,48 @@ This file is part of Network Pro.
     targetSelf: "_self",
     targetBlank: "_blank",
   };
+
+  let optedOut = false;
+  let optedIn = false;
+  let trackingStatus = "";
+
+  onMount(() => {
+    const prefs = getTrackingPreferences();
+    optedOut = prefs.optedOut;
+    optedIn = prefs.optedIn;
+    trackingStatus = prefs.status;
+    console.log("[Tracking] Status:", trackingStatus);
+  });
+
+  /**
+   * Toggle tracking opt-out.
+   * @param {boolean} value
+   */
+  function toggleTracking(value) {
+    optedOut = value;
+    if (optedOut) {
+      console.log("[Tracking] User opted out");
+      setTrackingPreference("disable");
+    } else {
+      console.log("[Tracking] User cleared opt-out");
+      clearTrackingPreferences();
+    }
+  }
+
+  /**
+   * Toggle tracking opt-in.
+   * @param {boolean} value
+   */
+  function toggleOptIn(value) {
+    optedIn = value;
+    if (optedIn) {
+      console.log("[Tracking] User opted in");
+      setTrackingPreference("enable");
+    } else {
+      console.log("[Tracking] User cleared opt-in");
+      clearTrackingPreferences();
+    }
+  }
 </script>
 
 <!-- BEGIN TITLE -->
@@ -181,10 +234,66 @@ This file is part of Network Pro.
       <p>
         We configure PostHog to prioritize user privacy. <strong
           >Analytics tracking is automatically disabled when a user's browser
-          sends a “Do Not Track” (DNT) or “Global Privacy Control” (GPC /
-          Sec-GPC) signal.</strong> No further action is required—your browser settings
-        are honored by default.
+          sends a “Do Not Track” (DNT) or <a
+            rel={constants.rel}
+            href={gpcLink}
+            target={constants.targetBlank}
+            >“Global Privacy Control” (GPC / Sec-GPC)</a> signal.</strong> No further
+        action is required—your browser settings are honored by default.
       </p>
+      <p>
+        You can view your current tracking status below, along with manual
+        opt-out and opt-in settings stored as browser cookies. These settings
+        override any Do Not Track (DNT) or Global Privacy Control (GPC) signals. <strong
+          >If you opt out, analytics tracking via PostHog is disabled entirely
+          until you change your preference.</strong> Your selection will persist
+        until manually updated.
+      </p>
+      <p class="emphasis">
+        For convenient access, you can manage these settings through our <a
+          href={pdashLink}
+          target={constants.targetSelf}>Privacy Dashboard</a
+        >.
+      </p>
+
+      <div class="spacer"></div>
+
+      <h3>Tracking Preferences</h3>
+      <p id="tracking-status" aria-live="polite">
+        <strong>Tracking Status:</strong>
+        {trackingStatus}
+      </p>
+
+      <!-- Opt-out checkbox -->
+      <label>
+        <input
+          type="checkbox"
+          checked={optedOut}
+          disabled={optedIn}
+          aria-describedby="tracking-status"
+          on:change={(e) =>
+            toggleTracking(
+              /** @type {HTMLInputElement} */ (e.target).checked,
+            )} />
+        <strong>&nbsp;Disable analytics tracking (opt-out)</strong>
+      </label>
+
+      <br />
+
+      <!-- Opt-in checkbox -->
+      <label>
+        <input
+          type="checkbox"
+          checked={optedIn}
+          disabled={optedOut}
+          aria-describedby="tracking-status"
+          on:change={(e) =>
+            toggleOptIn(/** @type {HTMLInputElement} */ (e.target).checked)} />
+        <strong>&nbsp;Enable analytics tracking (opt-in)</strong>
+      </label>
+
+      <div class="spacer"></div>
+
       <p>
         PostHog Cloud is a third-party service, but we deploy it in a
         privacy-conscious manner that avoids intrusive profiling and aligns with
@@ -245,7 +354,8 @@ This file is part of Network Pro.
         information.
       </p>
     {:else if link.id === "rights"}
-      <p><strong>Your Rights and Choices</strong></p>
+      <h3>Your Rights and Choices</h3>
+      <p> Under applicable state and federal law, you may have rights to: </p>
       <ul>
         <li
           ><strong>Access, update, or delete</strong> your personal information,

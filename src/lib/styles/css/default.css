@@ -26,6 +26,12 @@ This file is part of Network Pro.
   max-width: 1200px;
 }
 
+/* Constrain paragraph/text-heavy content to 900px */
+.readable {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
 /* Header & Footer follow the same container width */
 header,
 footer {
@@ -168,26 +174,21 @@ footer .container {
 
 .bnav {
   margin: 0 auto;
+  text-align: center;
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-.bnav td {
-  padding: 10px;
-  font-size: 0.875rem;
-  font-weight: bold;
-  line-height: 1.125rem;
-  border-style: none;
-  overflow: hidden;
-  word-break: normal;
-}
-
+.bnav td,
 .bnav th {
   padding: 10px;
   font-size: 0.875rem;
+  font-weight: bold; /* Only needed for <td>, if desired */
   line-height: 1.125rem;
+  text-align: center; /* Center horizontally */
   border-style: none;
   overflow: hidden;
+  vertical-align: middle; /* Center vertically */
   word-break: normal;
 }
 
@@ -375,6 +376,18 @@ footer .container {
   line-height: 1.75rem;
   letter-spacing: -0.035em;
   font-variant: small-caps;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.emphasis {
+  font-style: italic;
+}
+
+.uline {
+  text-decoration: underline;
 }
 
 .bolditalic {

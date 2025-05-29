@@ -7,7 +7,14 @@ This file is part of Network Pro.
 ========================================================================== */
 
 /**
- * Append UTM parameter from window.location to a given URL.
+ * @file utm.js
+ * @description Append UTM parameter from window.location to a given URL.
+ * @module src/lib/utils/
+ * @author SunDevil311
+ * @updated 2025-05-28
+ */
+
+/**
  * Returns `null` if not in a browser context.
  * @param {string} url - The base URL to append to
  * @returns {string | null}

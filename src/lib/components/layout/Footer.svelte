@@ -14,7 +14,7 @@ This file is part of Network Pro.
   import { bySvg, ccSvg } from "$lib";
 
   // Log the base path to verify its value
-  console.log("Base path:", base);
+  //console.log("Base path:", base);
 
   // Dynamic links for licensing and trademark
   const ccbyLink = `${base}/license#cc-by`;

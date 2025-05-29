@@ -51,9 +51,9 @@ This file is part of Network Pro.
     { id: "third-party", text: "Third-Party Code and Licenses" },
     { id: "prohibited-uses", text: "Prohibited Uses" },
     { id: "disclaimer", text: "Modifications and Liability Disclaimer" },
-    { id: "contact", text: "Contact" },
-    { id: "revisions", text: "Revisions" },
     { id: "authoritative", text: "Authoritative Version Clause" },
+    { id: "revisions", text: "Revisions" },
+    { id: "contact", text: "Contact" },
   ];
 
   /**
@@ -62,7 +62,7 @@ This file is part of Network Pro.
    */
   const constants = {
     company: "Network Pro Strategies",
-    effectiveDate: "May 24, 2025",
+    effectiveDate: "May 28, 2025",
     classSmall: "small-text",
     rel: "noopener noreferrer",
     hrefTop: "#top",
@@ -472,20 +472,6 @@ This file is part of Network Pro.
         —including, without limitation, any claims or disputes brought by third parties,
         whether in contract, tort, or otherwise.
       </p>
-    {:else if link.id === "contact"}
-      <p>
-        The Company can be contacted via our
-        <a rel={constants.rel} href={contactLink} target={constants.targetBlank}
-          >contact form</a>
-        or by email at:<br />
-        📧 <code>contact (at) s.neteng.pro</code>
-      </p>
-    {:else if link.id === "revisions"}
-      <p>
-        This legal page may be updated to comply with legal or operational
-        changes. The current effective date is listed at the top of this
-        document.
-      </p>
     {:else if link.id === "authoritative"}
       <p>
         In the event of any discrepancy between different versions, formats, or
@@ -503,6 +489,20 @@ This file is part of Network Pro.
         applicable legal document before relying on its contents. Continued use
         of the Company's materials, services, or Licensed Material constitutes
         acceptance of the most current version then in effect.
+      </p>
+    {:else if link.id === "revisions"}
+      <p>
+        This legal page may be updated to comply with legal or operational
+        changes. The current effective date is listed at the top of this
+        document.
+      </p>
+    {:else if link.id === "contact"}
+      <p>
+        The Company can be contacted via our
+        <a rel={constants.rel} href={contactLink} target={constants.targetBlank}
+          >contact form</a>
+        or by email at:<br />
+        📧 <code>contact (at) s.neteng.pro</code>
       </p>
     {/if}
 

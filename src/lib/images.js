@@ -10,11 +10,12 @@ This file is part of Network Pro.
 
 /**
  * Image import utility
- * Provides convenient access to images in the src/lib/img directory
  *
+ * @file images.js
+ * @description Provides convenient access to images in the src/lib/img directory
  * @module src/lib
  * @author SunDevil311
- * @updated 2025-05-24
+ * @updated 2025-05-28
  */
 
 // Import favicon images

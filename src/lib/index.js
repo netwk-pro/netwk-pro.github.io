@@ -8,8 +8,9 @@ This file is part of Network Pro.
 
 /**
  * Library index file
- * Main export point for library components, utilities, and assets
  *
+ * @file index.js
+ * @description Main export point for library components, utilities, and assets
  * @module src/lib
  * @author SunDevil311
  * @updated 2025-05-14

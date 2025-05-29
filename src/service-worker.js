@@ -11,6 +11,8 @@ const sw = /** @type {ServiceWorkerGlobalScope} */ (
   /** @type {unknown} */ (self)
 );
 
+/// <reference types="vite/client" />
+
 const isDev = location.hostname === "localhost";
 const disallowedHosts = [
   "us.i.posthog.com", // Add PostHog to disallowed hosts
@@ -130,14 +132,35 @@ sw.addEventListener("activate", (event) => {
   );
 });
 
+/**
+ * Determine if a request should be skipped by the service worker.
+ * Specifically filters out dev/build files, module imports, and source files.
+ * Only active in development mode.
+ *
+ * @param {URL} url
+ * @returns {boolean}
+ */
+function shouldSkipDevModule(url) {
+  if (!isDev) return false;
+
+  return (
+    url.pathname.startsWith("/@fs") ||
+    url.pathname.startsWith("/node_modules") ||
+    url.pathname.includes(".vite") ||
+    url.pathname.includes(".svelte-kit") ||
+    !!url.pathname.match(/\.(js|ts|svelte)$/)
+  );
+}
+
 // 🔹 Fetch event
 sw.addEventListener("fetch", (event) => {
   const requestUrl = new URL(event.request.url);
 
-  // ✅ Skip handling for non-local requests (cross-origin)
-  if (requestUrl.origin !== location.origin) {
-    return; // let the browser handle external requests
-  }
+  // ✅ Skip cross-origin requests
+  if (requestUrl.origin !== location.origin) return;
+
+  // ✅ Skip internal dev/module files (only in dev)
+  if (shouldSkipDevModule(requestUrl)) return;
 
   if (isDev) console.log("[SW] Fetch intercepted:", event.request.url);
 
@@ -153,17 +176,19 @@ sw.addEventListener("fetch", (event) => {
         if (event.request.mode === "navigate") {
           const preloadResponse = await event.preloadResponse;
           if (preloadResponse) {
-            if (isDev)
+            if (isDev) {
               console.log(
                 "[SW] Using preload response for:",
                 event.request.url,
               );
+            }
             return preloadResponse;
           }
         }
 
         if (isDev)
           console.log("[SW] Fetching from network:", event.request.url);
+
         return await fetch(event.request);
       } catch (err) {
         if (isDev) {
@@ -188,4 +213,4 @@ sw.addEventListener("fetch", (event) => {
   );
 });
 
-// @cspell:ignore precaching licdn
+// @cspell:ignore precaching
