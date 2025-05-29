@@ -36,6 +36,7 @@ export default defineConfig({
     baseURL: "http://localhost:4173?nosw", // Update to use preview server URL
     trace: "on-first-retry",
     timeout: 60000, // Default action timeout of 60 seconds for each step
+    navigationTimeout: 60000, // Timeout for navigation operations
   },
 
   /* Configure projects */

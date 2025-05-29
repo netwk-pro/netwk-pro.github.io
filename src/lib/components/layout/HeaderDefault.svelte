@@ -62,7 +62,7 @@ This file is part of Network Pro.
 </script>
 
 <!-- BEGIN DEFAULT HEADER -->
-<nav class="center-nav">
+<nav class="center-nav" aria-label="Site navigation">
   {#each nav as { label, href, target, external }, index}
     <a {href} {target} rel={external ? rel : undefined}>
       {label}
