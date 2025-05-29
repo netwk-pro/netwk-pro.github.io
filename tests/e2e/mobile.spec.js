@@ -6,33 +6,29 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
-import { expect, test } from "@playwright/test";
+/**
+ * @file mobile.spec.js
+ * @description Runs Playwright E2E tests with mobile assertions.
+ * @module tests/e2e
+ * @author SunDevil311
+ * @updated 2025-05-29
+ */
 
+import { expect, test } from "@playwright/test";
+import { getFooter, getVisibleNav, setMobileView } from "./shared/helpers.js";
+
+// Mobile viewport smoke tests for the root route
 test.describe("Mobile Tests", () => {
-  // Skip WebKit for mobile tests if it's problematic
   test("should display the main description text on mobile", async ({
     page,
     browserName,
   }) => {
-    if (browserName === "webkit") {
-      test.skip(); // Skip WebKit if it's problematic
-    }
+    if (browserName === "webkit") test.skip();
 
-    await page.setViewportSize({ width: 375, height: 667 }); // Mobile size (e.g., iPhone 6)
-
-    // Add a small timeout before navigating to the page
-    await page.waitForTimeout(1500); // Wait for 1.5 seconds
-
+    await setMobileView(page);
     await page.goto("/");
-
-    // Wait for the page to load and for the title element to be available
     await page.waitForLoadState("domcontentloaded", { timeout: 60000 });
-    await page.waitForSelector(
-      'div.index-title1:has-text("Locking Down Networks")',
-      { timeout: 60000 },
-    );
 
-    // Assert that the correct text is found inside the <div>
     const description = page.locator(
       'div.index-title1:has-text("Locking Down Networks")',
     );
@@ -43,21 +39,12 @@ test.describe("Mobile Tests", () => {
     page,
     browserName,
   }) => {
-    if (browserName === "webkit") {
-      test.skip(); // Skip WebKit if it's problematic
-    }
+    if (browserName === "webkit") test.skip();
 
-    await page.setViewportSize({ width: 375, height: 667 }); // Mobile size
-
-    // Add a small timeout before navigating to the page
-    await page.waitForTimeout(1500); // Wait for 1.5 seconds
-
+    await setMobileView(page);
     await page.goto("/");
-
-    // Wait for the page to load
     await page.waitForLoadState("domcontentloaded", { timeout: 60000 });
 
-    // Check that the main heading is visible on mobile
     const mainHeading = page.locator("h1, h2");
     await expect(mainHeading).toBeVisible();
   });
@@ -66,27 +53,30 @@ test.describe("Mobile Tests", () => {
     page,
     browserName,
   }) => {
-    if (browserName === "webkit") {
-      test.skip(); // Skip WebKit if it's problematic
-    }
+    if (browserName === "webkit") test.skip();
 
-    await page.setViewportSize({ width: 375, height: 667 }); // Mobile size
-
-    // Add a small timeout before navigating to the page
-    await page.waitForTimeout(1500); // Wait for 1.5 seconds
-
+    await setMobileView(page);
     await page.goto("/");
 
-    // Wait for the page to load
-    await page.waitForLoadState("domcontentloaded", { timeout: 60000 });
+    const nav = await getVisibleNav(page);
+    const aboutLink = nav.getByRole("link", { name: "about" });
+    await expect(aboutLink).toBeVisible({ timeout: 60000 });
 
-    // Ensure the "about" link is visible and clickable
-    const aboutLink = page.locator("a", { hasText: "about" });
-    await expect(aboutLink).toBeVisible();
     await aboutLink.click();
-
-    // Assert that it navigates to the correct route
     await expect(page).toHaveURL(/\/about/);
+  });
+
+  test("should display the footer on /about (mobile)", async ({
+    page,
+    browserName,
+  }) => {
+    if (browserName === "webkit") test.skip();
+
+    await setMobileView(page);
+    await page.goto("/about");
+
+    const footer = getFooter(page);
+    await expect(footer).toBeVisible();
   });
 });
 

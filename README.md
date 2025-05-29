@@ -31,10 +31,14 @@ All infrastructure and data flows are designed with **maximum transparency, self
 ```bash
 .
 ├── .github/workflows/     # CI workflows and automation
-├── .vscode/               # Recommended VS Code settings, extensions
+├── .vscode/
+│   ├── customData.json    # Custom CSS data for FontAwesome icons
+│   ├── extensions.json    # Recommended VSCodium / VS Code extensions
+│   ├── extensions.jsonc   # Commented version of extensions.json for reference
+│   └── settings.json      # User settings for VSCodium / VS Code
 ├── netlify-functions/
 │   └── cspReport.js       # Serverless function to receive and log CSP violation reports
-├── scripts/               # Utility scripts
+├── scripts/               # General utility scripts
 ├── src/
 │   ├── lib/               # Reusable components, styles, utilities
 │   ├── routes/            # SvelteKit routes (+page.svelte, +page.server.js)
@@ -43,10 +47,30 @@ All infrastructure and data flows are designed with **maximum transparency, self
 │   ├── app.html           # SvelteKit entry HTML with CSP/meta/bootentry
 │   └── service-worker.js  # Custom Service Worker
 ├── static/                # Static assets served at root
+│   ├── manifest.json      # Manifest file for PWA configuration
+│   ├── robots.txt         # Instructions for web robots
+│   └── sitemap.xml        # Sitemap for search engines
 ├── tests/
 │   ├── e2e/               # End-to-end Playwright tests
 │   └── unit/              # Vite unit tests
+├── _redirects             # Netlify redirects
 ├── netlify.toml           # Netlify configuration
+└── ...
+```
+
+&nbsp;
+
+### E2E Test Structure
+
+End-to-end tests are located in `tests/e2e/` and organized by feature or route:
+
+```bash
+tests/
+├── e2e/
+│   ├── app.spec.js       # Desktop and mobile route tests
+│   ├── mobile.spec.js    # Mobile-specific assertions
+│   └── shared/
+│       └── helpers.js    # Shared test utilities (e.g., getFooter, setDesktopView, setMobileView)
 └── ...
 ```
 
@@ -180,7 +204,7 @@ Located at `src/hooks.server.js`, this file is responsible for injecting dynamic
 To re-enable nonce generation for inline scripts in the future:
 
 1. Uncomment the nonce generation and injection logic in `hooks.server.js`.
-2. Add `nonce="**cspNonce**"` to inline `<script>` blocks in `app.html` or route templates.
+2. Add `nonce="__cspNonce__"` to inline `<script>` blocks in `app.html` or route templates.
 
 > 💡 The `[headers]` block in `netlify.toml` has been deprecated — all headers are now set dynamically from within SvelteKit.
 
@@ -244,6 +268,24 @@ This project uses a mix of automated performance, accessibility, and end-to-end 
 
 &nbsp;
 
+### E2E Setup
+
+Playwright is included in `devDependencies` and installed automatically with:
+
+```bash
+npm install
+```
+
+To install browser dependencies (required once):
+
+```bash
+npx playwright install
+```
+
+> This downloads the browser binaries (Chromium, Firefox, WebKit) used for testing. You only need to run this once per machine or after a fresh clone.
+
+&nbsp;
+
 ### Running Tests
 
 Local testing via Vitest and Playwright:
@@ -254,8 +296,10 @@ npm run test:server     # Run server-side unit tests with Vitest
 npm run test:all        # Run full test suite
 npm run test:watch      # Watch mode for client tests
 npm run test:coverage   # Collect code coverage reports
-npm run test:e2e        # Runs Playwright E2E tests
+npm run test:e2e        # Runs Playwright E2E tests (with one retry on failure)
 ```
+
+> Playwright will retry failed tests once `(--retries=1)` to reduce false negatives from transient flakiness (network, render delay, etc.).
 
 Audit your app using Lighthouse:
 
@@ -399,15 +443,15 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 
 <!-- markdownlint-enable MD024 -->
 
-| Script          | Description                                  |
-| --------------- | -------------------------------------------- |
-| `test`          | Alias for `test:all`                         |
-| `test:all`      | Run both client and server test suites       |
-| `test:client`   | Run client tests with Vitest                 |
-| `test:server`   | Run server-side tests with Vitest            |
-| `test:watch`    | Watch mode for client tests                  |
-| `test:coverage` | Collect coverage from both client and server |
-| `test:e2e`      | Run Playwright E2E tests                     |
+| Script          | Description                                            |
+| --------------- | ------------------------------------------------------ |
+| `test`          | Alias for `test:all`                                   |
+| `test:all`      | Run both client and server test suites                 |
+| `test:client`   | Run client tests with Vitest                           |
+| `test:server`   | Run server-side tests with Vitest                      |
+| `test:watch`    | Watch mode for client tests                            |
+| `test:coverage` | Collect coverage from both client and server           |
+| `test:e2e`      | Runs E2E tests with up to 1 automatic retry on failure |
 
 ---
 
