@@ -7,13 +7,28 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  export let centered = false; // this prop lets us control vertical centering
+  /**
+   * Optional: Allows vertical centering of the section
+   * @type {boolean}
+   */
+  export let centered = false;
+
+  /**
+   * Additional classes for the outer full-width wrapper
+   * @type {string}
+   */
+  export let outerClass = "";
+
+  /**
+   * Additional classes for the inner container
+   * @type {string}
+   */
+  export let containerClass = "";
 </script>
 
-<div class="full-width-section {centered ? 'centered' : ''}">
-  <div class="container">
+<div class={`full-width-section ${centered ? "centered" : ""} ${outerClass}`}>
+  <div class={`container ${containerClass}`}>
     <slot></slot>
-    <!-- Slot to allow child content -->
   </div>
 </div>
 

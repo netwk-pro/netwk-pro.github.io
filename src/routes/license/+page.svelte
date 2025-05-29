@@ -16,12 +16,6 @@ This file is part of Network Pro.
 
   /**
    * @type {string}
-   * Style class for the horizontal rule element.
-   */
-  const hrStyle = "hr-styled";
-
-  /**
-   * @type {string}
    * Style class for the div element.
    */
   const spaceStyle = "spacer";
@@ -34,7 +28,7 @@ This file is part of Network Pro.
 <link rel="canonical" href="https://netwk.pro/license" />
 
 <section id="license">
-  <FullWidthSection>
+  <FullWidthSection containerClass="readable">
     <!-- BEGIN LEGAL, COPYRIGHT, AND LICENSING -->
     <section id="main-content">
       <LicenseContent />
@@ -49,7 +43,7 @@ This file is part of Network Pro.
     </section>
     <!-- END SOCIAL MEDIA -->
 
-    <hr class={hrStyle} />
+    <hr />
 
     <div class={spaceStyle}></div>
 

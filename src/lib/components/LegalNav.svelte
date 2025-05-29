@@ -15,13 +15,13 @@ This file is part of Network Pro.
   const termsLink = `${base}/terms-of-use`;
   const privacyLink = `${base}/privacy`;
   const licenseLink = `${base}/license`;
+  const pdashLink = `${base}/privacy-dashboard`;
 
   /**
    * Navigation link object.
    * @typedef {Object} NavLink
    * @property {string} href - The URL the link points to.
    * @property {string} text - The text displayed for the link.
-   * @property {string} target - Specifies where to open the link (e.g., "_self" or "_blank").
    * @property {number} [colspan] - Optional property to specify column span for the table cell.
    */
 
@@ -32,45 +32,47 @@ This file is part of Network Pro.
   const rows = [
     [
       {
-        href: termsLink,
-        text: "Terms of Use",
-        target: "_self",
-      },
-      {
         href: privacyLink,
         text: "Privacy Policy",
-        target: "_self",
+      },
+      {
+        href: pdashLink,
+        text: "Privacy Dashboard",
       },
     ],
     [
       {
+        href: termsLink,
+        text: "Terms of Use",
+      },
+      {
         href: licenseLink,
         text: "Legal",
-        target: "_self",
-        colspan: 2,
       },
     ],
   ];
 </script>
 
 <!-- BEGIN LEGAL NAVIGATION -->
-<div class="bnav-wrap">
-  <table class="bnav">
-    <tbody>
-      {#each rows as row}
-        <tr>
-          {#each row as link}
-            <td
-              class={link.colspan ? "bnav-cell" : "bnav-nav"}
-              colspan={link.colspan || 1}>
-              <a href={link.href} target={link.target}>
-                {link.text}
-              </a>
-            </td>
-          {/each}
-        </tr>
-      {/each}
-    </tbody>
-  </table>
-</div>
+<nav aria-label="Legal navigation">
+  <div class="bnav-wrap">
+    <table class="bnav">
+      <tbody>
+        {#each rows as row}
+          <tr>
+            {#each row as link}
+              <td class="bnav-cell" colspan={link.colspan || 1}>
+                <a href={link.href} target="_self">
+                  {link.text}
+                </a>
+              </td>
+            {/each}
+          </tr>
+        {/each}
+      </tbody>
+    </table>
+  </div>
+</nav>
 <!-- END LEGAL NAVIGATION -->
+
+<!-- cspell:ignore pdash bnav -->

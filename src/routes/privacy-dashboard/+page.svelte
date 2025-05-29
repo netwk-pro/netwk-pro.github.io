@@ -1,5 +1,5 @@
 <!-- ==========================================================================
-src/lib/pages/FossSpotlightContent.svelte
+src/routes/privacy-dashboard/+page.svelte
 
 Copyright © 2025 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
@@ -9,10 +9,16 @@ This file is part of Network Pro.
 <script>
   import Badges from "$lib/components/Badges.svelte";
   import FullWidthSection from "$lib/components/FullWidthSection.svelte";
-  import FossContent from "$lib/pages/FossContent.svelte";
+  import PrivacyDashboard from "$lib/pages/PrivacyDashboard.svelte";
   import LegalNav from "$lib/components/LegalNav.svelte";
   import SocialMedia from "$lib/components/SocialMedia.svelte";
   import MetaTags from "$lib/components/MetaTags.svelte";
+
+  /**
+   * @type {string}
+   * Style class for the horizontal rule element.
+   */
+  const hrStyle = "hr-styled";
 
   /**
    * @type {string}
@@ -25,15 +31,15 @@ This file is part of Network Pro.
 
 <MetaTags title={data.meta.title} description={data.meta.description} />
 
-<link rel="canonical" href="https://netwk.pro/foss-spotlight" />
+<link rel="canonical" href="https://netwk.pro/privacy-dashboard" />
 
-<section id="license">
-  <FullWidthSection>
-    <!-- BEGIN FOSS SPOTLIGHT -->
+<section id="privacy">
+  <FullWidthSection containerClass="readable">
+    <!-- BEGIN PRIVACY DASHBOARD -->
     <section id="main-content">
-      <FossContent />
+      <PrivacyDashboard />
     </section>
-    <!-- END FOSS SPOTLIGHT -->
+    <!-- END PRIVACY DASHBOARD -->
 
     <div class={spaceStyle}></div>
 

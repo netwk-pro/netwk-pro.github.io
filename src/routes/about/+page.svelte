@@ -16,12 +16,6 @@ This file is part of Network Pro.
 
   /**
    * @type {string}
-   * Style class for the horizontal rule element.
-   */
-  const hrStyle = "hr-styled";
-
-  /**
-   * @type {string}
    * Style class for the div element.
    */
   const spaceStyle = "spacer";
@@ -48,7 +42,7 @@ This file is part of Network Pro.
       <SocialMedia />
     </section>
 
-    <hr class={hrStyle} />
+    <hr />
 
     <div class={spaceStyle}></div>
 

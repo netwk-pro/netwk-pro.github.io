@@ -51,6 +51,11 @@ const meta = {
     description:
       "FOSS Spotlight | Security, Networking, Privacy — Network Pro™",
   },
+  "/privacy-dashboard": {
+    title: "Privacy Dashboard — Network Pro™",
+    description:
+      "Privacy Dashboard | Security, Networking, Privacy — Network Pro™",
+  },
   // Excludes redirect-only routes like /contact, /consultation, /privacy-rights
 };
 
