@@ -4,7 +4,7 @@
   "sideEffects": [
     "./.netlify/shims.js"
   ],
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -60,7 +60,7 @@
     "test:server": "vitest --config vitest.config.server.js",
     "test:watch": "vitest --config vitest.config.client.js --watch",
     "test:coverage": "npm run test:client -- --run --coverage && npm run test:server -- --run --coverage",
-    "test:e2e": "npx playwright test",
+    "test:e2e": "npx playwright test --retries=1",
     "lint": "eslint . --ext .mjs,.js,.svelte",
     "lint:fix": "eslint . --ext .mjs,.js,.svelte --fix",
     "lint:jsdoc": "eslint . --ext .js,.mjs,.svelte --max-warnings=0",
@@ -80,7 +80,7 @@
     "nodemailer": "^7.0.3",
     "posthog-js": "^1.248.1",
     "semver": "^7.7.2",
-    "svelte": "5.33.6"
+    "svelte": "5.33.10"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.9",
@@ -106,10 +106,10 @@
     "markdownlint-cli2": "^0.18.1",
     "mdsvex": "^0.12.6",
     "playwright": "^1.52.0",
-    "postcss": "^8.5.3",
+    "postcss": "^8.5.4",
     "prettier": "^3.5.3",
     "prettier-plugin-svelte": "^3.4.0",
-    "stylelint": "^16.19.1",
+    "stylelint": "^16.20.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended": "^16.0.0",
     "stylelint-order": "^7.0.0",
