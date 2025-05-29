@@ -9,120 +9,78 @@ This file is part of Network Pro.
 import { expect, test } from "@playwright/test";
 
 test.describe("Desktop Tests", () => {
-  // Simplified Test for Title on Desktop
   test("should load successfully with the correct title", async ({
     page,
     browserName,
   }) => {
-    if (browserName === "webkit") {
-      test.skip(); // Skip WebKit if it's problematic
-    }
+    if (browserName === "webkit") test.skip();
 
     await page.setViewportSize({ width: 1280, height: 720 });
-
-    // Add a small timeout before navigating to the page
-    await page.waitForTimeout(1500); // Wait for 1.5 seconds
-
+    await page.waitForTimeout(1500);
     await page.goto("/");
-
-    // Wait for the page to fully load
-    await page.waitForLoadState("load", { timeout: 60000 }); // Wait until the page is fully loaded
-
-    // Assert that the title matches
+    await page.waitForLoadState("load", { timeout: 60000 });
     await expect(page).toHaveTitle(/Locking Down Networks/);
   });
 
-  // Simplified Test for Navigation Bar
   test("should display the navigation bar and 'about' link", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1280, height: 720 });
-
-    // Add a small timeout before navigating to the page
-    await page.waitForTimeout(1500); // Wait for 1.5 seconds
-
+    await page.waitForTimeout(1500);
     await page.goto("/");
 
-    // Ensure the navigation bar is visible
-    const nav = page.locator("nav");
+    const nav = page.getByRole("navigation", { name: "Homepage navigation" });
     await expect(nav).toBeVisible();
 
-    // Check for 'about' route in the navigation
-    const aboutLink = nav.locator("a", { hasText: "about" });
+    const aboutLink = nav.getByRole("link", { name: "about" });
     await expect(aboutLink).toBeVisible();
-    await expect(aboutLink).toHaveAttribute("href", "/about"); // Ensure it points to the correct route
+    await expect(aboutLink).toHaveAttribute("href", "/about");
   });
 
-  // Simplified Footer Visibility Test
   test("should display the footer correctly", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 720 });
-
-    // Add a small timeout before navigating to the page
-    await page.waitForTimeout(1500); // Wait for 1.5 seconds
-
+    await page.waitForTimeout(1500);
     await page.goto("/");
 
-    // Check that the footer is visible
     const footer = page.locator("footer");
     await expect(footer).toBeVisible();
   });
 
-  // Simplified Test for Clickable Links (e.g., 'about' link)
   test("should ensure the 'about' link is clickable", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 720 });
-
-    // Add a small timeout before navigating to the page
-    await page.waitForTimeout(1500); // Wait for 1.5 seconds
-
     await page.goto("/");
 
-    // Ensure the "about" link is visible and clickable
-    const aboutLink = page.locator("a", { hasText: "about" });
-    await expect(aboutLink).toBeVisible();
+    const nav = page.getByRole("navigation", { name: "Homepage navigation" });
+    await expect(nav).toBeVisible({ timeout: 60000 });
+
+    const aboutLink = nav.getByRole("link", { name: "about" });
+    await expect(aboutLink).toBeVisible({ timeout: 60000 });
     await aboutLink.click();
 
-    // Wait for the URL to update instead of relying on navigation
-    await page.waitForURL("/about", { timeout: 60000 }); // Wait for the correct URL
-
-    // Assert that it navigates to the correct route
+    await page.waitForURL("/about", { timeout: 60000 });
     await expect(page).toHaveURL(/\/about/);
   });
-});
+}); // End Desktop Tests
 
 test.describe("Mobile Tests", () => {
-  // Simplified Test for correct title on mobile
   test("should load successfully with the correct title on mobile", async ({
     page,
     browserName,
   }) => {
-    if (browserName === "webkit") {
-      test.skip(); // Skip WebKit if it's problematic
-    }
+    if (browserName === "webkit") test.skip();
 
-    await page.setViewportSize({ width: 375, height: 667 }); // Mobile size (e.g., iPhone 6)
-
-    // Add a small timeout before navigating to the page
-    await page.waitForTimeout(1500); // Wait for 1.5 seconds
-
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.waitForTimeout(1500);
     await page.goto("/");
-
-    // Wait for the page to fully load
-    await page.waitForLoadState("load", { timeout: 60000 }); // Wait until the page is fully loaded
-
-    // Assert that the title matches
+    await page.waitForLoadState("load", { timeout: 60000 });
     await expect(page).toHaveTitle(/Locking Down Networks/);
   });
 
-  // Simplified Test for mobile content visibility
   test("should display main content correctly on mobile", async ({ page }) => {
-    await page.setViewportSize({ width: 375, height: 667 }); // Mobile size
-
-    // Add a small timeout before navigating to the page
-    await page.waitForTimeout(1500); // Wait for 1.5 seconds
-
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.waitForTimeout(1500);
     await page.goto("/");
 
-    // Check that the main heading is visible on mobile
     const mainHeading = page.locator("h1, h2");
     await expect(mainHeading).toBeVisible();
   });
