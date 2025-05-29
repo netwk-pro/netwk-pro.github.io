@@ -1,4 +1,4 @@
-<!-- =========================================================================
+<!-- =====================================================================
 LICENSE.md
 
 Copyright © 2025 Network Pro Strategies (Network Pro™)
@@ -14,7 +14,7 @@ This file is part of Network Pro.
 # Legal, Copyright, and Licensing
 
 **Network Pro Strategies**  
-**Effective Date:** May 18, 2025
+**Effective Date:** May 28, 2025
 
 **Official Version Notice**  
 This document is provided for convenience only. In the event of any discrepancy, the authoritative version is the one published at [https://netwk.pro](https://netwk.pro).
@@ -38,8 +38,9 @@ This document is provided for convenience only. In the event of any discrepancy,
 9. [Third-Party Code and Licenses](#third-party)
 10. [Prohibited Uses](#prohibited-uses)
 11. [Modifications and Liability Disclaimer](#disclaimer)
-12. [Contact](#contact)
+12. [Authoritative Version Clause](#version)
 13. [Revisions](#revisions)
+14. [Contact](#contact)
 
 ---
 
@@ -191,12 +192,13 @@ Modifications, redistribution, or any use of the Licensed Material are performed
 
 <sub>[Back to top](#top)</sub>
 
-<a name="contact"></a>
+<a name="version"></a>
 
-## 12. Contact
+## 12. Authoritative Version Clause
 
-The Company may be contacted via our [contact form](https://netwk.pro/contact) or by email at:  
-📧 `contact (at) s.neteng.pro`
+In the event of any discrepancy between different versions, formats, or distributions of any legal document issued by the Company&mdash;including but not limited to license terms, policies, notices, or agreements&mdash;the version published on the Company's primary website at [https://netwk.pro](https://netwk.pro) shall be deemed the official and controlling version.
+
+It is your responsibility to review the most current version of any applicable legal document before relying on its contents. Continued use of the Company's materials, services, or Licensed Material constitutes acceptance of the most current version then in effect.
 
 <sub>[Back to top](#top)</sub>
 
@@ -208,7 +210,14 @@ This legal page may be updated to comply with legal or operational changes. The 
 
 <sub>[Back to top](#top)</sub>
 
-<a name="attribution"></a>
+<a name="contact"></a>
+
+## 14. Contact
+
+The Company may be contacted via our [contact form](https://netwk.pro/contact) or by email at:  
+📧 `contact (at) s.neteng.pro`
+
+<sub>[Back to top](#top)</sub>
 
 ---
 
@@ -231,3 +240,5 @@ Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slog
 Licensed under **[CC BY 4.0](#cc-by)** and the **[GNU GPL](#gnu-gpl)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
 
 </div>
+
+<!-- cspell:ignore dlnotes >
