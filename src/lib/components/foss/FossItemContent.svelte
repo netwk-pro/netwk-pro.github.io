@@ -126,8 +126,7 @@ This file is part of Network Pro.
             ><i class="fas fa-file-arrow-down" style="margin-left: 8px;"></i
             ></span>
           <a
-            {rel}
-            href="https://raw.githubusercontent.com/netwk-pro/dev-sveltekit/refs/heads/master/assets/bin/linksheet.json"
+            href="/assets/bin/linksheet.json"
             download
             type="application/json"
             style="margin-left: 8px;"

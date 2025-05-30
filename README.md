@@ -226,15 +226,15 @@ Located at `src/hooks.client.ts`, it is automatically used by the SvelteKit runt
 To receive and inspect CSP violation reports in development or production, the repo includes a Netlify-compatible function at:
 
 ```bash
-netlify-functions/csp-report.js
+netlify-functions/cspReport.js
 ```
 
-This function receives reports sent to `/functions/csp-report` and logs them to the console. You can later integrate with logging tools or alerts (e.g., via email, Slack, or SIEM ingestion).
+This function receives reports sent to `/functions/cspReport` and logs them to the console. You can later integrate with logging tools or alerts (e.g., via email, Slack, or SIEM ingestion).
 
 Make sure to include the `report-uri` directive in your CSP header:
 
 ```bash
-Content-Security-Policy: ...; report-uri /.netlify/functions/csp-report;
+Content-Security-Policy: ...; report-uri /.netlify/functions/cspReport;
 ```
 
 &nbsp;

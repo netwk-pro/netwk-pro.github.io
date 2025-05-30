@@ -8,19 +8,17 @@
 .markdownlint.jsonc
 
 
-# FontAwesome
-src/lib/styles/css/brands.css
+# Licenses
+assets/license
 
-# Minified CSS and CSS imports
+# Minified CSS
 *.min.css
-src/lib/styles/fa-global.css
-src/lib/styles/css/global.css
 
 # SvelteKit
 .svelte-kit/*
+src/lib/styles
 src/lib/*.js
 src/lib/data/*.js
-src/lib/styles/*.js
 
 # Node.js dependencies
 node_modules

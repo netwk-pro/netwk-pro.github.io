@@ -6,6 +6,14 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
+/**
+ * @file cspReport.js
+ * @description Sets up a CSP reporting endpoint with email notifications, to be deployed as a Netlify function.
+ * @module netlify-functions
+ * @author SunDevil311
+ * @updated 2025-05-29
+ */
+
 import nodemailer from "nodemailer";
 
 /**
