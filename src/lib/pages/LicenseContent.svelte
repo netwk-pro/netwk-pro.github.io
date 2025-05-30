@@ -220,30 +220,28 @@ This file is part of Network Pro.
       <p class={constants.classSmall}>
         Formats:
         <a
-          rel={constants.rel}
-          href="https://legal.netwk.pro/html/CC-BY-4.0.html"
-          target={constants.targetSelf}>HTML</a>
+          href="/assets/license/CC-BY-4.0.html"
+          download
+          target={constants.targetBlank}>HTML</a>
         |
         <a
-          rel={constants.rel}
-          href="https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.md"
+          href="/assets/license/CC-BY-4.0.md"
+          download
           target={constants.targetBlank}>Markdown</a>
         |
         <a
-          rel={constants.rel}
-          href="https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/CC-BY-4.0.txt"
+          href="/assets/license/CC-BY-4.0.txt"
+          download
           target={constants.targetBlank}>Text</a>
         |
         <a
-          rel={constants.rel}
+          href="/assets/license/CC-BY-4.0-rdfa.xml"
           download
-          href="https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0-rdfa.xml"
           target={constants.targetBlank}>RDFa</a>
         |
         <a
-          rel={constants.rel}
+          href="/assets/license/CC-BY-4.0.xml"
           download
-          href="https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/CC-BY-4.0.xml"
           target={constants.targetBlank}>XMP</a>
       </p>
 
@@ -325,30 +323,28 @@ This file is part of Network Pro.
       <p class={constants.classSmall}>
         Formats:
         <a
-          rel={constants.rel}
-          href="https://legal.netwk.pro/html/COPYING.html"
-          target={constants.targetSelf}>HTML</a>
+          href="/assets/license/COPYING.html"
+          download
+          target={constants.targetBlank}>HTML</a>
         |
         <a
-          rel={constants.rel}
-          href="https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.md"
+          href="/assets/license/COPYING.md"
+          download
           target={constants.targetBlank}>Markdown</a>
         |
         <a
-          rel={constants.rel}
-          href="https://github.com/netwk-pro/netwk-pro-legal/blob/master/assets/license/COPYING.txt"
+          href="/assets/license/COPYING.txt"
+          download
           target={constants.targetBlank}>Text</a>
         |
         <a
-          rel={constants.rel}
+          href="/assets/license/COPYING-rdfa.xml"
           download
-          href="https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/COPYING-rdfa.xml"
           target={constants.targetBlank}>RDFa</a>
         |
         <a
-          rel={constants.rel}
+          href="/assets/license/COPYING.odt"
           download
-          href="https://raw.githubusercontent.com/netwk-pro/netwk-pro-legal/refs/heads/master/assets/license/COPYING.odt"
           target={constants.targetBlank}>ODT</a>
       </p>
 

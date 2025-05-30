@@ -76,26 +76,30 @@ This file is part of Network Pro.
       label: "support@neteng.pro",
       qrSrc: pgpSupport,
       keySearch: "https://keys.openpgp.org/search?q=support%40neteng.pro",
-      fingerprint: ["6590b992e2e3eff12738", "7bce2af093e9dec61ba0"],
+      fingerprint: ["6590B992E2E3EFF12738", "7BCE2AF093E9DEC61BA0"],
     },
     {
       label: "contact@s.neteng.pro",
       qrSrc: pgpContact,
       keySearch: "https://keys.openpgp.org/search?q=contact%40s.neteng.pro",
-      fingerprint: ["df118baa6c2d9dcdebdc", "2ddcf99373499495f957"],
+      fingerprint: ["DF118BAA6C2D9DCDEBDC", "2DDCF99373499495F957"],
     },
   ];
 
   /**
-   * vCard information for contact details
-   * @type {{
-   *   qrSrc: string,
-   *   vcf: string
-   * }}
+   * @typedef {Object} ContactAssets
+   * @property {string} vcf - Path to the contact vCard (.vcf file)
+   * @property {string} qrSrc - Path to QR image for contact info
+   * @property {string} supportAsc - Support PGP public key file (.asc)
+   * @property {string} contactAsc - Contact PGP public key file (.asc)
    */
-  const vCard = {
+
+  /** @type {ContactAssets} */
+  const contactAssets = {
+    vcf: "/assets/bin/contact.vcf",
     qrSrc: vcfSrc,
-    vcf: "https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/bin/contact.vcf",
+    supportAsc: "/assets/bin/support@neteng.pro.asc",
+    contactAsc: "/assets/bin/contact@s.neteng.pro.asc",
   };
 </script>
 
@@ -192,7 +196,7 @@ This file is part of Network Pro.
 <div class="spacer"></div>
 
 <p>
-  <a {rel} href="https://netwk.pro/contact" target="_blank">Let's connect</a>
+  <a href="https://netwk.pro/contact" target="_self">Let's connect</a>
   to discuss how we can help secure and strengthen your business today.
 </p>
 
@@ -222,17 +226,25 @@ This file is part of Network Pro.
             alt={`PGP Key - ${pgpKeys[0].label}`} />
         </td>
         <td class="pgp-col2">
-          <a
-            {rel}
-            href={pgpKeys[0].keySearch}
-            download
-            type="application/pgp-keys"
-            target={tgtBlank}>
+          <a {rel} href={pgpKeys[0].keySearch} target={tgtBlank}>
             <strong>{pgpKeys[0].label}</strong>
           </a>
-          <p>Fingerprint:</p>
-          <p class="fingerprint">
-            {pgpKeys[0].fingerprint.join("\n")}
+          <p
+            ><strong
+              ><a
+                href={contactAssets.supportAsc}
+                type="application/pgp-keys"
+                download
+                target={tgtBlank}
+                >asc
+                <span class="fas fa-file-arrow-down"></span></a
+              ></strong>
+          </p>
+          <p
+            >Fingerprint:<br />
+            <span class="fingerprint">
+              {pgpKeys[0].fingerprint.join("\n")}
+            </span>
           </p>
         </td>
       </tr>
@@ -240,17 +252,24 @@ This file is part of Network Pro.
       <!-- Row 1 (Second row) has its columns swapped -->
       <tr>
         <td class="pgp-col1">
-          <a
-            {rel}
-            href={pgpKeys[1].keySearch}
-            download
-            type="application/pgp-keys"
-            target={tgtBlank}>
+          <a {rel} href={pgpKeys[1].keySearch} target={tgtBlank}>
             <strong>{pgpKeys[1].label}</strong>
           </a>
-          <p>Fingerprint:</p>
-          <p class="fingerprint">
-            {pgpKeys[1].fingerprint.join("\n")}
+          <p>
+            <strong
+              ><a
+                href={contactAssets.contactAsc}
+                type="application/pgp-keys"
+                download
+                target={tgtBlank}
+                >asc <span class="fas fa-file-arrow-down"></span></a
+              ></strong>
+          </p>
+          <p
+            >Fingerprint:<br />
+            <span class="fingerprint">
+              {pgpKeys[1].fingerprint.join("\n")}
+            </span>
           </p>
         </td>
         <td class="pgp-col2">
@@ -269,7 +288,7 @@ This file is part of Network Pro.
           <img
             {decoding}
             {loading}
-            src={vCard.qrSrc}
+            src={contactAssets.qrSrc}
             class="pgp-image"
             alt="vCard" />
         </td>
@@ -277,10 +296,9 @@ This file is part of Network Pro.
           <strong>vCard</strong>
           <p>
             <a
-              {rel}
-              href={vCard.vcf}
-              download
+              href={contactAssets.vcf}
               type="text/vcard"
+              download
               target={tgtBlank}>
               <strong>vcf</strong>
             </a>

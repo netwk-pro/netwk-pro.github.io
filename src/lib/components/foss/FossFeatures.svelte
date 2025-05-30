@@ -52,27 +52,4 @@ This file is part of Network Pro.
     font-weight: 600;
     margin-bottom: 0.5em;
   }
-
-  .emoji {
-    margin-right: 8px;
-  }
-
-  .headline {
-    display: block; /* Ensure it is on its own line */
-    font-weight: bold; /* Keep the first item bold */
-    font-style: italic; /* Only make the first item italic */
-    margin-bottom: 4px; /* Add space between headline and the rest */
-  }
-
-  .label {
-    font-weight: bold; /* Keep the label bold */
-    font-family: inherit; /* Ensure it uses the same font-family as normal text */
-  }
-
-  .description {
-    display: inline; /* Keep description inline */
-    font-weight: normal; /* Ensure the description is normal (not bold) */
-    font-family: inherit; /* Ensure it uses the same font-family as normal text */
-    font-style: normal; /* Remove italic for the description */
-  }
 </style>

@@ -114,10 +114,7 @@ This file is part of Network Pro.
       |
       <a href={tandcLink} target={constants.targetSelf}>Docs</a>
       |
-      <a
-        rel={constants.rel}
-        href="https://raw.githubusercontent.com/netwk-pro/netwk-pro.github.io/refs/heads/master/assets/consulting-terms.pdf"
-        target={constants.targetBlank}>
+      <a href="/assets/consulting-terms.pdf" target={constants.targetBlank}>
         PDF <span class="fas fa-file-arrow-down"></span>
       </a>
     </sup>
