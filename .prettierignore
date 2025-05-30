@@ -9,7 +9,7 @@
 
 
 # Licenses
-assets/license
+static/assets/license
 
 # Minified CSS
 *.min.css
