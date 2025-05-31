@@ -48,6 +48,16 @@ export function registerServiceWorker() {
         .then((registration) => {
           console.log("✅ Service Worker registered with scope:", registration.scope);
 
+          // 🧼 Manual cleanup of unexpected caches
+          caches.keys().then((keys) => {
+            keys.forEach((key) => {
+              if (!key.startsWith("cache-")) {
+                console.log("🧹 Deleting unexpected cache:", key);
+                caches.delete(key);
+              }
+            });
+          });
+
           registration.addEventListener("updatefound", () => {
             const newWorker = registration.installing;
             console.log("[SW-CLIENT] New service worker installing...");
