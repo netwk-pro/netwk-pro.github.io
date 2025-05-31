@@ -26,9 +26,7 @@ export async function handle({ event, resolve }) {
   }
 
   // Determine report URI
-  const reportUri = isProdEnvironment
-    ? "/.netlify/functions/cspReport"
-    : "/api/mock-csp";
+  const reportUri = isProdEnvironment ? "/api/cspReport" : "/api/mock-csp";
 
   // Construct base policy
   const cspDirectives = [
