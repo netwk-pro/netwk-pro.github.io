@@ -6,12 +6,82 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
-// cspell:ignore lsheet eauth bolditalic tosdr
-
 // Import FOSS images
-import { acodePng, acodeWbp, eauthPng, eauthWbp, lsheetPng, lsheetWbp, pmxPng, pmxWbp, tosPng, tosWbp, urlPng, urlWbp } from "$lib";
+import { acodePng, acodeWbp, eauthPng, eauthWbp, hboardPng, hboardWbp, lsheetPng, lsheetWbp, pmxPng, pmxWbp, tosPng, tosWbp, urlPng, urlWbp } from "$lib";
 
 export const fossData = [
+{
+    id: "heliboard",
+    images: {
+      webp: hboardWbp,
+      png: hboardPng,
+    },
+    imgAlt: "HeliBoard",
+    title: "HeliBoard",
+    headline: "⌨️ A privacy-first keyboard that respects your data. Always.",
+    headlineDescription: `
+      <p>
+        Meet <strong>HeliBoard</strong> — a fully open-source Android keyboard that puts privacy and user control first. No internet permissions. No telemetry. No tracking. Just a lightweight, seamless typing experience built by developers who genuinely care about digital freedom and transparency.
+      </p>
+    `,
+    features: [
+      {
+        emoji: "💡",
+        label: "Why Make the Switch to HeliBoard?",
+        isIntro: true
+      },
+      {
+        emoji: "✔️",
+        label: "Material Design interface",
+      },
+      {
+        emoji: "✔️",
+        label: "Built-in themes with dark mode support",
+      },
+      {
+        emoji: "✔️",
+        label: "No ads, data collection, or background connections",
+      },
+      {
+        emoji: "✔️",
+        label: "Emoji support, gesture input, and smart customization",
+      },
+      {
+        emoji: "✔️",
+        label: "Actively developed on GitHub",
+        description: "get involved!"
+      }
+    ],
+    detailsDescription: `
+      <p>
+        Whether you're switching from Gboard or just want something more minimal and ethical, HeliBoard brings you that true FOSS flavor while keeping your taps smooth and secure.
+      </p>
+      <p>
+        🛠️ Open-source. Lightweight. Transparent. HeliBoard isn't just a keyboard—it's a philosophy.
+      </p>
+      <p>
+        ✨ <strong>Weekly FOSS gems like this remind us: we have powerful alternatives, built by passionate devs, made for people who care. <em>Let's support that</em>.</strong>
+      </p>
+
+    `,
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Helium314/HeliBoard",
+      },
+      {
+        label: "F-Droid",
+        href: "https://f-droid.org/packages/helium314.keyboard/",
+      },
+      {
+        label: "IzzyOnDroid",
+        href: "https://apt.izzysoft.de/fdroid/index/apk/helium314.keyboard",
+      },
+    ],
+    notes: [
+      "Network Pro&trade; <strong>highly recommends</strong> that Android users choose an open-source keyboard—ideally one that does not require internet permissions. Concerns remain valid around proprietary keyboards like Gboard and Microsoft SwiftKey, which may collect and store user input data."
+    ],
+  },
 {
     id: "eauth",
     images: {
@@ -23,7 +93,7 @@ export const fossData = [
     headline: "🔐 Elevate Your 2FA Game with Ente Auth — The Cross-Platform Open-Source Powerhouse!",
     headlineDescription: `
       <p>
-        This week's <strong>FOSS Spotlight</strong> is on <strong>Ente Auth</strong> — the sleek, open-source 2FA authenticator that's putting privacy and usability front and center.
+        Discover <strong>Ente Auth</strong> — the sleek, open-source 2FA authenticator that's putting privacy and usability front and center.
       </p>
       <p>
         Whether you're a dev, a cybersecurity enthusiast, or simply serious about protecting your accounts, <strong>Ente Auth</strong> offers a next-level authentication experience — <strong>backed by encryption, not ads.</strong>
@@ -434,3 +504,5 @@ export const fossData = [
     notes: [],
   },
 ];
+
+// cspell:ignore hboard gboard lsheet eauth tosdr

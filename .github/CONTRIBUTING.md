@@ -4,8 +4,8 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== -->
 
-[SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info):
-`CC-BY-4.0 OR GPL-3.0-or-later`
+<sup>[SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info):
+`CC-BY-4.0 OR GPL-3.0-or-later`</sup>
 
 <section id="top">
 
@@ -139,7 +139,7 @@ included in the project:
    git pull upstream master
    ```
 
-3. Create a new topic branch (off the main project development branch) to
+3. Create a new topic branch (off the master project development branch) to
    contain your feature, change, or fix:
 
    ```bash
@@ -155,14 +155,14 @@ included in the project:
    Ensure that your `node` and `npm` versions are compatible with the `engines`
    specification in `package.json`.
 
-5. Lint your code locally. As reflected in the dependencies, the following
-   linting tools should be used:
+5. Lint your code locally. As reflected in the `devDependencies`, the following
+   linting and formatting tools &mdash; or equivalent &mdash; should be used:
 
    - [Prettier](https://prettier.io/)
    - [ESLint](https://eslint.org/)
    - [markdownlint](https://github.com/DavidAnson/markdownlint) and
      [markdownlint2](https://github.com/DavidAnson/markdownlint-cli2)
-   - [stylelint](https://stylelint.io/)
+   - [Stylelint](https://stylelint.io/)
 
 6. Commit your changes in logical chunks. Please adhere to these [git commit
    message guidelines](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
@@ -173,7 +173,7 @@ included in the project:
 7. Locally merge (or rebase) the upstream development branch into your topic branch:
 
    ```bash
-   git pull [--rebase] upstream main
+   git pull [--rebase] upstream master
    ```
 
 8. Update any applicable test cases and run tests:
