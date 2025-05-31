@@ -21,9 +21,8 @@ export async function handle({ event, resolve }) {
   const isProdEnvironment =
     process.env.NODE_ENV === "production" || process.env.ENV_MODE === "prod";
 
-  if (!isProdEnvironment) {
-    console.log("ENV_MODE:", process.env.ENV_MODE);
-  }
+  console.log("[CSP Debug] NODE_ENV:", process.env.NODE_ENV);
+  console.log("[CSP Debug] ENV_MODE:", process.env.ENV_MODE);
 
   // Determine report URI
   const reportUri = isProdEnvironment ? "/api/cspReport" : "/api/mock-csp";
