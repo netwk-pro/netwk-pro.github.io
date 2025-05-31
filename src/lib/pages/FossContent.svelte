@@ -46,7 +46,7 @@ This file is part of Network Pro.
    */
   const pageInfo = {
     title: "FOSS Spotlight",
-    lastUpdated: "May 26, 2025",
+    lastUpdated: "May 30, 2025",
   };
 
   /** @type {any} */
