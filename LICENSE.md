@@ -6,8 +6,8 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ====================================================================== -->
 
-[SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info/):
-`CC-BY-4.0 OR GPL-3.0-or-later`
+<sup>[SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info/):
+`CC-BY-4.0 OR GPL-3.0-or-later`</sup>
 
 <a name="top"></a>
 

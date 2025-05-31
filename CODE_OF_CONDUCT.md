@@ -8,8 +8,8 @@ This file is part of Network Pro.
 
 <a name="top"></a>
 
-[SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info):
-`CC-BY-4.0 OR GPL-3.0-or-later`
+<sup>[SPDX-License-Identifier](https://spdx.dev/learn/handling-license-info):
+`CC-BY-4.0 OR GPL-3.0-or-later`</sup>
 
 # Contributor Covenant Code of Conduct
 
@@ -152,12 +152,12 @@ For answers to common questions about this code of conduct, see the FAQ at
 
 ---
 
-<div style="font-size: 12px; font-weight: bold; text-align: center;">
+<span style="font-size: 12px; font-weight: bold; text-align: center;">
 
 [Home](https://netwk.pro) &nbsp; | &nbsp; [Terms of Use](https://netwk.pro/terms-of-use)  
 [Privacy Policy](https://netwk.pro/privacy) &nbsp; | &nbsp; [Legal](https://netwk.pro/license)
 
-</div>
+</span>
 
 &nbsp;
 

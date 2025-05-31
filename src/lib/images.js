@@ -15,7 +15,7 @@ This file is part of Network Pro.
  * @description Provides convenient access to images in the src/lib/img directory
  * @module src/lib
  * @author SunDevil311
- * @updated 2025-05-28
+ * @updated 2025-05-30
  */
 
 // Import favicon images
@@ -41,6 +41,8 @@ import acodePng from "$lib/img/posts/acode.png";
 import acodeWbp from "$lib/img/posts/acode.webp";
 import eauthPng from "$lib/img/posts/eauth.png";
 import eauthWbp from "$lib/img/posts/eauth.webp";
+import hboardPng from "$lib/img/posts/hboard.png";
+import hboardWbp from "$lib/img/posts/hboard.webp";
 import lsheetPng from "$lib/img/posts/linksheet.png";
 import lsheetWbp from "$lib/img/posts/linksheet.webp";
 import pmxPng from "$lib/img/posts/pmx.png";
@@ -67,6 +69,8 @@ export {
   eauthWbp,
   faviconSvg,
   gplBadge,
+  hboardPng,
+  hboardWbp,
   logoPng,
   logoWbp,
   lsheetPng,
@@ -84,4 +88,4 @@ export {
   vcfSrc
 };
 
-// cspell:ignore eauth
+// cspell:ignore eauth hboard
