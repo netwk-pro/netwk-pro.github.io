@@ -21,6 +21,12 @@ module.exports = {
         disableFullPageScreenshot: true,
       },
     },
+    assert: {
+      assertions: {
+        // Add budget checks by asserting that "resource-summary" does not exceed budget
+        "resource-summary": ["error", { budgetPath: "budget.json" }],
+      },
+    },
     upload: {
       target: "filesystem",
       outputDir: "./.lighthouseci",

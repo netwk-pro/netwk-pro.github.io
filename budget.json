@@ -1,0 +1,34 @@
+[
+  {
+    "path": "/*",
+    "resourceSizes": [
+      { "resourceType": "script", "budget": 300 },
+      { "resourceType": "stylesheet", "budget": 100 },
+      { "resourceType": "image", "budget": 350 },
+      { "resourceType": "font", "budget": 200 },
+      { "resourceType": "other", "budget": 150 },
+      { "resourceType": "document", "budget": 50 },
+      { "resourceType": "total", "budget": 1000 }
+    ],
+    "resourceCounts": [
+      { "resourceType": "third-party", "budget": 15 },
+      { "resourceType": "script", "budget": 15 },
+      { "resourceType": "stylesheet", "budget": 5 },
+      { "resourceType": "image", "budget": 15 },
+      { "resourceType": "font", "budget": 10 },
+      { "resourceType": "other", "budget": 10 },
+      { "resourceType": "total", "budget": 60 }
+    ]
+  },
+  {
+    "path": "/foss-spotlight",
+    "resourceSizes": [
+      { "resourceType": "image", "budget": 500 },
+      { "resourceType": "total", "budget": 1200 }
+    ],
+    "resourceCounts": [
+      { "resourceType": "image", "budget": 25 },
+      { "resourceType": "total", "budget": 75 }
+    ]
+  }
+]
