@@ -92,7 +92,10 @@ async function sendToNtfy(violated, blockedUri, report) {
     "frame-ancestors",
     "base-uri",
   ];
-  const isHighRisk = highRiskDirectives.some((d) => violated.includes(d));
+
+  const directiveKey = violated.split(" ")[0]; // strip fallback values or sources
+  const isHighRisk = highRiskDirectives.includes(directiveKey);
+  console.log(`[CSP-Edge] Checking directive: ${directiveKey}`);
   if (!isHighRisk) return;
 
   const key = `${violated}|${blockedUri}`;
