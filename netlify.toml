@@ -11,9 +11,8 @@
   targetPort = 5173
   port = 8888
 
-[functions."*"]
-  node_bundler = "esbuild"
-  included_files = ["netlify-functions/**"]
+[edge_functions]
+  directory = "edge-functions"
 
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"

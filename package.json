@@ -97,7 +97,7 @@
     "browserslist": "^4.25.0",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-jsdoc": "^50.6.17",
+    "eslint-plugin-jsdoc": "^50.7.0",
     "eslint-plugin-svelte": "^3.9.0",
     "globals": "^16.2.0",
     "jsdom": "^26.1.0",
