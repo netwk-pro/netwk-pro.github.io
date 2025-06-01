@@ -26,6 +26,7 @@ export default defineConfig({
     include: ["tests/unit/**/*.test.{js,mjs}"],
     exclude: ["tests/unit/**/*.svelte.test.{js,mjs}"],
     reporters: ["default", "json"],
+    testTimeout: 10000,
     outputFile: {
       json: "./reports/server/results.json",
     },

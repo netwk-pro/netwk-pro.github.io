@@ -21,23 +21,33 @@ import createDOMPurify from "dompurify";
  * @typedef {ReturnType<import('dompurify').default>} DOMPurifyInstance
  */
 
-let DOMPurify;
+/** @type {import('dompurify').DOMPurify | null} */
+let DOMPurifyInstance = null;
+
+/** @type {import('jsdom').JSDOM['window'] | null} */
+let jsdomWindow = null;
 
 /**
  * SSR-safe + Vite-compatible init of DOMPurify.
  *
+ * Caches DOMPurify across multiple calls to improve performance in tests or SSR environments.
+ *
  * @returns {Promise<DOMPurifyInstance>}
  */
 export async function getDOMPurify() {
+  if (DOMPurifyInstance) return DOMPurifyInstance;
+
   if (typeof window !== "undefined") {
     // ✅ Client-side: use native window
-    return createDOMPurify(window);
+    DOMPurifyInstance = createDOMPurify(window);
   } else {
     // ✅ SSR: dynamically import jsdom to avoid bundling
     const { JSDOM } = await import("jsdom");
-    const window = new JSDOM("").window;
-    return createDOMPurify(window);
+    jsdomWindow = jsdomWindow || new JSDOM("").window;
+    DOMPurifyInstance = createDOMPurify(jsdomWindow);
   }
+
+  return DOMPurifyInstance;
 }
 
 /**
@@ -56,4 +66,10 @@ export async function sanitizeHtml(dirtyHtml) {
   });
 }
 
-export default DOMPurify;
+/**
+ * Optional helper to reset cache (for test isolation).
+ */
+export function resetDOMPurifyCache() {
+  DOMPurifyInstance = null;
+  jsdomWindow = null;
+}
