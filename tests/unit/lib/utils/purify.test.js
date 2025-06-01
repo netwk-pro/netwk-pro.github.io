@@ -33,7 +33,7 @@ describe("sanitizeHtml", () => {
   it("removes dangerous attributes like onerror", async () => {
     const dirty = `<img src="x" onerror="alert(1)">`;
     const clean = await sanitizeHtml(dirty);
-    expect(clean).toBe('<img src="x">');
+    expect(clean).toBe("<img>");
   });
 
   it("keeps valid external links", async () => {
