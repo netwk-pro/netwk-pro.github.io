@@ -11,8 +11,9 @@
   targetPort = 5173
   port = 8888
 
-[edge_functions]
-  directory = "edge-functions"
+[[edge_functions]]
+  path = "/api/csp-report"
+  function = "csp-report"
 
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
