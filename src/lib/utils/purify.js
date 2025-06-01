@@ -61,8 +61,7 @@ export async function sanitizeHtml(dirtyHtml) {
   return DOMPurify.sanitize(dirtyHtml, {
     USE_PROFILES: { html: true },
     ALLOW_DATA_ATTR: false,
-    ALLOWED_URI_REGEXP:
-      /^(?:(?:https?|mailto):|[^a-z]|[a-z+.-]+(?:[^a-z+.-:]|$))/i,
+    ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto):)/i,
   });
 }
 
