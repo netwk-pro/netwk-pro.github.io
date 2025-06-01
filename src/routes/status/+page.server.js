@@ -19,6 +19,8 @@ This file is part of Network Pro.
  * @updated 2025-05-31
  */
 
+export const prerender = false;
+
 /**
  * @function load
  * @returns {{ ok: boolean }} Response indicating successful execution
