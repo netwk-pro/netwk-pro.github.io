@@ -28,6 +28,7 @@ jobs:
     runs-on: ubuntu-24.04
     # Continue workflow even if this job fails due to inability to find and/or check CodeQL workflow
     continue-on-error: true
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -55,6 +56,7 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       ENV_MODE: ci
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -100,10 +102,6 @@ jobs:
         if: steps.jsdoc_lint.outputs.jsdoc_count != '0'
         run: echo "⚠️ JSDoc lint check failed with ${{ steps.jsdoc_lint.outputs.jsdoc_count }} violations (non-blocking)"
 
-      # Check utility scripts for unit tests
-      - name: Audit utility scripts (non-blocking)
-        run: npm run audit:scripts || true
-
       # Test to ensure the package is working
       - name: Build Node.js project
         run: npm run build
@@ -124,6 +122,7 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       ENV_MODE: ci
+
     steps:
       - name: Log ENV_MODE
         run: 'echo "ENV_MODE is set to: $ENV_MODE"'
@@ -168,6 +167,7 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       ENV_MODE: ci
+
     steps:
       - name: Log ENV_MODE
         run: 'echo "ENV_MODE is set to: $ENV_MODE"'

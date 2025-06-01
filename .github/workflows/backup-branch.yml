@@ -1,0 +1,37 @@
+# .github/workflows/backup-branch.yml
+#
+# Syncs backup/nightly-snapshot branch with master every day at 10:00 UTC.
+# Only triggers on the default branch and not on PRs
+#
+# Copyright © 2025 Network Pro Strategies (Network Pro™)
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro
+
+name: Nightly Backup Branch Sync
+
+on:
+  schedule:
+    - cron: "0 10 * * *" # Every day at 10:00 AM UTC
+  workflow_dispatch: # Allow manual triggering too
+
+jobs:
+  sync-backup:
+    name: Sync backup/nightly-snapshot to master
+    runs-on: ubuntu-24.04
+    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0 # Required to push to another branch
+
+      - name: Set up Git
+        run: |
+          git config user.name "SunDevil311"
+          git config user.email "github@sl.neteng.cc"
+
+      - name: Force-push to backup/nightly-snapshot
+        run: |
+          git push --force origin HEAD:refs/heads/backup/nightly-snapshot

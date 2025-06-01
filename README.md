@@ -62,11 +62,10 @@ All infrastructure and data flows are designed with **maximum transparency, self
   ├── netlify/
   │   ├── edge-functions/
   │   │   └── csp-report.js         # Receives CSP violation reports
-  │   └── netlify.toml              # Netlify configuration
   ├── scripts/                      # General-purpose utility scripts
   ├── src/
   │   ├── app.html                  # Entry HTML (CSP meta, bootstrapping)
-  │   ├── hooks.client.ts           # PWA install prompt & client-side logging
+  │   ├── hooks.client.ts           # Client-side error handling
   │   ├── hooks.server.js           # Injects CSP headers and permissions policy
   │   ├── lib/                      # Components, utilities, types, styles
   │   │   ├── components/           # Svelte components
@@ -85,7 +84,9 @@ All infrastructure and data flows are designed with **maximum transparency, self
   │   │   └── auditCoverage.test.js # Warns about untested source modules
   │   └── unit/                     # Vitest unit tests
   ├── _redirects                    # Netlify redirect rules
-  └── package.json                  # Project manifest (scripts, deps, etc.)
+  ├── netlify.toml                  # Netlify configuration
+  ├── package.json                  # Project manifest (scripts, deps, etc.)
+  └── ...
 ```
 
 &nbsp;
@@ -340,7 +341,7 @@ You can optionally import unregisterServiceWorker() in a debug menu or settings 
 
 ## 📣 CSP Report Handler
 
-To receive and inspect CSP violation reports in development or production, the repo includes a Netlify-compatible function at:
+To receive and inspect CSP violation reports in development or production, the repo includes a Netlify-compatible [Edge Function](https://docs.netlify.com/edge-functions/overview/) at:
 
 ```bash
 netlify/edge-functions/csp-report.js
