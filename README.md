@@ -58,8 +58,9 @@ All infrastructure and data flows are designed with **maximum transparency, self
 │   ├── extensions.json    # Recommended VSCodium / VS Code extensions
 │   ├── extensions.jsonc   # Commented version of extensions.json for reference
 │   └── settings.json      # User settings for VSCodium / VS Code
-├── netlify-functions/
-│   └── cspReport.js       # Serverless function to receive and log CSP violation reports
+├── netlify/
+│   └── edge-functions/    # Netlify Edge Functions directory
+│       └── csp-report.js  # Edge Function to receive and log CSP violation reports
 ├── scripts/               # General utility scripts
 ├── src/
 │   ├── lib/               # Reusable components, styles, utilities
@@ -335,15 +336,15 @@ You can optionally import unregisterServiceWorker() in a debug menu or settings 
 To receive and inspect CSP violation reports in development or production, the repo includes a Netlify-compatible function at:
 
 ```bash
-netlify-functions/cspReport.js
+netlify/edge-functions/csp-report.js
 ```
 
-This function receives reports sent to `/functions/cspReport` and logs them to the console. You can later integrate with logging tools or alerts (e.g., via email, Slack, or SIEM ingestion).
+This Edge Function receives Content Security Policy (CSP) violation reports at `/api/csp-report` and logs relevant details to the console. High-risk violations (e.g., `script-src`, `form-action`) also trigger real-time alerts via `ntfy`. You can further integrate with logging tools, SIEM platforms, or notification systems as needed.
 
 Make sure to include the `report-uri` directive in your CSP header:
 
 ```bash
-Content-Security-Policy: ...; report-uri /.netlify/functions/cspReport;
+Content-Security-Policy: ...; report-uri /api/csp-report;
 ```
 
 </section>

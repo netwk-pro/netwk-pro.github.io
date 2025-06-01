@@ -25,7 +25,7 @@ export async function handle({ event, resolve }) {
   console.log("[CSP Debug] ENV_MODE:", process.env.ENV_MODE);
 
   // Determine report URI
-  const reportUri = isProdEnvironment ? "/api/cspReport" : "/api/mock-csp";
+  const reportUri = isProdEnvironment ? "/api/csp-report" : "/api/mock-csp";
 
   // Construct base policy
   const cspDirectives = [
