@@ -21,6 +21,9 @@ Disallow: /.lighthouseci/
 Disallow: /contact
 Disallow: /privacy-rights
 
+# Disallow CSP test page
+Disallow: /test-csp.html
+
 # Allow everything else
 Allow: /
 
