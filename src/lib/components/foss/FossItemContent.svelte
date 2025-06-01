@@ -7,8 +7,11 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
+  /* at-html is sanitized by DOMPurify */
   /* eslint-disable svelte/no-at-html-tags */
 
+  import { onMount } from "svelte";
+  import { sanitizeHtml } from "$lib/utils/purify.js";
   import FossFeatures from "$lib/components/foss/FossFeatures.svelte";
   // Import directly from $lib by way of image utility
   import { obtainiumPng, obtainiumWbp } from "$lib";
@@ -26,38 +29,27 @@ This file is part of Network Pro.
   /** @type {"lazy"} */
   const loading = "lazy";
 
-  /**
-   * @type {{
-   *   id: string,
-   *   title: string,
-   *   images: {
-   *     webp: string,
-   *     png: string
-   *   },
-   *   imgAlt: string,
-   *   headline: string,
-   *   headlineDescription: string,
-   *   detailsDescription: string,
-   *   features: any[],
-   *   notes: string[],
-   *   links: Array<{
-   *     label?: string,
-   *     href?: string,
-   *     imgAlt?: string,
-   *     downloadText?: string,
-   *     downloadHref?: string,
-   *     hideLabels?: boolean
-   *   }>
-   * }}
-   */
-  export let fossItem;
+  /// <reference path="$lib/types/fossTypes.js" />
 
+  /** @type {FossItem} */
+  export let fossItem;
   /**
    * Flag indicating if this is the first FOSS item in the list.
    * Only the first item should use eager loading.
    * @type {boolean}
    */
   export let isFirst = false;
+
+  let safeHeadlineDescription = "";
+  let safeDetailsDescription = "";
+  let safeNotes = [];
+
+  // Sanitize everything on mount
+  onMount(async () => {
+    safeHeadlineDescription = await sanitizeHtml(fossItem.headlineDescription);
+    safeDetailsDescription = await sanitizeHtml(fossItem.detailsDescription);
+    safeNotes = await Promise.all((fossItem.notes ?? []).map(sanitizeHtml));
+  });
 </script>
 
 <!-- BEGIN FOSS ITEMS -->
@@ -88,17 +80,21 @@ This file is part of Network Pro.
 
   <h3>{fossItem.headline}</h3>
 
-  <!-- Trusted input, from internal CMS -->
-  {@html fossItem.headlineDescription}
+  <!-- Sanitized input from DOMPurify -->
+  <div class="headline-description">
+    {@html safeHeadlineDescription}
+  </div>
 
   <FossFeatures features={fossItem.features} />
 
-  <!-- Trusted input, from internal CMS -->
-  {@html fossItem.detailsDescription}
+  <!-- Sanitized input from DOMPurify -->
+  <div class="details-description">
+    {@html safeDetailsDescription}
+  </div>
 
-  {#each fossItem.notes as note}
+  {#each safeNotes as note}
     <blockquote class="bquote">
-      <!-- Trusted input, from internal CMS -->
+      <!-- Sanitized input from DOMPurify -->
       {@html note}
     </blockquote>
   {/each}
