@@ -33,6 +33,7 @@ This file is part of Network Pro.
 
   /** @type {FossItem} */
   export let fossItem;
+
   /**
    * Flag indicating if this is the first FOSS item in the list.
    * Only the first item should use eager loading.
@@ -42,6 +43,7 @@ This file is part of Network Pro.
 
   let safeHeadlineDescription = "";
   let safeDetailsDescription = "";
+  /** @type {string[]} */
   let safeNotes = [];
 
   // Sanitize everything on mount

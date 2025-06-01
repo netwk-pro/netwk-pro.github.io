@@ -26,10 +26,14 @@ export default defineConfig({
     name: "client",
     environment: "jsdom",
     clearMocks: true,
-    include: ["tests/unit/**/*.svelte.test.{js,mjs}"],
+    include: [
+      "tests/unit/**/*.test.{js,mjs,svelte}",
+      "tests/internal/**/*.test.{js,mjs,svelte}",
+    ],
     exclude: [],
     setupFiles: ["./vitest-setup-client.js"],
     reporters: ["default", "json"],
+    testTimeout: 10000,
     outputFile: {
       json: "./reports/client/results.json",
     },
