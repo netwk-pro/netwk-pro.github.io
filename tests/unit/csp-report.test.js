@@ -18,7 +18,7 @@ This file is part of Network Pro.
 /** @typedef {import('vitest').TestContext} TestContext */
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import handler from "../../edge-functions/csp-report.js";
+import handler from "../../netlify/edge-functions/csp-report.js";
 
 // 🧪 Mock fetch used by sendToNtfy inside the Edge Function
 global.fetch = vi.fn(() =>
