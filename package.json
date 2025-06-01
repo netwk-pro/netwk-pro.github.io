@@ -4,7 +4,7 @@
   "sideEffects": [
     "./.netlify/shims.js"
   ],
-  "version": "1.7.9",
+  "version": "1.7.10",
   "description": "Locking Down Networks, Unlocking Confidence | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -80,7 +80,7 @@
     "nodemailer": "^7.0.3",
     "posthog-js": "^1.249.0",
     "semver": "^7.7.2",
-    "svelte": "5.33.10"
+    "svelte": "5.33.11"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.9",
