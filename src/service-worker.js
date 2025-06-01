@@ -38,7 +38,6 @@ const IGNORE_PATHS = new Set([
   "/img/svelte.png",
   "/webfonts/fa-brands-400.ttf",
   "/webfonts/fa-solid-900.ttf",
-  "/test-csp.html",
   "/robots.txt",
   "/screenshots/desktop-foss.png",
   "/sitemap.xml",
