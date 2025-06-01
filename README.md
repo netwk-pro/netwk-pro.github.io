@@ -51,34 +51,41 @@ All infrastructure and data flows are designed with **maximum transparency, self
 ## 📁 Repository Structure
 
 ```bash
-.
-├── .github/workflows/     # CI workflows and automation
-├── .vscode/
-│   ├── customData.json    # Custom CSS data for FontAwesome icons
-│   ├── extensions.json    # Recommended VSCodium / VS Code extensions
-│   ├── extensions.jsonc   # Commented version of extensions.json for reference
-│   └── settings.json      # User settings for VSCodium / VS Code
-├── netlify/
-│   └── edge-functions/    # Netlify Edge Functions directory
-│       └── csp-report.js  # Edge Function to receive and log CSP violation reports
-├── scripts/               # General utility scripts
-├── src/
-│   ├── lib/               # Reusable components, styles, utilities
-│   ├── routes/            # SvelteKit routes (+page.svelte, +page.server.js)
-│   ├── hooks.client.ts    # Handles PWA install prompt and logs client errors
-│   ├── hooks.server.js    # Injects CSP headers and permissions policy
-│   ├── app.html           # SvelteKit entry HTML with CSP/meta/bootentry
-│   └── service-worker.js  # Custom Service Worker
-├── static/                # Static assets served at root
-│   ├── manifest.json      # Manifest file for PWA configuration
-│   ├── robots.txt         # Instructions for web robots
-│   └── sitemap.xml        # Sitemap for search engines
-├── tests/
-│   ├── e2e/               # End-to-end Playwright tests
-│   └── unit/              # Vite unit tests
-├── _redirects             # Netlify redirects
-├── netlify.toml           # Netlify configuration
-└── ...
+  .
+  ├── .github/
+  │   └── workflows/                # CI workflows (e.g. test, deploy)
+  ├── .vscode/
+  │   ├── customData.json           # Custom CSS IntelliSense (e.g. FontAwesome)
+  │   ├── extensions.json           # Recommended VS Code / VSCodium extensions
+  │   ├── extensions.jsonc          # Commented version of extensions.json
+  │   └── settings.json             # Workspace settings
+  ├── netlify/
+  │   ├── edge-functions/
+  │   │   └── csp-report.js         # Receives CSP violation reports
+  │   └── netlify.toml              # Netlify configuration
+  ├── scripts/                      # General-purpose utility scripts
+  ├── src/
+  │   ├── app.html                  # Entry HTML (CSP meta, bootstrapping)
+  │   ├── hooks.client.ts           # PWA install prompt & client-side logging
+  │   ├── hooks.server.js           # Injects CSP headers and permissions policy
+  │   ├── lib/                      # Components, utilities, types, styles
+  │   │   ├── components/           # Svelte components
+  │   │   ├── data/                 # Custom data (e.g. JSON, metadata, constants)
+  │   │   └── utils/                # Helper utilities
+  │   ├── routes/                   # SvelteKit pages (+page.svelte, +server.js)
+  │   └── service-worker.js         # Custom PWA service worker
+  ├── static/                       # Public assets served at site root
+  │   ├── disableSw.js              # Service worker bypass (via ?nosw param)
+  │   ├── manifest.json             # PWA metadata
+  │   ├── robots.txt                # SEO: allow/disallow crawlers
+  │   └── sitemap.xml               # SEO: full site map
+  ├── tests/
+  │   ├── e2e/                      # Playwright end-to-end tests
+  │   ├── internal/                 # Internal audit/test helpers
+  │   │   └── auditCoverage.test.js # Warns about untested source modules
+  │   └── unit/                     # Vitest unit tests
+  ├── _redirects                    # Netlify redirect rules
+  └── package.json                  # Project manifest (scripts, deps, etc.)
 ```
 
 &nbsp;
@@ -307,7 +314,7 @@ To use:
 https://netwk.pro/?nosw
 ```
 
-> 💡 `disableSw.js` is loaded from the static directory and runs early, ensuring the `__DISABLE_SW__` flag is available before service worker logic executes.
+> 💡 `disableSw.js` is loaded via a `<script>` tag in `app.html` from the `static` directory. This ensures the `__DISABLE_SW__` flag is set before any service worker logic runs.
 
 &nbsp;
 
@@ -415,7 +422,13 @@ npm run test:coverage   # Collect code coverage reports
 npm run test:e2e        # Runs Playwright E2E tests (with one retry on failure)
 ```
 
+<!-- markdownlint-disable MD028 -->
+
+> The unit test suite includes a coverage audit (`auditCoverage.test.js`) that warns when source files in `src/` or `scripts/` do not have corresponding unit tests. This helps track test completeness without failing CI.
+
 > Playwright will retry failed tests once `(--retries=1)` to reduce false negatives from transient flakiness (network, render delay, etc.).
+
+<!-- markdownlint-enable MD028 -->
 
 Audit your app using Lighthouse:
 
@@ -550,14 +563,14 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 
 ### ✅ Pre-check / Sync
 
-| Script        | Description                                                  |
-| ------------- | ------------------------------------------------------------ |
-| `prepare`     | Run SvelteKit sync                                           |
-| `check`       | Run SvelteKit sync and type check with `svelte-check`        |
-| `check:watch` | Watch mode for type checks                                   |
-| `check:node`  | Validate Node & npm versions match package.json `engines`    |
-| `checkout`    | Full local validation: check versions, test, lint, typecheck |
-| `verify`      | Alias for `checkout`                                         |
+| Script        | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `prepare`     | Run SvelteKit sync                                                                  |
+| `check`       | Run SvelteKit sync and type check with `svelte-check`                               |
+| `check:watch` | Watch mode for type checks                                                          |
+| `check:node`  | Validate Node & npm versions match package.json `engines`                           |
+| `checkout`    | Full local validation: check versions, test (incl. audit coverage), lint, typecheck |
+| `verify`      | Alias for `checkout`                                                                |
 
 &nbsp;
 
@@ -577,15 +590,15 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 
 <!-- markdownlint-enable MD024 -->
 
-| Script          | Description                                            |
-| --------------- | ------------------------------------------------------ |
-| `test`          | Alias for `test:all`                                   |
-| `test:all`      | Run both client and server test suites                 |
-| `test:client`   | Run client tests with Vitest                           |
-| `test:server`   | Run server-side tests with Vitest                      |
-| `test:watch`    | Watch mode for client tests                            |
-| `test:coverage` | Collect coverage from both client and server           |
-| `test:e2e`      | Runs E2E tests with up to 1 automatic retry on failure |
+| Script          | Description                                                   |
+| --------------- | ------------------------------------------------------------- |
+| `test`          | Alias for `test:all`                                          |
+| `test:all`      | Run both client and server test suites (incl. audit coverage) |
+| `test:client`   | Run client tests with Vitest                                  |
+| `test:server`   | Run server-side tests with Vitest                             |
+| `test:watch`    | Watch mode for client tests                                   |
+| `test:coverage` | Collect coverage from both client and server                  |
+| `test:e2e`      | Runs E2E tests with up to 1 automatic retry on failure        |
 
 &nbsp;
 
@@ -615,11 +628,11 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 
 ### 📋 Audits / Validation
 
-| Script          | Description                                  |
-| --------------- | -------------------------------------------- |
-| `audit:scripts` | Check for untested utility scripts           |
-| `head:flatten`  | Flatten headers for Netlify                  |
-| `head:validate` | Validate headers file against project config |
+| Script           | Description                                          |
+| ---------------- | ---------------------------------------------------- |
+| `audit:coverage` | Warn about untested modules in `src/` and `scripts/` |
+| `head:flatten`   | Flatten headers for Netlify                          |
+| `head:validate`  | Validate headers file against project config         |
 
 &nbsp;
 

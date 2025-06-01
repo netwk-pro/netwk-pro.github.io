@@ -23,7 +23,7 @@ import path from "path";
 const [, , targetFile] = process.argv;
 
 if (!targetFile) {
-  console.error("Usage: node generate-test.js <path/to/yourFile.js>");
+  console.error("Usage: node generateTest.js <path/to/yourFile.js>");
   process.exit(1);
 }
 
