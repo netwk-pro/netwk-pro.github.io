@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSP Violation Test</title>
+    <script src="https://evil.example.com/nonExistent.js"></script>
+  </head>
+  <body>
+    <h1>CSP Violation Test (Raw)</h1>
+    <p style="color: red">
+      ⚠️ This page attempts to load a disallowed third-party script and should
+      trigger a CSP violation report.
+    </p>
+  </body>
+</html>
