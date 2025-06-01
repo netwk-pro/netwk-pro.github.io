@@ -132,7 +132,7 @@ async function sendToNtfy(violated, blockedUri, report) {
     method: "POST",
     headers: {
       "Content-Type": "text/plain",
-      "X-Title": "🚨 High-Risk CSP Violation",
+      "X-Title": "High-Risk CSP Violation",
       "X-Priority": "5",
     },
     body: message,
