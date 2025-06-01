@@ -14,7 +14,7 @@ This file is part of Network Pro.
  * Filters out common low-value reports (e.g., img-src) to reduce invocation
  * cost. Alerts on high-risk violations via ntfy topic.
  *
- * @module edge-functions
+ * @module netlify/edge-functions
  * @author SunDevil311
  * @updated 2025-05-31
  */
