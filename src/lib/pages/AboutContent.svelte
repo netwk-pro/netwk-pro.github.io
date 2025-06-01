@@ -8,6 +8,16 @@ This file is part of Network Pro.
 
 <script>
   import { pgpContact, pgpSupport, vcfSrc } from "$lib";
+  import { base } from "$app/paths";
+
+  // Log the base path to verify its value
+  //console.log("Base path:", base);
+
+  /**
+   * URL to the Contact Form route, using the base path
+   * @type {string}
+   */
+  const contactLink = `${base}/contact`;
 
   /**
    * Security attribute for external links
@@ -196,7 +206,7 @@ This file is part of Network Pro.
 <div class="spacer"></div>
 
 <p>
-  <a href="https://netwk.pro/contact" target="_self">Let's connect</a>
+  <a href={contactLink} target="_self">Let's connect</a>
   to discuss how we can help secure and strengthen your business today.
 </p>
 
@@ -236,8 +246,7 @@ This file is part of Network Pro.
                 type="application/pgp-keys"
                 download
                 target={tgtBlank}
-                >asc
-                <span class="fas fa-file-arrow-down"></span></a
+                >asc &nbsp;<span class="fas fa-file-arrow-down"></span></a
               ></strong>
           </p>
           <p
@@ -262,7 +271,7 @@ This file is part of Network Pro.
                 type="application/pgp-keys"
                 download
                 target={tgtBlank}
-                >asc <span class="fas fa-file-arrow-down"></span></a
+                >asc &nbsp;<span class="fas fa-file-arrow-down"></span></a
               ></strong>
           </p>
           <p
@@ -300,7 +309,8 @@ This file is part of Network Pro.
               type="text/vcard"
               download
               target={tgtBlank}>
-              <strong>vcf</strong>
+              <strong
+                >vcf &nbsp;<span class="fas fa-file-arrow-down"></span></strong>
             </a>
           </p>
         </td>

@@ -218,7 +218,7 @@ This file is part of Network Pro.
       </ul>
     {:else if link.id === "cc-by"}
       <p class={constants.classSmall}>
-        Formats:
+        Download:
         <a
           href="/assets/license/CC-BY-4.0.html"
           download
@@ -321,7 +321,7 @@ This file is part of Network Pro.
       </code>
     {:else if link.id === "gnu-gpl"}
       <p class={constants.classSmall}>
-        Formats:
+        Download:
         <a
           href="/assets/license/COPYING.html"
           download
