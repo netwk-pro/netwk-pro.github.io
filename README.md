@@ -17,6 +17,8 @@ This file is part of Network Pro.
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier) [![stylelint](https://img.shields.io/badge/stylelint-%23747474?style=flat&logo=stylelint&logoSize=auto&labelColor=%23263238)](https://stylelint.io/)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/CODE_OF_CONDUCT.md)
 
+<section id="top">
+
 ## 🚀 Project Overview
 
 This GitHub repository powers the official web presence of **[Network Pro Strategies](https://netwk.pro/about)** — a privacy-first consultancy specializing in cybersecurity, network engineering, and information security. We also lead public advocacy efforts promoting digital privacy and responsible cyber policy.
@@ -26,7 +28,27 @@ Built with [SvelteKit](https://kit.svelte.dev/) and deployed via [Netlify](https
 
 All infrastructure and data flows are designed with **maximum transparency, self-hosting, and user privacy** in mind.
 
-### 📁 Repository Structure
+</section>
+
+### Table of Contents
+
+- [Repository Structure](#structure)
+- [Getting Started](#getting-started)
+- [Configuration](#configuration)
+- [Service Worker Utilities](#sw-utilities)
+- [CSP Report Handler](#cspreport)
+- [Testing](#testing)
+- [Recommended Toolchain](#toolchain)
+- [Tooling Configuration](#toolconfig)
+- [Available Scripts](#scripts)
+- [License](#license)
+- [Questions](#questions)
+
+---
+
+<section id="structure">
+
+## 📁 Repository Structure
 
 ```bash
 .
@@ -74,7 +96,13 @@ tests/
 └── ...
 ```
 
+</section>
+
+<sub>[Back to top](#top)</sub>
+
 ---
+
+<section id="getting-started">
 
 ## 🛠 Getting Started
 
@@ -119,9 +147,9 @@ npm install
 > You can also use `bootstrap.local.sh` to automate the steps above and more (optional).  
 > `ENV_MODE` controls local tooling behavior — it is not used by the app runtime directly.
 
----
+&nbsp;
 
-#### 💾 Version Enforcement
+### 💾 Version Enforcement
 
 To ensure consistent environments across contributors and CI systems, this project enforces specific Node.js and npm versions via the `"engines"` field in `package.json`:
 
@@ -185,7 +213,13 @@ node -v     # Should fall within engines.node
 npm -v      # Should fall within engines.npm
 ```
 
-&nbsp;
+</section>
+
+<sub>[Back to top](#top)</sub>
+
+---
+
+<section id="configuration">
 
 ## 🛡️ Configuration
 
@@ -208,20 +242,95 @@ To re-enable nonce generation for inline scripts in the future:
 
 > 💡 The `[headers]` block in `netlify.toml` has been deprecated — all headers are now set dynamically from within SvelteKit.
 
----
+&nbsp;
 
 ### 🧭 `hooks.client.ts`
 
-This lightweight hook enhances client experience:
+Located at `src/hooks.client.ts`, this file is currently limited to handling uncaught client-side errors via the `handleError()` lifecycle hook.
 
-- Handles the `beforeinstallprompt` event to support progressive web app (PWA) install flows
-- Provides a `handleError()` hook that logs uncaught client-side errors
+Client-side PWA logic (such as handling the `beforeinstallprompt` event, checking browser compatibility, and registering the service worker) has been moved to `src/lib/registerServiceWorker.js` for better modularity and testability.
 
-Located at `src/hooks.client.ts`, it is automatically used by the SvelteKit runtime during client boot.
+> 💡 This separation ensures that error handling is isolated from PWA lifecycle logic, making both concerns easier to maintain.
+
+</section>
+
+<sub>[Back to top](#top)</sub>
 
 ---
 
-### 📣 CSP Report Handler
+<section id="sw-utilities">
+
+## ⚙️ Service Worker Utilities
+
+This project includes modular service worker management to support PWA functionality, update lifecycles, and debugging workflows.
+
+### ✅ `registerServiceWorker.js`
+
+Located at `src/lib/registerServiceWorker.js`, this module handles:
+
+- **Service worker registration** (`service-worker.js`)
+- **Update lifecycle**: prompts users when new content is available
+- **Cache hygiene**: removes unexpected caches not prefixed with `cache-`
+- **Install prompt support**: dispatches a `pwa-install-available` event for custom handling
+- **Firefox compatibility**: skips registration in Firefox during localhost development
+
+This function is typically called during client boot from `+layout.svelte` or another root-level component.
+
+> ℹ️ The service worker will not register if the `?nosw` flag is present or if `window.__DISABLE_SW__` is set (see below).
+
+&nbsp;
+
+### 🧹 `unregisterServiceWorker.js`
+
+Located at `src/lib/unregisterServiceWorker.js`, this utility allows for manual deactivation of service workers during debugging or user opt-out flows.
+
+It unregisters **all active service worker registrations** and logs the result.
+
+&nbsp;
+
+### 🚫 `disableSw.js`
+
+Located at `static/disableSw.js`, this file sets a global flag if the URL contains the `?nosw` query parameter:
+
+```js
+if (location.search.includes("nosw")) {
+  window.__DISABLE_SW__ = true;
+}
+```
+
+This flag is used by `registerServiceWorker.js` to bypass registration. It's helpful for testing environments, browser compatibility checks, or simulating first-load conditions without service worker interference.
+
+To use:
+
+```bash
+https://netwk.pro/?nosw
+```
+
+> 💡 `disableSw.js` is loaded from the static directory and runs early, ensuring the `__DISABLE_SW__` flag is available before service worker logic executes.
+
+&nbsp;
+
+#### 🔧 Example Usage
+
+To register the service worker conditionally, call the function from client code:
+
+```js
+import { registerServiceWorker } from "$lib/registerServiceWorker.js";
+
+registerServiceWorker();
+```
+
+You can optionally import unregisterServiceWorker() in a debug menu or settings panel to let users opt out of offline behavior.
+
+</section>
+
+<sub>[Back to top](#top)</sub>
+
+---
+
+<section id="cspreport">
+
+## 📣 CSP Report Handler
 
 To receive and inspect CSP violation reports in development or production, the repo includes a Netlify-compatible function at:
 
@@ -237,7 +346,13 @@ Make sure to include the `report-uri` directive in your CSP header:
 Content-Security-Policy: ...; report-uri /.netlify/functions/cspReport;
 ```
 
-&nbsp;
+</section>
+
+<sub>[Back to top](#top)</sub>
+
+---
+
+<section id="testing">
 
 ## 🧪 Testing
 
@@ -332,7 +447,13 @@ You can also audit locally using Chrome DevTools → Lighthouse tab for on-the-f
 
 <!-- markdownlint-disable MD028 -->
 
+</section>
+
+<sub>[Back to top](#top)</sub>
+
 ---
+
+<section id="toolchain">
 
 ## 🛠 Recommended Toolchain
 
@@ -371,7 +492,13 @@ npm run lint:fix
 npm run format:fix
 ```
 
+</section>
+
+<sub>[Back to top](#top)</sub>
+
 ---
+
+<section id="toolconfig">
 
 ## ⚙️ Tooling Configuration
 
@@ -395,7 +522,13 @@ These are the same rules used by CI and automation, so aligning your local setup
 
 > Note: `.vscode/extensions.json` defines a minimal recommended dev stack for VSCodium / VS Code. These extensions are **optional but thoughtfully curated** to improve developer experience without introducing bloat.
 
+</section>
+
+<sub>[Back to top](#top)</sub>
+
 ---
+
+<section id="scripts">
 
 ## 📜 Available Scripts
 
@@ -412,7 +545,7 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 | `build:netlify` | Build using Netlify CLI                                                  |
 | `css:bundle`    | Bundle and minify CSS                                                    |
 
----
+&nbsp;
 
 ### ✅ Pre-check / Sync
 
@@ -425,7 +558,7 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 | `checkout`    | Full local validation: check versions, test, lint, typecheck |
 | `verify`      | Alias for `checkout`                                         |
 
----
+&nbsp;
 
 ### 🧹 Cleanup & Maintenance
 
@@ -435,7 +568,7 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 | `clean`   | Fully reset environment and reinstall           |
 | `upgrade` | Update all dependencies via `npm-check-updates` |
 
----
+&nbsp;
 
 <!-- markdownlint-disable MD024 -->
 
@@ -453,7 +586,7 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 | `test:coverage` | Collect coverage from both client and server           |
 | `test:e2e`      | Runs E2E tests with up to 1 automatic retry on failure |
 
----
+&nbsp;
 
 ### 🧼 Linting & Formatting
 
@@ -468,7 +601,7 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 | `format`     | Run Prettier formatting check           |
 | `format:fix` | Auto-format code using Prettier         |
 
----
+&nbsp;
 
 ### 💡 Lighthouse / Performance
 
@@ -477,7 +610,7 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 | `lhci`     | Alias for Lighthouse CI   |
 | `lhci:run` | Run Lighthouse CI autorun |
 
----
+&nbsp;
 
 ### 📋 Audits / Validation
 
@@ -487,7 +620,7 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 | `head:flatten`  | Flatten headers for Netlify                  |
 | `head:validate` | Validate headers file against project config |
 
----
+&nbsp;
 
 ### 🔄 Lifecycle Hooks
 
@@ -495,9 +628,13 @@ The following CLI commands are available via `npm run <script>` or `pnpm run <sc
 | ------------- | ----------------------------------- |
 | `postinstall` | Ensures version check after install |
 
-&nbsp;
+</section>
+
+<sub>[Back to top](#top)</sub>
 
 ---
+
+<section id="license">
 
 ## 🧾 License
 
@@ -509,11 +646,21 @@ This project is licensed under:
 
 Source code, branding, and visual assets are subject to reuse and distribution terms specified on our [Legal, Copyright, and Licensing page](https://netwk.pro/license).
 
-&nbsp;
+</section>
+
+<sub>[Back to top](#top)</sub>
+
+---
+
+<section id="questions">
 
 ## 🙋‍♂️Questions?
 
-Reach out via [netwk.pro/contact](https://netwk.pro/contact), open an issue on this repo, or email us directly at `contact (at) s.neteng.pro`.
+Reach out via our [Contact Form](https://netwk.pro/contact), open an issue on this repo, or email us directly at `support (at) neteng.pro`.
+
+</section>
+
+<sub>[Back to top](#top)</sub>
 
 &nbsp;
 
@@ -522,7 +669,7 @@ _Designed for professionals. Hardened for privacy. Built with intent._
 
 ---
 
-<div style="font-size: 12px; text-align: center;">
+<span style="font-size: 12px; text-align: center;">
 
 Copyright &copy; 2025  
 **[Network Pro Strategies](https://netwk.pro) (Network Pro&trade;)**
@@ -531,4 +678,6 @@ Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slog
 
 Licensed under **[CC BY 4.0](https://netwk.pro/license#cc-by)** and the **[GNU GPL](https://netwk.pro/license#gnu-gpl)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
 
-</div>
+</span>
+
+<!-- cspell:ignore cspreport toolconfig -->

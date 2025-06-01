@@ -79,7 +79,7 @@ This file is part of Network Pro.
       {#if label === "blog"}
         <br />
       {:else}
-        <span class="separator">|</span>
+        <span class="goldseparator">|</span>
       {/if}
     {/if}
   {/each}

@@ -63,6 +63,17 @@
     "#response",
     "#enforce",
     "#attribute",
-    "#version"
+    "#version",
+    "#structure",
+    "#getting-started",
+    "#configuration",
+    "#sw-utilities",
+    "#cspreport",
+    "#testing",
+    "#toolchain",
+    "#toolconfig",
+    "#scripts",
+    "#license",
+    "#questions"
   ]
 }
