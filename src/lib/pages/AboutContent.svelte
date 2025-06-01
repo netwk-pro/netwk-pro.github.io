@@ -236,8 +236,7 @@ This file is part of Network Pro.
                 type="application/pgp-keys"
                 download
                 target={tgtBlank}
-                >asc
-                &nbsp;<span class="fas fa-file-arrow-down"></span></a
+                >asc &nbsp;<span class="fas fa-file-arrow-down"></span></a
               ></strong>
           </p>
           <p
@@ -300,7 +299,8 @@ This file is part of Network Pro.
               type="text/vcard"
               download
               target={tgtBlank}>
-              <strong>vcf &nbsp;<span class="fas fa-file-arrow-down"></span></strong>
+              <strong
+                >vcf &nbsp;<span class="fas fa-file-arrow-down"></span></strong>
             </a>
           </p>
         </td>
