@@ -16,6 +16,8 @@ This file is part of Network Pro.
     clearTrackingPreferences,
   } from "$lib/utils/trackingCookies.js";
 
+  console.log(__PRIVACY_EMAIL__); // "privacy (at) netwk.pro"
+
   /**
    * @type {string}
    * Style class for the div element.
@@ -211,24 +213,48 @@ This file is part of Network Pro.
 <section id="rights">
   <h3>Your Rights and Choices</h3>
 
-  <p> Under applicable state and federal law, you may have rights to: </p>
+  <p
+    ><em>We do not sell your personal information under any circumstances.</em
+    ></p>
+  <p>
+    However, under applicable state, federal, and international privacy laws,
+    you may have the right to:
+  </p>
 
   <ul>
-    <li
-      ><strong>Access, update, or delete</strong> your personal information, subject
-      to legal and contractual limitations.</li>
-    <li
-      ><strong>Restrict or object to processing</strong> under certain conditions,
-      as permitted by law.</li>
-    <li><strong>Opt out of direct marketing</strong></li>
+    <li>
+      <strong>Access, correct, or delete</strong> your personal information, subject
+      to legal and contractual limitations;
+    </li>
+    <li>
+      <strong
+        >Restrict or object to the processing of your personal data</strong> in certain
+      circumstances, as permitted by law;
+    </li>
+    <li><strong>Opt out</strong> of direct marketing communications.</li>
   </ul>
 
   <p>
-    To exercise these rights, please use our <a
+    Although these rights are specifically granted to residents of California
+    and the European Union under laws such as the <a
       rel={constants.rel}
+      href="https://oag.ca.gov/privacy/ccpa"
+      target={constants.targetBlank}>California Consumer Privacy Act (CCPA)</a
+    >, the California Privacy Rights Act (CPRA), and the
+    <a
+      rel={constants.rel}
+      href="https://gdpr.eu/what-is-gdpr/"
+      target={constants.targetBlank}
+      >EU General Data Protection Regulation (GDPR)</a
+    >, we voluntarily extend these rights to all users, regardless of residency.
+  </p>
+  <p>
+    To exercise any of these rights, you may submit a request through our <a
       href={prightsLink}
-      target={constants.targetBlank}>Privacy Rights Request Form</a>
-    or email us at <code>contact (at) s.neteng.pro</code>.
+      target={constants.targetBlank}>Privacy Rights Request Form</a
+    >. Alternatively, you can email us at
+    <strong>{__PRIVACY_EMAIL__}</strong>
+    with the subject line: "<strong>Privacy Rights Preferences</strong>".
   </p>
 </section>
 

@@ -16,6 +16,10 @@ This file is part of Network Pro.
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
+  console.log(__COMPANY__); // "Network Pro Strategies"
+  console.log(__APP_NAME__); // "Network Pro"
+  console.log(__COPYRIGHT_YEAR__); // "2025"
+
   // Dynamic links for licensing and trademark
   const ccbyLink = `${base}/license#cc-by`;
   const gnugplLink = `${base}/license#gnu-gpl`;
@@ -51,9 +55,7 @@ This file is part of Network Pro.
    * @type {Creator}
    */
   const creator = {
-    name: "Network Pro Strategies",
     url: "https://netwk.pro",
-    trademark: "Network Pro™",
     slogan: "Locking Down Networks™",
   };
 
@@ -122,20 +124,21 @@ This file is part of Network Pro.
 <div class="copyright" {...namespaceAttributes}>
   <!-- Copyright Section -->
   <p>
-    Copyright &copy; 2025<br />
+    Copyright &copy; {__COPYRIGHT_YEAR__}<br />
     <a
       rel="cc:attributionURL dct:creator"
       property="cc:attributionName"
       href={creator.url}
       target={targetBlank}>
-      <strong>{creator.name}</strong>
+      <strong>{__COMPANY__}</strong>
     </a>
-    ({creator.trademark})
+    ({__APP_NAME__}&trade;)
   </p>
 
   <!-- Trademark Section -->
   <p>
-    {creator.trademark}, the shield logo, and the "{creator.slogan}" slogan are
+    {__APP_NAME__}&trade;, the shield logo, and the "{creator.slogan}" slogan
+    are
     <a href={trademarkLink} target={targetSelf}>trademarks</a>
     of {creator.name}.
   </p>

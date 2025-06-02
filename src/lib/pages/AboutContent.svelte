@@ -13,6 +13,9 @@ This file is part of Network Pro.
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
+  console.log(__COMPANY__); // "Network Pro Strategies"
+  console.log(__APP_NAME__); // "Network Pro"
+
   /**
    * URL to the Contact Form route, using the base path
    * @type {string}
@@ -123,9 +126,9 @@ This file is part of Network Pro.
 </section>
 
 <section id="page-title">
-  <h1>About Network Pro&trade;</h1>
+  <h1>About {__APP_NAME__}&trade;</h1>
   <p>
-    <strong>Network Pro Strategies (Network Pro&trade;)</strong>
+    <strong>{__COMPANY__} ({__APP_NAME__}&trade;)</strong>
     <br />
     <em>Remote-First Cybersecurity & Privacy Consulting</em>
   </p>
@@ -150,8 +153,8 @@ This file is part of Network Pro.
 </p>
 
 <p>
-  At <strong>Network Pro Strategies (Network Pro&trade;)</strong>, we deliver
-  network security, cybersecurity, and digital privacy consulting with clarity,
+  At <strong>{__COMPANY__} ({__APP_NAME__}&trade;)</strong>, we deliver network
+  security, cybersecurity, and digital privacy consulting with clarity,
   credibility, and care. We believe that real security doesn't have to come at
   the cost of user autonomy, and that privacy-minded solutions can be both
   practical and powerful.

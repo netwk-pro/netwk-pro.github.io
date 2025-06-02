@@ -6,8 +6,6 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== -->
 
-<!-- cspell:ignore prights prefs pdash -->
-
 <script>
   import { base } from "$app/paths";
   import { onMount } from "svelte";
@@ -20,6 +18,13 @@ This file is part of Network Pro.
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
+
+  console.log(__COMPANY__); // "Network Pro Strategies"
+  console.log(__APP_NAME__); // "Network Pro"
+  console.log(__CONTACT_EMAIL__); // "support (at) neteng.pro"
+  console.log(__SECURE_EMAIL__); // "contact (at) s.neteng.pro"
+  console.log(__PRIVACY_EMAIL__); // "privacy (at) netwk.pro"
+  console.log(__PHONE__); // "(623) 252-4350"
 
   /**
    * URL to the Privacy Rights Request Form redirect route, using the base path
@@ -59,16 +64,10 @@ This file is part of Network Pro.
   ];
 
   /**
-   * Contact Information
-   * @type {{ company: string, email: string, secure: string, phone: string, effectiveDate: string }}
+   * Effective Date
+   * @type {{ effectiveDate: string }}
    */
-  const contactInfo = {
-    company: "Network Pro Strategies",
-    email: "support (at) neteng.pro",
-    secure: "contact (at) s.neteng.pro",
-    phone: "(623) 252-4350",
-    effectiveDate: "May 28, 2025",
-  };
+  const effectiveDate = "June 2, 2025";
 
   /**
    * Constants used throughout the component for consistent styling and behavior
@@ -148,9 +147,9 @@ This file is part of Network Pro.
 <section id="page-title">
   <h1>Privacy Policy</h1>
   <p>
-    <strong>{contactInfo.company}</strong><br />
+    <strong>{__COMPANY__}</strong><br />
     <strong>Effective Date:</strong>
-    {contactInfo.effectiveDate}
+    {effectiveDate}
   </p>
 </section>
 <!-- END TITLE -->
@@ -205,14 +204,19 @@ This file is part of Network Pro.
       </p>
     {:else if link.id === "collect"}
       <ul>
-        <li
-          ><strong>Personal Identifiers</strong> (e.g., name, email, phone number)</li>
-        <li><strong>Business and Professional Information</strong></li>
-        <li
-          ><strong>Device/Technical Information</strong> (e.g., IP address, browser
-          type, access logs)</li>
-        <li
-          ><strong>Client-Submitted Content</strong> related to our services</li>
+        <li>
+          <strong>Personal Identifiers</strong> (e.g., name, email, phone number)
+        </li>
+        <li>
+          <strong>Business and Professional Information</strong>
+        </li>
+        <li>
+          <strong>Device/Technical Information</strong> (e.g., IP address, browser
+          type, access logs)
+        </li>
+        <li>
+          <strong>Client-Submitted Content</strong> related to our services
+        </li>
       </ul>
     {:else if link.id === "tracking"}
       <p>
@@ -226,8 +230,9 @@ This file is part of Network Pro.
       <ul>
         <li>Pages visited and navigation behavior</li>
         <li>Device type, browser version, and operating system</li>
-        <li
-          >Time spent on pages and interaction events (e.g., clicks, scrolls)</li>
+        <li>
+          Time spent on pages and interaction events (e.g., clicks, scrolls)
+        </li>
         <li>Referral URLs and outbound link activity</li>
         <li>General geolocation (approximate, based on IP address)</li>
       </ul>
@@ -308,8 +313,6 @@ This file is part of Network Pro.
         When processing payments, we may collect credit card details and billing
         contact information. All credit card data is encrypted via TLS and
         shared only with PCI-compliant processors.
-        <strong
-          >Data is purged within 90 days post-verification of payment.</strong>
       </p>
     {:else if link.id === "use"}
       <p>Information is used to:</p>
@@ -325,24 +328,26 @@ This file is part of Network Pro.
         business information under the following circumstances:
       </p>
       <ul>
-        <li
-          ><strong>With Service Providers:</strong> We may share your
-          information with carefully selected third-party vendors under
-          enforceable, contractual agreements. These providers support essential
-          aspects of our operations&mdash;including, but not limited to, payment
-          processing, data analytics, and customer support services. All such
-          partnerships are structured to uphold our core principles of
+        <li>
+          <strong>With Service Providers:</strong> We may share your information
+          with carefully selected third-party vendors. These providers support
+          essential aspects of our operations&mdash;including, but not limited
+          to, payment processing, data analytics, and customer support services.
+          All such partnerships are structured to uphold our core principles of
           <em>transparency, self-hosting, and prioritizing user privacy</em> across
-          all infrastructure and data flows.</li>
-        <li
-          ><strong>Legal Compliance:</strong> We may disclose information if required
+          all infrastructure and data flows.
+        </li>
+        <li>
+          <strong>Legal Compliance:</strong> We may disclose information if required
           to do so by applicable law, regulation, legal process, or enforceable governmental
-          request, including subpoenas or court orders.</li>
-        <li
-          ><strong>Business Transfers:</strong> In connection with a merger, acquisition,
+          request, including subpoenas or court orders.
+        </li>
+        <li>
+          <strong>Business Transfers:</strong> In connection with a merger, acquisition,
           asset sale, or similar corporate transaction, we may disclose or transfer
           personal information, provided that reasonable steps are taken to ensure
-          continued confidentiality and compliance with applicable privacy laws.</li>
+          continued confidentiality and compliance with applicable privacy laws.
+        </li>
       </ul>
     {:else if link.id === "security"}
       <p>
@@ -355,22 +360,52 @@ This file is part of Network Pro.
       </p>
     {:else if link.id === "rights"}
       <h3>Your Rights and Choices</h3>
-      <p> Under applicable state and federal law, you may have rights to: </p>
-      <ul>
-        <li
-          ><strong>Access, update, or delete</strong> your personal information,
-          subject to legal and contractual limitations.</li>
-        <li
-          ><strong>Restrict or object to processing</strong> under certain conditions,
-          as permitted by law.</li>
-        <li><strong>Opt out of direct marketing</strong></li>
-      </ul>
+
+      <p
+        ><em
+          >We do not sell your personal information under any circumstances.</em
+        ></p>
       <p>
-        To exercise these rights, please use our <a
+        However, under applicable state, federal, and international privacy
+        laws, you may have the right to:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Access, correct, or delete</strong> your personal information,
+          subject to legal and contractual limitations;
+        </li>
+        <li>
+          <strong
+            >Restrict or object to the processing of your personal data</strong>
+          in certain circumstances, as permitted by law;
+        </li>
+        <li><strong>Opt out</strong> of direct marketing communications.</li>
+      </ul>
+
+      <p>
+        Although these rights are specifically granted to residents of
+        California and the European Union under laws such as the <a
           rel={constants.rel}
+          href="https://oag.ca.gov/privacy/ccpa"
+          target={constants.targetBlank}
+          >California Consumer Privacy Act (CCPA)</a
+        >, the California Privacy Rights Act (CPRA), and the
+        <a
+          rel={constants.rel}
+          href="https://gdpr.eu/what-is-gdpr/"
+          target={constants.targetBlank}
+          >EU General Data Protection Regulation (GDPR)</a
+        >, we voluntarily extend these rights to all users, regardless of
+        residency.
+      </p>
+      <p>
+        To exercise any of these rights, you may submit a request through our <a
           href={prightsLink}
-          target={constants.targetBlank}>Privacy Rights Request Form</a>
-        or email us at <code>{contactInfo.secure}</code>.
+          target={constants.targetBlank}>Privacy Rights Request Form</a
+        >. Alternatively, you can email us at
+        <strong>{__PRIVACY_EMAIL__}</strong>
+        with the subject line: "<strong>Privacy Rights Preferences</strong>".
       </p>
     {:else if link.id === "third-party"}
       <p>
@@ -396,10 +431,10 @@ This file is part of Network Pro.
           href={contactLink}
           target={constants.targetSelf}>Contact Form</a> or contact us directly:</p>
       <p>
-        <strong>{contactInfo.company}</strong><br />
-        📧 General Inquiries: <code>{contactInfo.email}</code><br />
-        🔐 Secure Email: <code>{contactInfo.secure}</code><br />
-        📞 Phone: {contactInfo.phone}
+        <strong>{__COMPANY__}</strong><br />
+        📧 General Inquiries: {__CONTACT_EMAIL__}<br />
+        🔐 Secure Email: {__SECURE_EMAIL__}<br />
+        📞 Phone: {__PHONE__}
       </p>
     {/if}
 
@@ -411,3 +446,5 @@ This file is part of Network Pro.
 {/each}
 <!-- END POLICY SECTIONS -->
 <!-- END PRIVACY POLICY -->
+
+<!-- cspell:ignore prights prefs pdash -->

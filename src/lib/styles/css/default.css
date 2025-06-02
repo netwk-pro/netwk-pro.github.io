@@ -433,8 +433,17 @@ footer .container {
   text-align: center;
 }
 
+.gold {
+  color: #FFC627;
+}
+
 .visited {
   color: #7f6227;
+}
+
+.goldseparator {
+  margin: 0 0.5rem;
+  color: #FFC627;
 }
 
 .center-nav {
@@ -496,13 +505,4 @@ footer .container {
   font-weight: normal; /* Ensure the description is normal (not bold) */
   font-family: inherit; /* Ensure it uses the same font-family as normal text */
   font-style: normal; /* Remove italic for the description */
-}
-
-.goldseparator {
-  margin: 0 0.5rem;
-  color: #FFC627;
-}
-
-.gold {
-  color: #FFC627;
 }
