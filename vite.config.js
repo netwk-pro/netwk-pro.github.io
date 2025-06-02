@@ -24,4 +24,13 @@ export default defineConfig({
       //}
     }),
   ],
+  define: {
+    __APP_NAME__: JSON.stringify("Network Pro"),
+    __COPYRIGHT_YEAR__: JSON.stringify("2025"),
+    __COMPANY__: JSON.stringify("Network Pro Strategies"),
+    __CONTACT_EMAIL__: JSON.stringify("support (at) neteng.pro"),
+    __SECURE_EMAIL__: JSON.stringify("contact (at) s.neteng.pro"),
+    __PRIVACY_EMAIL__: JSON.stringify("privacy (at) netwk.pro"),
+    __PHONE__: JSON.stringify("(623) 252-4350"),
+  },
 });

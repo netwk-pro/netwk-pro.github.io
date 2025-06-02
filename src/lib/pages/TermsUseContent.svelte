@@ -14,6 +14,8 @@ This file is part of Network Pro.
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
+  console.log(__COMPANY__); // "Network Pro Strategies"
+
   /**
    * URL to Terms and Conditions page, using the base path
    * @type {string}
@@ -57,10 +59,9 @@ This file is part of Network Pro.
 
   /**
    * Constants for reusable content
-   * @type {{ company: string, effectiveDate: string, classSmall: string, rel: string, hrefTop: string, targetBlank: string, targetSelf: string }}
+   * @type {{ effectiveDate: string, classSmall: string, rel: string, hrefTop: string, targetBlank: string, targetSelf: string }}
    */
   const constants = {
-    company: "Network Pro Strategies",
     effectiveDate: "May 21, 2025",
     classSmall: "small-text",
     rel: "noopener noreferrer",
@@ -85,7 +86,7 @@ This file is part of Network Pro.
 <section id="page-title">
   <h1>Website Terms of Use</h1>
   <p>
-    <strong>{constants.company}</strong><br />
+    <strong>{__COMPANY__}</strong><br />
     <strong>Effective Date:</strong>
     {constants.effectiveDate}
   </p>
@@ -133,7 +134,7 @@ This file is part of Network Pro.
 
     {#if link.id === "introduction"}
       <p>
-        Welcome! By accessing or using any of the platforms operated by {constants.company}
+        Welcome! By accessing or using any of the platforms operated by {__COMPANY__}
         ("Company," "we," "us," or "our"), you agree to be bound by these Terms of
         Use ("Terms"). If you do not agree to these Terms, please refrain from using
         our services.
@@ -198,10 +199,10 @@ This file is part of Network Pro.
       </p>
     {:else if link.id === "jurisdiction"}
       <p>
-        {constants.company} is based in Maricopa County, Arizona. Any legal action
-        or dispute arising from these Terms of Use shall be subject to the exclusive
-        jurisdiction of the state and federal courts located in Maricopa County,
-        Arizona. These Terms shall be governed by the
+        {__COMPANY__} is based in Maricopa County, Arizona. Any legal action or dispute
+        arising from these Terms of Use shall be subject to the exclusive jurisdiction
+        of the state and federal courts located in Maricopa County, Arizona. These
+        Terms shall be governed by the
         <strong>Arizona Revised Statutes (A.R.S.)</strong> and applicable
         provisions of the <strong>United States Code (U.S.C.)</strong>.
       </p>

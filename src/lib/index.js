@@ -32,14 +32,4 @@ export * from "./images.js";
 // export { default as Button } from './components/Button.svelte';
 // export { default as Card } from './components/Card.svelte';
 
-/**
- * Application constants
- * Common values used throughout the application
- *
- * @type {object}
- */
-export const CONSTANTS = {
-  APP_NAME: "Network Pro",
-  COPYRIGHT_YEAR: "2025",
-  CONTACT_EMAIL: "contact@s.neteng.pro",
-};
+/* Application constants moved to vite.config.js to be used at build time */

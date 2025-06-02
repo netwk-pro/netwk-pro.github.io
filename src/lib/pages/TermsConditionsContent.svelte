@@ -14,6 +14,8 @@ This file is part of Network Pro.
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
+  console.log(__COMPANY__); // "Network Pro Strategies"
+
   /**
    * URL to Terms of Use page, using the base path
    * @type {string}
@@ -29,7 +31,6 @@ This file is part of Network Pro.
   /**
    * Common constants used throughout the component
    * @type {{
-   *   company: string,
    *   effectiveDate: string,
    *   rel: string,
    *   targetBlank: string,
@@ -39,7 +40,6 @@ This file is part of Network Pro.
    * }}
    */
   const constants = {
-    company: "Network Pro Strategies",
     effectiveDate: "May 8, 2025",
     rel: "noopener noreferrer",
     targetBlank: "_blank",
@@ -79,7 +79,7 @@ This file is part of Network Pro.
 <section id="page-title">
   <h1>Consulting Terms and Conditions</h1>
   <p>
-    <strong>{constants.company}<br />Effective Date:</strong>
+    <strong>{__COMPANY__}<br />Effective Date:</strong>
     {constants.effectiveDate}
   </p>
 </section>
@@ -129,8 +129,8 @@ This file is part of Network Pro.
       <p>
         By engaging with the information security, network security,
         cybersecurity, and digital privacy consulting and implementation
-        services provided by {constants.company} ("Company," "we," "us," or "our"),
-        you ("Client") agree to be bound by these Terms and Conditions ("Terms").
+        services provided by {__COMPANY__} ("Company," "we," "us," or "our"), you
+        ("Client") agree to be bound by these Terms and Conditions ("Terms").
         <strong>
           These Terms govern all engagements except where explicitly superseded
           by a separate written agreement or Statement of Work (SOW).
