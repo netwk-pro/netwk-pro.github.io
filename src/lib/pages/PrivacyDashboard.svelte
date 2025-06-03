@@ -125,10 +125,10 @@ This file is part of Network Pro.
   <p>
     <strong
       >Analytics tracking is automatically disabled when a user's browser sends
-      a “Do Not Track” (DNT) or <a
+      a "Do Not Track" (DNT) or <a
         rel={PAGE.REL}
         href="https://globalprivacycontrol.org/"
-        target={PAGE.BLANK}>“Global Privacy Control” (GPC / Sec-GPC)</a> signal.</strong>
+        target={PAGE.BLANK}>"Global Privacy Control" (GPC / Sec-GPC)</a> signal.</strong>
     No further action is required—your browser settings are honored by default.
   </p>
 
