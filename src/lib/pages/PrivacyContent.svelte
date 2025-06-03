@@ -217,10 +217,10 @@ This file is part of Network Pro.
       <p>
         We configure PostHog to prioritize user privacy. <strong
           >Analytics tracking is automatically disabled when a user's browser
-          sends a “Do Not Track” (DNT) or <a
+          sends a "Do Not Track" (DNT) or <a
             rel={PAGE.REL}
             href={gpcLink}
-            target={PAGE.BLANK}>“Global Privacy Control” (GPC / Sec-GPC)</a> signal.</strong>
+            target={PAGE.BLANK}>"Global Privacy Control" (GPC / Sec-GPC)</a> signal.</strong>
         No further action is required—your browser settings are honored by default.
       </p>
       <p>
@@ -401,11 +401,12 @@ This file is part of Network Pro.
         posting.
       </p>
     {:else if link.id === "contact"}
-      <p
-        >For questions, please utilize our <a
+      <p>
+        For questions, please utilize our <a
           rel={PAGE.REL}
           href={contactLink}
-          target={PAGE.SELF}>Contact Form</a> or contact us directly:</p>
+          target={PAGE.SELF}>Contact Form</a> or contact us directly:
+      </p>
       <p>
         <strong>{COMPANY_INFO.NAME}</strong><br />
         📧 General Inquiries: {CONTACT.EMAIL}<br />
