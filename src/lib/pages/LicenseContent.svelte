@@ -127,12 +127,12 @@ This file is part of Network Pro.
       <p>
         All content—including text, software, logos, graphics, documentation,
         and other materials—provided by
-        <strong>{COMPANY_INFO.NAME}</strong> (“{COMPANY_INFO.APP_NAME}”,
+        <strong>{COMPANY_INFO.NAME}</strong> ("{COMPANY_INFO.APP_NAME}",
         “Company”, “Licensor”) is protected by U.S. and international copyright
         laws.
       </p>
       <p>
-        Copyright &copy; 2025
+        Copyright &copy; {COMPANY_INFO.YEAR}
         <strong>
           <a href={homeLink} target={PAGE.BLANK}> {COMPANY_INFO.NAME} </a>
         </strong>
@@ -343,8 +343,7 @@ This file is part of Network Pro.
 
       <p>
         You should have received a copy of the GNU General Public License along
-        with this material. If not, see &lt;
-        <a
+        with this material. If not, see &lt;<a
           rel={PAGE.REL}
           href="https://www.gnu.org/licenses"
           target={PAGE.BLANK}>https://www.gnu.org/licenses/</a
