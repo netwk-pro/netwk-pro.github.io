@@ -17,18 +17,26 @@ This file is part of Network Pro.
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
-  console.log(CONSTANTS.APP_NAME);
+  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+
+  const { COMPANY_INFO, CONTACT, PAGE, NAV } = CONSTANTS;
 
   // Dynamic links for licensing and trademark
   const ccbyLink = `${base}/license#cc-by`;
   const gnugplLink = `${base}/license#gnu-gpl`;
   const trademarkLink = `${base}/license#trademark`;
 
+  /** @type {string} */
+  const creatorUrl = "https://netwk.pro";
+
+  /** @type {string} */
+  const creatorSlogan = "Locking Down Networks...";
+
   /**
-   * Icon details object.
+   * Icon used in a license object.
    * @typedef {Object} Icon
-   * @property {string} src - The source URL of the icon image.
-   * @property {string} alt - The alt text for the icon image.
+   * @property {string} src - The image source path or URL.
+   * @property {string} alt - The alt text for the image.
    */
 
   /**
@@ -41,15 +49,6 @@ This file is part of Network Pro.
    * @property {Icon[]} [icons] - An array of icon objects for representing the license visually.
    */
 
-  /** @type {string} */
-  const creatorUrl = "https://netwk.pro";
-
-  /** @type {string} */
-  const creatorSlogan = "Privacy Made Practical";
-
-  /**
-   * @type {License[]}
-   */
   const licenses = [
     {
       type: "CC BY 4.0",
@@ -84,51 +83,33 @@ This file is part of Network Pro.
   };
 
   /**
-   * Relation attributes for external links.
-   * @type {string}
-   */
-  const rel = "noopener noreferrer";
-
-  /**
    * Relation attributes for license links.
    * @type {string}
    */
   const relLicense = "license noopener noreferrer";
-
-  /**
-   * Target attribute for opening links in the same tab.
-   * @type {string}
-   */
-  const targetSelf = "_self";
-
-  /**
-   * Target attribute for opening links in a new tab.
-   * @type {string}
-   */
-  const targetBlank = "_blank";
 </script>
 
 <!-- BEGIN FOOTER -->
 <div class="copyright" {...namespaceAttributes}>
   <!-- Copyright Section -->
   <p>
-    Copyright &copy; {CONSTANTS.COPYRIGHT_YEAR}<br />
+    Copyright &copy; {COMPANY_INFO.YEAR}<br />
     <a
       rel="cc:attributionURL dct:creator"
       property="cc:attributionName"
       href={creatorUrl}
-      target={targetBlank}>
-      <strong>{CONSTANTS.COMPANY}</strong>
+      target={PAGE.BLANK}>
+      <strong>{COMPANY_INFO.NAME}</strong>
     </a>
-    ({CONSTANTS.APP_NAME}&trade;)
+    ({COMPANY_INFO.APP_NAME}&trade;)
   </p>
 
   <!-- Trademark Section -->
   <p>
-    {CONSTANTS.APP_NAME}&trade;, the shield logo, and the "{creatorSlogan}"
+    {COMPANY_INFO.APP_NAME}&trade;, the shield logo, and the "{creatorSlogan}&trade;"
     slogan are
-    <a href={trademarkLink} target={targetSelf}>trademarks</a>
-    of {CONSTANTS.COMPANY}.
+    <a href={trademarkLink} target={PAGE.SELF}>trademarks</a>
+    of {COMPANY_INFO.NAME}.
   </p>
 
   <!-- Licensing Section -->
@@ -138,7 +119,7 @@ This file is part of Network Pro.
       {#if license.type === "CC BY 4.0"}
         <a
           href={license.url}
-          target={targetSelf}
+          target={PAGE.SELF}
           rel={relLicense}
           style="display: inline-block">
           <strong>{license.type}</strong>
@@ -147,7 +128,7 @@ This file is part of Network Pro.
           {#each license.icons as icon}
             <a
               href={license.externalUrl}
-              target={targetBlank}
+              target={PAGE.BLANK}
               rel={relLicense}
               style="display: inline-block">
               <img
@@ -166,11 +147,11 @@ This file is part of Network Pro.
           {/each}
         {/if}
       {:else}
-        <a href={license.url} target={targetSelf} rel={relLicense}>
+        <a href={license.url} target={PAGE.SELF} rel={relLicense}>
           <strong>{license.type}</strong>
         </a>
         , as published by the
-        <a {rel} href={license.externalUrl} target={targetBlank}
+        <a rel={PAGE.REL} href={license.externalUrl} target={PAGE.BLANK}
           >{license.description}</a
         >, either version 3 of the License, or (at your option) any later
         version.

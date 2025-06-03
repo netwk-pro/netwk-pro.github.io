@@ -15,9 +15,11 @@ This file is part of Network Pro.
   import FossFeatures from "$lib/components/foss/FossFeatures.svelte";
   // Import directly from $lib by way of image utility
   import { obtainiumPng, obtainiumWbp } from "$lib";
+  import { CONSTANTS } from "$lib";
 
-  /** @type {"noopener noreferrer"} */
-  const rel = "noopener noreferrer";
+  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+
+  const { PAGE, NAV } = CONSTANTS;
 
   /** @type {string} */
   const obtainiumLink =
@@ -107,7 +109,7 @@ This file is part of Network Pro.
     <!-- Special handling for LinkSheet's Obtainium link -->
     {#if fossItem.id === "linksheet"}
       <div class="linksheet-entry">
-        <a {rel} href={obtainiumLink} target="_blank">
+        <a rel={PAGE.REL} href={obtainiumLink} target={PAGE.BLANK}>
           <picture>
             <source srcset={obtainiumWbp} type="image/webp" />
             <img
@@ -125,8 +127,8 @@ This file is part of Network Pro.
             ></span>
           <a
             href="/assets/bin/linksheet.json"
-            download
             type="application/json"
+            download
             style="margin-left: 8px;"
             target="_blank">
             Obtainium App Config
@@ -142,7 +144,7 @@ This file is part of Network Pro.
         <div class="linksheet-entry">
           {#if !hideLabels && label && href}
             <strong>{label}:</strong>
-            <a {rel} {href} target="_blank">{href}</a>
+            <a rel={PAGE.REL} {href} target={PAGE.BLANK}>{href}</a>
           {/if}
         </div>
       {/if}
@@ -151,6 +153,6 @@ This file is part of Network Pro.
 
   <div class="spacer"></div>
 
-  <span class="small-text"><a href="#top">Back to top</a></span>
+  <span class="small-text"><a href={NAV.HREFTOP}>{NAV.BACKTOP}</a></span>
 </section>
 <!-- END FOSS ITEMS -->

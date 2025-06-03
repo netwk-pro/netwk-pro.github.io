@@ -20,7 +20,9 @@ This file is part of Network Pro.
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
-  console.log(CONSTANTS.APP_NAME);
+  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+
+  const { COMPANY_INFO, CONTACT, PAGE, NAV } = CONSTANTS;
 
   /**
    * URL to the Privacy Rights Request Form redirect route, using the base path
@@ -62,25 +64,8 @@ This file is part of Network Pro.
   /** @type {string} */
   const effectiveDate = "June 2, 2025";
 
-  /**
-   * Constants used throughout the component for consistent styling and behavior
-   * @type {{
-   *   classSmall: string,
-   *   rel: string,
-   *   backTop: string,
-   *   hrefTop: string,
-   *   targetSelf: string,
-   *   targetBlank: string
-   * }}
-   */
-  const constants = {
-    classSmall: "small-text",
-    rel: "noopener noreferrer",
-    backTop: "Back to top",
-    hrefTop: "#top",
-    targetSelf: "_self",
-    targetBlank: "_blank",
-  };
+  /** @type {string} */
+  const classSmall = "small-text";
 
   let optedOut = false;
   let optedIn = false;
@@ -127,11 +112,11 @@ This file is part of Network Pro.
 
 <!-- BEGIN TITLE -->
 <section id="top">
-  <span class={constants.classSmall}>
+  <span class={classSmall}>
     <a
-      rel={constants.rel}
+      rel={PAGE.REL}
       href="https://spdx.dev/learn/handling-license-info"
-      target={constants.targetBlank}>
+      target={PAGE.BLANK}>
       SPDX License Identifier
     </a>: &nbsp;<code>CC-BY-4.0 OR GPL-3.0-or-later</code>
   </span>
@@ -140,7 +125,7 @@ This file is part of Network Pro.
 <section id="page-title">
   <h1>Privacy Policy</h1>
   <p>
-    <strong>{CONSTANTS.COMPANY}</strong><br />
+    <strong>{COMPANY_INFO.NAME}</strong><br />
     <strong>Effective Date:</strong>
     {effectiveDate}
   </p>
@@ -167,7 +152,7 @@ This file is part of Network Pro.
       <strong>Formats Available:</strong> &nbsp;<span class="visited"
         >HTML</span>
       |
-      <a href={privacyLink} target={constants.targetSelf}>Docs</a>
+      <a href={privacyLink} target={PAGE.SELF}>Docs</a>
     </sup>
   </p>
 </section>
@@ -188,9 +173,9 @@ This file is part of Network Pro.
         4 of the
         <strong>
           <a
-            rel={constants.rel}
+            rel={PAGE.REL}
             href="https://www.azleg.gov/arstitle"
-            target={constants.targetBlank}>
+            target={PAGE.BLANK}>
             Arizona Revised Statutes
           </a>
         </strong> (A.R.S. §§ 18-551, 18-552).
@@ -233,11 +218,10 @@ This file is part of Network Pro.
         We configure PostHog to prioritize user privacy. <strong
           >Analytics tracking is automatically disabled when a user's browser
           sends a “Do Not Track” (DNT) or <a
-            rel={constants.rel}
+            rel={PAGE.REL}
             href={gpcLink}
-            target={constants.targetBlank}
-            >“Global Privacy Control” (GPC / Sec-GPC)</a> signal.</strong> No further
-        action is required—your browser settings are honored by default.
+            target={PAGE.BLANK}>“Global Privacy Control” (GPC / Sec-GPC)</a> signal.</strong>
+        No further action is required—your browser settings are honored by default.
       </p>
       <p>
         You can view your current tracking status below, along with manual
@@ -250,7 +234,7 @@ This file is part of Network Pro.
       <p class="emphasis">
         For convenient access, you can manage these settings through our <a
           href={pdashLink}
-          target={constants.targetSelf}>Privacy Dashboard</a
+          target={PAGE.SELF}>Privacy Dashboard</a
         >.
       </p>
 
@@ -296,9 +280,9 @@ This file is part of Network Pro.
         PostHog Cloud is a third-party service, but we deploy it in a
         privacy-conscious manner that avoids intrusive profiling and aligns with
         data protection best practices. For more information, please refer to <a
-          rel={constants.rel}
+          rel={PAGE.REL}
           href="https://posthog.com/privacy"
-          target={constants.targetBlank}>PostHog's Privacy Policy</a
+          target={PAGE.BLANK}>PostHog's Privacy Policy</a
         >.
       </p>
     {:else if link.id === "payment"}
@@ -379,25 +363,24 @@ This file is part of Network Pro.
       <p>
         Although these rights are specifically granted to residents of
         California and the European Union under laws such as the <a
-          rel={constants.rel}
+          rel={PAGE.REL}
           href="https://oag.ca.gov/privacy/ccpa"
-          target={constants.targetBlank}
-          >California Consumer Privacy Act (CCPA)</a
+          target={PAGE.BLANK}>California Consumer Privacy Act (CCPA)</a
         >, the California Privacy Rights Act (CPRA), and the
         <a
-          rel={constants.rel}
+          rel={PAGE.REL}
           href="https://gdpr.eu/what-is-gdpr/"
-          target={constants.targetBlank}
-          >EU General Data Protection Regulation (GDPR)</a
+          target={PAGE.BLANK}>EU General Data Protection Regulation (GDPR)</a
         >, we voluntarily extend these rights to all users, regardless of
         residency.
       </p>
       <p>
         To exercise any of these rights, you may submit a request through our <a
+          rel={PAGE.REL}
           href={prightsLink}
-          target={constants.targetBlank}>Privacy Rights Request Form</a
+          target={PAGE.BLANK}>Privacy Rights Request Form</a
         >. Alternatively, you can email us at
-        <strong>{CONSTANTS.PRIVACY_EMAIL}</strong>
+        <strong>{CONTACT.PRIVACY}</strong>
         with the subject line: "<strong>Privacy Rights Preferences</strong>".
       </p>
     {:else if link.id === "third-party"}
@@ -420,20 +403,20 @@ This file is part of Network Pro.
     {:else if link.id === "contact"}
       <p
         >For questions, please utilize our <a
-          rel={constants.rel}
+          rel={PAGE.REL}
           href={contactLink}
-          target={constants.targetSelf}>Contact Form</a> or contact us directly:</p>
+          target={PAGE.SELF}>Contact Form</a> or contact us directly:</p>
       <p>
-        <strong>{CONSTANTS.COMPANY}</strong><br />
-        📧 General Inquiries: {CONSTANTS.CONTACT_EMAIL}<br />
-        🔐 Secure Email: {CONSTANTS.SECURE_EMAIL}<br />
-        📞 Phone: {CONSTANTS.PHONE}
+        <strong>{COMPANY_INFO.NAME}</strong><br />
+        📧 General Inquiries: {CONTACT.EMAIL}<br />
+        🔐 Secure Email: {CONTACT.SECURE}<br />
+        📞 Phone: {CONTACT.PHONE}
       </p>
     {/if}
 
     <!-- Back to Top Link -->
-    <span class={constants.classSmall}>
-      <a href={constants.hrefTop}>{constants.backTop}</a>
+    <span class={classSmall}>
+      <a href={NAV.HREFTOP}>{NAV.BACKTOP}</a>
     </span>
   </section>
 {/each}

@@ -20,9 +20,9 @@ This file is part of Network Pro.
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
-  console.log(CONSTANTS.APP_NAME);
+  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
-  const { PRIVACY_EMAIL } = CONSTANTS;
+  const { CONTACT, PAGE, NAV } = CONSTANTS;
 
   /**
    * @type {string}
@@ -37,25 +37,8 @@ This file is part of Network Pro.
   const privacyPolicy = `${base}/privacy`;
   const prightsLink = `${base}/privacy-rights`;
 
-  /**
-   * Constants used throughout the component for consistent styling and behavior
-   * @type {{
-   *   classSmall: string,
-   *   rel: string,
-   *   backTop: string,
-   *   hrefTop: string,
-   *   targetSelf: string,
-   *   targetBlank: string
-   * }}
-   */
-  const constants = {
-    classSmall: "small-text",
-    rel: "noopener noreferrer",
-    backTop: "Back to top",
-    hrefTop: "#top",
-    targetSelf: "_self",
-    targetBlank: "_blank",
-  };
+  /** @type {string} */
+  const classSmall = "small-text";
 
   let optedOut = false;
   let optedIn = false;
@@ -101,11 +84,11 @@ This file is part of Network Pro.
 </script>
 
 <section id="top">
-  <span class={constants.classSmall}>
+  <span class={classSmall}>
     <a
-      rel={constants.rel}
+      rel={PAGE.REL}
       href="https://spdx.dev/learn/handling-license-info"
-      target={constants.targetBlank}>
+      target={PAGE.BLANK}>
       SPDX License Identifier
     </a>: &nbsp;<code>CC-BY-4.0 OR GPL-3.0-or-later</code>
   </span>
@@ -119,18 +102,13 @@ This file is part of Network Pro.
 
 <nav class="tracking-nav">
   <ul>
-    <li
-      ><a href="#tracking" target={constants.targetSelf}>Tracking Preferences</a
-      ></li>
-    <li
-      ><a href="#rights" target={constants.targetSelf}
-        >Your Rights and Choices</a
-      ></li>
+    <li><a href="#tracking" target={PAGE.SELF}>Tracking Preferences</a></li>
+    <li><a href="#rights" target={PAGE.SELF}>Your Rights and Choices</a></li>
   </ul>
 </nav>
 
 <p class="bquote">
-  For full details, please see our <a href={privacyPolicy} target="_self"
+  For full details, please see our <a href={privacyPolicy} target={PAGE.SELF}
     >Privacy Policy</a
   >.
 </p>
@@ -148,10 +126,9 @@ This file is part of Network Pro.
     <strong
       >Analytics tracking is automatically disabled when a user's browser sends
       a “Do Not Track” (DNT) or <a
-        rel={constants.rel}
+        rel={PAGE.REL}
         href="https://globalprivacycontrol.org/"
-        target={constants.targetBlank}
-        >“Global Privacy Control” (GPC / Sec-GPC)</a> signal.</strong>
+        target={PAGE.BLANK}>“Global Privacy Control” (GPC / Sec-GPC)</a> signal.</strong>
     No further action is required—your browser settings are honored by default.
   </p>
 
@@ -205,9 +182,8 @@ This file is part of Network Pro.
   </p>
 </section>
 
-<span class={constants.classSmall}>
-  <a href={constants.hrefTop} target={constants.targetSelf}
-    >{constants.backTop}</a>
+<span class={classSmall}>
+  <a href={NAV.HREFTOP} target={PAGE.SELF}>{NAV.BACKTOP}</a>
 </span>
 
 <div class={spaceStyle}></div>
@@ -243,30 +219,27 @@ This file is part of Network Pro.
   <p>
     Although these rights are specifically granted to residents of California
     and the European Union under laws such as the <a
-      rel={constants.rel}
+      rel={PAGE.REL}
       href="https://oag.ca.gov/privacy/ccpa"
-      target={constants.targetBlank}>California Consumer Privacy Act (CCPA)</a
+      target={PAGE.BLANK}>California Consumer Privacy Act (CCPA)</a
     >, the California Privacy Rights Act (CPRA), and the
-    <a
-      rel={constants.rel}
-      href="https://gdpr.eu/what-is-gdpr/"
-      target={constants.targetBlank}
+    <a rel={PAGE.REL} href="https://gdpr.eu/what-is-gdpr/" target={PAGE.BLANK}
       >EU General Data Protection Regulation (GDPR)</a
     >, we voluntarily extend these rights to all users, regardless of residency.
   </p>
   <p>
     To exercise any of these rights, you may submit a request through our <a
+      rel={PAGE.REL}
       href={prightsLink}
-      target={constants.targetBlank}>Privacy Rights Request Form</a
+      target={PAGE.BLANK}>Privacy Rights Request Form</a
     >. Alternatively, you can email us at
-    <strong>{PRIVACY_EMAIL}</strong>
+    <strong>{CONTACT.PRIVACY}</strong>
     with the subject line: "<strong>Privacy Rights Preferences</strong>".
   </p>
 </section>
 
-<span class={constants.classSmall}>
-  <a href={constants.hrefTop} target={constants.targetSelf}
-    >{constants.backTop}</a>
+<span class={classSmall}>
+  <a href={NAV.HREFTOP} target={PAGE.SELF}>{NAV.BACKTOP}</a>
 </span>
 
 <!-- cspell:ignore prefs prights -->
