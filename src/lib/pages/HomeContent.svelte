@@ -8,9 +8,14 @@ This file is part of Network Pro.
 
 <script>
   import { base } from "$app/paths";
+  import { CONSTANTS } from "$lib";
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
+
+  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+
+  const { COMPANY_INFO, PAGE, NAV } = CONSTANTS;
 
   /**
    * URL to the FOSS Spotlight page, using the base path
@@ -41,31 +46,13 @@ This file is part of Network Pro.
    * @type {string}
    */
   const classLarge = "large-text-center";
-
-  /**
-   * Relation attribute for external links.
-   * @type {string}
-   */
-  const rel = "noopener noreferrer";
-
-  /**
-   * Target attribute to open links in a new tab.
-   * @type {string}
-   */
-  const targetBlank = "_blank";
-
-  /**
-   * Target attribute to open links in the same tab.
-   * @type {string}
-   */
-  const targetSelf = "_self";
 </script>
 
 <!-- BEGIN HOME CONTENT -->
 <h3 class={classIndex}>🔒 Practical Cybersecurity. Trusted Expertise.</h3>
 
 <p class={classCenter}>
-  At <strong>Network Pro&trade;</strong>, we specialize in network security,
+  At <strong>{COMPANY_INFO.NAME}</strong>, we specialize in network security,
   cybersecurity, and digital privacy consulting that meets today's real-world
   demands. Our remote-first approach combines technical depth with practical
   solutions—leveraging a strategic mix of open source and proprietary
@@ -82,7 +69,7 @@ This file is part of Network Pro.
   📡
   <em>
     <strong>Stay informed:</strong> Follow our
-    <a href={blogLink} target={targetSelf}>blog</a>
+    <a href={blogLink} target={PAGE.SELF}>blog</a>
     and social channels for actionable insights, implementation guides, and the latest
     cybersecurity developments.
   </em>
@@ -94,13 +81,13 @@ This file is part of Network Pro.
 
 <p class={classLarge}>
   <strong>
-    <a href={blogLink} target={targetSelf}>Network Pro Blog</a>
+    <a href={blogLink} target={PAGE.SELF}>{COMPANY_INFO.APP_NAME} Blog</a>
   </strong>
 </p>
 
 <p class={classLarge}>
   <strong>
-    <a href={spotlightLink} target={targetSelf}>FOSS Spotlight</a>
+    <a href={spotlightLink} target={PAGE.SELF}>FOSS Spotlight</a>
   </strong>
 </p>
 
@@ -109,12 +96,13 @@ This file is part of Network Pro.
 <p class={classCenter}>
   <em>
     Join us on
-    <a {rel} href="https://discord.neteng.pro" target={targetBlank}>Discord</a>
+    <a rel={PAGE.REL} href="https://discord.neteng.pro" target={PAGE.BLANK}
+      >Discord</a>
     or in
     <a
-      {rel}
+      rel={PAGE.REL}
       href="https://github.com/netwk-pro/netwk-pro.github.io/discussions"
-      target={targetBlank}>GitHub Discussions</a
+      target={PAGE.BLANK}>GitHub Discussions</a
     >!
   </em>
 </p>

@@ -14,21 +14,15 @@ This file is part of Network Pro.
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
-  console.log(CONSTANTS.APP_NAME);
+  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
-  const { COMPANY, APP_NAME } = CONSTANTS;
+  const { COMPANY_INFO, PAGE } = CONSTANTS;
 
   /**
    * URL to the Contact Form route, using the base path
    * @type {string}
    */
   const contactLink = `${base}/contact`;
-
-  /**
-   * Security attribute for external links
-   * @type {string}
-   */
-  const rel = "noopener noreferrer";
 
   /**
    * HTML attribute for async image decoding
@@ -47,12 +41,6 @@ This file is part of Network Pro.
    * @type {string}
    */
   const hrStyle = "hr-styled";
-
-  /**
-   * Target attribute for opening links in new tab
-   * @type {string}
-   */
-  const tgtBlank = "_blank";
 
   /**
    * Navigation links for the page
@@ -121,16 +109,16 @@ This file is part of Network Pro.
 <!-- BEGIN TITLE -->
 <section id="top">
   <span class="small-text">
-    <a {rel} href={navLinks[0].href} target={navLinks[0].target}>
+    <a rel={PAGE.REL} href={navLinks[0].href} target={navLinks[0].target}>
       {navLinks[0].label}</a
     >: &nbsp;<code>{navLinks[0].text}</code>
   </span>
 </section>
 
 <section id="page-title">
-  <h1>About {APP_NAME}&trade;</h1>
+  <h1>About {COMPANY_INFO.APP_NAME}&trade;</h1>
   <p>
-    <strong>{COMPANY} ({APP_NAME}&trade;)</strong>
+    <strong>{COMPANY_INFO.NAME} ({COMPANY_INFO.APP_NAME}&trade;)</strong>
     <br />
     <em>Remote-First Cybersecurity & Privacy Consulting</em>
   </p>
@@ -150,16 +138,16 @@ This file is part of Network Pro.
   <sup>
     <strong>Formats:</strong>&nbsp;
     <span class="visited">HTML</span> |
-    <a href={navLinks[1].href} target={tgtBlank}>{navLinks[1].label}</a>
+    <a href={navLinks[1].href} target={PAGE.BLANK}>{navLinks[1].label}</a>
   </sup>
 </p>
 
 <p>
-  At <strong>{COMPANY} ({APP_NAME}&trade;)</strong>, we deliver network
-  security, cybersecurity, and digital privacy consulting with clarity,
-  credibility, and care. We believe that real security doesn't have to come at
-  the cost of user autonomy, and that privacy-minded solutions can be both
-  practical and powerful.
+  At <strong>{COMPANY_INFO.NAME} ({COMPANY_INFO.APP_NAME}&trade;)</strong>, we
+  deliver network security, cybersecurity, and digital privacy consulting with
+  clarity, credibility, and care. We believe that real security doesn't have to
+  come at the cost of user autonomy, and that privacy-minded solutions can be
+  both practical and powerful.
 </p>
 
 <p>
@@ -211,7 +199,7 @@ This file is part of Network Pro.
 <div class="spacer"></div>
 
 <p>
-  <a href={contactLink} target="_self">Let's connect</a>
+  <a rel={PAGE.REL} href={contactLink} target={PAGE.BLANK}>Let's connect</a>
   to discuss how we can help secure and strengthen your business today.
 </p>
 
@@ -241,7 +229,7 @@ This file is part of Network Pro.
             alt={`PGP Key - ${pgpKeys[0].label}`} />
         </td>
         <td class="pgp-col2">
-          <a {rel} href={pgpKeys[0].keySearch} target={tgtBlank}>
+          <a rel={PAGE.REL} href={pgpKeys[0].keySearch} target={PAGE.BLANK}>
             <strong>{pgpKeys[0].label}</strong>
           </a>
           <p
@@ -250,7 +238,7 @@ This file is part of Network Pro.
                 href={contactAssets.supportAsc}
                 type="application/pgp-keys"
                 download
-                target={tgtBlank}
+                target={PAGE.BLANK}
                 >asc &nbsp;<span class="fas fa-file-arrow-down"></span></a
               ></strong>
           </p>
@@ -266,7 +254,7 @@ This file is part of Network Pro.
       <!-- Row 1 (Second row) has its columns swapped -->
       <tr>
         <td class="pgp-col1">
-          <a {rel} href={pgpKeys[1].keySearch} target={tgtBlank}>
+          <a rel={PAGE.REL} href={pgpKeys[1].keySearch} target={PAGE.BLANK}>
             <strong>{pgpKeys[1].label}</strong>
           </a>
           <p>
@@ -275,7 +263,7 @@ This file is part of Network Pro.
                 href={contactAssets.contactAsc}
                 type="application/pgp-keys"
                 download
-                target={tgtBlank}
+                target={PAGE.BLANK}
                 >asc &nbsp;<span class="fas fa-file-arrow-down"></span></a
               ></strong>
           </p>
@@ -313,7 +301,7 @@ This file is part of Network Pro.
               href={contactAssets.vcf}
               type="text/vcard"
               download
-              target={tgtBlank}>
+              target={PAGE.BLANK}>
               <strong
                 >vcf &nbsp;<span class="fas fa-file-arrow-down"></span></strong>
             </a>

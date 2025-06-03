@@ -11,9 +11,14 @@ This file is part of Network Pro.
 <script>
   import { base } from "$app/paths";
   import { ccSvg, bySvg } from "$lib";
+  import { CONSTANTS } from "$lib";
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
+
+  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+
+  const { COMPANY_INFO, CONTACT, PAGE, NAV } = CONSTANTS;
 
   /**
    * URLs using the base path
@@ -58,16 +63,11 @@ This file is part of Network Pro.
 
   /**
    * Constants for reusable content
-   * @type {{ company: string, effectiveDate: string, classSmall: string, rel: string, hrefTop: string, targetBlank: string, targetSelf: string }}
+   * @type {{ effectiveDate: string, classSmall: string }}
    */
   const constants = {
-    company: "Network Pro Strategies",
     effectiveDate: "May 28, 2025",
     classSmall: "small-text",
-    rel: "noopener noreferrer",
-    hrefTop: "#top",
-    targetBlank: "_blank",
-    targetSelf: "_self",
   };
 </script>
 
@@ -75,9 +75,9 @@ This file is part of Network Pro.
 <section id="top">
   <span class={constants.classSmall}>
     <a
-      rel={constants.rel}
+      rel={PAGE.REL}
       href="https://spdx.dev/learn/handling-license-info"
-      target={constants.targetBlank}>
+      target={PAGE.BLANK}>
       SPDX License Identifier
     </a>: &nbsp;<code>CC-BY-4.0 OR GPL-3.0-or-later</code>
   </span>
@@ -86,7 +86,7 @@ This file is part of Network Pro.
 <section id="page-title">
   <h1>Legal, Copyright, and Licensing</h1>
   <p>
-    <strong>{constants.company}</strong><br />
+    <strong>{COMPANY_INFO.NAME}</strong><br />
     <strong>Effective Date:</strong>
     {constants.effectiveDate}
   </p>
@@ -113,7 +113,7 @@ This file is part of Network Pro.
       <strong>Formats Available:</strong> &nbsp;<span class="visited"
         >HTML</span>
       |
-      <a href={legalLink} target={constants.targetSelf}>Docs</a>
+      <a href={legalLink} target={PAGE.SELF}>Docs</a>
     </sup>
   </p>
 </section>
@@ -127,22 +127,21 @@ This file is part of Network Pro.
       <p>
         All content—including text, software, logos, graphics, documentation,
         and other materials—provided by
-        <strong>{constants.company}</strong> (“Network Pro”, “Company”, “Licensor”)
-        is protected by U.S. and international copyright laws.
+        <strong>{COMPANY_INFO.NAME}</strong> ("{COMPANY_INFO.APP_NAME}",
+        "Company", "Licensor") is protected by U.S. and international copyright
+        laws.
       </p>
       <p>
-        Copyright &copy; 2025
+        Copyright &copy; {COMPANY_INFO.YEAR}
         <strong>
-          <a href={homeLink} target={constants.targetBlank}>
-            Network Pro Strategies
-          </a>
+          <a href={homeLink} target={PAGE.BLANK}> {COMPANY_INFO.NAME} </a>
         </strong>
-        (Network Pro&trade;)
+        ({COMPANY_INFO.APP_NAME}&trade;)
       </p>
     {:else if link.id === "trademark"}
       <p>The following trademarks are the exclusive property of the Company:</p>
       <ul>
-        <li><strong>Brand Name:</strong> Network Pro&trade;</li>
+        <li><strong>Brand Name:</strong> {COMPANY_INFO.APP_NAME}&trade;</li>
         <li><strong>Domain Names:</strong> netwk.pro, neteng.pro, neteng.cc</li>
         <li
           ><strong>Logo:</strong> The shield logo displayed on our homepage</li>
@@ -168,7 +167,7 @@ This file is part of Network Pro.
       </p>
     {:else if link.id === "lmaterial"}
       <p>
-        “Licensed Material” refers solely to the publicly available code and
+        "Licensed Material" refers solely to the publicly available code and
         documentation distributed through the Company's open repositories and
         websites. It expressly excludes all third-party content, proprietary
         brand assets (including logos, trademarks, and visual designs), and any
@@ -200,18 +199,18 @@ This file is part of Network Pro.
         <li>
           See Creative Commons FAQ:
           <a
-            rel={constants.rel}
+            rel={PAGE.REL}
             href="https://creativecommons.org/faq/#can-i-enter-into-separate-or-supplemental-agreements-with-users-of-my-work"
-            target={constants.targetBlank}>
+            target={PAGE.BLANK}>
             Separate agreements
           </a>
         </li>
         <li>
           See GPL compatibility:
           <a
-            rel={constants.rel}
+            rel={PAGE.REL}
             href="https://www.gnu.org/licenses/gpl-faq.html#WhatDoesCompatMean"
-            target={constants.targetBlank}>
+            target={PAGE.BLANK}>
             GPL FAQ
           </a>
         </li>
@@ -219,40 +218,33 @@ This file is part of Network Pro.
     {:else if link.id === "cc-by"}
       <p class={constants.classSmall}>
         Download:
-        <a
-          href="/assets/license/CC-BY-4.0.html"
-          download
-          target={constants.targetBlank}>HTML</a>
+        <a href="/assets/license/CC-BY-4.0.html" download target={PAGE.BLANK}
+          >HTML</a>
         |
-        <a
-          href="/assets/license/CC-BY-4.0.md"
-          download
-          target={constants.targetBlank}>Markdown</a>
+        <a href="/assets/license/CC-BY-4.0.md" download target={PAGE.BLANK}
+          >Markdown</a>
         |
-        <a
-          href="/assets/license/CC-BY-4.0.txt"
-          download
-          target={constants.targetBlank}>Text</a>
+        <a href="/assets/license/CC-BY-4.0.txt" download target={PAGE.BLANK}
+          >Text</a>
         |
         <a
           href="/assets/license/CC-BY-4.0-rdfa.xml"
           download
-          target={constants.targetBlank}>RDFa</a>
+          target={PAGE.BLANK}>RDFa</a>
         |
-        <a
-          href="/assets/license/CC-BY-4.0.xml"
-          download
-          target={constants.targetBlank}>XMP</a>
+        <a href="/assets/license/CC-BY-4.0.xml" download target={PAGE.BLANK}
+          >XMP</a>
       </p>
 
       <p>
-        Network Pro&trade; (the "Licensed Material") is licensed under
+        {COMPANY_INFO.APP_NAME}&trade; (the "Licensed Material") is licensed
+        under
         <strong>Creative Commons Attribution 4.0 International</strong> (CC BY
         4.0)
         <a
-          rel={constants.rel}
+          rel={PAGE.REL}
           href="https://creativecommons.org/licenses/by/4.0/"
-          target={constants.targetBlank}>
+          target={PAGE.BLANK}>
           <img
             decoding="async"
             loading="lazy"
@@ -267,9 +259,9 @@ This file is part of Network Pro.
             alt="Creative Commons BY" />
         </a>
         <a
-          rel={constants.rel}
+          rel={PAGE.REL}
           href="https://creativecommons.org/licenses/by/4.0/"
-          target={constants.targetBlank}>
+          target={PAGE.BLANK}>
           <img
             decoding="async"
             loading="lazy"
@@ -302,9 +294,9 @@ This file is part of Network Pro.
         <p>
           SPDX Reference:<br />
           <a
-            rel={constants.rel}
+            rel={PAGE.REL}
             href="https://spdx.org/licenses/CC-BY-4.0.html"
-            target={constants.targetBlank}>
+            target={PAGE.BLANK}>
             https://spdx.org/licenses/CC-BY-4.0.html
           </a>
         </p>
@@ -312,9 +304,9 @@ This file is part of Network Pro.
         <p>
           Canonical URL:<br />
           <a
-            rel={constants.rel}
+            rel={PAGE.REL}
             href="https://creativecommons.org/licenses/by/4.0/"
-            target={constants.targetBlank}>
+            target={PAGE.BLANK}>
             https://creativecommons.org/licenses/by/4.0/
           </a>
         </p>
@@ -322,52 +314,39 @@ This file is part of Network Pro.
     {:else if link.id === "gnu-gpl"}
       <p class={constants.classSmall}>
         Download:
-        <a
-          href="/assets/license/COPYING.html"
-          download
-          target={constants.targetBlank}>HTML</a>
+        <a href="/assets/license/COPYING.html" download target={PAGE.BLANK}
+          >HTML</a>
         |
-        <a
-          href="/assets/license/COPYING.md"
-          download
-          target={constants.targetBlank}>Markdown</a>
+        <a href="/assets/license/COPYING.md" download target={PAGE.BLANK}
+          >Markdown</a>
         |
-        <a
-          href="/assets/license/COPYING.txt"
-          download
-          target={constants.targetBlank}>Text</a>
+        <a href="/assets/license/COPYING.txt" download target={PAGE.BLANK}
+          >Text</a>
         |
-        <a
-          href="/assets/license/COPYING-rdfa.xml"
-          download
-          target={constants.targetBlank}>RDFa</a>
+        <a href="/assets/license/COPYING-rdfa.xml" download target={PAGE.BLANK}
+          >RDFa</a>
         |
-        <a
-          href="/assets/license/COPYING.odt"
-          download
-          target={constants.targetBlank}>ODT</a>
+        <a href="/assets/license/COPYING.odt" download target={PAGE.BLANK}
+          >ODT</a>
       </p>
 
       <p>
-        Network Pro&trade; is free software: you can redistribute it and/or
-        modify it under the terms of the
+        {COMPANY_INFO.APP_NAME}&trade; is free software: you can redistribute it
+        and/or modify it under the terms of the
         <strong>GNU General Public License</strong> (GNU GPL) as published by
         the
-        <a
-          rel={constants.rel}
-          href="https://fsf.org"
-          target={constants.targetBlank}>Free Software Foundation</a
+        <a rel={PAGE.REL} href="https://fsf.org" target={PAGE.BLANK}
+          >Free Software Foundation</a
         >, either version 3 of the License, or (at your option) any later
         version.
       </p>
 
       <p>
         You should have received a copy of the GNU General Public License along
-        with this material. If not, see &lt;
-        <a
-          rel={constants.rel}
+        with this material. If not, see &lt;<a
+          rel={PAGE.REL}
           href="https://www.gnu.org/licenses"
-          target={constants.targetBlank}>https://www.gnu.org/licenses/</a
+          target={PAGE.BLANK}>https://www.gnu.org/licenses/</a
         >&gt;.
       </p>
 
@@ -375,9 +354,9 @@ This file is part of Network Pro.
         <p>
           SPDX Reference:<br />
           <a
-            rel={constants.rel}
+            rel={PAGE.REL}
             href="https://spdx.org/licenses/GPL-3.0-or-later.html"
-            target={constants.targetBlank}>
+            target={PAGE.BLANK}>
             https://spdx.org/licenses/GPL-3.0-or-later.html
           </a>
         </p>
@@ -385,9 +364,9 @@ This file is part of Network Pro.
         <p>
           Canonical URL:<br />
           <a
-            rel={constants.rel}
+            rel={PAGE.REL}
             href="https://www.gnu.org/licenses/gpl-3.0.html"
-            target={constants.targetBlank}>
+            target={PAGE.BLANK}>
             https://gnu.org/licenses/gpl-3.0.html
           </a>
         </p>
@@ -450,7 +429,7 @@ This file is part of Network Pro.
 
       <blockquote>
         <strong>
-          THE LICENSED MATERIAL IS PROVIDED “AS IS” AND “AS AVAILABLE,” WITHOUT
+          THE LICENSED MATERIAL IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT
           ANY EXPRESS OR IMPLIED WARRANTIES. TO THE MAXIMUM EXTENT PERMITTED BY
           LAW, THE COMPANY DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED
           TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
@@ -474,9 +453,9 @@ This file is part of Network Pro.
         distributions of any legal document issued by the Company—including but
         not limited to license terms, policies, notices, or agreements—the
         version published on the Company's primary website at <a
-          rel={constants.rel}
+          rel={PAGE.REL}
           href={homeLink}
-          target={constants.targetSelf}>https://netwk.pro</a>
+          target={PAGE.SELF}>https://netwk.pro</a>
         shall be deemed the official and controlling version.
       </p>
 
@@ -495,15 +474,15 @@ This file is part of Network Pro.
     {:else if link.id === "contact"}
       <p>
         The Company can be contacted via our
-        <a rel={constants.rel} href={contactLink} target={constants.targetBlank}
-          >contact form</a>
+        <a rel={PAGE.REL} href={contactLink} target={PAGE.BLANK}
+          >Contact Form</a>
         or by email at:<br />
-        📧 <code>contact (at) s.neteng.pro</code>
+        📧 <strong>{CONTACT.EMAIL}</strong>
       </p>
     {/if}
 
     <span class={constants.classSmall}>
-      <a href={constants.hrefTop}>Back to top</a>
+      <a href={NAV.HREFTOP}>{NAV.BACKTOP}</a>
     </span>
   </section>
 {/each}

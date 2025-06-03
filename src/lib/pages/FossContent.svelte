@@ -9,6 +9,11 @@ This file is part of Network Pro.
 <script>
   import { fossData } from "$lib/data/fossData.js";
   import FossItemContent from "$lib/components/foss/FossItemContent.svelte";
+  import { CONSTANTS } from "$lib";
+
+  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+
+  const { PAGE } = CONSTANTS;
 
   /**
    * Process the FOSS data
@@ -48,24 +53,14 @@ This file is part of Network Pro.
     title: "FOSS Spotlight",
     lastUpdated: "May 30, 2025",
   };
-
-  /** @type {any} */
-  const constants = {
-    classSmall: "small-text",
-    rel: "noopener noreferrer",
-    backTop: "Back to top",
-    hrefTop: "#top",
-    targetSelf: "_self",
-    targetBlank: "_blank",
-  };
 </script>
 
 <section id="top">
-  <span class={constants.classSmall}>
+  <span class="small-text">
     <a
-      rel={constants.rel}
+      rel={PAGE.REL}
       href="https://spdx.dev/learn/handling-license-info"
-      target={constants.targetBlank}>
+      target={PAGE.BLANK}>
       SPDX License Identifier
     </a>: &nbsp;<code>CC-BY-4.0 OR GPL-3.0-or-later</code>
   </span>

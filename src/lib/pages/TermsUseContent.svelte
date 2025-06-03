@@ -15,9 +15,9 @@ This file is part of Network Pro.
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
-  console.log(CONSTANTS.APP_NAME);
+  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
-  const { COMPANY } = CONSTANTS;
+  const { COMPANY_INFO, PAGE, NAV } = CONSTANTS;
 
   /**
    * URL to Terms and Conditions page, using the base path
@@ -62,15 +62,11 @@ This file is part of Network Pro.
 
   /**
    * Constants for reusable content
-   * @type {{ effectiveDate: string, classSmall: string, rel: string, hrefTop: string, targetBlank: string, targetSelf: string }}
+   * @type {{ effectiveDate: string, classSmall: string }}
    */
   const constants = {
     effectiveDate: "May 21, 2025",
     classSmall: "small-text",
-    rel: "noopener noreferrer",
-    hrefTop: "#top",
-    targetBlank: "_blank",
-    targetSelf: "_self",
   };
 </script>
 
@@ -78,9 +74,9 @@ This file is part of Network Pro.
 <section id="top">
   <span class={constants.classSmall}>
     <a
-      rel={constants.rel}
+      rel={PAGE.REL}
       href="https://spdx.dev/learn/handling-license-info"
-      target={constants.targetBlank}>
+      target={PAGE.BLANK}>
       SPDX License Identifier
     </a>: &nbsp;<code>CC-BY-4.0 OR GPL-3.0-or-later</code>
   </span>
@@ -89,7 +85,7 @@ This file is part of Network Pro.
 <section id="page-title">
   <h1>Website Terms of Use</h1>
   <p>
-    <strong>{COMPANY}</strong><br />
+    <strong>{COMPANY_INFO.NAME}</strong><br />
     <strong>Effective Date:</strong>
     {constants.effectiveDate}
   </p>
@@ -113,7 +109,7 @@ This file is part of Network Pro.
   available via this website and its associated web properties. For provisions
   governing our consulting and implementation services, please refer to the
   applicable
-  <a href={tandcLink} target={constants.targetSelf}>Terms and Conditions</a>.
+  <a href={tandcLink} target={PAGE.SELF}>Terms and Conditions</a>.
 </p>
 
 <hr />
@@ -124,8 +120,7 @@ This file is part of Network Pro.
       <strong>Formats Available:</strong> &nbsp;<span class="visited"
         >HTML</span>
       |
-      <a rel={constants.rel} href={termsLink} target={constants.targetSelf}
-        >Docs</a>
+      <a rel={PAGE.REL} href={termsLink} target={PAGE.SELF}>Docs</a>
     </sup>
   </p>
 </section>
@@ -137,7 +132,7 @@ This file is part of Network Pro.
 
     {#if link.id === "introduction"}
       <p>
-        Welcome! By accessing or using any of the platforms operated by {COMPANY}
+        Welcome! By accessing or using any of the platforms operated by {COMPANY_INFO.NAME}
         ("Company," "we," "us," or "our"), you agree to be bound by these Terms of
         Use ("Terms"). If you do not agree to these Terms, please refrain from using
         our services.
@@ -202,10 +197,10 @@ This file is part of Network Pro.
       </p>
     {:else if link.id === "jurisdiction"}
       <p>
-        {COMPANY} is based in Maricopa County, Arizona. Any legal action or dispute
-        arising from these Terms of Use shall be subject to the exclusive jurisdiction
-        of the state and federal courts located in Maricopa County, Arizona. These
-        Terms shall be governed by the
+        {COMPANY_INFO.NAME} is based in Maricopa County, Arizona. Any legal action
+        or dispute arising from these Terms of Use shall be subject to the exclusive
+        jurisdiction of the state and federal courts located in Maricopa County,
+        Arizona. These Terms shall be governed by the
         <strong>Arizona Revised Statutes (A.R.S.)</strong> and applicable
         provisions of the <strong>United States Code (U.S.C.)</strong>.
       </p>
@@ -224,7 +219,7 @@ This file is part of Network Pro.
     {/if}
 
     <span class={constants.classSmall}
-      ><a href={constants.hrefTop}>Back to top</a></span>
+      ><a href={NAV.HREFTOP}>{NAV.BACKTOP}</a></span>
   </section>
 {/each}
 
@@ -232,10 +227,9 @@ This file is part of Network Pro.
   <p class="bquote">
     <strong>Note:</strong> For more details regarding our privacy practices,
     refer to our
-    <a rel={constants.rel} href={privacyLink} target={constants.targetSelf}
-      >Privacy Policy</a
-    >. For licensing terms and content usage rights, please visit our
-    <a rel={constants.rel} href={licenseLink} target={constants.targetSelf}
+    <a rel={PAGE.REL} href={privacyLink} target={PAGE.SELF}>Privacy Policy</a>.
+    For licensing terms and content usage rights, please visit our
+    <a rel={PAGE.REL} href={licenseLink} target={PAGE.SELF}
       >Legal, Copyright, and Licensing</a>
     page.
   </p>

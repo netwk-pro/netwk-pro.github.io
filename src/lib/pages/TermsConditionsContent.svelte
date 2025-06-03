@@ -15,9 +15,9 @@ This file is part of Network Pro.
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
-  console.log(CONSTANTS.APP_NAME);
+  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
-  const { COMPANY } = CONSTANTS;
+  const { COMPANY_INFO, PAGE, NAV } = CONSTANTS;
 
   /**
    * URL to Terms of Use page, using the base path
@@ -35,20 +35,12 @@ This file is part of Network Pro.
    * Common constants used throughout the component
    * @type {{
    *   effectiveDate: string,
-   *   rel: string,
-   *   targetBlank: string,
-   *   targetSelf: string,
    *   classSmall: string,
-   *   hrefTop: string
    * }}
    */
   const constants = {
     effectiveDate: "May 8, 2025",
-    rel: "noopener noreferrer",
-    targetBlank: "_blank",
-    targetSelf: "_self",
     classSmall: "small-text",
-    hrefTop: "#top",
   };
 
   /**
@@ -73,7 +65,10 @@ This file is part of Network Pro.
 <!-- BEGIN TITLE -->
 <section id="top">
   <span class={constants.classSmall}>
-    <a rel={constants.rel} href="https://spdx.dev/learn/handling-license-info">
+    <a
+      rel={PAGE.REL}
+      href="https://spdx.dev/learn/handling-license-info"
+      target={PAGE.BLANK}>
       SPDX License Identifier
     </a>: &nbsp;<code>CC-BY-4.0 OR GPL-3.0-or-later</code>
   </span>
@@ -82,7 +77,7 @@ This file is part of Network Pro.
 <section id="page-title">
   <h1>Consulting Terms and Conditions</h1>
   <p>
-    <strong>{COMPANY}<br />Effective Date:</strong>
+    <strong>{COMPANY_INFO.NAME}<br />Effective Date:</strong>
     {constants.effectiveDate}
   </p>
 </section>
@@ -104,7 +99,7 @@ This file is part of Network Pro.
   These Terms and Conditions apply exclusively to the provision of our
   consulting and implementation services. For all other uses of our website and
   associated platforms, please refer to the applicable
-  <a href={termsLink} target={constants.targetSelf}> Website Terms of Use </a>.
+  <a href={termsLink} target={PAGE.SELF}> Website Terms of Use </a>.
 </p>
 
 <hr />
@@ -115,9 +110,9 @@ This file is part of Network Pro.
       <strong>Formats Available:</strong> &nbsp;<span class="visited"
         >HTML</span>
       |
-      <a href={tandcLink} target={constants.targetSelf}>Docs</a>
+      <a href={tandcLink} target={PAGE.SELF}>Docs</a>
       |
-      <a href="/assets/consulting-terms.pdf" target={constants.targetBlank}>
+      <a href="/assets/consulting-terms.pdf" target={PAGE.BLANK}>
         PDF <span class="fas fa-file-arrow-down"></span>
       </a>
     </sup>
@@ -132,8 +127,8 @@ This file is part of Network Pro.
       <p>
         By engaging with the information security, network security,
         cybersecurity, and digital privacy consulting and implementation
-        services provided by {COMPANY} ("Company," "we," "us," or "our"), you ("Client")
-        agree to be bound by these Terms and Conditions ("Terms").
+        services provided by {COMPANY_INFO.NAME} ("Company," "we," "us," or "our"),
+        you ("Client") agree to be bound by these Terms and Conditions ("Terms").
         <strong>
           These Terms govern all engagements except where explicitly superseded
           by a separate written agreement or Statement of Work (SOW).
@@ -237,7 +232,7 @@ This file is part of Network Pro.
     {/if}
 
     <span class={constants.classSmall}
-      ><a href={constants.hrefTop}>Back to top</a></span>
+      ><a href={NAV.HREFTOP}>{NAV.BACKTOP}</a></span>
   </section>
 {/each}
 <!-- END TERMS AND CONDITIONS -->

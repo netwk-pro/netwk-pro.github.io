@@ -34,23 +34,57 @@ export * from "./images.js";
 
 /**
  * @typedef {{
- *   COMPANY: string,
+ *   NAME: string,
  *   APP_NAME: string,
- *   COPYRIGHT_YEAR: string,
- *   CONTACT_EMAIL: string,
- *   SECURE_EMAIL: string,
- *   PRIVACY_EMAIL: string,
- *   PHONE: string,
+ *   YEAR: string
+ * }} CompanyInfo
+ *
+ * @typedef {{
+ *   EMAIL: string,
+ *   SECURE: string,
+ *   PRIVACY: string,
+ *   PHONE: string
+ * }} ContactInfo
+ *
+ * @typedef {{
+ *   BLANK: string,
+ *   SELF: string,
+ *   REL: string
+ * }} PageTargets
+ *
+ * @typedef {{
+ *   BACKTOP: string,
+ *   HREFTOP: string
+ * }} NavigationLabels
+ *
+ * @typedef {{
+ *   COMPANY_INFO: CompanyInfo,
+ *   CONTACT: ContactInfo,
+ *   PAGE: PageTargets,
+ *   NAV: NavigationLabels
  * }} AppConstants
  */
 
 /** @type {AppConstants} */
 export const CONSTANTS = {
-  COMPANY: "Network Pro Strategies",
-  APP_NAME: "Network Pro",
-  COPYRIGHT_YEAR: "2025",
-  CONTACT_EMAIL: "support (at) neteng.pro",
-  SECURE_EMAIL: "contact (at) s.neteng.pro",
-  PRIVACY_EMAIL: "privacy (at) netwk.pro",
-  PHONE: "(623) 252-4350"
+  COMPANY_INFO: {
+    NAME: "Network Pro Strategies",
+    APP_NAME: "Network Pro",
+    YEAR: "2025",
+  },
+  CONTACT: {
+    EMAIL: "support (at) neteng.pro",
+    SECURE: "contact (at) s.neteng.pro",
+    PRIVACY: "privacy (at) netwk.pro",
+    PHONE: "(623) 252-4350",
+  },
+  PAGE: {
+    BLANK: "_blank",
+    REL: "noopener noreferrer",
+    SELF: "_self",
+  },
+  NAV: {
+    BACKTOP: "Back to top",
+    HREFTOP: "#top",
+  },
 };
