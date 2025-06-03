@@ -128,7 +128,7 @@ This file is part of Network Pro.
         All content—including text, software, logos, graphics, documentation,
         and other materials—provided by
         <strong>{COMPANY_INFO.NAME}</strong> ("{COMPANY_INFO.APP_NAME}",
-        “Company”, “Licensor”) is protected by U.S. and international copyright
+        "Company", "Licensor") is protected by U.S. and international copyright
         laws.
       </p>
       <p>
@@ -167,7 +167,7 @@ This file is part of Network Pro.
       </p>
     {:else if link.id === "lmaterial"}
       <p>
-        “Licensed Material” refers solely to the publicly available code and
+        "Licensed Material" refers solely to the publicly available code and
         documentation distributed through the Company's open repositories and
         websites. It expressly excludes all third-party content, proprietary
         brand assets (including logos, trademarks, and visual designs), and any
@@ -429,7 +429,7 @@ This file is part of Network Pro.
 
       <blockquote>
         <strong>
-          THE LICENSED MATERIAL IS PROVIDED “AS IS” AND “AS AVAILABLE,” WITHOUT
+          THE LICENSED MATERIAL IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT
           ANY EXPRESS OR IMPLIED WARRANTIES. TO THE MAXIMUM EXTENT PERMITTED BY
           LAW, THE COMPANY DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED
           TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
