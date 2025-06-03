@@ -15,16 +15,12 @@ This file is part of Network Pro.
     setTrackingPreference,
     clearTrackingPreferences,
   } from "$lib/utils/trackingCookies.js";
+  import { CONSTANTS } from "$lib";
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
-  console.log(__COMPANY__); // "Network Pro Strategies"
-  console.log(__APP_NAME__); // "Network Pro"
-  console.log(__CONTACT_EMAIL__); // "support (at) neteng.pro"
-  console.log(__SECURE_EMAIL__); // "contact (at) s.neteng.pro"
-  console.log(__PRIVACY_EMAIL__); // "privacy (at) netwk.pro"
-  console.log(__PHONE__); // "(623) 252-4350"
+  console.log(CONSTANTS.APP_NAME);
 
   /**
    * URL to the Privacy Rights Request Form redirect route, using the base path
@@ -63,10 +59,7 @@ This file is part of Network Pro.
     { id: "contact", text: "Contact" },
   ];
 
-  /**
-   * Effective Date
-   * @type {{ effectiveDate: string }}
-   */
+  /** @type {string} */
   const effectiveDate = "June 2, 2025";
 
   /**
@@ -147,7 +140,7 @@ This file is part of Network Pro.
 <section id="page-title">
   <h1>Privacy Policy</h1>
   <p>
-    <strong>{__COMPANY__}</strong><br />
+    <strong>{CONSTANTS.COMPANY}</strong><br />
     <strong>Effective Date:</strong>
     {effectiveDate}
   </p>
@@ -404,7 +397,7 @@ This file is part of Network Pro.
           href={prightsLink}
           target={constants.targetBlank}>Privacy Rights Request Form</a
         >. Alternatively, you can email us at
-        <strong>{__PRIVACY_EMAIL__}</strong>
+        <strong>{CONSTANTS.PRIVACY_EMAIL}</strong>
         with the subject line: "<strong>Privacy Rights Preferences</strong>".
       </p>
     {:else if link.id === "third-party"}
@@ -431,10 +424,10 @@ This file is part of Network Pro.
           href={contactLink}
           target={constants.targetSelf}>Contact Form</a> or contact us directly:</p>
       <p>
-        <strong>{__COMPANY__}</strong><br />
-        📧 General Inquiries: {__CONTACT_EMAIL__}<br />
-        🔐 Secure Email: {__SECURE_EMAIL__}<br />
-        📞 Phone: {__PHONE__}
+        <strong>{CONSTANTS.COMPANY}</strong><br />
+        📧 General Inquiries: {CONSTANTS.CONTACT_EMAIL}<br />
+        🔐 Secure Email: {CONSTANTS.SECURE_EMAIL}<br />
+        📞 Phone: {CONSTANTS.PHONE}
       </p>
     {/if}
 

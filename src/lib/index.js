@@ -13,7 +13,7 @@ This file is part of Network Pro.
  * @description Main export point for library components, utilities, and assets
  * @module src/lib
  * @author SunDevil311
- * @updated 2025-05-14
+ * @updated 2025-06-02
  */
 
 // Re-export images from dedicated images.js file
@@ -32,4 +32,25 @@ export * from "./images.js";
 // export { default as Button } from './components/Button.svelte';
 // export { default as Card } from './components/Card.svelte';
 
-/* Application constants moved to vite.config.js to be used at build time */
+/**
+ * @typedef {{
+ *   COMPANY: string,
+ *   APP_NAME: string,
+ *   COPYRIGHT_YEAR: string,
+ *   CONTACT_EMAIL: string,
+ *   SECURE_EMAIL: string,
+ *   PRIVACY_EMAIL: string,
+ *   PHONE: string,
+ * }} AppConstants
+ */
+
+/** @type {AppConstants} */
+export const CONSTANTS = {
+  COMPANY: "Network Pro Strategies",
+  APP_NAME: "Network Pro",
+  COPYRIGHT_YEAR: "2025",
+  CONTACT_EMAIL: "support (at) neteng.pro",
+  SECURE_EMAIL: "contact (at) s.neteng.pro",
+  PRIVACY_EMAIL: "privacy (at) netwk.pro",
+  PHONE: "(623) 252-4350"
+};

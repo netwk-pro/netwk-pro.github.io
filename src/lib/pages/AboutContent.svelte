@@ -9,12 +9,14 @@ This file is part of Network Pro.
 <script>
   import { pgpContact, pgpSupport, vcfSrc } from "$lib";
   import { base } from "$app/paths";
+  import { CONSTANTS } from "$lib";
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
-  console.log(__COMPANY__); // "Network Pro Strategies"
-  console.log(__APP_NAME__); // "Network Pro"
+  console.log(CONSTANTS.APP_NAME);
+
+  const { COMPANY, APP_NAME } = CONSTANTS;
 
   /**
    * URL to the Contact Form route, using the base path
@@ -126,9 +128,9 @@ This file is part of Network Pro.
 </section>
 
 <section id="page-title">
-  <h1>About {__APP_NAME__}&trade;</h1>
+  <h1>About {APP_NAME}&trade;</h1>
   <p>
-    <strong>{__COMPANY__} ({__APP_NAME__}&trade;)</strong>
+    <strong>{COMPANY} ({APP_NAME}&trade;)</strong>
     <br />
     <em>Remote-First Cybersecurity & Privacy Consulting</em>
   </p>
@@ -153,7 +155,7 @@ This file is part of Network Pro.
 </p>
 
 <p>
-  At <strong>{__COMPANY__} ({__APP_NAME__}&trade;)</strong>, we deliver network
+  At <strong>{COMPANY} ({APP_NAME}&trade;)</strong>, we deliver network
   security, cybersecurity, and digital privacy consulting with clarity,
   credibility, and care. We believe that real security doesn't have to come at
   the cost of user autonomy, and that privacy-minded solutions can be both

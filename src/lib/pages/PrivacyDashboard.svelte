@@ -15,8 +15,14 @@ This file is part of Network Pro.
     setTrackingPreference,
     clearTrackingPreferences,
   } from "$lib/utils/trackingCookies.js";
+  import { CONSTANTS } from "$lib";
 
-  console.log(__PRIVACY_EMAIL__); // "privacy (at) netwk.pro"
+  // Log the base path to verify its value
+  //console.log("Base path:", base);
+
+  console.log(CONSTANTS.APP_NAME);
+
+  const { PRIVACY_EMAIL } = CONSTANTS;
 
   /**
    * @type {string}
@@ -253,7 +259,7 @@ This file is part of Network Pro.
       href={prightsLink}
       target={constants.targetBlank}>Privacy Rights Request Form</a
     >. Alternatively, you can email us at
-    <strong>{__PRIVACY_EMAIL__}</strong>
+    <strong>{PRIVACY_EMAIL}</strong>
     with the subject line: "<strong>Privacy Rights Preferences</strong>".
   </p>
 </section>
