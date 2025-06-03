@@ -149,14 +149,13 @@ This file is part of Network Pro.
       {:else}
         <a href={license.url} target={PAGE.SELF} rel={relLicense}>
           <strong>{license.type}</strong>
-        </a>
-        , as published by the
+        </a>, as published by the
         <a rel={PAGE.REL} href={license.externalUrl} target={PAGE.BLANK}
           >{license.description}</a
-        >, either version 3 of the License, or (at your option) any later
+        >, either version 3 of the License or (at your option) any later
         version.
       {/if}
-      {index < licenses.length - 1 ? ", and the " : ""}
+      {index < licenses.length - 1 ? " and the " : ""}
     {/each}
   </p>
 </div>
