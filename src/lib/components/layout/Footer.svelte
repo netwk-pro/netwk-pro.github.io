@@ -12,27 +12,17 @@ This file is part of Network Pro.
   import { base } from "$app/paths";
   // Import icons for licenses
   import { bySvg, ccSvg } from "$lib";
+  import { CONSTANTS } from "$lib";
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
-  console.log(__COMPANY__); // "Network Pro Strategies"
-  console.log(__APP_NAME__); // "Network Pro"
-  console.log(__COPYRIGHT_YEAR__); // "2025"
+  console.log(CONSTANTS.APP_NAME);
 
   // Dynamic links for licensing and trademark
   const ccbyLink = `${base}/license#cc-by`;
   const gnugplLink = `${base}/license#gnu-gpl`;
   const trademarkLink = `${base}/license#trademark`;
-
-  /**
-   * Creator details object.
-   * @typedef {Object} Creator
-   * @property {string} name - The name of the creator.
-   * @property {string} url - The URL of the creator's website.
-   * @property {string} trademark - The trademark name of the creator.
-   * @property {string} slogan - The slogan of the creator.
-   */
 
   /**
    * Icon details object.
@@ -51,13 +41,11 @@ This file is part of Network Pro.
    * @property {Icon[]} [icons] - An array of icon objects for representing the license visually.
    */
 
-  /**
-   * @type {Creator}
-   */
-  const creator = {
-    url: "https://netwk.pro",
-    slogan: "Locking Down Networks™",
-  };
+  /** @type {string} */
+  const creatorUrl = "https://netwk.pro";
+
+  /** @type {string} */
+  const creatorSlogan = "Privacy Made Practical";
 
   /**
    * @type {License[]}
@@ -124,23 +112,23 @@ This file is part of Network Pro.
 <div class="copyright" {...namespaceAttributes}>
   <!-- Copyright Section -->
   <p>
-    Copyright &copy; {__COPYRIGHT_YEAR__}<br />
+    Copyright &copy; {CONSTANTS.COPYRIGHT_YEAR}<br />
     <a
       rel="cc:attributionURL dct:creator"
       property="cc:attributionName"
-      href={creator.url}
+      href={creatorUrl}
       target={targetBlank}>
-      <strong>{__COMPANY__}</strong>
+      <strong>{CONSTANTS.COMPANY}</strong>
     </a>
-    ({__APP_NAME__}&trade;)
+    ({CONSTANTS.APP_NAME}&trade;)
   </p>
 
   <!-- Trademark Section -->
   <p>
-    {__APP_NAME__}&trade;, the shield logo, and the "{creator.slogan}" slogan
-    are
+    {CONSTANTS.APP_NAME}&trade;, the shield logo, and the "{creatorSlogan}"
+    slogan are
     <a href={trademarkLink} target={targetSelf}>trademarks</a>
-    of {creator.name}.
+    of {CONSTANTS.COMPANY}.
   </p>
 
   <!-- Licensing Section -->

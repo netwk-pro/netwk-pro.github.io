@@ -10,11 +10,14 @@ This file is part of Network Pro.
 
 <script>
   import { base } from "$app/paths";
+  import { CONSTANTS } from "$lib";
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
-  console.log(__COMPANY__); // "Network Pro Strategies"
+  console.log(CONSTANTS.APP_NAME);
+
+  const { COMPANY } = CONSTANTS;
 
   /**
    * URL to Terms and Conditions page, using the base path
@@ -86,7 +89,7 @@ This file is part of Network Pro.
 <section id="page-title">
   <h1>Website Terms of Use</h1>
   <p>
-    <strong>{__COMPANY__}</strong><br />
+    <strong>{COMPANY}</strong><br />
     <strong>Effective Date:</strong>
     {constants.effectiveDate}
   </p>
@@ -134,7 +137,7 @@ This file is part of Network Pro.
 
     {#if link.id === "introduction"}
       <p>
-        Welcome! By accessing or using any of the platforms operated by {__COMPANY__}
+        Welcome! By accessing or using any of the platforms operated by {COMPANY}
         ("Company," "we," "us," or "our"), you agree to be bound by these Terms of
         Use ("Terms"). If you do not agree to these Terms, please refrain from using
         our services.
@@ -199,7 +202,7 @@ This file is part of Network Pro.
       </p>
     {:else if link.id === "jurisdiction"}
       <p>
-        {__COMPANY__} is based in Maricopa County, Arizona. Any legal action or dispute
+        {COMPANY} is based in Maricopa County, Arizona. Any legal action or dispute
         arising from these Terms of Use shall be subject to the exclusive jurisdiction
         of the state and federal courts located in Maricopa County, Arizona. These
         Terms shall be governed by the
