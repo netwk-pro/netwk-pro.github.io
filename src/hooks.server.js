@@ -91,3 +91,16 @@ export async function handle({ event, resolve }) {
 
   return response;
 }
+
+/**
+ * SvelteKit server-side error handler to log SSR errors.
+ * @type {import('@sveltejs/kit').HandleServerError}
+ */
+export function handleError({ error, event }) {
+  console.error("🔴 SSR Error in route:", event.url.pathname);
+  console.error(error);
+
+  return {
+    message: "A server-side error occurred",
+  };
+}
