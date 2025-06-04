@@ -32,9 +32,11 @@ function buildCookieSettings(maxAge) {
  * @param {number} [maxAge=DEFAULT_COOKIE_MAX_AGE]
  */
 export function setTrackingPreference(type, maxAge = DEFAULT_COOKIE_MAX_AGE) {
-  const cookieSettings = buildCookieSettings(maxAge);
+  if (typeof document === "undefined") return; // SSR guard
 
+  const cookieSettings = buildCookieSettings(maxAge);
   const now = Date.now();
+
   if (type === "enable") {
     document.cookie = `enable_tracking=true; ${cookieSettings}`;
     document.cookie = `tracking_consent_timestamp=${now}; ${cookieSettings}`;
@@ -50,6 +52,8 @@ export function setTrackingPreference(type, maxAge = DEFAULT_COOKIE_MAX_AGE) {
  * Clears all tracking-related cookies.
  */
 export function clearTrackingPreferences() {
+  if (typeof document === "undefined") return; // SSR guard
+
   clearCookie("enable_tracking");
   clearCookie("disable_tracking");
   clearCookie("tracking_consent_timestamp");
@@ -60,5 +64,7 @@ export function clearTrackingPreferences() {
  * @param {string} name
  */
 function clearCookie(name) {
+  if (typeof document === "undefined") return; // SSR guard
+
   document.cookie = `${name}=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax; Secure`;
 }

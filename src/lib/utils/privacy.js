@@ -19,6 +19,8 @@ This file is part of Network Pro.
  * @returns {boolean}
  */
 export function hasUserManuallySetTrackingPreference() {
+  if (typeof document === "undefined") return false;
+
   const cookies = document.cookie;
   return (
     cookies.includes("enable_tracking=true") ||
@@ -31,6 +33,14 @@ export function hasUserManuallySetTrackingPreference() {
  * @returns {boolean}
  */
 export function shouldTrackUser() {
+  if (
+    typeof window === "undefined" ||
+    typeof navigator === "undefined" ||
+    typeof document === "undefined"
+  ) {
+    return false;
+  }
+
   const cookies = document.cookie;
   const windowDNT = /** @type {any} */ (window).doNotTrack;
   const navigatorGPC = /** @type {any} */ (navigator).globalPrivacyControl;
@@ -55,6 +65,8 @@ export function shouldTrackUser() {
  * @returns {boolean}
  */
 export function shouldRemindUserToReconsent() {
+  if (typeof document === "undefined") return false;
+
   if (!hasUserManuallySetTrackingPreference()) return false;
 
   const match = document.cookie.match(/tracking_consent_timestamp=(\d+)/);
