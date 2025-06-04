@@ -13,7 +13,7 @@ This file is part of Network Pro.
  * @description Main export point for library components, utilities, and assets
  * @module src/lib
  * @author SunDevil311
- * @updated 2025-06-02
+ * @updated 2025-06-03
  */
 
 // Re-export images from dedicated images.js file
@@ -32,38 +32,8 @@ export * from "./images.js";
 // export { default as Button } from './components/Button.svelte';
 // export { default as Card } from './components/Card.svelte';
 
-/**
- * @typedef {{
- *   NAME: string,
- *   APP_NAME: string,
- *   YEAR: string
- * }} CompanyInfo
- *
- * @typedef {{
- *   EMAIL: string,
- *   SECURE: string,
- *   PRIVACY: string,
- *   PHONE: string
- * }} ContactInfo
- *
- * @typedef {{
- *   BLANK: string,
- *   SELF: string,
- *   REL: string
- * }} PageTargets
- *
- * @typedef {{
- *   BACKTOP: string,
- *   HREFTOP: string
- * }} NavigationLabels
- *
- * @typedef {{
- *   COMPANY_INFO: CompanyInfo,
- *   CONTACT: ContactInfo,
- *   PAGE: PageTargets,
- *   NAV: NavigationLabels
- * }} AppConstants
- */
+/** @typedef {import('./types/appConstants.js').AppConstants} AppConstants */
+
 
 /** @type {AppConstants} */
 export const CONSTANTS = {
@@ -86,5 +56,9 @@ export const CONSTANTS = {
   NAV: {
     BACKTOP: "Back to top",
     HREFTOP: "#top",
+  },
+  LINKS: {
+    HOME: "https://netwk.pro",
+    BLOG: "https://blog.netwk.pro",
   },
 };

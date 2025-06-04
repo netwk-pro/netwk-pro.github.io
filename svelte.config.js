@@ -23,13 +23,15 @@ const config = {
   kit: {
     // Netlify adapter configuration
     adapter: adapter({
-      edge: false, // Disable edge functions (optional, enable if needed)
-      split: false, // Disable splitting function files (optional, enable if needed),
+      edge: true, // Enable edge functions (used by CSP reporting endpoint)
+      split: false, // Disable splitting function files (optional, enable if needed)
     }),
+
     // Paths configuration for deployment
     paths: {
       base: "", // Always deploy to the root of the domain
     },
+
     prerender: {
       // Handle HTTP errors during prerendering
       handleHttpError: ({ path, _referrer, message }) => {
@@ -46,6 +48,7 @@ const config = {
       },
     },
   },
+
   // File extensions for Svelte and mdsvex
   extensions: [".svelte", ".svx", ".md"], // Added .md for Markdown support
 };

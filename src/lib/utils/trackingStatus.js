@@ -9,10 +9,12 @@ This file is part of Network Pro.
 /**
  * @file trackingStatus.js
  * @description Get tracking preferences based on cookies and browser privacy signals.
- * @module src/lib/utils/
+ * @module src/lib/utils
  * @author SunDevil311
  * @updated 2025-05-28
  */
+
+import { browser } from "$app/environment";
 
 /**
  * @returns {{
@@ -24,6 +26,16 @@ This file is part of Network Pro.
  * }}
  */
 export function getTrackingPreferences() {
+  if (!browser) {
+    return {
+      optedOut: false,
+      optedIn: false,
+      dnt: false,
+      gpc: false,
+      status: "⏳ Checking tracking preferences...",
+    };
+  }
+
   const cookies = document.cookie;
   const optedOut = cookies.includes("disable_tracking=true");
   const optedIn = cookies.includes("enable_tracking=true");

@@ -9,6 +9,7 @@ This file is part of Network Pro.
 <script>
   import { base } from "$app/paths";
   import { onMount } from "svelte";
+  import { trackingStatus } from "$lib/stores/trackingStatus.js"; // ✅ Reactive store
   import { getTrackingPreferences } from "$lib/utils/trackingStatus.js";
   /** @type {(type: 'enable' | 'disable') => void} */
   import {
@@ -67,16 +68,33 @@ This file is part of Network Pro.
   /** @type {string} */
   const classSmall = "small-text";
 
+  /**
+   * @type {boolean}
+   * Tracks whether the user has opted out of analytics.
+   */
   let optedOut = false;
-  let optedIn = false;
-  let trackingStatus = "";
 
-  onMount(() => {
+  /**
+   * @type {boolean}
+   * Tracks whether the user has opted in to analytics.
+   */
+  let optedIn = false;
+
+  /**
+   * Refresh tracking status and update internal state + reactive store.
+   * Used on mount and after toggle changes.
+   */
+  function refreshTrackingStatus() {
     const prefs = getTrackingPreferences();
     optedOut = prefs.optedOut;
     optedIn = prefs.optedIn;
-    trackingStatus = prefs.status;
-    console.log("[Tracking] Status:", trackingStatus);
+    trackingStatus.set(prefs.status);
+  }
+
+  // Initialize state on mount
+  onMount(() => {
+    refreshTrackingStatus();
+    console.log("[Tracking] Status:", $trackingStatus);
   });
 
   /**
@@ -92,6 +110,7 @@ This file is part of Network Pro.
       console.log("[Tracking] User cleared opt-out");
       clearTrackingPreferences();
     }
+    refreshTrackingStatus();
   }
 
   /**
@@ -107,6 +126,7 @@ This file is part of Network Pro.
       console.log("[Tracking] User cleared opt-in");
       clearTrackingPreferences();
     }
+    refreshTrackingStatus();
   }
 </script>
 
@@ -241,10 +261,17 @@ This file is part of Network Pro.
       <div class="spacer"></div>
 
       <h3>Tracking Preferences</h3>
-      <p id="tracking-status" aria-live="polite">
-        <strong>Tracking Status:</strong>
-        {trackingStatus}
-      </p>
+      {#if $trackingStatus !== "⏳ Checking tracking preferences..."}
+        <p id="tracking-status" aria-live="polite">
+          <strong>Tracking Status:</strong>
+          {$trackingStatus}
+        </p>
+      {:else}
+        <p id="tracking-status" aria-live="polite">
+          <strong>Tracking Status:</strong>
+          <em>Loading…</em>
+        </p>
+      {/if}
 
       <!-- Opt-out checkbox -->
       <label>
@@ -405,7 +432,7 @@ This file is part of Network Pro.
         For questions, please utilize our <a
           rel={PAGE.REL}
           href={contactLink}
-          target={PAGE.SELF}>Contact Form</a> or contact us directly:
+          target={PAGE.BLANK}>Contact Form</a> or contact us directly:
       </p>
       <p>
         <strong>{COMPANY_INFO.NAME}</strong><br />
