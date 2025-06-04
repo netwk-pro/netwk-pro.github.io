@@ -17,6 +17,8 @@ This file is part of Network Pro.
 import { browser } from "$app/environment";
 
 /**
+ * Gets the current tracking preferences based on browser cookies and signals.
+ *
  * @returns {{
  *   optedOut: boolean,
  *   optedIn: boolean,
@@ -26,6 +28,7 @@ import { browser } from "$app/environment";
  * }}
  */
 export function getTrackingPreferences() {
+  // Prevent errors during SSR (no document or navigator)
   if (!browser) {
     return {
       optedOut: false,
@@ -39,9 +42,9 @@ export function getTrackingPreferences() {
   const cookies = document.cookie;
   const optedOut = cookies.includes("disable_tracking=true");
   const optedIn = cookies.includes("enable_tracking=true");
-  const dnt = navigator.doNotTrack === "1";
 
-  // @ts-expect-error: 'globalPrivacyControl' is a non-standard property
+  const dnt = navigator.doNotTrack === "1";
+  // @ts-expect-error: 'globalPrivacyControl' is non-standard
   const gpc = navigator.globalPrivacyControl === true;
 
   let status = "⚙️ Using default settings (tracking enabled)";
