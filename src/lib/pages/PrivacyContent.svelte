@@ -9,44 +9,45 @@ This file is part of Network Pro.
 <script>
   import { base } from "$app/paths";
   import { onMount } from "svelte";
-  import { trackingStatus } from "$lib/stores/trackingStatus.js"; // ✅ Reactive store
-  import { getTrackingPreferences } from "$lib/utils/trackingStatus.js";
-  /** @type {(type: 'enable' | 'disable') => void} */
+  import { trackingStatus } from "$lib/stores/trackingStatus.js";
   import {
+    /** @type {(type: 'enable' | 'disable') => void} */
     setTrackingPreference,
+    /** @type {() => void} */
     clearTrackingPreferences,
   } from "$lib/utils/trackingCookies.js";
   import { CONSTANTS } from "$lib";
 
-  // Log the base path to verify its value
-  //console.log("Base path:", base);
-
   console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
-  const { COMPANY_INFO, CONTACT, PAGE, NAV } = CONSTANTS;
+  /** @type {typeof CONSTANTS.COMPANY_INFO} */
+  const COMPANY_INFO = CONSTANTS.COMPANY_INFO;
 
-  /**
-   * URL to the Privacy Rights Request Form redirect route, using the base path
-   * URL to the Contact Form redirect route, using the base path
-   * URL to the Privacy Dashboard using the base path
-   * @type {string}
-   */
+  /** @type {typeof CONSTANTS.CONTACT} */
+  const CONTACT = CONSTANTS.CONTACT;
+
+  /** @type {typeof CONSTANTS.PAGE} */
+  const PAGE = CONSTANTS.PAGE;
+
+  /** @type {typeof CONSTANTS.NAV} */
+  const NAV = CONSTANTS.NAV;
+
+  /** @type {string} */
   const prightsLink = `${base}/privacy-rights`;
+
+  /** @type {string} */
   const contactLink = `${base}/contact`;
+
+  /** @type {string} */
   const pdashLink = `${base}/privacy-dashboard`;
 
-  /**
-   * URL to the privacy policy in Markdown format
-   * External URL to the GPC website
-   * @type {string}
-   */
+  /** @type {string} */
   const privacyLink = "https://docs.netwk.pro/privacy";
+
+  /** @type {string} */
   const gpcLink = "https://globalprivacycontrol.org/";
 
-  /**
-   * Table of Contents Links
-   * @type {{ id: string, text: string }[]}
-   */
+  /** @type {{ id: string, text: string }[]} */
   const tocLinks = [
     { id: "intro", text: "Introduction" },
     { id: "collect", text: "Information We Collect" },
@@ -68,38 +69,41 @@ This file is part of Network Pro.
   /** @type {string} */
   const classSmall = "small-text";
 
-  /**
-   * @type {boolean}
-   * Tracks whether the user has opted out of analytics.
-   */
+  /** @type {boolean} */
   let optedOut = false;
 
-  /**
-   * @type {boolean}
-   * Tracks whether the user has opted in to analytics.
-   */
+  /** @type {boolean} */
   let optedIn = false;
 
   /**
-   * Refresh tracking status and update internal state + reactive store.
-   * Used on mount and after toggle changes.
+   * Refreshes tracking preferences state and updates the reactive store.
+   * This function uses dynamic import to avoid SSR evaluation of browser-only code.
+   *
+   * @returns {Promise<void>}
    */
-  function refreshTrackingStatus() {
-    const prefs = getTrackingPreferences();
+  async function refreshTrackingStatus() {
+    /** @type {typeof import("$lib/utils/trackingStatus.js")} */
+    const tracking = await import("$lib/utils/trackingStatus.js");
+
+    const prefs = tracking.getTrackingPreferences();
     optedOut = prefs.optedOut;
     optedIn = prefs.optedIn;
     trackingStatus.set(prefs.status);
   }
 
-  // Initialize state on mount
+  /**
+   * Runs tracking preference detection on client mount.
+   */
   onMount(() => {
     refreshTrackingStatus();
     console.log("[Tracking] Status:", $trackingStatus);
   });
 
   /**
-   * Toggle tracking opt-out.
-   * @param {boolean} value
+   * Toggles user tracking opt-out setting and updates cookies + store.
+   *
+   * @param {boolean} value - Whether the user is opting out
+   * @returns {void}
    */
   function toggleTracking(value) {
     optedOut = value;
@@ -114,8 +118,10 @@ This file is part of Network Pro.
   }
 
   /**
-   * Toggle tracking opt-in.
-   * @param {boolean} value
+   * Toggles user tracking opt-in setting and updates cookies + store.
+   *
+   * @param {boolean} value - Whether the user is opting in
+   * @returns {void}
    */
   function toggleOptIn(value) {
     optedIn = value;

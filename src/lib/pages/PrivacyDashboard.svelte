@@ -10,68 +10,71 @@ This file is part of Network Pro.
   import { base } from "$app/paths";
   import { onMount } from "svelte";
   import { trackingStatus } from "$lib/stores/trackingStatus.js";
-  import { getTrackingPreferences } from "$lib/utils/trackingStatus.js";
-  /** @type {(type: 'enable' | 'disable') => void} */
   import {
+    /** @type {(type: 'enable' | 'disable') => void} */
     setTrackingPreference,
+    /** @type {() => void} */
     clearTrackingPreferences,
   } from "$lib/utils/trackingCookies.js";
   import { CONSTANTS } from "$lib";
 
-  // Log the base path to verify its value
-  //console.log("Base path:", base);
-
   console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
-  const { CONTACT, PAGE, NAV } = CONSTANTS;
+  /** @type {typeof CONSTANTS.CONTACT} */
+  const CONTACT = CONSTANTS.CONTACT;
 
-  /**
-   * @type {string}
-   * Style class for the div element.
-   */
+  /** @type {typeof CONSTANTS.PAGE} */
+  const PAGE = CONSTANTS.PAGE;
+
+  /** @type {typeof CONSTANTS.NAV} */
+  const NAV = CONSTANTS.NAV;
+
+  /** @type {string} */
   const spaceStyle = "spacer";
 
-  /**
-   * URL to the full Privacy Policy using the base path
-   * @type {string}
-   */
+  /** @type {string} */
   const privacyPolicy = `${base}/privacy`;
+
+  /** @type {string} */
   const prightsLink = `${base}/privacy-rights`;
 
   /** @type {string} */
   const classSmall = "small-text";
 
-  /**
-   * @type {boolean}
-   * Tracks whether the user has opted out of analytics.
-   */
+  /** @type {boolean} */
   let optedOut = false;
 
-  /**
-   * @type {boolean}
-   * Tracks whether the user has opted in to analytics.
-   */
+  /** @type {boolean} */
   let optedIn = false;
 
   /**
-   * Refresh tracking status and update internal state + reactive store.
-   * Used on mount and after toggle changes.
+   * Refreshes tracking preferences state and updates the reactive store.
+   * Uses dynamic import to prevent SSR from loading browser-only dependencies.
+   *
+   * @returns {Promise<void>}
    */
-  function refreshTrackingStatus() {
-    const prefs = getTrackingPreferences();
+  async function refreshTrackingStatus() {
+    /** @type {typeof import("$lib/utils/trackingStatus.js")} */
+    const tracking = await import("$lib/utils/trackingStatus.js");
+
+    const prefs = tracking.getTrackingPreferences();
     optedOut = prefs.optedOut;
     optedIn = prefs.optedIn;
     trackingStatus.set(prefs.status);
   }
 
-  // Initialize state on mount
+  /**
+   * Initializes tracking state on component mount (runs only in browser).
+   */
   onMount(() => {
     refreshTrackingStatus();
   });
 
   /**
-   * Toggle tracking opt-out.
-   * @param {boolean} value
+   * Toggles opt-out tracking state, updates cookie and tracking store.
+   *
+   * @param {boolean} value - Whether the user is opting out
+   * @returns {void}
    */
   function toggleTracking(value) {
     optedOut = value;
@@ -86,8 +89,10 @@ This file is part of Network Pro.
   }
 
   /**
-   * Toggle tracking opt-in.
-   * @param {boolean} value
+   * Toggles opt-in tracking state, updates cookie and tracking store.
+   *
+   * @param {boolean} value - Whether the user is opting in
+   * @returns {void}
    */
   function toggleOptIn(value) {
     optedIn = value;
