@@ -10,9 +10,14 @@ This file is part of Network Pro.
   import { base } from "$app/paths";
   // Import badges for licenses
   import { ccBadge, gplBadge } from "$lib";
+  import { CONSTANTS } from "$lib";
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
+
+  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+
+  const { PAGE } = CONSTANTS;
 
   const ccbyLink = `${base}/license#cc-by`;
   const gplLink = `${base}/license#gnu-gpl`;
@@ -51,14 +56,13 @@ This file is part of Network Pro.
 </script>
 
 <!-- BEGIN BADGES -->
-<!-- Updated 2025-05-15 02:12:35 by SunDevil311 -->
 <div class="bnav2-wrap">
   <table class="bnav2">
     <tbody>
       <tr>
         {#each badges as badge}
           <td class="bnav2-nav">
-            <a href={badge.href} target="_self">
+            <a href={badge.href} target={PAGE.SELF}>
               <img
                 decoding="async"
                 loading="lazy"

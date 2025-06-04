@@ -11,30 +11,54 @@ This file is part of Network Pro.
  * @description Handles setting, clearing, and toggling tracking preference cookies.
  * @module src/lib/utils/
  * @author SunDevil311
- * @updated 2025-05-28
+ * @updated 2025-06-04
  */
+
+// 6 months (in seconds). Will be centralized later.
+const DEFAULT_COOKIE_MAX_AGE = 60 * 60 * 24 * 180;
 
 /**
- * Set a tracking preference cookie.
- * @param {"enable" | "disable"} type
+ * Builds a standard cookie string for use in all tracking cookies.
+ * @param {number} maxAge
+ * @returns {string}
  */
-export function setTrackingPreference(type) {
-  const maxAge = 60 * 60 * 24 * 365 * 10; // 10 years
-  const cookieSettings = `path=/; max-age=${maxAge}; SameSite=Lax`;
+function buildCookieSettings(maxAge) {
+  return `path=/; max-age=${maxAge}; expires=${new Date(Date.now() + maxAge * 1000).toUTCString()}; SameSite=Lax; Secure`;
+}
 
+/**
+ * Sets tracking preference cookies based on type.
+ * @param {"enable" | "disable"} type
+ * @param {number} [maxAge=DEFAULT_COOKIE_MAX_AGE]
+ */
+export function setTrackingPreference(type, maxAge = DEFAULT_COOKIE_MAX_AGE) {
+  const cookieSettings = buildCookieSettings(maxAge);
+
+  const now = Date.now();
   if (type === "enable") {
     document.cookie = `enable_tracking=true; ${cookieSettings}`;
-    document.cookie = `disable_tracking=; path=/; max-age=0; SameSite=Lax`;
+    document.cookie = `tracking_consent_timestamp=${now}; ${cookieSettings}`;
+    clearCookie("disable_tracking");
   } else if (type === "disable") {
     document.cookie = `disable_tracking=true; ${cookieSettings}`;
-    document.cookie = `enable_tracking=; path=/; max-age=0; SameSite=Lax`;
+    document.cookie = `tracking_consent_timestamp=${now}; ${cookieSettings}`;
+    clearCookie("enable_tracking");
   }
 }
 
 /**
- * Clear both tracking cookies.
+ * Clears all tracking-related cookies.
  */
 export function clearTrackingPreferences() {
-  document.cookie = `enable_tracking=; path=/; max-age=0; SameSite=Lax`;
-  document.cookie = `disable_tracking=; path=/; max-age=0; SameSite=Lax`;
+  clearCookie("enable_tracking");
+  clearCookie("disable_tracking");
+  clearCookie("tracking_consent_timestamp");
+}
+
+/**
+ * Clears an individual cookie.
+ * @param {string} name
+ */
+function clearCookie(name) {
+  document.cookie = `${name}=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax; Secure`;
 }

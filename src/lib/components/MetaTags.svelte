@@ -10,10 +10,16 @@ This file is part of Network Pro.
   export let title;
   export let description;
 
+  import { CONSTANTS } from "$lib";
+
+  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+
+  const { COMPANY_INFO, LINKS } = CONSTANTS;
+
   // Static shared values
-  const ogUrl = "https://netwk.pro";
+  const ogUrl = LINKS.HOME;
   const ogImg = "/img/banner-og-1200x630.png";
-  const companyName = "Network Pro Strategies";
+  const companyName = COMPANY_INFO.NAME;
   const twitterAct = "@NetEng_Pro";
 </script>
 

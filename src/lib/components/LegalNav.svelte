@@ -8,9 +8,14 @@ This file is part of Network Pro.
 
 <script>
   import { base } from "$app/paths";
+  import { CONSTANTS } from "$lib";
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
+
+  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+
+  const { PAGE } = CONSTANTS;
 
   const termsLink = `${base}/terms-of-use`;
   const privacyLink = `${base}/privacy`;
@@ -62,7 +67,7 @@ This file is part of Network Pro.
           <tr>
             {#each row as link}
               <td class="bnav-cell" colspan={link.colspan || 1}>
-                <a href={link.href} target="_self">
+                <a href={link.href} target={PAGE.SELF}>
                   {link.text}
                 </a>
               </td>
