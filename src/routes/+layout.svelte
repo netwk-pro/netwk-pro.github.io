@@ -10,7 +10,8 @@ This file is part of Network Pro.
   export let data;
 
   import { onMount } from "svelte";
-  import { initPostHog, showReminder } from "$lib/stores/posthog";
+  import { afterNavigate } from "$app/navigation";
+  import { initPostHog, showReminder, capture } from "$lib/stores/posthog";
   import { registerServiceWorker } from "$lib/registerServiceWorker.js";
   import { browser } from "$app/environment";
   import { shouldTrackUser } from "$lib/utils/privacy.js";
@@ -36,6 +37,11 @@ This file is part of Network Pro.
 
     registerServiceWorker();
     initPostHog();
+
+    // Register navigation tracking only on client
+    afterNavigate(() => {
+      capture("$pageview");
+    });
 
     if (browser) {
       const isDev = import.meta.env.MODE === "development";

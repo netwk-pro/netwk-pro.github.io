@@ -11,7 +11,6 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
  * @module src/lib/stores
  */
 
-import { afterNavigate } from "$app/navigation";
 import {
   shouldRemindUserToReconsent,
   shouldTrackUser,
@@ -76,12 +75,6 @@ export async function initPostHog() {
   });
 
   ph.capture("$pageview");
-
-  afterNavigate(() => {
-    if (ph !== null && get(trackingEnabled)) {
-      ph.capture("$pageview");
-    }
-  });
 }
 
 /**

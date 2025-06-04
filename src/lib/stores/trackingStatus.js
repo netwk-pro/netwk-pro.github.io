@@ -14,4 +14,17 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 
 import { writable } from "svelte/store";
 
-export const trackingStatus = writable("unknown");
+/**
+ * Writable tracking status store.
+ * Initialized with fallback value and updated in browser context.
+ * @type {import("svelte/store").Writable<string>}
+ */
+export const trackingStatus = writable("⏳ Checking tracking preferences...");
+
+// Dynamically import browser-only logic after mount
+if (typeof window !== "undefined") {
+  import("$lib/utils/trackingStatus.js").then(({ getTrackingPreferences }) => {
+    const prefs = getTrackingPreferences();
+    trackingStatus.set(prefs.status);
+  });
+}
