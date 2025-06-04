@@ -16,7 +16,6 @@ import {
   shouldRemindUserToReconsent,
   shouldTrackUser,
 } from "$lib/utils/privacy.js";
-import posthog from "posthog-js";
 import { get, writable } from "svelte/store";
 
 /**
@@ -31,16 +30,19 @@ export const trackingEnabled = writable(false);
  */
 export const showReminder = writable(false);
 
-// Internal flag
+/** @type {boolean} Internal one-time init guard */
 let initialized = false;
 
+/** @type {import("posthog-js").PostHog | null} Loaded PostHog instance */
+let ph = null;
+
 /**
- * Initializes PostHog analytics client if tracking is permitted.
- *
- * @returns {void}
+ * Initializes the PostHog analytics client if tracking is permitted.
+ * Uses dynamic import to avoid SSR failures.
+ * @returns {Promise<void>}
  */
-export function initPostHog() {
-  if (initialized) return;
+export async function initPostHog() {
+  if (initialized || typeof window === "undefined") return;
   initialized = true;
 
   const allowTracking = shouldTrackUser();
@@ -52,58 +54,62 @@ export function initPostHog() {
     return;
   }
 
+  const posthogModule = await import("posthog-js");
+  ph = posthogModule.default;
+
   // cspell:disable-next-line
-  posthog.init("phc_Qshfo6AXzh4pS7aPigfqyeo4qj1qlyh7gDuHDeVMSR0", {
+  ph.init("phc_Qshfo6AXzh4pS7aPigfqyeo4qj1qlyh7gDuHDeVMSR0", {
     api_host: "https://us.i.posthog.com",
     autocapture: true,
     capture_pageview: false,
     person_profiles: "identified_only",
-    loaded: (ph) => {
+    loaded: (phInstance) => {
       if (!allowTracking) {
         console.log(
           "[PostHog] ⛔ User opted out — calling opt_out_capturing()",
         );
-        ph.opt_out_capturing();
+        phInstance.opt_out_capturing();
       } else {
         console.log("[PostHog] ✅ Tracking enabled");
       }
     },
   });
 
-  posthog.capture("$pageview");
+  ph.capture("$pageview");
 
   afterNavigate(() => {
-    if (get(trackingEnabled)) {
-      posthog.capture("$pageview");
+    if (ph !== null && get(trackingEnabled)) {
+      ph.capture("$pageview");
     }
   });
 }
 
 /**
  * Conditionally captures an event if tracking is enabled.
- * @param {string} event - The event name
- * @param {Record<string, any>} [properties={}]
+ * @param {string} event - The event name to track
+ * @param {Record<string, any>} [properties={}] - Optional event properties
  */
 export function capture(event, properties = {}) {
-  if (get(trackingEnabled)) {
-    posthog.capture(event, properties);
+  if (ph !== null && get(trackingEnabled)) {
+    ph.capture(event, properties);
   }
 }
 
 /**
  * Conditionally identifies a user if tracking is enabled.
- * @param {string} id
- * @param {Record<string, any>} [properties={}]
+ * @param {string} id - Unique user identifier
+ * @param {Record<string, any>} [properties={}] - Optional user traits
  */
 export function identify(id, properties = {}) {
-  if (get(trackingEnabled)) {
-    posthog.identify(id, properties);
+  if (ph !== null && get(trackingEnabled)) {
+    ph.identify(id, properties);
   }
 }
 
 /**
  * For test cleanup only — resets internal state.
  * No-op in production.
+ * @returns {void}
  */
 export function _resetPostHog() {
   if (import.meta.env.MODE === "production") {
@@ -112,4 +118,5 @@ export function _resetPostHog() {
   }
 
   initialized = false;
+  ph = null;
 }
