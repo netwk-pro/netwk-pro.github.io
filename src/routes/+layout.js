@@ -42,5 +42,3 @@ export function load({ url }) {
     meta: currentMeta, // Return the meta data (either from the route or the fallback)
   };
 }
-
-// cspell:ignore posthog
