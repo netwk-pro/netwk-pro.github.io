@@ -23,7 +23,7 @@ const config = {
   kit: {
     // Netlify adapter configuration
     adapter: adapter({
-      edge: true, // Enable edge functions (used by CSP reporting endpoint)
+      edge: false, // Disable edge functions for site
       split: false, // Disable splitting function files (optional, enable if needed)
     }),
 
