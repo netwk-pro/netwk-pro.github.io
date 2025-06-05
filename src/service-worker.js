@@ -32,6 +32,10 @@ const excludedAssets = [];
 const IGNORE_PATHS = new Set([
   "/docs/extensions.md",
   "/docs/Home.md",
+  "/docs/pgp-email.md",
+  "/docs/pgp-win.md",
+  "/docs/pgp.md",
+  "/docs/tracking.md",
   "/img/banner-1280x640.png",
   "/img/logo-transparent.png",
   "/img/logo.png",
