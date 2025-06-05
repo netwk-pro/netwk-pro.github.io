@@ -2,71 +2,74 @@
 # SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 # This file is part of Network Pro
 
-name: Report a bug
-description: Tell us about a bug or issue you may have identified in Network Pro Strategies (@networkpro/web).
-title: Provide a general summary of the issue
-labels:
-  - bug
-assignees: SunDevil311
+name: 🐛 Bug Report
+description: "File a report to help us improve."
+title: "[Bug]: "
+labels: ["bug", "needs triage"]
+assignees: []
+
 body:
-  - type: checkboxes
+  - type: markdown
     attributes:
-      label: Prerequisites
-      description: Take a couple minutes to help our maintainers work faster.
-      options:
-        - label: I have
-            [searched](https://github.com/netwk-pro/netwk-pro.github.io/issues?utf8=%E2%9C%93&q=is%3Aissue)
-            for duplicate or closed issues
-          required: true
-        - label: I have read the [contributing
-            guidelines](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/.github/CONTRIBUTING.md)
-          required: true
+      value: |
+        Thanks for taking the time to fill out a bug report! Please complete all required fields below.
+
+  - type: input
+    id: contact
+    attributes:
+      label: "Contact Details"
+      description: "How can we get in touch with you if we need more information?"
+      placeholder: "your@email.com"
+    validations:
+      required: false
+
   - type: textarea
     id: what-happened
     attributes:
-      label: Describe the issue
-      description:
-        Provide a summary of the issue and what you expected to happen,
-        including specific steps to reproduce.
+      label: "What happened?"
+      description: "Describe the bug. What did you expect to happen?"
+      placeholder: "Tell us what you see!"
     validations:
       required: true
+
   - type: textarea
-    id: reduced-test-case
+    id: steps-to-reproduce
     attributes:
-      label: Reduced test cases
-      description: Include [reduced test
-        case](https://css-tricks.com/reduced-test-cases/) links.
+      label: "Steps to Reproduce"
+      description: "List clear steps to reproduce the issue."
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: "Environment"
+      description: "What platform, OS, browser, or version are you using?"
+      placeholder: "e.g. macOS 14, Chrome 125, iOS 17.5"
     validations:
       required: false
-  - type: dropdown
-    id: os
+
+  - type: checkboxes
     attributes:
-      label: What operating system(s) are you seeing the problem on?
-      multiple: true
+      label: "Prerequisites"
+      description: "Please confirm the following before submitting:"
       options:
-        - Windows
-        - macOS
-        - Android
-        - iOS
-        - Linux
-    validations:
-      required: true
-  - type: dropdown
-    id: browser
+        - label: "I have searched for [duplicate or closed issues](https://github.com/netwk-pro/netwk-pro.github.io/issues)"
+          required: true
+        - label: "I have read the [contributing guidelines](https://github.com/netwk-pro/.github/blob/master/.github/CONTRIBUTING.md)"
+          required: true
+
+  - type: textarea
+    id: additional
     attributes:
-      label: What browser(s) are you seeing the problem on?
-      multiple: true
-      options:
-        - Chrome
-        - Safari
-        - Firefox
-        - Microsoft Edge
-        - Opera
-        - Development Environment
-  - type: input
-    id: version
-    attributes:
-      label: If applicable, what version of @networkpro/web are you using?
-      placeholder: e.g., v0.2.0 or v0.3.5
+      label: "Additional Information"
+      description: "Add any other context, screenshots, or system logs here."
+      placeholder: "Anything else we should know?"
     validations:
-      required: true
+      required: false
+

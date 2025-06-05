@@ -23,7 +23,7 @@ const config = {
   kit: {
     // Netlify adapter configuration
     adapter: adapter({
-      edge: false, // Disable edge functions for site
+      edge: false, // Disable edge functions (optional, enable if needed)
       split: false, // Disable splitting function files (optional, enable if needed)
     }),
 

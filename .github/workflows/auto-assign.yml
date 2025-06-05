@@ -11,6 +11,11 @@
 
 name: Auto Assign
 
+permissions:
+  issues: write
+  contents: read
+  pull-requests: write
+
 on:
   issues:
     types: [opened]
@@ -21,15 +26,11 @@ jobs:
   auto-assign:
     runs-on: ubuntu-24.04
 
-    permissions:
-      issues: write
-      pull-requests: write
-
     steps:
       - name: Auto-assign issue or PR
         uses: pozil/auto-assign-issue@v2
         with:
-          repo-token: ${{ secrets.GH_PAT }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           assignees: SunDevil311
           numOfAssignee: 1
           allowSelfAssign: true

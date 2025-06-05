@@ -2,14 +2,31 @@
 # SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 # This file is part of Network Pro
 
-blank_issues_enabled: false
+blank_issues_enabled: true
 contact_links:
   - name: Ask the community
     url: https://github.com/netwk-pro/netwk-pro.github.io/discussions
-    about: Ask and discuss questions with other Network Pro Strategies community members.
+    about: "Ask and discuss questions with other Network Pro Strategies community members."
+
   - name: Commonly asked questions
     url: https://stackoverflowteams.com/c/netwk-pro/questions
-    about: Ask and answer common questions on Stack Overflow Teams.
+    about: "Ask and answer common questions on Stack Overflow Teams."
+
   - name: Contact Network Pro Strategies
     url: https://netwk.pro/contact?utm_source=github
-    about: Contact Network Pro Strategies for support or inquiries.
+    about: "Contact Network Pro Strategies for support or inquiries."
+issue_templates:
+  - name: 🐛 Bug Report
+    description: Report a bug or unexpected behavior in the platform.
+    labels: ["bug", "needs triage"]
+    file: bug_report.yml
+
+  - name: ✨ Feature Request
+    description: Suggest new or updated features to include in Network Pro Strategies.
+    labels: ["feature"]
+    file: feature_request.yml
+
+  - name: ⚖️ Legal Review
+    description: Request review or update of legal or compliance documents.
+    labels: ["legal-docs", "legal review", "documentation"]
+    file: legal_review.yml

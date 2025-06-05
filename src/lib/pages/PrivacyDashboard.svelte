@@ -9,28 +9,17 @@ This file is part of Network Pro.
 <script>
   import { base } from "$app/paths";
   import { onMount } from "svelte";
-  import { trackingStatus } from "$lib/stores/trackingStatus.js";
+
   import {
-    /** @type {(type: 'enable' | 'disable') => void} */
-    setTrackingPreference,
-    /** @type {() => void} */
-    clearTrackingPreferences,
-  } from "$lib/utils/trackingCookies.js";
+    trackingPreferences,
+    setOptIn,
+    setOptOut,
+    clearPrefs,
+  } from "$lib/stores/trackingPreferences.js";
+
   import { CONSTANTS } from "$lib";
 
-  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
-
-  /** @type {typeof CONSTANTS.CONTACT} */
-  const CONTACT = CONSTANTS.CONTACT;
-
-  /** @type {typeof CONSTANTS.PAGE} */
-  const PAGE = CONSTANTS.PAGE;
-
-  /** @type {typeof CONSTANTS.NAV} */
-  const NAV = CONSTANTS.NAV;
-
-  /** @type {string} */
-  const spaceStyle = "spacer";
+  const { CONTACT, PAGE, NAV } = CONSTANTS;
 
   /** @type {string} */
   const privacyPolicy = `${base}/privacy`;
@@ -41,70 +30,55 @@ This file is part of Network Pro.
   /** @type {string} */
   const classSmall = "small-text";
 
-  /** @type {boolean} */
-  let optedOut = false;
+  /** @type {string} */
+  const spaceStyle = "spacer";
 
   /** @type {boolean} */
-  let optedIn = false;
+  let optedOut;
+
+  /** @type {boolean} */
+  let optedIn;
+
+  /** @type {string} */
+  let trackingStatus;
+
+  // Reactive assignments from the store
+  $: ({ optedOut, optedIn, status: trackingStatus } = $trackingPreferences);
 
   /**
-   * Refreshes tracking preferences state and updates the reactive store.
-   * Uses dynamic import to prevent SSR from loading browser-only dependencies.
-   *
-   * @returns {Promise<void>}
-   */
-  async function refreshTrackingStatus() {
-    /** @type {typeof import("$lib/utils/trackingStatus.js")} */
-    const tracking = await import("$lib/utils/trackingStatus.js");
-
-    const prefs = tracking.getTrackingPreferences();
-    optedOut = prefs.optedOut;
-    optedIn = prefs.optedIn;
-    trackingStatus.set(prefs.status);
-  }
-
-  /**
-   * Initializes tracking state on component mount (runs only in browser).
-   */
-  onMount(() => {
-    refreshTrackingStatus();
-  });
-
-  /**
-   * Toggles opt-out tracking state, updates cookie and tracking store.
-   *
-   * @param {boolean} value - Whether the user is opting out
-   * @returns {void}
+   * Toggle tracking opt-out setting.
+   * @param {boolean} value
    */
   function toggleTracking(value) {
-    optedOut = value;
-    if (optedOut) {
+    if (value) {
       console.log("[Tracking] User opted out");
-      setTrackingPreference("disable");
+      setOptOut();
     } else {
       console.log("[Tracking] User cleared opt-out");
-      clearTrackingPreferences();
+      clearPrefs();
     }
-    refreshTrackingStatus();
   }
 
   /**
-   * Toggles opt-in tracking state, updates cookie and tracking store.
-   *
-   * @param {boolean} value - Whether the user is opting in
-   * @returns {void}
+   * Toggle tracking opt-in setting.
+   * @param {boolean} value
    */
   function toggleOptIn(value) {
-    optedIn = value;
-    if (optedIn) {
+    if (value) {
       console.log("[Tracking] User opted in");
-      setTrackingPreference("enable");
+      setOptIn();
     } else {
       console.log("[Tracking] User cleared opt-in");
-      clearTrackingPreferences();
+      clearPrefs();
     }
-    refreshTrackingStatus();
   }
+
+  onMount(() => {
+    console.log(
+      "[PrivacyDashboard] Tracking status:",
+      $trackingPreferences.status,
+    );
+  });
 </script>
 
 <section id="top">
@@ -167,43 +141,46 @@ This file is part of Network Pro.
 
   &nbsp;
 
-  {#if $trackingStatus !== "⏳ Checking tracking preferences..."}
+  {#if trackingStatus && trackingStatus !== "⏳ Checking tracking preferences..."}
     <p id="tracking-status" aria-live="polite">
       <strong>Tracking Status:</strong>
-      {$trackingStatus}
+      {trackingStatus}
     </p>
   {:else}
     <p id="tracking-status" aria-live="polite">
-      <strong>Tracking Status:</strong>
-      <em>Loading…</em>
+      <strong>Tracking Status:</strong> <em>Loading…</em>
     </p>
   {/if}
 
-  <!-- Opt-out checkbox -->
-  <label>
-    <input
-      type="checkbox"
-      checked={optedOut}
-      disabled={optedIn}
-      aria-describedby="tracking-status"
-      on:change={(e) =>
-        toggleTracking(/** @type {HTMLInputElement} */ (e.target).checked)} />
-    <strong>&nbsp;Disable analytics tracking (opt-out)</strong>
-  </label>
+  <fieldset>
+    <legend class="sr-only">Tracking Preference Controls</legend>
 
-  <br />
+    <!-- Opt-out checkbox -->
+    <label>
+      <input
+        type="checkbox"
+        checked={optedOut}
+        disabled={optedIn}
+        aria-describedby="tracking-status"
+        on:change={(e) =>
+          toggleTracking(/** @type {HTMLInputElement} */ (e.target).checked)} />
+      <strong>&nbsp;Disable analytics tracking (opt-out)</strong>
+    </label>
 
-  <!-- Opt-in checkbox -->
-  <label>
-    <input
-      type="checkbox"
-      checked={optedIn}
-      disabled={optedOut}
-      aria-describedby="tracking-status"
-      on:change={(e) =>
-        toggleOptIn(/** @type {HTMLInputElement} */ (e.target).checked)} />
-    <strong>&nbsp;Enable analytics tracking (opt-in)</strong>
-  </label>
+    <br />
+
+    <!-- Opt-in checkbox -->
+    <label>
+      <input
+        type="checkbox"
+        checked={optedIn}
+        disabled={optedOut}
+        aria-describedby="tracking-status"
+        on:change={(e) =>
+          toggleOptIn(/** @type {HTMLInputElement} */ (e.target).checked)} />
+      <strong>&nbsp;Enable analytics tracking (opt-in)</strong>
+    </label>
+  </fieldset>
 
   <div class={spaceStyle}></div>
 
