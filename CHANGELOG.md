@@ -12,6 +12,19 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.12.3] - 2025-06-04
+
+### Added
+
+- `static/docs/pgp.md`, `pgp-win.md`, and `pgp-email.md` added for reference.  
+  These files have been temporarily stored until they can be migrated to the wiki.
+
+### Changed
+
+- Added the new Markdown files in `static/docs` to the `service-worker.js` cache ignore list.
+
+---
+
 ## [1.12.2] – 2025-06-04
 
 ### Changed
