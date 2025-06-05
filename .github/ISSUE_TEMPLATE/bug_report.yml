@@ -72,4 +72,3 @@ body:
       placeholder: "Anything else we should know?"
     validations:
       required: false
-
