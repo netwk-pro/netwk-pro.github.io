@@ -12,6 +12,14 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.12.2] – 2025-06-04
+
+### Changed
+
+- `LicenseContent` component updated to reflect the correct "Effective Date."
+
+---
+
 ## [1.12.1] – 2025-06-04
 
 ### Added
