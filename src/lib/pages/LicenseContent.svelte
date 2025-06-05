@@ -18,7 +18,7 @@ This file is part of Network Pro.
 
   console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
-  const { COMPANY_INFO, CONTACT, PAGE, NAV } = CONSTANTS;
+  const { COMPANY_INFO, CONTACT, PAGE, LINKS, NAV } = CONSTANTS;
 
   /**
    * URLs using the base path
@@ -56,6 +56,7 @@ This file is part of Network Pro.
     { id: "third-party", text: "Third-Party Code and Licenses" },
     { id: "prohibited-uses", text: "Prohibited Uses" },
     { id: "disclaimer", text: "Modifications and Liability Disclaimer" },
+    { id: "support", text: "Support Disclaimer" },
     { id: "authoritative", text: "Authoritative Version Clause" },
     { id: "revisions", text: "Revisions" },
     { id: "contact", text: "Contact" },
@@ -447,6 +448,24 @@ This file is part of Network Pro.
         —including, without limitation, any claims or disputes brought by third parties,
         whether in contract, tort, or otherwise.
       </p>
+    {:else if link.id === "support"}
+      <p>
+        All support provided—whether through email, GitHub, community forums, or
+        other channels—is offered “as-is” and <strong
+          >does not constitute any warranty, express or implied</strong
+        >. The Company, its affiliates, owners, operators, and contributors make
+        no guarantees regarding response time, resolution, availability, or
+        fitness for any particular purpose.
+      </p>
+
+      <p>
+        Bug fixes, security patches, or other support actions—whether provided
+        voluntarily or in response to reported issues—do not imply any ongoing
+        obligation, representation of completeness, or the creation of a
+        warranty. All assistance is provided at the sole discretion of the
+        Company and may be modified, reduced, or discontinued at any time
+        without notice.
+      </p>
     {:else if link.id === "authoritative"}
       <p>
         In the event of any discrepancy between different versions, formats, or
@@ -455,7 +474,7 @@ This file is part of Network Pro.
         version published on the Company's primary website at <a
           rel={PAGE.REL}
           href={homeLink}
-          target={PAGE.SELF}>https://netwk.pro</a>
+          target={PAGE.SELF}>{LINKS.HOME}</a>
         shall be deemed the official and controlling version.
       </p>
 

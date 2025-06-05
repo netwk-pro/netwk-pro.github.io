@@ -12,9 +12,9 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
  */
 
 import {
-  shouldRemindUserToReconsent,
-  shouldTrackUser,
-} from "$lib/utils/privacy.js";
+  remindUserToReconsent,
+  trackingPreferences,
+} from "$lib/stores/trackingPreferences.js";
 import { get, writable } from "svelte/store";
 
 /**
@@ -44,11 +44,11 @@ export async function initPostHog() {
   if (initialized || typeof window === "undefined") return;
   initialized = true;
 
-  const allowTracking = shouldTrackUser();
-  trackingEnabled.set(allowTracking);
-  showReminder.set(shouldRemindUserToReconsent());
+  const { enabled } = get(trackingPreferences);
+  trackingEnabled.set(enabled);
+  showReminder.set(get(remindUserToReconsent)); // ✅ use derived store instead
 
-  if (!allowTracking) {
+  if (!enabled) {
     console.log("[PostHog] Tracking is disabled — skipping init.");
     return;
   }
@@ -63,7 +63,7 @@ export async function initPostHog() {
     capture_pageview: false,
     person_profiles: "identified_only",
     loaded: (phInstance) => {
-      if (!allowTracking) {
+      if (!enabled) {
         console.log(
           "[PostHog] ⛔ User opted out — calling opt_out_capturing()",
         );

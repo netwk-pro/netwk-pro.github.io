@@ -38,7 +38,7 @@ jobs:
 
       - name: Authenticate GitHub CLI
         env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+          GH_PAT: ${{ secrets.NWPRO_ACTION }}
         run: echo "$GH_PAT" | gh auth login --with-token
 
       - name: Check CodeQL Workflow
@@ -209,4 +209,4 @@ jobs:
       - name: Publish package to GPR
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,53 @@
+# Copyright © 2025 Network Pro Strategies (Network Pro™)
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro
+
+name: "⚖️ Legal Review"
+description: "Request review or update of legal or compliance documents."
+title: "[Legal] "
+labels: ["legal-docs", "legal review", "documentation"]
+assignees: []
+
+body:
+  - type: input
+    id: document
+    attributes:
+      label: "📄 Document or Policy Name"
+      description: "Specify which document needs attention."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: update_type
+    attributes:
+      label: "✏️ Type of Update"
+      description: "Select all that apply."
+      options:
+        - label: "New Draft"
+        - label: "Edit / Revision"
+        - label: "Compliance Alignment"
+        - label: "Client Feedback Update"
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: "🧠 Summary"
+      description: "Brief summary of what's being reviewed or updated."
+    validations:
+      required: true
+
+  - type: textarea
+    id: legal_notes
+    attributes:
+      label: "🕵️‍♀️ Legal/Compliance Notes"
+      description: "Add citations, standards, or frameworks (e.g., GDPR, HIPAA, NIST)."
+    validations:
+      required: false
+
+  - type: textarea
+    id: references
+    attributes:
+      label: "🔗 References or Attachments"
+      description: "Link to related documents or add supporting context."
+    validations:
+      required: false

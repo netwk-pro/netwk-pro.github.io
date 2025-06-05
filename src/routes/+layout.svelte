@@ -14,7 +14,6 @@ This file is part of Network Pro.
   import { initPostHog, showReminder, capture } from "$lib/stores/posthog";
   import { registerServiceWorker } from "$lib/registerServiceWorker.js";
   import { browser } from "$app/environment";
-  import { shouldTrackUser } from "$lib/utils/privacy.js";
 
   import ContainerSection from "$lib/components/ContainerSection.svelte";
   import Footer from "$lib/components/layout/Footer.svelte";
@@ -54,7 +53,6 @@ This file is part of Network Pro.
         console.log("ENV MODE =", import.meta.env.MODE);
         console.log("isDev =", isDev);
         console.log("debug param =", debug);
-        console.log("shouldTrackUser =", shouldTrackUser()); // Now called statically
       }
 
       // Preload logo assets
