@@ -41,6 +41,7 @@
   "css.customData": [
     ".vscode/customData.json" // Path to your custom data file
   ],
+  "markdown.validate.enabled": false,
   "markdown.validate.ignoredLinks": [
     "#bugs",
     "#features",
