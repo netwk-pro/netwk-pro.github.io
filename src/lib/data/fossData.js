@@ -7,10 +7,77 @@ This file is part of Network Pro.
 ========================================================================== */
 
 // Import FOSS images
-import { acodePng, acodeWbp, eauthPng, eauthWbp, hboardPng, hboardWbp, lsheetPng, lsheetWbp, pmxPng, pmxWbp, tosPng, tosWbp, urlPng, urlWbp } from "$lib";
+import { acodePng, acodeWbp, eauthPng, eauthWbp, hboardPng, hboardWbp, lsheetPng, lsheetWbp, pmxPng, pmxWbp, squirclePng, squircleWbp, tosPng, tosWbp, urlPng, urlWbp } from "$lib";
 
 export const fossData = [
-{
+  {
+    id: "squircle",
+    images: {
+      webp: squircleWbp,
+      png: squirclePng,
+    },
+    imgAlt: "Squircle CE",
+    title: "Squircle CE",
+    headline: "Squircle CE vs. QuickEdit - Which Text Editor Deserves Your Love?",
+    headlineDescription: `
+      <p>
+        Looking for a lightweight, open-source text editor that <em>actually</em> respects your privacy and still packs modern power? Meet <strong>Squircle CE</strong>!
+      </p>
+      <p>
+        🚀 <strong>Squircle CE</strong> is more than just a pretty interface—it's built on a clean Material 3 design, supports syntax highlighting for 50+ languages, and includes all the must-haves like code folding, session management, and Git integration.
+      </p>
+      <p>
+        🔥 <strong>How it stacks against QuickEdit:</strong><br />
+        While <strong>QuickEdit</strong> is known for its speed and decent performance, it comes with closed-source limitations and ads that can hinder user experience. Squircle CE, on the other hand, is <strong>100% open-source</strong>, <strong>ad-free</strong>, and lets YOU control the experience.
+      </p>
+    `,
+    features: [
+      {
+        emoji: "💬",
+        label: "Why developers are switching:",
+        isIntro: true
+      },
+      {
+        emoji: "✔️",
+        label: "No ads, no tracking",
+      },
+      {
+        emoji: "✔️",
+        label: "True dark mode",
+      },
+      {
+        emoji: "✔️",
+        label: "Lightning-fast code editing",
+      },
+      {
+        emoji: "✔️",
+        label: "F-Droid support",
+      },
+      {
+        emoji: "✔️",
+        label: "Open contributions welcome!",
+      }
+    ],
+    detailsDescription: `
+      <p>
+        Whether you're debugging scripts or tweaking configs on the go, Squircle CE has you covered without the bloat or barriers.
+      </p>
+    `,
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/massivemadness/Squircle-CE",
+      },
+      {
+        label: "F-Droid",
+        href: "https://f-droid.org/packages/com.blacksquircle.ui/",
+      },
+    ],
+    notes: [
+      "Although Squircle CE is available on the Play Store, that version includes closed-source libraries and is therefore not considered fully open-source. For a completely free and open-source experience, we recommend downloading Squircle CE from either <strong>F-Droid</strong> or <strong>GitHub</strong>."
+    ],
+  },
+  {
     id: "heliboard",
     images: {
       webp: hboardWbp,
