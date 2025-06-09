@@ -9,7 +9,7 @@
 
 # cspell:ignore pozil
 
-name: Auto Assign
+name: "Auto Assign"
 
 permissions:
   issues: write
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-24.04
 
     steps:
-      - name: Auto-assign issue or PR
+      - name: "Auto-assign issue or PR"
         uses: pozil/auto-assign-issue@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}

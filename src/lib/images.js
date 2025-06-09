@@ -47,6 +47,8 @@ import lsheetPng from "$lib/img/posts/linksheet.png";
 import lsheetWbp from "$lib/img/posts/linksheet.webp";
 import pmxPng from "$lib/img/posts/pmx.png";
 import pmxWbp from "$lib/img/posts/pmx.webp";
+import squirclePng from "$lib/img/posts/squircle.png";
+import squircleWbp from "$lib/img/posts/squircle.webp";
 import tosPng from "$lib/img/posts/tosdr.png";
 import tosWbp from "$lib/img/posts/tosdr.webp";
 import urlPng from "$lib/img/posts/urlcheck.png";
@@ -81,6 +83,8 @@ export {
   pgpSupport,
   pmxPng,
   pmxWbp,
+  squirclePng,
+  squircleWbp,
   tosPng,
   tosWbp,
   urlPng,

@@ -11,12 +11,6 @@ on:
     types: [created]
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment
-permissions:
-  contents: read
-  packages: write
-  id-token: write
-
 # Allow one concurrent deployment
 concurrency:
   group: "build-and-publish"
@@ -36,12 +30,9 @@ jobs:
       - name: Set up GitHub CLI
         run: sudo apt-get install gh
 
-      - name: Authenticate GitHub CLI
-        env:
-          GH_PAT: ${{ secrets.NWPRO_ACTION }}
-        run: echo "$GH_PAT" | gh auth login --with-token
-
       - name: Check CodeQL Workflow
+        env:
+          GH_TOKEN: ${{ secrets.NWPRO_ACTION }}
         run: |
           gh run list --workflow "CodeQL" --json conclusion --jq '.[0].conclusion' > codeql_status.txt
           CODEQL_STATUS=$(cat codeql_status.txt)
@@ -209,4 +200,4 @@ jobs:
       - name: Publish package to GPR
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NWPRO_GPR }}

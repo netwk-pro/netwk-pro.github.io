@@ -51,7 +51,7 @@ This file is part of Network Pro.
    */
   const pageInfo = {
     title: "FOSS Spotlight",
-    lastUpdated: "May 30, 2025",
+    lastUpdated: "June 8, 2025",
   };
 </script>
 
