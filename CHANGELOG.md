@@ -46,6 +46,10 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 - Upgraded `posthog-js` from `v1.249.4` to `v1.249.5`.
 - Upgraded `vitest` from `v3.2.2` to `v3.2.3`.
 
+### Fixed
+
+- Updated Lighthouse CI annotation step to explicitly select only valid Lighthouse report files (e.g., `*.report.json`, `lhr-*.json`) and ignore `assertion-results.json`, which caused `jq` parsing errors during CI runs.
+
 ### Docs
 
 - Updated `README.md` with improved context and phrasing around the CHANGELOG reference.

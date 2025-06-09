@@ -111,14 +111,19 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          REPORT=$(ls -t .lighthouseci/*.json | head -n 1)
+          REPORT=$(ls -t .lighthouseci/*.report.json .lighthouseci/lhr-*.json 2>/dev/null | head -n 1)
 
           if [ -z "$REPORT" ]; then
-            echo "::warning ::No Lighthouse report found for annotation step."
+            echo "::warning ::No valid Lighthouse report found for annotation step."
             exit 0
           fi
 
           echo "🔍 Parsing $REPORT for failing audits..."
+
+          if ! jq -e '.audits' "$REPORT" > /dev/null; then
+            echo "::warning ::The selected report is not a valid Lighthouse output (missing .audits key)."
+            exit 0
+          fi
 
           FAILURES=$(jq -r '.audits | to_entries[] | select(.value.score < 1 and .value.score != null) | [.key, .value.title, (.value.score | tostring)] | @tsv' "$REPORT")
 
@@ -139,7 +144,6 @@ jobs:
 
           COMMENT_BODY+="\n> View full report in the workflow artifacts or in \`.lighthouseci/report.html\`."
 
-          # Try to post the PR comment, but don't block if it fails
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             gh pr comment ${{ github.event.pull_request.number }} --body "$COMMENT_BODY" || echo "::warning ::Failed to post PR comment"
           else
