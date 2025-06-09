@@ -1,5 +1,15 @@
-https://www.netwk.pro/*  https://netwk.pro/:splat  301
-/privacy-policy          /privacy                  301
+# Redirect all www.netwk.pro traffic to bare domain
+https://www.netwk.pro/*     https://netwk.pro/:splat         301
 
-# New redirect for Netlify function proxy
-/api/*                   /.netlify/functions/:splat  200
+# Redirect /privacy-policy (and variants) to /privacy
+/privacy-policy             /privacy                         301
+/privacy-policy/            /privacy                         301
+/privacy-policy/*           /privacy/:splat                  301
+
+# Redirect /legal (and variants) to /license
+/legal                      /license                         301
+/legal/                     /license                         301
+/legal/*                    /license/:splat                  301
+
+# Redirect for Netlify function proxy
+/api/*                      /.netlify/functions/:splat       200

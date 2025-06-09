@@ -22,6 +22,46 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.12.6] - 2025-06-09
+
+### Added
+
+- Enabled non-blocking Lighthouse CI budget assertions to track performance/resource regressions without blocking the build.
+- Added GitHub Actions step to annotate PRs with budget-related audit failures and post a markdown summary comment.
+- Introduced a dedicated `Authenticate GitHub CLI` step in the Lighthouse workflow to ensure proper auth for comment posting.
+- Added `/legal`, `/legal/`, and `/legal/*` redirects to Netlify `_redirects` file, pointing to `/license`.
+- Added `/privacy-policy/` and `/privacy-policy/*` redirects to match existing `/privacy-policy` route.
+- Created `scripts/openReport.js`, a cross-platform Node.js utility for opening HTML coverage reports for client and server test runs. Executed via `coverage:client` and `coverage:server` scripts in `package.json`.
+- Added `coverage:client`, `coverage:server`, and `coverage:open` scripts to `package.json` to simplify access to generated test coverage reports from the CLI.
+
+### Changed
+
+- Bumped patch version to `v1.12.6`.
+- Updated Lighthouse CI workflow to upload the entire `.lighthouseci/` directory as a single artifact instead of renaming individual files.
+- Updated ESLint config (`eslint.config.mjs`) to ignore `**/playwright-report/**` and `**/test-results/**`.
+- Updated `lint:md` script in `package.json` to exclude `playwright-report/` and `test-results/` from markdownlint.
+- Added `playwright-report/` and `test-results/` to `.stylelintignore` to suppress stylelint noise on generated reports.
+- Upgraded `@lhci/cli` from `v0.14.0` to `v0.15.0`.
+- Upgraded `@vitest/coverage-v8` from `v3.2.2` to `v3.2.3`.
+- Upgraded `posthog-js` from `v1.249.4` to `v1.249.5`.
+- Upgraded `vitest` from `v3.2.2` to `v3.2.3`.
+
+### Docs
+
+- Updated `README.md` with improved context and phrasing around the CHANGELOG reference.
+- Added `CHANGELOG.md` to the documented project structure with a descriptive label:
+
+  ```markdown
+  ├── CHANGELOG.md # Chronological record of notable project changes
+  ```
+
+### Misc
+
+- Confirmed that `Authenticate GitHub CLI` is not needed in `build-and-publish.yml`, as only the `check-codeql` job uses the GitHub CLI and is already authenticated.
+- Verified that `scripts/openReport.js` does not require unit testing, as it performs side-effect-only CLI actions. Linting and manual testing are sufficient.
+
+---
+
 ## [1.12.5] - 2025-06-08
 
 ### Added
@@ -135,7 +175,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.12.5...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.12.6...HEAD
+[1.12.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.6
 [1.12.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.5
 [1.12.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.4
 [1.12.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.3

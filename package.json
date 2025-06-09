@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.12.5",
+  "version": "1.12.6",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -60,11 +60,14 @@
     "test:watch": "vitest --config vitest.config.client.js --watch",
     "test:coverage": "npm run test:client -- --run --coverage && npm run test:server -- --run --coverage",
     "test:e2e": "npx playwright test --retries=1",
+    "coverage:client": "node scripts/openReport.js client",
+    "coverage:server": "node scripts/openReport.js server",
+    "coverage:open": "npm run coverage:client && npm run coverage:server",
     "lint": "eslint . --ext .mjs,.js,.svelte",
     "lint:fix": "eslint . --ext .mjs,.js,.svelte --fix",
     "lint:jsdoc": "eslint . --ext .js,.mjs,.svelte --max-warnings=0",
     "lint:css": "stylelint \"**/*.{css,svelte}\" --ignore-path .stylelintignore",
-    "lint:md": "npx markdownlint-cli2 \"**/*.{md,markdown}\" \"#node_modules/**\" \"#build/**\" \"#.netlify/**\"",
+    "lint:md": "npx markdownlint-cli2 \"**/*.{md,markdown}\" \"#node_modules/**\" \"#build/**\" \"#.netlify/**\" \"#playwright-report/**\" \"#test-results/**\"",
     "lint:all": "npm run lint && npm run lint:md && npm run lint:css && npm run format",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
@@ -77,21 +80,21 @@
   },
   "dependencies": {
     "dompurify": "^3.2.6",
-    "posthog-js": "^1.249.4",
+    "posthog-js": "^1.249.5",
     "semver": "^7.7.2",
     "svelte": "5.33.18"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.9",
     "@eslint/js": "^9.28.0",
-    "@lhci/cli": "^0.14.0",
+    "@lhci/cli": "^0.15.0",
     "@playwright/test": "^1.52.0",
     "@sveltejs/adapter-netlify": "^5.0.2",
     "@sveltejs/kit": "2.21.3",
     "@sveltejs/vite-plugin-svelte": "5.1.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/svelte": "^5.2.8",
-    "@vitest/coverage-v8": "^3.2.2",
+    "@vitest/coverage-v8": "^3.2.3",
     "autoprefixer": "^10.4.21",
     "browserslist": "^4.25.0",
     "eslint": "^9.28.0",
@@ -119,7 +122,7 @@
     "vite": "^6.3.5",
     "vite-plugin-lightningcss": "^0.0.5",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.2.2"
+    "vitest": "^3.2.3"
   },
   "overrides": {
     "@sveltejs/kit": {

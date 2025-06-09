@@ -13,9 +13,13 @@ on:
     branches: [master]
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow access to repo
+# cspell:ignore tostring
+
+# Sets permissions of the GITHUB_TOKEN to allow read access to repo and write
+# permission for PRs for comment summary
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   audit:
@@ -28,6 +32,11 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Authenticate GitHub CLI
+        run: gh auth status
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Log ENV_MODE
         run: 'echo "ENV_MODE is set to: $ENV_MODE"'
@@ -83,12 +92,59 @@ jobs:
       - name: Log Chrome version used
         run: cat .lighthouseci/chrome-version.txt
 
-      #- name: Assert Lighthouse results (non-blocking)
-      #  run: npx @lhci/cli assert --config=.lighthouserc.cjs
-      #  continue-on-error: true
+      - name: Check for budget.json
+        run: |
+          if [ ! -f budget.json ]; then
+            echo "❌ ERROR: budget.json not found. LHCI budget assertions will be skipped."
+            exit 1
+          else
+            echo "✅ Found budget.json"
+          fi
 
-      - name: Assert Lighthouse results
-        run: echo "Skipping LHCI assert step"
+      - name: Assert Lighthouse results (non-blocking)
+        run: npx @lhci/cli assert --config=.lighthouserc.cjs
+        continue-on-error: true
+
+      - name: Annotate and Comment on Lighthouse Budget Failures
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          REPORT=$(ls -t .lighthouseci/*.json | head -n 1)
+
+          if [ -z "$REPORT" ]; then
+            echo "::warning ::No Lighthouse report found for annotation step."
+            exit 0
+          fi
+
+          echo "🔍 Parsing $REPORT for failing audits..."
+
+          FAILURES=$(jq -r '.audits | to_entries[] | select(.value.score < 1 and .value.score != null) | [.key, .value.title, (.value.score | tostring)] | @tsv' "$REPORT")
+
+          if [ -z "$FAILURES" ]; then
+            echo "✅ No failing audits found. Lighthouse budgets passed."
+            exit 0
+          fi
+
+          echo "⚠️ Failing Lighthouse audits:"
+          COMMENT_BODY="### ⚠️ Lighthouse Budget Failures Detected\n\n"
+          COMMENT_BODY+="| Audit | Title | Score |\n"
+          COMMENT_BODY+="|-------|-------|-------|\n"
+
+          echo "$FAILURES" | while IFS=$'\t' read -r key title score; do
+            echo "::warning file=.lighthouseci/report.json,line=1,title=Lighthouse Budget Issue::$title (score: $score)"
+            COMMENT_BODY+="| \`$key\` | $title | $score |\n"
+          done
+
+          COMMENT_BODY+="\n> View full report in the workflow artifacts or in \`.lighthouseci/report.html\`."
+
+          # Try to post the PR comment, but don't block if it fails
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            gh pr comment ${{ github.event.pull_request.number }} --body "$COMMENT_BODY" || echo "::warning ::Failed to post PR comment"
+          else
+            echo "Not a PR — skipping GitHub comment post."
+          fi
 
       - name: Upload Lighthouse results
         run: npx @lhci/cli upload --config=.lighthouserc.cjs
@@ -96,26 +152,10 @@ jobs:
       - name: List contents of .lighthouseci
         run: ls -al .lighthouseci
 
-      - name: Rename Lighthouse reports
-        run: |
-          mkdir -p .lighthouseci
-          LATEST_JSON=$(ls -t .lighthouseci/*.json | head -n 1)
-          LATEST_HTML=$(ls -t .lighthouseci/*.html | head -n 1)
-
-          if [[ -f "$LATEST_JSON" && -f "$LATEST_HTML" ]]; then
-            cp "$LATEST_HTML" .lighthouseci/report.html
-            cp "$LATEST_JSON" .lighthouseci/report.json
-          else
-            echo "No Lighthouse report files found."
-          fi
-
-      - name: Upload Lighthouse reports
+      - name: Upload full .lighthouseci output
         uses: actions/upload-artifact@v4
         with:
           name: lighthouse-reports
-          path: |
-            .lighthouseci/report.html
-            .lighthouseci/report.json
-            .lighthouseci/chrome-version.txt
+          path: .lighthouseci/
           include-hidden-files: true
-          if-no-files-found: ignore
+          if-no-files-found: error

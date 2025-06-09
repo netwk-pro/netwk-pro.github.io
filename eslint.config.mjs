@@ -41,7 +41,9 @@ export default [
       "**/build/**", // Distribution files
       "package.json", // NPM package manifest
       "package-lock.json", // NPM lockfile
+      "**/playwright-report/**", // Playwright report files
       "node_modules/", // Node.js dependencies
+      "**/test-results/**", // Test results
       ".vite/", // Vite-specific cache directory
       "*.lock", // Lock files
       ".env*", // Environment files
