@@ -51,9 +51,13 @@ All infrastructure and data flows are designed with **maximum transparency, self
 
 ## 📝 Changelog
 
-For a history of changes to the Network Pro Web Presence, see the [CHANGELOG](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/CHANGELOG.md).
+For a history of changes to the Network Pro&trade; Web Presence, see the **[CHANGELOG](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/CHANGELOG.md)**. All notable updates are documented there.
+
+This project follows the principles of [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), though formatting and versioning may occasionally vary.
 
 </section>
+
+---
 
 <section id="structure">
 
@@ -93,6 +97,7 @@ For a history of changes to the Network Pro Web Presence, see the [CHANGELOG](ht
   │   │   └── auditCoverage.test.js # Warns about untested source modules
   │   └── unit/                     # Vitest unit tests
   ├── _redirects                    # Netlify redirect rules
+  ├── CHANGELOG.md                  # Chronological record of notable project changes
   ├── netlify.toml                  # Netlify configuration
   ├── package.json                  # Project manifest (scripts, deps, etc.)
   └── ...
