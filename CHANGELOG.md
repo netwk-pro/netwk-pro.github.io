@@ -22,6 +22,29 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.12.5] - 2025-06-08
+
+### Added
+
+- Added `squircle` section to `src/lib/data/fossData.js`.
+- Added Squircle CE images to `src/lib/img/` and imported them via the image utility (`src/lib/images.js`).
+
+### Changed
+
+- Quoted `name` and `steps.name` fields in `auto-assign.yml` and `dependency-review.yml` to prevent potential YAML parsing issues.
+- Replaced `GITHUB_TOKEN` with `NWPRO_GPR` in the `build-and-publish.yml` workflow.
+- Upgraded `svelte` to `v5.33.18` and `@sveltejs/kit` to `v2.21.3`.
+- Updated the `generator` meta tag in `app.html` to reflect the new `@sveltejs/kit` version.
+- Updated "Last Updated" date in `FossContent.svelte` to reflect the Squircle CE post addition.
+- Revised page modification dates in `sitemap.xml` for FOSS Spotlight, Privacy Policy, and Legal, Licensing, and Copyright.
+
+### Removed
+
+- Removed unused `GITHUB_TOKEN` permissions from `build-and-publish.yml`.
+- Removed the unnecessary "Authenticate GitHub CLI" step from `build-and-publish.yml`.
+
+---
+
 ## [1.12.4] - 2025-06-05
 
 ### Added
@@ -112,7 +135,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.12.4...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.12.5...HEAD
+[1.12.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.5
 [1.12.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.4
 [1.12.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.3
 [1.12.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.1

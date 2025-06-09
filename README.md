@@ -32,6 +32,7 @@ All infrastructure and data flows are designed with **maximum transparency, self
 
 ### Table of Contents
 
+- [Changelog](#changelog)
 - [Repository Structure](#structure)
 - [Getting Started](#getting-started)
 - [Configuration](#configuration)
@@ -45,6 +46,14 @@ All infrastructure and data flows are designed with **maximum transparency, self
 - [Questions](#questions)
 
 ---
+
+<section id="changelog">
+
+## 📝 Changelog
+
+For a history of changes to the Network Pro Web Presence, see the [CHANGELOG](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/CHANGELOG.md).
+
+</section>
 
 <section id="structure">
 
