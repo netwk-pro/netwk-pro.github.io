@@ -22,6 +22,23 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.12.7] - 2025-06-10
+
+### Changed
+
+- Permissions in `playwright.yml` reduced to `contents: read` to align with least-privilege practices.
+- Renamed "Upload Playwright Report" step for clarity and naming consistency.
+- Patch version bumped to **v1.12.7** to reflect post-tag changes.
+
+### Security
+
+- Explicit `GITHUB_TOKEN` permissions added to `.github/workflows/build-and-publish.yml` to satisfy GitHub policy while preserving least-privilege.
+- Reviewed and reduced permissions in `playwright.yml` to `contents: read` as no elevated scopes are currently required.
+- Confirmed `auto-assign.yml` uses appropriate scopes for issue/PR auto-assignment (`issues: write`, `pull-requests: write`, `contents: read`).
+- Validated that `dependency-review.yml` and `backup-branch.yml` are properly scoped; no changes required.
+
+---
+
 ## [1.12.6] - 2025-06-09
 
 ### Added
@@ -181,7 +198,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.12.6...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.12.7...HEAD
+[1.12.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.7
 [1.12.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.6
 [1.12.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.5
 [1.12.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.4
