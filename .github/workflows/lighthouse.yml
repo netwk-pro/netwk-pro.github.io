@@ -133,16 +133,14 @@ jobs:
           fi
 
           echo "⚠️ Failing Lighthouse audits:"
-          COMMENT_BODY="### ⚠️ Lighthouse Budget Failures Detected\n\n"
-          COMMENT_BODY+="| Audit | Title | Score |\n"
-          COMMENT_BODY+="|-------|-------|-------|\n"
+          COMMENT_BODY="### ⚠️ Lighthouse Budget Issues Detected"
 
-          echo "$FAILURES" | while IFS=$'\t' read -r key title score; do
+          while IFS=$'\t' read -r key title score; do
             echo "::warning file=.lighthouseci/report.json,line=1,title=Lighthouse Budget Issue::$title (score: $score)"
-            COMMENT_BODY+="| \`$key\` | $title | $score |\n"
-          done
+            COMMENT_BODY="${COMMENT_BODY}"$'\n'"- ${title} (score: ${score})"
+          done <<< "$FAILURES"
 
-          COMMENT_BODY+="\n> View full report in the workflow artifacts or in \`.lighthouseci/report.html\`."
+          COMMENT_BODY="${COMMENT_BODY}"$'\n\n'"View the full report in the workflow artifacts or in \`.lighthouseci/report.html\`."
 
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             gh pr comment ${{ github.event.pull_request.number }} --body "$COMMENT_BODY" || echo "::warning ::Failed to post PR comment"
