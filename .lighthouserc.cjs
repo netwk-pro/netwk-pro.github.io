@@ -22,6 +22,7 @@ module.exports = {
       },
     },
     assert: {
+      preset: "none",
       assertions: {
         // Add budget checks by asserting that "resource-summary" does not exceed budget
         "resource-summary": ["error", { budgetPath: "budget.json" }],
