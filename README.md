@@ -105,6 +105,33 @@ This project follows the principles of [Keep a Changelog](https://keepachangelog
 
 &nbsp;
 
+### 🔐 `static/pgp/` Directory Structure
+
+This directory contains public PGP key files and their corresponding QR codes.
+
+```bash
+static/
+├── pgp/
+│   ├── contact@s.neteng.pro.asc       # Public key for secure email
+│   ├── pgp-contact.png                # QR code (PNG) for secure email key
+│   ├── pgp-contact.webp               # Optimized WebP version of the QR code
+│   ├── pgp-security.png               # QR code (PNG) for security contact key
+│   ├── pgp-security.webp              # WebP version of the security QR code
+│   ├── pgp-support.png                # QR code (PNG) for support key
+│   ├── pgp-support.webp               # WebP version of the support QR code
+│   ├── security@s.neteng.pro.asc      # Public key for security contact
+│   ├── support@neteng.pro.asc         # Public key for general support
+└── ...
+```
+
+- `.asc` files are **excluded from service worker precaching** but served directly via the `/pgp/[key]` route.
+- QR code images are **served statically** by the `/pgp` route using `<picture>` elements.
+- **WebP versions** are also used in the `/pgp` route, while the `/about` route imports **dynamic equivalents** from `src/lib/img/qr`.
+- This route does **not use fallback rendering**; only explicitly defined files are available and expected to resolve.
+- A dynamic `[key]/+server.js` handler under `src/routes/pgp/` serves the `.asc` files with appropriate `Content-Type` and download headers.
+
+&nbsp;
+
 ### E2E Test Structure
 
 End-to-end tests are located in `tests/e2e/` and organized by feature or route:

@@ -218,22 +218,19 @@ This file is part of Network Pro.
       </ul>
     {:else if link.id === "cc-by"}
       <p class={constants.classSmall}>
-        Download:
-        <a href="/assets/license/CC-BY-4.0.html" download target={PAGE.BLANK}
-          >HTML</a>
+        View / Download:
+        <a href="/bin/license/CC-BY-4.0.html" target={PAGE.BLANK}>HTML</a>
         |
-        <a href="/assets/license/CC-BY-4.0.md" download target={PAGE.BLANK}
+        <a href="/bin/license/CC-BY-4.0.md" download target={PAGE.BLANK}
           >Markdown</a>
         |
-        <a href="/assets/license/CC-BY-4.0.txt" download target={PAGE.BLANK}
+        <a href="/bin/license/CC-BY-4.0.txt" download target={PAGE.BLANK}
           >Text</a>
         |
-        <a
-          href="/assets/license/CC-BY-4.0-rdfa.xml"
-          download
-          target={PAGE.BLANK}>RDFa</a>
+        <a href="/bin/license/CC-BY-4.0-rdfa.xml" download target={PAGE.BLANK}
+          >RDFa</a>
         |
-        <a href="/assets/license/CC-BY-4.0.xml" download target={PAGE.BLANK}
+        <a href="/bin/license/CC-BY-4.0.xml" download target={PAGE.BLANK}
           >XMP</a>
       </p>
 
@@ -314,21 +311,18 @@ This file is part of Network Pro.
       </code>
     {:else if link.id === "gnu-gpl"}
       <p class={constants.classSmall}>
-        Download:
-        <a href="/assets/license/COPYING.html" download target={PAGE.BLANK}
-          >HTML</a>
+        View / Download:
+        <a href="/bin/license/COPYING.html" target={PAGE.BLANK}>HTML</a>
         |
-        <a href="/assets/license/COPYING.md" download target={PAGE.BLANK}
+        <a href="/bin/license/COPYING.md" download target={PAGE.BLANK}
           >Markdown</a>
         |
-        <a href="/assets/license/COPYING.txt" download target={PAGE.BLANK}
-          >Text</a>
+        <a href="/bin/license/COPYING.txt" download target={PAGE.BLANK}>Text</a>
         |
-        <a href="/assets/license/COPYING-rdfa.xml" download target={PAGE.BLANK}
+        <a href="/bin/license/COPYING-rdfa.xml" download target={PAGE.BLANK}
           >RDFa</a>
         |
-        <a href="/assets/license/COPYING.odt" download target={PAGE.BLANK}
-          >ODT</a>
+        <a href="/bin/license/COPYING.odt" download target={PAGE.BLANK}>ODT</a>
       </p>
 
       <p>

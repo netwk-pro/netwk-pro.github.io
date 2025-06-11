@@ -7,14 +7,21 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { pgpContact, pgpSupport, vcfSrc } from "$lib";
+  import {
+    pgpContactPng,
+    pgpContactWbp,
+    pgpSupportPng,
+    pgpSupportWbp,
+    vcfPng,
+    vcfWbp,
+  } from "$lib";
   import { base } from "$app/paths";
   import { CONSTANTS } from "$lib";
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
-  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+  //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
   const { COMPANY_INFO, PAGE } = CONSTANTS;
 
@@ -23,6 +30,12 @@ This file is part of Network Pro.
    * @type {string}
    */
   const contactLink = `${base}/contact`;
+
+  /**
+   * URL to the PGP route, using the base path
+   * @type {string}
+   */
+  const pgpLink = `${base}/pgp`;
 
   /**
    * HTML attribute for async image decoding
@@ -70,6 +83,7 @@ This file is part of Network Pro.
    * @type {Array<{
    *   label: string,
    *   qrSrc: string,
+   *   qrWbp: string,
    *   keySearch: string,
    *   fingerprint: string[]
    * }>}
@@ -77,13 +91,15 @@ This file is part of Network Pro.
   const pgpKeys = [
     {
       label: "support@neteng.pro",
-      qrSrc: pgpSupport,
+      qrSrc: pgpSupportPng,
+      qrWbp: pgpSupportWbp,
       keySearch: "https://keys.openpgp.org/search?q=support%40neteng.pro",
       fingerprint: ["6590B992E2E3EFF12738", "7BCE2AF093E9DEC61BA0"],
     },
     {
       label: "contact@s.neteng.pro",
-      qrSrc: pgpContact,
+      qrSrc: pgpContactPng,
+      qrWbp: pgpContactWbp,
       keySearch: "https://keys.openpgp.org/search?q=contact%40s.neteng.pro",
       fingerprint: ["DF118BAA6C2D9DCDEBDC", "2DDCF99373499495F957"],
     },
@@ -91,18 +107,20 @@ This file is part of Network Pro.
 
   /**
    * @typedef {Object} ContactAssets
-   * @property {string} vcf - Path to the contact vCard (.vcf file)
-   * @property {string} qrSrc - Path to QR image for contact info
-   * @property {string} supportAsc - Support PGP public key file (.asc)
-   * @property {string} contactAsc - Contact PGP public key file (.asc)
+   * @property {string} vcf
+   * @property {string} qrSrc
+   * @property {string} qrWbp
+   * @property {string} supportAsc
+   * @property {string} contactAsc
    */
 
   /** @type {ContactAssets} */
   const contactAssets = {
-    vcf: "/assets/bin/contact.vcf",
-    qrSrc: vcfSrc,
-    supportAsc: "/assets/bin/support@neteng.pro.asc",
-    contactAsc: "/assets/bin/contact@s.neteng.pro.asc",
+    vcf: "/bin/contact.vcf",
+    qrSrc: vcfPng,
+    qrWbp: vcfWbp,
+    supportAsc: "/pgp/support@neteng.pro.asc",
+    contactAsc: "/pgp/contact@s.neteng.pro.asc",
   };
 </script>
 
@@ -210,8 +228,12 @@ This file is part of Network Pro.
 <div class="spacer"></div>
 
 <p>
-  You can find our PGP keys and a vCard containing our contact information
-  below.
+  You can find our PGP keys and a downloadable vCard with contact information
+  below. For a complete list of public keys, visit the <a
+    rel={PAGE.REL}
+    href={pgpLink}
+    target={PAGE.SELF}>dedicated PGP page</a
+  >.
 </p>
 
 <!-- BEGIN PGP KEYS -->
@@ -221,12 +243,15 @@ This file is part of Network Pro.
       <!-- Row 0 (First row) remains unchanged -->
       <tr>
         <td class="pgp-col1">
-          <img
-            {decoding}
-            {loading}
-            src={pgpKeys[0].qrSrc}
-            class="pgp-image"
-            alt={`PGP Key - ${pgpKeys[0].label}`} />
+          <picture>
+            <source srcset={pgpKeys[0].qrWbp} type="image/webp" />
+            <img
+              {decoding}
+              {loading}
+              src={pgpKeys[0].qrSrc}
+              class="pgp-image"
+              alt={`PGP Key - ${pgpKeys[0].label}`} />
+          </picture>
         </td>
         <td class="pgp-col2">
           <a rel={PAGE.REL} href={pgpKeys[0].keySearch} target={PAGE.BLANK}>
@@ -275,24 +300,30 @@ This file is part of Network Pro.
           </p>
         </td>
         <td class="pgp-col2">
-          <img
-            {decoding}
-            {loading}
-            src={pgpKeys[1].qrSrc}
-            class="pgp-image"
-            alt={`PGP Key - ${pgpKeys[1].label}`} />
+          <picture>
+            <source srcset={pgpKeys[1].qrWbp} type="image/webp" />
+            <img
+              {decoding}
+              {loading}
+              src={pgpKeys[1].qrSrc}
+              class="pgp-image"
+              alt={`PGP Key - ${pgpKeys[1].label}`} />
+          </picture>
         </td>
       </tr>
 
       <!-- Row 2 (Third row) remains unchanged -->
       <tr>
         <td class="pgp-col1">
-          <img
-            {decoding}
-            {loading}
-            src={contactAssets.qrSrc}
-            class="pgp-image"
-            alt="vCard" />
+          <picture>
+            <source srcset={contactAssets.qrWbp} type="image/webp" />
+            <img
+              {decoding}
+              {loading}
+              src={contactAssets.qrSrc}
+              class="pgp-image"
+              alt="vCard" />
+          </picture>
         </td>
         <td class="pgp-col2">
           <strong>vCard</strong>

@@ -129,15 +129,24 @@ a:active {
   text-decoration: underline;
 }
 
-/* focused link */
-a:focus {
-  color: #191919; /* Black text when focused */
-  background-color: #ffc627; /* Gold background when focused */
-}
-
 /* visited link */
 a:visited {
   color: #7f6227;
+}
+
+/* focused link */
+a:focus-visible {
+  color: #191919; /* Black text when focused */
+  background-color: #ffc627; /* Gold background when focused */
+  outline: 2px solid #ffc627;
+  outline-offset: 4px;
+}
+
+/* Reset focus style to avoid duplication */
+a:focus:not(:focus-visible) {
+  color: inherit;
+  background-color: transparent;
+  outline: none;
 }
 
 /* visited and mouse over */
