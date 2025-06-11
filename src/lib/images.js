@@ -15,7 +15,7 @@ This file is part of Network Pro.
  * @description Provides convenient access to images in the src/lib/img directory
  * @module src/lib
  * @author SunDevil311
- * @updated 2025-05-30
+ * @updated 2025-06-09
  */
 
 // Import favicon images
@@ -55,9 +55,14 @@ import urlPng from "$lib/img/posts/urlcheck.png";
 import urlWbp from "$lib/img/posts/urlcheck.webp";
 
 // Import QR code images
-import pgpContact from "$lib/img/qr/pgp-contact.png";
-import pgpSupport from "$lib/img/qr/pgp-support.png";
-import vcfSrc from "$lib/img/qr/vcard.png";
+import pgpContactPng from "$lib/img/qr/pgp-contact.png";
+import pgpContactWbp from "$lib/img/qr/pgp-contact.webp";
+import pgpSecurityPng from "$lib/img/qr/pgp-security.png";
+import pgpSecurityWbp from "$lib/img/qr/pgp-security.webp";
+import pgpSupportPng from "$lib/img/qr/pgp-support.png";
+import pgpSupportWbp from "$lib/img/qr/pgp-support.webp";
+import vcfPng from "$lib/img/qr/vcard.png";
+import vcfWbp from "$lib/img/qr/vcard.webp";
 
 // Re-export all imports
 export {
@@ -79,9 +84,10 @@ export {
   lsheetWbp,
   obtainiumPng,
   obtainiumWbp,
-  pgpContact,
-  pgpSupport,
-  pmxPng,
+  pgpContactPng,
+  pgpContactWbp, pgpSecurityPng,
+  pgpSecurityWbp, pgpSupportPng,
+  pgpSupportWbp, pmxPng,
   pmxWbp,
   squirclePng,
   squircleWbp,
@@ -89,7 +95,8 @@ export {
   tosWbp,
   urlPng,
   urlWbp,
-  vcfSrc
+  vcfPng,
+  vcfWbp
 };
 
 // cspell:ignore eauth hboard

@@ -126,11 +126,11 @@ This file is part of Network Pro.
             ><i class="fas fa-file-arrow-down" style="margin-left: 8px;"></i
             ></span>
           <a
-            href="/assets/bin/linksheet.json"
+            href="/bin/linksheet.json"
             type="application/json"
             download
             style="margin-left: 8px;"
-            target="_blank">
+            target={PAGE.BLANK}>
             Obtainium App Config
           </a>
         </p>

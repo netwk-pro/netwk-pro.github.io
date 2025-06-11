@@ -22,7 +22,58 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
-## [1.12.7] - 2025-06-10
+## [1.12.8] - 2025-06-11
+
+### Added
+
+- Created `/pgp` route with `+page.svelte`, `+page.server.js`, and supporting structure.
+- Added `src/lib/pages/PGPContent.svelte` for rendering PGP key information.
+- Dynamic routing with `src/routes/pgp/[key]/+server.js` for serving `.asc` files with correct MIME type (`application/pgp-keys`).
+- Support for serving QR code images statically in `/pgp` and dynamically in `/about`.
+- Added WebP versions of QR code images in `static/pgp/` and `src/lib/img/qr/`.
+- Set up dynamic import for QR images in `/about` route via `src/lib/images.js`.
+- Enhanced accessibility styles for focus-visible states on links.
+- Improved copy-to-clipboard buttons for PGP fingerprints.
+- Defined `ContactAssets` typedef and expanded `pgpKeys` data structure for strict typing.
+- README updated with new section: `static/pgp/` Directory Structure.
+
+### Changed
+
+- Modified `/about` route to reference `/pgp` and use dynamic WebP images for PGP keys.
+- Adjusted `src/lib/meta.js` to include metadata for the `/pgp` route.
+- Canonical links in `static/bin/CC-BY-4.0.html` and `static/bin/COPYING.html` updated to reflect new paths.
+- Service worker updated to exclude `.asc` files in `/pgp`, while continuing to cache QR image assets.
+- Moved license and binary files from `static/assets` to `static/bin`.
+- File paths updated on the `/license` route to reflect the new `/bin/license` location.
+- Updated sitemap.xml.
+- Updated `.prettierignore` to ignore `static/bin/license`.
+- Updated LinkSheet download in `FossItemContent.svelte` to reference `bin/linksheet.json`.
+- Added dynamic `lsheetDl` constant in `fossData.js`.
+- Updated `TermsConditionsContent.svelte` to point to `bin/consulting-terms.pdf`.
+- Updated `LicenseContent.svelte` to:
+  - View HTML license file.
+  - Use `download` attribute for all other formats.
+- Updated `generator` meta tag to reflect `SvelteKit 2.21.4`
+- Upgraded dependencies:
+  - `@playwright/test` updated from `^1.52.0` → `^1.53.0`
+  - `@sveltejs/kit` updated from `2.21.3` → `2.21.4`
+  - `eslint-plugin-svelte` updated from `^3.9.1` → `^3.9.2`
+  - `playwright` updated from `^1.52.0` → `^1.53.0`
+  - `posthog-js` updated from `^1.249.5` → `^1.250.1`
+  - `svelte` updated from `5.33.18` → `5.33.19`
+
+### Fixed
+
+- Resolved TypeScript and JSDoc typing errors in `AboutContent.svelte` and `PGPContent.svelte`.
+- Verified fallback behavior on `/pgp/[key]` for unknown files:
+  - `.asc` files return "File not found".
+  - All others fall through to 404.
+- Adjusted `function copy(text)` with explicit JSDoc type for parameter.
+- Removed stale references to deleted assets in service worker config.
+
+---
+
+## [1.12.7] - 2025-06-09
 
 ### Changed
 
@@ -198,7 +249,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.12.7...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.12.8...HEAD
+[1.12.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.8
 [1.12.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.7
 [1.12.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.6
 [1.12.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.5

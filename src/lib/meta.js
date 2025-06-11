@@ -56,6 +56,11 @@ const meta = {
     description:
       "Privacy Dashboard | Security, Networking, Privacy — Network Pro™",
   },
+  "/pgp": {
+    title: "Public PGP Keys — Network Pro™",
+    description:
+      "Public encryption keys for secure communication | Security, Networking, Privacy — Network Pro™",
+  },
   // Excludes redirect-only routes like /contact, /consultation, /privacy-rights
 };
 

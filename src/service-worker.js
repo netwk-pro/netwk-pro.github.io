@@ -32,6 +32,14 @@ const IGNORE_PATHS = new Set([
   "/img/logo-transparent.png",
   "/img/logo.png",
   "/img/svelte.png",
+  "/pgp/pgp-github.png",
+  "/pgp/pgp-github.webp",
+  "/pgp/contact@s.neteng.pro.asc",
+  "/pgp/github@sl.neteng.cc.asc",
+  "/pgp/security@s.neteng.pro.asc",
+  "/pgp/support@neteng.pro.asc",
+  "/pgp/vcard.png",
+  "/pgp/vcard.webp",
   "/screenshots/desktop-foss.png",
   "/webfonts/fa-brands-400.ttf",
   "/webfonts/fa-solid-900.ttf",
@@ -50,7 +58,7 @@ const ASSETS = [
 
         const shouldExclude =
           path.startsWith("http") ||
-          path.startsWith("/assets/") ||
+          path.startsWith("/bin/") ||
           disallowedHosts.some(
             (host) => hostname === host || hostname.endsWith(`.${host}`),
           ) ||
@@ -81,10 +89,12 @@ const REQUIRED_ASSETS = [
   "/icon-services.png",
   "/icon-splash.png",
   "/img/banner-og-1200x630.png",
-  "/img/qr/pgp-contact.png",
-  "/img/qr/pgp-github.png",
-  "/img/qr/pgp-support.png",
-  "/img/qr/vcard.png",
+  "/pgp/pgp-contact.png",
+  "/pgp/pgp-contact.webp",
+  "/pgp/pgp-security.png",
+  "/pgp/pgp-security.webp",
+  "/pgp/pgp-support.png",
+  "/pgp/pgp-support.webp",
   "/manifest.json",
   "/offline.html",
   "/offline.min.css",
@@ -99,6 +109,7 @@ const REQUIRED_ASSETS = [
   "/webfonts/fa-brands-400.woff2",
   "/webfonts/fa-solid-900.woff2",
   "/.well-known/dnt-policy-1.0.txt",
+  "/.well-known/gpc.json",
 ];
 
 if (isDev) {

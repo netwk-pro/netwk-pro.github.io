@@ -7,7 +7,14 @@ This file is part of Network Pro.
 ========================================================================== */
 
 // Import FOSS images
+import { base } from "$app/paths";
 import { acodePng, acodeWbp, eauthPng, eauthWbp, hboardPng, hboardWbp, lsheetPng, lsheetWbp, pmxPng, pmxWbp, squirclePng, squircleWbp, tosPng, tosWbp, urlPng, urlWbp } from "$lib";
+
+/**
+ * URL to the LinkSheet config file, using the base path
+ * @type {string}
+ */
+const lsheetDl = `${base}/bin/linksheet.json`;
 
 export const fossData = [
   {
@@ -510,7 +517,7 @@ export const fossData = [
         hideLabels: true,  // Special flag to control rendering
         downloadText: "Obtainium App Config",
         downloadHref:
-          "https://raw.githubusercontent.com/netwk-pro/dev-sveltekit/refs/heads/master/assets/bin/linksheet.json",
+          {lsheetDl},
       },
       {
         label: "GitHub",

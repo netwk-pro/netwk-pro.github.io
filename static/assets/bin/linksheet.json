@@ -1,8 +1,0 @@
-{
-  "id": "fe.linksheet.nightly",
-  "url": "https://github.com/LinkSheet/nightly",
-  "author": "1fexd",
-  "name": "LinkSheet Nightly",
-  "preferredApkIndex": 0,
-  "additionalSettings": "{\"includePrereleases\":true,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"dontSortReleasesList\":false,\"useLatestAssetDateAsReleaseDate\":false,\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":false,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"LinkSheet.Nightly\",\"invertAPKFilter\":true,\"autoApkFilterByArch\":true,\"appName\":\"LinkSheet Nightly\",\"shizukuPretendToBeGooglePlay\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"Restore link control on Android 12+\",\"appAuthor\":\"1fexd\"}"
-}

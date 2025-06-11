@@ -112,7 +112,7 @@ This file is part of Network Pro.
       |
       <a href={tandcLink} target={PAGE.SELF}>Docs</a>
       |
-      <a href="/assets/consulting-terms.pdf" target={PAGE.BLANK}>
+      <a href="/bin/consulting-terms.pdf" download target={PAGE.BLANK}>
         PDF <span class="fas fa-file-arrow-down"></span>
       </a>
     </sup>
