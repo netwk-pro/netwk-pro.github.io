@@ -230,7 +230,6 @@ This file is part of Network Pro.
 <p>
   You can find our PGP keys and a downloadable vCard with contact information
   below. For a complete list of public keys, visit the <a
-    rel={PAGE.REL}
     href={pgpLink}
     target={PAGE.SELF}>dedicated PGP page</a
   >.
