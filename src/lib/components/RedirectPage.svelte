@@ -7,19 +7,19 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { onMount } from "svelte";
-  import FullWidthSection from "$lib/components/FullWidthSection.svelte";
+  import { onMount } from 'svelte';
+  import FullWidthSection from '$lib/components/FullWidthSection.svelte';
 
   export let to;
   export let delay = 3;
 
   onMount(() => {
     if (!to) {
-      console.warn("⛔ No redirect target provided");
+      console.warn('⛔ No redirect target provided');
       return;
     }
 
-    console.log("✅ Starting redirect to:", to);
+    console.log('✅ Starting redirect to:', to);
 
     setTimeout(() => {
       window.location.href = to;

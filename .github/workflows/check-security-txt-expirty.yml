@@ -2,7 +2,7 @@ name: Check security.txt expiry
 
 on:
   schedule:
-    - cron: "0 7 * * 0" # Every Sunday at 0700 UTC (midnight MST)
+    - cron: '0 7 * * 0' # Every Sunday at 0700 UTC (midnight MST)
   workflow_dispatch:
 
 permissions:

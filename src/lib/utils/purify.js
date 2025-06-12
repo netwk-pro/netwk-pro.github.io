@@ -15,7 +15,7 @@ This file is part of Network Pro.
  * @updated 2025-06-01
  */
 
-import createDOMPurify from "dompurify";
+import createDOMPurify from 'dompurify';
 
 /**
  * @typedef {ReturnType<import('dompurify').default>} DOMPurifyInstance
@@ -37,13 +37,13 @@ let jsdomWindow = null;
 export async function getDOMPurify() {
   if (DOMPurifyInstance) return DOMPurifyInstance;
 
-  if (typeof window !== "undefined") {
+  if (typeof window !== 'undefined') {
     // ✅ Client-side: use native window
     DOMPurifyInstance = createDOMPurify(window);
   } else {
     // ✅ SSR: dynamically import jsdom to avoid bundling
-    const { JSDOM } = await import("jsdom");
-    jsdomWindow = jsdomWindow || new JSDOM("").window;
+    const { JSDOM } = await import('jsdom');
+    jsdomWindow = jsdomWindow || new JSDOM('').window;
     DOMPurifyInstance = createDOMPurify(jsdomWindow);
   }
 

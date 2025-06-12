@@ -3,9 +3,9 @@
 # This file is part of Network Pro
 
 name: 🐛 Bug Report
-description: "File a report to help us improve."
-title: "[Bug]: "
-labels: ["bug", "needs triage"]
+description: 'File a report to help us improve.'
+title: '[Bug]: '
+labels: ['bug', 'needs triage']
 assignees: []
 
 body:
@@ -17,26 +17,26 @@ body:
   - type: input
     id: contact
     attributes:
-      label: "Contact Details"
-      description: "How can we get in touch with you if we need more information?"
-      placeholder: "your@email.com"
+      label: 'Contact Details'
+      description: 'How can we get in touch with you if we need more information?'
+      placeholder: 'your@email.com'
     validations:
       required: false
 
   - type: textarea
     id: what-happened
     attributes:
-      label: "What happened?"
-      description: "Describe the bug. What did you expect to happen?"
-      placeholder: "Tell us what you see!"
+      label: 'What happened?'
+      description: 'Describe the bug. What did you expect to happen?'
+      placeholder: 'Tell us what you see!'
     validations:
       required: true
 
   - type: textarea
     id: steps-to-reproduce
     attributes:
-      label: "Steps to Reproduce"
-      description: "List clear steps to reproduce the issue."
+      label: 'Steps to Reproduce'
+      description: 'List clear steps to reproduce the issue.'
       placeholder: |
         1. Go to '...'
         2. Click on '...'
@@ -48,27 +48,27 @@ body:
   - type: input
     id: environment
     attributes:
-      label: "Environment"
-      description: "What platform, OS, browser, or version are you using?"
-      placeholder: "e.g. macOS 14, Chrome 125, iOS 17.5"
+      label: 'Environment'
+      description: 'What platform, OS, browser, or version are you using?'
+      placeholder: 'e.g. macOS 14, Chrome 125, iOS 17.5'
     validations:
       required: false
 
   - type: checkboxes
     attributes:
-      label: "Prerequisites"
-      description: "Please confirm the following before submitting:"
+      label: 'Prerequisites'
+      description: 'Please confirm the following before submitting:'
       options:
-        - label: "I have searched for [duplicate or closed issues](https://github.com/netwk-pro/netwk-pro.github.io/issues)"
+        - label: 'I have searched for [duplicate or closed issues](https://github.com/netwk-pro/netwk-pro.github.io/issues)'
           required: true
-        - label: "I have read the [contributing guidelines](https://github.com/netwk-pro/.github/blob/master/.github/CONTRIBUTING.md)"
+        - label: 'I have read the [contributing guidelines](https://github.com/netwk-pro/.github/blob/master/.github/CONTRIBUTING.md)'
           required: true
 
   - type: textarea
     id: additional
     attributes:
-      label: "Additional Information"
-      description: "Add any other context, screenshots, or system logs here."
-      placeholder: "Anything else we should know?"
+      label: 'Additional Information'
+      description: 'Add any other context, screenshots, or system logs here.'
+      placeholder: 'Anything else we should know?'
     validations:
       required: false

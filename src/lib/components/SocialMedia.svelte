@@ -22,30 +22,30 @@ This file is part of Network Pro.
    */
   const socialLinks = [
     {
-      href: "https://instagram.com/netwk_pro",
-      label: "Instagram",
-      iconClass: "fab fa-square-instagram fa-2x",
+      href: 'https://instagram.com/netwk_pro',
+      label: 'Instagram',
+      iconClass: 'fab fa-square-instagram fa-2x',
     },
     {
-      href: "https://facebook.com/neteng.pro",
-      label: "Facebook",
-      iconClass: "fab fa-square-facebook fa-2x",
+      href: 'https://facebook.com/neteng.pro',
+      label: 'Facebook',
+      iconClass: 'fab fa-square-facebook fa-2x',
     },
     {
-      href: "https://linkedin.com/company/netwk-pro",
-      label: "LinkedIn",
-      iconClass: "fab fa-linkedin fa-2x",
+      href: 'https://linkedin.com/company/netwk-pro',
+      label: 'LinkedIn',
+      iconClass: 'fab fa-linkedin fa-2x',
     },
     {
-      href: "https://noc.social/@NetEng_Pro",
-      label: "Mastodon",
-      rel: "me noopener noreferrer", // Special rel attribute for Mastodon
-      iconClass: "fab fa-mastodon fa-2x",
+      href: 'https://noc.social/@NetEng_Pro',
+      label: 'Mastodon',
+      rel: 'me noopener noreferrer', // Special rel attribute for Mastodon
+      iconClass: 'fab fa-mastodon fa-2x',
     },
     {
-      href: "https://github.com/netwk-pro/",
-      label: "GitHub",
-      iconClass: "fab fa-square-github fa-2x",
+      href: 'https://github.com/netwk-pro/',
+      label: 'GitHub',
+      iconClass: 'fab fa-square-github fa-2x',
     },
   ];
 </script>

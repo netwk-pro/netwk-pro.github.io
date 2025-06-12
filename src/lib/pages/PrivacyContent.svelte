@@ -7,15 +7,15 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from "$app/paths";
-  import { onMount } from "svelte";
+  import { base } from '$app/paths';
+  import { onMount } from 'svelte';
   import {
     trackingPreferences,
     setOptIn,
     setOptOut,
     clearPrefs,
-  } from "$lib/stores/trackingPreferences.js";
-  import { CONSTANTS } from "$lib";
+  } from '$lib/stores/trackingPreferences.js';
+  import { CONSTANTS } from '$lib';
 
   const { COMPANY_INFO, CONTACT, PAGE, NAV } = CONSTANTS;
 
@@ -29,35 +29,35 @@ This file is part of Network Pro.
   const pdashLink = `${base}/privacy-dashboard`;
 
   /** @type {string} */
-  const privacyLink = "https://docs.netwk.pro/privacy";
+  const privacyLink = 'https://docs.netwk.pro/privacy';
 
   /** @type {string} */
-  const gpcLink = "https://globalprivacycontrol.org/";
+  const gpcLink = 'https://globalprivacycontrol.org/';
 
   /**
    * Table of Contents sections and their headings.
    * @type {{ id: string, text: string }[]}
    */
   const tocLinks = [
-    { id: "intro", text: "Introduction" },
-    { id: "collect", text: "Information We Collect" },
-    { id: "tracking", text: "Web Analytics and Tracking" },
-    { id: "payment", text: "Payment Information" },
-    { id: "use", text: "Use of Information" },
-    { id: "sharing", text: "Data Sharing" },
-    { id: "security", text: "Data Security" },
-    { id: "rights", text: "User Rights" },
-    { id: "third-party", text: "Third-Party Links" },
-    { id: "disclaimers", text: "Disclaimers and Limitations" },
-    { id: "changes", text: "Policy Changes" },
-    { id: "contact", text: "Contact" },
+    { id: 'intro', text: 'Introduction' },
+    { id: 'collect', text: 'Information We Collect' },
+    { id: 'tracking', text: 'Web Analytics and Tracking' },
+    { id: 'payment', text: 'Payment Information' },
+    { id: 'use', text: 'Use of Information' },
+    { id: 'sharing', text: 'Data Sharing' },
+    { id: 'security', text: 'Data Security' },
+    { id: 'rights', text: 'User Rights' },
+    { id: 'third-party', text: 'Third-Party Links' },
+    { id: 'disclaimers', text: 'Disclaimers and Limitations' },
+    { id: 'changes', text: 'Policy Changes' },
+    { id: 'contact', text: 'Contact' },
   ];
 
   /** @type {string} */
-  const effectiveDate = "June 2, 2025";
+  const effectiveDate = 'June 2, 2025';
 
   /** @type {string} */
-  const classSmall = "small-text";
+  const classSmall = 'small-text';
 
   /** @type {boolean} */
   let optedOut;
@@ -77,10 +77,10 @@ This file is part of Network Pro.
    */
   function toggleTracking(value) {
     if (value) {
-      console.log("[Tracking] User opted out");
+      console.log('[Tracking] User opted out');
       setOptOut();
     } else {
-      console.log("[Tracking] User cleared opt-out");
+      console.log('[Tracking] User cleared opt-out');
       clearPrefs();
     }
   }
@@ -91,16 +91,16 @@ This file is part of Network Pro.
    */
   function toggleOptIn(value) {
     if (value) {
-      console.log("[Tracking] User opted in");
+      console.log('[Tracking] User opted in');
       setOptIn();
     } else {
-      console.log("[Tracking] User cleared opt-in");
+      console.log('[Tracking] User cleared opt-in');
       clearPrefs();
     }
   }
 
   onMount(() => {
-    console.log("[Tracking] Store initialized:", $trackingPreferences.status);
+    console.log('[Tracking] Store initialized:', $trackingPreferences.status);
   });
 </script>
 
@@ -133,7 +133,7 @@ This file is part of Network Pro.
 <nav id="toc">
   <ol>
     {#each tocLinks as link}
-      <li><a href={"#" + link.id}>{link.text}</a></li>
+      <li><a href={'#' + link.id}>{link.text}</a></li>
     {/each}
   </ol>
 </nav>
@@ -157,7 +157,7 @@ This file is part of Network Pro.
     <h2>{i + 1}. {link.text}</h2>
 
     <!-- Dynamic Content for Each Section -->
-    {#if link.id === "intro"}
+    {#if link.id === 'intro'}
       <p>
         Network Pro Strategies ("Company," "we," "us," or "our") is committed to
         protecting the privacy of clients and website visitors. This Privacy
@@ -174,7 +174,7 @@ This file is part of Network Pro.
           </a>
         </strong> (A.R.S. §§ 18-551, 18-552).
       </p>
-    {:else if link.id === "collect"}
+    {:else if link.id === 'collect'}
       <ul>
         <li>
           <strong>Personal Identifiers</strong> (e.g., name, email, phone number)
@@ -190,7 +190,7 @@ This file is part of Network Pro.
           <strong>Client-Submitted Content</strong> related to our services
         </li>
       </ul>
-    {:else if link.id === "tracking"}
+    {:else if link.id === 'tracking'}
       <p>
         To better understand visitor behavior and optimize website
         functionality, we use <strong>PostHog Cloud</strong>, a hosted version
@@ -236,7 +236,7 @@ This file is part of Network Pro.
 
       <h3>Tracking Preferences</h3>
 
-      {#if trackingStatus && trackingStatus !== "⏳ Checking tracking preferences..."}
+      {#if trackingStatus && trackingStatus !== '⏳ Checking tracking preferences...'}
         <p id="tracking-status" aria-live="polite">
           <strong>Tracking Status:</strong>
           {trackingStatus}
@@ -292,13 +292,13 @@ This file is part of Network Pro.
           target={PAGE.BLANK}>PostHog's Privacy Policy</a
         >.
       </p>
-    {:else if link.id === "payment"}
+    {:else if link.id === 'payment'}
       <p>
         When processing payments, we may collect credit card details and billing
         contact information. All credit card data is encrypted via TLS and
         shared only with PCI-compliant processors.
       </p>
-    {:else if link.id === "use"}
+    {:else if link.id === 'use'}
       <p>Information is used to:</p>
       <ul>
         <li><strong>Provide and improve services</strong></li>
@@ -306,7 +306,7 @@ This file is part of Network Pro.
         <li><strong>Conduct analytics and enhance user experience</strong></li>
         <li><strong>Ensure legal and regulatory compliance</strong></li>
       </ul>
-    {:else if link.id === "sharing"}
+    {:else if link.id === 'sharing'}
       <p>
         We do not sell personal information. However, we may share personal and
         business information under the following circumstances:
@@ -333,7 +333,7 @@ This file is part of Network Pro.
           continued confidentiality and compliance with applicable privacy laws.
         </li>
       </ul>
-    {:else if link.id === "security"}
+    {:else if link.id === 'security'}
       <p>
         We implement industry-standard security measures to protect your data.
         However, no method of transmission over the Internet or electronic
@@ -342,7 +342,7 @@ This file is part of Network Pro.
         affected individuals in the event of a data breach involving personal
         information.
       </p>
-    {:else if link.id === "rights"}
+    {:else if link.id === 'rights'}
       <h3>Your Rights and Choices</h3>
 
       <p
@@ -390,24 +390,24 @@ This file is part of Network Pro.
         <strong>{CONTACT.PRIVACY}</strong>
         with the subject line: "<strong>Privacy Rights Preferences</strong>".
       </p>
-    {:else if link.id === "third-party"}
+    {:else if link.id === 'third-party'}
       <p>
         Our site may contain links to third-party sites. We are not responsible
         for their privacy practices.
       </p>
-    {:else if link.id === "disclaimers"}
+    {:else if link.id === 'disclaimers'}
       <p>
         Network Pro Strategies offers informational content as a public service.
         No warranties are made regarding the accuracy or completeness of such
         content. Consulting services are governed by separate contracts. We
         disclaim liability for third-party services integrated or referenced.
       </p>
-    {:else if link.id === "changes"}
+    {:else if link.id === 'changes'}
       <p>
         We may update this policy periodically. Changes are effective upon
         posting.
       </p>
-    {:else if link.id === "contact"}
+    {:else if link.id === 'contact'}
       <p>
         For questions, please utilize our <a
           rel={PAGE.REL}

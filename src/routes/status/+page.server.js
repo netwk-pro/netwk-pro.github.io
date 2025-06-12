@@ -26,7 +26,7 @@ export const prerender = false;
  * @returns {{ ok: boolean }} Response indicating successful execution
  */
 export function load() {
-  console.log("[Status Debug] ENV_MODE:", process.env.ENV_MODE);
-  console.log("[Status Debug] NODE_ENV:", process.env.NODE_ENV);
+  console.log('[Status Debug] ENV_MODE:', process.env.ENV_MODE);
+  console.log('[Status Debug] NODE_ENV:', process.env.NODE_ENV);
   return { ok: true };
 }

@@ -7,8 +7,8 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { onMount } from "svelte";
-  import { fade } from "svelte/transition";
+  import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
 
   let show = false;
 
@@ -26,10 +26,10 @@ This file is part of Network Pro.
       show = true;
     }
 
-    window.addEventListener("pwa-install-available", handleInstallPrompt);
+    window.addEventListener('pwa-install-available', handleInstallPrompt);
 
     return () => {
-      window.removeEventListener("pwa-install-available", handleInstallPrompt);
+      window.removeEventListener('pwa-install-available', handleInstallPrompt);
     };
   });
 

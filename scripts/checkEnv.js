@@ -15,10 +15,10 @@ This file is part of Network Pro.
  * @updated 2025-05-21
  */
 
-import { basename } from "path";
-import { fileURLToPath } from "url";
+import { basename } from 'path';
+import { fileURLToPath } from 'url';
 
-const validEnvs = new Set(["dev", "test", "ci", "prod", "preview"]);
+const validEnvs = new Set(['dev', 'test', 'ci', 'prod', 'preview']);
 
 /**
  * Checks and returns validation for ENV_MODE
@@ -36,7 +36,7 @@ export function checkEnv() {
   let wasDefaulted = false;
 
   if (!mode) {
-    mode = "dev";
+    mode = 'dev';
     process.env.ENV_MODE = mode;
     wasDefaulted = true;
     console.warn("⚠️ ENV_MODE not set. Defaulting to 'dev'.");
@@ -45,11 +45,11 @@ export function checkEnv() {
   valid = validEnvs.has(mode);
 
   if (valid) {
-    const tag = wasDefaulted ? "[info]" : "[ok]";
+    const tag = wasDefaulted ? '[info]' : '[ok]';
     console.log(`${tag} ENV_MODE is set to: "${mode}"`);
   } else {
     console.error(
-      `❌ Invalid ENV_MODE "${mode}". Must be one of: ${[...validEnvs].join(", ")}`,
+      `❌ Invalid ENV_MODE "${mode}". Must be one of: ${[...validEnvs].join(', ')}`,
     );
   }
 

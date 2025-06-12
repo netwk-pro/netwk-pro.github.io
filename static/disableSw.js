@@ -14,7 +14,7 @@ This file is part of Network Pro.
  * @updated 2025-05-29
  */
 
-if (location.search.includes("nosw")) {
+if (location.search.includes('nosw')) {
   window.__DISABLE_SW__ = true;
-  console.warn("🧪 Service worker disabled via ?nosw flag in URL.");
+  console.warn('🧪 Service worker disabled via ?nosw flag in URL.');
 }

@@ -10,11 +10,11 @@ This file is part of Network Pro.
  * Unit test for scripts/checkVersions.js
  */
 
-import { describe, expect, it } from "vitest";
-import { checkVersions } from "../../scripts/checkVersions.js";
+import { describe, expect, it } from 'vitest';
+import { checkVersions } from '../../scripts/checkVersions.js';
 
-describe("checkVersions()", () => {
-  it("should match current Node and NPM versions to engine ranges", () => {
+describe('checkVersions()', () => {
+  it('should match current Node and NPM versions to engine ranges', () => {
     const result = checkVersions();
 
     expect(result.nodeVersion).toMatch(/^v\d+\.\d+\.\d+$/);

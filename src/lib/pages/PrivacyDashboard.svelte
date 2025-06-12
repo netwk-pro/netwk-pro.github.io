@@ -7,17 +7,17 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from "$app/paths";
-  import { onMount } from "svelte";
+  import { base } from '$app/paths';
+  import { onMount } from 'svelte';
 
   import {
     trackingPreferences,
     setOptIn,
     setOptOut,
     clearPrefs,
-  } from "$lib/stores/trackingPreferences.js";
+  } from '$lib/stores/trackingPreferences.js';
 
-  import { CONSTANTS } from "$lib";
+  import { CONSTANTS } from '$lib';
 
   const { CONTACT, PAGE, NAV } = CONSTANTS;
 
@@ -28,10 +28,10 @@ This file is part of Network Pro.
   const prightsLink = `${base}/privacy-rights`;
 
   /** @type {string} */
-  const classSmall = "small-text";
+  const classSmall = 'small-text';
 
   /** @type {string} */
-  const spaceStyle = "spacer";
+  const spaceStyle = 'spacer';
 
   /** @type {boolean} */
   let optedOut;
@@ -51,10 +51,10 @@ This file is part of Network Pro.
    */
   function toggleTracking(value) {
     if (value) {
-      console.log("[Tracking] User opted out");
+      console.log('[Tracking] User opted out');
       setOptOut();
     } else {
-      console.log("[Tracking] User cleared opt-out");
+      console.log('[Tracking] User cleared opt-out');
       clearPrefs();
     }
   }
@@ -65,17 +65,17 @@ This file is part of Network Pro.
    */
   function toggleOptIn(value) {
     if (value) {
-      console.log("[Tracking] User opted in");
+      console.log('[Tracking] User opted in');
       setOptIn();
     } else {
-      console.log("[Tracking] User cleared opt-in");
+      console.log('[Tracking] User cleared opt-in');
       clearPrefs();
     }
   }
 
   onMount(() => {
     console.log(
-      "[PrivacyDashboard] Tracking status:",
+      '[PrivacyDashboard] Tracking status:',
       $trackingPreferences.status,
     );
   });
@@ -141,7 +141,7 @@ This file is part of Network Pro.
 
   &nbsp;
 
-  {#if trackingStatus && trackingStatus !== "⏳ Checking tracking preferences..."}
+  {#if trackingStatus && trackingStatus !== '⏳ Checking tracking preferences...'}
     <p id="tracking-status" aria-live="polite">
       <strong>Tracking Status:</strong>
       {trackingStatus}

@@ -7,18 +7,18 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import PGPContent from "$lib/pages/PGPContent.svelte";
-  import Badges from "$lib/components/Badges.svelte";
-  import FullWidthSection from "$lib/components/FullWidthSection.svelte";
-  import LegalNav from "$lib/components/LegalNav.svelte";
-  import SocialMedia from "$lib/components/SocialMedia.svelte";
-  import MetaTags from "$lib/components/MetaTags.svelte";
+  import PGPContent from '$lib/pages/PGPContent.svelte';
+  import Badges from '$lib/components/Badges.svelte';
+  import FullWidthSection from '$lib/components/FullWidthSection.svelte';
+  import LegalNav from '$lib/components/LegalNav.svelte';
+  import SocialMedia from '$lib/components/SocialMedia.svelte';
+  import MetaTags from '$lib/components/MetaTags.svelte';
 
   /**
    * @type {string}
    * Style class for the div element.
    */
-  const spaceStyle = "spacer";
+  const spaceStyle = 'spacer';
 
   export let data;
 </script>

@@ -9,29 +9,29 @@ This file is part of Network Pro.
 module.exports = {
   ci: {
     collect: {
-      url: ["https://netwk.pro"],
+      url: ['https://netwk.pro'],
       numberOfRuns: 1,
       settings: {
         onlyCategories: [
-          "performance",
-          "accessibility",
-          "best-practices",
-          "seo",
+          'performance',
+          'accessibility',
+          'best-practices',
+          'seo',
         ],
         disableFullPageScreenshot: true,
       },
     },
     assert: {
-      preset: "none",
+      preset: 'none',
       assertions: {
         // Add budget checks by asserting that "resource-summary" does not exceed budget
-        "resource-summary": ["error", { budgetPath: "budget.json" }],
+        'resource-summary': ['error', { budgetPath: 'budget.json' }],
       },
     },
     upload: {
-      target: "filesystem",
-      outputDir: "./.lighthouseci",
-      reporter: ["html", "json"],
+      target: 'filesystem',
+      outputDir: './.lighthouseci',
+      reporter: ['html', 'json'],
     },
   },
 };

@@ -9,8 +9,8 @@ This file is part of Network Pro.
 <!-- cspell:ignore tandc -->
 
 <script>
-  import { base } from "$app/paths";
-  import { CONSTANTS } from "$lib";
+  import { base } from '$app/paths';
+  import { CONSTANTS } from '$lib';
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
@@ -41,23 +41,23 @@ This file is part of Network Pro.
    * Markdown version of the Terms of Use document
    * @type {string}
    */
-  const termsLink = "https://docs.netwk.pro/terms-use";
+  const termsLink = 'https://docs.netwk.pro/terms-use';
 
   /**
    * Table of Contents Links
    * @type {{ id: string, text: string }[]}
    */
   const tocLinks = [
-    { id: "introduction", text: "Introduction" },
-    { id: "platforms", text: "Platforms Covered" },
-    { id: "acceptable-use", text: "Acceptable Use" },
-    { id: "warranty", text: "Disclaimer of Warranties" },
-    { id: "risk", text: "Assumption of Risk" },
-    { id: "liability", text: "Limitation of Liability" },
-    { id: "indemnification", text: "Indemnification" },
-    { id: "jurisdiction", text: "Governing Law and Jurisdiction" },
-    { id: "acceptance", text: "Acceptance of Terms" },
-    { id: "changes", text: "Changes to This Policy" },
+    { id: 'introduction', text: 'Introduction' },
+    { id: 'platforms', text: 'Platforms Covered' },
+    { id: 'acceptable-use', text: 'Acceptable Use' },
+    { id: 'warranty', text: 'Disclaimer of Warranties' },
+    { id: 'risk', text: 'Assumption of Risk' },
+    { id: 'liability', text: 'Limitation of Liability' },
+    { id: 'indemnification', text: 'Indemnification' },
+    { id: 'jurisdiction', text: 'Governing Law and Jurisdiction' },
+    { id: 'acceptance', text: 'Acceptance of Terms' },
+    { id: 'changes', text: 'Changes to This Policy' },
   ];
 
   /**
@@ -65,8 +65,8 @@ This file is part of Network Pro.
    * @type {{ effectiveDate: string, classSmall: string }}
    */
   const constants = {
-    effectiveDate: "May 21, 2025",
-    classSmall: "small-text",
+    effectiveDate: 'May 21, 2025',
+    classSmall: 'small-text',
   };
 </script>
 
@@ -99,7 +99,7 @@ This file is part of Network Pro.
   <h3>Table of Contents</h3>
   <ol>
     {#each tocLinks as link}
-      <li><a href={"#" + link.id}>{link.text}</a></li>
+      <li><a href={'#' + link.id}>{link.text}</a></li>
     {/each}
   </ol>
 </nav>
@@ -130,14 +130,14 @@ This file is part of Network Pro.
   <section id={link.id}>
     <h2>{i + 1}. {link.text}</h2>
 
-    {#if link.id === "introduction"}
+    {#if link.id === 'introduction'}
       <p>
         Welcome! By accessing or using any of the platforms operated by {COMPANY_INFO.NAME}
         ("Company," "we," "us," or "our"), you agree to be bound by these Terms of
         Use ("Terms"). If you do not agree to these Terms, please refrain from using
         our services.
       </p>
-    {:else if link.id === "platforms"}
+    {:else if link.id === 'platforms'}
       <p>
         These Terms of Use apply to all platforms associated with the Company,
         including but not limited to:
@@ -148,7 +148,7 @@ This file is part of Network Pro.
           platforms).
         </strong>
       </p>
-    {:else if link.id === "acceptable-use"}
+    {:else if link.id === 'acceptable-use'}
       <p>
         You agree not to use our platforms or services to engage in conduct that
         is
@@ -164,7 +164,7 @@ This file is part of Network Pro.
         <li>Violating third-party rights or laws</li>
         <li>Interfering with platform functionality or availability</li>
       </ul>
-    {:else if link.id === "warranty"}
+    {:else if link.id === 'warranty'}
       <p>
         Our platforms and services are provided "as is" and "as available,"
         without any express or implied warranties. We make no guarantees
@@ -172,7 +172,7 @@ This file is part of Network Pro.
         disclaimer does not apply to our consulting and implementation services,
         nor any payment portals or associated services.
       </p>
-    {:else if link.id === "risk"}
+    {:else if link.id === 'risk'}
       <p>
         Your use of our platforms is at your own risk. We do not guarantee the
         security, integrity, or reliability of data stored on external or
@@ -180,7 +180,7 @@ This file is part of Network Pro.
         consulting and implementation services, nor any payment portals or
         associated services.
       </p>
-    {:else if link.id === "liability"}
+    {:else if link.id === 'liability'}
       <p>
         To the fullest extent permitted by law, the Company, its affiliates,
         owners, operators, and contributors shall not be liable for any direct,
@@ -188,14 +188,14 @@ This file is part of Network Pro.
         not limited to data loss, loss of profits, or damages arising from
         reliance on or use of our platforms.
       </p>
-    {:else if link.id === "indemnification"}
+    {:else if link.id === 'indemnification'}
       <p>
         You agree to indemnify, defend, and hold harmless the Company, its
         affiliates, owners, operators, and contributors from any claims,
         damages, liabilities, losses, or expenses (including legal fees) arising
         from or related to your use of our services.
       </p>
-    {:else if link.id === "jurisdiction"}
+    {:else if link.id === 'jurisdiction'}
       <p>
         {COMPANY_INFO.NAME} is based in Maricopa County, Arizona. Any legal action
         or dispute arising from these Terms of Use shall be subject to the exclusive
@@ -204,13 +204,13 @@ This file is part of Network Pro.
         <strong>Arizona Revised Statutes (A.R.S.)</strong> and applicable
         provisions of the <strong>United States Code (U.S.C.)</strong>.
       </p>
-    {:else if link.id === "acceptance"}
+    {:else if link.id === 'acceptance'}
       <p>
         By accessing or using our platforms, you acknowledge and agree to these
         Terms of Use. Continued use of our services constitutes ongoing
         acceptance of these Terms.
       </p>
-    {:else if link.id === "changes"}
+    {:else if link.id === 'changes'}
       <p>
         We may update these Terms of Use periodically. Updates will be posted on
         this page with an updated effective date and will reflect any relevant

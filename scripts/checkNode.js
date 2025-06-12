@@ -19,23 +19,23 @@ This file is part of Network Pro.
  * @updated 2025-05-23
  */
 
-import { execSync } from "child_process";
-import fs from "fs";
-import path from "path";
-import semver from "semver";
-import { fileURLToPath } from "url";
+import { execSync } from 'child_process';
+import fs from 'fs';
+import path from 'path';
+import semver from 'semver';
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Load engines from package.json
 const pkg = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, "../package.json"), "utf8"),
+  fs.readFileSync(path.resolve(__dirname, '../package.json'), 'utf8'),
 );
 const { node: nodeRange, npm: npmRange } = pkg.engines;
 
 // Determine if this is running as part of npm's postinstall hook
-const isPostInstall = process.env.npm_lifecycle_event === "postinstall";
+const isPostInstall = process.env.npm_lifecycle_event === 'postinstall';
 
 let hasError = false;
 
@@ -54,7 +54,7 @@ if (!semver.satisfies(process.version, nodeRange)) {
 let npmVersion = null;
 
 try {
-  npmVersion = execSync("npm --version").toString().trim();
+  npmVersion = execSync('npm --version').toString().trim();
   if (!semver.satisfies(npmVersion, npmRange)) {
     const msg = `npm ${npmVersion} does not satisfy required range: ${npmRange}`;
     if (isPostInstall) {
@@ -65,13 +65,13 @@ try {
     }
   }
 } catch (err) {
-  console.error("❌ Failed to check npm version:", err.message);
+  console.error('❌ Failed to check npm version:', err.message);
   process.exit(1);
 }
 
 // Final output
 if (!hasError) {
-  if (!process.env.CI || process.env.VERBOSE === "true") {
+  if (!process.env.CI || process.env.VERBOSE === 'true') {
     console.log(
       `✅ Node (${process.version}) matches ${nodeRange}, and npm (${npmVersion}) matches ${npmRange}`,
     );

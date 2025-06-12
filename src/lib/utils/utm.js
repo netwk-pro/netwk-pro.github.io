@@ -20,8 +20,8 @@ This file is part of Network Pro.
  * @returns {string | null}
  */
 export function appendUTM(url) {
-  if (typeof window === "undefined") return null;
+  if (typeof window === 'undefined') return null;
 
-  const utm = new URLSearchParams(window.location.search).get("utm_source");
+  const utm = new URLSearchParams(window.location.search).get('utm_source');
   return utm ? `${url}?utm_source=${encodeURIComponent(utm)}` : url;
 }

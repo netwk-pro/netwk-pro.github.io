@@ -7,10 +7,10 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from "$app/paths";
+  import { base } from '$app/paths';
   // Import badges for licenses
-  import { ccBadge, gplBadge } from "$lib";
-  import { CONSTANTS } from "$lib";
+  import { ccBadge, gplBadge } from '$lib';
+  import { CONSTANTS } from '$lib';
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
@@ -41,16 +41,16 @@ This file is part of Network Pro.
     {
       href: ccbyLink,
       src: ccBadge,
-      alt: "Creative Commons BY",
-      width: "160px",
-      height: "24px",
+      alt: 'Creative Commons BY',
+      width: '160px',
+      height: '24px',
     },
     {
       href: gplLink,
       src: gplBadge,
-      alt: "GPL 3.0 or Later",
-      width: "120px",
-      height: "24px",
+      alt: 'GPL 3.0 or Later',
+      width: '120px',
+      height: '24px',
     },
   ];
 </script>

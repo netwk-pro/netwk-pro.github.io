@@ -16,10 +16,10 @@ This file is part of Network Pro.
  * @updated 2025-05-20
  */
 
-import { execSync } from "child_process";
-import fs from "fs";
-import path from "path";
-import semver from "semver";
+import { execSync } from 'child_process';
+import fs from 'fs';
+import path from 'path';
+import semver from 'semver';
 
 /**
  * @typedef {object} VersionCheckResult
@@ -38,12 +38,12 @@ import semver from "semver";
  */
 export function checkVersions() {
   const pkg = JSON.parse(
-    fs.readFileSync(path.resolve("./package.json"), "utf8"),
+    fs.readFileSync(path.resolve('./package.json'), 'utf8'),
   );
   const { node: nodeRange, npm: npmRange } = pkg.engines;
 
   const nodeVersion = process.version;
-  const npmVersion = execSync("npm --version").toString().trim();
+  const npmVersion = execSync('npm --version').toString().trim();
 
   const nodeValid = semver.satisfies(nodeVersion, nodeRange);
   const npmValid = semver.satisfies(npmVersion, npmRange);

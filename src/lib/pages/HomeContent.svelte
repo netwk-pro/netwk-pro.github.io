@@ -7,8 +7,8 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from "$app/paths";
-  import { CONSTANTS } from "$lib";
+  import { base } from '$app/paths';
+  import { CONSTANTS } from '$lib';
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
@@ -27,25 +27,25 @@ This file is part of Network Pro.
    * URL to the external blog
    * @type {string}
    */
-  const blogLink = "https://blog.netwk.pro";
+  const blogLink = 'https://blog.netwk.pro';
 
   /**
    * CSS class for the index headings.
    * @type {string}
    */
-  const classIndex = "index3";
+  const classIndex = 'index3';
 
   /**
    * CSS class for centered text.
    * @type {string}
    */
-  const classCenter = "center-text";
+  const classCenter = 'center-text';
 
   /**
    * CSS class for large centered text.
    * @type {string}
    */
-  const classLarge = "large-text-center";
+  const classLarge = 'large-text-center';
 </script>
 
 <!-- BEGIN HOME CONTENT -->

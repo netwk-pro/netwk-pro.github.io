@@ -9,10 +9,10 @@ This file is part of Network Pro.
 <!-- cspell:ignore ccby gnugpl -->
 
 <script>
-  import { base } from "$app/paths";
+  import { base } from '$app/paths';
   // Import icons for licenses
-  import { bySvg, ccSvg } from "$lib";
-  import { CONSTANTS } from "$lib";
+  import { bySvg, ccSvg } from '$lib';
+  import { CONSTANTS } from '$lib';
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
@@ -27,10 +27,10 @@ This file is part of Network Pro.
   const trademarkLink = `${base}/license#trademark`;
 
   /** @type {string} */
-  const creatorUrl = "https://netwk.pro";
+  const creatorUrl = 'https://netwk.pro';
 
   /** @type {string} */
-  const creatorSlogan = "Locking Down Networks...";
+  const creatorSlogan = 'Locking Down Networks...';
 
   /**
    * Icon used in a license object.
@@ -51,25 +51,25 @@ This file is part of Network Pro.
 
   const licenses = [
     {
-      type: "CC BY 4.0",
+      type: 'CC BY 4.0',
       url: ccbyLink,
-      externalUrl: "https://creativecommons.org/licenses/by/4.0/",
+      externalUrl: 'https://creativecommons.org/licenses/by/4.0/',
       icons: [
         {
           src: ccSvg,
-          alt: "Creative Commons BY",
+          alt: 'Creative Commons BY',
         },
         {
           src: bySvg,
-          alt: "Creative Commons BY",
+          alt: 'Creative Commons BY',
         },
       ],
     },
     {
-      type: "GNU GPL",
+      type: 'GNU GPL',
       url: gnugplLink,
-      externalUrl: "https://fsf.org",
-      description: "Free Software Foundation",
+      externalUrl: 'https://fsf.org',
+      description: 'Free Software Foundation',
     },
   ];
 
@@ -78,15 +78,15 @@ This file is part of Network Pro.
    * @type {Object}
    */
   const namespaceAttributes = {
-    "xmlns:cc": "http://creativecommons.org/ns#",
-    "xmlns:dct": "http://purl.org/dc/terms/",
+    'xmlns:cc': 'http://creativecommons.org/ns#',
+    'xmlns:dct': 'http://purl.org/dc/terms/',
   };
 
   /**
    * Relation attributes for license links.
    * @type {string}
    */
-  const relLicense = "license noopener noreferrer";
+  const relLicense = 'license noopener noreferrer';
 </script>
 
 <!-- BEGIN FOOTER -->
@@ -116,7 +116,7 @@ This file is part of Network Pro.
   <p>
     Licensed under
     {#each licenses as license, index}
-      {#if license.type === "CC BY 4.0"}
+      {#if license.type === 'CC BY 4.0'}
         <a
           href={license.url}
           target={PAGE.SELF}
@@ -155,7 +155,7 @@ This file is part of Network Pro.
         >, either version 3 of the License or (at your option) any later
         version.
       {/if}
-      {index < licenses.length - 1 ? " and the " : ""}
+      {index < licenses.length - 1 ? ' and the ' : ''}
     {/each}
   </p>
 </div>

@@ -7,8 +7,8 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from "$app/paths";
-  import { CONSTANTS } from "$lib";
+  import { base } from '$app/paths';
+  import { CONSTANTS } from '$lib';
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
@@ -38,21 +38,21 @@ This file is part of Network Pro.
     [
       {
         href: privacyLink,
-        text: "Privacy Policy",
+        text: 'Privacy Policy',
       },
       {
         href: pdashLink,
-        text: "Privacy Dashboard",
+        text: 'Privacy Dashboard',
       },
     ],
     [
       {
         href: termsLink,
-        text: "Terms of Use",
+        text: 'Terms of Use',
       },
       {
         href: licenseLink,
-        text: "Legal",
+        text: 'Legal',
       },
     ],
   ];

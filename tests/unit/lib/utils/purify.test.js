@@ -14,37 +14,37 @@ This file is part of Network Pro.
  * @updated 2025-06-01
  */
 
-import { describe, expect, it } from "vitest";
-import { sanitizeHtml } from "../../../../src/lib/utils/purify.js";
+import { describe, expect, it } from 'vitest';
+import { sanitizeHtml } from '../../../../src/lib/utils/purify.js';
 
-describe("sanitizeHtml", () => {
-  it("removes dangerous tags like <script>", async () => {
+describe('sanitizeHtml', () => {
+  it('removes dangerous tags like <script>', async () => {
     const dirty = `<div>Hello <script>alert("XSS")</script> world!</div>`;
     const clean = await sanitizeHtml(dirty);
-    expect(clean).toBe("<div>Hello  world!</div>");
+    expect(clean).toBe('<div>Hello  world!</div>');
   }); // timeout in ms
 
-  it("preserves safe markup like <strong>", async () => {
+  it('preserves safe markup like <strong>', async () => {
     const dirty = `<p>This is <strong>important</strong>.</p>`;
     const clean = await sanitizeHtml(dirty);
-    expect(clean).toBe("<p>This is <strong>important</strong>.</p>");
+    expect(clean).toBe('<p>This is <strong>important</strong>.</p>');
   });
 
-  it("removes dangerous attributes like onerror", async () => {
+  it('removes dangerous attributes like onerror', async () => {
     const dirty = `<img src="x" onerror="alert(1)">`;
     const clean = await sanitizeHtml(dirty);
-    expect(clean).toBe("<img>");
+    expect(clean).toBe('<img>');
   });
 
-  it("keeps valid external links", async () => {
+  it('keeps valid external links', async () => {
     const dirty = `<a href="https://example.com">Click</a>`;
     const clean = await sanitizeHtml(dirty);
     expect(clean).toBe('<a href="https://example.com">Click</a>');
   });
 
-  it("blocks javascript: URLs", async () => {
+  it('blocks javascript: URLs', async () => {
     const dirty = `<a href="javascript:alert('XSS')">bad</a>`;
     const clean = await sanitizeHtml(dirty);
-    expect(clean).toBe("<a>bad</a>");
+    expect(clean).toBe('<a>bad</a>');
   });
 });

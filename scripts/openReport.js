@@ -16,9 +16,9 @@ This file is part of Network Pro.
  * @updated 2025-06-09
  */
 
-import { exec } from "child_process";
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
+import { exec } from 'child_process';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 
 // ESM replacement for __dirname
 const __dirname = dirname(fileURLToPath(import.meta.url));

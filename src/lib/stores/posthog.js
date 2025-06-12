@@ -14,8 +14,8 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 import {
   remindUserToReconsent,
   trackingPreferences,
-} from "$lib/stores/trackingPreferences.js";
-import { get, writable } from "svelte/store";
+} from '$lib/stores/trackingPreferences.js';
+import { get, writable } from 'svelte/store';
 
 /**
  * Tracks whether tracking is allowed based on cookies, DNT/GPC, and user preference.
@@ -41,7 +41,7 @@ let ph = null;
  * @returns {Promise<void>}
  */
 export async function initPostHog() {
-  if (initialized || typeof window === "undefined") return;
+  if (initialized || typeof window === 'undefined') return;
   initialized = true;
 
   const { enabled } = get(trackingPreferences);
@@ -49,32 +49,32 @@ export async function initPostHog() {
   showReminder.set(get(remindUserToReconsent)); // ✅ use derived store instead
 
   if (!enabled) {
-    console.log("[PostHog] Tracking is disabled — skipping init.");
+    console.log('[PostHog] Tracking is disabled — skipping init.');
     return;
   }
 
-  const posthogModule = await import("posthog-js");
+  const posthogModule = await import('posthog-js');
   ph = posthogModule.default;
 
   // cspell:disable-next-line
-  ph.init("phc_Qshfo6AXzh4pS7aPigfqyeo4qj1qlyh7gDuHDeVMSR0", {
-    api_host: "https://us.i.posthog.com",
+  ph.init('phc_Qshfo6AXzh4pS7aPigfqyeo4qj1qlyh7gDuHDeVMSR0', {
+    api_host: 'https://us.i.posthog.com',
     autocapture: true,
     capture_pageview: false,
-    person_profiles: "identified_only",
+    person_profiles: 'identified_only',
     loaded: (phInstance) => {
       if (!enabled) {
         console.log(
-          "[PostHog] ⛔ User opted out — calling opt_out_capturing()",
+          '[PostHog] ⛔ User opted out — calling opt_out_capturing()',
         );
         phInstance.opt_out_capturing();
       } else {
-        console.log("[PostHog] ✅ Tracking enabled");
+        console.log('[PostHog] ✅ Tracking enabled');
       }
     },
   });
 
-  ph.capture("$pageview");
+  ph.capture('$pageview');
 }
 
 /**
@@ -105,8 +105,8 @@ export function identify(id, properties = {}) {
  * @returns {void}
  */
 export function _resetPostHog() {
-  if (import.meta.env.MODE === "production") {
-    console.warn("[PostHog] _resetPostHog() called in production — no-op");
+  if (import.meta.env.MODE === 'production') {
+    console.warn('[PostHog] _resetPostHog() called in production — no-op');
     return;
   }
 

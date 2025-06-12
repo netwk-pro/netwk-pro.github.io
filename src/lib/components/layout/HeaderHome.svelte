@@ -7,14 +7,14 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from "$app/paths";
+  import { base } from '$app/paths';
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
   const aboutLink = `${base}/about`;
   const fossLink = `${base}/foss-spotlight`;
-  const blogLink = "https://blog.netwk.pro";
+  const blogLink = 'https://blog.netwk.pro';
 
   /**
    * Navigation link object.
@@ -30,24 +30,24 @@ This file is part of Network Pro.
    * @type {NavItem[]}
    */
   const nav = [
-    { label: "about", href: aboutLink, target: "_self", external: false },
-    { label: "foss", href: fossLink, target: "_self", external: false },
+    { label: 'about', href: aboutLink, target: '_self', external: false },
+    { label: 'foss', href: fossLink, target: '_self', external: false },
     {
-      label: "blog",
+      label: 'blog',
       href: blogLink,
-      target: "_self",
+      target: '_self',
       external: false,
     },
     {
-      label: "discussions",
-      href: "https://github.com/netwk-pro/netwk-pro.github.io/discussions",
-      target: "_blank",
+      label: 'discussions',
+      href: 'https://github.com/netwk-pro/netwk-pro.github.io/discussions',
+      target: '_blank',
       external: true,
     },
     {
-      label: "link hub",
-      href: "https://linktr.ee/neteng_pro",
-      target: "_blank",
+      label: 'link hub',
+      href: 'https://linktr.ee/neteng_pro',
+      target: '_blank',
       external: true,
     },
   ];
@@ -56,7 +56,7 @@ This file is part of Network Pro.
    * Relation attribute for external links.
    * @type {string}
    */
-  const rel = "noopener noreferrer";
+  const rel = 'noopener noreferrer';
 </script>
 
 <!-- BEGIN HOME HEADER -->
@@ -74,7 +74,7 @@ This file is part of Network Pro.
     {/if}
     <!-- Separator logic -->
     {#if index < nav.length - 1}
-      {#if label === "blog"}
+      {#if label === 'blog'}
         <br />
       {:else}
         <span class="goldseparator">|</span>

@@ -8,43 +8,43 @@ This file is part of Network Pro.
 
 <script>
   // Import logo images
-  import { logoPng, logoWbp } from "$lib";
+  import { logoPng, logoWbp } from '$lib';
 
   /**
    * Decoding mode for the image.
    * @type {"sync" | "async" | "auto"}
    */
-  export let decoding = "sync";
+  export let decoding = 'sync';
 
   /**
    * Loading mode for the image.
    * @type {"eager" | "lazy"}
    */
-  export let loading = "eager";
+  export let loading = 'eager';
 
   /**
    * CSS class for the logo image.
    * @type {string}
    */
-  export let className = "logo";
+  export let className = 'logo';
 
   /**
    * Alt text for the logo image.
    * @type {string}
    */
-  export let alt = "Network Pro Strategies";
+  export let alt = 'Network Pro Strategies';
 
   /**
    * First part of the company slogan.
    * @type {string}
    */
-  export let sloganA = "Locking Down Networks";
+  export let sloganA = 'Locking Down Networks';
 
   /**
    * Second part of the company slogan.
    * @type {string}
    */
-  export let sloganB = "Unlocking Confidence™";
+  export let sloganB = 'Unlocking Confidence™';
 
   /**
    * Enable/disable display of the slogan.
@@ -74,13 +74,13 @@ This file is part of Network Pro.
    * Fetch priority for the logo image.
    * @type {"high" | "low" | "auto"}
    */
-  export let fetchpriority = "high";
+  export let fetchpriority = 'high';
 
   /**
    * Tagline text to display.
    * @type {string}
    */
-  export let tagline = "Security | Networking | Privacy";
+  export let tagline = 'Security | Networking | Privacy';
 </script>
 
 <!-- BEGIN LOGO AND SITE TITLE -->

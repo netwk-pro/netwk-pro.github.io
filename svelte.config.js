@@ -6,8 +6,8 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================= */
 
-import adapter from "@sveltejs/adapter-netlify"; // Netlify adapter for deployment
-import { vitePreprocess } from "@sveltejs/vite-plugin-svelte"; // Vite preprocessor for Svelte
+import adapter from '@sveltejs/adapter-netlify'; // Netlify adapter for deployment
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'; // Vite preprocessor for Svelte
 
 const config = {
   // Preprocessors for enhanced functionality (vitePreprocess + mdsvex for Markdown support + svelte-preprocess for PostCSS)
@@ -15,7 +15,7 @@ const config = {
     vitePreprocess({
       postcss: true,
       mdsvex: {
-        extensions: [".svx", ".md"],
+        extensions: ['.svx', '.md'],
       },
     }),
   ],
@@ -29,14 +29,14 @@ const config = {
 
     // Paths configuration for deployment
     paths: {
-      base: "", // Always deploy to the root of the domain
+      base: '', // Always deploy to the root of the domain
     },
 
     prerender: {
       // Handle HTTP errors during prerendering
       handleHttpError: ({ path, _referrer, message }) => {
         // Paths to ignore and warn about
-        const warnList = ["/...404"];
+        const warnList = ['/...404'];
 
         if (warnList.includes(path)) {
           console.warn(`Prerender error at path: ${path}, message: ${message}`);
@@ -50,7 +50,7 @@ const config = {
   },
 
   // File extensions for Svelte and mdsvex
-  extensions: [".svelte", ".svx", ".md"], // Added .md for Markdown support
+  extensions: ['.svelte', '.svx', '.md'], // Added .md for Markdown support
 };
 
 export default config;

@@ -17,16 +17,16 @@ This file is part of Network Pro.
    * Additional classes for the outer full-width wrapper
    * @type {string}
    */
-  export let outerClass = "";
+  export let outerClass = '';
 
   /**
    * Additional classes for the inner container
    * @type {string}
    */
-  export let containerClass = "";
+  export let containerClass = '';
 </script>
 
-<div class={`full-width-section ${centered ? "centered" : ""} ${outerClass}`}>
+<div class={`full-width-section ${centered ? 'centered' : ''} ${outerClass}`}>
   <div class={`container ${containerClass}`}>
     <slot></slot>
   </div>

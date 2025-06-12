@@ -18,7 +18,7 @@ This file is part of Network Pro.
 
 // Re-export images from dedicated images.js file
 // This maintains backward compatibility with existing imports
-export * from "./images.js";
+export * from './images.js';
 
 // Export utility functions
 // Uncomment and adjust these as needed for your project
@@ -38,27 +38,27 @@ export * from "./images.js";
 /** @type {AppConstants} */
 export const CONSTANTS = {
   COMPANY_INFO: {
-    NAME: "Network Pro Strategies",
-    APP_NAME: "Network Pro",
-    YEAR: "2025",
+    NAME: 'Network Pro Strategies',
+    APP_NAME: 'Network Pro',
+    YEAR: '2025',
   },
   CONTACT: {
-    EMAIL: "support (at) neteng.pro",
-    SECURE: "contact (at) s.neteng.pro",
-    PRIVACY: "privacy (at) netwk.pro",
-    PHONE: "(623) 252-4350",
+    EMAIL: 'support (at) neteng.pro',
+    SECURE: 'contact (at) s.neteng.pro',
+    PRIVACY: 'privacy (at) netwk.pro',
+    PHONE: '(623) 252-4350',
   },
   PAGE: {
-    BLANK: "_blank",
-    REL: "noopener noreferrer",
-    SELF: "_self",
+    BLANK: '_blank',
+    REL: 'noopener noreferrer',
+    SELF: '_self',
   },
   NAV: {
-    BACKTOP: "Back to top",
-    HREFTOP: "#top",
+    BACKTOP: 'Back to top',
+    HREFTOP: '#top',
   },
   LINKS: {
-    HOME: "https://netwk.pro",
-    BLOG: "https://blog.netwk.pro",
+    HOME: 'https://netwk.pro',
+    BLOG: 'https://blog.netwk.pro',
   },
 };

@@ -7,24 +7,24 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import Badges from "$lib/components/Badges.svelte";
-  import FullWidthSection from "$lib/components/FullWidthSection.svelte";
-  import PrivacyDashboard from "$lib/pages/PrivacyDashboard.svelte";
-  import LegalNav from "$lib/components/LegalNav.svelte";
-  import SocialMedia from "$lib/components/SocialMedia.svelte";
-  import MetaTags from "$lib/components/MetaTags.svelte";
+  import Badges from '$lib/components/Badges.svelte';
+  import FullWidthSection from '$lib/components/FullWidthSection.svelte';
+  import PrivacyDashboard from '$lib/pages/PrivacyDashboard.svelte';
+  import LegalNav from '$lib/components/LegalNav.svelte';
+  import SocialMedia from '$lib/components/SocialMedia.svelte';
+  import MetaTags from '$lib/components/MetaTags.svelte';
 
   /**
    * @type {string}
    * Style class for the horizontal rule element.
    */
-  const hrStyle = "hr-styled";
+  const hrStyle = 'hr-styled';
 
   /**
    * @type {string}
    * Style class for the div element.
    */
-  const spaceStyle = "spacer";
+  const spaceStyle = 'spacer';
 
   export let data;
 </script>
