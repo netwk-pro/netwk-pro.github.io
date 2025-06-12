@@ -12,7 +12,7 @@ This file is part of Network Pro.
 
   import { CONSTANTS } from '$lib';
 
-  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+  //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
   const { COMPANY_INFO, LINKS } = CONSTANTS;
 

@@ -18,7 +18,7 @@ This file is part of Network Pro.
 const meta = {
   '/': {
     title:
-      'Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro™',
+      'Security, Networking, Privacy — Network Pro Strategies',
     description:
       'Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro™',
   },

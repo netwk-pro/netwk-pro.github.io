@@ -12,7 +12,7 @@ This file is part of Network Pro.
  * src/lib/components/foss/FossItemContent.svelte
  * @module src/lib/types
  * @author SunDevil311
- * @updated 2025-06-03
+ * @updated 2025-06-12
  */
 
 /**
@@ -22,7 +22,13 @@ This file is part of Network Pro.
  * @property {string} [imgAlt]
  * @property {string} [downloadText]
  * @property {string} [downloadHref]
- * @property {boolean} [hideLabels]
+ */
+
+/**
+ * @typedef {object} FossObtainium
+ * @property {string} href        // Link for Obtainium intent
+ * @property {string} label       // Text for the manual config download link
+ * @property {string} download    // Filename for the downloaded config
  */
 
 /**
@@ -37,4 +43,5 @@ This file is part of Network Pro.
  * @property {Array<any>} features
  * @property {Array<string>} notes
  * @property {Array<FossLink>} links
+ * @property {FossObtainium} [obtainium]
  */

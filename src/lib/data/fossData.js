@@ -7,14 +7,23 @@ This file is part of Network Pro.
 ========================================================================== */
 
 // Import FOSS images
-import { base } from "$app/paths";
 import { acodePng, acodeWbp, eauthPng, eauthWbp, hboardPng, hboardWbp, lsheetPng, lsheetWbp, pmxPng, pmxWbp, squirclePng, squircleWbp, tosPng, tosWbp, urlPng, urlWbp } from "$lib";
 
+// cspell:disable
 /**
- * URL to the LinkSheet config file, using the base path
+ * External URL to add HeliBoard to Obtainium
  * @type {string}
  */
-const lsheetDl = `${base}/bin/linksheet.json`;
+const hboardLink = "obtainium://app/%7B%22id%22%3A%22helium314.keyboard%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2FHelium314%2FHeliBoard%22%2C%22author%22%3A%22Helium314%22%2C%22name%22%3A%22HeliBoard%22%2C%22preferredApkIndex%22%3A0%2C%22additionalSettings%22%3A%22%7B%5C%22includePrereleases%5C%22%3Afalse%2C%5C%22fallbackToOlderReleases%5C%22%3Atrue%2C%5C%22filterReleaseTitlesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22filterReleaseNotesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22verifyLatestTag%5C%22%3Afalse%2C%5C%22dontSortReleasesList%5C%22%3Afalse%2C%5C%22useLatestAssetDateAsReleaseDate%5C%22%3Afalse%2C%5C%22trackOnly%5C%22%3Afalse%2C%5C%22versionExtractionRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22matchGroupToUse%5C%22%3A%5C%22%5C%22%2C%5C%22versionDetection%5C%22%3Atrue%2C%5C%22releaseDateAsVersion%5C%22%3Afalse%2C%5C%22useVersionCodeAsOSVersion%5C%22%3Afalse%2C%5C%22apkFilterRegEx%5C%22%3A%5C%22release%5C%22%2C%5C%22invertAPKFilter%5C%22%3Afalse%2C%5C%22autoApkFilterByArch%5C%22%3Atrue%2C%5C%22appName%5C%22%3A%5C%22HeliBoard%5C%22%2C%5C%22shizukuPretendToBeGooglePlay%5C%22%3Afalse%2C%5C%22exemptFromBackgroundUpdates%5C%22%3Afalse%2C%5C%22skipUpdateNotifications%5C%22%3Afalse%2C%5C%22about%5C%22%3A%5C%22HeliBoard%20is%20a%20privacy-conscious%20and%20customizable%20open-source%20keyboard%2C%20based%20on%20AOSP%20%2F%20OpenBoard.%20Does%20not%20use%20internet%20permission%2C%20and%20thus%20is%20100%25%20offline.%5C%22%2C%5C%22appAuthor%5C%22%3A%5C%22Helium314%5C%22%7D%22%7D";
+//cspell:enable
+
+// cspell:disable
+/**
+ * External URL to add LinkSheet Nightly to Obtainium
+ * @type {string}
+ */
+const lsheetLink = "obtainium://app/%7B%22id%22%3A%22fe.linksheet.nightly%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2FLinkSheet%2Fnightly%22%2C%22author%22%3A%221fexd%22%2C%22name%22%3A%22LinkSheet%20Nightly%22%2C%22preferredApkIndex%22%3A0%2C%22additionalSettings%22%3A%22%7B%5C%22includePrereleases%5C%22%3Atrue%2C%5C%22fallbackToOlderReleases%5C%22%3Atrue%2C%5C%22filterReleaseTitlesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22filterReleaseNotesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22verifyLatestTag%5C%22%3Afalse%2C%5C%22dontSortReleasesList%5C%22%3Afalse%2C%5C%22useLatestAssetDateAsReleaseDate%5C%22%3Afalse%2C%5C%22trackOnly%5C%22%3Afalse%2C%5C%22versionExtractionRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22matchGroupToUse%5C%22%3A%5C%22%5C%22%2C%5C%22versionDetection%5C%22%3Afalse%2C%5C%22releaseDateAsVersion%5C%22%3Afalse%2C%5C%22useVersionCodeAsOSVersion%5C%22%3Afalse%2C%5C%22apkFilterRegEx%5C%22%3A%5C%22LinkSheet.Nightly%5C%22%2C%5C%22invertAPKFilter%5C%22%3Atrue%2C%5C%22autoApkFilterByArch%5C%22%3Atrue%2C%5C%22appName%5C%22%3A%5C%22LinkSheet%20Nightly%5C%22%2C%5C%22shizukuPretendToBeGooglePlay%5C%22%3Afalse%2C%5C%22exemptFromBackgroundUpdates%5C%22%3Afalse%2C%5C%22skipUpdateNotifications%5C%22%3Afalse%2C%5C%22about%5C%22%3A%5C%22Restore%20link%20control%20on%20Android%2012%2B%5C%22%2C%5C%22appAuthor%5C%22%3A%5C%221fexd%5C%22%7D%22%7D";
+//cspell:enable
 
 export const fossData = [
   {
@@ -138,6 +147,11 @@ export const fossData = [
       </p>
 
     `,
+    obtainium: {
+    label: "Obtainium App Config",
+    href: hboardLink,
+    download: "/bin/heliboard.json"
+    },
     links: [
       {
         label: "GitHub",
@@ -511,14 +525,12 @@ export const fossData = [
     ],
     detailsDescription: `
     `,
+    obtainium: {
+    label: "Obtainium App Config",
+    href: lsheetLink,
+    download: "/bin/linksheet.json"
+    },
     links: [
-      {
-        imgAlt: "Obtainium",
-        hideLabels: true,  // Special flag to control rendering
-        downloadText: "Obtainium App Config",
-        downloadHref:
-          {lsheetDl},
-      },
       {
         label: "GitHub",
         href: "https://github.com/LinkSheet/LinkSheet",

@@ -22,6 +22,43 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.13.1] - 2025-06-12
+
+### Added
+
+- Modularized `ObtainiumBlock.svelte` component for cleaner integration in `FossItemContent.svelte`
+- `heliboard.json` Obtainium configuration file for download
+- Dark mode-compatible styling for Obtainium blocks in the main stylesheet
+
+### Changed
+
+- Version bumped to **v1.13.1**
+- Removed unnecessary PostHog preload script from `app.html`
+- Removed `script-src-elem 'self' 'unsafe-inline'` from CSP policy
+- Replaced existing Obtainium images with optimized versions
+- Revised `<title>` metadata for the root route
+- Commented out debugging `console.log` statements in the following files:
+  - `Badges.svelte`
+  - `LegalNav.svelte`
+  - `MetaTags.svelte`
+  - `Footer.svelte`
+  - `FossItemContent.svelte`
+  - `FossContent.svelte`
+  - `HomeContent.svelte`
+  - `LicenseContent.svelte`
+  - `TermsConditionsContent.svelte`
+- Revised type definitions in `src/lib/types/fossTypes.js`
+  - Added optional `obtainium` property to `FossItem`
+  - Removed unused `hideLabels` property
+- Refactored `FossItemContent.svelte` to better support and display Obtainium download links and metadata
+- Updated `README.md` to reflect the correct location of the `static/pgp/` directory
+- Revised the `hooks.server.js` section in `README.md` to improve accuracy and reflect current CSP behavior
+- Upgraded dependencies:
+  - `posthog-js` `^1.250.2` → `^1.252.0`
+  - `eslint-plugin-jsdoc` `^50.8.0` → `^51.0.1`
+
+---
+
 ## [1.13.0] - 2025-06-11
 
 ### Added
@@ -310,7 +347,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.13.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.13.1...HEAD
+[1.13.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.1
 [1.13.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.0
 [1.12.9]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.9
 [1.12.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.8
