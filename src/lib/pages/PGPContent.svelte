@@ -7,6 +7,7 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
+  import CodeBlock from "$lib/components/CodeBlock.svelte";
   import { base } from "$app/paths";
   import { CONSTANTS } from "$lib";
 
@@ -38,25 +39,56 @@ This file is part of Network Pro.
       name: "Security Contact",
       email: "security (at) s.neteng.pro",
       fingerprint: "B7FE 1D4E 6CAB 3E71 4A9F DF6E 48CB 7290 C00D 0DA5",
-      opgp: null,
+      opgp: "https://keys.openpgp.org/search?q=security%40s.neteng.pro",
       file: "/pgp/security@s.neteng.pro.asc",
       img: "pgp-security",
     },
   ];
 
   /**
-   * Copy a string to the clipboard
-   * @param {string} text
+   * Tracks which PGP key's fingerprint was last copied.
+   * @type {string | null}
+   */
+  let copiedKey = null;
+
+  /**
+   * Copies the fingerprint of a given PGP key and shows temporary feedback.
+   * @param {{ fingerprint: string, email: string }} key - The PGP key object
+   */
+  function handleCopy(key) {
+    copy(key.fingerprint);
+    copiedKey = key.email;
+    setTimeout(() => {
+      if (copiedKey === key.email) copiedKey = null;
+    }, 2000);
+  }
+
+  /**
+   * Writes a string to the clipboard.
+   * @param {string} text - The text to copy to the clipboard
    */
   function copy(text) {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch((err) => {
+      console.error("Clipboard copy failed:", err);
+    });
   }
 </script>
 
 <h1>🔐 Public PGP Keys</h1>
-<p
-  >Below are our public encryption keys. Use them to securely send email or
-  verify signed messages.</p>
+<p>
+  Below are our public encryption keys. Use them to securely send email or
+  verify signed messages.
+</p>
+<p>
+  <img
+    src="/img/powered-by-proton.svg"
+    alt="Powered by Proton"
+    style="width: 168px; height: 24px;" />
+</p>
+<p class="bquote">
+  NOTE: Addresses under the <strong>s.neteng.pro</strong> domain are powered by Proton
+  Mail to ensure strong end-to-end privacy protections.
+</p>
 
 {#each keys as key}
   <section class="pgp-entry" aria-labelledby={`pgp-${key.img}`}>
@@ -73,14 +105,14 @@ This file is part of Network Pro.
         {/if}
         &gt;
       </h3>
-      <pre><code>{key.fingerprint}</code></pre>
+      <CodeBlock text={key.fingerprint} />
       <p>
         <button
           type="button"
-          on:click={() => copy(key.fingerprint)}
+          on:click={() => handleCopy(key)}
           aria-label={`Copy PGP fingerprint for ${key.name}`}
           title="Copy fingerprint to clipboard">
-          Copy fingerprint
+          {copiedKey === key.email ? "Copied!" : "Copy fingerprint"}
         </button>
       </p>
       <p>

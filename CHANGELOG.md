@@ -22,6 +22,36 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.12.9] - 2025-06-11
+
+### Added
+
+- Added `check-security-txt-expiry.yml` workflow to check `.well-known/security.txt` expiration and warn if close to expiring
+- Added `humans.txt` and `security.txt` to `.well-known/` directory
+- Added `src/lib/components/CodeBlock.svelte` component for improved inline formatting control
+- Updated sitemap.xml to include `.well-known/` routes and the `/pgp` route
+- Added link to OpenPGP results for `security@s.neteng.pro` on the `/pgp` route
+- Added support for copy-to-clipboard feedback on PGP fingerprint buttons
+- Added detached signature (`security.txt.asc`) for `.well-known/security.txt`, signed with the `security@s.neteng.pro` PGP key
+
+### Changed
+
+- Corrected the name of `dnt-policy.txt` from `dnt-policy-1.0.txt`
+- Updated `src/service-worker.js` to:
+  - Reflect correct `.well-known/dnt-policy.txt` reference
+  - Exclude `.well-known/security.txt.asc` from caching
+- Applied line breaks to comment header in `jsconfig.template.jsonc` to fix formatting
+- Minor revision to spreadsheet display and fingerprint formatting for improved mobile responsiveness
+- Revised `.github/SECURITY.md`:
+  - Removed note about “PGP section coming soon to the wiki” (now live)
+  - Clarified Proton Mail use for `s.neteng.pro` addresses, while preserving support guidance for others
+  - Streamlined vulnerability reporting section for clarity and correctness
+- Updated Content Security Policy (CSP) header to allow `clipboard-write` permission
+- Added Proton Mail usage note to `/pgp` route UI for `s.neteng.pro` domain only
+- Added equivalent Proton Mail usage comment to `.well-known/security.txt`
+
+---
+
 ## [1.12.8] - 2025-06-11
 
 ### Added
@@ -249,7 +279,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.12.8...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.12.9...HEAD
+[1.12.9]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.9
 [1.12.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.8
 [1.12.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.7
 [1.12.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.6

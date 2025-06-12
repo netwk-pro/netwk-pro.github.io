@@ -67,7 +67,7 @@ export async function handle({ event, resolve }) {
       "microphone=()",
       "geolocation=()",
       "clipboard-read=()",
-      "clipboard-write=()",
+      "clipboard-write=(self)",
       "payment=()",
       "usb=()",
       "hid=()",
