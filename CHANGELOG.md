@@ -36,6 +36,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ### Changed
 
+- Version bump to `v1.12.9` in `package.json`
 - Corrected the name of `dnt-policy.txt` from `dnt-policy-1.0.txt`
 - Updated `src/service-worker.js` to:
   - Reflect correct `.well-known/dnt-policy.txt` reference
@@ -49,6 +50,12 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 - Updated Content Security Policy (CSP) header to allow `clipboard-write` permission
 - Added Proton Mail usage note to `/pgp` route UI for `s.neteng.pro` domain only
 - Added equivalent Proton Mail usage comment to `.well-known/security.txt`
+- Upgraded dependencies:
+  - `@eslint/compat` `^1.2.9` → `^1.3.0`
+  - `eslint-plugin-jsdoc` `^50.7.1` → `^50.8.0`
+  - `postcss` `^8.5.4` → `^8.5.5`
+  - `posthog-js` `^1.250.1` → `^1.250.2`
+  - `svelte` `5.33.19` → `5.34.1`
 
 ---
 

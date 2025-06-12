@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.12.8",
+  "version": "1.12.9",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -80,12 +80,12 @@
   },
   "dependencies": {
     "dompurify": "^3.2.6",
-    "posthog-js": "^1.250.1",
+    "posthog-js": "^1.250.2",
     "semver": "^7.7.2",
-    "svelte": "5.33.19"
+    "svelte": "5.34.1"
   },
   "devDependencies": {
-    "@eslint/compat": "^1.2.9",
+    "@eslint/compat": "^1.3.0",
     "@eslint/js": "^9.28.0",
     "@lhci/cli": "^0.15.0",
     "@playwright/test": "^1.53.0",
@@ -99,7 +99,7 @@
     "browserslist": "^4.25.0",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-jsdoc": "^50.7.1",
+    "eslint-plugin-jsdoc": "^50.8.0",
     "eslint-plugin-svelte": "^3.9.2",
     "globals": "^16.2.0",
     "jsdom": "^26.1.0",
@@ -108,7 +108,7 @@
     "markdownlint-cli2": "^0.18.1",
     "mdsvex": "^0.12.6",
     "playwright": "^1.53.0",
-    "postcss": "^8.5.4",
+    "postcss": "^8.5.5",
     "prettier": "^3.5.3",
     "prettier-plugin-svelte": "^3.4.0",
     "stylelint": "^16.20.0",
