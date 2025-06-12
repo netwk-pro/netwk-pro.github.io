@@ -28,6 +28,7 @@ const CACHE = `cache-${version}`;
 const excludedAssets = [];
 
 const IGNORE_PATHS = new Set([
+  "/.well-known/security.txt.asc",
   "/img/banner-1280x640.png",
   "/img/logo-transparent.png",
   "/img/logo.png",
@@ -108,7 +109,7 @@ const REQUIRED_ASSETS = [
   "/styles/solid.min.css",
   "/webfonts/fa-brands-400.woff2",
   "/webfonts/fa-solid-900.woff2",
-  "/.well-known/dnt-policy-1.0.txt",
+  "/.well-known/dnt-policy.txt",
   "/.well-known/gpc.json",
 ];
 

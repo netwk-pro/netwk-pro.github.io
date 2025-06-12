@@ -457,12 +457,16 @@ footer .container {
 .block {
   width: 100%;
   border: none;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   line-height: 1.125rem;
   background: none;
   border-radius: 0;
+  font-family: monospace;     /* retain code look */
   outline: none;
+  overflow-wrap: break-word;  /* modern replacement */
   resize: none;
+  white-space: normal;        /* allow wrapping */
+  word-break: normal;         /* avoid deprecated behavior */
 }
 
 .fingerprint {

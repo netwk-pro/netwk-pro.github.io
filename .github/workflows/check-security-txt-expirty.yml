@@ -1,0 +1,46 @@
+name: Check security.txt expiry
+
+on:
+  schedule:
+    - cron: "0 7 * * 0" # Every Sunday at 0700 UTC (midnight MST)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-expiry:
+    runs-on: ubuntu-latest
+    name: Validate .well-known/security.txt expiration
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Check security.txt expiration
+        run: |
+          FILE=".well-known/security.txt"
+          if [ ! -f "$FILE" ]; then
+            echo "::error ::security.txt file not found!"
+            exit 1
+          fi
+
+          EXP_DATE=$(grep -i '^Expires:' "$FILE" | cut -d' ' -f2- | tr -d '\r')
+          if [ -z "$EXP_DATE" ]; then
+            echo "::error ::Expires field not found in security.txt"
+            exit 1
+          fi
+
+          EXP_TIMESTAMP=$(date --utc --date="$EXP_DATE" +%s || true)
+          NOW_TIMESTAMP=$(date --utc +%s)
+          SECONDS_LEFT=$(( EXP_TIMESTAMP - NOW_TIMESTAMP ))
+          DAYS_LEFT=$(( SECONDS_LEFT / 86400 ))
+
+          if [ "$DAYS_LEFT" -lt 0 ]; then
+            echo "::error ::security.txt has expired!"
+            exit 1
+          elif [ "$DAYS_LEFT" -lt 30 ]; then
+            echo "::warning ::security.txt expires in less than 30 days ($DAYS_LEFT days left)"
+          else
+            echo "✅ security.txt is valid for another $DAYS_LEFT days."
+          fi

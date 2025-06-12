@@ -1,0 +1,9 @@
+# Addresses under the s.neteng.pro domain are powered by Proton Mail.
+# These accounts support built-in encryption and default end-to-end protection.
+Contact: mailto:security@s.neteng.pro
+Encryption: https://raw.githubusercontent.com/netwk-pro/.github/master/PGP-KEY.asc
+Acknowledgments: https://github.com/netwk-pro/netwk-pro.github.io/security/policy
+Policy: https://github.com/netwk-pro/netwk-pro.github.io/security/policy
+Preferred-Languages: en
+Canonical: https://netwk.pro/.well-known/security.txt
+Expires: 2025-12-31T23:59:59Z
