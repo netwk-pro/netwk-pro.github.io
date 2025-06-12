@@ -43,10 +43,10 @@
       function updateTimestamp() {
         const now = new Date();
         const timeStr = now.toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
+          hour: '2-digit',
+          minute: '2-digit',
         });
-        document.getElementById("timestamp").textContent = timeStr;
+        document.getElementById('timestamp').textContent = timeStr;
       }
 
       // Check connection status periodically
@@ -64,17 +64,17 @@
       setInterval(updateTimestamp, 60000);
 
       // Also listen for online event
-      window.addEventListener("online", () => {
+      window.addEventListener('online', () => {
         window.location.reload();
       });
 
       // Prevent default action for offline links
       document
-        .getElementById("contact-link")
-        .addEventListener("click", function (e) {
+        .getElementById('contact-link')
+        .addEventListener('click', function (e) {
           if (!navigator.onLine) {
             e.preventDefault();
-            alert("This link will be available when you are back online.");
+            alert('This link will be available when you are back online.');
           }
         });
     </script>

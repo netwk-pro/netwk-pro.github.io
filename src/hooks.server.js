@@ -17,15 +17,15 @@ export async function handle({ event, resolve }) {
   // Determine environment flags
   // Default to development policy if neither test nor prod
   const isTestEnvironment =
-    process.env.NODE_ENV === "test" || process.env.ENV_MODE === "ci";
+    process.env.NODE_ENV === 'test' || process.env.ENV_MODE === 'ci';
   const isProdEnvironment =
-    process.env.NODE_ENV === "production" || process.env.ENV_MODE === "prod";
+    process.env.NODE_ENV === 'production' || process.env.ENV_MODE === 'prod';
 
-  console.log("[CSP Debug] NODE_ENV:", process.env.NODE_ENV);
-  console.log("[CSP Debug] ENV_MODE:", process.env.ENV_MODE);
+  console.log('[CSP Debug] NODE_ENV:', process.env.NODE_ENV);
+  console.log('[CSP Debug] ENV_MODE:', process.env.ENV_MODE);
 
   // Determine report URI
-  const reportUri = isProdEnvironment ? "/api/csp-report" : "/api/mock-csp";
+  const reportUri = isProdEnvironment ? '/api/csp-report' : '/api/mock-csp';
 
   // Construct base policy
   const cspDirectives = [
@@ -40,7 +40,7 @@ export async function handle({ event, resolve }) {
     "base-uri 'self';",
     "object-src 'none';",
     "frame-ancestors 'none';",
-    "upgrade-insecure-requests;",
+    'upgrade-insecure-requests;',
     `report-uri ${reportUri};`,
   ];
 
@@ -55,37 +55,37 @@ export async function handle({ event, resolve }) {
     cspDirectives[5] = "connect-src 'self';";
   }
 
-  response.headers.set("Content-Security-Policy", cspDirectives.join(" "));
+  response.headers.set('Content-Security-Policy', cspDirectives.join(' '));
 
   // Set other security headers
   response.headers.set(
-    "Permissions-Policy",
+    'Permissions-Policy',
     [
-      "fullscreen=(self)",
-      "sync-xhr=()",
-      "camera=()",
-      "microphone=()",
-      "geolocation=()",
-      "clipboard-read=()",
-      "clipboard-write=(self)",
-      "payment=()",
-      "usb=()",
-      "hid=()",
-      "gamepad=()",
-      "serial=()",
-      "publickey-credentials-get=()",
-      "browsing-topics=()",
-    ].join(", "),
+      'fullscreen=(self)',
+      'sync-xhr=()',
+      'camera=()',
+      'microphone=()',
+      'geolocation=()',
+      'clipboard-read=()',
+      'clipboard-write=(self)',
+      'payment=()',
+      'usb=()',
+      'hid=()',
+      'gamepad=()',
+      'serial=()',
+      'publickey-credentials-get=()',
+      'browsing-topics=()',
+    ].join(', '),
   );
 
-  response.headers.set("X-Content-Type-Options", "nosniff");
-  response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
-  response.headers.set("X-Frame-Options", "DENY");
+  response.headers.set('X-Content-Type-Options', 'nosniff');
+  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  response.headers.set('X-Frame-Options', 'DENY');
 
-  if (process.env.ENV_MODE !== "test" && process.env.ENV_MODE !== "ci") {
+  if (process.env.ENV_MODE !== 'test' && process.env.ENV_MODE !== 'ci') {
     response.headers.set(
-      "Strict-Transport-Security",
-      "max-age=31536000; includeSubDomains;", // No preload here
+      'Strict-Transport-Security',
+      'max-age=31536000; includeSubDomains;', // No preload here
     );
   }
 
@@ -97,10 +97,10 @@ export async function handle({ event, resolve }) {
  * @type {import('@sveltejs/kit').HandleServerError}
  */
 export function handleError({ error, event }) {
-  console.error("🔴 SSR Error in route:", event.url.pathname);
+  console.error('🔴 SSR Error in route:', event.url.pathname);
   console.error(error);
 
   return {
-    message: "A server-side error occurred",
+    message: 'A server-side error occurred',
   };
 }

@@ -9,9 +9,9 @@ This file is part of Network Pro.
 <!-- cspell:ignore lmaterial lterms dlnotes -->
 
 <script>
-  import { base } from "$app/paths";
-  import { ccSvg, bySvg } from "$lib";
-  import { CONSTANTS } from "$lib";
+  import { base } from '$app/paths';
+  import { ccSvg, bySvg } from '$lib';
+  import { CONSTANTS } from '$lib';
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
@@ -24,7 +24,7 @@ This file is part of Network Pro.
    * URLs using the base path
    * @type {string}
    */
-  const homeLink = base || "/";
+  const homeLink = base || '/';
   const contactLink = `${base}/contact`;
 
   /**
@@ -38,28 +38,28 @@ This file is part of Network Pro.
    * URL to the internal MkDocs documentation
    * @type {string}
    */
-  const legalLink = "https://docs.netwk.pro/legal";
+  const legalLink = 'https://docs.netwk.pro/legal';
 
   /**
    * Table of Contents Links
    * @type {{ id: string, text: string }[]}
    */
   const tocLinks = [
-    { id: "copyright", text: "Copyright" },
-    { id: "trademark", text: "Trademark Ownership" },
-    { id: "branding", text: "Restrictions on Branding and Graphics" },
-    { id: "lmaterial", text: "Licensed Material Definition" },
-    { id: "lterms", text: "License Terms" },
-    { id: "dlnotes", text: "Dual Licensing Notes" },
-    { id: "cc-by", text: "Creative Commons License (CC BY 4.0)" },
-    { id: "gnu-gpl", text: "GNU General Public License (GPL)" },
-    { id: "third-party", text: "Third-Party Code and Licenses" },
-    { id: "prohibited-uses", text: "Prohibited Uses" },
-    { id: "disclaimer", text: "Modifications and Liability Disclaimer" },
-    { id: "support", text: "Support Disclaimer" },
-    { id: "authoritative", text: "Authoritative Version Clause" },
-    { id: "revisions", text: "Revisions" },
-    { id: "contact", text: "Contact" },
+    { id: 'copyright', text: 'Copyright' },
+    { id: 'trademark', text: 'Trademark Ownership' },
+    { id: 'branding', text: 'Restrictions on Branding and Graphics' },
+    { id: 'lmaterial', text: 'Licensed Material Definition' },
+    { id: 'lterms', text: 'License Terms' },
+    { id: 'dlnotes', text: 'Dual Licensing Notes' },
+    { id: 'cc-by', text: 'Creative Commons License (CC BY 4.0)' },
+    { id: 'gnu-gpl', text: 'GNU General Public License (GPL)' },
+    { id: 'third-party', text: 'Third-Party Code and Licenses' },
+    { id: 'prohibited-uses', text: 'Prohibited Uses' },
+    { id: 'disclaimer', text: 'Modifications and Liability Disclaimer' },
+    { id: 'support', text: 'Support Disclaimer' },
+    { id: 'authoritative', text: 'Authoritative Version Clause' },
+    { id: 'revisions', text: 'Revisions' },
+    { id: 'contact', text: 'Contact' },
   ];
 
   /**
@@ -67,8 +67,8 @@ This file is part of Network Pro.
    * @type {{ effectiveDate: string, classSmall: string }}
    */
   const constants = {
-    effectiveDate: "June 4, 2025",
-    classSmall: "small-text",
+    effectiveDate: 'June 4, 2025',
+    classSmall: 'small-text',
   };
 </script>
 
@@ -101,7 +101,7 @@ This file is part of Network Pro.
   <h3>Table of Contents</h3>
   <ol>
     {#each tocLinks as link}
-      <li><a href={"#" + link.id}>{link.text}</a></li>
+      <li><a href={'#' + link.id}>{link.text}</a></li>
     {/each}
   </ol>
 </nav>
@@ -124,7 +124,7 @@ This file is part of Network Pro.
   <section id={link.id}>
     <h2>{i + 1}. {link.text}</h2>
 
-    {#if link.id === "copyright"}
+    {#if link.id === 'copyright'}
       <p>
         All content—including text, software, logos, graphics, documentation,
         and other materials—provided by
@@ -139,7 +139,7 @@ This file is part of Network Pro.
         </strong>
         ({COMPANY_INFO.APP_NAME}&trade;)
       </p>
-    {:else if link.id === "trademark"}
+    {:else if link.id === 'trademark'}
       <p>The following trademarks are the exclusive property of the Company:</p>
       <ul>
         <li><strong>Brand Name:</strong> {COMPANY_INFO.APP_NAME}&trade;</li>
@@ -152,7 +152,7 @@ This file is part of Network Pro.
       <p
         >Unauthorized use—including use likely to cause confusion,
         misrepresentation, or disparagement—is strictly prohibited.</p>
-    {:else if link.id === "branding"}
+    {:else if link.id === 'branding'}
       <p>
         Licensing under CC BY 4.0 or the GNU GPL <strong
           >expressly excludes</strong> any rights to use the Company's trademarks,
@@ -166,7 +166,7 @@ This file is part of Network Pro.
         content—requires the Company's
         <strong>prior written consent</strong>.
       </p>
-    {:else if link.id === "lmaterial"}
+    {:else if link.id === 'lmaterial'}
       <p>
         "Licensed Material" refers solely to the publicly available code and
         documentation distributed through the Company's open repositories and
@@ -179,7 +179,7 @@ This file is part of Network Pro.
         the terms of the open-source or content licenses described in this
         document.
       </p>
-    {:else if link.id === "lterms"}
+    {:else if link.id === 'lterms'}
       <p>This work is dual-licensed under:</p>
       <ul>
         <li>
@@ -191,7 +191,7 @@ This file is part of Network Pro.
             >GNU General Public License v3.0 or later (GNU GPL)</a>
         </li>
       </ul>
-    {:else if link.id === "dlnotes"}
+    {:else if link.id === 'dlnotes'}
       <ul>
         <li>
           You may choose to use the work under either license, or both where
@@ -216,7 +216,7 @@ This file is part of Network Pro.
           </a>
         </li>
       </ul>
-    {:else if link.id === "cc-by"}
+    {:else if link.id === 'cc-by'}
       <p class={constants.classSmall}>
         View / Download:
         <a href="/bin/license/CC-BY-4.0.html" target={PAGE.BLANK}>HTML</a>
@@ -309,7 +309,7 @@ This file is part of Network Pro.
           </a>
         </p>
       </code>
-    {:else if link.id === "gnu-gpl"}
+    {:else if link.id === 'gnu-gpl'}
       <p class={constants.classSmall}>
         View / Download:
         <a href="/bin/license/COPYING.html" target={PAGE.BLANK}>HTML</a>
@@ -366,7 +366,7 @@ This file is part of Network Pro.
           </a>
         </p>
       </code>
-    {:else if link.id === "third-party"}
+    {:else if link.id === 'third-party'}
       <p>
         Some components of the Licensed Material may include or interface with
         third-party libraries, frameworks, or assets.
@@ -389,7 +389,7 @@ This file is part of Network Pro.
         comply with all applicable third-party licenses before use, modification,
         or distribution.
       </p>
-    {:else if link.id === "prohibited-uses"}
+    {:else if link.id === 'prohibited-uses'}
       <p>
         <strong>
           The following activities are strictly prohibited and may constitute
@@ -416,7 +416,7 @@ This file is part of Network Pro.
           derivative works or redistributed content
         </li>
       </ul>
-    {:else if link.id === "disclaimer"}
+    {:else if link.id === 'disclaimer'}
       <p>
         Modifications, redistribution, or any use of the Licensed Material are
         performed entirely at your own risk.
@@ -442,7 +442,7 @@ This file is part of Network Pro.
         —including, without limitation, any claims or disputes brought by third parties,
         whether in contract, tort, or otherwise.
       </p>
-    {:else if link.id === "support"}
+    {:else if link.id === 'support'}
       <p>
         All support provided—whether through email, GitHub, community forums, or
         other channels—is offered “as-is” and <strong
@@ -460,7 +460,7 @@ This file is part of Network Pro.
         Company and may be modified, reduced, or discontinued at any time
         without notice.
       </p>
-    {:else if link.id === "authoritative"}
+    {:else if link.id === 'authoritative'}
       <p>
         In the event of any discrepancy between different versions, formats, or
         distributions of any legal document issued by the Company—including but
@@ -478,13 +478,13 @@ This file is part of Network Pro.
         of the Company's materials, services, or Licensed Material constitutes
         acceptance of the most current version then in effect.
       </p>
-    {:else if link.id === "revisions"}
+    {:else if link.id === 'revisions'}
       <p>
         This legal page may be updated to comply with legal or operational
         changes. The current effective date is listed at the top of this
         document.
       </p>
-    {:else if link.id === "contact"}
+    {:else if link.id === 'contact'}
       <p>
         The Company can be contacted via our
         <a rel={PAGE.REL} href={contactLink} target={PAGE.BLANK}

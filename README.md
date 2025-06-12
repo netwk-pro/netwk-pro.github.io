@@ -221,12 +221,12 @@ This script runs `scripts/checkNode.js`, which compares your current Node.js and
 **_Node Version Check (snippet from `scripts/checkNode.js`)_**
 
 ```javascript
-const semver = require("semver");
-const { engines } = require("../package.json");
+const semver = require('semver');
+const { engines } = require('../package.json');
 
 const requiredNode = engines.node;
 const requiredNpm = engines.npm;
-const isPostInstall = process.env.npm_lifecycle_event === "postinstall";
+const isPostInstall = process.env.npm_lifecycle_event === 'postinstall';
 
 let hasError = false;
 
@@ -236,8 +236,8 @@ if (!semver.satisfies(process.version, requiredNode)) {
   if (!isPostInstall) hasError = true;
 }
 
-const npmVersion = require("child_process")
-  .execSync("npm -v")
+const npmVersion = require('child_process')
+  .execSync('npm -v')
   .toString()
   .trim();
 
@@ -248,7 +248,7 @@ if (!semver.satisfies(npmVersion, requiredNpm)) {
 }
 
 if (!hasError) {
-  console.log("✅ Node and npm versions are valid.");
+  console.log('✅ Node and npm versions are valid.');
 } else {
   process.exit(1);
 }
@@ -343,7 +343,7 @@ It unregisters **all active service worker registrations** and logs the result.
 Located at `static/disableSw.js`, this file sets a global flag if the URL contains the `?nosw` query parameter:
 
 ```js
-if (location.search.includes("nosw")) {
+if (location.search.includes('nosw')) {
   window.__DISABLE_SW__ = true;
 }
 ```
@@ -365,7 +365,7 @@ https://netwk.pro/?nosw
 To register the service worker conditionally, call the function from client code:
 
 ```js
-import { registerServiceWorker } from "$lib/registerServiceWorker.js";
+import { registerServiceWorker } from '$lib/registerServiceWorker.js';
 
 registerServiceWorker();
 ```

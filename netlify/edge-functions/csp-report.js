@@ -27,29 +27,29 @@ This file is part of Network Pro.
  * @returns {Promise<Response>} HTTP Response with status 204 or 405
  */
 export default async (request, _context) => {
-  if (request.method !== "POST") {
-    return new Response("Method Not Allowed", { status: 405 });
+  if (request.method !== 'POST') {
+    return new Response('Method Not Allowed', { status: 405 });
   }
 
   try {
     const body = await request.json();
-    const report = body["csp-report"];
+    const report = body['csp-report'];
 
     // Ignore if report is missing or malformed
-    if (!report || typeof report !== "object") {
+    if (!report || typeof report !== 'object') {
       return new Response(null, { status: 204 });
     }
 
-    const violated = report["violated-directive"] ?? "";
-    const blockedUri = report["blocked-uri"] ?? "";
+    const violated = report['violated-directive'] ?? '';
+    const blockedUri = report['blocked-uri'] ?? '';
 
     // Filter: Skip img-src violations and empty URIs
     const ignored = [
-      violated.startsWith("img-src"),
-      blockedUri === "",
-      blockedUri === "about",
-      blockedUri.startsWith("chrome-extension://"),
-      blockedUri.startsWith("moz-extension://"),
+      violated.startsWith('img-src'),
+      blockedUri === '',
+      blockedUri === 'about',
+      blockedUri.startsWith('chrome-extension://'),
+      blockedUri.startsWith('moz-extension://'),
     ].some(Boolean);
 
     if (ignored) {
@@ -60,15 +60,15 @@ export default async (request, _context) => {
     await sendToNtfy(violated, blockedUri, report);
 
     // Log useful violations
-    console.log("[CSP-Edge] Violation:", {
+    console.log('[CSP-Edge] Violation:', {
       directive: violated,
       uri: blockedUri,
-      referrer: report["referrer"],
-      source: report["source-file"],
-      line: report["line-number"],
+      referrer: report['referrer'],
+      source: report['source-file'],
+      line: report['line-number'],
     });
   } catch (err) {
-    console.warn("[CSP-Edge] Failed to parse CSP report:", err.message);
+    console.warn('[CSP-Edge] Failed to parse CSP report:', err.message);
   }
 
   return new Response(null, { status: 204 });
@@ -87,13 +87,13 @@ const VIOLATION_TTL_MS = 60_000;
  */
 async function sendToNtfy(violated, blockedUri, report) {
   const highRiskDirectives = [
-    "script-src",
-    "form-action",
-    "frame-ancestors",
-    "base-uri",
+    'script-src',
+    'form-action',
+    'frame-ancestors',
+    'base-uri',
   ];
 
-  const directiveKey = violated.split(" ")[0]; // strip fallback values or sources
+  const directiveKey = violated.split(' ')[0]; // strip fallback values or sources
   const isHighRisk = highRiskDirectives.includes(directiveKey);
   console.log(`[CSP-Edge] Checking directive: ${directiveKey}`);
   if (!isHighRisk) return;
@@ -120,23 +120,23 @@ async function sendToNtfy(violated, blockedUri, report) {
     }
   }
 
-  const topicUrl = "https://ntfy.neteng.pro/csp-alerts";
+  const topicUrl = 'https://ntfy.neteng.pro/csp-alerts';
 
   const message = [
     `🚨 CSP Violation Detected`,
     `Directive: ${violated}`,
     `Blocked URI: ${blockedUri}`,
-    `Referrer: ${report.referrer || "N/A"}`,
-    `Source: ${report["source-file"] || "N/A"}`,
-    `Line: ${report["line-number"] || "N/A"}`,
-  ].join("\n");
+    `Referrer: ${report.referrer || 'N/A'}`,
+    `Source: ${report['source-file'] || 'N/A'}`,
+    `Line: ${report['line-number'] || 'N/A'}`,
+  ].join('\n');
 
   await fetch(topicUrl, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "text/plain",
-      "X-Title": "High-Risk CSP Violation",
-      "X-Priority": "5",
+      'Content-Type': 'text/plain',
+      'X-Title': 'High-Risk CSP Violation',
+      'X-Priority': '5',
     },
     body: message,
   });
@@ -147,5 +147,5 @@ async function sendToNtfy(violated, blockedUri, report) {
  * This sets the endpoint route to /api/csp-report
  */
 export const config = {
-  path: "/api/csp-report",
+  path: '/api/csp-report',
 };

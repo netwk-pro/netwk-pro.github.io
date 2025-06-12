@@ -11,13 +11,13 @@ This file is part of Network Pro.
    * @type {string}
    * Style class for the h1 and p elements.
    */
-  const centerText = "center-text";
+  const centerText = 'center-text';
 
   /** @type {{ pathname: string } | undefined} */
   export let url;
 
   // Use a fallback pathname if `url` is undefined
-  const pathname = url?.pathname ?? "/";
+  const pathname = url?.pathname ?? '/';
 </script>
 
 <main>

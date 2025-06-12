@@ -7,7 +7,7 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  export let text = "";
+  export let text = '';
 </script>
 
 <code class="block">{text}</code>

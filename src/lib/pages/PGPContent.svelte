@@ -7,9 +7,9 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import CodeBlock from "$lib/components/CodeBlock.svelte";
-  import { base } from "$app/paths";
-  import { CONSTANTS } from "$lib";
+  import CodeBlock from '$lib/components/CodeBlock.svelte';
+  import { base } from '$app/paths';
+  import { CONSTANTS } from '$lib';
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
@@ -20,28 +20,28 @@ This file is part of Network Pro.
 
   const keys = [
     {
-      name: "General Contact & Support",
-      email: "support (at) neteng.pro",
-      fingerprint: "6590 B992 E2E3 EFF1 2738 7BCE 2AF0 93E9 DEC6 1BA0",
-      opgp: "https://keys.openpgp.org/search?q=support%40neteng.pro",
-      file: "/pgp/support@neteng.pro.asc",
-      img: "pgp-support",
+      name: 'General Contact & Support',
+      email: 'support (at) neteng.pro',
+      fingerprint: '6590 B992 E2E3 EFF1 2738 7BCE 2AF0 93E9 DEC6 1BA0',
+      opgp: 'https://keys.openpgp.org/search?q=support%40neteng.pro',
+      file: '/pgp/support@neteng.pro.asc',
+      img: 'pgp-support',
     },
     {
-      name: "Secure Email",
-      email: "contact (at) s.neteng.pro",
-      fingerprint: "DF11 8BAA 6C2D 9DCD EBDC 2DDC F993 7349 9495 F957",
-      opgp: "https://keys.openpgp.org/search?q=contact%40s.neteng.pro",
-      file: "/pgp/contact@s.neteng.pro.asc",
-      img: "pgp-contact",
+      name: 'Secure Email',
+      email: 'contact (at) s.neteng.pro',
+      fingerprint: 'DF11 8BAA 6C2D 9DCD EBDC 2DDC F993 7349 9495 F957',
+      opgp: 'https://keys.openpgp.org/search?q=contact%40s.neteng.pro',
+      file: '/pgp/contact@s.neteng.pro.asc',
+      img: 'pgp-contact',
     },
     {
-      name: "Security Contact",
-      email: "security (at) s.neteng.pro",
-      fingerprint: "B7FE 1D4E 6CAB 3E71 4A9F DF6E 48CB 7290 C00D 0DA5",
-      opgp: "https://keys.openpgp.org/search?q=security%40s.neteng.pro",
-      file: "/pgp/security@s.neteng.pro.asc",
-      img: "pgp-security",
+      name: 'Security Contact',
+      email: 'security (at) s.neteng.pro',
+      fingerprint: 'B7FE 1D4E 6CAB 3E71 4A9F DF6E 48CB 7290 C00D 0DA5',
+      opgp: 'https://keys.openpgp.org/search?q=security%40s.neteng.pro',
+      file: '/pgp/security@s.neteng.pro.asc',
+      img: 'pgp-security',
     },
   ];
 
@@ -69,7 +69,7 @@ This file is part of Network Pro.
    */
   function copy(text) {
     navigator.clipboard.writeText(text).catch((err) => {
-      console.error("Clipboard copy failed:", err);
+      console.error('Clipboard copy failed:', err);
     });
   }
 </script>
@@ -112,7 +112,7 @@ This file is part of Network Pro.
           on:click={() => handleCopy(key)}
           aria-label={`Copy PGP fingerprint for ${key.name}`}
           title="Copy fingerprint to clipboard">
-          {copiedKey === key.email ? "Copied!" : "Copy fingerprint"}
+          {copiedKey === key.email ? 'Copied!' : 'Copy fingerprint'}
         </button>
       </p>
       <p>

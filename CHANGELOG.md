@@ -22,6 +22,30 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.13.0] - 2025-06-11
+
+### Added
+
+- Introduced `/pgp` route to publish OpenPGP contact information, download links, and QR codes
+- Added `.well-known/humans.txt` to document project authorship
+- Added `.well-known/security.txt` to define the official security contact and vulnerability disclosure policy
+- Linked OpenPGP keys to external directories for validation (e.g. keys.openpgp.org)
+- Added new GitHub Actions workflow: `check-security-txt-expiry.yml` to monitor `security.txt` expiration
+
+### Changed
+
+- Enforced `"singleQuote": true` in `.prettierrc` and formatted the codebase using Prettier
+- Updated `src/service-worker.js` to exclude `security.txt.asc` from caching
+- CSP policy updated to allow `clipboard-write` for improved UX on PGP fingerprint buttons
+- Clarified that addresses under the `s.neteng.pro` domain are powered by Proton Mail and support native E2EE
+- Revised `SECURITY.md` and `security.txt` with accurate Proton Mail usage notes and PGP policy references
+
+### Removed
+
+- Legacy reference to a "coming soon" PGP section in `SECURITY.md` (now live and linked)
+
+---
+
 ## [1.12.9] - 2025-06-11
 
 ### Added
@@ -286,7 +310,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.12.9...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.13.0...HEAD
+[1.13.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.0
 [1.12.9]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.9
 [1.12.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.8
 [1.12.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.7

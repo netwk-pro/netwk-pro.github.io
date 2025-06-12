@@ -39,13 +39,13 @@ export async function setMobileView(page) {
  * @throws {Error} If no visible navigation is found.
  */
 export async function getVisibleNav(page) {
-  const navHome = page.getByRole("navigation", { name: "Homepage navigation" });
-  const navMain = page.getByRole("navigation", { name: "Main navigation" });
+  const navHome = page.getByRole('navigation', { name: 'Homepage navigation' });
+  const navMain = page.getByRole('navigation', { name: 'Main navigation' });
 
   if (await navHome.isVisible()) return navHome;
   if (await navMain.isVisible()) return navMain;
 
-  throw new Error("No visible navigation element found.");
+  throw new Error('No visible navigation element found.');
 }
 
 /**
@@ -53,5 +53,5 @@ export async function getVisibleNav(page) {
  * @returns {import('@playwright/test').Locator}
  */
 export function getFooter(page) {
-  return page.locator("footer");
+  return page.locator('footer');
 }

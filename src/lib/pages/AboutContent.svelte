@@ -14,9 +14,9 @@ This file is part of Network Pro.
     pgpSupportWbp,
     vcfPng,
     vcfWbp,
-  } from "$lib";
-  import { base } from "$app/paths";
-  import { CONSTANTS } from "$lib";
+  } from '$lib';
+  import { base } from '$app/paths';
+  import { CONSTANTS } from '$lib';
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
@@ -41,19 +41,19 @@ This file is part of Network Pro.
    * HTML attribute for async image decoding
    * @type {"async" | "sync" | "auto"}
    */
-  const decoding = "async";
+  const decoding = 'async';
 
   /**
    * HTML attribute for lazy loading images
    * @type {"lazy" | "eager"}
    */
-  const loading = "lazy";
+  const loading = 'lazy';
 
   /**
    * CSS class for styled horizontal rule
    * @type {string}
    */
-  const hrStyle = "hr-styled";
+  const hrStyle = 'hr-styled';
 
   /**
    * Navigation links for the page
@@ -66,15 +66,15 @@ This file is part of Network Pro.
    */
   const navLinks = [
     {
-      label: "SPDX License Identifier",
-      href: "https://spdx.dev/learn/handling-license-info",
-      target: "_blank",
-      text: "CC-BY-4.0 OR GPL-3.0-or-later",
+      label: 'SPDX License Identifier',
+      href: 'https://spdx.dev/learn/handling-license-info',
+      target: '_blank',
+      text: 'CC-BY-4.0 OR GPL-3.0-or-later',
     },
     {
-      label: "Docs",
-      href: "https://docs.netwk.pro",
-      target: "_self",
+      label: 'Docs',
+      href: 'https://docs.netwk.pro',
+      target: '_self',
     },
   ];
 
@@ -90,18 +90,18 @@ This file is part of Network Pro.
    */
   const pgpKeys = [
     {
-      label: "support@neteng.pro",
+      label: 'support@neteng.pro',
       qrSrc: pgpSupportPng,
       qrWbp: pgpSupportWbp,
-      keySearch: "https://keys.openpgp.org/search?q=support%40neteng.pro",
-      fingerprint: ["6590B992E2E3EFF12738", "7BCE2AF093E9DEC61BA0"],
+      keySearch: 'https://keys.openpgp.org/search?q=support%40neteng.pro',
+      fingerprint: ['6590B992E2E3EFF12738', '7BCE2AF093E9DEC61BA0'],
     },
     {
-      label: "contact@s.neteng.pro",
+      label: 'contact@s.neteng.pro',
       qrSrc: pgpContactPng,
       qrWbp: pgpContactWbp,
-      keySearch: "https://keys.openpgp.org/search?q=contact%40s.neteng.pro",
-      fingerprint: ["DF118BAA6C2D9DCDEBDC", "2DDCF99373499495F957"],
+      keySearch: 'https://keys.openpgp.org/search?q=contact%40s.neteng.pro',
+      fingerprint: ['DF118BAA6C2D9DCDEBDC', '2DDCF99373499495F957'],
     },
   ];
 
@@ -116,11 +116,11 @@ This file is part of Network Pro.
 
   /** @type {ContactAssets} */
   const contactAssets = {
-    vcf: "/bin/contact.vcf",
+    vcf: '/bin/contact.vcf',
     qrSrc: vcfPng,
     qrWbp: vcfWbp,
-    supportAsc: "/pgp/support@neteng.pro.asc",
-    contactAsc: "/pgp/contact@s.neteng.pro.asc",
+    supportAsc: '/pgp/support@neteng.pro.asc',
+    contactAsc: '/pgp/contact@s.neteng.pro.asc',
   };
 </script>
 
@@ -269,7 +269,7 @@ This file is part of Network Pro.
           <p
             >Fingerprint:<br />
             <span class="fingerprint">
-              {pgpKeys[0].fingerprint.join("\n")}
+              {pgpKeys[0].fingerprint.join('\n')}
             </span>
           </p>
         </td>
@@ -294,7 +294,7 @@ This file is part of Network Pro.
           <p
             >Fingerprint:<br />
             <span class="fingerprint">
-              {pgpKeys[1].fingerprint.join("\n")}
+              {pgpKeys[1].fingerprint.join('\n')}
             </span>
           </p>
         </td>

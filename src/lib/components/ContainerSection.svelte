@@ -11,7 +11,7 @@ This file is part of Network Pro.
    * Optional: Allows passing additional classes to the container.
    * @type {string}
    */
-  export let className = "";
+  export let className = '';
 </script>
 
 <div class={`container ${className}`}>

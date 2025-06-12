@@ -10,7 +10,7 @@ This file is part of Network Pro.
   export let title;
   export let description;
 
-  import { CONSTANTS } from "$lib";
+  import { CONSTANTS } from '$lib';
 
   console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
@@ -18,9 +18,9 @@ This file is part of Network Pro.
 
   // Static shared values
   const ogUrl = LINKS.HOME;
-  const ogImg = "/img/banner-og-1200x630.png";
+  const ogImg = '/img/banner-og-1200x630.png';
   const companyName = COMPANY_INFO.NAME;
-  const twitterAct = "@NetEng_Pro";
+  const twitterAct = '@NetEng_Pro';
 </script>
 
 <svelte:head>

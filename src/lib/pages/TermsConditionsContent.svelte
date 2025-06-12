@@ -9,8 +9,8 @@ This file is part of Network Pro.
 <!-- cspell:ignore tandc -->
 
 <script>
-  import { base } from "$app/paths";
-  import { CONSTANTS } from "$lib";
+  import { base } from '$app/paths';
+  import { CONSTANTS } from '$lib';
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
@@ -29,7 +29,7 @@ This file is part of Network Pro.
    * Markdown version of the Terms and Conditions document
    * @type {string}
    */
-  const tandcLink = "https://docs.netwk.pro/terms-conditions";
+  const tandcLink = 'https://docs.netwk.pro/terms-conditions';
 
   /**
    * Common constants used throughout the component
@@ -39,8 +39,8 @@ This file is part of Network Pro.
    * }}
    */
   const constants = {
-    effectiveDate: "May 8, 2025",
-    classSmall: "small-text",
+    effectiveDate: 'May 8, 2025',
+    classSmall: 'small-text',
   };
 
   /**
@@ -48,17 +48,17 @@ This file is part of Network Pro.
    * @type {Array<{id: string, text: string}>}
    */
   const tocLinks = [
-    { id: "intro", text: "Introduction" },
-    { id: "scope", text: "Scope of Services" },
-    { id: "warranties", text: "Disclaimer of Warranties" },
-    { id: "risk", text: "Assumption of Risk" },
-    { id: "liability", text: "Limitation of Liability" },
-    { id: "indemnify", text: "Indemnification" },
-    { id: "client", text: "Client Responsibilities" },
-    { id: "law", text: "Governing Law and Jurisdiction" },
-    { id: "accept", text: "Acceptance of Terms" },
-    { id: "exceptions", text: "Exceptions and Negotiations" },
-    { id: "changes", text: "Changes to These Terms" },
+    { id: 'intro', text: 'Introduction' },
+    { id: 'scope', text: 'Scope of Services' },
+    { id: 'warranties', text: 'Disclaimer of Warranties' },
+    { id: 'risk', text: 'Assumption of Risk' },
+    { id: 'liability', text: 'Limitation of Liability' },
+    { id: 'indemnify', text: 'Indemnification' },
+    { id: 'client', text: 'Client Responsibilities' },
+    { id: 'law', text: 'Governing Law and Jurisdiction' },
+    { id: 'accept', text: 'Acceptance of Terms' },
+    { id: 'exceptions', text: 'Exceptions and Negotiations' },
+    { id: 'changes', text: 'Changes to These Terms' },
   ];
 </script>
 
@@ -90,7 +90,7 @@ This file is part of Network Pro.
   <h2>Table of Contents</h2>
   <ol>
     {#each tocLinks as link}
-      <li><a href={"#" + link.id}>{link.text}</a></li>
+      <li><a href={'#' + link.id}>{link.text}</a></li>
     {/each}
   </ol>
 </nav>
@@ -123,7 +123,7 @@ This file is part of Network Pro.
   <section id={link.id}>
     <h2>{i + 1}. {link.text}</h2>
 
-    {#if link.id === "intro"}
+    {#if link.id === 'intro'}
       <p>
         By engaging with the information security, network security,
         cybersecurity, and digital privacy consulting and implementation
@@ -135,7 +135,7 @@ This file is part of Network Pro.
         </strong>
         If you do not agree to these Terms, please do not engage our services.
       </p>
-    {:else if link.id === "scope"}
+    {:else if link.id === 'scope'}
       <p>
         These Terms apply to all consulting and implementation services offered
         by the Company, including but not limited to assessment, planning, risk
@@ -147,7 +147,7 @@ This file is part of Network Pro.
           when applicable.
         </strong>
       </p>
-    {:else if link.id === "warranties"}
+    {:else if link.id === 'warranties'}
       <p>
         All services are provided "as is" and "as available" without warranties
         of any kind, whether express, implied, statutory, or otherwise. The
@@ -157,7 +157,7 @@ This file is part of Network Pro.
         will detect or prevent all security threats or achieve legal or
         regulatory compliance unless specifically agreed in writing.
       </p>
-    {:else if link.id === "risk"}
+    {:else if link.id === 'risk'}
       <p>
         Client acknowledges that cybersecurity and privacy-related services
         inherently involve risk. The Company does not guarantee uninterrupted
@@ -166,7 +166,7 @@ This file is part of Network Pro.
         our recommendations and agrees to maintain appropriate internal controls
         and backup protocols.
       </p>
-    {:else if link.id === "liability"}
+    {:else if link.id === 'liability'}
       <p>
         To the maximum extent permitted by law, the Company shall not be liable
         for any indirect, incidental, consequential, special, or punitive
@@ -176,7 +176,7 @@ This file is part of Network Pro.
         such damages. Direct damages, if any, shall be limited to the amount
         paid by Client for the specific services giving rise to the claim.
       </p>
-    {:else if link.id === "indemnify"}
+    {:else if link.id === 'indemnify'}
       <p>
         Client agrees to indemnify, defend, and hold harmless the Company, its
         officers, employees, contractors, and affiliates from and against any
@@ -185,7 +185,7 @@ This file is part of Network Pro.
         services, (ii) misconfiguration of systems by Client, or (iii)
         third-party claims related to services rendered under these Terms.
       </p>
-    {:else if link.id === "client"}
+    {:else if link.id === 'client'}
       <p>
         <strong>
           Client shall provide valid, secure, and licensed infrastructure,
@@ -197,7 +197,7 @@ This file is part of Network Pro.
         with any regulatory frameworks (e.g., HIPAA, GDPR, PCI-DSS) is the sole responsibility
         of the Client unless explicitly agreed otherwise in a separate written agreement.
       </p>
-    {:else if link.id === "law"}
+    {:else if link.id === 'law'}
       <p>
         These Terms shall be governed by and construed under the laws of the
         State of Arizona and applicable U.S. federal laws. Any disputes shall be
@@ -205,14 +205,14 @@ This file is part of Network Pro.
         County, Arizona, and both parties consent to such jurisdiction and
         venue.
       </p>
-    {:else if link.id === "accept"}
+    {:else if link.id === 'accept'}
       <p>
         Engagement with the Company's services constitutes acceptance of these
         Terms. Continued use of services after any updates indicates continued
         acceptance. These Terms are effective unless and until terminated or
         modified in writing by mutual agreement.
       </p>
-    {:else if link.id === "exceptions"}
+    {:else if link.id === 'exceptions'}
       <p>
         <strong>
           The Company is open to negotiating specific terms upon mutual
@@ -222,7 +222,7 @@ This file is part of Network Pro.
         parties. Flexibility may be offered provided such changes do not impose undue
         liability or regulatory obligations on the Company.
       </p>
-    {:else if link.id === "changes"}
+    {:else if link.id === 'changes'}
       <p>
         The Company reserves the right to revise these Terms at any time.
         Updated versions will be posted on our website or delivered via direct

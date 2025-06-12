@@ -17,13 +17,13 @@ This file is part of Network Pro.
  * @updated 2025-06-01
  */
 
-import fs from "fs";
-import path from "path";
+import fs from 'fs';
+import path from 'path';
 
 const [, , targetFile] = process.argv;
 
 if (!targetFile) {
-  console.error("Usage: node generateTest.js <path/to/yourFile.js>");
+  console.error('Usage: node generateTest.js <path/to/yourFile.js>');
   process.exit(1);
 }
 
@@ -32,7 +32,7 @@ const parsed = path.parse(absolutePath);
 
 const testFileName = `${parsed.name}.test.js`;
 const testFilePath = path.join(
-  parsed.dir.replace("src", "tests/unit"),
+  parsed.dir.replace('src', 'tests/unit'),
   testFileName,
 );
 
@@ -42,7 +42,7 @@ const scaffold = `/**
  */
 
 import { describe, it, expect } from "vitest";
-import * as Module from "${path.relative(path.dirname(testFilePath), absolutePath).replace(/\\/g, "/")}";
+import * as Module from "${path.relative(path.dirname(testFilePath), absolutePath).replace(/\\/g, '/')}";
 
 describe("${parsed.name}", () => {
   it("should have tests", () => {

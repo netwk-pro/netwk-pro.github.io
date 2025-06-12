@@ -7,12 +7,12 @@ This file is part of Network Pro.
 
 /* eslint-env vitest */
 
-import "@testing-library/jest-dom/vitest";
-import { cleanup } from "@testing-library/svelte";
-import { afterEach, vi } from "vitest";
+import '@testing-library/jest-dom/vitest';
+import { cleanup } from '@testing-library/svelte';
+import { afterEach, vi } from 'vitest';
 
 // required for svelte5 + jsdom as jsdom does not support matchMedia
-Object.defineProperty(window, "matchMedia", {
+Object.defineProperty(window, 'matchMedia', {
   writable: true,
   enumerable: true,
   value: vi.fn().mockImplementation((query) => ({

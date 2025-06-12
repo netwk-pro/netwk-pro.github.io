@@ -6,16 +6,16 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { unregisterServiceWorker } from "../../src/lib/unregisterServiceWorker.js";
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { unregisterServiceWorker } from '../../src/lib/unregisterServiceWorker.js';
 
-describe("unregisterServiceWorker()", () => {
+describe('unregisterServiceWorker()', () => {
   beforeEach(() => {
     // Clean up any mocks from previous runs
     vi.restoreAllMocks();
   });
 
-  it("should call unregister on all registered service workers", async () => {
+  it('should call unregister on all registered service workers', async () => {
     const mockUnregister1 = vi.fn();
     const mockUnregister2 = vi.fn();
 
@@ -24,7 +24,7 @@ describe("unregisterServiceWorker()", () => {
     const mockRegistration2 = { unregister: mockUnregister2 };
 
     // Stub getRegistrations to return mock service workers
-    Object.defineProperty(navigator, "serviceWorker", {
+    Object.defineProperty(navigator, 'serviceWorker', {
       configurable: true,
       value: {
         getRegistrations: vi

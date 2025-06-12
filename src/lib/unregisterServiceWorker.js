@@ -13,7 +13,7 @@ export function unregisterServiceWorker() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then((registrations) => {
       registrations.forEach((reg) => reg.unregister());
-      console.log("🧹 All service workers unregistered.");
+      console.log('🧹 All service workers unregistered.');
     });
   }
 }

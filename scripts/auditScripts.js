@@ -15,16 +15,16 @@ This file is part of Network Pro.
  * @updated 2025-05-21
  */
 
-import fs from "fs";
-import path from "path";
+import fs from 'fs';
+import path from 'path';
 
-const scriptsDir = path.resolve("./scripts");
-const testsDir = path.resolve("./tests");
+const scriptsDir = path.resolve('./scripts');
+const testsDir = path.resolve('./tests');
 
 // Scripts intentionally excluded from test coverage
 const allowList = new Set([
-  "checkNode.js",
-  "auditScripts.js", // itself
+  'checkNode.js',
+  'auditScripts.js', // itself
 ]);
 
 // Recursively gather all test files
@@ -38,10 +38,10 @@ function getAllTestFiles(dir) {
       files.push(...getAllTestFiles(fullPath));
     } else if (
       entry.isFile() &&
-      (entry.name.endsWith(".test.js") ||
-        entry.name.endsWith(".spec.js") ||
-        entry.name.endsWith(".test.mjs") ||
-        entry.name.endsWith(".spec.mjs"))
+      (entry.name.endsWith('.test.js') ||
+        entry.name.endsWith('.spec.js') ||
+        entry.name.endsWith('.test.mjs') ||
+        entry.name.endsWith('.spec.mjs'))
     ) {
       files.push(fullPath);
     }
@@ -56,17 +56,17 @@ const testedModules = new Set(
   testFiles.map((filePath) =>
     path
       .basename(filePath)
-      .replace(/\.test\.js$|\.spec\.js$|\.test\.mjs$|\.spec\.mjs$/, ""),
+      .replace(/\.test\.js$|\.spec\.js$|\.test\.mjs$|\.spec\.mjs$/, ''),
   ),
 );
 
 // Gather all scripts (.js and .mjs)
 const scriptFiles = fs
   .readdirSync(scriptsDir)
-  .filter((file) => file.endsWith(".js") || file.endsWith(".mjs"));
+  .filter((file) => file.endsWith('.js') || file.endsWith('.mjs'));
 
 const untested = scriptFiles.filter((file) => {
-  const base = file.replace(/\.(js|mjs)$/, "");
+  const base = file.replace(/\.(js|mjs)$/, '');
   return !allowList.has(file) && !testedModules.has(base);
 });
 
@@ -75,7 +75,7 @@ const pathRelative = (file) =>
 
 // Output results
 if (untested.length) {
-  console.warn("\n⚠ Untested script files detected:\n");
+  console.warn('\n⚠ Untested script files detected:\n');
 
   untested.forEach((file) => {
     const filePath = pathRelative(file);
@@ -87,9 +87,9 @@ if (untested.length) {
   console.warn(
     `\nAdd a corresponding test file in /tests (e.g., ${untested[0].replace(
       /\.(js|mjs)$/,
-      ".test.js",
+      '.test.js',
     )})`,
   );
 } else {
-  console.log("✅ All script files have corresponding tests.");
+  console.log('✅ All script files have corresponding tests.');
 }

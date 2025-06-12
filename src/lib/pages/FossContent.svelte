@@ -7,9 +7,9 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { fossData } from "$lib/data/fossData.js";
-  import FossItemContent from "$lib/components/foss/FossItemContent.svelte";
-  import { CONSTANTS } from "$lib";
+  import { fossData } from '$lib/data/fossData.js';
+  import FossItemContent from '$lib/components/foss/FossItemContent.svelte';
+  import { CONSTANTS } from '$lib';
 
   console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
@@ -32,12 +32,12 @@ This file is part of Network Pro.
 
         // Now create a new object with all default values
         return {
-          label: typedLink.label || "Download",
-          href: typedLink.href || "#",
-          imgSrc: typedLink.imgSrc || "",
-          imgAlt: typedLink.imgAlt || "",
-          downloadText: typedLink.downloadText || "",
-          downloadHref: typedLink.downloadHref || "",
+          label: typedLink.label || 'Download',
+          href: typedLink.href || '#',
+          imgSrc: typedLink.imgSrc || '',
+          imgAlt: typedLink.imgAlt || '',
+          downloadText: typedLink.downloadText || '',
+          downloadHref: typedLink.downloadHref || '',
         };
       });
     }
@@ -50,8 +50,8 @@ This file is part of Network Pro.
    * @type {{title: string, lastUpdated: string}}
    */
   const pageInfo = {
-    title: "FOSS Spotlight",
-    lastUpdated: "June 8, 2025",
+    title: 'FOSS Spotlight',
+    lastUpdated: 'June 8, 2025',
   };
 </script>
 
@@ -83,7 +83,7 @@ This file is part of Network Pro.
   <h2>Table of Contents</h2>
   <ul>
     {#each processedFossData as { id, title }}
-      <li><a href={"#" + id}>{title}</a></li>
+      <li><a href={'#' + id}>{title}</a></li>
     {/each}
   </ul>
 </nav>

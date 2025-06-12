@@ -7,15 +7,15 @@ This file is part of Network Pro.
 ========================================================================== */
 
 export default {
-  names: ["no-smart-quotes"],
-  description: "Disallow smart quotes (curly quotes)",
-  information: new URL("https://github.com/DavidAnson/markdownlint"),
-  tags: ["quotes", "style"],
+  names: ['no-smart-quotes'],
+  description: 'Disallow smart quotes (curly quotes)',
+  information: new URL('https://github.com/DavidAnson/markdownlint'),
+  tags: ['quotes', 'style'],
   function(params, onError) {
     const smartQuoteRegex = /[“”‘’]/g;
 
     params.tokens.forEach((token) => {
-      if (token.type === "inline" && smartQuoteRegex.test(token.content)) {
+      if (token.type === 'inline' && smartQuoteRegex.test(token.content)) {
         const matches = [...token.content.matchAll(smartQuoteRegex)];
         matches.forEach((match) => {
           const index = match.index;

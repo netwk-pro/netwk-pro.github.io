@@ -19,8 +19,8 @@ This file is part of Network Pro.
  * @module src/lib/stores
  */
 
-import { browser } from "$app/environment";
-import { derived, writable } from "svelte/store";
+import { browser } from '$app/environment';
+import { derived, writable } from 'svelte/store';
 
 /**
  * @typedef {object} TrackingState
@@ -36,7 +36,7 @@ import { derived, writable } from "svelte/store";
  * @returns {string} Raw document.cookie or empty string (SSR-safe)
  */
 function readCookies() {
-  return browser ? document.cookie || "" : "";
+  return browser ? document.cookie || '' : '';
 }
 
 /**
@@ -96,7 +96,7 @@ function removeConsentTimestamp() {
 function getPrivacySignals() {
   if (!browser) return { dnt: false, gpc: false };
 
-  const dnt = navigator.doNotTrack === "1";
+  const dnt = navigator.doNotTrack === '1';
   // @ts-expect-error: Non-standard GPC property
   const gpc = navigator.globalPrivacyControl === true;
 
@@ -112,18 +112,18 @@ function getPrivacySignals() {
  * @returns {string}
  */
 function deriveStatus({ optedOut, optedIn, dnt, gpc }) {
-  if (optedOut) return "🔒 Tracking disabled (manual opt-out)";
-  if (optedIn) return "✅ Tracking enabled (manual opt-in)";
-  if (dnt || gpc) return "🛑 Tracking disabled (via browser signal)";
-  return "⚙️ Using default settings (tracking enabled)";
+  if (optedOut) return '🔒 Tracking disabled (manual opt-out)';
+  if (optedIn) return '✅ Tracking enabled (manual opt-in)';
+  if (dnt || gpc) return '🛑 Tracking disabled (via browser signal)';
+  return '⚙️ Using default settings (tracking enabled)';
 }
 
 /**
  * @returns {TrackingState}
  */
 function computePreferences() {
-  const optedOut = cookieExists("disable_tracking");
-  const optedIn = cookieExists("enable_tracking");
+  const optedOut = cookieExists('disable_tracking');
+  const optedIn = cookieExists('enable_tracking');
   const { dnt, gpc } = getPrivacySignals();
 
   const enabled = optedIn || (!optedOut && !dnt && !gpc);
@@ -143,7 +143,7 @@ export const trackingPreferences = writable(
         dnt: false,
         gpc: false,
         enabled: false,
-        status: "⏳ Checking tracking preferences...",
+        status: '⏳ Checking tracking preferences...',
       },
 );
 
@@ -154,8 +154,8 @@ export const trackingPreferences = writable(
 function hasUserManuallySetTrackingPreference() {
   const cookies = readCookies();
   return (
-    cookies.includes("enable_tracking=true") ||
-    cookies.includes("disable_tracking=true")
+    cookies.includes('enable_tracking=true') ||
+    cookies.includes('disable_tracking=true')
   );
 }
 
@@ -193,8 +193,8 @@ export function refreshTrackingPreferences() {
  * @returns {void}
  */
 export function setOptIn() {
-  setCookie("enable_tracking");
-  removeCookie("disable_tracking");
+  setCookie('enable_tracking');
+  removeCookie('disable_tracking');
   setConsentTimestamp();
   refreshTrackingPreferences();
 }
@@ -204,8 +204,8 @@ export function setOptIn() {
  * @returns {void}
  */
 export function setOptOut() {
-  setCookie("disable_tracking");
-  removeCookie("enable_tracking");
+  setCookie('disable_tracking');
+  removeCookie('enable_tracking');
   setConsentTimestamp();
   refreshTrackingPreferences();
 }
@@ -215,8 +215,8 @@ export function setOptOut() {
  * @returns {void}
  */
 export function clearPrefs() {
-  removeCookie("enable_tracking");
-  removeCookie("disable_tracking");
+  removeCookie('enable_tracking');
+  removeCookie('disable_tracking');
   removeConsentTimestamp();
   refreshTrackingPreferences();
 }

@@ -16,10 +16,10 @@ This file is part of Network Pro.
  */
 
 // validate-headers.js
-import fs from "fs";
+import fs from 'fs';
 
-const file = "./_headers";
-const lines = fs.readFileSync(file, "utf-8").split("\n");
+const file = './_headers';
+const lines = fs.readFileSync(file, 'utf-8').split('\n');
 
 let currentPath = null;
 let errors = [];
@@ -30,15 +30,15 @@ let headerValueBuffer = [];
 function flushBufferedHeader(lineNum) {
   if (!currentHeader) return;
 
-  const value = headerValueBuffer.join(" ").trim();
+  const value = headerValueBuffer.join(' ').trim();
 
-  if (currentHeader !== "Content-Security-Policy" && value.endsWith(";")) {
+  if (currentHeader !== 'Content-Security-Policy' && value.endsWith(';')) {
     errors.push(
       `Line ${lineNum}: Header '${currentHeader}' should not end with a semicolon`,
     );
   }
 
-  if (currentHeader === "Content-Security-Policy" && !value.endsWith(";")) {
+  if (currentHeader === 'Content-Security-Policy' && !value.endsWith(';')) {
     errors.push(
       `Line ${lineNum}: 'Content-Security-Policy' must end with a semicolon`,
     );
@@ -52,7 +52,7 @@ for (let i = 0; i < lines.length; i++) {
   const line = lines[i];
   const trimmed = line.trim();
 
-  if (trimmed.startsWith("/*")) {
+  if (trimmed.startsWith('/*')) {
     if (currentPath) {
       errors.push(
         `Line ${i + 1}: Multiple '/*' blocks detected. Only one is allowed in Netlify _headers`,
@@ -62,10 +62,10 @@ for (let i = 0; i < lines.length; i++) {
     continue;
   }
 
-  if (trimmed === "") continue;
+  if (trimmed === '') continue;
 
-  if (line.startsWith("  ")) {
-    const colonIndex = line.indexOf(":");
+  if (line.startsWith('  ')) {
+    const colonIndex = line.indexOf(':');
 
     if (colonIndex !== -1) {
       // New header
@@ -88,9 +88,9 @@ for (let i = 0; i < lines.length; i++) {
 flushBufferedHeader(lines.length);
 
 if (errors.length) {
-  console.error("❌ Header validation failed:");
-  errors.forEach((e) => console.error("  -", e));
+  console.error('❌ Header validation failed:');
+  errors.forEach((e) => console.error('  -', e));
   process.exit(1);
 } else {
-  console.log("✅ _headers file passed validation!");
+  console.log('✅ _headers file passed validation!');
 }

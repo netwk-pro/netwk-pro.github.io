@@ -9,50 +9,50 @@ This file is part of Network Pro.
 <script>
   export let data;
 
-  import { onMount } from "svelte";
-  import { afterNavigate } from "$app/navigation";
-  import { initPostHog, showReminder, capture } from "$lib/stores/posthog";
-  import { registerServiceWorker } from "$lib/registerServiceWorker.js";
-  import { browser } from "$app/environment";
+  import { onMount } from 'svelte';
+  import { afterNavigate } from '$app/navigation';
+  import { initPostHog, showReminder, capture } from '$lib/stores/posthog';
+  import { registerServiceWorker } from '$lib/registerServiceWorker.js';
+  import { browser } from '$app/environment';
 
-  import ContainerSection from "$lib/components/ContainerSection.svelte";
-  import Footer from "$lib/components/layout/Footer.svelte";
-  import HeaderDefault from "$lib/components/layout/HeaderDefault.svelte";
-  import HeaderHome from "$lib/components/layout/HeaderHome.svelte";
-  import PWAInstallButton from "$lib/components/PWAInstallButton.svelte";
+  import ContainerSection from '$lib/components/ContainerSection.svelte';
+  import Footer from '$lib/components/layout/Footer.svelte';
+  import HeaderDefault from '$lib/components/layout/HeaderDefault.svelte';
+  import HeaderHome from '$lib/components/layout/HeaderHome.svelte';
+  import PWAInstallButton from '$lib/components/PWAInstallButton.svelte';
 
-  import "$lib/styles/global.min.css";
-  import "$lib/styles/fa-global.css";
+  import '$lib/styles/global.min.css';
+  import '$lib/styles/fa-global.css';
 
-  import logoPng from "$lib/img/logo-web.png";
-  import logoWbp from "$lib/img/logo-web.webp";
-  import faviconSvg from "$lib/img/favicon.svg";
-  import appleTouchIcon from "$lib/img/icon-180x180.png";
+  import logoPng from '$lib/img/logo-web.png';
+  import logoWbp from '$lib/img/logo-web.webp';
+  import faviconSvg from '$lib/img/favicon.svg';
+  import appleTouchIcon from '$lib/img/icon-180x180.png';
 
   $: shouldShowReminder = $showReminder;
 
   onMount(() => {
-    console.log("[APP] onMount triggered in +layout.svelte");
+    console.log('[APP] onMount triggered in +layout.svelte');
 
     registerServiceWorker();
     initPostHog();
 
     // Register navigation tracking only on client
     afterNavigate(() => {
-      capture("$pageview");
+      capture('$pageview');
     });
 
     if (browser) {
-      const isDev = import.meta.env.MODE === "development";
+      const isDev = import.meta.env.MODE === 'development';
 
       // Check for ?debug=true in URL (no persistence)
       const urlParams = new URLSearchParams(window.location.search);
-      const debug = urlParams.get("debug") === "true";
+      const debug = urlParams.get('debug') === 'true';
 
       if (isDev || debug) {
-        console.log("ENV MODE =", import.meta.env.MODE);
-        console.log("isDev =", isDev);
-        console.log("debug param =", debug);
+        console.log('ENV MODE =', import.meta.env.MODE);
+        console.log('isDev =', isDev);
+        console.log('debug param =', debug);
       }
 
       // Preload logo assets
@@ -65,10 +65,10 @@ This file is part of Network Pro.
 
   // fallback values if data.meta not set
   const metaTitle =
-    data?.meta?.title || "Security, Networking, Privacy — Network Pro™";
+    data?.meta?.title || 'Security, Networking, Privacy — Network Pro™';
   const metaDescription =
     data?.meta?.description ||
-    "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro™";
+    'Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro™';
 </script>
 
 <svelte:head>
@@ -88,7 +88,7 @@ This file is part of Network Pro.
 <!-- BEGIN HEADER -->
 <header id="header-nav">
   <ContainerSection>
-    {#if data.pathname === "/"}
+    {#if data.pathname === '/'}
       <!-- Render the Home Header for the root route -->
       <HeaderHome />
       <PWAInstallButton />

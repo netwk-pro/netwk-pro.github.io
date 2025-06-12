@@ -7,10 +7,10 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import RedirectPage from "$lib/components/RedirectPage.svelte";
-  import { appendUTM } from "$lib/utils/utm.js";
-  import { onMount } from "svelte";
-  import { browser } from "$app/environment";
+  import RedirectPage from '$lib/components/RedirectPage.svelte';
+  import { appendUTM } from '$lib/utils/utm.js';
+  import { onMount } from 'svelte';
+  import { browser } from '$app/environment';
 
   /** @type {string | null} */
   let target = null;
@@ -22,7 +22,7 @@ This file is part of Network Pro.
     if (!browser) return;
 
     target = appendUTM(
-      "https://cloud.neteng.pro/index.php/apps/forms/s/6HpZKZCaLwb6TXYL99nLQM8t",
+      'https://cloud.neteng.pro/index.php/apps/forms/s/6HpZKZCaLwb6TXYL99nLQM8t',
     );
     show = true;
   });

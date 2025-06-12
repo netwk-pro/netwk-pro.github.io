@@ -14,9 +14,9 @@ This file is part of Network Pro.
  * @updated 2025-06-01
  */
 
-import fs from "fs";
-import path from "path";
-import { describe, expect, it } from "vitest";
+import fs from 'fs';
+import path from 'path';
+import { describe, expect, it } from 'vitest';
 
 /**
  * Recursively get all .js files in a directory
@@ -33,10 +33,10 @@ function getAllJsFiles(dir, { includeTests = false } = {}) {
     const stat = fs.statSync(fullPath);
     if (stat.isDirectory()) {
       results = results.concat(getAllJsFiles(fullPath, { includeTests }));
-    } else if (file.endsWith(".js")) {
+    } else if (file.endsWith('.js')) {
       if (
         !includeTests &&
-        (file.endsWith(".test.js") || file.endsWith(".spec.js"))
+        (file.endsWith('.test.js') || file.endsWith('.spec.js'))
       ) {
         continue;
       }
@@ -46,41 +46,41 @@ function getAllJsFiles(dir, { includeTests = false } = {}) {
   return results;
 }
 
-describe("auditCoverage", () => {
-  it("should have corresponding test files for all JS modules", () => {
+describe('auditCoverage', () => {
+  it('should have corresponding test files for all JS modules', () => {
     const allowList = new Set([
-      "checkNode.js",
-      "auditScripts.js",
-      "vite.config.js",
-      "svelte.config.js",
+      'checkNode.js',
+      'auditScripts.js',
+      'vite.config.js',
+      'svelte.config.js',
     ]);
 
-    const srcFiles = getAllJsFiles(path.resolve("src"));
-    const scriptsFiles = getAllJsFiles(path.resolve("scripts"));
+    const srcFiles = getAllJsFiles(path.resolve('src'));
+    const scriptsFiles = getAllJsFiles(path.resolve('scripts'));
     const allFiles = [...srcFiles, ...scriptsFiles].map((f) =>
       path
         .relative(process.cwd(), f)
-        .replace(/\\/g, "/") // Normalize Windows slashes
-        .replace(/^src\//, "")
-        .replace(/^scripts\//, "")
-        .replace(/\.js$/, ""),
+        .replace(/\\/g, '/') // Normalize Windows slashes
+        .replace(/^src\//, '')
+        .replace(/^scripts\//, '')
+        .replace(/\.js$/, ''),
     );
 
-    const testFiles = getAllJsFiles(path.resolve("tests/unit"), {
+    const testFiles = getAllJsFiles(path.resolve('tests/unit'), {
       includeTests: true,
     });
 
     const testFilesNormalized = testFiles.map((f) =>
       path
-        .relative(path.resolve("tests/unit"), f)
-        .replace(/\\/g, "/")
-        .replace(/\.test\.js$|\.spec\.js$/, ""),
+        .relative(path.resolve('tests/unit'), f)
+        .replace(/\\/g, '/')
+        .replace(/\.test\.js$|\.spec\.js$/, ''),
     );
 
     const testedNames = new Set(testFilesNormalized);
 
     const untested = allFiles.filter((file) => {
-      if (file.startsWith("tests/")) return false;
+      if (file.startsWith('tests/')) return false;
       if ([...allowList].some((allowed) => file.endsWith(allowed)))
         return false;
       return !testedNames.has(file);
@@ -88,8 +88,8 @@ describe("auditCoverage", () => {
 
     if (untested.length > 0) {
       console.warn(
-        "\n[WARN] The following JS modules do not have corresponding tests:\n" +
-          untested.map((f) => `  - ${f}`).join("\n"),
+        '\n[WARN] The following JS modules do not have corresponding tests:\n' +
+          untested.map((f) => `  - ${f}`).join('\n'),
       );
     }
 

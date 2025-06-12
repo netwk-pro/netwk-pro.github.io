@@ -12,27 +12,27 @@ This file is part of Network Pro.
  * @property {string} description - The description of the page
  */
 
-import { meta as routeMeta } from "$lib/meta.js"; // Import meta from $lib/meta.js and alias it
+import { meta as routeMeta } from '$lib/meta.js'; // Import meta from $lib/meta.js and alias it
 
 /**
  * Fallback metadata to satisfy typing in +layout.svelte and +page.svelte.
  * Actual meta content is provided per-route via +page.server.js.
  */
 const fallbackMeta = {
-  title: "Security, Networking, Privacy — Network Pro™",
+  title: 'Security, Networking, Privacy — Network Pro™',
   description:
-    "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro™",
+    'Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro™',
 };
 
-export const prerender = "auto";
-export const trailingSlash = "never";
+export const prerender = 'auto';
+export const trailingSlash = 'never';
 
 /**
  * @param {{ url: URL }} param0
  * @returns {{ pathname: string, meta: MetaData }}
  */
 export function load({ url }) {
-  const normalizedPathname = url.pathname.replace(/\/+$/, "") || "/";
+  const normalizedPathname = url.pathname.replace(/\/+$/, '') || '/';
 
   // Check if meta data for the route exists in `meta.js`, otherwise use the fallback
   const currentMeta = routeMeta[normalizedPathname] || fallbackMeta;

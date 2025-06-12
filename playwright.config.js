@@ -7,14 +7,14 @@ This file is part of Network Pro.
 ========================================================================== */
 
 // @ts-check
-import { defineConfig, devices } from "@playwright/test";
+import { defineConfig, devices } from '@playwright/test';
 
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  testDir: "./tests/e2e",
-  testMatch: "*.spec.js",
+  testDir: './tests/e2e',
+  testMatch: '*.spec.js',
 
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -29,12 +29,12 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: 'html',
 
   /* Shared settings for all projects */
   use: {
-    baseURL: "http://localhost:4173?nosw", // Update to use preview server URL
-    trace: "on-first-retry",
+    baseURL: 'http://localhost:4173?nosw', // Update to use preview server URL
+    trace: 'on-first-retry',
     timeout: 60000, // Default action timeout of 60 seconds for each step
     navigationTimeout: 60000, // Timeout for navigation operations
   },
@@ -43,16 +43,16 @@ export default defineConfig({
   projects: [
     // Desktop Browsers
     {
-      name: "chromium",
+      name: 'chromium',
       use: {
-        browserName: "chromium", // Use Chromium browser
+        browserName: 'chromium', // Use Chromium browser
         headless: true, // Enable true headless mode
       },
     },
     {
-      name: "firefox",
+      name: 'firefox',
       use: {
-        ...devices["Desktop Firefox"], // Use default Firefox settings
+        ...devices['Desktop Firefox'], // Use default Firefox settings
       },
     },
     // FIXME: Webkit and Safari consistently failing, disabled for now
@@ -65,9 +65,9 @@ export default defineConfig({
 
     // Mobile Browsers
     {
-      name: "Mobile Chrome",
+      name: 'Mobile Chrome',
       use: {
-        ...devices["Galaxy S9+"], // Use the Galaxy S9+ device profile
+        ...devices['Galaxy S9+'], // Use the Galaxy S9+ device profile
         headless: true, // Enable true headless mode
       },
     },
@@ -82,8 +82,8 @@ export default defineConfig({
 
   /* Run your local preview server before starting the tests */
   webServer: {
-    command: "npm run preview", // Use preview server
-    url: "http://localhost:4173?nosw", // Match the preview server URL
+    command: 'npm run preview', // Use preview server
+    url: 'http://localhost:4173?nosw', // Match the preview server URL
     reuseExistingServer: !process.env.CI,
     timeout: 60 * 1000, // wait up to 60 seconds for preview to be ready
   },

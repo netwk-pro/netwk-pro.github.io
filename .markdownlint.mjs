@@ -6,7 +6,7 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
-import noSmartQuotes from "./.md-smart-quotes.js"; // adjust path as needed
+import noSmartQuotes from './.md-smart-quotes.js'; // adjust path as needed
 
 export default {
   // Enable all default rules, then override below
@@ -22,10 +22,10 @@ export default {
 
   // Additional parser options
   options: {
-    frontMatter: "^---\\n[\\s\\S]*?\\n---", // YAML front matter regex
+    frontMatter: '^---\\n[\\s\\S]*?\\n---', // YAML front matter regex
   },
 
   // Rule-specific configurations
   MD007: { indent: 2 }, // Set consistent unordered list indentation (e.g., 2 spaces)
-  MD029: { style: "ordered" }, // Enforce consistent ordered list numbering
+  MD029: { style: 'ordered' }, // Enforce consistent ordered list numbering
 };

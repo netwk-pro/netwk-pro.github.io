@@ -18,7 +18,7 @@ export const init = undefined;
  * @param error - The uncaught error object
  */
 export function handleError(error: Error) {
-  console.error("[CLIENT] Unhandled error:", error);
+  console.error('[CLIENT] Unhandled error:', error);
 
   // Future: send to error reporting service
   // e.g., Sentry.captureException(error);
