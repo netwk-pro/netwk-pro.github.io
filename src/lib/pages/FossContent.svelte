@@ -11,7 +11,7 @@ This file is part of Network Pro.
   import FossItemContent from '$lib/components/foss/FossItemContent.svelte';
   import { CONSTANTS } from '$lib';
 
-  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+  //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
   const { PAGE } = CONSTANTS;
 
@@ -51,7 +51,7 @@ This file is part of Network Pro.
    */
   const pageInfo = {
     title: 'FOSS Spotlight',
-    lastUpdated: 'June 8, 2025',
+    lastUpdated: 'June 12, 2025',
   };
 </script>
 

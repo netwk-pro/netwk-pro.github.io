@@ -77,16 +77,17 @@ This project follows the principles of [Keep a Changelog](https://keepachangelog
   │   │   └── csp-report.js         # Receives CSP violation reports
   ├── scripts/                      # General-purpose utility scripts
   ├── src/
-  │   ├── app.html                  # Entry HTML (CSP meta, bootstrapping)
-  │   ├── hooks.client.ts           # Client-side error handling
-  │   ├── hooks.server.js           # Injects CSP headers and permissions policy
   │   ├── lib/                      # Components, utilities, types, styles
   │   │   ├── components/           # Svelte components
   │   │   ├── data/                 # Custom data (e.g. JSON, metadata, constants)
   │   │   └── utils/                # Helper utilities
   │   ├── routes/                   # SvelteKit pages (+page.svelte, +server.js)
+  │   ├── app.html                  # Entry HTML (CSP meta, bootstrapping)
+  │   ├── hooks.client.ts           # Client-side error handling
+  │   ├── hooks.server.js           # Injects CSP headers and permissions policy
   │   └── service-worker.js         # Custom PWA service worker
   ├── static/                       # Public assets served at site root
+  │   ├── pgp/
   │   ├── disableSw.js              # Service worker bypass (via ?nosw param)
   │   ├── manifest.json             # PWA metadata
   │   ├── robots.txt                # SEO: allow/disallow crawlers
@@ -179,6 +180,8 @@ ENV_MODE=dev  # Options: dev, test, ci, preview, prod
 ### 🧰 Local Setup Scripts
 
 To streamline onboarding and enforce project conventions, you may use the optional helper scripts:
+
+<!-- FIXME: Create a bootstrap.local.sh file -->
 
 | File/Script                        | Description                                                                       |
 | ---------------------------------- | --------------------------------------------------------------------------------- |
@@ -279,16 +282,21 @@ This project includes custom runtime configuration files for enhancing security,
 
 Located at `src/hooks.server.js`, this file is responsible for injecting dynamic security headers. It includes:
 
-- Content Security Policy (CSP) with support for relaxed directives (inline scripts allowed)
-- Permissions Policy to explicitly disable unnecessary browser APIs
-- X-Content-Type-Options, X-Frame-Options, and Referrer-Policy headers
+- A Content Security Policy (CSP) configured with relaxed directives to permit inline scripts and styles (`'unsafe-inline'`)
+- A Permissions Policy to explicitly disable unnecessary browser APIs
+- Standard security headers such as `X-Content-Type-Options`, `X-Frame-Options`, and `Referrer-Policy`
 
-> 💡 The CSP nonce feature has been disabled. Inline scripts are now allowed through the policy using the `"script-src 'self' 'unsafe-inline'"` directive. If you wish to use nonces in the future, you can re-enable them by uncommenting the relevant sections in `hooks.server.js` and modifying your inline `<script>` tags.
+> ℹ️ A stricter CSP (excluding `'unsafe-inline'`) was attempted but reverted due to framework-level and third-party script compatibility issues. The current policy allows inline scripts to ensure stability across SvelteKit and analytics features such as PostHog.
 
-To re-enable nonce generation for inline scripts in the future:
+#### Future Improvements
 
-1. Uncomment the nonce generation and injection logic in `hooks.server.js`.
-2. Add `nonce="__cspNonce__"` to inline `<script>` blocks in `app.html` or route templates.
+To implement a strict nonce-based CSP in the future:
+
+1. Add nonce generation and injection logic in `hooks.server.js`
+2. Update all inline `<script>` tags (e.g. in `app.html`) to include `nonce="__cspNonce__"`
+3. Ensure any analytics libraries or dynamic scripts support nonced or external loading
+
+Note: Strict CSP adoption may require restructuring third-party integrations and deeper framework coordination.
 
 > 💡 The `[headers]` block in `netlify.toml` has been deprecated — all headers are now set dynamically from within SvelteKit.
 

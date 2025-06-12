@@ -31,7 +31,6 @@ export async function handle({ event, resolve }) {
   const cspDirectives = [
     "default-src 'self';",
     "script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com;",
-    "script-src-elem 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com;",
     "style-src 'self' 'unsafe-inline';",
     "img-src 'self' data:;",
     "connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com;",
