@@ -22,6 +22,24 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.13.3] - 2025-06-13
+
+### Changed
+
+- Upgraded dependencies:
+  - `@eslint/js` updated from `^9.28.0` → `^9.29.0`
+  - `@sveltejs/kit` updated from `2.21.4` → `2.21.5`
+  - `eslint` updated from `^9.28.0` → `^9.29.0`
+- Updated `generator` meta tag in `app.html` to reflect `SvelteKit 2.21.5`
+- Added note to `.well-known/security.txt` clarifying detached signature availability
+- Replaced "Recommended Toolchain," "Tooling Configuration," and "Available Scripts" sections in `README.md` with a new “Development Reference” section linking to the Wiki
+- Removed `static/styles/` directory, as the stylesheets are now dynamically imported
+- Removed stylesheets from `static/styles` from the Service Worker cache configuration
+- Removed `scripts/flattenHeaders.js` and `scripts/validateHeader.js`, which were originally designed for the deprecated `_headers` file
+- Version bumped to **v1.13.3**
+
+---
+
 ## [1.13.2] - 2025-06-12
 
 ### Changed
@@ -359,7 +377,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.13.2...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.13.3...HEAD
+[1.13.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.3
 [1.13.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.2
 [1.13.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.1
 [1.13.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.0

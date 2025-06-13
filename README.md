@@ -37,11 +37,10 @@ All infrastructure and data flows are designed with **maximum transparency, self
 - [Getting Started](#getting-started)
 - [Configuration](#configuration)
 - [Service Worker Utilities](#sw-utilities)
+- [Debug Mode](#debug)
 - [CSP Report Handler](#cspreport)
 - [Testing](#testing)
-- [Recommended Toolchain](#toolchain)
-- [Tooling Configuration](#toolconfig)
-- [Available Scripts](#scripts)
+- [Development Reference](#reference)
 - [License](#license)
 - [Questions](#questions)
 
@@ -87,7 +86,7 @@ This project follows the principles of [Keep a Changelog](https://keepachangelog
   │   ├── hooks.server.js           # Injects CSP headers and permissions policy
   │   └── service-worker.js         # Custom PWA service worker
   ├── static/                       # Public assets served at site root
-  │   ├── pgp/
+  │   ├── pgp/                      # PGP keys and QR code images
   │   ├── disableSw.js              # Service worker bypass (via ?nosw param)
   │   ├── manifest.json             # PWA metadata
   │   ├── robots.txt                # SEO: allow/disallow crawlers
@@ -386,6 +385,26 @@ You can optionally import unregisterServiceWorker() in a debug menu or settings 
 
 ---
 
+<section id="debug">
+
+## `?debug=true` Query Parameter
+
+Appending `?debug=true` to the URL enables debug logs in the browser console, even in production builds. This is useful for confirming:
+
+- The current runtime environment (`development` vs. `production`)
+- Query parameter parsing behavior
+- Whether certain client-side features are properly initialized
+
+```bash
+https://netwk.pro/?debug=true
+```
+
+> 💡 This flag does not persist across navigation or reloads. It simply triggers console logs during initial mount to aid in troubleshooting and QA.
+
+</section>
+
+---
+
 <section id="cspreport">
 
 ## 📣 CSP Report Handler
@@ -517,180 +536,17 @@ You can also audit locally using Chrome DevTools → Lighthouse tab for on-the-f
 
 ---
 
-<section id="toolchain">
+<section id="reference">
 
-## 🛠 Recommended Toolchain
+## 🧰 Development Reference
 
-To streamline development and align with project conventions, we recommend the following setup — especially for contributors without a strong existing preference.
+Tooling setup, configuration files, and CLI scripts have been moved to the [project Wiki](https://github.com/netwk-pro/netwk-pro.github.io/wiki) for easier maintenance and discoverability.
 
-| Tool                                                                     | Description                                               |
-| ------------------------------------------------------------------------ | --------------------------------------------------------- |
-| **[VSCodium](https://vscodium.com/)**                                    | Fully open-source alternative to VS Code (telemetry-free) |
-| **[Prettier](https://prettier.io/)**                                     | Code formatter for JS, TS, Svelte, Markdown, etc.         |
-| **[ESLint](https://eslint.org/)**                                        | JavaScript/TypeScript linter with Svelte support          |
-| **[Stylelint](https://stylelint.io/)**                                   | Linting for CSS, SCSS, and inline styles in Svelte        |
-| **[markdownlint](https://github.com/DavidAnson/markdownlint)**           | Markdown style checker and linter                         |
-| **[markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)** | Config-based CLI linter for Markdown                      |
-| **[EditorConfig](https://editorconfig.org/)**                            | Consistent line endings, spacing, and indentation         |
-| **[Volta](https://volta.sh) / [nvm](https://github.com/nvm-sh/nvm)**     | Node.js version manager for consistent tooling            |
+Refer to the Wiki for:
 
-> The `.vscode/` folder includes editor recommendations compatible with **VSCodium**. These are non-enforced and optional, but align with our formatter, linter, and language server configs.
-
-Install dev tooling:
-
-```bash
-npm install --include=dev
-```
-
-Run all format and lint checks:
-
-```bash
-npm run lint:all
-npm run format
-```
-
-To auto-fix issues:
-
-```bash
-npm run lint:fix
-npm run format:fix
-```
-
-</section>
-
-<sub>[Back to top](#top)</sub>
-
----
-
-<section id="toolconfig">
-
-## ⚙️ Tooling Configuration
-
-All linting, formatting, and version settings are defined in versioned project config files:
-
-| File                      | Purpose                                                    |
-| ------------------------- | ---------------------------------------------------------- |
-| `.prettierrc`             | Prettier formatting rules                                  |
-| `.prettierignore`         | Files that should be ignored by Prettier                   |
-| `eslint.config.mjs`       | ESLint config with SvelteKit support                       |
-| `stylelint.config.js`     | CSS/SASS/Svelte style rules                                |
-| `.stylelintignore`        | Files that should be ignored by Stylelint                  |
-| `.editorconfig`           | Base indentation and line ending settings                  |
-| `.nvmrc`, `.node-version` | Node.js version constraints for `nvm`, `asdf`, and `Volta` |
-| `.vscode/extensions.json` | Suggested extensions for VSCodium                          |
-| `.vscode/settings.json`   | Default workspace settings (non-binding)                   |
-| `.vscode/customData.json` | Custom CSS data for FontAwesome classes                    |
-| `cspell.json`             | Custom words and exclusions for spell checking             |
-
-These are the same rules used by CI and automation, so aligning your local setup avoids surprises later.
-
-> Note: `.vscode/extensions.json` defines a minimal recommended dev stack for VSCodium / VS Code. These extensions are **optional but thoughtfully curated** to improve developer experience without introducing bloat.
-
-</section>
-
-<sub>[Back to top](#top)</sub>
-
----
-
-<section id="scripts">
-
-## 📜 Available Scripts
-
-The following CLI commands are available via `npm run <script>` or `pnpm run <script>`.
-
-### 🔄 Development
-
-| Script          | Description                                                              |
-| --------------- | ------------------------------------------------------------------------ |
-| `dev`           | Start development server with Vite                                       |
-| `preview`       | Preview production build locally                                         |
-| `build`         | Build the project with Vite                                              |
-| `dev:netlify`   | Start local dev server using Netlify Dev (emulates serverless + headers) |
-| `build:netlify` | Build using Netlify CLI                                                  |
-| `css:bundle`    | Bundle and minify CSS                                                    |
-
-&nbsp;
-
-### ✅ Pre-check / Sync
-
-| Script        | Description                                                                         |
-| ------------- | ----------------------------------------------------------------------------------- |
-| `prepare`     | Run SvelteKit sync                                                                  |
-| `check`       | Run SvelteKit sync and type check with `svelte-check`                               |
-| `check:watch` | Watch mode for type checks                                                          |
-| `check:node`  | Validate Node & npm versions match package.json `engines`                           |
-| `checkout`    | Full local validation: check versions, test (incl. audit coverage), lint, typecheck |
-| `verify`      | Alias for `checkout`                                                                |
-
-&nbsp;
-
-### 🧹 Cleanup & Maintenance
-
-| Script    | Description                                     |
-| --------- | ----------------------------------------------- |
-| `delete`  | Remove build artifacts and `node_modules`       |
-| `clean`   | Fully reset environment and reinstall           |
-| `upgrade` | Update all dependencies via `npm-check-updates` |
-
-&nbsp;
-
-<!-- markdownlint-disable MD024 -->
-
-### 🧪 Testing
-
-<!-- markdownlint-enable MD024 -->
-
-| Script          | Description                                                   |
-| --------------- | ------------------------------------------------------------- |
-| `test`          | Alias for `test:all`                                          |
-| `test:all`      | Run both client and server test suites (incl. audit coverage) |
-| `test:client`   | Run client tests with Vitest                                  |
-| `test:server`   | Run server-side tests with Vitest                             |
-| `test:watch`    | Watch mode for client tests                                   |
-| `test:coverage` | Collect coverage from both client and server                  |
-| `test:e2e`      | Runs E2E tests with up to 1 automatic retry on failure        |
-
-&nbsp;
-
-### 🧼 Linting & Formatting
-
-| Script       | Description                             |
-| ------------ | --------------------------------------- |
-| `lint`       | Run ESLint on JS, MJS, and Svelte files |
-| `lint:fix`   | Auto-fix ESLint issues                  |
-| `lint:jsdoc` | Check JSDoc annotations                 |
-| `lint:css`   | Run Stylelint on CSS and Svelte styles  |
-| `lint:md`    | Lint Markdown content                   |
-| `lint:all`   | Run all linters and formatting checks   |
-| `format`     | Run Prettier formatting check           |
-| `format:fix` | Auto-format code using Prettier         |
-
-&nbsp;
-
-### 💡 Lighthouse / Performance
-
-| Script     | Description               |
-| ---------- | ------------------------- |
-| `lhci`     | Alias for Lighthouse CI   |
-| `lhci:run` | Run Lighthouse CI autorun |
-
-&nbsp;
-
-### 📋 Audits / Validation
-
-| Script           | Description                                          |
-| ---------------- | ---------------------------------------------------- |
-| `audit:coverage` | Warn about untested modules in `src/` and `scripts/` |
-| `head:flatten`   | Flatten headers for Netlify                          |
-| `head:validate`  | Validate headers file against project config         |
-
-&nbsp;
-
-### 🔄 Lifecycle Hooks
-
-| Script        | Description                         |
-| ------------- | ----------------------------------- |
-| `postinstall` | Ensures version check after install |
+- Recommended toolchain
+- Configuration file overview
+- CLI script usage and automation
 
 </section>
 
