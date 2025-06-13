@@ -6,4 +6,7 @@ Acknowledgments: https://github.com/netwk-pro/netwk-pro.github.io/security/polic
 Policy: https://github.com/netwk-pro/netwk-pro.github.io/security/policy
 Preferred-Languages: en
 Canonical: https://netwk.pro/.well-known/security.txt
+Signature: https://netwk.pro/.well-known/security.txt.sig
+# This file is authenticated using a detached GPG signature:
+# https://netwk.pro/.well-known/security.txt.sig
 Expires: 2025-12-31T23:59:59Z
