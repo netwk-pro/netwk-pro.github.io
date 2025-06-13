@@ -53,6 +53,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 - Refactored `FossItemContent.svelte` to better support and display Obtainium download links and metadata
 - Updated `README.md` to reflect the correct location of the `static/pgp/` directory
 - Revised the `hooks.server.js` section in `README.md` to improve accuracy and reflect current CSP behavior
+- Updated `tests/e2e/app.spec.js` to assert the correct title for the root route
 - Upgraded dependencies:
   - `posthog-js` `^1.250.2` → `^1.252.0`
   - `eslint-plugin-jsdoc` `^50.8.0` → `^51.0.1`
