@@ -22,6 +22,17 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.13.2] - 2025-06-12
+
+### Changed
+
+- Version bumped to v1.13.2
+- Updated `a:visited` color to `#cba557` for improved contrast and aesthetics
+- Refined `a:active` color to `#e0b000` for clearer interaction feedback
+- Confirmed all link colors meet WCAG AA contrast standards against `#191919` background
+
+---
+
 ## [1.13.1] - 2025-06-12
 
 ### Added
@@ -348,7 +359,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.13.1...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.13.2...HEAD
+[1.13.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.2
 [1.13.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.1
 [1.13.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.0
 [1.12.9]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.9

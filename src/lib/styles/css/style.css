@@ -125,18 +125,18 @@ a:hover {
 
 /* selected link */
 a:active {
-  color: #ffc627;
+  color: #e0b000;
   text-decoration: underline;
 }
 
 /* visited link */
 a:visited {
-  color: #7f6227;
+  color: #cba557;
 }
 
 /* focused link */
 a:focus-visible {
-  color: #191919; /* Black text when focused */
+  color: #111; /* Black text when focused */
   background-color: #ffc627; /* Gold background when focused */
   outline: 2px solid #ffc627;
   outline-offset: 4px;
@@ -151,7 +151,7 @@ a:focus:not(:focus-visible) {
 
 /* visited and mouse over */
 a:visited:hover {
-  color: #7f6227;
+  color: #cba557;
 }
 
 /* ==========================================================================
