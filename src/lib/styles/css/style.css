@@ -158,7 +158,7 @@ a:focus:not(:focus-visible) {
 /* active and visited-active */
 a:active,
 a:visited:active {
-  color: #e0b000;
+  color: #cba557;
   text-decoration: underline;
 }
 
