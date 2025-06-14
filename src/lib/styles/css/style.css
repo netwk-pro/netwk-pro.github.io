@@ -117,21 +117,22 @@ a:link {
   color: #ffc627;
 }
 
-/* mouse over link */
-a:hover {
-  color: #ffc627;
-  text-decoration: underline;
-}
-
-/* selected link */
-a:active {
-  color: #e0b000;
-  text-decoration: underline;
-}
-
 /* visited link */
 a:visited {
   color: #cba557;
+}
+
+a:visited:focus,
+a:visited:focus:not(:focus-visible),
+a:visited:focus-visible {
+  color: #cba557;
+}
+
+/* mouse over link */
+a:hover,
+a:visited:hover {
+  color: #ffc627;
+  text-decoration: underline;
 }
 
 /* focused link */
@@ -142,6 +143,11 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
+a:focus-visible:visited {
+  color: #111; /* match a:focus-visible */
+  background-color: #ffc627;
+}
+
 /* Reset focus style to avoid duplication */
 a:focus:not(:focus-visible) {
   color: inherit;
@@ -149,9 +155,11 @@ a:focus:not(:focus-visible) {
   outline: none;
 }
 
-/* visited and mouse over */
-a:visited:hover {
-  color: #cba557;
+/* active and visited-active */
+a:active,
+a:visited:active {
+  color: #e0b000;
+  text-decoration: underline;
 }
 
 /* ==========================================================================

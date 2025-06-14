@@ -209,8 +209,8 @@ This file is part of Network Pro.
 
 <p>
   <strong
-    >Network Pro&trade; exists to bring strong, thoughtful security to
-    organizations that value integrity—without sacrificing agility or trust.</strong>
+    >{COMPANY_INFO.APP_NAME}&trade; exists to bring strong, thoughtful security
+    to organizations that value integrity—without sacrificing agility or trust.</strong>
   We don't just secure infrastructure. We secure confidence.
 </p>
 

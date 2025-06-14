@@ -16,7 +16,7 @@ This file is part of Network Pro.
 
   //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
-  const { COMPANY_INFO, PAGE } = CONSTANTS;
+  const { PAGE } = CONSTANTS;
 
   const keys = [
     {
@@ -83,14 +83,16 @@ This file is part of Network Pro.
   <img
     src="/img/powered-by-proton.svg"
     alt="Powered by Proton"
-    style="width: 168px; height: 24px;" />
+    class="proton-img"
+    loading="eager"
+    decoding="sync" />
 </p>
 <p class="bquote">
   NOTE: Addresses under the <strong>s.neteng.pro</strong> domain are powered by Proton
   Mail to ensure strong end-to-end privacy protections.
 </p>
 
-{#each keys as key}
+{#each keys as key, i}
   <section class="pgp-entry" aria-labelledby={`pgp-${key.img}`}>
     <div class="pgp-text">
       <h2 id={`pgp-${key.img}`}>{key.name}</h2>
@@ -131,9 +133,9 @@ This file is part of Network Pro.
         <img
           src={`/pgp/${key.img}.png`}
           alt={`QR code for ${key.email}`}
-          loading="lazy"
-          decoding="async"
-          style="width: 150px; height: 150px;" />
+          class="pgp-image"
+          loading={i === 0 ? 'eager' : 'lazy'}
+          decoding={i === 0 ? 'sync' : 'async'} />
       </picture>
     </div>
   </section>

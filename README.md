@@ -156,113 +156,14 @@ tests/
 
 ## 🛠 Getting Started
 
-### 📦 Environment Setup
+For full setup guidance, including environment setup, version enforcement, and local tooling, refer to the 📚 [Environment Requirements Wiki](https://github.com/netwk-pro/netwk-pro.github.io/wiki/Environment-Requirements).
 
 ```bash
 git clone https://github.com/netwk-pro/netwk-pro.github.io.git
 cd netwk-pro.github.io
 cp .env.template .env
 npm install
-```
-
-Edit .env to configure your environment mode:
-
-```env
-ENV_MODE=dev  # Options: dev, test, ci, preview, prod
-```
-
-> `ENV_MODE` is used for tooling and workflows — not by SvelteKit itself.  
-> Use `VITE_`-prefixed env variables for runtime values.
-
-&nbsp;
-
-### 🧰 Local Setup Scripts
-
-To streamline onboarding and enforce project conventions, you may use the optional helper scripts:
-
-<!-- FIXME: Create a bootstrap.local.sh file -->
-
-| File/Script                        | Description                                                                       |
-| ---------------------------------- | --------------------------------------------------------------------------------- |
-| `.env.template`                    | Template for local environment variables                                          |
-| `scripts/checkNode.js`             | Validates your Node.js and npm versions                                           |
-| `scripts/bootstrap.local.sh` (TBD) | Interactive setup for local configuration and tooling                             |
-| `.vscode/`                         | Editor recommendations compatible with [VSCodium](https://vscodium.com) / VS Code |
-
-To get started quickly:
-
-```bash
-cp .env.template .env
-npm install
-```
-
-> You can also use `bootstrap.local.sh` to automate the steps above and more (optional).  
-> `ENV_MODE` controls local tooling behavior — it is not used by the app runtime directly.
-
-&nbsp;
-
-### 💾 Version Enforcement
-
-To ensure consistent environments across contributors and CI systems, this project enforces specific Node.js and npm versions via the `"engines"` field in `package.json`:
-
-```json
-"engines": {
-  "node": ">=22.0.0 <25",
-  "npm": ">=11.0.0 <12"
-}
-```
-
-Version compliance is **softly enforced** after installation via a postinstall lifecycle hook:
-
-```bash
-npm run check:node
-```
-
-This script runs `scripts/checkNode.js`, which compares your current Node.js and npm versions against the required ranges. During the install phase, it will log **warnings** for out-of-range versions but allow installation to continue. In all other contexts (manual runs, CI workflows, etc.), it will **fail** with a descriptive error if the versions are out of spec.
-
-**_Node Version Check (snippet from `scripts/checkNode.js`)_**
-
-```javascript
-const semver = require('semver');
-const { engines } = require('../package.json');
-
-const requiredNode = engines.node;
-const requiredNpm = engines.npm;
-const isPostInstall = process.env.npm_lifecycle_event === 'postinstall';
-
-let hasError = false;
-
-if (!semver.satisfies(process.version, requiredNode)) {
-  const msg = `Node.js ${process.version} does not satisfy required range: ${requiredNode}`;
-  isPostInstall ? console.warn(`⚠️  ${msg}`) : console.error(`❌ ${msg}`);
-  if (!isPostInstall) hasError = true;
-}
-
-const npmVersion = require('child_process')
-  .execSync('npm -v')
-  .toString()
-  .trim();
-
-if (!semver.satisfies(npmVersion, requiredNpm)) {
-  const msg = `npm ${npmVersion} does not satisfy required range: ${requiredNpm}`;
-  isPostInstall ? console.warn(`⚠️  ${msg}`) : console.error(`❌ ${msg}`);
-  if (!isPostInstall) hasError = true;
-}
-
-if (!hasError) {
-  console.log('✅ Node and npm versions are valid.');
-} else {
-  process.exit(1);
-}
-```
-
-For full compatibility, `.nvmrc` and `.node-version` files are provided to work seamlessly with version managers like nvm, asdf, and Volta. This ensures consistent environments across local development, CI pipelines, and deployment targets.
-
-To manually verify your environment:
-
-```bash
-node -v     # Should fall within engines.node
-npm -v      # Should fall within engines.npm
+npx playwright install
 ```
 
 </section>
