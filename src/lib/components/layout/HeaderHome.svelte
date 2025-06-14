@@ -8,12 +8,18 @@ This file is part of Network Pro.
 
 <script>
   import { base } from '$app/paths';
+  import { CONSTANTS } from '$lib';
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
+  //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+
+  const { PAGE } = CONSTANTS;
+
   const aboutLink = `${base}/about`;
   const fossLink = `${base}/foss-spotlight`;
+  const lhubLink = `${base}/links`;
   const blogLink = 'https://blog.netwk.pro';
 
   /**
@@ -30,24 +36,24 @@ This file is part of Network Pro.
    * @type {NavItem[]}
    */
   const nav = [
-    { label: 'about', href: aboutLink, target: '_self', external: false },
-    { label: 'foss', href: fossLink, target: '_self', external: false },
+    { label: 'about', href: aboutLink, target: PAGE.SELF, external: false },
+    { label: 'foss', href: fossLink, target: PAGE.SELF, external: false },
     {
       label: 'blog',
       href: blogLink,
-      target: '_self',
+      target: PAGE.SELF,
       external: false,
     },
     {
       label: 'discussions',
       href: 'https://github.com/netwk-pro/netwk-pro.github.io/discussions',
-      target: '_blank',
+      target: PAGE.BLANK,
       external: true,
     },
     {
       label: 'link hub',
-      href: 'https://linktr.ee/neteng_pro',
-      target: '_blank',
+      href: lhubLink,
+      target: PAGE.BLANK,
       external: true,
     },
   ];
@@ -67,7 +73,7 @@ This file is part of Network Pro.
     </a>
     {#if external}
       <sup>
-        <span style="color: #ffc627;">
+        <span class="gold">
           <i class="fas fa-arrow-up-right-from-square fa-2xs"></i>
         </span>
       </sup>
@@ -83,3 +89,5 @@ This file is part of Network Pro.
   {/each}
 </nav>
 <!-- END HOME HEADER -->
+
+<!-- cspell:ignore lhub -->

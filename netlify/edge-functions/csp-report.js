@@ -43,18 +43,20 @@ export default async (request, _context) => {
     const violated = report['violated-directive'] ?? '';
     const blockedUri = report['blocked-uri'] ?? '';
 
+    /*
     // Filter: Skip img-src violations and empty URIs
-    const ignored = [
-      violated.startsWith('img-src'),
-      blockedUri === '',
-      blockedUri === 'about',
-      blockedUri.startsWith('chrome-extension://'),
-      blockedUri.startsWith('moz-extension://'),
-    ].some(Boolean);
+      const ignored = [
+        violated.startsWith('img-src'),
+        blockedUri === '',
+        blockedUri === 'about',
+        blockedUri.startsWith('chrome-extension://'),
+        blockedUri.startsWith('moz-extension://'),
+      ].some(Boolean);
 
-    if (ignored) {
-      return new Response(null, { status: 204 });
-    }
+      if (ignored) {
+        return new Response(null, { status: 204 });
+      }
+    */
 
     // Send alert for high-risk directives
     await sendToNtfy(violated, blockedUri, report);

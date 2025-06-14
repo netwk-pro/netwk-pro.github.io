@@ -30,6 +30,12 @@ export default {
     ],
     'property-no-vendor-prefix': null, // Allow vendor prefixes
     'selector-no-vendor-prefix': null,
+    'no-descending-specificity': [
+      true,
+      {
+        ignore: ['selectors-within-list'],
+      },
+    ],
     'selector-pseudo-element-colon-notation': [
       'double',
       {

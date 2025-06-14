@@ -11,6 +11,7 @@ This file is part of Network Pro.
   import FullWidthSection from '$lib/components/FullWidthSection.svelte';
 
   export let to;
+  export let rel = ''; // Accepts optional rel value
   export let delay = 3;
 
   onMount(() => {
@@ -39,7 +40,9 @@ This file is part of Network Pro.
     <h1>Redirecting…</h1>
     <p>You'll be taken to the destination in just a moment.</p>
     <div class="loading-spinner" aria-hidden="true"></div>
-    <p>If nothing happens, <a href={to}>click here</a>.</p>
+    <p
+      >If nothing happens, <a href={to} rel={rel || undefined}>click here</a
+      >.</p>
   </div>
 </FullWidthSection>
 

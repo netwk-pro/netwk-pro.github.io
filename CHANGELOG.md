@@ -22,6 +22,39 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.13.5] - 2025-06-14
+
+### Added
+
+- Introduced `links/` and `posts/` redirect routes for improved navigation and backward compatibility
+- Added `proton-img` and utility classes to global stylesheet to eliminate inline styles in `PGPContent.svelte`
+- Set `decoding="sync"` and `loading="eager"` on the first QR code image and the Proton Mail badge to improve perceived load performance and visual smoothness
+- Added `rel="noopener noreferrer"` support to `RedirectPage.svelte`, now used by the new `/links` and `/posts` routes
+- Revised `obtainium-img` class in stylesheets to improve Obtainium image rendering on mobile and enhance overall clarity
+- Added a new `scripts/bootstrap.local.sh` script to streamline local development setup, including OS detection and Playwright dependencies
+- Added a new “Environment Requirements” Wiki page to consolidate Node version constraints, setup instructions, and local dev tooling guidance
+- Replaced the detailed "Getting Started" section in `README.md` with a concise reference to the Wiki and a minimal quickstart snippet
+
+### Changed
+
+- Promoted Node.js and npm version enforcement details from README to the Wiki for centralized documentation
+- Removed low-priority CSP report filtering in `csp-report.js` to allow all violations to be logged and reviewed
+- Improved color reset on visited links to avoid styling inconsistencies, particularly for links opened in new tabs
+- Reordered CSS rules to resolve `no-descending-specificity` warnings triggered by focus selectors
+- Updated `HeaderHome.svelte` and `HeaderDefault.svelte` to use `PAGE.SELF` and `PAGE.BLANK` constants for target behavior
+- Updated `AboutContent.svelte` to use application constant instead of hardcoded value
+- Removed unused `COMPANY_INFO` destructured constant from `PGPContent.svelte`
+- Upgraded dependencies:
+  - `svelte` updated from `5.34.1` → `5.34.3`
+- Fixed schema warning in GitHub issue template by replacing `assignees: []` with `assignees: SunDevil311`
+- Version bumped to **v1.13.5**
+
+### Removed
+
+- Removed unneeded demo unit test (`demo.test.js`) from `tests/unit`
+
+---
+
 ## [1.13.4] - 2025-06-13
 
 ### Changed
@@ -386,7 +419,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.13.4...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.13.5...HEAD
+[1.13.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.5
 [1.13.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.4
 [1.13.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.3
 [1.13.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.2
@@ -400,3 +434,5 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 [1.12.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.4
 [1.12.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.3
 [1.12.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.1
+
+<!-- cspell:ignore qrcode -->
