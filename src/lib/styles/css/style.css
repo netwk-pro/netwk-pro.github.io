@@ -118,46 +118,36 @@ a:link {
 }
 
 /* mouse over link */
-a:hover,
-a:visited:hover {
+a:hover {
+  color: #ffc627;
+  text-decoration: underline;
+}
+
+/* selected link */
+a:active {
   color: #ffc627;
   text-decoration: underline;
 }
 
 /* focused link */
-a:focus-visible {
+a:focus {
   color: #111; /* Black text when focused */
   background-color: #ffc627; /* Gold background when focused */
-  outline: 2px solid #ffc627;
-  outline-offset: 4px;
 }
 
-a:focus-visible:visited {
-  color: #111; /* match a:focus-visible */
-  background-color: #ffc627;
-}
-
-/* Reset focus style to avoid duplication */
-a:focus:not(:focus-visible) {
-  color: inherit;
-  background-color: transparent;
-  outline: none;
-}
-
-/* active and visited-active */
-a:active,
-a:visited:active {
+/* visited link */
+a:visited {
   color: #cba557;
-  text-decoration: underline;
 }
 
-a:visited,
-a:visited:hover,
+/* visited and mouse over */
+a:visited:hover {
+  color: #cba557;
+}
+
 a:visited:focus,
-a:visited:focus-visible,
-a:visited:active {
-  color: #cba557 !important;
-  text-decoration: underline;
+a:visited:focus-visible {
+  color: #111 !important;
 }
 
 /* ==========================================================================

@@ -27,7 +27,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 ### Added
 
 - Introduced `links/` and `posts/` redirect routes for improved navigation and backward compatibility
-- Added `proton-img` and utility classes to global stylesheet to eliminate inline styles in `PGPContent.svelte`
+- Added `proton-img` and `qrcode-img` utility classes to global stylesheet to eliminate inline styles in `PGPContent.svelte`
 - Set `decoding="sync"` and `loading="eager"` on the first QR code image and the Proton Mail badge to improve perceived load performance and visual smoothness
 - Added `rel="noopener noreferrer"` support to `RedirectPage.svelte`, now used by the new `/links` and `/posts` routes
 - Revised `obtainium-img` class in stylesheets to improve Obtainium image rendering on mobile and enhance overall clarity
@@ -39,7 +39,6 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 - Promoted Node.js and npm version enforcement details from README to the Wiki for centralized documentation
 - Removed low-priority CSP report filtering in `csp-report.js` to allow all violations to be logged and reviewed
-- Improved color reset on visited links to avoid styling inconsistencies, particularly for links opened in new tabs
 - Reordered CSS rules to resolve `no-descending-specificity` warnings triggered by focus selectors
 - Updated `HeaderHome.svelte` and `HeaderDefault.svelte` to use `PAGE.SELF` and `PAGE.BLANK` constants for target behavior
 - Updated `AboutContent.svelte` to use application constant instead of hardcoded value
@@ -48,6 +47,12 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
   - `svelte` updated from `5.34.1` → `5.34.3`
 - Fixed schema warning in GitHub issue template by replacing `assignees: []` with `assignees: SunDevil311`
 - Version bumped to **v1.13.5**
+
+### Fixed
+
+- Restored consistent `:visited` link color by forcing `color: #cba557 !important` across all visited interaction states
+- Prevented gold-on-gold text issue when focusing visited links
+- Rolled back enhanced `:focus-visible` styles to resolve flicker and override conflicts during fast navigation
 
 ### Removed
 
