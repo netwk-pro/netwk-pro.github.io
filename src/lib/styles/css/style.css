@@ -117,17 +117,6 @@ a:link {
   color: #ffc627;
 }
 
-/* visited link */
-a:visited {
-  color: #cba557;
-}
-
-a:visited:focus,
-a:visited:focus:not(:focus-visible),
-a:visited:focus-visible {
-  color: #cba557;
-}
-
 /* mouse over link */
 a:hover,
 a:visited:hover {
@@ -159,6 +148,15 @@ a:focus:not(:focus-visible) {
 a:active,
 a:visited:active {
   color: #cba557;
+  text-decoration: underline;
+}
+
+a:visited,
+a:visited:hover,
+a:visited:focus,
+a:visited:focus-visible,
+a:visited:active {
+  color: #cba557 !important;
   text-decoration: underline;
 }
 
