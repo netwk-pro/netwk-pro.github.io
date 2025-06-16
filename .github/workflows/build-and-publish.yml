@@ -17,33 +17,12 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
+  actions: read
   contents: read
 
 jobs:
   check-codeql:
-    name: Check CodeQL Analysis
-    runs-on: ubuntu-24.04
-    # Continue workflow even if this job fails due to inability to find and/or check CodeQL workflow
-    continue-on-error: true
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up GitHub CLI
-        run: sudo apt-get install gh
-
-      - name: Check CodeQL Workflow
-        env:
-          GH_TOKEN: ${{ secrets.NWPRO_ACTION }}
-        run: |
-          gh run list --workflow "CodeQL" --json conclusion --jq '.[0].conclusion' > codeql_status.txt
-          CODEQL_STATUS=$(cat codeql_status.txt)
-          if [[ "$CODEQL_STATUS" != "success" ]]; then
-            echo "CodeQL Analysis did not succeed. Exiting..."
-            exit 1
-          fi
-          rm codeql_status.txt
+    uses: ./.github/workflows/check-codeql.yml
 
   build:
     needs: check-codeql
@@ -58,7 +37,7 @@ jobs:
       - name: Log ENV_MODE
         run: 'echo "ENV_MODE is set to: $ENV_MODE"'
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
@@ -172,7 +151,7 @@ jobs:
           name: repo-artifacts
           path: ./
 
-      - name: Set up Node.js for GPR
+      - name: Setup Node.js for GPR
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
