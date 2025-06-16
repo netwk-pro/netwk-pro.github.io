@@ -83,6 +83,12 @@ jobs:
       - name: Clean build directory
         run: rm -rf build/
 
+      - name: List contents of root (including hidden)
+        run: ls -alh ./
+
+      - name: List all files recursively
+        run: find ./ -type f | sort
+
       # Upload clean source code
       - name: Upload repository artifacts
         uses: actions/upload-artifact@v4
