@@ -22,6 +22,24 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.13.6] - 2025-06-15
+
+### Added
+
+- Introduced `.github/workflows/check-codeql.yml` reusable workflow to validate successful CodeQL analysis during CI
+- Added `.github/workflows/templates/check-codeql.template.yml` for documentation and workflow templating purposes
+
+### Changed
+
+- Replaced inline `check-codeql` job in `.github/workflows/build-and-publish.yml` with call to reusable workflow
+- Updated `.node-version` and `.nvmrc` from `24.1.0` → `24.2.0` to reflect upgraded Node.js binary
+- Replaced `ℹ️` symbol with `🛈` in `bootstrap.local.sh` to improve clarity in terminals
+- Version bumped to **v1.13.6**
+- Upgraded dependencies:
+  - `posthog-js` updated from `1.252.0` → `1.252.1`
+
+---
+
 ## [1.13.5] - 2025-06-14
 
 ### Added

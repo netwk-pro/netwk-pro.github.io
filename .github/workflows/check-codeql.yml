@@ -1,0 +1,40 @@
+# .github/workflows/check-codeql.template.yml
+#
+# Copyright © 2025 Network Pro Strategies (Network Pro™)
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro
+
+name: CodeQL Status Check
+
+permissions:
+  actions: read
+  contents: read
+
+on:
+  workflow_call:
+
+jobs:
+  check:
+    name: Check CodeQL Status
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Check CodeQL Workflow
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh --version
+
+          if ! gh run list --repo "${GITHUB_REPOSITORY}" --workflow "CodeQL" --limit 1 --json conclusion --jq '.[0].conclusion' > codeql_status.txt; then
+            echo "::error title=CodeQL Check Failed::Could not retrieve CodeQL run status. Blocking deployment."
+            exit 1
+          fi
+
+          CODEQL_STATUS=$(cat codeql_status.txt)
+          echo "CodeQL status: $CODEQL_STATUS"
+          if [[ "$CODEQL_STATUS" != "success" ]]; then
+            echo "::error title=CodeQL Check Failed::Latest CodeQL run did not succeed. Blocking deployment."
+            exit 1
+          fi
+
+          rm -f codeql_status.txt

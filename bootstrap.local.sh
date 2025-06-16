@@ -31,7 +31,7 @@ fi
 if [[ "$PLATFORM" == "windows" ]]; then
   if [[ -z "${BASH_VERSION:-}" ]]; then
     echo "⚠️  Detected native Windows shell (e.g., CMD or PowerShell)."
-    echo "ℹ️  Please use WSL or Git Bash for full compatibility with this script."
+    echo "🛈  Please use WSL or Git Bash for full compatibility with this script."
     exit 1
   else
     echo "🪟 Detected Git Bash or compatible shell on Windows."
