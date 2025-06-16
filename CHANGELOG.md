@@ -20,6 +20,12 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ## [Unreleased]
 
+## [1.13.7] - 2025-06-15
+
+### Changed
+
+- Added pre-publish steps in `build-and-publish.yml` to recursively list all files and top-level directory contents for auditing
+
 ---
 
 ## [1.13.6] - 2025-06-15
@@ -442,7 +448,9 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.13.5...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.13.7...HEAD
+[1.13.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.7
+[1.13.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.6
 [1.13.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.5
 [1.13.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.4
 [1.13.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.3
