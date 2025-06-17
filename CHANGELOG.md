@@ -28,11 +28,12 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 - Updated Node.js engine to `24` to match the specified engine constraints in `package.json`.
 - Reordered `npm ci` step to follow Node.js and npm setup to prevent version mismatches during simulation steps.
-- Version bumped to **v1.14.1**
+- Refactored `build-and-publish.yml` to use `git archive` for artifact preparation and aligned it with a tested publishing flow.
+- Removed `.npmrc` token-based authentication in favor of environment secrets to avoid credential conflicts.
 
 ### Added
 
-- Introduced `.github/workflows/publish.yml`, a separate dry-run simulation workflow for testing `npm publish` without deploying to registries.
+- Introduced `.github/workflows/publish-test.yml`, a standalone workflow to safely simulate `npm publish` without publishing.
 - Added commands to display Node.js and npm versions for visibility and troubleshooting in all relevant jobs.
 
 ---
