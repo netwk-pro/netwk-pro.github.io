@@ -6,8 +6,6 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
-// cspell:ignore lsheet tosdr
-
 /**
  * Image import utility
  *
@@ -15,7 +13,7 @@ This file is part of Network Pro.
  * @description Provides convenient access to images in the src/lib/img directory
  * @module src/lib
  * @author SunDevil311
- * @updated 2025-06-09
+ * @updated 2025-06-16
  */
 
 // Import favicon images
@@ -39,6 +37,8 @@ import obtainiumWbp from '$lib/img/obtainium.webp';
 // Import images for posts
 import acodePng from '$lib/img/posts/acode.png';
 import acodeWbp from '$lib/img/posts/acode.webp';
+import cryptomPng from "$lib/img/posts/cryptomator.png";
+import cryptomWbp from "$lib/img/posts/cryptomator.webp";
 import eauthPng from '$lib/img/posts/eauth.png';
 import eauthWbp from '$lib/img/posts/eauth.webp';
 import hboardPng from '$lib/img/posts/hboard.png';
@@ -72,6 +72,8 @@ export {
   bySvg,
   ccBadge,
   ccSvg,
+  cryptomPng,
+  cryptomWbp,
   eauthPng,
   eauthWbp,
   faviconSvg,
@@ -99,4 +101,4 @@ export {
   vcfWbp
 };
 
-// cspell:ignore eauth hboard
+// cspell:ignore eauth hboard cryptom tosdr
