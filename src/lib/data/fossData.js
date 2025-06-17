@@ -7,7 +7,7 @@ This file is part of Network Pro.
 ========================================================================== */
 
 // Import FOSS images
-import { acodePng, acodeWbp, eauthPng, eauthWbp, hboardPng, hboardWbp, lsheetPng, lsheetWbp, pmxPng, pmxWbp, squirclePng, squircleWbp, tosPng, tosWbp, urlPng, urlWbp } from "$lib";
+import { acodePng, acodeWbp, cryptomPng, cryptomWbp, eauthPng, eauthWbp, hboardPng, hboardWbp, lsheetPng, lsheetWbp, pmxPng, pmxWbp, squirclePng, squircleWbp, tosPng, tosWbp, urlPng, urlWbp } from "$lib";
 
 // cspell:disable
 /**
@@ -26,6 +26,86 @@ const lsheetLink = "obtainium://app/%7B%22id%22%3A%22fe.linksheet.nightly%22%2C%
 //cspell:enable
 
 export const fossData = [
+  {
+    id: "cryptomator",
+    images: {
+      webp: cryptomWbp,
+      png: cryptomPng,
+    },
+    imgAlt: "Cryptomator",
+    title: "Cryptomator",
+    headline: "Vault Up Your Cloud Privacy",
+    headlineDescription: `
+      <p>
+        Tired of feeling like your cloud files are just floating out there, unprotected? Say hello to <strong>Cryptomator</strong>—your personal vault for keeping sensitive data safe in the cloud, <em>without giving up open-source freedom</em>.
+      </p>
+      <p>
+        🛡️ <strong>Cryptomator</strong> provides transparent client-side encryption for your cloud storage. Whether you're using Nextcloud, Google Drive, OneDrive or another service, Cryptomator keeps your files <strong>encrypted and private</strong>—before they even leave your device.
+      </p>
+    `,
+    features: [
+      {
+        emoji: "📋",
+        label: "Why Cryptomator stands out:",
+        isIntro: true
+      },
+      {
+        emoji: "🔐",
+        label: "Zero-knowledge encryption",
+        description: "not even Cryptomator can access your data",
+      },
+      {
+        emoji: "🆓",
+        label: "Completely free and open-source",
+        description: "GPLv3",
+      },
+      {
+        emoji: "💻",
+        label: "Cross-platform",
+        description: "Windows, macOS, Linux, iOS & Android"
+      },
+      {
+        emoji: "📂",
+        label: "Folder-level encryption",
+        description: "integrated with your file system",
+      },
+      {
+        emoji: "💬",
+        label: "No account needed",
+        description: "no tracking, no ads"
+      }
+    ],
+    detailsDescription: `
+      <p>
+        📈 Why privacy-conscious users are switching:<br />
+        ✅ <strong>User-friendly interface</strong><br />
+        ✅ <strong>End-to-end encryption</strong> without needing to trust any cloud provider<br />
+        ✅ <strong>Community-driven</strong> with regular updates<br />
+        ✅ <strong>Works with any cloud provider</strong><br />
+        ✅ <strong>100% local key management</strong>
+      </p>
+      <p>
+        Your cloud deserves more than blind trust. Cryptomator empowers you to <em>own your data</em> with ease and elegance.
+      </p>
+    `,
+    links: [
+      {
+        label: "Website",
+        href: "https://cryptomator.org",
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/cryptomator/cryptomator",
+      },
+      {
+        label: "F-Droid",
+        href: "https://f-droid.org/en/packages/org.cryptomator.lite/",
+      }
+    ],
+    notes: [
+      "Cryptomator is available from several sources, including <strong>Google Play, F-Droid, and GitHub/Obtainium</strong>. While we generally recommend using only open-source versions, <strong>you may opt for the Google Play version if Google Drive integration is important to you</strong>. Note that the F-Droid and GitHub versions exclude third-party libraries, which means <strong>they cannot interface with Google Drive</strong>."
+    ],
+  },
   {
     id: "squircle",
     images: {
@@ -591,4 +671,4 @@ export const fossData = [
   },
 ];
 
-// cspell:ignore hboard gboard lsheet eauth tosdr
+// cspell:ignore hboard gboard lsheet eauth tosdr cryptom

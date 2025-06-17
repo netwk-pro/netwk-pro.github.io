@@ -20,11 +20,34 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ## [Unreleased]
 
+---
+
+## [1.13.8] - 2025-06-16
+
+### Added
+
+- Added `cryptomator.png` and `cryptomator.webp` images for use in the FOSS Spotlight route
+- Imported assets via image utility (`src/lib/images.js`) as `cryptomPng` and `cryptomWbp`
+- Introduced `cryptomator` entry to `fossData.js`
+- Added `COMMIT_GUIDE.md` to help standardize commit message formatting across contributions
+
+### Changed
+
+- Updated `build-and-publish.yml` to use an allowlist-based upload approach, explicitly including root-level files and directories (`.github/`, `.vscode/`, `netlify/`, `scripts/`, `src/`, `static/`, and `tests/`)
+- Updated meta `author` field in `app.html` to `Scott Lopez`
+- Version bumped to **v1.13.8**
+- Upgraded dependencies:
+  - `postcss` updated from `^8.5.5` → `^8.5.6`
+  - `posthog-js` updated from `^1.252.1` → `^1.253.4`
+
+---
+
 ## [1.13.7] - 2025-06-15
 
 ### Changed
 
 - Added pre-publish steps in `build-and-publish.yml` to recursively list all files and top-level directory contents for auditing
+- Version bumped to **v1.13.7**
 
 ---
 
@@ -448,7 +471,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.13.7...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.13.8...HEAD
+[1.13.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.8
 [1.13.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.7
 [1.13.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.6
 [1.13.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.5
@@ -466,4 +490,4 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 [1.12.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.3
 [1.12.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.1
 
-<!-- cspell:ignore qrcode -->
+<!-- cspell:ignore qrcode cryptom -->
