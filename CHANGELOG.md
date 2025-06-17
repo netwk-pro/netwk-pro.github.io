@@ -22,6 +22,18 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.14.1] - 2025-06-18
+
+### Added
+
+- Introduced `.github/workflows/publish.yml` to simulate registry publishing using a clean source archive (`git archive`) and `npm publish --dry-run`, enabling safe verification of publish readiness without actual deployment
+
+### Changed
+
+- Version bumped to **v1.14.1**
+
+---
+
 ## [1.14.0] - 2025-06-16
 
 ### Changed
@@ -483,7 +495,9 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.13.8...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.14.1...HEAD
+[1.14.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.1
+[1.14.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.0
 [1.13.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.8
 [1.13.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.7
 [1.13.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.6
