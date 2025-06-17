@@ -22,15 +22,18 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
-## [1.14.1] - 2025-06-18
-
-### Added
-
-- Introduced `.github/workflows/publish.yml` to simulate registry publishing using a clean source archive (`git archive`) and `npm publish --dry-run`, enabling safe verification of publish readiness without actual deployment
+## [1.14.1] - 2025-06-16
 
 ### Changed
 
+- Updated Node.js engine to `24` to match the specified engine constraints in `package.json`.
+- Reordered `npm ci` step to follow Node.js and npm setup to prevent version mismatches during simulation steps.
 - Version bumped to **v1.14.1**
+
+### Added
+
+- Introduced `.github/workflows/publish.yml`, a separate dry-run simulation workflow for testing `npm publish` without deploying to registries.
+- Added commands to display Node.js and npm versions for visibility and troubleshooting in all relevant jobs.
 
 ---
 
