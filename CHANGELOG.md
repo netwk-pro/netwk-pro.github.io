@@ -22,6 +22,17 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.14.0] - 2025-06-18
+
+### Changed
+
+- Improved build-and-publish workflow:
+  - Replaced allowlist-based artifact packaging with `git archive` to produce a clean, compressed source snapshot (`.tar.gz`)
+  - Streamlined CI steps: archive generation after build, download and extraction in both `publish-npmjs` and `publish-gpr` jobs, plus automatic cleanup of the downloaded archive
+  - Added `--ignore-scripts` to `npm publish` steps and included `cache-dependency-path: package-lock.json` to improve cache efficiency and reliability
+
+---
+
 ## [1.13.8] - 2025-06-16
 
 ### Added
