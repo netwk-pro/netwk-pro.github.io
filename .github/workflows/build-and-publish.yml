@@ -79,16 +79,16 @@ jobs:
       - name: Build Node.js project
         run: npm run build
 
-      # Create compressed git archive of versioned files
-      - name: Create clean source archive
-        run: git archive --format=tar.gz --output=clean-source.tar.gz HEAD
+      # Remove build artifacts to avoid publishing them
+      - name: Clean build directory
+        run: rm -rf build/
 
-      # Upload git archive for publishing to npmjs and GPR
-      - name: Upload source archive
+      # Upload clean source code
+      - name: Upload repository artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: clean-source
-          path: clean-source.tar.gz
+          name: repo-artifacts
+          path: ./
 
   publish-npmjs:
     needs: build
@@ -100,17 +100,11 @@ jobs:
       - name: Log ENV_MODE
         run: 'echo "ENV_MODE is set to: $ENV_MODE"'
 
-      - name: Download clean source archive
+      - name: Download repository artifacts
         uses: actions/download-artifact@v4
         with:
-          name: clean-source
+          name: repo-artifacts
           path: ./
-
-      - name: Extract source archive
-        run: tar -xzf clean-source.tar.gz
-
-      - name: Clean up archive
-        run: rm clean-source.tar.gz
 
       - name: Set up Node.js for npmjs
         uses: actions/setup-node@v4
@@ -119,7 +113,6 @@ jobs:
           check-latest: true
           registry-url: https://registry.npmjs.org/
           cache: npm
-          cache-dependency-path: package-lock.json
 
       - name: Set up Git user
         run: |
@@ -138,7 +131,7 @@ jobs:
           } || echo "✅ Version is new. Proceeding with publish."
 
       - name: Publish package to npmjs
-        run: npm publish --access public --ignore-scripts
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_NETPRO }}
 
@@ -149,26 +142,22 @@ jobs:
       ENV_MODE: ci
 
     steps:
-      - name: Download clean source archive
+      - name: Log ENV_MODE
+        run: 'echo "ENV_MODE is set to: $ENV_MODE"'
+
+      - name: Download repository artifacts
         uses: actions/download-artifact@v4
         with:
-          name: clean-source
+          name: repo-artifacts
           path: ./
 
-      - name: Extract source archive
-        run: tar -xzf clean-source.tar.gz
-
-      - name: Clean up archive
-        run: rm clean-source.tar.gz
-
-      - name: Set up Node.js for GPR
+      - name: Setup Node.js for GPR
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
           check-latest: true
           registry-url: https://npm.pkg.github.com/
           cache: npm
-          cache-dependency-path: package-lock.json
 
       - name: Set up Git user
         run: |
@@ -191,6 +180,6 @@ jobs:
           } || echo "✅ Version is new. Proceeding with publish."
 
       - name: Publish package to GPR
-        run: npm publish --ignore-scripts
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NWPRO_GPR }}
