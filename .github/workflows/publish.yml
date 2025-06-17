@@ -32,16 +32,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Log ENV_MODE
-        run: 'echo "ENV_MODE is set to: $ENV_MODE"'
-
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: lts/*
-          check-latest: true
+          node-version: 24
           cache: npm
           cache-dependency-path: package-lock.json
+
+      - name: Show Node.js and npm versions
+        run: |
+          echo "Node.js version: $(node -v)"
+          echo "npm version: $(npm -v)"
 
       - name: Upgrade npm
         run: |
@@ -94,9 +95,6 @@ jobs:
       ENV_MODE: ci
 
     steps:
-      - name: Log ENV_MODE
-        run: 'echo "ENV_MODE is set to: $ENV_MODE"'
-
       - name: Download clean source archive
         uses: actions/download-artifact@v4
         with:
@@ -104,18 +102,31 @@ jobs:
           path: ./
 
       - name: Extract source archive
-        run: tar -xzf clean-source.tar.gz && rm clean-source.tar.gz
+        run: tar -xzf clean-source.tar.gz
 
-      - name: Install Node.js dependencies
-        run: npm ci
+      - name: Remove extracted source archive
+        run: rm clean-source.tar.gz
 
       - name: Set up Node.js for npmjs
         uses: actions/setup-node@v4
         with:
-          node-version: lts/*
-          check-latest: true
+          node-version: 24
           registry-url: https://registry.npmjs.org/
           cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Show Node.js and npm versions
+        run: |
+          echo "Node.js version: $(node -v)"
+          echo "npm version: $(npm -v)"
+
+      - name: Upgrade npm
+        run: |
+          corepack enable
+          npm install -g npm@11.4.1
+
+      - name: Install Node.js dependencies
+        run: npm ci
 
       - name: Set up Git user
         run: |
@@ -145,9 +156,6 @@ jobs:
       ENV_MODE: ci
 
     steps:
-      - name: Log ENV_MODE
-        run: 'echo "ENV_MODE is set to: $ENV_MODE"'
-
       - name: Download clean source archive
         uses: actions/download-artifact@v4
         with:
@@ -155,18 +163,31 @@ jobs:
           path: ./
 
       - name: Extract source archive
-        run: tar -xzf clean-source.tar.gz && rm clean-source.tar.gz
+        run: tar -xzf clean-source.tar.gz
+
+      - name: Remove extracted source archive
+        run: rm clean-source.tar.gz
+
+      - name: Set up Node.js for GPR
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://npm.pkg.github.com/
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Show Node.js and npm versions
+        run: |
+          echo "Node.js version: $(node -v)"
+          echo "npm version: $(npm -v)"
+
+      - name: Upgrade npm
+        run: |
+          corepack enable
+          npm install -g npm@11.4.1
 
       - name: Install Node.js dependencies
         run: npm ci
-
-      - name: Setup Node.js for GPR
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-          check-latest: true
-          registry-url: https://npm.pkg.github.com/
-          cache: npm
 
       - name: Set up Git user
         run: |
