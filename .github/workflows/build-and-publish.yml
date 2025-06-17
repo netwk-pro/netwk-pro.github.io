@@ -91,6 +91,7 @@ jobs:
           include-hidden-files: true
           path: |
             ./
+            .svelte-kit/tsconfig.json
             .github/**
             .vscode/**
             netlify/**
