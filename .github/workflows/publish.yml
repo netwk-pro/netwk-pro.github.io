@@ -1,0 +1,194 @@
+# .github/workflows/publish.yml
+#
+# Copyright © 2025 Network Pro Strategies (Network Pro™)
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro
+
+name: Publish to Registries
+
+on:
+  workflow_dispatch:
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'build-and-publish'
+  cancel-in-progress: true
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  check-codeql:
+    uses: ./.github/workflows/check-codeql.yml
+
+  build:
+    needs: check-codeql
+    runs-on: ubuntu-24.04
+    env:
+      ENV_MODE: ci
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log ENV_MODE
+        run: 'echo "ENV_MODE is set to: $ENV_MODE"'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          check-latest: true
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Upgrade npm
+        run: |
+          corepack enable
+          npm install -g npm@11.4.1
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Run JSDoc lint check
+        id: jsdoc_lint
+        continue-on-error: true
+        run: |
+          set -e
+          output=$(npm run lint:jsdoc || true)
+          echo "$output"
+
+          count=$(echo "$output" | wc -l)
+          echo "jsdoc_count=$count" >> "$GITHUB_OUTPUT"
+
+      - name: ✅ Pass
+        if: steps.jsdoc_lint.outputs.jsdoc_count == '0'
+        run: echo "JSDoc lint passed successfully!"
+
+      - name: ⚠️ JSDoc violations detected (non-blocking)
+        if: steps.jsdoc_lint.outputs.jsdoc_count != '0'
+        run: echo "⚠️ JSDoc lint check failed with ${{ steps.jsdoc_lint.outputs.jsdoc_count }} violations (non-blocking)"
+
+      # Test to ensure the package is working
+      - name: Build Node.js project
+        run: npm run build
+
+      # Create Git archive of version-controlled files
+      - name: Create clean source archive
+        run: git archive --format=tar.gz --output=clean-source.tar.gz HEAD
+
+      - name: Upload source archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: clean-source
+          path: clean-source.tar.gz
+
+  publish-npmjs:
+    needs: build
+    runs-on: ubuntu-24.04
+    env:
+      ENV_MODE: ci
+
+    steps:
+      - name: Log ENV_MODE
+        run: 'echo "ENV_MODE is set to: $ENV_MODE"'
+
+      - name: Download clean source archive
+        uses: actions/download-artifact@v4
+        with:
+          name: clean-source
+          path: ./
+
+      - name: Extract source archive
+        run: tar -xzf clean-source.tar.gz && rm clean-source.tar.gz
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Set up Node.js for npmjs
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          check-latest: true
+          registry-url: https://registry.npmjs.org/
+          cache: npm
+
+      - name: Set up Git user
+        run: |
+          git config --global user.email "github@sl.neteng.cc"
+          git config --global user.name "SunDevil311"
+
+      - name: Verify version not already published
+        run: |
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          echo "Checking if $PACKAGE_NAME@$PACKAGE_VERSION is already published..."
+
+          npm view $PACKAGE_NAME@$PACKAGE_VERSION > /dev/null && {
+            echo "❌ Version $PACKAGE_VERSION already exists on npm. Exiting..."
+            exit 1
+          } || echo "✅ Version is new. Proceeding with publish."
+
+      - name: Simulate publish package to npmjs
+        run: npm publish --dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_NETPRO }}
+
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-24.04
+    env:
+      ENV_MODE: ci
+
+    steps:
+      - name: Log ENV_MODE
+        run: 'echo "ENV_MODE is set to: $ENV_MODE"'
+
+      - name: Download clean source archive
+        uses: actions/download-artifact@v4
+        with:
+          name: clean-source
+          path: ./
+
+      - name: Extract source archive
+        run: tar -xzf clean-source.tar.gz && rm clean-source.tar.gz
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Setup Node.js for GPR
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          check-latest: true
+          registry-url: https://npm.pkg.github.com/
+          cache: npm
+
+      - name: Set up Git user
+        run: |
+          git config --global user.email "github@sl.neteng.cc"
+          git config --global user.name "SunDevil311"
+
+      - name: Update package name for GPR
+        run: |
+          sed -i 's/"name": ".*"/"name": "@netwk-pro\/web"/' package.json
+
+      - name: Verify version not already published
+        run: |
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          echo "Checking if $PACKAGE_NAME@$PACKAGE_VERSION is already published..."
+
+          npm view $PACKAGE_NAME@$PACKAGE_VERSION > /dev/null && {
+            echo "❌ Version $PACKAGE_VERSION already exists on npm. Exiting..."
+            exit 1
+          } || echo "✅ Version is new. Proceeding with publish."
+
+      - name: Simulate publish package to GPR
+        run: npm publish --dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NWPRO_GPR }}
