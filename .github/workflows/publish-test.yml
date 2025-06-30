@@ -47,7 +47,7 @@ jobs:
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.4.1
+          npm install -g npm@11.4.2
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -61,7 +61,7 @@ jobs:
         run: |
           set -e
           output=$(npm run lint:jsdoc || true)
-          echo "$output"
+          echo "$output" | tee jsdoc-lint-output.txt
 
           count=$(echo "$output" | wc -l)
           echo "jsdoc_count=$count" >> "$GITHUB_OUTPUT"
@@ -72,7 +72,10 @@ jobs:
 
       - name: ⚠️ JSDoc violations detected (non-blocking)
         if: steps.jsdoc_lint.outputs.jsdoc_count != '0'
-        run: echo "⚠️ JSDoc lint check failed with ${{ steps.jsdoc_lint.outputs.jsdoc_count }} violations (non-blocking)"
+        run: |
+          echo "⚠️ JSDoc lint check failed with ${{ steps.jsdoc_lint.outputs.jsdoc_count }} violations (non-blocking)"
+          echo "--- JSDoc Violations ---"
+          cat jsdoc-lint-output.txt
 
       # Test to ensure the package is working
       - name: Build Node.js project
@@ -123,7 +126,7 @@ jobs:
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.4.1
+          npm install -g npm@11.4.2
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -184,7 +187,7 @@ jobs:
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.4.1
+          npm install -g npm@11.4.2
 
       - name: Install Node.js dependencies
         run: npm ci

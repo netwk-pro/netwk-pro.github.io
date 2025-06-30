@@ -17,6 +17,8 @@ jobs:
   check:
     name: Check CodeQL Status
     runs-on: ubuntu-24.04
+    env:
+      ENV_MODE: ci
 
     steps:
       - name: Check CodeQL Workflow

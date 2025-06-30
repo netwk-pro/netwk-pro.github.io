@@ -34,15 +34,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: lts/*
-          check-latest: true
+          node-version: 24
           cache: npm
           cache-dependency-path: package-lock.json
 
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.4.1
+          npm install -g npm@11.4.2
 
       - name: Install Node.js dependencies
         run: npm ci

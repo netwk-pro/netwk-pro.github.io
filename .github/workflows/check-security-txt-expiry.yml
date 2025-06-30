@@ -19,7 +19,7 @@ jobs:
 
       - name: Check security.txt expiration
         run: |
-          FILE=".well-known/security.txt"
+          FILE="static/.well-known/security.txt"
           if [ ! -f "$FILE" ]; then
             echo "::error ::security.txt file not found!"
             exit 1
