@@ -36,8 +36,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 - Corrected naming of `check-security-txt-expiry.yml`
 - Updated Node version reference in `.node-version` and `.nvmrc` to `24.3.0`
 - Aligned environment context (`ENV_MODE: ci`) in `check-codeql` workflow to match `build-and-publish.yml` standardization
-- Updated npm version in `build-and-publish.yml` workflow to `11.4.2`
-- Updated Node and npm versions used in `lighthouse.yml` to `24` and `11.4.2`, respectively, to match existing workflows
+- Updated Node to `24` and npm to `11.4.2` across multiple workflows (`build-and-publish.yml`, `lighthouse.yml`, `playwright.yml`, and `publish-test.yml`) for version alignment
 - Upgraded dependencies:
   - `@eslint/compat` ^1.3.0 → ^1.3.1
   - `@eslint/js` ^9.29.0 → ^9.30.0
