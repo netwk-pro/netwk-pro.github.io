@@ -1,5 +1,13 @@
 # .github/workflows/build-and-publish.yml
 #
+# Reusable GitHub Actions workflow to build and publish a package to npmjs and
+# GPR.
+#
+# Version: v1.0.0
+# Maintainer: Scott Lopez <support@neteng.pro>
+# Usage: Copy to `.github/workflows/publish.yml` in your repo or reference
+# directly if shared centrally.
+#
 # Copyright © 2025 Network Pro Strategies (Network Pro™)
 # SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 # This file is part of Network Pro
@@ -7,8 +15,8 @@
 name: Build and Publish to Registries
 
 on:
-  release:
-    types: [created]
+  #  release:
+  #    types: [created]
   workflow_dispatch:
 
 # Allow one concurrent deployment

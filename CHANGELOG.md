@@ -22,6 +22,46 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.14.2] - 2025-06-30
+
+### Added
+
+- Added Node.js and npm environment checks to `build-and-publish.yml`.
+- Added `.github/workflows/templates/publish.template.yml` for reuse in other org repos.
+- JSDoc linting now outputs violation details for better visibility during CI checks
+
+### Changed
+
+- Version bumped to **v1.14.2**
+- Corrected naming of `check-security-txt-expiry.yml`
+- Updated Node version reference in `.node-version` and `.nvmrc` to `24.3.0`
+- Aligned environment context (`ENV_MODE: ci`) in `check-codeql` workflow to match `build-and-publish.yml` standardization
+- Updated Node to `24` and npm to `11.4.2` across multiple workflows (`build-and-publish.yml`, `lighthouse.yml`, `playwright.yml`, and `publish-test.yml`) for version alignment
+- Upgraded dependencies:
+  - `@eslint/compat` ^1.3.0 → ^1.3.1
+  - `@eslint/js` ^9.29.0 → ^9.30.0
+  - `@lhci/cli` ^0.15.0 → ^0.15.1
+  - `@playwright/test` ^1.53.0 → ^1.53.2
+  - `@sveltejs/kit` 2.21.5 → 2.22.2
+  - `@vitest/coverage-v8` ^3.2.3 → ^3.2.4
+  - `browserslist` ^4.25.0 → ^4.25.1
+  - `eslint` ^9.29.0 → ^9.30.0
+  - `eslint-plugin-jsdoc` ^51.0.1 → ^51.3.1
+  - `eslint-plugin-svelte` ^3.9.2 → ^3.10.1
+  - `playwright` ^1.53.0 → ^1.53.2
+  - `posthog-js` ^1.253.4 → ^1.256.0
+  - `prettier` ^3.5.3 → ^3.6.2
+  - `stylelint` ^16.20.0 → ^16.21.0
+  - `svelte` 5.34.3 → 5.34.9
+  - `svelte-check` ^4.2.1 → ^4.2.2
+  - `vitest` ^3.2.3 → ^3.2.4
+
+### Fixed
+
+- Updated `check-security-txt-expiry.yml` to use correct path for `security.txt` (now looks in `static/.well-known/`)
+
+---
+
 ## [1.14.1] - 2025-06-16
 
 ### Changed
@@ -499,7 +539,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.14.1...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.14.2...HEAD
+[1.14.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.2
 [1.14.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.1
 [1.14.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.0
 [1.13.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.13.8
