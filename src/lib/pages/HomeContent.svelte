@@ -15,19 +15,13 @@ This file is part of Network Pro.
 
   //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
-  const { COMPANY_INFO, PAGE, NAV } = CONSTANTS;
+  const { COMPANY_INFO, LINKS, PAGE, NAV } = CONSTANTS;
 
   /**
    * URL to the FOSS Spotlight page, using the base path
    * @type {string}
    */
   const spotlightLink = `${base}/foss-spotlight`;
-
-  /**
-   * URL to the external blog
-   * @type {string}
-   */
-  const blogLink = 'https://blog.netwk.pro';
 
   /**
    * CSS class for the index headings.
@@ -69,7 +63,7 @@ This file is part of Network Pro.
   📡
   <em>
     <strong>Stay informed:</strong> Follow our
-    <a href={blogLink} target={PAGE.SELF}>blog</a>
+    <a href={LINKS.BLOG} target={PAGE.SELF}>blog</a>
     and social channels for actionable insights, implementation guides, and the latest
     cybersecurity developments.
   </em>
@@ -81,7 +75,7 @@ This file is part of Network Pro.
 
 <p class={classLarge}>
   <strong>
-    <a href={blogLink} target={PAGE.SELF}>{COMPANY_INFO.APP_NAME} Blog</a>
+    <a href={LINKS.BLOG} target={PAGE.SELF}>{COMPANY_INFO.APP_NAME} Blog</a>
   </strong>
 </p>
 

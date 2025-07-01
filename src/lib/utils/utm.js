@@ -8,20 +8,42 @@ This file is part of Network Pro.
 
 /**
  * @file utm.js
- * @description Append UTM parameter from window.location to a given URL.
+ * @description Appends standardized UTM parameters to a given URL.
  * @module src/lib/utils/
  * @author SunDevil311
- * @updated 2025-05-28
+ * @updated 2025-06-30
  */
+
+import { browser } from '$app/environment';
+import { getStores } from '$app/stores';
+import { get } from 'svelte/store';
 
 /**
- * Returns `null` if not in a browser context.
- * @param {string} url - The base URL to append to
- * @returns {string | null}
+ * @param {string} url - The target URL to append UTM parameters to
+ * @returns {string} URL with appended UTM parameters
  */
 export function appendUTM(url) {
-  if (typeof window === 'undefined') return null;
+  if (!browser) return url;
 
-  const utm = new URLSearchParams(window.location.search).get('utm_source');
-  return utm ? `${url}?utm_source=${encodeURIComponent(utm)}` : url;
+  const { page } = getStores();
+  const pathname = get(page).url.pathname;
+
+  let campaign = 'internal'; // default fallback
+
+  if (pathname.startsWith('/contact')) campaign = 'contact';
+  else if (pathname.startsWith('/links')) campaign = 'links';
+  else if (pathname.startsWith('/posts')) campaign = 'posts';
+  else if (pathname.startsWith('/privacy-rights')) campaign = 'prights';
+  // add more if needed
+
+  const utmParams = new URLSearchParams({
+    utm_source: 'netwk.pro',
+    utm_medium: 'redirect',
+    utm_campaign: campaign,
+  });
+
+  const separator = url.includes('?') ? '&' : '?';
+  return `${url}${separator}${utmParams.toString()}`;
 }
+
+// cspell:ignore prights

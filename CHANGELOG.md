@@ -22,6 +22,32 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.14.3] - 2025-06-30
+
+### Added
+
+- Manual event capture for redirect pages using PostHog, with automatic UTM parameter extraction
+- Utility function `getUTMParams` for parsing UTM query values from URLs
+- `trackingEnabled` named export from `trackingPreferences.js` for cleaner consumption
+
+### Changed
+
+- Refactored redirect logic in multiple pages to integrate UTM-aware analytics
+- All redirect pages now consistently open in a new browser tab using `<a>` fallback
+- Enhanced `utm.js` logic to support campaign identification for `/contact`, `/links`, `/posts`, and `/privacy-rights`
+- Updated `generator` metadata in `app.html` to `SvelteKit 2.22.2`
+- Modified `HomeContent.svelte` to use app constant for blog link
+- Removed inline styles from redirect pages and integrated them into the main stylesheet
+- Renamed "Data Sharing" section in Privacy Policy to "Legal Requests and Data Disclosure"
+- Expanded the above section to strengthen users' legal rights and privacy protections
+- Updated Privacy Policy effective date to June 30, 2025
+
+### Fixed
+
+- Reinstated filtering logic in `csp-report.js` to suppress low-value or noisy CSP violations
+
+---
+
 ## [1.14.2] - 2025-06-30
 
 ### Added
@@ -539,7 +565,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.14.2...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.14.3...HEAD
+[1.14.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.3
 [1.14.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.2
 [1.14.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.1
 [1.14.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.0

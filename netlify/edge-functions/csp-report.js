@@ -43,20 +43,25 @@ export default async (request, _context) => {
     const violated = report['violated-directive'] ?? '';
     const blockedUri = report['blocked-uri'] ?? '';
 
-    /*
-    // Filter: Skip img-src violations and empty URIs
-      const ignored = [
-        violated.startsWith('img-src'),
-        blockedUri === '',
-        blockedUri === 'about',
-        blockedUri.startsWith('chrome-extension://'),
-        blockedUri.startsWith('moz-extension://'),
-      ].some(Boolean);
+    // Filter: Skip noisy or unactionable reports
+    const ignored = [
+      violated.startsWith('img-src'),
+      blockedUri === '',
+      blockedUri === 'eval',
+      blockedUri === 'about',
+      blockedUri.startsWith('chrome-extension://'),
+      blockedUri.startsWith('moz-extension://'),
+      !report['source-file'],
+      !report['document-uri'],
+    ].some(Boolean);
 
-      if (ignored) {
-        return new Response(null, { status: 204 });
-      }
-    */
+    if (ignored) {
+      console.log('[CSP-Edge] Ignored low-value violation:', {
+        directive: violated,
+        uri: blockedUri,
+      });
+      return new Response(null, { status: 204 });
+    }
 
     // Send alert for high-risk directives
     await sendToNtfy(violated, blockedUri, report);
@@ -97,7 +102,9 @@ async function sendToNtfy(violated, blockedUri, report) {
 
   const directiveKey = violated.split(' ')[0]; // strip fallback values or sources
   const isHighRisk = highRiskDirectives.includes(directiveKey);
-  console.log(`[CSP-Edge] Checking directive: ${directiveKey}`);
+  console.log(
+    `[CSP-Edge] Directive ${directiveKey} is ${isHighRisk ? '' : 'not '}high-risk`,
+  );
   if (!isHighRisk) return;
 
   const key = `${violated}|${blockedUri}`;
