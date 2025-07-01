@@ -342,13 +342,13 @@ This file is part of Network Pro.
           in a manner consistent with our privacy commitments, and (c) appropriate
           technical and contractual safeguards are in place to protect it.
         </li>
-        <p>
-          Our policy is to require proper legal documentation and to scrutinize
-          all requests on a case-by-case basis. Outside these clearly defined
-          situations, we do not share, sell, or otherwise provide access to user
-          information.
-        </p>
       </ul>
+      <p>
+        Our policy is to require proper legal documentation and to scrutinize
+        all requests on a case-by-case basis. Outside these clearly defined
+        situations, we do not share, sell, or otherwise provide access to user
+        information.
+      </p>
     {:else if link.id === 'security'}
       <p>
         We implement industry-standard security measures to protect your data.
