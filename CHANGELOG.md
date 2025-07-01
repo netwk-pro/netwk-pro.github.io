@@ -45,6 +45,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 ### Fixed
 
 - Reinstated filtering logic in `csp-report.js` to suppress low-value or noisy CSP violations
+- Resolved `ReferenceError` in `utm.test.js` by reordering mocked imports for `$app/environment` and `$app/stores` to comply with Vitest's hoisting behavior
 
 ---
 

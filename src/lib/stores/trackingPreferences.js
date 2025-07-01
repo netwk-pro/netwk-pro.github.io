@@ -181,7 +181,10 @@ export const remindUserToReconsent = derived(trackingPreferences, (_prefs) => {
 });
 
 /** @type {import('svelte/store').Readable<boolean>} */
-export const trackingEnabled = derived(trackingPreferences, ($prefs) => $prefs.enabled);
+export const trackingEnabled = derived(
+  trackingPreferences,
+  ($prefs) => $prefs.enabled,
+);
 
 /**
  * Force-refresh current preferences
