@@ -180,6 +180,12 @@ export const remindUserToReconsent = derived(trackingPreferences, (_prefs) => {
   return age > 1000 * 60 * 60 * 24 * 180; // 6 months
 });
 
+/** @type {import('svelte/store').Readable<boolean>} */
+export const trackingEnabled = derived(
+  trackingPreferences,
+  ($prefs) => $prefs.enabled,
+);
+
 /**
  * Force-refresh current preferences
  * @returns {void}

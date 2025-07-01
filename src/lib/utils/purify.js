@@ -10,7 +10,7 @@ This file is part of Network Pro.
  * @file purify.js
  * @description Universal DOMPurify instance for SSR + client with safe build support.
  * Secures untrusted HTML before injecting it into the DOM.
- * @module src/lib/utils
+ * @module src/lib/utils/
  * @author SunDevil311
  * @updated 2025-06-01
  */

@@ -461,12 +461,12 @@ footer .container {
   line-height: 1.125rem;
   background: none;
   border-radius: 0;
-  font-family: monospace;     /* retain code look */
+  font-family: monospace; /* retain code look */
   outline: none;
-  overflow-wrap: break-word;  /* modern replacement */
+  overflow-wrap: break-word; /* modern replacement */
   resize: none;
-  white-space: normal;        /* allow wrapping */
-  word-break: normal;         /* avoid deprecated behavior */
+  white-space: normal; /* allow wrapping */
+  word-break: normal; /* avoid deprecated behavior */
 }
 
 .fingerprint {
@@ -574,4 +574,9 @@ footer .container {
 .proton-img {
   width: 168px;
   height: 24px;
+}
+
+.redirect-text {
+  text-align: center;
+  margin-top: 4rem;
 }

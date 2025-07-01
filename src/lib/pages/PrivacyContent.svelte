@@ -44,7 +44,7 @@ This file is part of Network Pro.
     { id: 'tracking', text: 'Web Analytics and Tracking' },
     { id: 'payment', text: 'Payment Information' },
     { id: 'use', text: 'Use of Information' },
-    { id: 'sharing', text: 'Data Sharing' },
+    { id: 'legal', text: 'Legal Requests and Data Disclosure' },
     { id: 'security', text: 'Data Security' },
     { id: 'rights', text: 'User Rights' },
     { id: 'third-party', text: 'Third-Party Links' },
@@ -54,7 +54,7 @@ This file is part of Network Pro.
   ];
 
   /** @type {string} */
-  const effectiveDate = 'June 2, 2025';
+  const effectiveDate = 'June 30, 2025';
 
   /** @type {string} */
   const classSmall = 'small-text';
@@ -159,12 +159,11 @@ This file is part of Network Pro.
     <!-- Dynamic Content for Each Section -->
     {#if link.id === 'intro'}
       <p>
-        Network Pro Strategies ("Company," "we," "us," or "our") is committed to
-        protecting the privacy of clients and website visitors. This Privacy
-        Policy outlines how we collect, use, and safeguard your information when
-        you interact with our website or services, consistent with applicable
-        U.S. federal law and Arizona law, including Title 18, Chapter 5, Article
-        4 of the
+        {COMPANY_INFO.NAME} ("Company," "we," "us," or "our") is committed to protecting
+        the privacy of clients and website visitors. This Privacy Policy outlines
+        how we collect, use, and safeguard your information when you interact with
+        our website or services, consistent with applicable U.S. federal law and
+        Arizona law, including Title 18, Chapter 5, Article 4 of the
         <strong>
           <a
             rel={PAGE.REL}
@@ -306,33 +305,50 @@ This file is part of Network Pro.
         <li><strong>Conduct analytics and enhance user experience</strong></li>
         <li><strong>Ensure legal and regulatory compliance</strong></li>
       </ul>
-    {:else if link.id === 'sharing'}
+    {:else if link.id === 'legal'}
       <p>
-        We do not sell personal information. However, we may share personal and
-        business information under the following circumstances:
+        We do not sell personal or business information. We disclose such data
+        only when required by law, and under limited, clearly defined
+        circumstances:
       </p>
       <ul>
         <li>
-          <strong>With Service Providers:</strong> We may share your information
-          with carefully selected third-party vendors. These providers support
-          essential aspects of our operations&mdash;including, but not limited
-          to, payment processing, data analytics, and customer support services.
-          All such partnerships are structured to uphold our core principles of
-          <em>transparency, self-hosting, and prioritizing user privacy</em> across
-          all infrastructure and data flows.
+          <strong>Legal Compliance</strong>: We may disclose information in
+          response to a valid legal process—such as a subpoena, court order, or
+          other binding legal request issued under applicable law. We do not
+          voluntarily provide user data to government entities or third parties
+          without a legal obligation to do so.
         </li>
         <li>
-          <strong>Legal Compliance:</strong> We may disclose information if required
-          to do so by applicable law, regulation, legal process, or enforceable governmental
-          request, including subpoenas or court orders.
+          <strong>Review and Notice</strong>: Each request for user data is
+          reviewed to ensure it is lawful, specific, and properly served. Unless
+          prohibited by law, we will notify affected users before disclosing any
+          information.
         </li>
         <li>
-          <strong>Business Transfers:</strong> In connection with a merger, acquisition,
-          asset sale, or similar corporate transaction, we may disclose or transfer
-          personal information, provided that reasonable steps are taken to ensure
-          continued confidentiality and compliance with applicable privacy laws.
+          <strong>Service Providers</strong>: We may share personal or business
+          information with trusted third-party vendors who support essential
+          business functions (e.g., payment processing, analytics, customer
+          support). All such partnerships are governed by strict data protection
+          terms and structured to uphold our core principles of
+          <em>transparency and user privacy</em>.
+        </li>
+        <li>
+          <strong>Business Transfers</strong>: In the event of a merger,
+          acquisition, or sale of assets, personal and business information may
+          be transferred
+          <em>only if the receiving party provides written assurances</em> that:
+          (a) the information will not be sold or misused, (b) it will be handled
+          in a manner consistent with our privacy commitments, and (c) appropriate
+          technical and contractual safeguards are in place to protect it.
         </li>
       </ul>
+      <p>
+        Our policy is to require proper legal documentation and to scrutinize
+        all requests on a case-by-case basis. Outside these clearly defined
+        situations, we do not share, sell, or otherwise provide access to user
+        information.
+      </p>
     {:else if link.id === 'security'}
       <p>
         We implement industry-standard security measures to protect your data.
@@ -383,7 +399,6 @@ This file is part of Network Pro.
       </p>
       <p>
         To exercise any of these rights, you may submit a request through our <a
-          rel={PAGE.REL}
           href={prightsLink}
           target={PAGE.BLANK}>Privacy Rights Request Form</a
         >. Alternatively, you can email us at
@@ -397,10 +412,10 @@ This file is part of Network Pro.
       </p>
     {:else if link.id === 'disclaimers'}
       <p>
-        Network Pro Strategies offers informational content as a public service.
-        No warranties are made regarding the accuracy or completeness of such
-        content. Consulting services are governed by separate contracts. We
-        disclaim liability for third-party services integrated or referenced.
+        {COMPANY_INFO.NAME} offers informational content as a public service. No
+        warranties are made regarding the accuracy or completeness of such content.
+        Consulting services are governed by separate contracts. We disclaim liability
+        for third-party services integrated or referenced.
       </p>
     {:else if link.id === 'changes'}
       <p>
@@ -410,7 +425,6 @@ This file is part of Network Pro.
     {:else if link.id === 'contact'}
       <p>
         For questions, please utilize our <a
-          rel={PAGE.REL}
           href={contactLink}
           target={PAGE.BLANK}>Contact Form</a> or contact us directly:
       </p>

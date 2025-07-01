@@ -1,5 +1,5 @@
 <!-- ==========================================================================
-src/routes/contact/+page.svelte
+src/routes/posts/+page.svelte
 
 Copyright © 2025 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
@@ -9,8 +9,17 @@ This file is part of Network Pro.
 <script>
   import RedirectPage from '$lib/components/RedirectPage.svelte';
   import { appendUTM } from '$lib/utils/utm.js';
+  import { getUTMParams } from '$lib/utils/getUTMParams.js';
+  import { trackingEnabled } from '$lib/stores/trackingPreferences';
+  import posthog from 'posthog-js';
+  import { get } from 'svelte/store';
   import { onMount } from 'svelte';
   import { browser } from '$app/environment';
+  import { CONSTANTS } from '$lib';
+
+  //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+
+  const { PAGE } = CONSTANTS;
 
   /** @type {string | null} */
   let target = null;
@@ -21,13 +30,25 @@ This file is part of Network Pro.
   onMount(() => {
     if (!browser) return;
 
-    target = appendUTM('https://pal.bio/netwk-pro');
-    show = true;
+    const url = appendUTM('https://pal.bio/netwk-pro');
+
+    if (get(trackingEnabled)) {
+      const utm = getUTMParams(url);
+      posthog.capture('redirect_to_pallyy', {
+        target_url: url,
+        ...utm,
+      });
+    }
+
+    setTimeout(() => {
+      target = url;
+      show = true;
+    }, 150);
   });
 </script>
 
 {#if show && target}
-  <RedirectPage to={target} rel="noopener noreferrer" />
+  <RedirectPage to={target} rel={PAGE.REL} />
 {:else}
-  <p style="text-align: center; margin-top: 4rem;">Preparing to redirect…</p>
+  <p class="redirect-text">Preparing to redirect…</p>
 {/if}
