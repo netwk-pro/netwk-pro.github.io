@@ -37,10 +37,8 @@ This file is part of Network Pro.
       });
     }
 
-    setTimeout(() => {
-      target = url;
-      show = true;
-    }, 150);
+    target = url;
+    show = true; // Immediately show RedirectPage
   });
 </script>
 

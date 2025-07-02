@@ -34,6 +34,7 @@ export function appendUTM(url) {
   else if (pathname.startsWith('/links')) campaign = 'links';
   else if (pathname.startsWith('/posts')) campaign = 'posts';
   else if (pathname.startsWith('/privacy-rights')) campaign = 'prights';
+  else if (pathname.startsWith('/consultation')) campaign = 'consult';
   // add more if needed
 
   const utmParams = new URLSearchParams({

@@ -9,6 +9,10 @@ This file is part of Network Pro.
 <script>
   import RedirectPage from '$lib/components/RedirectPage.svelte';
   import { appendUTM } from '$lib/utils/utm.js';
+  import { getUTMParams } from '$lib/utils/getUTMParams.js';
+  import { trackingEnabled } from '$lib/stores/trackingPreferences';
+  import posthog from 'posthog-js';
+  import { get } from 'svelte/store';
   import { onMount } from 'svelte';
   import { browser } from '$app/environment';
 
@@ -21,10 +25,20 @@ This file is part of Network Pro.
   onMount(() => {
     if (!browser) return;
 
-    target = appendUTM(
+    const url = appendUTM(
       'https://cloud.neteng.pro/index.php/apps/appointments/pub/8clCqQrt3AtGbNrr/form',
     );
-    show = true;
+
+    if (get(trackingEnabled)) {
+      const utm = getUTMParams(url);
+      posthog.capture('redirect_to_consult', {
+        target_url: url,
+        ...utm,
+      });
+    }
+
+    target = url;
+    show = true; // Immediately show RedirectPage
   });
 </script>
 

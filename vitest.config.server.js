@@ -23,7 +23,7 @@ export default defineConfig({
   test: {
     name: 'server',
     environment: 'node',
-    include: ['tests/unit/**/*.test.{js,mjs}'],
+    include: ['tests/unit/server/**/*.test.{js,mjs}'],
     exclude: ['tests/unit/**/*.svelte.test.{js,mjs}'],
     reporters: ['default', 'json'],
     testTimeout: 10000,

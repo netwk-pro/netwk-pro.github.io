@@ -580,3 +580,25 @@ footer .container {
   text-align: center;
   margin-top: 4rem;
 }
+
+.redirect-content {
+  text-align: center;
+  font-family: system-ui, sans-serif;
+  margin-top: 2rem;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  margin: 2rem auto;
+  border: 4px solid #ddd;
+  animation: spin 1s linear infinite;
+  border-radius: 50%;
+  border-top: 4px solid #ffc627;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
