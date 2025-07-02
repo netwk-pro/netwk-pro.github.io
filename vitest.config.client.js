@@ -26,10 +26,7 @@ export default defineConfig({
     name: 'client',
     environment: 'jsdom',
     clearMocks: true,
-    include: [
-      'tests/unit/**/*.test.{js,mjs,svelte}',
-      'tests/internal/**/*.test.{js,mjs,svelte}',
-    ],
+    include: ['tests/unit/client/**/*.test.{js,mjs,svelte}'],
     exclude: [],
     setupFiles: ['./vitest-setup-client.js'],
     reporters: ['default', 'json'],

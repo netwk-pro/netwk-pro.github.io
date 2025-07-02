@@ -1,5 +1,5 @@
 /* ==========================================================================
-tests/internal/auditCoverage.test.js
+tests/unit/server/internal/auditCoverage.test.js
 
 Copyright © 2025 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
@@ -8,10 +8,11 @@ This file is part of Network Pro.
 
 /**
  * @file auditCoverage.test.js
- * @description Scans all .js files in src/ and scripts/ for matching unit test
+ * @description Scans all .js files in src/ and scripts/ for matching unit
+ * tests
  * @module tests/internal
  * @author SunDevil311
- * @updated 2025-06-01
+ * @updated 2025-07-01
  */
 
 import fs from 'fs';
@@ -60,20 +61,26 @@ describe('auditCoverage', () => {
     const allFiles = [...srcFiles, ...scriptsFiles].map((f) =>
       path
         .relative(process.cwd(), f)
-        .replace(/\\/g, '/') // Normalize Windows slashes
+        .replace(/\\/g, '/')
         .replace(/^src\//, '')
         .replace(/^scripts\//, '')
         .replace(/\.js$/, ''),
     );
 
-    const testFiles = getAllJsFiles(path.resolve('tests/unit'), {
+    const clientTests = getAllJsFiles(path.resolve('tests/unit/client'), {
       includeTests: true,
     });
+    const serverTests = getAllJsFiles(path.resolve('tests/unit/server'), {
+      includeTests: true,
+    });
+    const testFiles = [...clientTests, ...serverTests];
 
     const testFilesNormalized = testFiles.map((f) =>
       path
-        .relative(path.resolve('tests/unit'), f)
+        .relative(process.cwd(), f)
         .replace(/\\/g, '/')
+        .replace(/^tests\/unit\/client\//, '')
+        .replace(/^tests\/unit\/server\//, '')
         .replace(/\.test\.js$|\.spec\.js$/, ''),
     );
 

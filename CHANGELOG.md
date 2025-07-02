@@ -22,6 +22,54 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.15.0] - 2025-07-01
+
+### Added
+
+- `redirect.js` utility to handle browser-aware redirects with fallback logic for Firefox.
+- Unit test for `redirect.js` under `tests/unit/client/lib/utils/redirect.test.js`.
+- `/consultation` redirect route to `utm.js` UTM-tracking logic.
+- Redirect from `/foss` to `/foss-spotlight` in `_redirects`.
+- `scripts/testRedirect.js` to verify Netlify/SvelteKit trailing slash redirect behavior.
+- `test:redirects` script in package.json to trigger `scripts/testRedirects.js`
+- Logic to suppress `rel="noopener noreferrer"` on internal redirects in `HeaderHome.svelte` and `HeaderDefault.svelte`
+- `redirect` flag to navigation metadata to distinguish internal redirect behavior in `HeaderHome.svelte` and `HeaderDefault.svelte`
+
+### Changed
+
+- Bumped version to **v1.15.0**
+- Restructured unit tests:
+  - Moved `purify.test.js` to `tests/unit/client/lib/utils/`
+  - Moved `utm.test.js` to `tests/unit/client/lib/utils/`
+  - Moved `unregisterServiceWorker.test.js` to `tests/unit/client/lib/utils/`
+  - Moved `page.svelte.test.js` to `tests/unit/client/routes/`
+  - Moved `checkEnv.test.js`, `checkVersions.test.js`, and `csp-report.test.js` to `tests/unit/server/`
+  - Moved `auditCoverage.test.js` to `tests/unit/server/internal/`
+- Refactored `_redirects` file:
+  - Removed trailing slashes to match SvelteKit/Netlify conventions.
+- Updated `RedirectPage.svelte` to use `redirectWithBrowserAwareness()` for better cross-browser redirect behavior.
+- Refactored all relevant `+page.svelte` files to remove local redirect timeouts and centralize logic in `RedirectPage`.
+- Updated `vitest.config.client.js` and `vitest.config.server.js` to:
+  - Reflect new directory structure
+  - Properly assign `jsdom` for client-side tests and `node` for server-side tests
+- `/consultation`, `/contact`, `/links`, `/posts`, and `/privacy-rights` `+page.svelte` files updated to capture UTM parameters in a privacy-preserving manner.
+- Moved inline styles from `RedirectPage.svelte` to `src/lib/styles/css/default.css`, including `@keyframes spin` animation used by `.loading-spinner`
+- Removed unnecessary `rel` attribute from internal links in `AboutContent.svelte`, `LicenseContent.svelte`, and `PrivacyDashboard.svelte`
+- Updated project README with revised directory structure reflecting separate client/server test folders.
+- Upgraded dependencies:
+  - `globals` `^16.2.0` → `^16.3.0`
+
+### Fixed
+
+- Firefox-specific issue where delayed `window.location.replace()` triggered a new tab instead of redirecting in the same window — now handled by bypassing the delay in Firefox.
+- Prevented server-context tests from breaking due to `window` usage by scoping them to client-only environments.
+
+## Removed
+
+- `head:flatten` and `head:validate` scripts in package.json, as the `_headers` file has been deprecated
+
+---
+
 ## [1.14.3] - 2025-06-30
 
 ### Added
@@ -32,6 +80,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ### Changed
 
+- Bumped version to **v1.14.3**
 - Refactored redirect logic in multiple pages to integrate UTM-aware analytics
 - All redirect pages now consistently open in a new browser tab using `<a>` fallback
 - Enhanced `utm.js` logic to support campaign identification for `/contact`, `/links`, `/posts`, and `/privacy-rights`
@@ -566,8 +615,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.14.3...HEAD
-[1.14.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.3
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.15.0...HEAD
+[1.15.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.0
 [1.14.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.2
 [1.14.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.1
 [1.14.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.0

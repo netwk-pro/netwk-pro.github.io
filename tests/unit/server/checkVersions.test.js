@@ -1,5 +1,5 @@
 /* ==========================================================================
-tests/unit/checkVersions.test.js
+tests/unit/server/checkVersions.test.js
 
 Copyright © 2025 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
@@ -11,7 +11,7 @@ This file is part of Network Pro.
  */
 
 import { describe, expect, it } from 'vitest';
-import { checkVersions } from '../../scripts/checkVersions.js';
+import { checkVersions } from '../../../scripts/checkVersions.js';
 
 describe('checkVersions()', () => {
   it('should match current Node and NPM versions to engine ranges', () => {

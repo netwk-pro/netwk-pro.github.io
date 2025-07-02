@@ -237,7 +237,6 @@ This file is part of Network Pro.
   </p>
   <p>
     To exercise any of these rights, you may submit a request through our <a
-      rel={PAGE.REL}
       href={prightsLink}
       target={PAGE.BLANK}>Privacy Rights Request Form</a
     >. Alternatively, you can email us at

@@ -217,7 +217,7 @@ This file is part of Network Pro.
 <div class="spacer"></div>
 
 <p>
-  <a rel={PAGE.REL} href={contactLink} target={PAGE.BLANK}>Let's connect</a>
+  <a href={contactLink} target={PAGE.BLANK}>Let's connect</a>
   to discuss how we can help secure and strengthen your business today.
 </p>
 

@@ -487,8 +487,7 @@ This file is part of Network Pro.
     {:else if link.id === 'contact'}
       <p>
         The Company can be contacted via our
-        <a rel={PAGE.REL} href={contactLink} target={PAGE.BLANK}
-          >Contact Form</a>
+        <a href={contactLink} target={PAGE.BLANK}>Contact Form</a>
         or by email at:<br />
         📧 <strong>{CONTACT.EMAIL}</strong>
       </p>

@@ -21,6 +21,8 @@ This file is part of Network Pro.
   const fossLink = `${base}/foss-spotlight`;
   const lhubLink = `${base}/links`;
   const blogLink = 'https://blog.netwk.pro';
+  const discussLink =
+    'https://github.com/netwk-pro/netwk-pro.github.io/discussions';
 
   /**
    * Navigation link object.
@@ -29,6 +31,7 @@ This file is part of Network Pro.
    * @property {string} href - The URL or anchor the link points to.
    * @property {string} target - Specifies where to open the link (e.g., "_self" or "_blank").
    * @property {boolean} external - Whether the link points to an external resource.
+   * @property {boolean} [redirect=false] - Indicates whether the external link is actually an internal redirect.
    */
 
   /**
@@ -46,15 +49,17 @@ This file is part of Network Pro.
     },
     {
       label: 'discussions',
-      href: 'https://github.com/netwk-pro/netwk-pro.github.io/discussions',
+      href: discussLink,
       target: PAGE.BLANK,
       external: true,
+      redirect: false,
     },
     {
       label: 'link hub',
       href: lhubLink,
       target: PAGE.BLANK,
       external: true,
+      redirect: true,
     },
   ];
 
@@ -67,8 +72,8 @@ This file is part of Network Pro.
 
 <!-- BEGIN HOME HEADER -->
 <nav class="center-nav" aria-label="Homepage navigation">
-  {#each nav as { label, href, target, external }, index}
-    <a {href} {target} rel={external ? rel : undefined}>
+  {#each nav as { label, href, target, external, redirect }, index}
+    <a {href} {target} rel={!redirect && external ? rel : undefined}>
       {label}
     </a>
     {#if external}

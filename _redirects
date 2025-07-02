@@ -3,13 +3,15 @@ https://www.netwk.pro/*     https://netwk.pro/:splat         301
 
 # Redirect /privacy-policy (and variants) to /privacy
 /privacy-policy             /privacy                         301
-/privacy-policy/            /privacy                         301
 /privacy-policy/*           /privacy/:splat                  301
 
 # Redirect /legal (and variants) to /license
 /legal                      /license                         301
-/legal/                     /license                         301
 /legal/*                    /license/:splat                  301
+
+# Redirect /foss (and variants) to /foss-spotlight
+/foss                       /foss-spotlight                  301
+/foss/*                     /foss-spotlight/:splat           301
 
 # Redirect for Netlify function proxy
 /api/*                      /.netlify/functions/:splat       200

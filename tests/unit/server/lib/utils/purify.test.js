@@ -1,5 +1,5 @@
 /* ==========================================================================
-tests/unit/lib/utils/purify.test.js
+tests/unit/server/lib/utils/purify.test.js
 
 Copyright © 2025 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
@@ -15,7 +15,7 @@ This file is part of Network Pro.
  */
 
 import { describe, expect, it } from 'vitest';
-import { sanitizeHtml } from '../../../../src/lib/utils/purify.js';
+import { sanitizeHtml } from '../../../../../src/lib/utils/purify.js';
 
 describe('sanitizeHtml', () => {
   it('removes dangerous tags like <script>', async () => {

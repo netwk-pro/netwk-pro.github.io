@@ -1,5 +1,5 @@
 /* ==========================================================================
-tests/unit/checkEnv.test.js
+tests/unit/server/checkEnv.test.js
 
 Copyright © 2025 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
@@ -11,7 +11,7 @@ This file is part of Network Pro.
  */
 
 import { afterEach, describe, expect, it } from 'vitest';
-import { checkEnv } from '../../scripts/checkEnv.js';
+import { checkEnv } from '../../../scripts/checkEnv.js';
 
 describe('checkEnv()', () => {
   const originalEnv = process.env.ENV_MODE;

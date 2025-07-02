@@ -8,6 +8,7 @@ This file is part of Network Pro.
 
 <script>
   import { onMount } from 'svelte';
+  import { redirectWithBrowserAwareness } from '$lib/utils/redirect.js';
   import FullWidthSection from '$lib/components/FullWidthSection.svelte';
 
   export let to;
@@ -15,16 +16,7 @@ This file is part of Network Pro.
   export let delay = 3;
 
   onMount(() => {
-    if (!to) {
-      console.warn('⛔ No redirect target provided');
-      return;
-    }
-
-    console.log('✅ Starting redirect to:', to);
-
-    setTimeout(() => {
-      window.location.href = to;
-    }, delay * 1000);
+    redirectWithBrowserAwareness(to, delay);
   });
 </script>
 
@@ -47,27 +39,3 @@ This file is part of Network Pro.
 </FullWidthSection>
 
 <!-- END MAIN CONTENT -->
-
-<style>
-  .redirect-content {
-    text-align: center;
-    font-family: system-ui, sans-serif;
-    margin-top: 2rem; /* adjust as needed */
-  }
-
-  .loading-spinner {
-    width: 48px;
-    height: 48px;
-    margin: 2rem auto;
-    border: 4px solid #ddd;
-    animation: spin 1s linear infinite;
-    border-radius: 50%;
-    border-top: 4px solid #ffc627;
-  }
-
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-</style>
