@@ -20,6 +20,9 @@ Disallow: /.lighthouseci/
 # Disallow stub routes that redirect externally
 Disallow: /contact
 Disallow: /privacy-rights
+Disallow: /consultation
+Disallow: /links
+Disallow: /posts
 
 # Allow everything else
 Allow: /
