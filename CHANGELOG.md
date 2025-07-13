@@ -22,6 +22,41 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.15.1] - 2025-07-12
+
+### Added
+
+- Added `Report-To` header in `src/hooks.server.js` to support modern CSP reporting
+
+### Changed
+
+- Bumped project version to `1.15.1`
+- Updated CSP report URL in `src/hooks.server.js` to use external endpoint
+- Updated `sitemap.xml` to reflect latest site structure
+- Updated `.node-version` and `.nvmrc` to `v24.4.0`
+- Cleaned up `netlify.toml`:
+  - Removed `[[edge_functions]]` block
+  - Confirmed `ENV_MODE` remains for internal tooling
+- Updated to latest versions:
+  - `@eslint/js` to `^9.31.0`
+  - `@playwright/test` to `^1.54.1`
+  - `@sveltejs/kit` to `2.22.5`
+  - `@sveltejs/vite-plugin-svelte` to `6.0.0`
+  - `eslint` to `^9.31.0`
+  - `eslint-plugin-jsdoc` to `^51.3.4`
+  - `playwright` to `^1.54.1`
+  - `posthog-js` to `^1.257.0`
+  - `stylelint` to `^16.21.1`
+  - `svelte` to `5.35.6`
+  - `vite` to `7.0.4`
+
+### Removed
+
+- Deleted `/netlify/edge-functions/` and `csp-report.js` (CSP report handling is now in its own project)
+- Removed `tests/unit/server/csp-report.test.js` from project, as CSP endpoint has been relocated
+
+---
+
 ## [1.15.0] - 2025-07-01
 
 ### Added
@@ -615,7 +650,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.15.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.15.1...HEAD
+[1.15.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.1
 [1.15.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.0
 [1.14.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.2
 [1.14.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.1

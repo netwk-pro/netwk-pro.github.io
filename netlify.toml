@@ -2,17 +2,12 @@
   command = "npm run build"
 
 [build.environment]
-  NODE_VERSION = "22"
   ENV_MODE = "prod"
 
 [dev]
   command = "npm run dev"
   targetPort = 5173
   port = 8888
-
-[[edge_functions]]
-  path = "/api/csp-report"
-  function = "csp-report"
 
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"

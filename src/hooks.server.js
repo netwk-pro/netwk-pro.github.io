@@ -25,7 +25,10 @@ export async function handle({ event, resolve }) {
   console.log('[CSP Debug] ENV_MODE:', process.env.ENV_MODE);
 
   // Determine report URI
-  const reportUri = isProdEnvironment ? '/api/csp-report' : '/api/mock-csp';
+  const reportUri =
+    isProdEnvironment && !isTestEnvironment
+      ? 'https://csp.netwk.pro/.netlify/functions/csp-report'
+      : '/api/mock-csp';
 
   // Construct base policy
   const cspDirectives = [
@@ -40,7 +43,9 @@ export async function handle({ event, resolve }) {
     "object-src 'none';",
     "frame-ancestors 'none';",
     'upgrade-insecure-requests;',
+    // Report CSP violations to external endpoint hosted at csp.netwk.pro
     `report-uri ${reportUri};`,
+    'report-to csp-endpoint;',
   ];
 
   // Loosen up CSP for test environments
@@ -53,6 +58,20 @@ export async function handle({ event, resolve }) {
     cspDirectives[4] = "img-src 'self' data:;";
     cspDirectives[5] = "connect-src 'self';";
   }
+
+  response.headers.set(
+    'Report-To',
+    JSON.stringify({
+      group: 'csp-endpoint',
+      max_age: 10886400, // 18 weeks
+      endpoints: [
+        {
+          url: 'https://csp.netwk.pro/.netlify/functions/csp-report',
+        },
+      ],
+      include_subdomains: true,
+    }),
+  );
 
   response.headers.set('Content-Security-Policy', cspDirectives.join(' '));
 
