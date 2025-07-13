@@ -22,6 +22,21 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.15.2] - 2025-07-12
+
+### Added
+
+- Added `Disallow` directives to `static/robots.txt` for stub routes:
+  - `/consultation`
+  - `/links`
+  - `/posts`
+
+### Changed
+
+- Updated `README.md` to reflect the updated directory structure after removing the `netlify/` directory.
+
+---
+
 ## [1.15.1] - 2025-07-12
 
 ### Added
@@ -650,7 +665,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.15.1...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.15.2...HEAD
+[1.15.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.2
 [1.15.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.1
 [1.15.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.0
 [1.14.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.14.2

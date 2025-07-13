@@ -71,9 +71,6 @@ This project follows the principles of [Keep a Changelog](https://keepachangelog
   │   ├── extensions.json           # Recommended VS Code / VSCodium extensions
   │   ├── extensions.jsonc          # Commented version of extensions.json
   │   └── settings.json             # Workspace settings
-  ├── netlify/
-  │   ├── edge-functions/
-  │   │   └── csp-report.js         # Receives CSP violation reports
   ├── scripts/                      # General-purpose utility scripts
   ├── src/
   │   ├── lib/                      # Components, utilities, types, styles
