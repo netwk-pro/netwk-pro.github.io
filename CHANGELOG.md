@@ -22,6 +22,37 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.15.3] - 2025-07-20
+
+### Added
+
+- New FOSS Spotlight entry: **Copy SMS Code – OTP Helper**
+- Added `otp-helper.png` and `otp-helper.webp` to `src/img/posts`
+- Imported image assets via `images.js` as `otphelpPng` and `otphelpWbp`
+
+### Changed
+
+- **Bumped version** to `v1.15.3`
+- **Updated Node.js version** to `v24.4.1` in `.node-version` and `.nvmrc`
+- **Updated generator metadata** in `app.html` to reflect `SvelteKit 2.25.1`
+- **Updated "Last Updated"** timestamp on FOSS Spotlight to `2025-07-20`
+- **Updated `sitemap.xml`** with current post dates
+
+- **Upgraded dependencies**:
+  - `@sveltejs/adapter-netlify` from `^5.0.2` to `^5.1.0`
+  - `@sveltejs/kit` from `2.22.5` to `2.25.1`
+  - `@sveltejs/vite-plugin-svelte` from `^6.0.0` to `^6.1.0`
+  - `eslint-config-prettier` from `^10.1.5` to `^10.1.8`
+  - `eslint-plugin-jsdoc` from `^51.3.4` to `^51.4.1`
+  - `eslint-plugin-svelte` from `^3.10.1` to `^3.11.0`
+  - `stylelint` from `^16.21.1` to `^16.22.0`
+  - `svelte` from `5.35.6` to `5.36.12`
+  - `svelte-check` from `^4.2.2` to `^4.3.0`
+  - `svelte-eslint-parser` from `^1.2.0` to `^1.3.0`
+  - `vite` from `^7.0.4` to `^7.0.5`
+
+---
+
 ## [1.15.2] - 2025-07-12
 
 ### Added
@@ -665,7 +696,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.15.2...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.15.3...HEAD
+[1.15.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.3
 [1.15.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.2
 [1.15.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.1
 [1.15.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.0
@@ -690,4 +722,4 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 [1.12.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.3
 [1.12.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.1
 
-<!-- cspell:ignore qrcode cryptom -->
+<!-- cspell:ignore qrcode cryptom otphelp -->

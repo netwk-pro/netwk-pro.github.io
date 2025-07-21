@@ -7,7 +7,7 @@ This file is part of Network Pro.
 ========================================================================== */
 
 // Import FOSS images
-import { acodePng, acodeWbp, cryptomPng, cryptomWbp, eauthPng, eauthWbp, hboardPng, hboardWbp, lsheetPng, lsheetWbp, pmxPng, pmxWbp, squirclePng, squircleWbp, tosPng, tosWbp, urlPng, urlWbp } from "$lib";
+import { acodePng, acodeWbp, cryptomPng, cryptomWbp, eauthPng, eauthWbp, hboardPng, hboardWbp, lsheetPng, lsheetWbp, otphelpPng, otphelpWbp, pmxPng, pmxWbp, squirclePng, squircleWbp, tosPng, tosWbp, urlPng, urlWbp } from "$lib";
 
 // cspell:disable
 /**
@@ -15,7 +15,7 @@ import { acodePng, acodeWbp, cryptomPng, cryptomWbp, eauthPng, eauthWbp, hboardP
  * @type {string}
  */
 const hboardLink = "obtainium://app/%7B%22id%22%3A%22helium314.keyboard%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2FHelium314%2FHeliBoard%22%2C%22author%22%3A%22Helium314%22%2C%22name%22%3A%22HeliBoard%22%2C%22preferredApkIndex%22%3A0%2C%22additionalSettings%22%3A%22%7B%5C%22includePrereleases%5C%22%3Afalse%2C%5C%22fallbackToOlderReleases%5C%22%3Atrue%2C%5C%22filterReleaseTitlesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22filterReleaseNotesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22verifyLatestTag%5C%22%3Afalse%2C%5C%22dontSortReleasesList%5C%22%3Afalse%2C%5C%22useLatestAssetDateAsReleaseDate%5C%22%3Afalse%2C%5C%22trackOnly%5C%22%3Afalse%2C%5C%22versionExtractionRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22matchGroupToUse%5C%22%3A%5C%22%5C%22%2C%5C%22versionDetection%5C%22%3Atrue%2C%5C%22releaseDateAsVersion%5C%22%3Afalse%2C%5C%22useVersionCodeAsOSVersion%5C%22%3Afalse%2C%5C%22apkFilterRegEx%5C%22%3A%5C%22release%5C%22%2C%5C%22invertAPKFilter%5C%22%3Afalse%2C%5C%22autoApkFilterByArch%5C%22%3Atrue%2C%5C%22appName%5C%22%3A%5C%22HeliBoard%5C%22%2C%5C%22shizukuPretendToBeGooglePlay%5C%22%3Afalse%2C%5C%22exemptFromBackgroundUpdates%5C%22%3Afalse%2C%5C%22skipUpdateNotifications%5C%22%3Afalse%2C%5C%22about%5C%22%3A%5C%22HeliBoard%20is%20a%20privacy-conscious%20and%20customizable%20open-source%20keyboard%2C%20based%20on%20AOSP%20%2F%20OpenBoard.%20Does%20not%20use%20internet%20permission%2C%20and%20thus%20is%20100%25%20offline.%5C%22%2C%5C%22appAuthor%5C%22%3A%5C%22Helium314%5C%22%7D%22%7D";
-//cspell:enable
+// cspell:enable
 
 // cspell:disable
 /**
@@ -23,9 +23,81 @@ const hboardLink = "obtainium://app/%7B%22id%22%3A%22helium314.keyboard%22%2C%22
  * @type {string}
  */
 const lsheetLink = "obtainium://app/%7B%22id%22%3A%22fe.linksheet.nightly%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2FLinkSheet%2Fnightly%22%2C%22author%22%3A%221fexd%22%2C%22name%22%3A%22LinkSheet%20Nightly%22%2C%22preferredApkIndex%22%3A0%2C%22additionalSettings%22%3A%22%7B%5C%22includePrereleases%5C%22%3Atrue%2C%5C%22fallbackToOlderReleases%5C%22%3Atrue%2C%5C%22filterReleaseTitlesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22filterReleaseNotesByRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22verifyLatestTag%5C%22%3Afalse%2C%5C%22dontSortReleasesList%5C%22%3Afalse%2C%5C%22useLatestAssetDateAsReleaseDate%5C%22%3Afalse%2C%5C%22trackOnly%5C%22%3Afalse%2C%5C%22versionExtractionRegEx%5C%22%3A%5C%22%5C%22%2C%5C%22matchGroupToUse%5C%22%3A%5C%22%5C%22%2C%5C%22versionDetection%5C%22%3Afalse%2C%5C%22releaseDateAsVersion%5C%22%3Afalse%2C%5C%22useVersionCodeAsOSVersion%5C%22%3Afalse%2C%5C%22apkFilterRegEx%5C%22%3A%5C%22LinkSheet.Nightly%5C%22%2C%5C%22invertAPKFilter%5C%22%3Atrue%2C%5C%22autoApkFilterByArch%5C%22%3Atrue%2C%5C%22appName%5C%22%3A%5C%22LinkSheet%20Nightly%5C%22%2C%5C%22shizukuPretendToBeGooglePlay%5C%22%3Afalse%2C%5C%22exemptFromBackgroundUpdates%5C%22%3Afalse%2C%5C%22skipUpdateNotifications%5C%22%3Afalse%2C%5C%22about%5C%22%3A%5C%22Restore%20link%20control%20on%20Android%2012%2B%5C%22%2C%5C%22appAuthor%5C%22%3A%5C%221fexd%5C%22%7D%22%7D";
-//cspell:enable
+// cspell:enable
 
 export const fossData = [
+  {
+    id: "otp-helper",
+    images: {
+      webp: otphelpWbp,
+      png: otphelpPng,
+    },
+    imgAlt: "Copy SMS Code - OTP Helper",
+    title: "Copy SMS Code - OTP Helper",
+    headline: "Secure. Effortless. 100% Open Source",
+    headlineDescription: `
+      <p>
+        If you've ever juggled between apps just to copy a one-time password (OTP), you know how frustrating the process can be.
+      </p>
+      <p>
+        <strong>Copy SMS Code - OTP Helper</strong> is a minimalist Android app that takes care of that, seamlessly detecting OTPs from SMS or notifications and copying them directly to your clipboard—<em>automatically</em>. No interaction needed. No internet access required. No user data touched.
+      </p>
+      <p>
+        And yes—it's fully <strong>open source</strong>, under the AGPL-3.0 license. 🔓
+      </p>
+    `,
+    features: [
+      {
+        emoji: "🧩",
+        label: "Why Copy SMS Code - OTP Helper stands out:",
+        isIntro: true
+      },
+      {
+        emoji: "✅",
+        label: "100% offline",
+        description: "doesn't even request internet permission",
+      },
+      {
+        emoji: "✅",
+        label: " Choose your workflow",
+        description: "Notification Listener or SMS access",
+      },
+      {
+        emoji: "✅",
+        label: "Compatible with virtually any OTP-based or 2FA system",
+      },
+      {
+        emoji: "✅",
+        label: "Lightweight, privacy-first, and customizable",
+      },
+      {
+        emoji: "✅",
+        label: "Translated into 70+ languages and growing",
+      },
+      {
+        emoji: "✅",
+        label: "Inspect, contribute, or fork on GitHub",
+      }
+    ],
+    detailsDescription: `
+      <p>
+        This is a perfect example of how small, thoughtful tools can reduce friction in our everyday workflows—<strong>while keeping user agency and transparency at the core.</strong>
+      </p>
+    `,
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/jd1378/otphelper",
+      },
+      {
+        label: "F-Droid",
+        href: "https://f-droid.org/packages/io.github.jd1378.otphelper",
+      }
+    ],
+    notes: [
+      "Let's continue supporting software that empowers users through simplicity and openness. 💡"
+    ],
+  },
   {
     id: "cryptomator",
     images: {
@@ -671,4 +743,4 @@ export const fossData = [
   },
 ];
 
-// cspell:ignore hboard gboard lsheet eauth tosdr cryptom
+// cspell:ignore hboard gboard lsheet eauth tosdr cryptom otphelp
