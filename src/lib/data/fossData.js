@@ -53,35 +53,38 @@ export const fossData = [
         isIntro: true
       },
       {
-        emoji: "✅",
+        emoji: "✔️",
         label: "100% offline",
         description: "doesn't even request internet permission",
       },
       {
-        emoji: "✅",
-        label: " Choose your workflow",
+        emoji: "✔️",
+        label: "Choose your workflow",
         description: "Notification Listener or SMS access",
       },
       {
-        emoji: "✅",
+        emoji: "✔️",
         label: "Compatible with virtually any OTP-based or 2FA system",
       },
       {
-        emoji: "✅",
+        emoji: "✔️",
         label: "Lightweight, privacy-first, and customizable",
       },
       {
-        emoji: "✅",
+        emoji: "✔️",
         label: "Translated into 70+ languages and growing",
       },
       {
-        emoji: "✅",
+        emoji: "✔️",
         label: "Inspect, contribute, or fork on GitHub",
       }
     ],
     detailsDescription: `
       <p>
         This is a perfect example of how small, thoughtful tools can reduce friction in our everyday workflows—<strong>while keeping user agency and transparency at the core.</strong>
+      </p>
+      <p>
+        Let's continue supporting software that empowers users through simplicity and openness. 💡
       </p>
     `,
     links: [
@@ -93,9 +96,6 @@ export const fossData = [
         label: "F-Droid",
         href: "https://f-droid.org/packages/io.github.jd1378.otphelper",
       }
-    ],
-    notes: [
-      "Let's continue supporting software that empowers users through simplicity and openness. 💡"
     ],
   },
   {

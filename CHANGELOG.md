@@ -22,6 +22,15 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.15.4] - 2025-07-20
+
+### Changed
+
+- Bumped version to `v1.15.4`
+- **Updated "Copy SMS Code - OTP Helper" entry** in `src/lib/data/fossData.js` to maintain visual consistency with previous "FOSS Spotlight" entries
+
+---
+
 ## [1.15.3] - 2025-07-20
 
 ### Added
@@ -696,7 +705,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.15.3...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.15.4...HEAD
+[1.15.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.4
 [1.15.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.3
 [1.15.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.2
 [1.15.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.1
