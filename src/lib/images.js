@@ -45,6 +45,8 @@ import hboardPng from '$lib/img/posts/hboard.png';
 import hboardWbp from '$lib/img/posts/hboard.webp';
 import lsheetPng from '$lib/img/posts/linksheet.png';
 import lsheetWbp from '$lib/img/posts/linksheet.webp';
+import otphelpPng from '$lib/img/posts/otp-helper.png';
+import otphelpWbp from '$lib/img/posts/otp-helper.webp';
 import pmxPng from '$lib/img/posts/pmx.png';
 import pmxWbp from '$lib/img/posts/pmx.webp';
 import squirclePng from '$lib/img/posts/squircle.png';
@@ -83,10 +85,9 @@ export {
   logoPng,
   logoWbp,
   lsheetPng,
-  lsheetWbp,
-  obtainiumPng,
-  obtainiumWbp,
-  pgpContactPng,
+  lsheetWbp, obtainiumPng,
+  obtainiumWbp, otphelpPng,
+  otphelpWbp, pgpContactPng,
   pgpContactWbp, pgpSecurityPng,
   pgpSecurityWbp, pgpSupportPng,
   pgpSupportWbp, pmxPng,
@@ -101,4 +102,4 @@ export {
   vcfWbp
 };
 
-// cspell:ignore eauth hboard cryptom tosdr
+// cspell:ignore eauth hboard cryptom tosdr otphelp
