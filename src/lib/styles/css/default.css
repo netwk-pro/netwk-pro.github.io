@@ -518,6 +518,7 @@ footer .container {
   padding: 0;
   margin: -1px;
   border: 0;
+  /* stylelint-disable-next-line property-no-deprecated */
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
   white-space: nowrap;
@@ -601,4 +602,15 @@ footer .container {
   to {
     transform: rotate(360deg);
   }
+}
+
+.cc-link {
+  text-decoration: none;
+}
+
+.cc-img {
+  display: inline-block;
+  height: 18px !important;
+  margin-left: 3px;
+  vertical-align: text-bottom;
 }

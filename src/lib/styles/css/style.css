@@ -179,6 +179,7 @@ a:visited:focus-visible {
   padding: 0;
   margin: -1px;
   border: 0;
+  /* stylelint-disable-next-line property-no-deprecated */
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
   white-space: nowrap;
@@ -198,6 +199,7 @@ a:visited:focus-visible {
   width: auto;
   height: auto;
   margin: 0;
+  /* stylelint-disable-next-line property-no-deprecated */
   clip: auto;
   overflow: visible;
   white-space: inherit;
@@ -294,12 +296,12 @@ a:visited:focus-visible {
   pre,
   blockquote {
     border: 1px solid #999;
-    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   tr,
   img {
-    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   p,
@@ -311,6 +313,6 @@ a:visited:focus-visible {
 
   h2,
   h3 {
-    page-break-after: avoid;
+    break-after: avoid;
   }
 }

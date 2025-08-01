@@ -22,6 +22,53 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.16.0] - 2025-07-31
+
+### Added
+
+- Added `CODE_OF_CONDUCT.md` and `CONTRIBUTING.md` to project root to provide instructions for contributing.
+
+### Changed
+
+- Bumped version to `v1.16.0`.
+- Updated generator metadata in `app.html` to reflect `SvelteKit 2.27.0`.
+- Added `vercel.json` to `.gitignore`.
+- Added additional rule overrides to `stylelint.config.js` to suppress unnecessarily strict linting errors
+  - The errors were corrected and the rule overrides are currently commented out
+- Updated `npm` to `11.5.2` in the following files in `.github/workflows`
+  - `build-and-publish.yml`
+  - `lighthouse.yml`
+  - `playwright.yml`
+  - `publish-test.ml`
+  - `templates/publish.template.yml`
+- Upgraded dependencies:
+  - `@eslint/js` `^9.31.0` → `^9.32.0`
+  - `@sveltejs/kit` `2.25.1` → `2.27.0`
+  - `@testing-library/jest-dom` `^6.6.3` → `^6.6.4`
+  - `eslint` `^9.31.0` → `^9.32.0`
+  - `eslint-plugin-jsdoc` `^51.4.1` → `^52.0.2`
+  - `posthog-js` `^1.257.0` → `^1.258.4`
+  - `stylelint` `^16.22.0` → `^16.23.0`
+  - `stylelint-config-recommended` `^16.0.0` → `^17.0.0`
+  - `svelte` `5.36.12` → `5.37.2`
+  - `typescript` `^5.8.3` → `^5.9.2`
+  - `vite` `^7.0.5` → `^7.0.6`
+
+### Fixed
+
+- Corrected deprecated CSS usage throughout the project in the following files:
+  - `src/lib/components/Badges.svelte`
+  - `src/lib/components/Logo.svelte`
+  - `src/lib/components/layout/Footer.svelte`
+  - `src/lib/pages/LicenseContent.svelte`
+  - `src/lib/styles/css/default.css`
+  - `src/lib/styles/css/styles.css`
+  - `src/routes/consultation/+page.svelte`
+- Generated new `global.min.css` stylesheet with LightningCSS.
+- Resolved `svelte-check` type error in `PGP key download endpoint` by replacing Node.js `Buffer` with a standards-compliant `Uint8Array` in the `Response()` constructor.
+
+---
+
 ## [1.15.4] - 2025-07-20
 
 ### Changed
@@ -705,7 +752,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.15.4...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.16.0...HEAD
+[1.16.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.16.0
 [1.15.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.4
 [1.15.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.3
 [1.15.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.2

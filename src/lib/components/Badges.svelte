@@ -68,7 +68,8 @@ This file is part of Network Pro.
                 loading="lazy"
                 src={badge.src}
                 alt={badge.alt}
-                style="width: {badge.width}; height: {badge.height};" />
+                style:width={badge.width}
+                style:height={badge.height} />
             </a>
           </td>
         {/each}

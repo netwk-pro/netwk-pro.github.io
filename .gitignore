@@ -12,6 +12,7 @@
 *.local
 list-devices.js
 devices-list.json
+vercel.json
 
 
 # SvelteKit
