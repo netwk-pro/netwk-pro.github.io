@@ -117,32 +117,18 @@ This file is part of Network Pro.
     Licensed under
     {#each licenses as license, index}
       {#if license.type === 'CC BY 4.0'}
-        <a
-          href={license.url}
-          target={PAGE.SELF}
-          rel={relLicense}
-          style="display: inline-block">
+        <a href={license.url} target={PAGE.SELF} rel={relLicense}>
           <strong>{license.type}</strong>
         </a>
         {#if license.icons}
           {#each license.icons as icon}
-            <a
-              href={license.externalUrl}
-              target={PAGE.BLANK}
-              rel={relLicense}
-              style="display: inline-block">
+            <a href={license.externalUrl} target={PAGE.BLANK} rel={relLicense}>
               <img
+                class="cc-img"
                 decoding="async"
                 loading="lazy"
                 src={icon.src}
-                alt={icon.alt}
-                style="
-                  width: 18px !important;
-                  height: 18px !important;
-                  margin-left: 3px;
-                  text-decoration: none;
-                  vertical-align: text-bottom;
-                " />
+                alt={icon.alt} />
             </a>
           {/each}
         {/if}

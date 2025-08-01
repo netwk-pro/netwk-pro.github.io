@@ -45,5 +45,5 @@ This file is part of Network Pro.
 {#if show && target}
   <RedirectPage to={target} />
 {:else}
-  <p style="text-align: center; margin-top: 4rem;">Preparing to redirect…</p>
+  <p class="redirect-text">Preparing to redirect…</p>
 {/if}

@@ -28,7 +28,7 @@ export async function GET({ params, setHeaders }) {
       'Content-Type': 'application/pgp-keys',
       'Content-Disposition': `attachment; filename="${key}"`,
     });
-    return new Response(file);
+    return new Response(new Uint8Array(file));
   } catch {
     return new Response('File not found', { status: 404 });
   }

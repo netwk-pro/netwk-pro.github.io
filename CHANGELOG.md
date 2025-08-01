@@ -22,7 +22,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
-## [1.15.5] - 2025-07-31
+## [1.16.0] - 2025-07-31
 
 ### Added
 
@@ -30,9 +30,17 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ### Changed
 
-- Bumped version to `v1.15.5`
-- Updated generator metadata in `app.html` to reflect `SvelteKit 2.27.0`
-- Added `vercel.json` to `.gitignore`
+- Bumped version to `v1.16.0`.
+- Updated generator metadata in `app.html` to reflect `SvelteKit 2.27.0`.
+- Added `vercel.json` to `.gitignore`.
+- Added additional rule overrides to `stylelint.config.js` to suppress unnecessarily strict linting errors
+  - The errors were corrected and the rule overrides are currently commented out
+- Updated `npm` to `11.5.2` in the following files in `.github/workflows`
+  - `build-and-publish.yml`
+  - `lighthouse.yml`
+  - `playwright.yml`
+  - `publish-test.ml`
+  - `templates/publish.template.yml`
 - Upgraded dependencies:
   - `@eslint/js` `^9.31.0` → `^9.32.0`
   - `@sveltejs/kit` `2.25.1` → `2.27.0`
@@ -45,6 +53,19 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
   - `svelte` `5.36.12` → `5.37.2`
   - `typescript` `^5.8.3` → `^5.9.2`
   - `vite` `^7.0.5` → `^7.0.6`
+
+### Fixed
+
+- Corrected deprecated CSS usage throughout the project in the following files:
+  - `src/lib/components/Badges.svelte`
+  - `src/lib/components/Logo.svelte`
+  - `src/lib/components/layout/Footer.svelte`
+  - `src/lib/pages/LicenseContent.svelte`
+  - `src/lib/styles/css/default.css`
+  - `src/lib/styles/css/styles.css`
+  - `src/routes/consultation/+page.svelte`
+- Generated new `global.min.css` stylesheet with LightningCSS.
+- Resolved `svelte-check` type error in `PGP key download endpoint` by replacing Node.js `Buffer` with a standards-compliant `Uint8Array` in the `Response()` constructor.
 
 ---
 
@@ -731,8 +752,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.15.5...HEAD
-[1.15.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.5
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.16.0...HEAD
+[1.16.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.16.0
 [1.15.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.4
 [1.15.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.3
 [1.15.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.2

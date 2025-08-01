@@ -242,34 +242,24 @@ This file is part of Network Pro.
         <a
           rel={PAGE.REL}
           href="https://creativecommons.org/licenses/by/4.0/"
-          target={PAGE.BLANK}>
+          target={PAGE.BLANK}
+          class="cc-link">
           <img
+            class="cc-img"
             decoding="async"
             loading="lazy"
-            style="
-              display: inline-block;
-              height: 18px !important;
-              margin-left: 3px;
-              text-decoration: none;
-              vertical-align: text-bottom;
-            "
             src={ccSrc}
             alt="Creative Commons BY" />
         </a>
         <a
           rel={PAGE.REL}
           href="https://creativecommons.org/licenses/by/4.0/"
-          target={PAGE.BLANK}>
+          target={PAGE.BLANK}
+          class="cc-link">
           <img
+            class="cc-img"
             decoding="async"
             loading="lazy"
-            style="
-              display: inline-block;
-              height: 18px !important;
-              margin-left: 3px;
-              text-decoration: none;
-              vertical-align: text-bottom;
-            "
             src={bySrc}
             alt="Creative Commons BY" />
         </a>.

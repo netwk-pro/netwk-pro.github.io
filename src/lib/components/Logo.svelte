@@ -60,15 +60,15 @@ This file is part of Network Pro.
 
   /**
    * Width of the logo in pixels.
-   * @type {number}
+   * @type {string}
    */
-  export let width = 250;
+  export let width = '250px';
 
   /**
    * Height of the logo in pixels.
-   * @type {number}
+   * @type {string}
    */
-  export let height = 250;
+  export let height = '250px';
 
   /**
    * Fetch priority for the logo image.
@@ -93,7 +93,8 @@ This file is part of Network Pro.
     src={logoPng}
     {alt}
     {fetchpriority}
-    style="width: {width}px; height: {height}px" />
+    style:width
+    style:height />
 </picture>
 
 {#if showSlogan}
