@@ -51,7 +51,7 @@ This document is provided for convenience only. In the event of any discrepancy,
 
 ## 1. Copyright
 
-All content—including text, software, logos, graphics, documentation, and other materials—provided by **Network Pro Strategies** (“Network Pro”, “Company”, “Licensor”) is protected by U.S. and international copyright laws.
+All content—including text, software, logos, graphics, documentation, and other materials—provided by **Network Pro Strategies** (“Network Pro&trade;”, “Company”, “Licensor”) is protected by U.S. and international copyright laws.
 
 Copyright &copy; 2025 **[Network Pro Strategies](https://netwk.pro)** (Network Pro&trade;)
 
@@ -113,7 +113,7 @@ This work is dual-licensed under:
 
 ## 7. Creative Commons License (CC BY 4.0)
 
-<sup>Formats: [HTML](https://netwk.pro/assets/license/CC-BY-4.0.html) | [Markdown](https://netwk.pro/assets/license/CC-BY-4.0.md) | [Text](https://netwk.pro/assets/license/CC-BY-4.0.txt) | [RDFa](https://netwk.pro/assets/license/CC-BY-4.0-rdfa.xml) | [XMP](https://netwk.pro/assets/license/CC-BY-4.0.xml)</sup>
+<sup>View / Download: [HTML](https://netwk.pro/bin/license/CC-BY-4.0.html) | [Markdown](https://netwk.pro/bin/license/CC-BY-4.0.md) | [Text](https://netwk.pro/bin/license/CC-BY-4.0.txt) | [RDFa](https://netwk.pro/bin/license/CC-BY-4.0-rdfa.xml) | [XMP](https://netwk.pro/bin/license/CC-BY-4.0.xml)</sup>
 
 Network Pro&trade; (the "Licensed Material") is licensed under **Creative
 Commons Attribution 4.0 International** (CC BY 4.0)
@@ -139,7 +139,7 @@ Permissions beyond the scope of this License—or instead of those permitted by 
 
 ## 8. GNU General Public License (GPL)
 
-<sup>Formats: [HTML](https://netwk.pro/assets/license/COPYING.html) | [Markdown](https://netwk.pro/assets/license/COPYING.md) | [Text](https://netwk.pro/assets/license/COPYING.txt) | [RDFa](https://netwk.pro/assets/license/COPYING-rdfa.xml) | [ODT](https://netwk.pro/assets/license/COPYING.odt)</sup>
+<sup>View / Download: [HTML](https://netwk.pro/bin/license/COPYING.html) | [Markdown](https://netwk.pro/bin/license/COPYING.md) | [Text](https://netwk.pro/bin/license/COPYING.txt) | [RDFa](https://netwk.pro/bin/license/COPYING-rdfa.xml) | [ODT](https://netwk.pro/bin/license/COPYING.odt)</sup>
 
 Network Pro&trade; is free software: you can redistribute it and/or modify it under the terms of the **GNU General Public License** (GNU GPL) as published by the [Free Software Foundation](https://www.fsf.org/), either version 3 of the License, or (at your option) any later version.
 
