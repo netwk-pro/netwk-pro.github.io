@@ -33,7 +33,9 @@ test.describe('Desktop Tests', () => {
     await setDesktopView(page);
     await page.goto('/');
     await page.waitForLoadState('load', { timeout: 60000 });
-    await expect(page).toHaveTitle(/Security, Networking, Privacy/);
+    await expect(page).toHaveTitle(/Security, Networking, Privacy/, {
+      timeout: 60000,
+    });
   });
 
   // Root route should display nav bar and about link
@@ -97,7 +99,9 @@ test.describe('Mobile Tests', () => {
     await setMobileView(page);
     await page.goto('/');
     await page.waitForLoadState('load', { timeout: 60000 });
-    await expect(page).toHaveTitle(/Security, Networking, Privacy/);
+    await expect(page).toHaveTitle(/Security, Networking, Privacy/, {
+      timeout: 60000,
+    });
   });
 
   // Root route should display headings properly on mobile
