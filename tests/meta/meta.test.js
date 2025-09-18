@@ -15,7 +15,7 @@ This file is part of Network Pro.
  */
 
 import { describe, expect, it } from 'vitest';
-import { load } from '../../../src/routes/+layout.js';
+import { load } from '../../src/routes/+layout.js';
 
 const routes = [
   {
