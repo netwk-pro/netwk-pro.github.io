@@ -15,7 +15,7 @@ This file is part of Network Pro.
  */
 
 import { describe, expect, it } from 'vitest';
-import { load } from '../../../src/routes/+layout.js'; // adjust path if needed
+import { load } from '../../../src/routes/+layout.js';
 
 describe('Meta info', () => {
   it('should have correct title and description', () => {

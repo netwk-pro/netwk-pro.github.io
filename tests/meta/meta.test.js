@@ -1,5 +1,5 @@
 /* ==========================================================================
-tests/unit/meta/meta.test.js
+tests/meta/meta.test.js
 
 Copyright © 2025 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
@@ -9,7 +9,7 @@ This file is part of Network Pro.
 /**
  * @file meta.test.js
  * @description Checks for correct metadata population in CI
- * @module tests/unit/meta
+ * @module tests/meta
  * @author SunDevil311
  * @updated 2025-09-17
  */
