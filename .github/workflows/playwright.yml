@@ -12,9 +12,9 @@ on:
     branches: [master]
   workflow_dispatch:
 
-# ✅ Least-privilege access
+# Required for actions/checkout
 permissions:
-  contents: read # Required for actions/checkout
+  contents: read
 
 jobs:
   test:

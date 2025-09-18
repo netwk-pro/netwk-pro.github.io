@@ -35,8 +35,20 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
   - Documented use of both `report-uri` (legacy) and `report-to` (modern, recommended).
   - Added example headers including `Report-To` definition.
 
+### Added
+
+- New `meta-check.yml` GitHub Actions workflow to validate `<title>` and `<meta>` descriptions using Vitest.
+  - Runs separately from Playwright to avoid hydration timing issues.
+  - Ensures SEO metadata is tested in CI without blocking other jobs.
+- New `meta.test.js` file in `tests/unit/meta` for testing in CI.
+- New `meta.test.js` file in `tests/unit/server` for local testing.
+
 ### Changed
 
+- Cleaned up Playwright E2E tests:
+  - Removed brittle `toHaveTitle` assertions causing CI failures.
+  - Standardized footer checks to use helper function.
+  - Improved test readability and consistency in `app.spec.js` and `mobile.spec.js`.
 - Updated generator metadata in `app.html` to reflect `SvelteKit 2.42.1`.
 - Updated Node.js version in `.node-version` and `.nvmrc` to `24.8.0`.
 - Updated CSP endpoint section and footer in `README.md`.
@@ -71,8 +83,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ### Removed
 
-- Deleted `src/routes/example.svx`, which was unused and unneeded
-- Removed `mdsvex` from package.json, as it is unlikely to be used
+- Deleted `src/routes/example.svx`, which was unused and unneeded.
+- Removed `mdsvex` from package.json, as it is unlikely to be used.
 
 ### Notes
 
