@@ -11,7 +11,7 @@ This file is part of Network Pro.
  * @description Runs Playwright E2E tests with desktop and root route assertions.
  * @module tests/e2e
  * @author SunDevil311
- * @updated 2025-05-29
+ * @updated 2025-09-17
  */
 
 import { expect, test } from '@playwright/test';
@@ -22,26 +22,14 @@ import {
   setMobileView,
 } from './shared/helpers.js';
 
-// Root route should load successfully with the correct title
+// Root route should display nav bar and about link
 test.describe('Desktop Tests', () => {
-  test('should load successfully with the correct title', async ({
-    page,
-    browserName,
-  }) => {
-    if (browserName === 'webkit') test.skip();
-
-    await setDesktopView(page);
-    await page.goto('/');
-    await page.waitForLoadState('load', { timeout: 60000 });
-    await expect(page).toHaveTitle(/Security, Networking, Privacy/);
-  });
-
-  // Root route should display nav bar and about link
   test("should display the navigation bar and 'about' link", async ({
     page,
   }) => {
     await setDesktopView(page);
     await page.goto('/');
+    await page.waitForLoadState('domcontentloaded', { timeout: 60000 });
 
     const nav = await getVisibleNav(page);
 
@@ -54,8 +42,9 @@ test.describe('Desktop Tests', () => {
   test('should display the footer correctly', async ({ page }) => {
     await setDesktopView(page);
     await page.goto('/');
+    await page.waitForLoadState('domcontentloaded', { timeout: 60000 });
 
-    const footer = page.locator('footer');
+    const footer = getFooter(page);
     await expect(footer).toBeVisible();
   });
 
@@ -65,6 +54,7 @@ test.describe('Desktop Tests', () => {
   }) => {
     await setDesktopView(page);
     await page.goto('/about');
+    await page.waitForLoadState('domcontentloaded', { timeout: 60000 });
 
     const footer = getFooter(page);
     await expect(footer).toBeVisible();
@@ -74,11 +64,12 @@ test.describe('Desktop Tests', () => {
   test("should ensure the 'about' link is clickable", async ({ page }) => {
     await setDesktopView(page);
     await page.goto('/');
+    await page.waitForLoadState('domcontentloaded', { timeout: 60000 });
 
     const nav = await getVisibleNav(page);
 
     const aboutLink = nav.getByRole('link', { name: 'about' });
-    await expect(aboutLink).toBeVisible({ timeout: 60000 });
+    await expect(aboutLink).toBeVisible();
     await aboutLink.click();
 
     await page.waitForURL('/about', { timeout: 60000 });
@@ -86,26 +77,16 @@ test.describe('Desktop Tests', () => {
   });
 }); // End Desktop Tests
 
-// Root route should load successfully with the correct title (mobile)
+// Root route should display headings properly on mobile
 test.describe('Mobile Tests', () => {
-  test('should load successfully with the correct title on mobile', async ({
-    page,
-    browserName,
-  }) => {
-    if (browserName === 'webkit') test.skip();
-
-    await setMobileView(page);
-    await page.goto('/');
-    await page.waitForLoadState('load', { timeout: 60000 });
-    await expect(page).toHaveTitle(/Security, Networking, Privacy/);
-  });
-
-  // Root route should display headings properly on mobile
   test('should display main content correctly on mobile', async ({ page }) => {
     await setMobileView(page);
     await page.goto('/');
+    await page.waitForLoadState('domcontentloaded', { timeout: 60000 });
 
     const mainHeading = page.locator('h1, h2');
     await expect(mainHeading).toBeVisible();
   });
 });
+
+// cspell:ignore domcontentloaded

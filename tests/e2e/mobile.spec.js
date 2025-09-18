@@ -11,7 +11,7 @@ This file is part of Network Pro.
  * @description Runs Playwright E2E tests with mobile assertions.
  * @module tests/e2e
  * @author SunDevil311
- * @updated 2025-05-29
+ * @updated 2025-09-17
  */
 
 import { expect, test } from '@playwright/test';
@@ -60,10 +60,10 @@ test.describe('Mobile Tests', () => {
 
     const nav = await getVisibleNav(page);
     const aboutLink = nav.getByRole('link', { name: 'about' });
-    await expect(aboutLink).toBeVisible({ timeout: 60000 });
+    await expect(aboutLink).toBeVisible();
 
     await aboutLink.click();
-    await expect(page).toHaveURL(/\/about/);
+    await expect(page).toHaveURL(/\/about/, { timeout: 60000 });
   });
 
   test('should display the footer on /about (mobile)', async ({

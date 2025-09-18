@@ -12,9 +12,9 @@ on:
     branches: [master]
   workflow_dispatch:
 
-# ✅ Least-privilege access
+# Required for actions/checkout
 permissions:
-  contents: read # Required for actions/checkout
+  contents: read
 
 jobs:
   test:
@@ -41,7 +41,7 @@ jobs:
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.5.2
+          npm install -g npm@11.6.0
 
       - name: Install Node.js dependencies
         run: npm ci
