@@ -22,7 +22,17 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
-## [1.17.0] - 2025-09-16
+## [1.17.1] - 2025-09-17
+
+### Security
+
+- Patched transitive vulnerabilities by pinning dependencies via `overrides`:
+  - Forced `tmp` to `>=0.2.4` (resolves CVE-2025-54798 reported via `@lhci/cli`).
+  - Forced `cookie` to `^1.0.0` (used by `@sveltejs/kit` and `@lhci/cli`).
+
+---
+
+## [1.17.0] - 2025-09-17
 
 ### Security
 
@@ -822,7 +832,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.17.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.17.1...HEAD
+[1.17.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.17.1
 [1.17.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.17.0
 [1.16.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.16.0
 [1.15.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.4
