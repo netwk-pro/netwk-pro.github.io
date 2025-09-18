@@ -49,7 +49,7 @@ jobs:
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.5.2
+          npm install -g npm@11.6.0
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -61,25 +61,32 @@ jobs:
         id: jsdoc_lint
         continue-on-error: true
         run: |
-          set -e
           output=$(npm run lint:jsdoc || true)
           echo "$output" | tee jsdoc-lint-output.txt
 
-          count=$(echo "$output" | wc -l)
+          count=$(echo "$output" | grep -cve '^\s*$')
           echo "jsdoc_count=$count" >> "$GITHUB_OUTPUT"
 
-      - name: ✅ Pass
-        if: steps.jsdoc_lint.outputs.jsdoc_count == '0'
-        run: echo "JSDoc lint passed successfully!"
+      - name: PASS
+        if: ${{ steps.jsdoc_lint.outputs.jsdoc_count == 0 }}
+        run: echo "✅ JSDoc lint passed successfully!"
 
-      - name: ⚠️ JSDoc violations detected (non-blocking)
-        if: steps.jsdoc_lint.outputs.jsdoc_count != '0'
+      - name: JSDoc violations detected (non-blocking)
+        if: ${{ steps.jsdoc_lint.outputs.jsdoc_count != 0 }}
         run: |
           echo "⚠️ JSDoc lint check failed with ${{ steps.jsdoc_lint.outputs.jsdoc_count }} violations (non-blocking)"
           echo "--- JSDoc Violations ---"
           cat jsdoc-lint-output.txt
 
-      # Test to ensure the package is working
+      - name: Upload JSDoc results
+        if: ${{ steps.jsdoc_lint.outputs.jsdoc_count != 0 }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: jsdoc-lint-results
+          path: jsdoc-lint-output.txt
+          if-no-files-found: error
+
+      # Build to ensure the package is functional
       - name: Build Node.js project
         run: npm run build
 
@@ -128,7 +135,7 @@ jobs:
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.5.2
+          npm install -g npm@11.6.0
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -189,7 +196,7 @@ jobs:
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.5.2
+          npm install -g npm@11.6.0
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -201,7 +208,7 @@ jobs:
 
       - name: Update package name for GPR
         run: |
-          sed -i 's/"name": ".*"/"name": "@netwk-pro\/web"/' package.json
+          sed -i 's/"name": "[^"]*"/"name": "@netwk-pro\/web"/' package.json
 
       - name: Verify version not already published
         run: |

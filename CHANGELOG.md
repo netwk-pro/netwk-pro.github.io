@@ -22,6 +22,64 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.17.0] - 2025-09-16
+
+### Security
+
+- Updated dependencies to address known vulnerabilities (notably `@sveltejs/kit`, `vite`, and related plugins).
+
+### Documentation
+
+- Clarified CSP reporting setup in `README.md`:
+  - Explained relationship with external CSP reporting endpoint (`csp-endpoint` repo).
+  - Documented use of both `report-uri` (legacy) and `report-to` (modern, recommended).
+  - Added example headers including `Report-To` definition.
+
+### Changed
+
+- Updated generator metadata in `app.html` to reflect `SvelteKit 2.42.1`.
+- Updated Node.js version in `.node-version` and `.nvmrc` to `24.8.0`.
+- Updated CSP endpoint section and footer in `README.md`.
+- Updated JSDoc linting step and `sed` syntax in `build-and-publish.yml` workflow.
+- Updated `npm` version to `11.6.0` in GitHub Actions workflow files:
+  - `build-and-publish.yml`
+  - `lighthouse.yml`
+  - `playwright.yml`
+  - `publish-test.yml`
+  - `templates/publish.template.yml`
+- Upgraded dependencies:
+  - `@eslint/compat` `^1.3.1` → `^1.3.2`
+  - `@eslint/js` `^9.32.0` → `^9.35.0`
+  - `@playwright/test` `^1.54.1` → `^1.55.0`
+  - `@sveltejs/adapter-netlify` `^5.1.0` → `^5.2.3`
+  - `@sveltejs/kit` `2.27.0` → `2.42.1`
+  - `@sveltejs/vite-plugin-svelte` `^6.1.0` → `^6.2.0`
+  - `@testing-library/jest-dom` `^6.6.4` → `^6.8.0`
+  - `browserslist` `^4.25.1` → `^4.26.2`
+  - `dompurify` `^3.2.6` → `^3.2.7`
+  - `eslint` `^9.32.0` → `^9.35.0`
+  - `eslint-plugin-jsdoc` `^52.0.2` → `^58.1.1`
+  - `eslint-plugin-svelte` `^3.11.0` → `^3.12.3`
+  - `globals` `^16.3.0` → `^16.4.0`
+  - `playwright` `^1.54.1` → `^1.55.0`
+  - `posthog-js` `^1.258.4` → `^1.266.0`
+  - `stylelint` `^16.23.0` → `^16.24.0`
+  - `svelte` `5.37.2` → `5.39.1`
+  - `svelte-check` `^4.3.0` → `^4.3.1`
+  - `svelte-eslint-parser` `^1.3.0` → `^1.3.2`
+  - `vite` `^7.0.6` → `^7.1.5`
+
+### Removed
+
+- Deleted `src/routes/example.svx`, which was unused and unneeded
+- Removed `mdsvex` from package.json, as it is unlikely to be used
+
+### Notes
+
+- Pinned `jsdom` to `26.1.0` due to build incompatibility in `27.x` (`cssstyle` parsing error with Vite/Rollup).
+
+---
+
 ## [1.16.0] - 2025-07-31
 
 ### Added
@@ -752,7 +810,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.16.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.17.0...HEAD
+[1.17.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.17.0
 [1.16.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.16.0
 [1.15.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.4
 [1.15.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.15.3

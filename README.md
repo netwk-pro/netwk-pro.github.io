@@ -309,18 +309,30 @@ https://netwk.pro/?debug=true
 
 ## 📣 CSP Report Handler
 
-To receive and inspect CSP violation reports in development or production, the repo includes a Netlify-compatible [Edge Function](https://docs.netlify.com/edge-functions/overview/) at:
+This project integrates with a dedicated CSP reporting endpoint, implemented as a [Netlify Edge Function](https://docs.netlify.com/edge-functions/overview/) and hosted separately at:
 
-```bash
-netlify/edge-functions/csp-report.js
-```
+- <https://csp.netwk.pro/.netlify/functions/csp-report>
+- Source: [netwk-pro/csp-endpoint](https://github.com/netwk-pro/csp-endpoint)
 
-This Edge Function receives Content Security Policy (CSP) violation reports at `/api/csp-report` and logs relevant details to the console. High-risk violations (e.g., `script-src`, `form-action`) also trigger real-time alerts via `ntfy`. You can further integrate with logging tools, SIEM platforms, or notification systems as needed.
+The endpoint receives Content Security Policy (CSP) violation reports and logs details for inspection. High-risk violations (e.g., `script-src`, `form-action`) also trigger real-time alerts via [`ntfy`](https://ntfy.sh/). You can extend this further by integrating with SIEM platforms, logging tools, or notification systems.
 
-Make sure to include the `report-uri` directive in your CSP header:
+### Usage
 
-```bash
-Content-Security-Policy: ...; report-uri /api/csp-report;
+To enable reporting, make sure your CSP headers include both the legacy `report-uri` and the modern `report-to` directives.  
+This project’s `hooks.server.js` already configures both, along with the required `Report-To` header:
+
+```http
+# Example response headers
+Content-Security-Policy: ...; report-uri https://csp.netwk.pro/.netlify/functions/csp-report; report-to csp-endpoint;
+
+Report-To: {
+  "group": "csp-endpoint",
+  "max_age": 10886400,
+  "endpoints": [
+    { "url": "https://csp.netwk.pro/.netlify/functions/csp-report" }
+  ],
+  "include_subdomains": true
+}
 ```
 
 </section>
@@ -494,7 +506,7 @@ _Designed for professionals. Hardened for privacy. Built with intent._
 Copyright &copy; 2025  
 **[Network Pro Strategies](https://netwk.pro) (Network Pro&trade;)**
 
-Network Pro&trade;, the shield logo, and the "Locking Down Networks&trade;" slogan are [trademarks](https://netwk.pro/license#trademark) of Network Pro Strategies.
+Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/license#trademark) of Network Pro Strategies.
 
 Licensed under **[CC BY 4.0](https://netwk.pro/license#cc-by)** and the **[GNU GPL](https://netwk.pro/license#gnu-gpl)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
 
