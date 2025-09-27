@@ -31,7 +31,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Authenticate GitHub CLI
         run: gh auth status
@@ -42,7 +42,7 @@ jobs:
         run: 'echo "ENV_MODE is set to: $ENV_MODE"'
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: npm

@@ -3,7 +3,7 @@
 # Reusable GitHub Actions workflow to build and publish a package to npmjs and
 # GPR.
 #
-# Version: v1.0.0
+# Version: v1.1.0
 # Maintainer: Scott Lopez <support@neteng.pro>
 # Usage: Copy to `.github/workflows/publish.yml` in your repo or reference
 # directly if shared centrally.
@@ -40,19 +40,19 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: npm
           cache-dependency-path: package-lock.json
 
-      - name: Show Node.js and npm versions
-        run: |
-          echo "Node.js version: $(node -v)"
-          echo "npm version: $(npm -v)"
+      #- name: Show Node.js and npm versions
+      #  run: |
+      #    echo "Node.js version: $(node -v)"
+      #    echo "npm version: $(npm -v)"
 
       - name: Upgrade npm
         run: |
@@ -69,25 +69,32 @@ jobs:
         id: jsdoc_lint
         continue-on-error: true
         run: |
-          set -e
           output=$(npm run lint:jsdoc || true)
           echo "$output" | tee jsdoc-lint-output.txt
 
-          count=$(echo "$output" | wc -l)
+          count=$(echo "$output" | grep -cve '^\s*$')
           echo "jsdoc_count=$count" >> "$GITHUB_OUTPUT"
 
-      - name: ✅ Pass
-        if: steps.jsdoc_lint.outputs.jsdoc_count == '0'
-        run: echo "JSDoc lint passed successfully!"
+      - name: PASS
+        if: ${{ steps.jsdoc_lint.outputs.jsdoc_count == 0 }}
+        run: echo "✅ JSDoc lint passed successfully!"
 
-      - name: ⚠️ JSDoc violations detected (non-blocking)
-        if: steps.jsdoc_lint.outputs.jsdoc_count != '0'
+      - name: JSDoc violations detected (non-blocking)
+        if: ${{ steps.jsdoc_lint.outputs.jsdoc_count != 0 }}
         run: |
           echo "⚠️ JSDoc lint check failed with ${{ steps.jsdoc_lint.outputs.jsdoc_count }} violations (non-blocking)"
           echo "--- JSDoc Violations ---"
           cat jsdoc-lint-output.txt
 
-      # Test to ensure the package is working
+      - name: Upload JSDoc results
+        if: ${{ steps.jsdoc_lint.outputs.jsdoc_count != 0 }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: jsdoc-lint-results
+          path: jsdoc-lint-output.txt
+          if-no-files-found: error
+
+      # Build to ensure the package is functional
       - name: Build Node.js project
         run: npm run build
 
@@ -109,7 +116,7 @@ jobs:
 
     steps:
       - name: Download clean source archive
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: clean-source
           path: ./
@@ -121,17 +128,17 @@ jobs:
         run: rm clean-source.tar.gz
 
       - name: Set up Node.js for npmjs
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
           cache: npm
           cache-dependency-path: package-lock.json
 
-      - name: Show Node.js and npm versions
-        run: |
-          echo "Node.js version: $(node -v)"
-          echo "npm version: $(npm -v)"
+      #- name: Show Node.js and npm versions
+      #  run: |
+      #    echo "Node.js version: $(node -v)"
+      #    echo "npm version: $(npm -v)"
 
       - name: Upgrade npm
         run: |
@@ -170,7 +177,7 @@ jobs:
 
     steps:
       - name: Download clean source archive
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: clean-source
           path: ./
@@ -182,17 +189,17 @@ jobs:
         run: rm clean-source.tar.gz
 
       - name: Set up Node.js for GPR
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 24
           registry-url: https://npm.pkg.github.com/
           cache: npm
           cache-dependency-path: package-lock.json
 
-      - name: Show Node.js and npm versions
-        run: |
-          echo "Node.js version: $(node -v)"
-          echo "npm version: $(npm -v)"
+      #- name: Show Node.js and npm versions
+      #  run: |
+      #    echo "Node.js version: $(node -v)"
+      #    echo "npm version: $(npm -v)"
 
       - name: Upgrade npm
         run: |
@@ -209,7 +216,7 @@ jobs:
 
       - name: Update package name for GPR
         run: |
-          sed -i 's/"name": ".*"/"name": "@netwk-pro\/web"/' package.json
+          sed -i 's/"name": "[^"]*"/"name": "@netwk-pro\/web"/' package.json
 
       - name: Verify version not already published
         run: |

@@ -22,6 +22,42 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.17.2] - 2025-09-27
+
+### Changed
+
+- Bumped version to `v1.17.2`.
+- Updated generator metadata in `app.html` to reflect `SvelteKit 2.43.5`.
+- Updated Node.js version in `.node-version` and `.nvmrc` to `24.9.0`.
+- Updated `actions/checkout`, `actions/setup-node`, and `actions/download-artifact`, in the following files in `.github/workflows`:
+  - `templates/publish.template.yml`
+  - `backup-branch.yml`
+  - `build-and-publish.yml`
+  - `check-security-txt-expiry.yml`
+  - `dependency-review.yml`
+  - `lighthouse.yml`
+  - `playwright.yml`
+  - `publish-test.yml`
+- Updated JSDoc linting step and `sed` syntax in the following workflows:
+  - `templates/publish.template.yml`
+  - `publish-test.yml`
+- Upgraded dependencies:
+  - `@eslint/compat` `^1.3.2` → `^1.4.0`
+  - `@eslint/js` `^9.35.0` → `^9.36.0`
+  - `@playwright/test` `^1.55.0` → `^1.55.1`
+  - `@sveltejs/kit` `2.42.1` → `2.43.5`
+  - `@sveltejs/vite-plugin-svelte` `^6.2.0` → `^6.2.1`
+  - `eslint` `^9.35.0` → `^9.36.0`
+  - `eslint-plugin-jsdoc` `^58.1.1` → `^60.4.1`
+  - `eslint-plugin-svelte` `^3.12.3` → `^3.12.4`
+  - `playwright` `^1.55.0` → `^1.55.1`
+  - `posthog-js` `^1.266.0` → `^1.268.6`
+  - `svelte` `5.39.1` → `5.39.6`
+  - `svelte-check` `^4.3.1` → `^4.3.2`
+  - `svelte-eslint-parser` `^1.3.2` → `^1.3.3`
+
+---
+
 ## [1.17.1] - 2025-09-17
 
 ### Security
@@ -29,6 +65,10 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 - Patched transitive vulnerabilities by pinning dependencies via `overrides`:
   - Forced `tmp` to `>=0.2.4` (resolves CVE-2025-54798 reported via `@lhci/cli`).
   - Forced `cookie` to `^1.0.0` (used by `@sveltejs/kit` and `@lhci/cli`).
+
+### Changed
+
+- Bumped version to `v1.17.1`.
 
 ---
 
@@ -55,6 +95,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ### Changed
 
+- Bumped version to `v1.17.0`.
 - Cleaned up Playwright E2E tests:
   - Removed brittle `toHaveTitle` assertions causing CI failures.
   - Standardized footer checks to use helper function.
@@ -832,7 +873,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.17.1...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.17.2...HEAD
+[1.17.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.17.2
 [1.17.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.17.1
 [1.17.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.17.0
 [1.16.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.16.0

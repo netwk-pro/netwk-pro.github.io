@@ -32,19 +32,19 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: npm
           cache-dependency-path: package-lock.json
 
-      - name: Show Node.js and npm versions
-        run: |
-          echo "Node.js version: $(node -v)"
-          echo "npm version: $(npm -v)"
+      #- name: Show Node.js and npm versions
+      #  run: |
+      #    echo "Node.js version: $(node -v)"
+      #    echo "npm version: $(npm -v)"
 
       - name: Upgrade npm
         run: |
@@ -108,7 +108,7 @@ jobs:
 
     steps:
       - name: Download clean source archive
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: clean-source
           path: ./
@@ -120,17 +120,17 @@ jobs:
         run: rm clean-source.tar.gz
 
       - name: Set up Node.js for npmjs
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
           cache: npm
           cache-dependency-path: package-lock.json
 
-      - name: Show Node.js and npm versions
-        run: |
-          echo "Node.js version: $(node -v)"
-          echo "npm version: $(npm -v)"
+      #- name: Show Node.js and npm versions
+      #  run: |
+      #    echo "Node.js version: $(node -v)"
+      #    echo "npm version: $(npm -v)"
 
       - name: Upgrade npm
         run: |
@@ -169,7 +169,7 @@ jobs:
 
     steps:
       - name: Download clean source archive
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: clean-source
           path: ./
@@ -181,17 +181,17 @@ jobs:
         run: rm clean-source.tar.gz
 
       - name: Set up Node.js for GPR
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 24
           registry-url: https://npm.pkg.github.com/
           cache: npm
           cache-dependency-path: package-lock.json
 
-      - name: Show Node.js and npm versions
-        run: |
-          echo "Node.js version: $(node -v)"
-          echo "npm version: $(npm -v)"
+      #- name: Show Node.js and npm versions
+      #  run: |
+      #    echo "Node.js version: $(node -v)"
+      #    echo "npm version: $(npm -v)"
 
       - name: Upgrade npm
         run: |
