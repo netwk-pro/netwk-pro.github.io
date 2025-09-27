@@ -29,7 +29,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 - Bumped version to `v1.17.2`.
 - Updated generator metadata in `app.html` to reflect `SvelteKit 2.43.5`.
 - Updated Node.js version in `.node-version` and `.nvmrc` to `24.9.0`.
-- Updated `actions/checkout`, `actions/setup-node`, and `actions/download-artifact`, in the following files in `.github/workflows`:
+- Updated `actions/checkout`, `actions/setup-node`, and `actions/download-artifact` in the following files in `.github/workflows`:
   - `templates/publish.template.yml`
   - `backup-branch.yml`
   - `build-and-publish.yml`
