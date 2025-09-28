@@ -22,6 +22,15 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.18.2] - 2025-09-27
+
+### Changed
+
+- Bumped version to `v1.18.2`.
+- Replaced Netlify badge with Vercel badge in `README.md`.
+
+---
+
 ## [1.18.1] - 2025-09-27
 
 ### Changed
@@ -919,7 +928,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.18.1...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.18.2...HEAD
+[1.18.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.2
 [1.18.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.1
 [1.18.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.0
 [1.17.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.17.2
