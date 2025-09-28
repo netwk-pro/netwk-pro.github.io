@@ -38,12 +38,12 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
     `vercel.json`.
 - Updated environment configuration to define `ENV_MODE` within Vercel project
   settings.
-- Adjusted `engines.npm` requirement in `package.json` from `>=11.0.0 <12` to `>=10.0.0 <12` for compatibility with Vercel
+- Adjusted `engines.npm` requirement in `package.json` from `>=11.0.0 <12` to `>=10.0.0 <12` for compatibility with Vercel.
 
 ### Removed
 
-- Deleted `netlify.toml` and `_redirects`
-- Removed `vercel.json` from `.gitignore`
+- Deleted `netlify.toml` and `_redirects`.
+- Removed `vercel.json` from `.gitignore`.
 
 ---
 
