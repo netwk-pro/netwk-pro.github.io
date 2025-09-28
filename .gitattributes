@@ -1,3 +1,4 @@
+# ==========================================================================
 # .gitattributes
 #
 # Copyright © 2025 Network Pro Strategies (Network Pro™)
@@ -13,7 +14,7 @@
 #   binary  These files are binary and should be left untouched.
 #
 # Note that binary is a macro for -text -diff.
-######################################################################
+# ==========================================================================
 
 ## AUTO-DETECT
 ##   Handle line endings automatically for files detected as

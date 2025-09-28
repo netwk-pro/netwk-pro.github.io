@@ -22,6 +22,22 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.18.3] - 2025-09-27
+
+### Changed
+
+- Bumped version to `v1.18.3`.
+- Updated `README.md` to reflect hosting by Vercel.
+- Standardized header in the following files:
+  - `.editorconfig`
+  - `.gitattributes`
+  - `.gitignore`
+  - `.prettierignore`
+  - `.stylelintignore`
+  - `CHANGELOG.template.md`
+
+---
+
 ## [1.18.2] - 2025-09-27
 
 ### Changed
@@ -928,7 +944,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.18.2...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.18.3...HEAD
+[1.18.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.3
 [1.18.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.2
 [1.18.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.1
 [1.18.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.0
