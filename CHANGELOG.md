@@ -22,11 +22,24 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.18.1] - 2025-09-27
+
+### Changed
+
+- Bumped version to `v1.18.1`.
+- Removed `www` redirect from `vercel.json`.
+
+### Notes
+
+- Instead of an app redirect, the `www` subdomain is now set up with a CNAME record
+
+---
+
 ## [1.18.0] - 2025-09-27
 
 ### Changed
 
-- Bumped version to `v1.18.0`
+- Bumped version to `v1.18.0`.
 - Updated Node.js version in `.node-version` and `.nvmrc` to `22.20.0` for compatibility with Vercel.
 - Updated CI workflows to utilize `node-version: 22`:
   - `build-and-publish.yml`
@@ -906,7 +919,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.18.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.18.1...HEAD
+[1.18.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.1
 [1.18.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.0
 [1.17.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.17.2
 [1.17.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.17.1

@@ -1,12 +1,6 @@
 {
   "redirects": [
     {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.netwk.pro" }],
-      "destination": "https://netwk.pro/:path*",
-      "permanent": true
-    },
-    {
       "source": "/privacy-policy",
       "destination": "/privacy",
       "permanent": true
