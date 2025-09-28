@@ -1,0 +1,39 @@
+{
+  "redirects": [
+    {
+      "source": "https://www.netwk.pro/:splat*",
+      "destination": "https://netwk.pro/:splat",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/:splat*",
+      "destination": "/privacy/:splat",
+      "permanent": true
+    },
+    {
+      "source": "/legal",
+      "destination": "/license",
+      "permanent": true
+    },
+    {
+      "source": "/legal/:splat*",
+      "destination": "/license/:splat",
+      "permanent": true
+    },
+    {
+      "source": "/foss",
+      "destination": "/foss-spotlight",
+      "permanent": true
+    },
+    {
+      "source": "/foss/:splat*",
+      "destination": "/foss-spotlight/:splat",
+      "permanent": true
+    }
+  ]
+}
