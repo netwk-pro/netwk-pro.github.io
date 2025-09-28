@@ -27,6 +27,14 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 ### Changed
 
 - Bumped version to `v1.18.0`
+- Updated Node.js version in `.node-version` and `.nvmrc` to `22.20.0` for compatibility with Vercel.
+- Updated CI workflows to utilize `node-version: 22`:
+  - `build-and-publish.yml`
+  - `lighthouse.yml`
+  - `meta-check.yml`
+  - `playwright.yml`
+  - `publish-test.yml`
+  - `templates/publish.template.yml`
 - Migrated hosting and serverless functions from **Netlify** to **Vercel**.
 - Updated deployment configuration to use `@sveltejs/adapter-vercel` in place of
   `@sveltejs/adapter-netlify`.

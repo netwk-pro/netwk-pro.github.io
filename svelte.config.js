@@ -15,7 +15,9 @@ const config = {
 
   kit: {
     // Vercel adapter configuration
-    adapter: adapter(),
+    adapter: adapter({
+      runtime: 'nodejs22.x',
+    }),
 
     // Paths configuration for deployment
     paths: {
@@ -39,7 +41,7 @@ const config = {
     },
   },
 
-  // File extensions for Svelte and mdsvex
+  // File extensions for Svelte only
   extensions: ['.svelte'],
 };
 
