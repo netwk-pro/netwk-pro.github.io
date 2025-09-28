@@ -6,25 +6,17 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================= */
 
-import adapter from '@sveltejs/adapter-netlify'; // Netlify adapter for deployment
+import adapter from '@sveltejs/adapter-vercel'; // Vercel adapter for deployment
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'; // Vite preprocessor for Svelte
 
 const config = {
-  // Preprocessors for enhanced functionality (vitePreprocess + mdsvex for Markdown support + svelte-preprocess for PostCSS)
-  preprocess: [
-    vitePreprocess({
-      postcss: true,
-      mdsvex: {
-        extensions: ['.svx', '.md'],
-      },
-    }),
-  ],
+  // Only vitePreprocess with PostCSS
+  preprocess: vitePreprocess({ postcss: true }),
 
   kit: {
-    // Netlify adapter configuration
+    // Vercel adapter configuration
     adapter: adapter({
-      edge: false, // Disable edge functions (optional, enable if needed)
-      split: false, // Disable splitting function files (optional, enable if needed)
+      runtime: 'nodejs22.x',
     }),
 
     // Paths configuration for deployment
@@ -49,8 +41,8 @@ const config = {
     },
   },
 
-  // File extensions for Svelte and mdsvex
-  extensions: ['.svelte', '.svx', '.md'], // Added .md for Markdown support
+  // File extensions for Svelte only
+  extensions: ['.svelte'],
 };
 
 export default config;

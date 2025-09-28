@@ -22,6 +22,39 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.18.0] - 2025-09-27
+
+### Changed
+
+- Bumped version to `v1.18.0`
+- Updated Node.js version in `.node-version` and `.nvmrc` to `22.20.0` for compatibility with Vercel.
+- Updated CI workflows to utilize `node-version: 22`:
+  - `build-and-publish.yml`
+  - `lighthouse.yml`
+  - `meta-check.yml`
+  - `playwright.yml`
+  - `publish-test.yml`
+  - `templates/publish.template.yml`
+- Migrated hosting and serverless functions from **Netlify** to **Vercel**.
+- Updated deployment configuration to use `@sveltejs/adapter-vercel` in place of
+  `@sveltejs/adapter-netlify`.
+- Cleaned up Netlify-specific files and settings:
+  - Removed `netlify.toml` and Netlify plugin configuration.
+  - Removed unused SMTP-related environment variables (`SMTP_*`, `MAIL_ENABLED`,
+    `NOTIFY_EMAIL`).
+  - Replaced `_redirects` with Vercel-managed redirects and rewrites in
+    `vercel.json`.
+- Updated environment configuration to define `ENV_MODE` within Vercel project
+  settings.
+- Adjusted `engines.npm` requirement in `package.json` from `>=11.0.0 <12` to `>=10.0.0 <12` for compatibility with Vercel.
+
+### Removed
+
+- Deleted `netlify.toml` and `_redirects`.
+- Removed `vercel.json` from `.gitignore`.
+
+---
+
 ## [1.17.2] - 2025-09-27
 
 ### Changed
@@ -873,7 +906,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.17.2...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.18.0...HEAD
+[1.18.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.0
 [1.17.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.17.2
 [1.17.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.17.1
 [1.17.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.17.0

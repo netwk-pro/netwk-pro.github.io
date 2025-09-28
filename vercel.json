@@ -1,0 +1,40 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.netwk.pro" }],
+      "destination": "https://netwk.pro/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/:path*",
+      "destination": "/privacy/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/legal",
+      "destination": "/license",
+      "permanent": true
+    },
+    {
+      "source": "/legal/:path*",
+      "destination": "/license/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/foss",
+      "destination": "/foss-spotlight",
+      "permanent": true
+    },
+    {
+      "source": "/foss/:path*",
+      "destination": "/foss-spotlight/:path*",
+      "permanent": true
+    }
+  ]
+}
