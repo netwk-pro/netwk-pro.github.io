@@ -95,9 +95,8 @@ This project follows the principles of [Keep a Changelog](https://keepachangelog
   │       ├── server/                 # Server-side (node) unit tests
   │       │   └── internal/           # Internal audit/test helpers
   │       │       └── auditCoverage.test.js  # Warns about untested source modules
-  ├── _redirects                    # Netlify redirect rules
   ├── CHANGELOG.md                  # Chronological record of notable project changes
-  ├── netlify.toml                  # Netlify configuration
+  ├── vercel.json                   # Vercel configuration
   ├── package.json                  # Project manifest (scripts, deps, etc.)
   └── ...
 ```
