@@ -90,6 +90,7 @@ This project follows the principles of [Keep a Changelog](https://keepachangelog
   │   └── sitemap.xml               # SEO: full site map
   ├── tests/
   │   ├── e2e/                        # Playwright end-to-end tests
+  │   ├── meta/                       # Metadata end-to-end CI tests
   │   └── unit/                       # Vitest unit tests
   │       ├── client/                 # Client-side (jsdom) unit tests
   │       ├── server/                 # Server-side (node) unit tests

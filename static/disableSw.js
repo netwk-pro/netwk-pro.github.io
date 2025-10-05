@@ -9,9 +9,9 @@ This file is part of Network Pro.
 /**
  * @file disableSw.js
  * @description Allows for Service Worker to be disabled for debugging by appending ?nosw to the path.
- * @module src/lib/utils/
+ * @module static
  * @author SunDevil311
- * @updated 2025-05-29
+ * @updated 2025-10-05
  */
 
 if (location.search.includes('nosw')) {
