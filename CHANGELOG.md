@@ -22,11 +22,38 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
-## [1.18.4] - 2025-10-04
+## [1.18.5] - 2025-10-05
+
+### Added
+
+- Added Vercel CLI scripts to `package.json`, including `dev:vercel` and `build:vercel`.
+
+### Changed
+
+- Bumped project version to `v1.18.5`.
+- Updated generator metadata in `app.html` to reflect `SvelteKit 2.44.0`.
+- Added `scripts/testRedirects.js` to `.gitignore`.
+- Cleaned up header in `jsconfig.template.jsonc`.
+- Updated **Repository Structure** section in `README.md`.
+- Restructured `CHANGELOG.md` such that sections are presented in alphabetical order.
+- Corrected JSDoc annotations in `static/disableSw.js`.
+- Updated dependencies:
+  - `@sveltejs/kit` `2.43.8` → `2.44.0`
+  - `eslint-plugin-jsdoc` `^60.8.0` → `^60.8.1`
 
 ### Documentation
 
-- Updated **Repository Structure** to reflect current environment and files.
+- Revised **Repository Structure** to accurately reflect the folders under `/tests`.
+
+### Removed
+
+- Removed all references to Netlify and all Netlify-specific scripts from `package.json`.
+- Removed `test:redirects` script from `package.json`.
+- The `testRedirects.js` script has been removed from version control, as it is no longer needed to test Netlify redirects.
+
+---
+
+## [1.18.4] - 2025-10-04
 
 ### Changes
 
@@ -52,6 +79,10 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
   - `svelte` `5.39.6` → `5.39.8`
   - `typescript` `^5.9.2` → `^5.9.3`
   - `vite` `^7.1.7` → `^7.1.9`
+
+### Documentation
+
+- Updated **Repository Structure** to reflect current environment and files.
 
 ---
 
@@ -164,30 +195,19 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ## [1.17.1] - 2025-09-17
 
+### Changed
+
+- Bumped version to `v1.17.1`.
+
 ### Security
 
 - Patched transitive vulnerabilities by pinning dependencies via `overrides`:
   - Forced `tmp` to `>=0.2.4` (resolves CVE-2025-54798 reported via `@lhci/cli`).
   - Forced `cookie` to `^1.0.0` (used by `@sveltejs/kit` and `@lhci/cli`).
 
-### Changed
-
-- Bumped version to `v1.17.1`.
-
 ---
 
 ## [1.17.0] - 2025-09-17
-
-### Security
-
-- Updated dependencies to address known vulnerabilities (notably `@sveltejs/kit`, `vite`, and related plugins).
-
-### Documentation
-
-- Clarified CSP reporting setup in `README.md`:
-  - Explained relationship with external CSP reporting endpoint (`csp-endpoint` repo).
-  - Documented use of both `report-uri` (legacy) and `report-to` (modern, recommended).
-  - Added example headers including `Report-To` definition.
 
 ### Added
 
@@ -236,10 +256,21 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
   - `svelte-eslint-parser` `^1.3.0` → `^1.3.2`
   - `vite` `^7.0.6` → `^7.1.5`
 
+### Documentation
+
+- Clarified CSP reporting setup in `README.md`:
+  - Explained relationship with external CSP reporting endpoint (`csp-endpoint` repo).
+  - Documented use of both `report-uri` (legacy) and `report-to` (modern, recommended).
+  - Added example headers including `Report-To` definition.
+
 ### Removed
 
 - Deleted `src/routes/example.svx`, which was unused and unneeded.
 - Removed `mdsvex` from package.json, as it is unlikely to be used.
+
+### Security
+
+- Updated dependencies to address known vulnerabilities (notably `@sveltejs/kit`, `vite`, and related plugins).
 
 ### Notes
 
@@ -502,17 +533,17 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ## [1.14.1] - 2025-06-16
 
+### Added
+
+- Introduced `.github/workflows/publish-test.yml`, a standalone workflow to safely simulate `npm publish` without publishing.
+- Added commands to display Node.js and npm versions for visibility and troubleshooting in all relevant jobs.
+
 ### Changed
 
 - Updated Node.js engine to `24` to match the specified engine constraints in `package.json`.
 - Reordered `npm ci` step to follow Node.js and npm setup to prevent version mismatches during simulation steps.
 - Refactored `build-and-publish.yml` to use `git archive` for artifact preparation and aligned it with a tested publishing flow.
 - Removed `.npmrc` token-based authentication in favor of environment secrets to avoid credential conflicts.
-
-### Added
-
-- Introduced `.github/workflows/publish-test.yml`, a standalone workflow to safely simulate `npm publish` without publishing.
-- Added commands to display Node.js and npm versions for visibility and troubleshooting in all relevant jobs.
 
 ---
 
@@ -842,13 +873,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 - Upgraded `posthog-js` from `v1.249.4` to `v1.249.5`.
 - Upgraded `vitest` from `v3.2.2` to `v3.2.3`.
 
-### Fixed
-
-- Updated Lighthouse CI annotation step to explicitly select only valid Lighthouse report files (e.g., `*.report.json`, `lhr-*.json`) and ignore `assertion-results.json`, which caused `jq` parsing errors during CI runs.
-- Scoped Lighthouse assertions in `.lighthouserc.cjs` to `resource-summary` only, preventing unwanted failures from default performance audits.
-- Resolved malformed PR comment formatting in the Lighthouse GitHub Actions workflow by replacing Markdown tables with plain-text bullet lists.
-
-### Docs
+### Documentation
 
 - Updated `README.md` with improved context and phrasing around the CHANGELOG reference.
 - Added `CHANGELOG.md` to the documented project structure with a descriptive label:
@@ -857,7 +882,13 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
   ├── CHANGELOG.md # Chronological record of notable project changes
   ```
 
-### Misc
+### Fixed
+
+- Updated Lighthouse CI annotation step to explicitly select only valid Lighthouse report files (e.g., `*.report.json`, `lhr-*.json`) and ignore `assertion-results.json`, which caused `jq` parsing errors during CI runs.
+- Scoped Lighthouse assertions in `.lighthouserc.cjs` to `resource-summary` only, preventing unwanted failures from default performance audits.
+- Resolved malformed PR comment formatting in the Lighthouse GitHub Actions workflow by replacing Markdown tables with plain-text bullet lists.
+
+### Notes
 
 - Confirmed that `Authenticate GitHub CLI` is not needed in `build-and-publish.yml`, as only the `check-codeql` job uses the GitHub CLI and is already authenticated.
 - Verified that `scripts/openReport.js` does not require unit testing, as it performs side-effect-only CLI actions. Linting and manual testing are sufficient.
@@ -977,7 +1008,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.18.4...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.18.5...HEAD
+[1.18.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.5
 [1.18.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.4
 [1.18.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.3
 [1.18.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.2

@@ -25,6 +25,7 @@ devices-list.json
 
 # Scripts
 scripts/multipleBundleCss.js
+scripts/testRedirects.js.bak
 
 # Source maps
 *.map
@@ -227,3 +228,5 @@ package
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+.vercel
