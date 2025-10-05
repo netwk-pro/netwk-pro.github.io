@@ -22,6 +22,39 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.18.4] - 2025-10-04
+
+### Documentation
+
+- Updated **Repository Structure** to reflect current environment and files.
+
+### Changes
+
+- Bumped project version to `v1.18.4`.
+- Updated **npm** to `v11.6.1` in CI workflows:
+  - `.github/workflows/build-and-publish.yml`
+  - `.github/workflows/lighthouse.yml`
+  - `.github/workflows/playwright.yml`
+  - `.github/workflows/publish-test.yml`
+  - `.github/workflows/templates/publish.template.yml`
+- Updated **Repository Structure** section in `README.md`.
+- Updated dependencies:
+  - `@eslint/js` `^9.36.0` → `^9.37.0`
+  - `@sveltejs/adapter-vercel` `^5.10.2` → `^5.10.3`
+  - `@sveltejs/kit` `2.43.5` → `2.43.8`
+  - `@testing-library/jest-dom` `^6.8.0` → `^6.9.1`
+  - `browserslist` `^4.26.2` → `^4.26.3`
+  - `eslint` `^9.36.0` → `^9.37.0`
+  - `eslint-plugin-jsdoc` `^60.4.1` → `^60.8.0`
+  - `lightningcss` `^1.30.1` → `^1.30.2`
+  - `posthog-js` `^1.268.6` → `^1.270.1`
+  - `stylelint` `^16.24.0` → `^16.25.0`
+  - `svelte` `5.39.6` → `5.39.8`
+  - `typescript` `^5.9.2` → `^5.9.3`
+  - `vite` `^7.1.7` → `^7.1.9`
+
+---
+
 ## [1.18.3] - 2025-09-27
 
 ### Changed
@@ -944,7 +977,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.18.3...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.18.4...HEAD
+[1.18.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.4
 [1.18.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.3
 [1.18.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.2
 [1.18.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.1
