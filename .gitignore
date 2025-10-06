@@ -228,5 +228,3 @@ package
 /playwright-report/
 /blob-report/
 /playwright/.cache/
-
-.vercel

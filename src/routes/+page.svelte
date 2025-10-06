@@ -7,13 +7,15 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import Badges from '$lib/components/Badges.svelte';
-  import FullWidthSection from '$lib/components/FullWidthSection.svelte';
-  import HomeContent from '$lib/pages/HomeContent.svelte';
-  import LegalNav from '$lib/components/LegalNav.svelte';
-  import Logo from '$lib/components/Logo.svelte';
-  import SocialMedia from '$lib/components/SocialMedia.svelte';
-  import MetaTags from '$lib/components/MetaTags.svelte';
+  import {
+    Badges,
+    FullWidthSection,
+    LegalNav,
+    Logo,
+    SocialMedia,
+    MetaTags,
+  } from '$lib/components';
+  import { HomeContent } from '$lib/pages';
 
   /**
    * @type {string}

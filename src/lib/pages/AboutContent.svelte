@@ -138,7 +138,7 @@ This file is part of Network Pro.
   <p>
     <strong>{COMPANY_INFO.NAME} ({COMPANY_INFO.APP_NAME}&trade;)</strong>
     <br />
-    <em>Remote-First Cybersecurity & Privacy Consulting</em>
+    <em>Networking, Security, Privacy</em>
   </p>
 </section>
 
@@ -162,10 +162,11 @@ This file is part of Network Pro.
 
 <p>
   At <strong>{COMPANY_INFO.NAME} ({COMPANY_INFO.APP_NAME}&trade;)</strong>, we
-  deliver network security, cybersecurity, and digital privacy consulting with
-  clarity, credibility, and care. We believe that real security doesn't have to
-  come at the cost of user autonomy, and that privacy-minded solutions can be
-  both practical and powerful.
+  deliver network security and engineering, information security (IS),
+  information technology (IT), cyber security, and digital privacy consulting
+  with clarity, credibility, and care. We believe that real security doesn't
+  have to come at the cost of user autonomy, and that privacy-minded solutions
+  can be both practical and powerful.
 </p>
 
 <p>
@@ -189,7 +190,7 @@ This file is part of Network Pro.
 <ul>
   <li><strong>Network Hardening & Perimeter Defense</strong></li>
   <li><strong>Firewall Architecture & Policy Optimization</strong></li>
-  <li><strong>Cloud Security & Zero Trust Implementation</strong></li>
+  <li><strong>Zero Trust Implementation</strong></li>
   <li><strong>Secure Infrastructure Design & Implementation</strong></li>
   <li><strong>Risk Reduction & Security Posture Assessment</strong></li>
 </ul>
@@ -201,6 +202,24 @@ This file is part of Network Pro.
   clear value, with zero fluff.
 </p>
 
+<div class="spacer"></div>
+
+<p>
+  Additionally, {COMPANY_INFO.APP_NAME}&trade; provides on-site services in the
+  Greater Phoenix Metro Area (Maricopa County, AZ). Our on-site services are
+  available to both businesses and consumers. In addition to consulting, we
+  offer the following services:
+</p>
+
+<ul>
+  <li><strong>Home Modem Setup</strong></li>
+  <li><strong>Basic Router Setup</strong></li>
+  <li><strong>Wi-Fi and Wireless Networking Setup</strong></li>
+  <li><strong>Network Troubleshooting</strong></li>
+  <li><strong>Network Security Review</strong></li>
+  <li><strong>Add a Wi-Fi Device</strong></li>
+</ul>
+
 <p>
   We also believe education is a core pillar of real-world security. That's why
   we invest in raising awareness—across both technical and general audiences—on
@@ -210,7 +229,8 @@ This file is part of Network Pro.
 <p>
   <strong
     >{COMPANY_INFO.APP_NAME}&trade; exists to bring strong, thoughtful security
-    to organizations that value integrity—without sacrificing agility or trust.</strong>
+    to organizations and individuals that value integrity—without sacrificing
+    agility or trust.</strong>
   We don't just secure infrastructure. We secure confidence.
 </p>
 
@@ -218,7 +238,7 @@ This file is part of Network Pro.
 
 <p>
   <a href={contactLink} target={PAGE.BLANK}>Let's connect</a>
-  to discuss how we can help secure and strengthen your business today.
+  to discuss how we can help secure and strengthen your business or home today.
 </p>
 
 <div class="spacer"></div>

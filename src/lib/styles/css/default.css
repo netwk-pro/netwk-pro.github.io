@@ -469,6 +469,13 @@ footer .container {
   word-break: normal; /* avoid deprecated behavior */
 }
 
+.full-width-section.centered {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 80vh;
+}
+
 .fingerprint {
   display: block;
   font-weight: bold;
