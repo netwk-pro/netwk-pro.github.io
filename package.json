@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.18.5",
+  "version": "1.19.0",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -78,9 +78,9 @@
   },
   "dependencies": {
     "dompurify": "^3.2.7",
-    "posthog-js": "^1.270.1",
+    "posthog-js": "^1.271.0",
     "semver": "^7.7.2",
-    "svelte": "5.39.8"
+    "svelte": "5.39.9"
   },
   "devDependencies": {
     "@eslint/compat": "^1.4.0",
@@ -97,7 +97,7 @@
     "browserslist": "^4.26.3",
     "eslint": "^9.37.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-jsdoc": "^60.8.1",
+    "eslint-plugin-jsdoc": "^60.8.2",
     "eslint-plugin-svelte": "^3.12.4",
     "globals": "^16.4.0",
     "jsdom": "26.1.0",

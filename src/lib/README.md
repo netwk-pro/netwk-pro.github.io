@@ -1,0 +1,160 @@
+<!-- =====================================================================
+src/lib/README.md
+
+Copyright © 2025 Network Pro Strategies (Network Pro™)
+SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+This file is part of Network Pro.
+====================================================================== -->
+
+# `/src/lib` Overview
+
+This directory contains all reusable **modules**, **assets**, and **constants** used across the app.
+It acts as the project’s _internal library_.
+
+---
+
+## 📦 Importing from `$lib`
+
+SvelteKit automatically aliases `$lib` → `src/lib/`, allowing you to import from this directory anywhere in the project:
+
+```js
+import { something } from '$lib';
+```
+
+> 💡 You don’t need to use relative paths like `../../../lib/...`; the `$lib` alias handles that automatically.
+
+---
+
+## 📁 Directory Structure
+
+```bash
+src/lib/
+├── components/ # Svelte UI components
+├── img/ # Static image assets
+├── images.js # Imports and re-exports images from /img/
+├── index.js # Main export hub (images, constants, etc.)
+└── README.md # You are here
+```
+
+---
+
+## 🖼️ Image Imports
+
+All image assets are re-exported via `images.js` and then made available in `$lib/index.js`.
+
+This allows images to be imported directly from `$lib`:
+
+```js
+import { logoPng, faviconSvg } from '$lib';
+```
+
+**Example (Svelte component):**
+
+```svelte
+<script>
+  import { logoPng } from '$lib';
+</script>
+
+<img src={logoPng} alt="Network Pro Logo" />
+```
+
+If you prefer, you can still import by full path:
+
+```js
+import logoPng from '$lib/img/logo-web.png';
+```
+
+Both are valid — the re-exports simply make imports cleaner and centralized.
+
+---
+
+## ⚙️ Constants and Utilities
+
+`index.js` defines and exports a `CONSTANTS` object for consistent app-wide values.
+These are grouped into logical categories for easy reference.
+
+```js
+import { CONSTANTS } from '$lib';
+
+console.log(CONSTANTS.COMPANY_INFO.APP_NAME); // "Network Pro"
+```
+
+### 🏢 COMPANY_INFO
+
+| Key        | Description                  | Example                  |
+| ---------- | ---------------------------- | ------------------------ |
+| `NAME`     | Full company name            | `Network Pro Strategies` |
+| `APP_NAME` | Application or branding name | `Network Pro`            |
+| `YEAR`     | Copyright / app year         | `2025`                   |
+
+### 📬 CONTACT
+
+| Key       | Description             | Example                     |
+| --------- | ----------------------- | --------------------------- |
+| `EMAIL`   | General support email   | `support (at) neteng.pro`   |
+| `SECURE`  | Secure contact address  | `contact (at) s.neteng.pro` |
+| `PRIVACY` | Privacy-related contact | `privacy (at) netwk.pro`    |
+| `PHONE`   | Company phone number    | `(623) 252-4350`            |
+
+### 🗂️ PAGE
+
+| Key     | Description           | Example               |
+| ------- | --------------------- | --------------------- |
+| `BLANK` | Opens a new tab       | `_blank`              |
+| `REL`   | Default rel attribute | `noopener noreferrer` |
+| `SELF`  | Opens in same tab     | `_self`               |
+
+### 🧭 NAV
+
+| Key       | Description             | Example       |
+| --------- | ----------------------- | ------------- |
+| `BACKTOP` | Label for “back to top” | `Back to top` |
+| `HREFTOP` | Anchor link to top      | `#top`        |
+
+### 🌐 LINKS
+
+| Key    | Description      | Example                  |
+| ------ | ---------------- | ------------------------ |
+| `HOME` | Company home URL | `https://netwk.pro`      |
+| `BLOG` | Company blog URL | `https://blog.netwk.pro` |
+
+🧠 Tip: If you add new global constants (e.g., API endpoints, metadata, etc.),
+extend `CONSTANTS` here and update this table for quick reference.
+
+---
+
+## 🧩 Components (if applicable)
+
+Reusable components can also be exported from this directory:
+
+```js
+import { Logo } from '$lib';
+```
+
+If you add more UI components later, re-export them from `index.js` for easy access.
+
+---
+
+## 🧠 Developer Notes
+
+`$lib` is an alias — not a relative path.
+It points directly to `src/lib/`.
+
+`export * from './images.js';` re-exports all image imports so you can reference them easily.
+
+Keep asset imports centralized in `images.js` to simplify maintenance.
+
+No need to modify imports when adding new images — just add them to `images.js`.
+
+---
+
+<span style="font-size: 12px; text-align: center;">
+
+Copyright &copy; 2025  
+**[Network Pro Strategies](https://netwk.pro) (Network Pro&trade;)**
+
+Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/license#trademark) of Network Pro Strategies.
+
+Licensed under **[CC BY 4.0](https://netwk.pro/license#cc-by)** and the **[GNU GPL](https://netwk.pro/license#gnu-gpl)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
+
+</span>

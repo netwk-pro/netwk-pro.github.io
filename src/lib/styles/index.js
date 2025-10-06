@@ -9,4 +9,3 @@ This file is part of Network Pro.
 // Import transformed and minified stylesheets
 import "./global.min.css";
 import "./fa-global.css";
-

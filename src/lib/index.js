@@ -10,15 +10,25 @@ This file is part of Network Pro.
  * Library index file
  *
  * @file index.js
- * @description Main export point for library components, utilities, and assets
+ * @description  Main export hub for $lib modules
+ *
+ * Components, images, and utilities are organized in submodules
+ * and re-exported here for flat `$lib` imports.
  * @module src/lib
  * @author SunDevil311
- * @updated 2025-06-03
+ * @updated 2025-10-05
  */
 
-// Re-export images from dedicated images.js file
-// This maintains backward compatibility with existing imports
+// Re-export all images so they can be imported directly from `$lib`
+// Example usage:
+//   import { logoPng } from '$lib';
 export * from './images.js';
+
+// Re-export all components so they can be imported directly from `$lib`
+export * from './components/index.js';
+
+// Re-export all pages so they can be imported directly from `$lib`
+export * from './pages/index.js';
 
 // Export utility functions
 // Uncomment and adjust these as needed for your project

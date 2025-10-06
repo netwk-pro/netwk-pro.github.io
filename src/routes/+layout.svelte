@@ -14,20 +14,14 @@ This file is part of Network Pro.
   import { initPostHog, showReminder, capture } from '$lib/stores/posthog';
   import { registerServiceWorker } from '$lib/registerServiceWorker.js';
   import { browser } from '$app/environment';
+  import { logoPng, logoWbp, faviconSvg, appleTouchIcon } from '$lib';
+  import { ContainerSection, PWAInstallButton } from '$lib/components';
+  import { Footer, HeaderDefault, HeaderHome } from '$lib/components/layout';
 
-  import ContainerSection from '$lib/components/ContainerSection.svelte';
-  import Footer from '$lib/components/layout/Footer.svelte';
-  import HeaderDefault from '$lib/components/layout/HeaderDefault.svelte';
-  import HeaderHome from '$lib/components/layout/HeaderHome.svelte';
-  import PWAInstallButton from '$lib/components/PWAInstallButton.svelte';
+  //import PWAInstallButton from '$lib/components/PWAInstallButton.svelte';
 
   import '$lib/styles/global.min.css';
   import '$lib/styles/fa-global.css';
-
-  import logoPng from '$lib/img/logo-web.png';
-  import logoWbp from '$lib/img/logo-web.webp';
-  import faviconSvg from '$lib/img/favicon.svg';
-  import appleTouchIcon from '$lib/img/icon-180x180.png';
 
   $: shouldShowReminder = $showReminder;
 

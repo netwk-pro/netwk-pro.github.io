@@ -22,6 +22,39 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.19.0] - 2025-10-06
+
+### Added
+
+- **`src/lib/components/index.js`**, **`src/lib/components/foss/index.js`**, **`src/lib/components/layout/index.js`**
+  - Introduced explicit component export modules to improve import consistency across the library.
+  - Added wildcard exports in `src/lib/index.js` for these component modules, enabling `$lib/components/...` shorthand imports.
+- **`tests/unit/client/lib/PWAInstallButton.test.js`**
+  - Added focused unit tests for `PWAInstallButton.svelte` verifying install-event handling and user-prompt logic using `Vitest` and `@testing-library/svelte`.
+- **`src/lib/README.md`**, **`src/lib/types/README.md`**
+  - Added contextual documentation for the library and type definition directories.
+  - Clarifies module structure, export hierarchy, and intended usage for contributors.
+
+### Changed
+
+- Bumped project version to `v1.19.0`.
+- Updated `src/lib/pages/AboutContent.svelte` with new services
+- Added DOM and animation mocks (`window.matchMedia`, `Element.prototype.animate`) to `vitest-setup-client.js` to stabilize component transition tests.
+- Updated `src/lib/index.js` to export all component and utility submodules explicitly, replacing previous implicit import behavior.
+- Centralized page-level component exports in `src/lib/pages/index.js` for consistent import structure.
+- Updated `src/routes/+layout.svelte` to import objects from submodules, instead of by their explicit alias
+- Minor alignment in `src/routes/+page.svelte` and `src/routes/links/+page.svelte` with updated component imports
+- Moved inline CSS fom `src/lib/components/FullWidthSection.svelte` into `src/lib/styles/css/default.css`
+- Generated an updated `src/lib/styles/global.min.css` file with LightningCSS
+- Updated `.gitignore` to remove duplicate `.vercel` entry
+- Updated last modified dates in `static/sitemap.xml`
+- Updated dependencies:
+  - `eslint-plugin-jsdoc` `^60.8.1` → `^60.8.2`
+  - `posthog-js` `^1.270.1` → `^1.271.0`
+  - `svelte` `5.39.8` → `5.39.9`
+
+---
+
 ## [1.18.5] - 2025-10-05
 
 ### Added
@@ -1008,7 +1041,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.18.5...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.19.0...HEAD
+[1.19.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.19.0
 [1.18.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.5
 [1.18.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.4
 [1.18.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.3

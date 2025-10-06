@@ -31,12 +31,3 @@ This file is part of Network Pro.
     <slot></slot>
   </div>
 </div>
-
-<style>
-  .full-width-section.centered {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    min-height: 80vh;
-  }
-</style>

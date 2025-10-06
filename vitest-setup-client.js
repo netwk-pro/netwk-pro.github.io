@@ -25,6 +25,15 @@ Object.defineProperty(window, 'matchMedia', {
   })),
 });
 
+// Mock Web Animations API (jsdom doesn't implement element.animate)
+if (!Element.prototype.animate) {
+  Element.prototype.animate = () => ({
+    onfinish: null,
+    cancel: () => {},
+    finished: Promise.resolve(),
+  });
+}
+
 // Automatically clean up the DOM after each test
 afterEach(() => {
   cleanup();
