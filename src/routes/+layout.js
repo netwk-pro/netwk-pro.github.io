@@ -21,7 +21,7 @@ import { meta as routeMeta } from '$lib/meta.js'; // Import meta from $lib/meta.
 const fallbackMeta = {
   title: 'Security, Networking, Privacy — Network Pro™',
   description:
-    'Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro™',
+    'Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies',
 };
 
 export const prerender = 'auto';
