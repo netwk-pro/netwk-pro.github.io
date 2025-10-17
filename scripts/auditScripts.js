@@ -11,7 +11,7 @@ This file is part of Network Pro.
  * Looks for any .js/.mjs files without a matching test in tests/
  *
  * @module scripts/
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-05-21
  */
 

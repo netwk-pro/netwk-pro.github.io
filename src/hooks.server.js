@@ -17,7 +17,9 @@ export async function handle({ event, resolve }) {
   // Determine environment flags
   // Default to development policy if neither test nor prod
   const isTestEnvironment =
-    process.env.NODE_ENV === 'test' || process.env.ENV_MODE === 'ci';
+    process.env.NODE_ENV === 'development' ||
+    process.env.ENV_MODE === 'dev' ||
+    process.env.ENV_MODE === 'ci';
   const isProdEnvironment =
     process.env.NODE_ENV === 'production' || process.env.ENV_MODE === 'prod';
 
@@ -48,15 +50,16 @@ export async function handle({ event, resolve }) {
     'report-to csp-endpoint;',
   ];
 
-  // Loosen up CSP for test environments
+  // Loosen up CSP for test environments (and allow local PostHog proxy)
   if (isTestEnvironment) {
     cspDirectives[1] =
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' ws://localhost:*;";
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:* ws://localhost:*;";
     cspDirectives[2] =
-      "script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' ws://localhost:*;";
-    cspDirectives[3] = "style-src 'self' 'unsafe-inline';";
-    cspDirectives[4] = "img-src 'self' data:;";
-    cspDirectives[5] = "connect-src 'self';";
+      "script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:* ws://localhost:*;";
+    cspDirectives[3] = "style-src 'self' 'unsafe-inline' http://localhost:*;";
+    cspDirectives[4] = "img-src 'self' data: http://localhost:*;";
+    cspDirectives[5] =
+      "connect-src 'self' http://localhost:* ws://localhost:* https://us.i.posthog.com https://us-assets.i.posthog.com;";
   }
 
   response.headers.set(

@@ -10,7 +10,7 @@ This file is part of Network Pro.
  * @file mobile.spec.js
  * @description Runs Playwright E2E tests with mobile assertions.
  * @module tests/e2e
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-09-17
  */
 

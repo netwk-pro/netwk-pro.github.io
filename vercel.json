@@ -1,4 +1,6 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
   "redirects": [
     {
       "source": "/privacy-policy",
@@ -29,6 +31,16 @@
       "source": "/foss/:path*",
       "destination": "/foss-spotlight/:path*",
       "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/relay-MSR0/static/(.*)",
+      "destination": "https://us-assets.i.posthog.com/static/$1"
+    },
+    {
+      "source": "/relay-MSR0/(.*)",
+      "destination": "https://us.i.posthog.com/$1"
     }
   ]
 }

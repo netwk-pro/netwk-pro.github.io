@@ -42,6 +42,7 @@ This file is part of Network Pro.
     { id: 'intro', text: 'Introduction' },
     { id: 'collect', text: 'Information We Collect' },
     { id: 'tracking', text: 'Web Analytics and Tracking' },
+    { id: 'hcaptcha', text: 'Security & Anti-Abuse Measures (hCaptcha)' },
     { id: 'payment', text: 'Payment Information' },
     { id: 'use', text: 'Use of Information' },
     { id: 'legal', text: 'Legal Requests and Data Disclosure' },
@@ -54,7 +55,7 @@ This file is part of Network Pro.
   ];
 
   /** @type {string} */
-  const effectiveDate = 'June 30, 2025';
+  const effectiveDate = 'October 10, 2025';
 
   /** @type {string} */
   const classSmall = 'small-text';
@@ -290,6 +291,35 @@ This file is part of Network Pro.
           href="https://posthog.com/privacy"
           target={PAGE.BLANK}>PostHog's Privacy Policy</a
         >.
+      </p>
+      <p>
+        In addition to analytics tools, we also use security measures to protect
+        our site from spam and abuse.
+      </p>
+    {:else if link.id === 'hcaptcha'}
+      <p>
+        We use the hCaptcha security service on certain forms and interactive
+        features to protect our website from spam and automated abuse. When
+        hCaptcha is active, it may collect information such as your IP address,
+        browser characteristics, and user interaction data (for example, mouse
+        movements or keystrokes) to distinguish human visitors from bots.
+      </p>
+      <p>
+        This information is sent to Intuition Machines, Inc., the provider of
+        hCaptcha, and is processed in accordance with their <a
+          rel={PAGE.REL}
+          href="https://www.hcaptcha.com/privacy"
+          target={PAGE.BLANK}>Privacy Policy</a>
+        and
+        <a
+          rel={PAGE.REL}
+          href="https://www.hcaptcha.com/terms"
+          target={PAGE.BLANK}>Terms of Service</a
+        >.
+      </p>
+      <p>
+        The use of hCaptcha is necessary to maintain the security, integrity,
+        and availability of our services.
       </p>
     {:else if link.id === 'payment'}
       <p>

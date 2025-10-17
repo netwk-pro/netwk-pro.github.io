@@ -10,7 +10,7 @@ This file is part of Network Pro.
  * @file appConstants.js
  * @description Type definitions for app constants in src/lib/index.js
  * @module src/lib/types
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-06-03
  */
 

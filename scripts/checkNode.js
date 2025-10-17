@@ -15,7 +15,7 @@ This file is part of Network Pro.
  * - In all other cases (manual run, CI, verify): fails on mismatch
  *
  * @module scripts/
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-05-23
  */
 

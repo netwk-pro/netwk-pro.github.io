@@ -10,7 +10,7 @@ This file is part of Network Pro.
  * @file helpers.js
  * @description Stores commonly used functions for importing into E2E tests.
  * @module tests/e2e/shared
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-05-29
  */
 

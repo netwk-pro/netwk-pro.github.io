@@ -10,7 +10,7 @@ This file is part of Network Pro.
  * @file redirect.test.js
  * @description Unit test for PWA install component
  * @module tests/unit/lib
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-10-05
  */
 

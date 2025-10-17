@@ -27,6 +27,7 @@ concurrency:
 permissions:
   actions: read
   contents: read
+  packages: write
 
 jobs:
   check-codeql:
@@ -57,7 +58,7 @@ jobs:
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.6.1
+          npm install -g npm@11.6.2
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -143,7 +144,7 @@ jobs:
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.6.1
+          npm install -g npm@11.6.2
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -204,7 +205,7 @@ jobs:
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.6.1
+          npm install -g npm@11.6.2
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -232,4 +233,4 @@ jobs:
       - name: Publish package to GPR
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NWPRO_GPR }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

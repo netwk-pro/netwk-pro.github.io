@@ -6,8 +6,6 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== -->
 
-<!-- cspell:ignore lmaterial lterms dlnotes -->
-
 <script>
   import { base } from '$app/paths';
   import { ccSvg, bySvg } from '$lib';
@@ -128,7 +126,7 @@ This file is part of Network Pro.
       <p>
         All content—including text, software, logos, graphics, documentation,
         and other materials—provided by
-        <strong>{COMPANY_INFO.NAME}</strong> ("{COMPANY_INFO.APP_NAME}",
+        <strong>{COMPANY_INFO.NAME}</strong> ("{COMPANY_INFO.APP_NAME}&trade;",
         "Company", "Licensor") is protected by U.S. and international copyright
         laws.
       </p>
@@ -490,3 +488,5 @@ This file is part of Network Pro.
 {/each}
 <!-- END POLICY SECTIONS -->
 <!-- END LEGAL, LICENSING, AND COPYRIGHT -->
+
+<!-- cspell:ignore lmaterial lterms dlnotes -->

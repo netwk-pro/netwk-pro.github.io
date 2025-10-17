@@ -12,7 +12,7 @@ This file is part of Network Pro.
  * Handles platform-specific commands to launch the report in the default browser.
  *
  * @module scripts/
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-06-09
  */
 

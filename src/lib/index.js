@@ -15,8 +15,8 @@ This file is part of Network Pro.
  * Components, images, and utilities are organized in submodules
  * and re-exported here for flat `$lib` imports.
  * @module src/lib
- * @author SunDevil311
- * @updated 2025-10-05
+ * @author Scott Lopez
+ * @updated 2025-10-10
  */
 
 // Re-export all images so they can be imported directly from `$lib`

@@ -12,7 +12,7 @@ This file is part of Network Pro.
  * @file index.js
  * @description Export point for library components
  * @module src/lib/components
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-10-05
  */
 
@@ -27,4 +27,5 @@ export { default as Logo } from './Logo.svelte';
 export { default as MetaTags } from './MetaTags.svelte';
 export { default as PWAInstallButton } from './PWAInstallButton.svelte';
 export { default as RedirectPage } from './RedirectPage.svelte';
+export { default as ServiceSummaryTable } from './ServiceSummaryTable.svelte';
 export { default as SocialMedia } from './SocialMedia.svelte';

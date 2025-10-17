@@ -10,7 +10,7 @@ This file is part of Network Pro.
  * @file purify.test.js
  * @description Unit test for src/lib/utils/purify.js
  * @module tests/unit/lib/util
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-06-01
  */
 
