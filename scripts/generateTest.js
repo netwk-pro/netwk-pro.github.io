@@ -13,7 +13,7 @@ This file is part of Network Pro.
  * @description Auto-generates a *.test.js scaffold for utilities and
  * components.
  * @module scripts
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-06-01
  */
 

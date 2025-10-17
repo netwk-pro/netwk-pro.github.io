@@ -12,7 +12,7 @@ This file is part of Network Pro.
  * visual if true.
  *
  * @module src/lib/utils/
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-07-01
  */
 

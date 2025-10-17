@@ -15,12 +15,12 @@ This file is part of Network Pro.
 
   //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
-  const { PAGE } = CONSTANTS;
+  const { PAGE, LINKS } = CONSTANTS;
 
   const aboutLink = `${base}/about`;
   const fossLink = `${base}/foss-spotlight`;
+  const servLink = `${base}/services`;
   const lhubLink = `${base}/links`;
-  const blogLink = 'https://blog.netwk.pro';
   const discussLink =
     'https://github.com/netwk-pro/netwk-pro.github.io/discussions';
 
@@ -40,13 +40,14 @@ This file is part of Network Pro.
    */
   const nav = [
     { label: 'about', href: aboutLink, target: PAGE.SELF, external: false },
-    { label: 'foss', href: fossLink, target: PAGE.SELF, external: false },
+    { label: 'services', href: servLink, target: PAGE.SELF, external: false },
     {
       label: 'blog',
-      href: blogLink,
+      href: LINKS.BLOG,
       target: PAGE.SELF,
       external: false,
     },
+    { label: 'foss', href: fossLink, target: PAGE.SELF, external: false },
     {
       label: 'discussions',
       href: discussLink,
@@ -95,4 +96,4 @@ This file is part of Network Pro.
 </nav>
 <!-- END HOME HEADER -->
 
-<!-- cspell:ignore lhub -->
+<!-- cspell:ignore lhub servLink -->

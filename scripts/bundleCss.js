@@ -11,7 +11,7 @@ This file is part of Network Pro.
  * Transforms and minifies CSS files using LightningCSS (single file)
  *
  * @module scripts/
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-05-16
  */
 

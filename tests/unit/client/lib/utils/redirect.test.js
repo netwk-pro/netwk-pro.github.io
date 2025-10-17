@@ -10,7 +10,7 @@ This file is part of Network Pro.
  * @file redirect.test.js
  * @description Unit test for src/lib/utils/redirect.js
  * @module tests/unit/lib/util/
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-07-01
  */
 

@@ -23,13 +23,19 @@ This file is part of Network Pro.
 
   //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
-  const { COMPANY_INFO, PAGE } = CONSTANTS;
+  const { COMPANY_INFO, CONTACT, PAGE } = CONSTANTS;
 
   /**
    * URL to the Contact Form route, using the base path
    * @type {string}
    */
   const contactLink = `${base}/contact`;
+
+  /**
+   * URL to the Consultation route, using the base path
+   * @type {string}
+   */
+  const consultLink = `${base}/consultation`;
 
   /**
    * URL to the PGP route, using the base path
@@ -142,7 +148,7 @@ This file is part of Network Pro.
   </p>
 </section>
 
-<div class="spacer"></div>
+&nbsp;
 
 <section id="subhead">
   <h2>Security That Respects You</h2>
@@ -218,6 +224,7 @@ This file is part of Network Pro.
   <li><strong>Network Troubleshooting</strong></li>
   <li><strong>Network Security Review</strong></li>
   <li><strong>Add a Wi-Fi Device</strong></li>
+  <li><strong>Add or Configure a Printer</strong></li>
 </ul>
 
 <p>
@@ -226,19 +233,28 @@ This file is part of Network Pro.
   best practices in digital privacy, secure design, and threat mitigation.
 </p>
 
-<p>
-  <strong
-    >{COMPANY_INFO.APP_NAME}&trade; exists to bring strong, thoughtful security
-    to organizations and individuals that value integrity—without sacrificing
-    agility or trust.</strong>
-  We don't just secure infrastructure. We secure confidence.
-</p>
-
 <div class="spacer"></div>
 
 <p>
-  <a href={contactLink} target={PAGE.BLANK}>Let's connect</a>
-  to discuss how we can help secure and strengthen your business or home today.
+  At {COMPANY_INFO.APP_NAME}&trade;, we deliver robust, intentional solutions
+  for individuals and organizations that prioritize integrity — without
+  compromising agility or trust. We don't just protect infrastructure. We
+  protect peace of mind.
+</p>
+
+<p>
+  Ready to take the next step? <a href={contactLink} target={PAGE.BLANK}
+    >Let's connect</a>
+  to explore how we can help fortify your home or business.
+  <a href={consultLink} target={PAGE.BLANK}>Schedule a consultation</a> today and
+  discover what's possible.
+</p>
+
+<p>
+  <strong>{COMPANY_INFO.NAME}</strong><br />
+  📞 Phone: {CONTACT.PHONE}<br />
+  📧 General Inquiries: {CONTACT.EMAIL}<br />
+  🔐 Secure Email: {CONTACT.SECURE}
 </p>
 
 <div class="spacer"></div>

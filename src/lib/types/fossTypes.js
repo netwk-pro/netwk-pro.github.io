@@ -11,7 +11,7 @@ This file is part of Network Pro.
  * @description Type definitions for `fossItem` in
  * src/lib/components/foss/FossItemContent.svelte
  * @module src/lib/types
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-06-12
  */
 

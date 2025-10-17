@@ -12,7 +12,7 @@ This file is part of Network Pro.
  * @file images.js
  * @description Provides convenient access to images in the src/lib/img directory
  * @module src/lib
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-06-16
  */
 

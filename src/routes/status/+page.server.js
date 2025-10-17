@@ -15,7 +15,7 @@ This file is part of Network Pro.
  * injected and available during runtime in Netlify's SSR context.
  *
  * @module src/routes/status
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-05-31
  */
 

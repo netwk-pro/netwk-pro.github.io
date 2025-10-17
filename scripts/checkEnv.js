@@ -11,7 +11,7 @@ This file is part of Network Pro.
  * Ensures `ENV_MODE` is defined and matches allowed environments
  *
  * @module scripts/
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-05-21
  */
 

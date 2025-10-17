@@ -11,7 +11,7 @@ This file is part of Network Pro.
  * @description Scans all .js files in src/ and scripts/ for matching unit
  * tests
  * @module tests/unit/server/internal
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-09-17
  */
 

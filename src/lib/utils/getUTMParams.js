@@ -12,7 +12,7 @@ This file is part of Network Pro.
  * Useful for analytics platforms like PostHog or GA4.
  *
  * @module src/lib/utils/
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-06-30
  */
 

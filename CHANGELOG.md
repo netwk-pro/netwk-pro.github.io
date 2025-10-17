@@ -22,6 +22,86 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.20.0] - 2025-10-17
+
+### Added
+
+- Implemented new **Services** route at `/services`:
+  - Created `src/routes/services/+page.server.js` and `src/routes/services/+page.svelte`.
+  - Added full Services content in `src/lib/pages/ServicesContent.svelte`.
+  - Introduced **Services Summary Table** component (`src/lib/components/ServiceSummaryTable.svelte`).
+- Added corresponding CSS for Services route in `src/lib/styles/css/default.css`.
+- Added PostHog Cloud proxy rewrites to `vercel.json` for analytics endpoint.
+- Added new terms to `cspell.json`: `hcaptcha`, `serv`, and `tshoot`.
+- Updated CI workflows to use **npm v11.6.2** and added `packages: write` permission with `GITHUB_TOKEN` for GPR publishing:
+  - `.github/workflows/build-and-publish.yml`
+  - `.github/workflows/publish-test.yml`
+  - `.github/workflows/templates/publish.template.yml`
+- Updated `.github/workflows/meta-check.yml` to explicitly use the `ubuntu-24.04` runner.
+
+### Changed
+
+- Bumped project version to `v1.20.0`.
+- Updated generator metadata in `src/app.html` to reflect `SvelteKit 2.47.1`.
+- Updated `HeaderDefault.svelte` and `HeaderHome.svelte` to include a "Services" section in navigation.
+- Rebuilt `src/lib/styles/global.min.css` using **LightningCSS**.
+- Updated content in:
+  - `src/lib/pages/AboutContent.svelte` – added contact info and consultation link.
+  - `src/lib/pages/HomeContent.svelte` – added company contact info.
+  - `src/lib/pages/PrivacyContent.svelte` – added new _Security & Anti-Abuse Measures (hCaptcha)_ section.
+  - `src/lib/pages/LicenseContent.svelte` – relocated internal comment.
+- Modified import handling for `RedirectPage` in `src/routes/consultation/+page.svelte`.
+- Updated `src/hooks.server.js`:
+  - Corrected `isTestEnvironment` constant.
+  - Relaxed CSP rules for development mode to support local PostHog proxy.
+- Updated `static/sitemap.xml` to include the `/services` route and refresh _Last Modified_ timestamps.
+- Updated author metadata (`@author`)
+  from **SunDevil311** → **Scott Lopez** across all relevant JS files, including scripts, libs, and tests.
+- Updated dependencies:
+  - `dompurify` `^3.2.7` → `^3.3.0`
+  - `posthog-js` `^1.271.0` → `^1.276.0`
+  - `semver` `^7.7.2` → `^7.7.3`
+  - `svelte` `^5.39.9` → `^5.40.2`
+  - `@eslint/js` `^9.37.0` → `^9.38.0`
+  - `@playwright/test` `^1.55.1` → `^1.56.1`
+  - `@sveltejs/adapter-vercel` `^5.10.3` → `^6.0.0`
+  - `@sveltejs/kit` `2.44.0` → `2.47.1`
+  - `eslint` `^9.37.0` → `^9.38.0`
+  - `eslint-plugin-jsdoc` `^60.8.2` → `^61.1.4`
+  - `markdownlint` `^0.38.0` → `^0.39.0`
+  - `playwright` `^1.55.1` → `^1.56.1`
+  - `svelte-check` `^4.3.2` → `^4.3.3`
+  - `vite` `^7.1.9` → `^7.1.10`
+
+### Removed
+
+- Deleted redundant comment from `src/routes/layout.svelte`.
+
+### 🧩 Technical Notes
+
+<!-- markdownlint-disable MD036 -->
+
+**PostHog Proxy and CSP Adjustments**
+
+- Introduced `/relay-MSR0` reverse proxy via **Vercel rewrites** to route PostHog analytics traffic through the site origin, improving privacy compliance and avoiding CORS preflight requests.
+- Updated `vercel.json` accordingly to map:
+  - `/relay-MSR0/static/(.*)` → `https://us-assets.i.posthog.com/static/$1`
+  - `/relay-MSR0/(.*)` → `https://us.i.posthog.com/$1`
+- Adjusted Content Security Policy (CSP) in `src/hooks.server.js`:
+  - Removed explicit `/relay-MSR0` source from `connect-src` (invalid in CSP).
+  - `'self'` now implicitly allows `/relay-MSR0` requests on the same origin.
+  - Development CSP remains more permissive (`unsafe-inline`, `unsafe-eval`, `localhost:*`) for compatibility with PostHog local testing.
+
+**Miscellaneous**
+
+- Confirmed `initPostHog()` dynamic import strategy prevents SSR evaluation errors.
+- Verified service worker (`service-worker.js`) continues caching non-PostHog requests correctly.
+- Verified `Strict-Transport-Security` and other headers remain unaffected by proxy rewrite behavior.
+
+<!-- markdownlint-enable MD036 -->
+
+---
+
 ## [1.19.0] - 2025-10-06
 
 ### Added
@@ -1041,7 +1121,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.19.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.20.0...HEAD
+[1.20.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.20.0
 [1.19.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.19.0
 [1.18.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.5
 [1.18.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.4

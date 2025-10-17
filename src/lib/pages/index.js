@@ -12,7 +12,7 @@ This file is part of Network Pro.
  * @file index.js
  * @description Export point for Svelte pages
  * @module src/lib/pages
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-10-05
  */
 
@@ -23,5 +23,6 @@ export { default as LicenseContent } from './LicenseContent.svelte';
 export { default as PGPContent } from './PGPContent.svelte';
 export { default as PrivacyContent } from './PrivacyContent.svelte';
 export { default as PrivacyDashboard } from './PrivacyDashboard.svelte';
+export { default as ServicesContent } from './ServicesContent.svelte';
 export { default as TermsConditionsContent } from './TermsConditionsContent.svelte';
 export { default as TermsUseContent } from './TermsUseContent.svelte';

@@ -58,7 +58,8 @@ export async function initPostHog() {
 
   // cspell:disable-next-line
   ph.init('phc_Qshfo6AXzh4pS7aPigfqyeo4qj1qlyh7gDuHDeVMSR0', {
-    api_host: 'https://us.i.posthog.com',
+    api_host: '/relay-MSR0/',
+    ui_host: 'https://us.posthog.com',
     autocapture: true,
     capture_pageview: false,
     person_profiles: 'identified_only',

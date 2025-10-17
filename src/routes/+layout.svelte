@@ -18,8 +18,6 @@ This file is part of Network Pro.
   import { ContainerSection, PWAInstallButton } from '$lib/components';
   import { Footer, HeaderDefault, HeaderHome } from '$lib/components/layout';
 
-  //import PWAInstallButton from '$lib/components/PWAInstallButton.svelte';
-
   import '$lib/styles/global.min.css';
   import '$lib/styles/fa-global.css';
 

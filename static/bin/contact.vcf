@@ -3,11 +3,10 @@ VERSION:3.0
 FN:Scott Lopez
 N:Lopez;Scott
 TEL;TYPE=WORK,PREF=1:(623) 252-4350
-EMAIL;TYPE=HOME:github@sl.neteng.cc
 EMAIL;TYPE=WORK:support@neteng.pro
 EMAIL;TYPE=Secure:business@s.neteng.pro
 ADR;TYPE=WORK:;;Peoria\, AZ 85382\nUS
 ORG:Network Pro Strategies
-TITLE:Security Consultant
+TITLE:Network Engineer
 URL:https://netwk.pro
 END:VCARD

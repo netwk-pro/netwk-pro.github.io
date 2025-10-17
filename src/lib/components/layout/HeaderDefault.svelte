@@ -19,6 +19,7 @@ This file is part of Network Pro.
 
   const homeLink = base || '/';
   const aboutLink = `${base}/about`;
+  const servLink = `${base}/services`;
   const lhubLink = `${base}/links`;
   const fossLink = `${base}/foss-spotlight`;
   const blogLink = 'https://blog.netwk.pro';
@@ -42,13 +43,14 @@ This file is part of Network Pro.
   const nav = [
     { label: 'home', href: homeLink, target: PAGE.SELF, external: false },
     { label: 'about', href: aboutLink, target: PAGE.SELF, external: false },
-    { label: 'foss', href: fossLink, target: PAGE.SELF, external: false },
+    { label: 'services', href: servLink, target: PAGE.SELF, external: false },
     {
       label: 'blog',
       href: blogLink,
       target: PAGE.SELF,
       external: false,
     },
+    { label: 'foss', href: fossLink, target: PAGE.SELF, external: false },
     {
       label: 'discussions',
       href: discussLink,

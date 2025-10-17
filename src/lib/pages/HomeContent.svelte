@@ -15,7 +15,7 @@ This file is part of Network Pro.
 
   //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
-  const { COMPANY_INFO, LINKS, PAGE, NAV } = CONSTANTS;
+  const { COMPANY_INFO, CONTACT, LINKS, PAGE, NAV } = CONSTANTS;
 
   /**
    * URL to the FOSS Spotlight page, using the base path
@@ -67,6 +67,16 @@ This file is part of Network Pro.
     and social channels for actionable insights, implementation guides, and the latest
     cybersecurity developments.
   </em>
+</p>
+
+<p class={classCenter}>
+  <strong>{COMPANY_INFO.NAME}</strong><br />
+  📞 <strong>Phone:</strong>
+  {CONTACT.PHONE}<br />
+  📧 <strong>General Inquiries:</strong>
+  {CONTACT.EMAIL}<br />
+  🔐 <strong>Secure Email:</strong>
+  {CONTACT.SECURE}
 </p>
 
 &nbsp;

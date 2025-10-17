@@ -10,7 +10,7 @@ This file is part of Network Pro.
  * @file meta.test.js
  * @description Checks for correct metadata population in CI
  * @module tests/meta
- * @author SunDevil311
+ * @author Scott Lopez
  * @updated 2025-09-17
  */
 

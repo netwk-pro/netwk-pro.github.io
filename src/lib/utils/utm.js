@@ -10,8 +10,8 @@ This file is part of Network Pro.
  * @file utm.js
  * @description Appends standardized UTM parameters to a given URL.
  * @module src/lib/utils/
- * @author SunDevil311
- * @updated 2025-06-30
+ * @author Scott Lopez
+ * @updated 2025-10-10
  */
 
 import { browser } from '$app/environment';
