@@ -8,12 +8,20 @@ This file is part of Network Pro.
 
 /**
  * Allows for manual toggling of the service worker
+ * DEV USE ONLY
+ * @internal
  */
 export function unregisterServiceWorker() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then((registrations) => {
-      registrations.forEach((reg) => reg.unregister());
-      console.log('🧹 All service workers unregistered.');
+      if (registrations.length === 0) {
+        console.log('🧼 No service workers to unregister.');
+      } else {
+        registrations.forEach((reg) => {
+          console.log(`🧹 Unregistering SW: ${reg.scope}`);
+          reg.unregister();
+        });
+      }
     });
   }
 }

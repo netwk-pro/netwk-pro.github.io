@@ -42,40 +42,50 @@ let ph = null;
  */
 export async function initPostHog() {
   if (initialized || typeof window === 'undefined') return;
+  const isDev = import.meta.env.MODE === 'development';
+  if (isDev) {
+    console.info('[PostHog] Skipping init in development mode.');
+    return;
+  }
+
   initialized = true;
 
   const { enabled } = get(trackingPreferences);
   trackingEnabled.set(enabled);
-  showReminder.set(get(remindUserToReconsent)); // ✅ use derived store instead
+  showReminder.set(get(remindUserToReconsent)); // use derived store instead
 
   if (!enabled) {
     console.log('[PostHog] Tracking is disabled — skipping init.');
     return;
   }
 
-  const posthogModule = await import('posthog-js');
-  ph = posthogModule.default;
+  try {
+    const posthogModule = await import('posthog-js');
+    ph = posthogModule.default;
 
-  // cspell:disable-next-line
-  ph.init('phc_Qshfo6AXzh4pS7aPigfqyeo4qj1qlyh7gDuHDeVMSR0', {
-    api_host: '/relay-MSR0/',
-    ui_host: 'https://us.posthog.com',
-    autocapture: true,
-    capture_pageview: false,
-    person_profiles: 'identified_only',
-    loaded: (phInstance) => {
-      if (!enabled) {
-        console.log(
-          '[PostHog] ⛔ User opted out — calling opt_out_capturing()',
-        );
-        phInstance.opt_out_capturing();
-      } else {
-        console.log('[PostHog] ✅ Tracking enabled');
-      }
-    },
-  });
+    // cspell:disable-next-line
+    ph.init('phc_Qshfo6AXzh4pS7aPigfqyeo4qj1qlyh7gDuHDeVMSR0', {
+      api_host: '/relay-MSR0/',
+      ui_host: 'https://us.posthog.com',
+      autocapture: true,
+      capture_pageview: false,
+      person_profiles: 'identified_only',
+      loaded: (phInstance) => {
+        if (!enabled) {
+          console.log(
+            '[PostHog] ⛔ User opted out — calling opt_out_capturing()',
+          );
+          phInstance.opt_out_capturing();
+        } else {
+          console.log('[PostHog] ✅ Tracking enabled');
+        }
+      },
+    });
 
-  ph.capture('$pageview');
+    ph.capture('$pageview');
+  } catch (err) {
+    console.warn('[PostHog] Failed to initialize:', err);
+  }
 }
 
 /**
@@ -84,8 +94,13 @@ export async function initPostHog() {
  * @param {Record<string, any>} [properties={}] - Optional event properties
  */
 export function capture(event, properties = {}) {
-  if (ph !== null && get(trackingEnabled)) {
+  const isDev = import.meta.env.MODE === 'development';
+  if (isDev || ph === null || !get(trackingEnabled)) return;
+
+  try {
     ph.capture(event, properties);
+  } catch (err) {
+    console.warn(`[PostHog] capture(${event}) failed:`, err);
   }
 }
 
@@ -95,8 +110,13 @@ export function capture(event, properties = {}) {
  * @param {Record<string, any>} [properties={}] - Optional user traits
  */
 export function identify(id, properties = {}) {
-  if (ph !== null && get(trackingEnabled)) {
+  const isDev = import.meta.env.MODE === 'development';
+  if (isDev || ph === null || !get(trackingEnabled)) return;
+
+  try {
     ph.identify(id, properties);
+  } catch (err) {
+    console.warn(`[PostHog] identify(${id}) failed:`, err);
   }
 }
 

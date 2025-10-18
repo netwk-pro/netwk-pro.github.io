@@ -69,6 +69,8 @@ This file is part of Network Pro.
   </em>
 </p>
 
+<div class="spacer"></div>
+
 <p class={classCenter}>
   <strong>{COMPANY_INFO.NAME}</strong><br />
   📞 <strong>Phone:</strong>
