@@ -56,12 +56,6 @@ export default {
           "Class names must not start with 'fa-' (FontAwesome classes are ignored)",
       },
     ],
-    // Disable unnecessarily strict rules
-    //'media-type-no-deprecated': null,
-    //'property-no-deprecated': null,
-    //'nesting-selector-no-missing-scoping-root': null,
-    //'no-invalid-position-at-import-rule': null,
-    //'no-invalid-position-declaration': null,
     'order/properties-order': [
       [
         {

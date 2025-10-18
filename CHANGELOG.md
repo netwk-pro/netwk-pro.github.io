@@ -22,6 +22,30 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.21.1] - 2025-10-17
+
+### Added
+
+- Introduced universal relay mock handler at `src/routes/relay-[slug]/[...catchall]/+server.js` to consolidate test-only endpoints such as `flags`, `config`, and `config.js`.
+- Added fallback support for `GET`, `HEAD`, and `OPTIONS` methods within the catchall relay handler.
+
+### Changed
+
+- Bumped project version to `v1.21.1`.
+- Standardized header in various files:
+  - `.editorconfig`
+  - `.env.template`
+  - `.gitattributes`
+  - `.gitignore`
+  - `.prettierignore`
+  - `.stylelintignore`
+
+### Removed
+
+- Deleted unneeded comments in `stylelint.config.js` and `.markdownlint.mjs`.
+
+---
+
 ## [1.21.0] - 2025-10-17
 
 ### Added
@@ -1145,7 +1169,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.21.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.21.1...HEAD
+[1.21.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.21.1
 [1.21.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.21.0
 [1.20.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.20.0
 [1.19.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.19.0
