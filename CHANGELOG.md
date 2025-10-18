@@ -22,6 +22,30 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.21.0] - 2025-10-17
+
+### Added
+
+- Introduced modular analytics initializer at `src/lib/utils/initAnalytics.js` to handle PostHog tracking, asset preloading, and cleanup logic.
+
+### Changed
+
+- Bumped project version to `v1.21.0`.
+- Added `pageleave` to `cspell.json` to support custom PostHog events.
+- Expanded `lint` script in `package.json` to include `.cjs` files.
+- Updated `src/service-worker.js` to correctly exclude `security.txt.sig` from caching.
+- Refactored `+layout.svelte` to use the new `initAnalytics.js` utility for cleaner side-effect management.
+- Updated fallback meta description logic in both `+layout.svelte` and `+layout.js`.
+- Adjusted `"purpose"` value in `static/manifest.json` from `"any maskable"` to `"maskable"` for improved PWA icon support.
+- Increased spacing before contact info in `src/lib/pages/HomeContent.svelte`.
+- Enhanced `registerServiceWorker.js` to skip SW registration in Firefox during development, preventing known `/@fs/` path evaluation errors.
+- Integrated automatic cleanup of existing service workers in `registerServiceWorker.js` when running in Firefox + dev mode.
+- Improved logging clarity in `registerServiceWorker.js` to better distinguish SW lifecycle behavior by environment.
+- Updated `unregisterServiceWorker.js` to include scoped SW logging when unregistering.
+- Refactored `posthog.js` to add conditional guards for suppressing noisy analytics errors in development mode.
+
+---
+
 ## [1.20.0] - 2025-10-17
 
 ### Added
@@ -1121,7 +1145,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.20.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.21.0...HEAD
+[1.21.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.21.0
 [1.20.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.20.0
 [1.19.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.19.0
 [1.18.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.18.5

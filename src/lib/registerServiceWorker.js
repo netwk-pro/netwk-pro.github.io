@@ -6,7 +6,7 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
-// cspell:ignore nosw beforeinstallprompt
+import { unregisterServiceWorker } from '$lib/unregisterServiceWorker';
 
 /**
  * Registers the service worker and handles update lifecycle, install prompt,
@@ -34,11 +34,11 @@ export function registerServiceWorker() {
 
   if ('serviceWorker' in navigator) {
     const isFirefox = navigator.userAgent.includes('Firefox');
-    const isDevelopment =
-      location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+    const isDevMode = import.meta.env.MODE === 'development';
 
-    if (isFirefox && isDevelopment) {
-      console.log('🛑 SW registration skipped in Firefox development mode');
+    if (isFirefox && isDevMode) {
+      console.info('[SW] Dev mode in Firefox — unregistering existing service workers.');
+      unregisterServiceWorker();
       return;
     }
 
@@ -107,3 +107,5 @@ export function registerServiceWorker() {
     });
   }
 }
+
+// cspell:ignore nosw beforeinstallprompt

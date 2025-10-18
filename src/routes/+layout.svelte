@@ -10,13 +10,11 @@ This file is part of Network Pro.
   export let data;
 
   import { onMount } from 'svelte';
-  import { afterNavigate } from '$app/navigation';
-  import { initPostHog, showReminder, capture } from '$lib/stores/posthog';
-  import { registerServiceWorker } from '$lib/registerServiceWorker.js';
-  import { browser } from '$app/environment';
-  import { logoPng, logoWbp, faviconSvg, appleTouchIcon } from '$lib';
+  import { initAnalytics } from '$lib/utils/initAnalytics';
+  import { showReminder } from '$lib/stores/posthog';
   import { ContainerSection, PWAInstallButton } from '$lib/components';
   import { Footer, HeaderDefault, HeaderHome } from '$lib/components/layout';
+  import { appleTouchIcon, faviconSvg, logoPng, logoWbp } from '$lib';
 
   import '$lib/styles/global.min.css';
   import '$lib/styles/fa-global.css';
@@ -24,35 +22,8 @@ This file is part of Network Pro.
   $: shouldShowReminder = $showReminder;
 
   onMount(() => {
-    console.log('[APP] onMount triggered in +layout.svelte');
-
-    registerServiceWorker();
-    initPostHog();
-
-    // Register navigation tracking only on client
-    afterNavigate(() => {
-      capture('$pageview');
-    });
-
-    if (browser) {
-      const isDev = import.meta.env.MODE === 'development';
-
-      // Check for ?debug=true in URL (no persistence)
-      const urlParams = new URLSearchParams(window.location.search);
-      const debug = urlParams.get('debug') === 'true';
-
-      if (isDev || debug) {
-        console.log('ENV MODE =', import.meta.env.MODE);
-        console.log('isDev =', isDev);
-        console.log('debug param =', debug);
-      }
-
-      // Preload logo assets
-      [logoPng, logoWbp, appleTouchIcon].forEach((src) => {
-        const img = new Image();
-        img.src = src;
-      });
-    }
+    const cleanup = initAnalytics();
+    return cleanup;
   });
 
   // fallback values if data.meta not set
@@ -60,7 +31,7 @@ This file is part of Network Pro.
     data?.meta?.title || 'Security, Networking, Privacy — Network Pro™';
   const metaDescription =
     data?.meta?.description ||
-    'Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro™';
+    'Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies';
 </script>
 
 <svelte:head>

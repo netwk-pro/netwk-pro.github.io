@@ -28,7 +28,7 @@ const CACHE = `cache-${version}`;
 const excludedAssets = [];
 
 const IGNORE_PATHS = new Set([
-  '/.well-known/security.txt.asc',
+  '/.well-known/security.txt.sig',
   '/img/banner-1280x640.png',
   '/img/logo-transparent.png',
   '/img/logo.png',
