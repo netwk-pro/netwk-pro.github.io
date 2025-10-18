@@ -30,7 +30,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ### Changed
 
-- Bumped project version to `v1.20.1`.
+- Bumped project version to `v1.21.0`.
 - Added `pageleave` to `cspell.json` to support custom PostHog events.
 - Expanded `lint` script in `package.json` to include `.cjs` files.
 - Updated `src/service-worker.js` to correctly exclude `security.txt.sig` from caching.
