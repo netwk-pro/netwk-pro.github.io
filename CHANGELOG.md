@@ -24,6 +24,10 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ## [1.22.1] - 2025-10-21
 
+### Documentation
+
+- Updated directory structure and **static/pgp** section of `README.md`.
+
 ### Changed
 
 - Bumped project version to `v1.22.1`.
