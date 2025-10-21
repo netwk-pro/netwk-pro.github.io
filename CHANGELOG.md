@@ -22,6 +22,30 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.22.1] - 2025-10-21
+
+### Changed
+
+- Bumped project version to `v1.22.1`.
+- Updated the text and layout of `AboutContent.svelte`.
+- Added a link to the privacy email address in `PrivacyContent.svelte` and `PrivacyDashboard.svelte` for easier access.
+- Updated the text of `ServicesContent.svelte`.
+
+### Fixed
+
+- Corrected `TermsUseContent.svelte` to reflect hosting by Vercel, not Netlify.
+- Corrected license identifier syntax on the following pages:
+  - `AboutContent.svelte`
+  - `FossContent.svelte`
+  - `LicenseContent.svelte`
+  - `PrivacyContent.svelte`
+  - `PrivacyDashboard.svelte`
+  - `ServicesContent.svelte`
+  - `TermsConditionsContent.svelte`
+  - `TermsUseContent.svelte`
+
+---
+
 ## [1.22.0] - 2025-10-20
 
 ### Added
@@ -1231,7 +1255,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.22.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.22.1...HEAD
+[1.22.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.22.1
 [1.22.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.22.0
 [1.21.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.21.1
 [1.21.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.21.0
