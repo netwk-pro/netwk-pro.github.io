@@ -16,7 +16,7 @@ This file is part of Network Pro.
  * and re-exported here for flat `$lib` imports.
  * @module src/lib
  * @author Scott Lopez
- * @updated 2025-10-10
+ * @updated 2025-10-20
  */
 
 // Re-export all images so they can be imported directly from `$lib`
@@ -29,6 +29,9 @@ export * from './components/index.js';
 
 // Re-export all pages so they can be imported directly from `$lib`
 export * from './pages/index.js';
+
+// Re-export `pgpKeys` data so it can be imported directly from `$lib`
+export { PGP_KEYS } from '$lib/data/pgpKeys.js';
 
 // Export utility functions
 // Uncomment and adjust these as needed for your project
@@ -53,9 +56,12 @@ export const CONSTANTS = {
     YEAR: '2025',
   },
   CONTACT: {
-    EMAIL: 'support (at) neteng.pro',
+    EMAIL: 'support (at) netwk.pro',
+    EMAIL_LINK: 'support@netwk.pro',
     SECURE: 'contact (at) s.neteng.pro',
+    SECURE_LINK: 'contact@s.neteng.pro',
     PRIVACY: 'privacy (at) netwk.pro',
+    PRIVACY_LINK: 'privacy@netwk.pro',
     PHONE: '(623) 252-4350',
   },
   PAGE: {

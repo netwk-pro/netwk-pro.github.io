@@ -552,7 +552,7 @@ footer .container {
 
 .fingerprint {
   display: block;
-  font-weight: bold;
+  font-family: monospace;
   white-space: pre-line; /* Ensures newlines are respected for "\n" */
 }
 

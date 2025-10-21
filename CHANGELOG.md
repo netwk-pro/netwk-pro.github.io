@@ -22,6 +22,68 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.22.0] - 2025-10-20
+
+### Added
+
+- Introduced **dynamic QR code image imports** using `import.meta.glob` in `src/lib/images.js`.
+- Implemented new `getQR()` helper function for streamlined QR lookups.
+- Added `QR_IMAGES` registry for centralized QR asset management.
+- Created dedicated PGP key data module (`src/lib/data/pgpKeys.js`) with dynamic QR bindings.
+- Added new app constants (`EMAIL_LINK`, `SECURE_LINK`, `PRIVACY_LINK`) to:
+  - `src/lib/index.js`
+  - `src/lib/types/appConstants.js`
+- Re-exported `src/lib/data/pgpKeys.js` from `src/lib/index.js`.
+- Added favicon and manifest entry for `icon-about.png`.
+- Introduced updated **contact assets block** in `AboutContent.svelte` with enhanced typing.
+- Exported `src/lib/img/powered-by-proton.svg` from `src/lib/images.js`.
+- Added missing JSDoc annotation to `src/lib/data/fossData.js`.
+- Added updated PGP key for `support@netwk.pro` (previously `support@neteng.pro`).
+
+### Changed
+
+- Bumped project version to `v1.22.0`.
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.47.2**.
+- Refactored **PGPContent.svelte** to use the `getQR()` helper and dynamic QR registry.
+- Refactored **AboutContent.svelte** to use the centralized `PGP_KEYS` dataset and app constants.
+- Split PGP key fingerprints into two lines for improved readability.
+- Enhanced **images.js** with support for eager QR image imports.
+- Replaced static PGP imports with automated dynamic resolution.
+- Updated **manifest.json** to reference the new app icon.
+- Revised layout and text consistency for PGP and contact sections in **AboutContent.svelte**.
+- Updated type definitions in `src/lib/types/appConstants.js` for `CONTACT` constants.
+- Cleaned up unused imports and improved inline JSDoc typings throughout the app.
+- Updated asset references in `IGNORE_PATHS` and `REQUIRED_ASSETS` in `src/service-worker.js`.
+- Added spacing adjustments to the tagline in **Logo.svelte**.
+- Updated **HeaderDefault.svelte** to reference the global constant for the **Blog** link.
+- Revised text and app constant usage in **HomeContent.svelte**.
+- Updated the contact section and **Effective Date** in **ServicesContent.svelte**.
+- Rebuilt `src/lib/styles/global.min.css` using **LightningCSS**.
+- Refreshed `_Last Modified_` timestamps in `static/sitemap.xml`.
+
+### Fixed
+
+- Fixed SSR error caused by missing `getQR` reference during page load.
+- Corrected destructuring of `CONTACT` constants during SSR initialization.
+- Fixed fingerprint rendering fallback when fingerprint type was non-array.
+- Adjusted QR image alignment and eager/lazy decoding behavior.
+
+### Removed
+
+- Deleted outdated static assets from `static/pgp`, replaced with dynamically loaded QR images.
+- Removed redundant manual image imports from legacy sections of `images.js`.
+- Removed unnecessary comment block from the `<head>` section of `src/app.html`.
+- Removed `font-weight: bold` property from the `.fingerprint` CSS class in `src/lib/styles/css/default.css`.
+
+### 🧩 Technical Notes
+
+- Updated `vite` from `v7.1.10` → `v7.1.11` to address **CVE-2025-62522**.
+- Updated dependencies for SvelteKit `2.47.2` compatibility:
+  - `@sveltejs/kit`, `svelte`, `vite`, and `eslint`-related plugins.
+- Cleaned up build cache and service worker registration logic in `src/service-worker.js`.
+
+---
+
 ## [1.21.1] - 2025-10-17
 
 ### Added
@@ -1169,7 +1231,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.21.1...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.22.0...HEAD
+[1.22.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.22.0
 [1.21.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.21.1
 [1.21.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.21.0
 [1.20.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.20.0

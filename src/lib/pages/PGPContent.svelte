@@ -7,43 +7,16 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import CodeBlock from '$lib/components/CodeBlock.svelte';
+  import { CONSTANTS, protonPower, getQR, PGP_KEYS as keys } from '$lib';
+  import { CodeBlock } from '$lib/components';
   import { base } from '$app/paths';
-  import { CONSTANTS } from '$lib';
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
   //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
-  const { PAGE } = CONSTANTS;
-
-  const keys = [
-    {
-      name: 'General Contact & Support',
-      email: 'support (at) neteng.pro',
-      fingerprint: '6590 B992 E2E3 EFF1 2738 7BCE 2AF0 93E9 DEC6 1BA0',
-      opgp: 'https://keys.openpgp.org/search?q=support%40neteng.pro',
-      file: '/pgp/support@neteng.pro.asc',
-      img: 'pgp-support',
-    },
-    {
-      name: 'Secure Email',
-      email: 'contact (at) s.neteng.pro',
-      fingerprint: 'DF11 8BAA 6C2D 9DCD EBDC 2DDC F993 7349 9495 F957',
-      opgp: 'https://keys.openpgp.org/search?q=contact%40s.neteng.pro',
-      file: '/pgp/contact@s.neteng.pro.asc',
-      img: 'pgp-contact',
-    },
-    {
-      name: 'Security Contact',
-      email: 'security (at) s.neteng.pro',
-      fingerprint: 'B7FE 1D4E 6CAB 3E71 4A9F DF6E 48CB 7290 C00D 0DA5',
-      opgp: 'https://keys.openpgp.org/search?q=security%40s.neteng.pro',
-      file: '/pgp/security@s.neteng.pro.asc',
-      img: 'pgp-security',
-    },
-  ];
+  const { CONTACT, PAGE } = CONSTANTS;
 
   /**
    * Tracks which PGP key's fingerprint was last copied.
@@ -81,7 +54,7 @@ This file is part of Network Pro.
 </p>
 <p>
   <img
-    src="/img/powered-by-proton.svg"
+    src={protonPower}
     alt="Powered by Proton"
     class="proton-img"
     loading="eager"
@@ -93,9 +66,9 @@ This file is part of Network Pro.
 </p>
 
 {#each keys as key, i}
-  <section class="pgp-entry" aria-labelledby={`pgp-${key.img}`}>
+  <section class="pgp-entry" aria-labelledby={`pgp-${key.id}`}>
     <div class="pgp-text">
-      <h2 id={`pgp-${key.img}`}>{key.name}</h2>
+      <h2 id={`pgp-${key.id}`}>{key.name}</h2>
       <h3>
         &lt;
         {#if key.opgp}
@@ -129,13 +102,19 @@ This file is part of Network Pro.
     </div>
     <div class="pgp-qr">
       <picture>
-        <source srcset={`/pgp/${key.img}.webp`} type="image/webp" />
-        <img
-          src={`/pgp/${key.img}.png`}
-          alt={`QR code for ${key.email}`}
-          class="pgp-image"
-          loading={i === 0 ? 'eager' : 'lazy'}
-          decoding={i === 0 ? 'sync' : 'async'} />
+        {#if key.webp}
+          <source srcset={key.webp} type="image/webp" />
+        {/if}
+        {#if key.png}
+          <img
+            src={key.png}
+            alt={`QR code for ${key.email}`}
+            class="pgp-image"
+            loading={i === 0 ? 'eager' : 'lazy'}
+            decoding={i === 0 ? 'sync' : 'async'} />
+        {:else}
+          <p>QR image missing for {key.id}</p>
+        {/if}
       </picture>
     </div>
   </section>

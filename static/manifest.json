@@ -3,7 +3,7 @@
   "start_url": "/?utm_source=homescreen",
   "scope": "/",
   "name": "Network Pro Strategies",
-  "short_name": "Network Pro",
+  "short_name": "Network Pro™",
   "description": "Access our expert cybersecurity services anytime, anywhere with our streamlined Progressive Web App. Optimized for speed, security, and mobile use, this app offers a seamless experience to explore our solutions, view project highlights, and get in touch—all in one place.",
   "lang": "en-US",
   "dir": "ltr",
@@ -69,13 +69,26 @@
   ],
   "shortcuts": [
     {
-      "name": "Consulting Services",
+      "name": "On-Site Services",
       "short_name": "Services",
-      "description": "Explore our cybersecurity services",
-      "url": "/about?utm_source=shortcut",
+      "description": "Explore the services we offer",
+      "url": "/services?utm_source=shortcut",
       "icons": [
         {
           "src": "/icon-services.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "About Us",
+      "short_name": "About",
+      "description": "Learn more about Network Pro™",
+      "url": "/about?utm_source=shortcut",
+      "icons": [
+        {
+          "src": "/icon-about.png",
           "sizes": "96x96",
           "type": "image/png"
         }

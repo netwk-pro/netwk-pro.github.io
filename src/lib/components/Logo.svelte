@@ -75,12 +75,6 @@ This file is part of Network Pro.
    * @type {"high" | "low" | "auto"}
    */
   export let fetchpriority = 'high';
-
-  /**
-   * Tagline text to display.
-   * @type {string}
-   */
-  export let tagline = 'Security | Networking | Privacy';
 </script>
 
 <!-- BEGIN LOGO AND SITE TITLE -->
@@ -107,6 +101,7 @@ This file is part of Network Pro.
 <div class="spacer"></div>
 
 {#if showTagline}
-  <h2 class="index-title2">{tagline}</h2>
+  <h2 class="index-title2"
+    >{['Security', 'Networking', 'Privacy'].join(' \u00A0 | \u00A0 ')}</h2>
 {/if}
 <!-- END LOGO AND SITE TITLE -->
