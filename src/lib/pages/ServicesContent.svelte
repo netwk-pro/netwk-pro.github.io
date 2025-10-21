@@ -44,7 +44,7 @@ This file is part of Network Pro.
    * @type {{ effectiveDate: string, classSmall: string }}
    */
   const constants = {
-    effectiveDate: 'October 20, 2025',
+    effectiveDate: 'October 21, 2025',
     classSmall: 'small-text',
   };
 </script>
@@ -56,7 +56,7 @@ This file is part of Network Pro.
       rel={PAGE.REL}
       href="https://spdx.dev/learn/handling-license-info"
       target={PAGE.BLANK}>
-      SPDX License Identifier
+      SPDX-License-Identifier
     </a>: &nbsp;<code>CC-BY-4.0 OR GPL-3.0-or-later</code>
   </span>
 </section>
@@ -83,7 +83,7 @@ This file is part of Network Pro.
   If you're a business seeking similar on-site solutions, we've got you covered!
   We offer tailored services to meet the unique needs of commercial clients as
   well. Simply <a href={consultLink} target={PAGE.BLANK}
-    >schedule a consultation</a>
+    >schedule a free, initial consultation</a>
   or <a href={contactLink} target={PAGE.BLANK}>contact us directly</a> — we'd be
   happy to discuss how {COMPANY_INFO.APP_NAME}&trade; can support your business
   on-site.

@@ -73,7 +73,7 @@ This file is part of Network Pro.
    */
   const navLinks = [
     {
-      label: 'SPDX License Identifier',
+      label: 'SPDX-License-Identifier',
       href: 'https://spdx.dev/learn/handling-license-info',
       target: PAGE.BLANK,
       text: 'CC-BY-4.0 OR GPL-3.0-or-later',
@@ -120,7 +120,7 @@ This file is part of Network Pro.
   <p>
     <strong>{COMPANY_INFO.NAME} ({COMPANY_INFO.APP_NAME}&trade;)</strong>
     <br />
-    <em>Networking, Security, Privacy</em>
+    <em>Security, Networking, Privacy</em>
   </p>
 </section>
 
@@ -144,11 +144,10 @@ This file is part of Network Pro.
 
 <p>
   At <strong>{COMPANY_INFO.NAME} ({COMPANY_INFO.APP_NAME}&trade;)</strong>, we
-  deliver network security and engineering, information security (IS),
-  information technology (IT), cyber security, and digital privacy consulting
-  with clarity, credibility, and care. We believe that real security doesn't
-  have to come at the cost of user autonomy, and that privacy-minded solutions
-  can be both practical and powerful.
+  deliver network security and engineering, cybersecurity, and digital privacy
+  consulting with clarity, credibility, and care. We believe that real security
+  doesn't have to come at the cost of user autonomy, and that privacy-minded
+  solutions can be both practical and powerful.
 </p>
 
 <p>
@@ -189,7 +188,7 @@ This file is part of Network Pro.
 <p>
   Additionally, {COMPANY_INFO.APP_NAME}&trade; provides
   <a href={servLink} target={PAGE.SELF}>on-site services</a>
-  in the Greater Phoenix Metro Area (Maricopa County, AZ). Our
+  in the Greater Phoenix Metropolitan Area (Maricopa County, AZ). Our
   <a href={servLink} target={PAGE.SELF}>on-site services</a> are available to both
   consumers and businesses. In addition to consulting, we offer the following services:
 </p>
@@ -204,13 +203,13 @@ This file is part of Network Pro.
   <li><strong>Add or Configure a Printer</strong></li>
 </ul>
 
+<div class="spacer"></div>
+
 <p>
   We also believe education is a core pillar of real-world security. That's why
   we invest in raising awareness—across both technical and general audiences—on
   best practices in digital privacy, secure design, and threat mitigation.
 </p>
-
-<div class="spacer"></div>
 
 <p>
   At {COMPANY_INFO.APP_NAME}&trade;, we deliver robust, intentional solutions
@@ -223,8 +222,8 @@ This file is part of Network Pro.
   Ready to take the next step? <a href={contactLink} target={PAGE.BLANK}
     >Let's connect</a>
   to explore how we can help fortify your home or business.
-  <a href={consultLink} target={PAGE.BLANK}>Schedule a consultation</a> today and
-  discover what's possible.
+  <a href={consultLink} target={PAGE.BLANK}
+    >Schedule a free, initial consultation</a> today and discover what's possible.
 </p>
 
 <p>

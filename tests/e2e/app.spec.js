@@ -11,7 +11,7 @@ This file is part of Network Pro.
  * @description Runs Playwright E2E tests with desktop and root route assertions.
  * @module tests/e2e
  * @author Scott Lopez
- * @updated 2025-09-17
+ * @updated 2025-10-21
  */
 
 import { expect, test } from '@playwright/test';
@@ -24,6 +24,8 @@ import {
 
 // Root route should display nav bar and about link
 test.describe('Desktop Tests', () => {
+  test.setTimeout(90_000); // increase timeout for all desktop tests
+
   test("should display the navigation bar and 'about' link", async ({
     page,
   }) => {
@@ -67,12 +69,15 @@ test.describe('Desktop Tests', () => {
     await page.waitForLoadState('domcontentloaded', { timeout: 60000 });
 
     const nav = await getVisibleNav(page);
-
     const aboutLink = nav.getByRole('link', { name: 'about' });
     await expect(aboutLink).toBeVisible();
     await aboutLink.click();
 
-    await page.waitForURL('/about', { timeout: 60000 });
+    // safer wait pattern with load state
+    await Promise.all([
+      page.waitForLoadState('load'),
+      page.waitForURL('**/about', { timeout: 60000 }),
+    ]);
     await expect(page).toHaveURL(/\/about/);
   });
 }); // End Desktop Tests

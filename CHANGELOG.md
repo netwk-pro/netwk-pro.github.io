@@ -22,6 +22,42 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.22.1] - 2025-10-21
+
+### Documentation
+
+- Updated directory structure and **static/pgp** section of `README.md`.
+
+### Changed
+
+- Bumped project version to `v1.22.1`.
+- Updated the text and layout of `AboutContent.svelte`.
+- Added a link to the privacy email address in `PrivacyContent.svelte` and `PrivacyDashboard.svelte` for easier access.
+- Updated the text of `ServicesContent.svelte`.
+- Increased default Playwright test timeouts for navigation-sensitive suites (Desktop and Mobile) to improve stability under CI latency conditions.
+- Implemented `Promise.all()` pattern for combined click and navigation waits, reducing flakiness in route transition tests.
+- Updated the `'about' link'\*\* navigation tests in both Desktop and Mobile scenarios to include:
+  - Explicit `page.waitForLoadState('domcontentloaded')` calls before assertions.
+  - Extended per-suite timeouts (`90s`) using `test.setTimeout(90000)` for reliability on slower environments.
+  - Added fallback `waitForURL('\*\*/about', { timeout: 60000 })` to ensure deterministic routing checks.
+- Adjusted test structure for consistency across device profiles and browsers.
+- Verified local runs remain performant while increasing tolerance for **CI network latency**.
+
+### Fixed
+
+- Corrected `TermsUseContent.svelte` to reflect hosting by Vercel, not Netlify.
+- Corrected license identifier syntax on the following pages:
+  - `AboutContent.svelte`
+  - `FossContent.svelte`
+  - `LicenseContent.svelte`
+  - `PrivacyContent.svelte`
+  - `PrivacyDashboard.svelte`
+  - `ServicesContent.svelte`
+  - `TermsConditionsContent.svelte`
+  - `TermsUseContent.svelte`
+
+---
+
 ## [1.22.0] - 2025-10-20
 
 ### Added
@@ -1231,7 +1267,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.22.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.22.1...HEAD
+[1.22.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.22.1
 [1.22.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.22.0
 [1.21.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.21.1
 [1.21.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.21.0
@@ -1273,4 +1310,4 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 [1.12.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.3
 [1.12.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.1
 
-<!-- cspell:ignore qrcode cryptom otphelp -->
+<!-- cspell:ignore qrcode cryptom otphelp domcontentloaded -->

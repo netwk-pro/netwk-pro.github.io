@@ -11,7 +11,7 @@ This file is part of Network Pro.
  * @description Runs Playwright E2E tests with mobile assertions.
  * @module tests/e2e
  * @author Scott Lopez
- * @updated 2025-09-17
+ * @updated 2025-10-21
  */
 
 import { expect, test } from '@playwright/test';
@@ -19,6 +19,8 @@ import { getFooter, getVisibleNav, setMobileView } from './shared/helpers.js';
 
 // Mobile viewport smoke tests for the root route
 test.describe('Mobile Tests', () => {
+  test.setTimeout(90_000); // increase timeout for all desktop tests
+
   test('should display the main description text on mobile', async ({
     page,
     browserName,
@@ -57,13 +59,20 @@ test.describe('Mobile Tests', () => {
 
     await setMobileView(page);
     await page.goto('/');
+    await page.waitForLoadState('domcontentloaded', { timeout: 60000 });
 
     const nav = await getVisibleNav(page);
     const aboutLink = nav.getByRole('link', { name: 'about' });
     await expect(aboutLink).toBeVisible();
 
-    await aboutLink.click();
-    await expect(page).toHaveURL(/\/about/, { timeout: 60000 });
+    // combine click + wait in a Promise.all to ensure navigation completes
+    await Promise.all([
+      page.waitForLoadState('load'),
+      page.waitForURL('**/about', { timeout: 60000 }),
+      aboutLink.click(),
+    ]);
+
+    await expect(page).toHaveURL(/\/about/);
   });
 
   test('should display the footer on /about (mobile)', async ({

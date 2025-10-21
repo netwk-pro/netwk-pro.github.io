@@ -87,7 +87,7 @@ This file is part of Network Pro.
       rel={PAGE.REL}
       href="https://spdx.dev/learn/handling-license-info"
       target={PAGE.BLANK}>
-      SPDX License Identifier
+      SPDX-License-Identifier
     </a>: &nbsp;<code>CC-BY-4.0 OR GPL-3.0-or-later</code>
   </span>
 </section>
@@ -240,7 +240,10 @@ This file is part of Network Pro.
       href={prightsLink}
       target={PAGE.BLANK}>Privacy Rights Request Form</a
     >. Alternatively, you can email us at
-    <strong>{CONTACT.PRIVACY}</strong>
+    <strong
+      ><a href={`mailto:${CONTACT.PRIVACY_LINK}`} target={PAGE.BLANK}
+        >{CONTACT.PRIVACY_LINK}</a
+      ></strong>
     with the subject line: "<strong>Privacy Rights Preferences</strong>".
   </p>
 </section>
