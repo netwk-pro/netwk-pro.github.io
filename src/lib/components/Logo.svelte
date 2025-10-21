@@ -75,12 +75,6 @@ This file is part of Network Pro.
    * @type {"high" | "low" | "auto"}
    */
   export let fetchpriority = 'high';
-
-  /**
-   * Tagline text to display.
-   * @type {string}
-   */
-  //export let tagline = 'Security | Networking | Privacy';
 </script>
 
 <!-- BEGIN LOGO AND SITE TITLE -->
