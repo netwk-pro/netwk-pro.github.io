@@ -83,7 +83,7 @@ This project follows the principles of [Keep a Changelog](https://keepachangelog
   │   ├── hooks.server.js           # Injects CSP headers and permissions policy
   │   └── service-worker.js         # Custom PWA service worker
   ├── static/                       # Public assets served at site root
-  │   ├── pgp/                      # PGP keys and QR code images
+  │   ├── pgp/                      # PGP keys
   │   ├── disableSw.js              # Service worker bypass (via ?nosw param)
   │   ├── manifest.json             # PWA metadata
   │   ├── robots.txt                # SEO: allow/disallow crawlers
@@ -106,26 +106,19 @@ This project follows the principles of [Keep a Changelog](https://keepachangelog
 
 ### 🔐 `static/pgp/` Directory Structure
 
-This directory contains public PGP key files and their corresponding QR codes.
+This directory contains public PGP key files. Their corresponding QR code images are now loaded dynamically from `src/lib/img/qr`. A dynamic QR code import utility in `src/lib/images.js` allows these files to be imported directly from `$lib`.
 
 ```bash
 static/
 ├── pgp/
 │   ├── contact@s.neteng.pro.asc       # Public key for secure email
-│   ├── pgp-contact.png                # QR code (PNG) for secure email key
-│   ├── pgp-contact.webp               # Optimized WebP version of the QR code
-│   ├── pgp-security.png               # QR code (PNG) for security contact key
-│   ├── pgp-security.webp              # WebP version of the security QR code
-│   ├── pgp-support.png                # QR code (PNG) for support key
-│   ├── pgp-support.webp               # WebP version of the support QR code
 │   ├── security@s.neteng.pro.asc      # Public key for security contact
 │   ├── support@neteng.pro.asc         # Public key for general support
 └── ...
 ```
 
 - `.asc` files are **excluded from service worker precaching** but served directly via the `/pgp/[key]` route.
-- QR code images are **served statically** by the `/pgp` route using `<picture>` elements.
-- **WebP versions** are also used in the `/pgp` route, while the `/about` route imports **dynamic equivalents** from `src/lib/img/qr`.
+- QR code images—including WebP and PNG versions—are **served dynamically** from `src/lib/img/qr` using `<picture>` elements.
 - This route does **not use fallback rendering**; only explicitly defined files are available and expected to resolve.
 - A dynamic `[key]/+server.js` handler under `src/routes/pgp/` serves the `.asc` files with appropriate `Content-Type` and download headers.
 
