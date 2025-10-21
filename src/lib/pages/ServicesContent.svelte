@@ -44,7 +44,7 @@ This file is part of Network Pro.
    * @type {{ effectiveDate: string, classSmall: string }}
    */
   const constants = {
-    effectiveDate: 'October 18, 2025',
+    effectiveDate: 'October 20, 2025',
     classSmall: 'small-text',
   };
 </script>
@@ -92,7 +92,10 @@ This file is part of Network Pro.
 <p>
   <strong>{COMPANY_INFO.NAME}</strong><br />
   📞 Phone: {CONTACT.PHONE}<br />
-  📧 General Inquiries: {CONTACT.EMAIL}<br />
+  📧 General Inquiries:
+  <a href={`mailto:${CONTACT.EMAIL_LINK}`} target={PAGE.BLANK}
+    >{CONTACT.EMAIL_LINK}</a
+  ><br />
 </p>
 
 <div class="spacer"></div>

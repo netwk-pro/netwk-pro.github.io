@@ -7,16 +7,8 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import {
-    pgpContactPng,
-    pgpContactWbp,
-    pgpSupportPng,
-    pgpSupportWbp,
-    vcfPng,
-    vcfWbp,
-  } from '$lib';
+  import { CONSTANTS, getQR, PGP_KEYS } from '$lib';
   import { base } from '$app/paths';
-  import { CONSTANTS } from '$lib';
 
   // Log the base path to verify its value
   //console.log("Base path:", base);
@@ -24,6 +16,9 @@ This file is part of Network Pro.
   //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
   const { COMPANY_INFO, CONTACT, PAGE } = CONSTANTS;
+  const pgpKeys = PGP_KEYS.filter(
+    (k) => k.id === 'pgp-support' || k.id === 'pgp-contact',
+  );
 
   /**
    * URL to the Contact Form route, using the base path
@@ -36,6 +31,12 @@ This file is part of Network Pro.
    * @type {string}
    */
   const consultLink = `${base}/consultation`;
+
+  /**
+   * URL to the Services route, using the base path
+   * @type {string}
+   */
+  const servLink = `${base}/services`;
 
   /**
    * URL to the PGP route, using the base path
@@ -74,60 +75,35 @@ This file is part of Network Pro.
     {
       label: 'SPDX License Identifier',
       href: 'https://spdx.dev/learn/handling-license-info',
-      target: '_blank',
+      target: PAGE.BLANK,
       text: 'CC-BY-4.0 OR GPL-3.0-or-later',
     },
     {
       label: 'Docs',
       href: 'https://docs.netwk.pro',
-      target: '_self',
-    },
-  ];
-
-  /**
-   * PGP key information for contact emails
-   * @type {Array<{
-   *   label: string,
-   *   qrSrc: string,
-   *   qrWbp: string,
-   *   keySearch: string,
-   *   fingerprint: string[]
-   * }>}
-   */
-  const pgpKeys = [
-    {
-      label: 'support@neteng.pro',
-      qrSrc: pgpSupportPng,
-      qrWbp: pgpSupportWbp,
-      keySearch: 'https://keys.openpgp.org/search?q=support%40neteng.pro',
-      fingerprint: ['6590B992E2E3EFF12738', '7BCE2AF093E9DEC61BA0'],
-    },
-    {
-      label: 'contact@s.neteng.pro',
-      qrSrc: pgpContactPng,
-      qrWbp: pgpContactWbp,
-      keySearch: 'https://keys.openpgp.org/search?q=contact%40s.neteng.pro',
-      fingerprint: ['DF118BAA6C2D9DCDEBDC', '2DDCF99373499495F957'],
+      target: PAGE.SELF,
     },
   ];
 
   /**
    * @typedef {Object} ContactAssets
-   * @property {string} vcf
-   * @property {string} qrSrc
-   * @property {string} qrWbp
-   * @property {string} supportAsc
-   * @property {string} contactAsc
+   * @property {string} vcf - Path to the downloadable vCard file.
+   * @property {string} [png] - PNG version of the vCard QR code.
+   * @property {string} [webp] - WebP version of the vCard QR code.
+   * @property {string} supportAsc - Path to the general support PGP key.
+   * @property {string} contactAsc - Path to the secure contact PGP key.
    */
 
   /** @type {ContactAssets} */
   const contactAssets = {
     vcf: '/bin/contact.vcf',
-    qrSrc: vcfPng,
-    qrWbp: vcfWbp,
-    supportAsc: '/pgp/support@neteng.pro.asc',
+    ...getQR('vcard'),
+    supportAsc: '/pgp/support@netwk.pro.asc',
     contactAsc: '/pgp/contact@s.neteng.pro.asc',
   };
+
+  $: supportFp = pgpKeys[0]?.fingerprint?.split(' ') ?? [];
+  $: contactFp = pgpKeys[1]?.fingerprint?.split(' ') ?? [];
 </script>
 
 <!-- BEGIN TITLE -->
@@ -148,7 +124,7 @@ This file is part of Network Pro.
   </p>
 </section>
 
-&nbsp;
+<div class="spacer"></div>
 
 <section id="subhead">
   <h2>Security That Respects You</h2>
@@ -211,10 +187,11 @@ This file is part of Network Pro.
 <div class="spacer"></div>
 
 <p>
-  Additionally, {COMPANY_INFO.APP_NAME}&trade; provides on-site services in the
-  Greater Phoenix Metro Area (Maricopa County, AZ). Our on-site services are
-  available to both businesses and consumers. In addition to consulting, we
-  offer the following services:
+  Additionally, {COMPANY_INFO.APP_NAME}&trade; provides
+  <a href={servLink} target={PAGE.SELF}>on-site services</a>
+  in the Greater Phoenix Metro Area (Maricopa County, AZ). Our
+  <a href={servLink} target={PAGE.SELF}>on-site services</a> are available to both
+  consumers and businesses. In addition to consulting, we offer the following services:
 </p>
 
 <ul>
@@ -253,8 +230,14 @@ This file is part of Network Pro.
 <p>
   <strong>{COMPANY_INFO.NAME}</strong><br />
   📞 Phone: {CONTACT.PHONE}<br />
-  📧 General Inquiries: {CONTACT.EMAIL}<br />
-  🔐 Secure Email: {CONTACT.SECURE}
+  📧 General Inquiries:
+  <a href={`mailto:${CONTACT.EMAIL_LINK}`} target={PAGE.BLANK}>
+    {CONTACT.EMAIL_LINK}
+  </a><br />
+  🔐 Secure Email:
+  <a href={`mailto:${CONTACT.SECURE_LINK}`} target={PAGE.BLANK}>
+    {CONTACT.SECURE_LINK}
+  </a>
 </p>
 
 <div class="spacer"></div>
@@ -275,74 +258,84 @@ This file is part of Network Pro.
 <div class="pgp-wrap">
   <table class="pgp">
     <tbody>
-      <!-- Row 0 (First row) remains unchanged -->
+      <!-- Row 0 (Support) -->
       <tr>
         <td class="pgp-col1">
           <picture>
-            <source srcset={pgpKeys[0].qrWbp} type="image/webp" />
+            <source srcset={pgpKeys[0].webp} type="image/webp" />
             <img
               {decoding}
               {loading}
-              src={pgpKeys[0].qrSrc}
+              src={pgpKeys[0].png}
               class="pgp-image"
-              alt={`PGP Key - ${pgpKeys[0].label}`} />
+              alt={`QR code for ${pgpKeys[0].email}`} />
           </picture>
         </td>
         <td class="pgp-col2">
-          <a rel={PAGE.REL} href={pgpKeys[0].keySearch} target={PAGE.BLANK}>
-            <strong>{pgpKeys[0].label}</strong>
-          </a>
-          <p
-            ><strong
-              ><a
-                href={contactAssets.supportAsc}
-                type="application/pgp-keys"
-                download
-                target={PAGE.BLANK}
-                >asc &nbsp;<span class="fas fa-file-arrow-down"></span></a
-              ></strong>
+          <p>
+            <strong
+              ><a rel={PAGE.REL} href={pgpKeys[0].opgp} target={PAGE.BLANK}>
+                {pgpKeys[0].email}
+              </a></strong>
           </p>
-          <p
-            >Fingerprint:<br />
-            <span class="fingerprint">
-              {pgpKeys[0].fingerprint.join('\n')}
-            </span>
+          <p>
+            <a
+              href={pgpKeys[0].file}
+              type="application/pgp-keys"
+              download
+              target={PAGE.BLANK}>
+              asc &nbsp;<span class="fas fa-file-arrow-down"></span>
+            </a>
+          </p>
+          <p>
+            <strong>Fingerprint:</strong><br />
+            {#if supportFp.length}
+              <span class="fingerprint">
+                {supportFp.slice(0, supportFp.length / 2).join(' ')}<br />
+                {supportFp.slice(supportFp.length / 2).join(' ')}
+              </span>
+            {/if}
           </p>
         </td>
       </tr>
 
-      <!-- Row 1 (Second row) has its columns swapped -->
+      <!-- Row 1 (Secure Contact) -->
       <tr>
         <td class="pgp-col1">
-          <a rel={PAGE.REL} href={pgpKeys[1].keySearch} target={PAGE.BLANK}>
-            <strong>{pgpKeys[1].label}</strong>
-          </a>
           <p>
             <strong
-              ><a
-                href={contactAssets.contactAsc}
-                type="application/pgp-keys"
-                download
-                target={PAGE.BLANK}
-                >asc &nbsp;<span class="fas fa-file-arrow-down"></span></a
-              ></strong>
+              ><a rel={PAGE.REL} href={pgpKeys[1].opgp} target={PAGE.BLANK}>
+                {pgpKeys[1].email}
+              </a></strong>
           </p>
-          <p
-            >Fingerprint:<br />
-            <span class="fingerprint">
-              {pgpKeys[1].fingerprint.join('\n')}
-            </span>
+          <p>
+            <a
+              href={pgpKeys[1].file}
+              type="application/pgp-keys"
+              download
+              target={PAGE.BLANK}>
+              asc &nbsp;<span class="fas fa-file-arrow-down"></span>
+            </a>
+          </p>
+          <p>
+            <strong>Fingerprint:</strong><br />
+            {#if contactFp.length}
+              <span class="fingerprint">
+                {contactFp.slice(0, contactFp.length / 2).join(' ')}<br />
+                {contactFp.slice(contactFp.length / 2).join(' ')}
+              </span>
+            {/if}
           </p>
         </td>
         <td class="pgp-col2">
           <picture>
-            <source srcset={pgpKeys[1].qrWbp} type="image/webp" />
+            <source srcset={pgpKeys[1].webp} type="image/webp" />
             <img
               {decoding}
               {loading}
-              src={pgpKeys[1].qrSrc}
+              src={pgpKeys[1].png}
               class="pgp-image"
-              alt={`PGP Key - ${pgpKeys[1].label}`} />
+              alt={`QR code for ${pgpKeys[1].email}`} />
           </picture>
         </td>
       </tr>
@@ -351,13 +344,17 @@ This file is part of Network Pro.
       <tr>
         <td class="pgp-col1">
           <picture>
-            <source srcset={contactAssets.qrWbp} type="image/webp" />
-            <img
-              {decoding}
-              {loading}
-              src={contactAssets.qrSrc}
-              class="pgp-image"
-              alt="vCard" />
+            {#if contactAssets.webp}
+              <source srcset={contactAssets.webp} type="image/webp" />
+            {/if}
+            {#if contactAssets.png}
+              <img
+                {decoding}
+                {loading}
+                src={contactAssets.png}
+                class="pgp-image"
+                alt="vCard" />
+            {/if}
           </picture>
         </td>
         <td class="pgp-col2">

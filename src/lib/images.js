@@ -13,7 +13,7 @@ This file is part of Network Pro.
  * @description Provides convenient access to images in the src/lib/img directory
  * @module src/lib
  * @author Scott Lopez
- * @updated 2025-06-16
+ * @updated 2025-10-20
  */
 
 // Import favicon images
@@ -33,6 +33,7 @@ import bySvg from '$lib/img/by.svg';
 import ccSvg from '$lib/img/cc.svg';
 import obtainiumPng from '$lib/img/obtainium.png';
 import obtainiumWbp from '$lib/img/obtainium.webp';
+import protonPower from '$lib/img/powered-by-proton.svg';
 
 // Import images for posts
 import acodePng from '$lib/img/posts/acode.png';
@@ -56,15 +57,47 @@ import tosWbp from '$lib/img/posts/tosdr.webp';
 import urlPng from '$lib/img/posts/urlcheck.png';
 import urlWbp from '$lib/img/posts/urlcheck.webp';
 
-// Import QR code images
-import pgpContactPng from '$lib/img/qr/pgp-contact.png';
-import pgpContactWbp from '$lib/img/qr/pgp-contact.webp';
-import pgpSecurityPng from '$lib/img/qr/pgp-security.png';
-import pgpSecurityWbp from '$lib/img/qr/pgp-security.webp';
-import pgpSupportPng from '$lib/img/qr/pgp-support.png';
-import pgpSupportWbp from '$lib/img/qr/pgp-support.webp';
-import vcfPng from '$lib/img/qr/vcard.png';
-import vcfWbp from '$lib/img/qr/vcard.webp';
+// ================================================================
+// Dynamic QR code image imports
+// ================================================================
+
+// Dynamically import all QR code images in src/lib/img/qr
+const qrModules = import.meta.glob('$lib/img/qr/*.{png,webp}', { eager: true });
+
+/**
+ * Aggregated QR code image lookup.
+ * Example: QR_IMAGES['pgp-support'].png → blob URL
+ * @typedef {'png' | 'webp'} QRExtension
+ * @type {Record<string, { png?: string; webp?: string }>}
+ */
+export const QR_IMAGES = {};
+
+// Populate QR_IMAGES
+for (const [path, mod] of Object.entries(qrModules)) {
+  // Ensure we’re dealing with an ES module with a default export
+  const module = /** @type {{ default: string }} */ (mod);
+
+  const file = path.split('/').pop();
+  if (!file) continue; // file is possibly undefined
+
+  const [name, ext] = file.split('.');
+  if (!QR_IMAGES[name]) QR_IMAGES[name] = {};
+
+  if (ext === 'png' || ext === 'webp') {
+    QR_IMAGES[name][ext] = module.default;
+  }
+}
+
+/**
+ * Retrieve QR code image pair (png/webp) by name.
+ * Safely returns an empty object if not found.
+ *
+ * @param {string} name - Base filename (e.g., "pgp-support" or "vcard")
+ * @returns {{ png?: string; webp?: string }}
+ */
+export function getQR(name) {
+  return QR_IMAGES[name] ?? {};
+}
 
 // Re-export all imports
 export {
@@ -87,19 +120,15 @@ export {
   lsheetPng,
   lsheetWbp, obtainiumPng,
   obtainiumWbp, otphelpPng,
-  otphelpWbp, pgpContactPng,
-  pgpContactWbp, pgpSecurityPng,
-  pgpSecurityWbp, pgpSupportPng,
-  pgpSupportWbp, pmxPng,
+  otphelpWbp, pmxPng,
   pmxWbp,
+  protonPower,
   squirclePng,
   squircleWbp,
   tosPng,
   tosWbp,
   urlPng,
-  urlWbp,
-  vcfPng,
-  vcfWbp
+  urlWbp
 };
 
 // cspell:ignore eauth hboard cryptom tosdr otphelp

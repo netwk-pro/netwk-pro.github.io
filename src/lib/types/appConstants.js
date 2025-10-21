@@ -23,9 +23,12 @@ This file is part of Network Pro.
 
 /**
  * @typedef {object} ContactInfo
- * @property {string} EMAIL - Primary contact email
- * @property {string} SECURE - Secure contact email
- * @property {string} PRIVACY - Privacy policy email
+ * @property {string} EMAIL - Primary contact email (human-readable form)
+ * @property {string} EMAIL_LINK - Primary contact email (clickable address)
+ * @property {string} SECURE - Secure contact email (human-readable form)
+ * @property {string} SECURE_LINK - Secure contact email (clickable address)
+ * @property {string} PRIVACY - Privacy contact email (human-readable form)
+ * @property {string} PRIVACY_LINK - Privacy contact email (clickable address)
  * @property {string} PHONE - Support phone number
  */
 

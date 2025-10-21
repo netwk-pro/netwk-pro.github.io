@@ -15,14 +15,13 @@ This file is part of Network Pro.
 
   //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
-  const { PAGE } = CONSTANTS;
+  const { PAGE, LINKS } = CONSTANTS;
 
   const homeLink = base || '/';
   const aboutLink = `${base}/about`;
   const servLink = `${base}/services`;
   const lhubLink = `${base}/links`;
   const fossLink = `${base}/foss-spotlight`;
-  const blogLink = 'https://blog.netwk.pro';
   const discussLink =
     'https://github.com/netwk-pro/netwk-pro.github.io/discussions';
 
@@ -46,7 +45,7 @@ This file is part of Network Pro.
     { label: 'services', href: servLink, target: PAGE.SELF, external: false },
     {
       label: 'blog',
-      href: blogLink,
+      href: LINKS.BLOG,
       target: PAGE.SELF,
       external: false,
     },

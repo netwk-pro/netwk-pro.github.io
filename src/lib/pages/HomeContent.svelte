@@ -46,17 +46,17 @@ This file is part of Network Pro.
 <h3 class={classIndex}>🔒 Practical Cybersecurity. Trusted Expertise.</h3>
 
 <p class={classCenter}>
-  At <strong>{COMPANY_INFO.NAME}</strong>, we specialize in network security,
-  cybersecurity, and digital privacy consulting that meets today's real-world
-  demands. Our remote-first approach combines technical depth with practical
-  solutions—leveraging a strategic mix of open source and proprietary
+  At <strong>{COMPANY_INFO.NAME}</strong>, we specialize in network engineering
+  and security, cybersecurity, and digital privacy consulting that meets today's
+  real-world demands. Our remote-first approach combines technical depth with
+  practical solutions—leveraging a strategic mix of open source and proprietary
   technologies based on performance, scalability, and trustworthiness.
 </p>
 
 <p class={classCenter}>
   From secure network design to cloud infrastructure and perimeter defense, we
-  help organizations build stronger, smarter security postures—without
-  compromising flexibility or transparency.
+  help individuals and organizations build stronger, smarter security
+  postures—without compromising flexibility or transparency.
 </p>
 
 <p class={classCenter}>
@@ -76,9 +76,12 @@ This file is part of Network Pro.
   📞 <strong>Phone:</strong>
   {CONTACT.PHONE}<br />
   📧 <strong>General Inquiries:</strong>
-  {CONTACT.EMAIL}<br />
+  <a href={`mailto:${CONTACT.EMAIL_LINK}`} target={PAGE.BLANK}
+    >{CONTACT.EMAIL_LINK}</a
+  ><br />
   🔐 <strong>Secure Email:</strong>
-  {CONTACT.SECURE}
+  <a href={`mailto:${CONTACT.SECURE_LINK}`} target={PAGE.BLANK}
+    >{CONTACT.SECURE_LINK}</a>
 </p>
 
 &nbsp;

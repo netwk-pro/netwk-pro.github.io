@@ -6,6 +6,14 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
+/**
+ * @file fossData.js
+ * @description Data for FOSS Spotlight route
+ * @module src/lib/data
+ * @author Scott Lopez
+ * @updated 2025-10-20
+ */
+
 // Import FOSS images
 import { acodePng, acodeWbp, cryptomPng, cryptomWbp, eauthPng, eauthWbp, hboardPng, hboardWbp, lsheetPng, lsheetWbp, otphelpPng, otphelpWbp, pmxPng, pmxWbp, squirclePng, squircleWbp, tosPng, tosWbp, urlPng, urlWbp } from "$lib";
 
