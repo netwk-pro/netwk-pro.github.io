@@ -22,6 +22,49 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.22.2] - 2025-10-29
+
+### Documentation
+
+- Rewrote `CONTRIBUTING.md` to accurately describe the modern SvelteKit contribution workflow.
+  - Updated guidelines for branch naming, code style, and pull request submission.
+  - Removed outdated references to Webpack and `build/` artifacts.
+- Moved `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md` to the organization’s `.github` repository to centralize contribution and conduct policies across all projects.
+
+### Added
+
+- Introduced `vite-plugin-devtools-json` as a new `devDependency` to improve DevTools and JSON inspection support.
+  - Added plugin configuration in `vite.config.js`.
+- Added `.ncurc.json` configuration to define rules for `npm-check-updates`, preventing automatic upgrades of version-linked packages such as `vitest` and `@vitest/coverage-v8`.
+- Added the term `ncurc` to `cspell.json` to prevent false-positive spell-check warnings.
+
+### Changed
+
+- Updated GitHub workflows to utilize `actions/upload-artifact@v5` and `actions/setup-node@v6`:
+  - `templates/publish.template.yml`
+  - `build-and-publish.yml`
+  - `lighthouse.yml`
+  - `meta-check.yml`
+  - `playwright.yml`
+  - `publish-test.yml`
+- Improved **Svelte 5** / Rune compatibility in `vitest.config.client.js`:
+  - Added `optimizeDeps.include` configuration to ensure `.svelte` files are properly transformed during testing, and to align with **Vitest 4.x** and future **Vite 6** compatibility.
+  - Prevents `rune_outside_svelte` errors and prepares for future **Vitest 4.x** updates.
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.48.3**.
+- Modified `.node-version` and `.nvmrc` to reflect **Node.js** version `22.21.0` (LTS).
+- Bumped project version to `v1.22.2`.
+- Updated dependencies:
+  - `@eslint/compat` `^1.4.0` → `^1.4.1`
+  - `@sveltejs/adapter-vercel` `^6.0.0` → `^6.1.1`
+  - `@sveltejs/kit` `2.47.2` → `2.48.3`
+  - `browserslist` `^4.26.3` → `^4.27.0`
+  - `eslint-plugin-jsdoc` `^61.1.5` → `^61.1.11`
+  - `posthog-js` `^1.278.0` → `^1.282.0`
+  - `svelte` `5.41.1` → `5.43.0`
+  - `vite` `^7.1.11` → `^7.1.12`
+
+---
+
 ## [1.22.1] - 2025-10-21
 
 ### Documentation
@@ -36,7 +79,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 - Updated the text of `ServicesContent.svelte`.
 - Increased default Playwright test timeouts for navigation-sensitive suites (Desktop and Mobile) to improve stability under CI latency conditions.
 - Implemented `Promise.all()` pattern for combined click and navigation waits, reducing flakiness in route transition tests.
-- Updated the `'about' link'\*\* navigation tests in both Desktop and Mobile scenarios to include:
+- Updated the `'about' link` navigation tests in both Desktop and Mobile scenarios to include:
   - Explicit `page.waitForLoadState('domcontentloaded')` calls before assertions.
   - Extended per-suite timeouts (`90s`) using `test.setTimeout(90000)` for reliability on slower environments.
   - Added fallback `waitForURL('\*\*/about', { timeout: 60000 })` to ensure deterministic routing checks.
@@ -1267,7 +1310,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.22.1...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.22.2...HEAD
+[1.22.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.22.2
 [1.22.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.22.1
 [1.22.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.22.0
 [1.21.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.21.1

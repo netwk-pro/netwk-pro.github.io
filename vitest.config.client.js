@@ -39,5 +39,14 @@ export default defineConfig({
       reporter: ['html'],
       reportsDirectory: './reports/client/coverage',
     },
+
+    // Svelte 5 / Runes compatibility (Vitest 4.x+)
+    optimizeDeps: {
+      include: [/svelte/], // Ensures .svelte files are pre-bundled with rune support
+    },
+
+    // Optional: quiet down noisy vite logs
+    logHeapUsage: false,
+    isolate: true,
   },
 });

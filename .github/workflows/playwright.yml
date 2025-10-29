@@ -32,7 +32,7 @@ jobs:
         run: 'echo "ENV_MODE is set to: $ENV_MODE"'
 
       - name: Set up Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: npm
