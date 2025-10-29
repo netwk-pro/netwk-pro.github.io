@@ -40,7 +40,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ### Changed
 
-- Updated GitHub workflows to utilize `actions/download-artifact@v5` and `actions/setup-node@v6`:
+- Updated GitHub workflows to utilize `actions/upload-artifact@v5` and `actions/setup-node@v6`:
   - `templates/publish.template.yml`
   - `build-and-publish.yml`
   - `lighthouse.yml`
