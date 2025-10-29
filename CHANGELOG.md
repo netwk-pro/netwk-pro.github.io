@@ -51,6 +51,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
   - Added `optimizeDeps.include` configuration to ensure `.svelte` files are properly transformed during testing, and to align with **Vitest 4.x** and future **Vite 6** compatibility.
   - Prevents `rune_outside_svelte` errors and prepares for future **Vitest 4.x** updates.
 - Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.48.3**.
+- Modified `.node-version` and `.nvmrc` to reflect **Node.js** version `22.21.0` (LTS).
 - Bumped project version to `v1.22.2`.
 - Updated dependencies:
   - `@eslint/compat` `^1.4.0` → `^1.4.1`
