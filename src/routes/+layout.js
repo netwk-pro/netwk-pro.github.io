@@ -19,9 +19,8 @@ import { meta as routeMeta } from '$lib/meta.js'; // Import meta from $lib/meta.
  * Actual meta content is provided per-route via +page.server.js.
  */
 const fallbackMeta = {
-  title: 'Security, Networking, Privacy — Network Pro™',
-  description:
-    'Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies',
+  title: 'Security, Networking, Privacy',
+  description: 'Locking Down Networks, Unlocking Confidence™',
 };
 
 export const prerender = 'auto';

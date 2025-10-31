@@ -6,8 +6,6 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== -->
 
-<!-- cspell:ignore ccby gnugpl -->
-
 <script>
   import { base } from '$app/paths';
   // Import icons for licenses
@@ -22,9 +20,9 @@ This file is part of Network Pro.
   const { COMPANY_INFO, CONTACT, PAGE, NAV } = CONSTANTS;
 
   // Dynamic links for licensing and trademark
-  const ccbyLink = `${base}/license#cc-by`;
-  const gnugplLink = `${base}/license#gnu-gpl`;
-  const trademarkLink = `${base}/license#trademark`;
+  const ccbyLink = `${base}/legal#cc-by`;
+  const gnugplLink = `${base}/legal#gnu-gpl`;
+  const trademarkLink = `${base}/legal#trademark`;
 
   /** @type {string} */
   const creatorUrl = 'https://netwk.pro';
@@ -101,12 +99,12 @@ This file is part of Network Pro.
       target={PAGE.BLANK}>
       <strong>{COMPANY_INFO.NAME}</strong>
     </a>
-    ({COMPANY_INFO.APP_NAME}&trade;)
+    ({COMPANY_INFO.APP_NAME})
   </p>
 
   <!-- Trademark Section -->
   <p>
-    {COMPANY_INFO.APP_NAME}&trade;, the shield logo, and the "{creatorSlogan}&trade;"
+    {COMPANY_INFO.APP_NAME}, the shield logo, and the "{creatorSlogan}&trade;"
     slogan are
     <a href={trademarkLink} target={PAGE.SELF}>trademarks</a>
     of {COMPANY_INFO.NAME}.
@@ -146,3 +144,5 @@ This file is part of Network Pro.
   </p>
 </div>
 <!-- END FOOTER -->
+
+<!-- cspell:ignore ccby gnugpl -->

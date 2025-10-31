@@ -11,8 +11,10 @@ This file is part of Network Pro.
  * @description Stores commonly used functions for importing into E2E tests.
  * @module tests/e2e/shared
  * @author Scott Lopez
- * @updated 2025-05-29
+ * @updated 2025-10-29
  */
+
+import { expect } from '@playwright/test';
 
 /**
  * @param {import('@playwright/test').Page} page - The Playwright page object.
@@ -54,4 +56,40 @@ export async function getVisibleNav(page) {
  */
 export function getFooter(page) {
   return page.locator('footer');
+}
+
+/**
+ * @function clickAndWaitForNavigation
+ * @description Clicks a link or button and waits for navigation or URL change.
+ * Works for both SPA (client-side) and full-page navigations.
+ *
+ * @param {import('@playwright/test').Page} page
+ * @param {import('@playwright/test').Locator} locator
+ * @param {object} [options]
+ * @param {string|RegExp} [options.urlPattern] - URL or regex to match
+ * @param {number} [options.timeout=60000] - Max wait time
+ */
+export async function clickAndWaitForNavigation(page, locator, options = {}) {
+  const { urlPattern = /\/.*/, timeout = 60000 } = options;
+
+  // Ensure the element is ready for interaction
+  await locator.scrollIntoViewIfNeeded();
+  await locator.waitFor({ state: 'visible', timeout: 10000 });
+  await locator.click({ trial: true });
+
+  // Capture current URL to detect SPA navigation
+  const currentUrl = page.url();
+
+  // Handle both SPA transitions and full page reloads
+  await Promise.all([
+    page.waitForURL(urlPattern, { timeout }).catch(() => {}),
+    page.waitForLoadState('load', { timeout }).catch(() => {}),
+    locator.click(),
+  ]);
+
+  // Confirm the URL changed successfully
+  await expect(page).toHaveURL(urlPattern, { timeout });
+
+  // Optional: log navigation success (helps in CI)
+  console.log(`✅ Navigation from ${currentUrl} → ${page.url()}`);
 }

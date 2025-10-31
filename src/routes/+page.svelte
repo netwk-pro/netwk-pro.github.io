@@ -13,28 +13,9 @@ This file is part of Network Pro.
     LegalNav,
     Logo,
     SocialMedia,
-    MetaTags,
   } from '$lib/components';
   import { HomeContent } from '$lib/pages';
-
-  /**
-   * @type {string}
-   * Style class for the horizontal rule element.
-   */
-  const hrStyle = 'hr-styled';
-
-  /**
-   * @type {string}
-   * Style class for the div element.
-   */
-  const spaceStyle = 'spacer';
-
-  export let data;
 </script>
-
-<MetaTags title={data.meta.title} description={data.meta.description} />
-
-<link rel="canonical" href="https://netwk.pro" />
 
 <section id="home-page" data-testid="home-page">
   <FullWidthSection>
@@ -44,11 +25,11 @@ This file is part of Network Pro.
     </section>
     <!-- END TITLE -->
 
-    <div class={spaceStyle}></div>
+    <div class="spacer"></div>
 
-    <hr class={hrStyle} />
+    <hr class="hr-styled" />
 
-    <div class={spaceStyle}></div>
+    <div class="spacer"></div>
 
     <!-- BEGIN MAIN CONTENT -->
     <section id="main-content">
@@ -56,7 +37,7 @@ This file is part of Network Pro.
     </section>
     <!-- END MAIN CONTENT -->
 
-    <div class={spaceStyle}></div>
+    <div class="spacer"></div>
 
     <!-- BEGIN SOCIAL MEDIA -->
     <section id="social-media">
@@ -64,9 +45,9 @@ This file is part of Network Pro.
     </section>
     <!-- END SOCIAL MEDIA -->
 
-    <hr class={hrStyle} />
+    <hr class="hr-styled" />
 
-    <div class={spaceStyle}></div>
+    <div class="spacer"></div>
 
     <!-- BEGIN LEGAL -->
     <section id="legal-nav">
@@ -74,7 +55,7 @@ This file is part of Network Pro.
     </section>
     <!-- END LEGAL -->
 
-    <div class={spaceStyle}></div>
+    <div class="spacer"></div>
 
     <!-- BEGIN BADGES -->
     <section id="badges">

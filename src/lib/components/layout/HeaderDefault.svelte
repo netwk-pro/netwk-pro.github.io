@@ -21,7 +21,7 @@ This file is part of Network Pro.
   const aboutLink = `${base}/about`;
   const servLink = `${base}/services`;
   const lhubLink = `${base}/links`;
-  const fossLink = `${base}/foss-spotlight`;
+  const fossLink = `${base}/foss`;
   const discussLink =
     'https://github.com/netwk-pro/netwk-pro.github.io/discussions';
 

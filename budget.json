@@ -21,7 +21,7 @@
     ]
   },
   {
-    "path": "/foss-spotlight",
+    "path": "/foss",
     "resourceSizes": [
       { "resourceType": "image", "budget": 500 },
       { "resourceType": "total", "budget": 1200 }

@@ -21,7 +21,7 @@ This file is part of Network Pro.
    * URL to the FOSS Spotlight page, using the base path
    * @type {string}
    */
-  const spotlightLink = `${base}/foss-spotlight`;
+  const spotlightLink = `${base}/foss`;
 
   /**
    * CSS class for the index headings.

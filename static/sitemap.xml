@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Sitemap last updated 2025-10-20 -->
+<!-- Sitemap last updated 2025-10-30 -->
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
@@ -7,7 +7,7 @@
 
     <loc>https://netwk.pro</loc>
 
-    <lastmod>2025-10-20</lastmod>
+    <lastmod>2025-10-30</lastmod>
 
     <changefreq>weekly</changefreq>
 
@@ -19,7 +19,7 @@
 
     <loc>https://netwk.pro/services</loc>
 
-    <lastmod>2025-10-20</lastmod>
+    <lastmod>2025-10-30</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -29,9 +29,9 @@
 
   <url>
 
-    <loc>https://netwk.pro/foss-spotlight</loc>
+    <loc>https://netwk.pro/foss</loc>
 
-    <lastmod>2025-07-20</lastmod>
+    <lastmod>2025-10-30</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -43,7 +43,7 @@
 
     <loc>https://netwk.pro/about</loc>
 
-    <lastmod>2025-10-20</lastmod>
+    <lastmod>2025-10-30</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -55,7 +55,7 @@
 
     <loc>https://netwk.pro/privacy-dashboard</loc>
 
-    <lastmod>2025-06-30</lastmod>
+    <lastmod>2025-10-30</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -67,7 +67,7 @@
 
     <loc>https://netwk.pro/privacy</loc>
 
-    <lastmod>2025-10-17</lastmod>
+    <lastmod>2025-10-30</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -77,9 +77,9 @@
 
   <url>
 
-    <loc>https://netwk.pro/license</loc>
+    <loc>https://netwk.pro/legal</loc>
 
-    <lastmod>2025-10-09</lastmod>
+    <lastmod>2025-10-30</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -91,7 +91,7 @@
 
     <loc>https://netwk.pro/terms-of-use</loc>
 
-    <lastmod>2025-05-27</lastmod>
+    <lastmod>2025-10-30</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -103,7 +103,7 @@
 
     <loc>https://netwk.pro/terms-conditions</loc>
 
-    <lastmod>2025-06-10</lastmod>
+    <lastmod>2025-10-30</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -115,7 +115,7 @@
 
     <loc>https://netwk.pro/pgp</loc>
 
-    <lastmod>2025-10-20</lastmod>
+    <lastmod>2025-10-30</lastmod>
 
     <changefreq>monthly</changefreq>
 

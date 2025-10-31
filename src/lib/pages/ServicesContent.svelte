@@ -85,8 +85,7 @@ This file is part of Network Pro.
   well. Simply <a href={consultLink} target={PAGE.BLANK}
     >schedule a free, initial consultation</a>
   or <a href={contactLink} target={PAGE.BLANK}>contact us directly</a> — we'd be
-  happy to discuss how {COMPANY_INFO.APP_NAME}&trade; can support your business
-  on-site.
+  happy to discuss how {COMPANY_INFO.APP_NAME} can support your business on-site.
 </p>
 
 <p>

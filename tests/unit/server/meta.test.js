@@ -25,6 +25,6 @@ describe('Meta info', () => {
     const { meta } = load({ url: mockUrl });
 
     expect(meta.title).toMatch(/Security, Networking, Privacy/);
-    expect(meta.description).toMatch(/Network Pro/);
+    expect(meta.description).toMatch(/Locking Down Networks/);
   });
 });

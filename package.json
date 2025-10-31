@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.22.2",
+  "version": "1.23.0",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -81,7 +81,7 @@
     "dompurify": "^3.3.0",
     "posthog-js": "^1.282.0",
     "semver": "^7.7.3",
-    "svelte": "5.43.0"
+    "svelte": "5.43.2"
   },
   "devDependencies": {
     "@eslint/compat": "^1.4.1",
@@ -89,7 +89,7 @@
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.56.1",
     "@sveltejs/adapter-vercel": "^6.1.1",
-    "@sveltejs/kit": "2.48.3",
+    "@sveltejs/kit": "2.48.4",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/svelte": "^5.2.8",
@@ -99,7 +99,7 @@
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsdoc": "^61.1.11",
-    "eslint-plugin-svelte": "^3.12.5",
+    "eslint-plugin-svelte": "^3.13.0",
     "globals": "^16.4.0",
     "jsdom": "26.1.0",
     "lightningcss": "^1.30.2",
@@ -124,7 +124,8 @@
     "vitest": "3.2.4"
   },
   "overrides": {
-    "tmp": ">=0.2.4",
-    "cookie": "^1.0.0"
+    "cookie": "^1.0.0",
+    "tar": "7.5.2",
+    "tmp": ">=0.2.4"
   }
 }
