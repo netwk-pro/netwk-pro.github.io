@@ -45,7 +45,7 @@ This document is provided for convenience only. In the event of any discrepancy,
 
 ---
 
-**Formats Available:** [HTML](https://netwk.pro/license) | Markdown
+**Formats Available:** [HTML](https://netwk.pro/legal) | Markdown
 
 <a name="ownership"></a>
 

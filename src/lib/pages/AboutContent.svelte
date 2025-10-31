@@ -116,9 +116,9 @@ This file is part of Network Pro.
 </section>
 
 <section id="page-title">
-  <h1>About {COMPANY_INFO.APP_NAME}&trade;</h1>
+  <h1>About {COMPANY_INFO.APP_NAME}</h1>
   <p>
-    <strong>{COMPANY_INFO.NAME} ({COMPANY_INFO.APP_NAME}&trade;)</strong>
+    <strong>{COMPANY_INFO.NAME} ({COMPANY_INFO.APP_NAME})</strong>
     <br />
     <em>Security, Networking, Privacy</em>
   </p>
@@ -143,8 +143,8 @@ This file is part of Network Pro.
 </p>
 
 <p>
-  At <strong>{COMPANY_INFO.NAME} ({COMPANY_INFO.APP_NAME}&trade;)</strong>, we
-  deliver network security and engineering, cybersecurity, and digital privacy
+  At <strong>{COMPANY_INFO.NAME} ({COMPANY_INFO.APP_NAME})</strong>, we deliver
+  network security and engineering, cybersecurity, and digital privacy
   consulting with clarity, credibility, and care. We believe that real security
   doesn't have to come at the cost of user autonomy, and that privacy-minded
   solutions can be both practical and powerful.
@@ -186,7 +186,7 @@ This file is part of Network Pro.
 <div class="spacer"></div>
 
 <p>
-  Additionally, {COMPANY_INFO.APP_NAME}&trade; provides
+  Additionally, {COMPANY_INFO.APP_NAME} provides
   <a href={servLink} target={PAGE.SELF}>on-site services</a>
   in the Greater Phoenix Metropolitan Area (Maricopa County, AZ). Our
   <a href={servLink} target={PAGE.SELF}>on-site services</a> are available to both
@@ -212,10 +212,10 @@ This file is part of Network Pro.
 </p>
 
 <p>
-  At {COMPANY_INFO.APP_NAME}&trade;, we deliver robust, intentional solutions
-  for individuals and organizations that prioritize integrity — without
-  compromising agility or trust. We don't just protect infrastructure. We
-  protect peace of mind.
+  At {COMPANY_INFO.APP_NAME}, we deliver robust, intentional solutions for
+  individuals and organizations that prioritize integrity — without compromising
+  agility or trust. We don't just protect infrastructure. We protect peace of
+  mind.
 </p>
 
 <p>

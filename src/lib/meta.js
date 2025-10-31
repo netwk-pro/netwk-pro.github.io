@@ -18,62 +18,62 @@ This file is part of Network Pro.
 const meta = {
   '/': {
     title:
-      'Security, Networking, Privacy — Network Pro Strategies',
+      'Security, Networking, Privacy',
     description:
-      'Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies',
+      'Locking Down Networks, Unlocking Confidence™',
   },
   '/about': {
-    title: 'About Us — Network Pro™',
-    description: 'About Us | Security, Networking, Privacy — Network Pro Strategies',
+    title: 'About Us',
+    description: 'About Us',
   },
   '/privacy': {
-    title: 'Privacy Policy — Network Pro™',
+    title: 'Privacy Policy',
     description:
-      'Privacy Policy | Security, Networking, Privacy — Network Pro Strategies',
+      'Privacy Policy',
   },
   '/terms-of-use': {
-    title: 'Website Terms of Use — Network Pro™',
+    title: 'Website Terms of Use',
     description:
-      'Website Terms of Use | Security, Networking, Privacy — Network Pro Strategies',
+      'Website Terms of Use',
   },
-  '/license': {
-    title: 'Legal, Copyright, and Licensing — Network Pro™',
+  '/legal': {
+    title: 'Legal, Copyright, and Licensing',
     description:
-      'Legal, Copyright, and Licensing | Security, Networking, Privacy — Network Pro Strategies',
+      'Legal, Copyright, and Licensing',
   },
   '/terms-conditions': {
-    title: 'Consulting Terms and Conditions — Network Pro™',
+    title: 'Consulting Terms and Conditions',
     description:
-      'Terms and Conditions | Security, Networking, Privacy — Network Pro Strategies',
+      'Terms and Conditions',
   },
-  '/foss-spotlight': {
-    title: 'FOSS Spotlight — Network Pro™',
+  '/foss': {
+    title: 'FOSS Spotlight',
     description:
-      'FOSS Spotlight | Security, Networking, Privacy — Network Pro Strategies',
+      'FOSS Spotlight',
   },
   '/privacy-dashboard': {
-    title: 'Privacy Dashboard — Network Pro™',
+    title: 'Privacy Dashboard',
     description:
-      'Privacy Dashboard | Security, Networking, Privacy — Network Pro Strategies',
+      'Privacy Dashboard',
   },
   '/pgp': {
-    title: 'Public PGP Keys — Network Pro™',
+    title: 'Public PGP Keys',
     description:
-      'Public encryption keys for secure communication | Security, Networking, Privacy — Network Pro Strategies',
+      'Public encryption keys for secure communication',
   },
   '/services': {
-    title: "On-Site Services - Network Pro™",
+    title: "On-Site Services",
     description:
-      'On-Site Services | Security, Networking, Privacy — Network Pro Strategies'
+      'On-Site Services'
   },
   // Excludes redirect-only routes like /contact, /consultation, /privacy-rights
 };
 
 /** @type {MetaData} */
 const defaultMeta = {
-  title: 'Loading... | Network Pro™',
+  title: 'Loading...',
   description:
-    'Please wait while the content loads... | Security, Networking, Privacy — Network Pro™',
+    'Please wait while the content loads...',
 };
 
 // Export values

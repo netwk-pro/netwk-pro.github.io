@@ -84,17 +84,20 @@ console.log(CONSTANTS.COMPANY_INFO.APP_NAME); // "Network Pro"
 | Key        | Description                  | Example                  |
 | ---------- | ---------------------------- | ------------------------ |
 | `NAME`     | Full company name            | `Network Pro Strategies` |
-| `APP_NAME` | Application or branding name | `Network Pro`            |
+| `APP_NAME` | Application or branding name | `Network Pro™`          |
 | `YEAR`     | Copyright / app year         | `2025`                   |
 
 ### 📬 CONTACT
 
-| Key       | Description             | Example                     |
-| --------- | ----------------------- | --------------------------- |
-| `EMAIL`   | General support email   | `support (at) neteng.pro`   |
-| `SECURE`  | Secure contact address  | `contact (at) s.neteng.pro` |
-| `PRIVACY` | Privacy-related contact | `privacy (at) netwk.pro`    |
-| `PHONE`   | Company phone number    | `(623) 252-4350`            |
+| Key            | Description                    | Example                     |
+| -------------- | ------------------------------ | --------------------------- |
+| `EMAIL`        | General support email          | `support (at) netwk.pro`    |
+| `EMAIL_LINK`   | General support email (link)   | `support@netwk.pro`         |
+| `SECURE`       | Secure contact address         | `contact (at) s.neteng.pro` |
+| `SECURE_LINK`  | Secure contact address (link)  | `contact@s.neteng.pro`      |
+| `PRIVACY`      | Privacy-related contact        | `privacy (at) netwk.pro`    |
+| `PRIVACY_LINK` | Privacy-related contact (link) | `privacy@netwk.pro`         |
+| `PHONE`        | Company phone number           | `(623) 252-4350`            |
 
 ### 🗂️ PAGE
 
@@ -153,8 +156,8 @@ No need to modify imports when adding new images — just add them to `images.js
 Copyright &copy; 2025  
 **[Network Pro Strategies](https://netwk.pro) (Network Pro&trade;)**
 
-Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/license#trademark) of Network Pro Strategies.
+Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/legal#trademark) of Network Pro Strategies.
 
-Licensed under **[CC BY 4.0](https://netwk.pro/license#cc-by)** and the **[GNU GPL](https://netwk.pro/license#gnu-gpl)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
+Licensed under **[CC BY 4.0](https://netwk.pro/legal#cc-by)** and the **[GNU GPL](https://netwk.pro/legal#gnu-gpl)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
 
 </span>

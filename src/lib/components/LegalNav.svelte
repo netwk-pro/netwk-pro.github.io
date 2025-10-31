@@ -19,7 +19,7 @@ This file is part of Network Pro.
 
   const termsLink = `${base}/terms-of-use`;
   const privacyLink = `${base}/privacy`;
-  const licenseLink = `${base}/license`;
+  const licenseLink = `${base}/legal`;
   const pdashLink = `${base}/privacy-dashboard`;
 
   /**

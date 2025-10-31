@@ -13,23 +13,23 @@
       "permanent": true
     },
     {
-      "source": "/legal",
-      "destination": "/license",
+      "source": "/license",
+      "destination": "/legal",
       "permanent": true
     },
     {
-      "source": "/legal/:path*",
-      "destination": "/license/:path*",
+      "source": "/license/:path*",
+      "destination": "/legal/:path*",
       "permanent": true
     },
     {
-      "source": "/foss",
-      "destination": "/foss-spotlight",
+      "source": "/foss-spotlight",
+      "destination": "/foss",
       "permanent": true
     },
     {
-      "source": "/foss/:path*",
-      "destination": "/foss-spotlight/:path*",
+      "source": "/foss-spotlight/:path*",
+      "destination": "/foss/:path*",
       "permanent": true
     }
   ],

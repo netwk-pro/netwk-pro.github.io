@@ -126,7 +126,7 @@ This file is part of Network Pro.
       <p>
         All content—including text, software, logos, graphics, documentation,
         and other materials—provided by
-        <strong>{COMPANY_INFO.NAME}</strong> ("{COMPANY_INFO.APP_NAME}&trade;",
+        <strong>{COMPANY_INFO.NAME}</strong> ("{COMPANY_INFO.APP_NAME}",
         "Company", "Licensor") is protected by U.S. and international copyright
         laws.
       </p>
@@ -135,12 +135,12 @@ This file is part of Network Pro.
         <strong>
           <a href={homeLink} target={PAGE.BLANK}> {COMPANY_INFO.NAME} </a>
         </strong>
-        ({COMPANY_INFO.APP_NAME}&trade;)
+        ({COMPANY_INFO.APP_NAME})
       </p>
     {:else if link.id === 'trademark'}
       <p>The following trademarks are the exclusive property of the Company:</p>
       <ul>
-        <li><strong>Brand Name:</strong> {COMPANY_INFO.APP_NAME}&trade;</li>
+        <li><strong>Brand Name:</strong> {COMPANY_INFO.APP_NAME}</li>
         <li><strong>Domain Names:</strong> netwk.pro, neteng.pro, neteng.cc</li>
         <li
           ><strong>Logo:</strong> The shield logo displayed on our homepage</li>
@@ -233,8 +233,7 @@ This file is part of Network Pro.
       </p>
 
       <p>
-        {COMPANY_INFO.APP_NAME}&trade; (the "Licensed Material") is licensed
-        under
+        {COMPANY_INFO.APP_NAME} (the "Licensed Material") is licensed under
         <strong>Creative Commons Attribution 4.0 International</strong> (CC BY
         4.0)
         <a
@@ -314,8 +313,8 @@ This file is part of Network Pro.
       </p>
 
       <p>
-        {COMPANY_INFO.APP_NAME}&trade; is free software: you can redistribute it
-        and/or modify it under the terms of the
+        {COMPANY_INFO.APP_NAME} is free software: you can redistribute it and/or
+        modify it under the terms of the
         <strong>GNU General Public License</strong> (GNU GPL) as published by
         the
         <a rel={PAGE.REL} href="https://fsf.org" target={PAGE.BLANK}

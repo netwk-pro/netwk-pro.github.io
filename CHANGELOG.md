@@ -22,6 +22,58 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.23.0] - 2025-10-30
+
+### Documentation
+
+- Updated `src/lib/README.md` to reflect newly added app constants.
+
+### Changed
+
+- Refactored all route files to use named imports from `$lib/components` and `$lib/pages` barrel modules, replacing individual `.svelte` imports for improved consistency and maintainability.
+- Changed `COMPANY_INFO.APP_NAME` constant to `Network Pro™` in `src/lib/index.js`.
+  - Removed unnecessary `&trade;` symbol from files that utilize the app constant.
+- Changed `/license` and `/foss-spotlight` routes to `/legal` and `/foss`, respectively, for more intuitive navigation.
+  - Updated all references to the new routes, `/legal` and `/foss`.
+  - Updated `vercel.json` to redirect `/license` to `/legal`, and `/foss-spotlight` to `/foss`.
+- Refactored Playwright helper utilities to modern standards:
+  - Replaced deprecated `page.waitForNavigation()` with `waitForURL()` and `waitForLoadState()` in `clickAndWaitForNavigation()` for improved SPA and full-page navigation reliability.
+  - Simplified logic and removed unsupported `lastResponse()` usage.
+  - Improved test stability for mobile navigation (especially in CI environments).
+- Modified `tests/unit/server/meta.test.js` to match on `Locking Down Networks`, rather than `Network Pro`, which is now dynamically attached.
+- Refreshed **Last Modified** timestamps in `static/sitemap.xml`.
+- Updated `.node-version` and `.nvmrc` to utilize **Node.js** `22.21.1` (LTS).
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.48.4**.
+- Bumped project version to `v1.23.0`.
+- Updated dependencies:
+  - `@sveltejs/kit` `2.48.3` → `2.48.4`
+  - `svelte` `5.43.0` → `5.43.2`
+  - `eslint-plugin-svelte` `^3.12.5` → `^3.13.0`
+
+- Refactored metadata and SEO handling for consistency and maintainability:
+  - Centralized all `<meta>` and `<title>` management in `src/lib/components/MetaTags.svelte`.
+  - Removed redundant per-page `<svelte:head>` entries and `MetaTags` imports in individual `+page.svelte` files.
+  - Added dynamic canonical URL generation using route `pathname` from `+layout.js`.
+  - Implemented automatic title and description suffixing:
+    - Titles now end with `— Network Pro™`.
+    - Descriptions now end with `| Security, Networking, Privacy — Network Pro Strategies`.
+  - Cleaned up fallback values (`defaultTitle`, `defaultDescription`, `defaultMeta`) to prevent redundant branding text.
+  - Adjusted layout structure to ensure correct canonical and OpenGraph metadata per route.
+
+- Updated `src/app.html`:
+  - Removed duplicate document sections and placeholder meta tags.
+  - Verified correct `%sveltekit.head%` placement for dynamic head injection.
+  - Moved static PWA-related metadata (e.g., `<meta name="theme-color">`) into `app.html`.
+  - Retained dynamic icons and preload links for cache-busted assets via `+layout.svelte`.
+
+### Security
+
+- Added transitive dependency overrides to address reported vulnerabilities:
+  - `tar@7.5.1` → `tar@7.5.2` (fixes CVE-2025-64118: race condition/uninitialized memory exposure).
+- Confirmed overrides applied correctly via `npm ls` and `npm explain`.
+
+---
+
 ## [1.22.2] - 2025-10-29
 
 ### Documentation
@@ -1310,7 +1362,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.22.2...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.23.0...HEAD
+[1.23.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.23.0
 [1.22.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.22.2
 [1.22.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.22.1
 [1.22.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.22.0

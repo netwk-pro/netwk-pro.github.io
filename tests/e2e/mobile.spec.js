@@ -15,12 +15,24 @@ This file is part of Network Pro.
  */
 
 import { expect, test } from '@playwright/test';
-import { getFooter, getVisibleNav, setMobileView } from './shared/helpers.js';
+import {
+  clickAndWaitForNavigation,
+  getFooter,
+  getVisibleNav,
+  setMobileView,
+} from './shared/helpers.js';
 
-// Mobile viewport smoke tests for the root route
+// ---------------------------------------------------------------------------
+// 📱 Mobile viewport smoke tests
+// ---------------------------------------------------------------------------
+
 test.describe('Mobile Tests', () => {
-  test.setTimeout(90_000); // increase timeout for all desktop tests
+  // Increase timeout for all mobile tests
+  test.setTimeout(90_000);
 
+  // -------------------------------------------------------------------------
+  // 🧱 Test 1: Main description text
+  // -------------------------------------------------------------------------
   test('should display the main description text on mobile', async ({
     page,
     browserName,
@@ -29,7 +41,7 @@ test.describe('Mobile Tests', () => {
 
     await setMobileView(page);
     await page.goto('/');
-    await page.waitForLoadState('domcontentloaded', { timeout: 60000 });
+    await page.waitForLoadState('domcontentloaded', { timeout: 60_000 });
 
     const description = page.locator(
       'div.index-title1:has-text("Locking Down Networks")',
@@ -37,6 +49,9 @@ test.describe('Mobile Tests', () => {
     await expect(description).toBeVisible();
   });
 
+  // -------------------------------------------------------------------------
+  // 🧱 Test 2: Main content
+  // -------------------------------------------------------------------------
   test('should display main content correctly on mobile', async ({
     page,
     browserName,
@@ -45,12 +60,15 @@ test.describe('Mobile Tests', () => {
 
     await setMobileView(page);
     await page.goto('/');
-    await page.waitForLoadState('domcontentloaded', { timeout: 60000 });
+    await page.waitForLoadState('domcontentloaded', { timeout: 60_000 });
 
     const mainHeading = page.locator('h1, h2');
     await expect(mainHeading).toBeVisible();
   });
 
+  // -------------------------------------------------------------------------
+  // 🧱 Test 3: "About" link navigation
+  // -------------------------------------------------------------------------
   test("should ensure the 'about' link is clickable on mobile", async ({
     page,
     browserName,
@@ -58,23 +76,24 @@ test.describe('Mobile Tests', () => {
     if (browserName === 'webkit') test.skip();
 
     await setMobileView(page);
-    await page.goto('/');
-    await page.waitForLoadState('domcontentloaded', { timeout: 60000 });
+    await page.goto('/', { waitUntil: 'networkidle' });
 
     const nav = await getVisibleNav(page);
+
+    // Ensure the link exists before interacting
+    await page.waitForSelector('a[href="/about"]', { timeout: 10_000 });
     const aboutLink = nav.getByRole('link', { name: 'about' });
-    await expect(aboutLink).toBeVisible();
 
-    // combine click + wait in a Promise.all to ensure navigation completes
-    await Promise.all([
-      page.waitForLoadState('load'),
-      page.waitForURL('**/about', { timeout: 60000 }),
-      aboutLink.click(),
-    ]);
-
-    await expect(page).toHaveURL(/\/about/);
+    // Use the safe navigation helper
+    await clickAndWaitForNavigation(page, aboutLink, {
+      urlPattern: /\/about/,
+      timeout: 60_000,
+    });
   });
 
+  // -------------------------------------------------------------------------
+  // 🧱 Test 4: Footer presence on /about
+  // -------------------------------------------------------------------------
   test('should display the footer on /about (mobile)', async ({
     page,
     browserName,
@@ -89,4 +108,4 @@ test.describe('Mobile Tests', () => {
   });
 });
 
-// cspell:ignore domcontentloaded
+// cspell:ignore domcontentloaded networkidle

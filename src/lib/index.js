@@ -16,7 +16,7 @@ This file is part of Network Pro.
  * and re-exported here for flat `$lib` imports.
  * @module src/lib
  * @author Scott Lopez
- * @updated 2025-10-20
+ * @updated 2025-10-30
  */
 
 // Re-export all images so they can be imported directly from `$lib`
@@ -52,7 +52,7 @@ export { PGP_KEYS } from '$lib/data/pgpKeys.js';
 export const CONSTANTS = {
   COMPANY_INFO: {
     NAME: 'Network Pro Strategies',
-    APP_NAME: 'Network Pro',
+    APP_NAME: 'Network Pro™',
     YEAR: '2025',
   },
   CONTACT: {

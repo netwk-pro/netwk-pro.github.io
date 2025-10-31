@@ -18,7 +18,7 @@ This file is part of Network Pro.
   const { PAGE, LINKS } = CONSTANTS;
 
   const aboutLink = `${base}/about`;
-  const fossLink = `${base}/foss-spotlight`;
+  const fossLink = `${base}/foss`;
   const servLink = `${base}/services`;
   const lhubLink = `${base}/links`;
   const discussLink =

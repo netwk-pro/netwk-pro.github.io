@@ -8,11 +8,14 @@ This file is part of Network Pro.
 
 <script>
   export let data;
-
   import { onMount } from 'svelte';
   import { initAnalytics } from '$lib/utils/initAnalytics';
   import { showReminder } from '$lib/stores/posthog';
-  import { ContainerSection, PWAInstallButton } from '$lib/components';
+  import {
+    ContainerSection,
+    MetaTags,
+    PWAInstallButton,
+  } from '$lib/components';
   import { Footer, HeaderDefault, HeaderHome } from '$lib/components/layout';
   import { appleTouchIcon, faviconSvg, logoPng, logoWbp } from '$lib';
 
@@ -34,6 +37,12 @@ This file is part of Network Pro.
     'Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies';
 </script>
 
+<!-- Injects proper <title> and <meta> tags -->
+<MetaTags
+  title={metaTitle}
+  description={metaDescription}
+  pathname={data.pathname} />
+
 <svelte:head>
   <!-- Dynamic preloads only, meta moved to $lib/components/MetaTags.svelte -->
   <link rel="preload" href={logoWbp} as="image" type="image/webp" />
@@ -45,7 +54,6 @@ This file is part of Network Pro.
   <link rel="apple-touch-icon" href={appleTouchIcon} />
 
   <!-- Static moved to app.html 2025-05-21 -->
-  <meta name="theme-color" content="#ffc627" />
 </svelte:head>
 
 <!-- BEGIN HEADER -->

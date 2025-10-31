@@ -35,7 +35,7 @@ This file is part of Network Pro.
    * URL to License page, using the base path
    * @type {string}
    */
-  const licenseLink = `${base}/license`;
+  const licenseLink = `${base}/legal`;
 
   /**
    * Markdown version of the Terms of Use document

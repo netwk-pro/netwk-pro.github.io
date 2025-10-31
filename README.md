@@ -465,11 +465,11 @@ Refer to the Wiki for:
 
 This project is licensed under:
 
-- [Creative Commons BY 4.0](https://netwk.pro/license#cc-by)
+- [Creative Commons BY 4.0](https://netwk.pro/legal#cc-by)
 
-- Or optionally, [GNU GPL v3 or later](https://netwk.pro/license#gnu-gpl)
+- Or optionally, [GNU GPL v3 or later](https://netwk.pro/legal#gnu-gpl)
 
-Source code, branding, and visual assets are subject to reuse and distribution terms specified on our [Legal, Copyright, and Licensing page](https://netwk.pro/license).
+Source code, branding, and visual assets are subject to reuse and distribution terms specified on our [Legal, Copyright, and Licensing page](https://netwk.pro/legal).
 
 </section>
 
@@ -499,9 +499,9 @@ _Designed for professionals. Hardened for privacy. Built with intent._
 Copyright &copy; 2025  
 **[Network Pro Strategies](https://netwk.pro) (Network Pro&trade;)**
 
-Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/license#trademark) of Network Pro Strategies.
+Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/legal#trademark) of Network Pro Strategies.
 
-Licensed under **[CC BY 4.0](https://netwk.pro/license#cc-by)** and the **[GNU GPL](https://netwk.pro/license#gnu-gpl)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
+Licensed under **[CC BY 4.0](https://netwk.pro/legal#cc-by)** and the **[GNU GPL](https://netwk.pro/legal#gnu-gpl)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
 
 </span>
 

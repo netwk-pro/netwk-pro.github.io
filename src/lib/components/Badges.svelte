@@ -19,8 +19,8 @@ This file is part of Network Pro.
 
   const { PAGE } = CONSTANTS;
 
-  const ccbyLink = `${base}/license#cc-by`;
-  const gplLink = `${base}/license#gnu-gpl`;
+  const ccbyLink = `${base}/legal#cc-by`;
+  const gplLink = `${base}/legal#gnu-gpl`;
 
   /**
    * Badge link object.

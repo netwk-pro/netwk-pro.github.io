@@ -7,25 +7,14 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import PGPContent from '$lib/pages/PGPContent.svelte';
-  import Badges from '$lib/components/Badges.svelte';
-  import FullWidthSection from '$lib/components/FullWidthSection.svelte';
-  import LegalNav from '$lib/components/LegalNav.svelte';
-  import SocialMedia from '$lib/components/SocialMedia.svelte';
-  import MetaTags from '$lib/components/MetaTags.svelte';
-
-  /**
-   * @type {string}
-   * Style class for the div element.
-   */
-  const spaceStyle = 'spacer';
-
-  export let data;
+  import {
+    Badges,
+    FullWidthSection,
+    LegalNav,
+    SocialMedia,
+  } from '$lib/components';
+  import { PGPContent } from '$lib/pages';
 </script>
-
-<MetaTags title={data.meta.title} description={data.meta.description} />
-
-<link rel="canonical" href="https://netwk.pro/pgp" />
 
 <section id="about">
   <FullWidthSection containerClass="readable">
@@ -35,7 +24,7 @@ This file is part of Network Pro.
     </section>
     <!-- END MAIN CONTENT -->
 
-    <div class={spaceStyle}></div>
+    <div class="spacer"></div>
 
     <!-- SOCIAL MEDIA -->
     <section id="social-media">
@@ -44,14 +33,14 @@ This file is part of Network Pro.
 
     <hr />
 
-    <div class={spaceStyle}></div>
+    <div class="spacer"></div>
 
     <!-- LEGAL NAVIGATION -->
     <section id="legal-nav">
       <LegalNav />
     </section>
 
-    <div class={spaceStyle}></div>
+    <div class="spacer"></div>
 
     <!-- BADGES -->
     <section id="badges">
