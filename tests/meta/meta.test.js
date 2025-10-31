@@ -21,7 +21,7 @@ const routes = [
   {
     path: '/',
     title: /Security, Networking, Privacy/,
-    description: /Network Pro/,
+    description: /Locking Down Networks/,
   },
   // add more paths as needed:
   // { path: '/about', title: /About/, description: /Network Pro/ }
