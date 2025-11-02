@@ -46,7 +46,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
           cache-dependency-path: package-lock.json
 
@@ -131,7 +131,7 @@ jobs:
       - name: Set up Node.js for npmjs
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           registry-url: https://registry.npmjs.org/
           cache: npm
           cache-dependency-path: package-lock.json
@@ -192,7 +192,7 @@ jobs:
       - name: Set up Node.js for GPR
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           registry-url: https://npm.pkg.github.com/
           cache: npm
           cache-dependency-path: package-lock.json
