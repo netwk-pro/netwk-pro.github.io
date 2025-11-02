@@ -32,6 +32,8 @@ export async function handle({ event, resolve }) {
       ? 'https://csp.netwk.pro/.netlify/functions/csp-report'
       : '/api/mock-csp';
 
+  console.log('[CSP Debug] Using report URI:', reportUri);
+
   // Construct base policy
   const cspDirectives = [
     "default-src 'self';",
