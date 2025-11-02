@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.24.1",
+  "version": "1.24.2",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -26,7 +26,7 @@
   "author": {
     "name": "Scott Lopez",
     "email": "github@sl.neteng.cc",
-    "url": "https://bio.neteng.pro"
+    "url": "https://bio.netwk.pro"
   },
   "type": "module",
   "engines": {
@@ -125,7 +125,7 @@
   },
   "overrides": {
     "cookie": "^1.0.0",
-    "tar": "7.5.2",
+    "tar": ">=7.5.2",
     "tmp": ">=0.2.4"
   }
 }

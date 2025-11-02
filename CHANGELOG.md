@@ -22,6 +22,19 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.24.2]
+
+### Added
+
+- Introduced new text file to prove ownership of the domain for **[Probely](https://probely.com/) DAST scans** in `static/`.
+
+### Changed
+
+- Bumped project version to `v1.24.2`.
+- Updated `author.url` in `package.json` to reflect updated bio site, now located at [bio.netwk.pro](https://bio.netwk.pro).
+
+---
+
 ## [1.24.1]
 
 ### Changed
@@ -1417,7 +1430,9 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.24.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.24.2...HEAD
+[1.24.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.2
+[1.24.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.1
 [1.24.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.0
 [1.23.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.23.0
 [1.22.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.22.2
