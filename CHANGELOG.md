@@ -27,11 +27,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 ### Changed
 
 - Bumped project version to `v1.24.1`.
-- Updated **GitLeaks workflow** (`.github/workflows/secret-scan.yml`):
-  - Replaced manual report parsing with built-in `report_format` and `report_path` inputs.
-  - Now generates `gitleaks-report.json` directly within the action step.
-  - Removed redundant environment variable `GITLEAKS_REPORT_PATH`.
-  - Eliminated “No report file found” warning and missing artifact issues.
+- Updated **GitLeaks workflow** (`.github/workflows/secret-scan.yml`) to use SARIF format.
 - Lighthouse now points to the new audit version of the site at [audit.netwk.pro](https://audit.netwk.pro).
 
 ### Fixed
