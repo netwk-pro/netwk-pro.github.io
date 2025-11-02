@@ -27,12 +27,12 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 ### Changed
 
 - Bumped project version to `v1.24.1`.
-- Updated **GitLeaks workflow** (`.github/workflows/secret-scan.yml`) to use SARIF format.
+- Updated **GitLeaks workflow** (`.github/workflows/secret-scan.yml`):
+  - Reworked Gitleaks step to use official environment variables (`GITLEAKS_REPORT_PATH`, `GITLEAKS_LICENSE`) for compatibility with `gitleaks/gitleaks-action@v2`.
+  - Added explicit handling for runs with no detected secrets (skips JSON parsing when no report is generated).
+  - Improved summary step output with clear “No leaks detected” message and reduced false warnings.
+  - Ensured consistent artifact uploads and safer fork-handling conditions.
 - Lighthouse now points to the new audit version of the site at [audit.netwk.pro](https://audit.netwk.pro).
-
-### Fixed
-
-- Resolved missing `gitleaks-report.json` artifact caused by default SARIF-only output.
 
 ---
 
