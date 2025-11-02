@@ -22,6 +22,47 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.24.0]
+
+### Added
+
+- Introduced [GitLeaks](https://github.com/gitleaks/gitleaks-action) secret scan CI action as `.github/workflows/secret-scan.yml`.
+- Introduced two-phase scan strategy:
+  - **Pull Request scans** to detect secrets before merge.
+  - **Nightly scheduled scans** (`cron: "0 4 * * *"`) for full-history coverage.
+- Added **artifact upload** for the `gitleaks-report.json` file, allowing maintainers to download complete results from the Actions UI.
+- Implemented **public-safe summary output** in `$GITHUB_STEP_SUMMARY`:
+  - Displays secret descriptions only.
+  - Redacts file paths and other sensitive details.
+  - Provides a concise, readable summary of findings.
+- Added **GitHub Issue creation step** to automatically open a security issue when leaks are detected.
+- Integrated optional **ntfy.sh notifications** for real-time alerting on secret leaks.
+- Implemented **fork-safety guards** to prevent workflows triggered from untrusted forks from:
+  - Accessing organization secrets (license keys, ntfy topic).
+  - Uploading artifacts or creating issues.
+- Added descriptive comments and logical layer separation:
+  - **Layer 1 – Output Redaction**
+  - **Layer 2 – Secret / Fork Handling**
+
+### Changed
+
+- Bumped project version to `v1.23.1`.
+- Updated `.node-version` and `.nvmrc` to utilize **Node.js** `24.11.0` (LTS).
+- Updated CI workflows to utilize `node-version: 24`:
+  - `build-and-publish.yml`
+  - `lighthouse.yml`
+  - `meta-check.yml`
+  - `playwright.yml`
+  - `publish-test.yml`
+  - `templates/publish.template.yml`
+- Updated dependencies:
+  - `@eslint/js` `^9.38.0` → `^9.39.0`
+  - `eslint` `^9.38.0` → `^9.39.0`
+  - `globals` `^16.4.0` → `^16.5.0`
+  - `posthog-js` `^1.282.0` → `^1.284.0`
+
+---
+
 ## [1.23.0] - 2025-10-30
 
 ### Documentation
@@ -1362,7 +1403,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.23.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.24.0...HEAD
+[1.24.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.0
 [1.23.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.23.0
 [1.22.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.22.2
 [1.22.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.22.1
