@@ -58,6 +58,10 @@ jobs:
       - name: Install jq
         run: sudo apt-get install -y jq
 
+      - name: Run npm audit
+        run: npm audit --audit-level=moderate
+        continue-on-error: true
+
       - name: Run JSDoc lint check
         id: jsdoc_lint
         continue-on-error: true

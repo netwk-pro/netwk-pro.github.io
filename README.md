@@ -36,6 +36,7 @@ All infrastructure and data flows are designed with **maximum transparency, self
 - [Repository Structure](#structure)
 - [Getting Started](#getting-started)
 - [Configuration](#configuration)
+- [Security & Dependency Checks](#security)
 - [Service Worker Utilities](#sw-utilities)
 - [Debug Mode](#debug)
 - [CSP Report Handler](#cspreport)
@@ -190,8 +191,6 @@ To implement a strict nonce-based CSP in the future:
 
 Note: Strict CSP adoption may require restructuring third-party integrations and deeper framework coordination.
 
-> 💡 The `[headers]` block in `netlify.toml` has been deprecated — all headers are now set dynamically from within SvelteKit.
-
 &nbsp;
 
 ### 🧭 `hooks.client.ts`
@@ -201,6 +200,27 @@ Located at `src/hooks.client.ts`, this file is currently limited to handling unc
 Client-side PWA logic (such as handling the `beforeinstallprompt` event, checking browser compatibility, and registering the service worker) has been moved to `src/lib/registerServiceWorker.js` for better modularity and testability.
 
 > 💡 This separation ensures that error handling is isolated from PWA lifecycle logic, making both concerns easier to maintain.
+
+</section>
+
+<sub>[Back to top](#top)</sub>
+
+---
+
+<section id="security">
+
+## 🧩 Continuous Security & Dependency Checks
+
+Network Pro&trade; automatically performs dependency and vulnerability checks as part of its CI/CD pipeline:
+
+- **GitLeaks Secret Scanning** — detects potential secrets and credentials in commits, pull requests, and full-history scans.
+- **CodeQL Analysis** — runs static code scanning to detect code-level vulnerabilities.
+- **Probely DAST Scans** — executes weekly external scans on the audit deployment (`audit.netwk.pro`) to identify web application vulnerabilities.
+- **npm Audit** — runs during the build phase to detect known vulnerabilities in installed dependencies (`npm audit --audit-level=moderate`).
+- **Dependabot** — automatically monitors and updates outdated dependencies via pull requests.
+- **ESLint, Prettier, etc. (Local)** — enforces code quality and consistency during local development before commits.
+
+Each tool is configured to run in a safe, non-production environment to ensure reliability and protect sensitive data.
 
 </section>
 

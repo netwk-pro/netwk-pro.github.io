@@ -17,16 +17,34 @@ Disallow: /coverage/
 Disallow: /build/
 Disallow: /.lighthouseci/
 
-# Disallow stub routes that redirect externally
+# --- Dynamic / redirect handlers
+Disallow: /relay-
+Disallow: /api/
+Disallow: /api/mock-csp
+
+# --- Stub and form routes
 Disallow: /contact
 Disallow: /privacy-rights
 Disallow: /consultation
 Disallow: /links
 Disallow: /posts
+Disallow: /privacy-rights
 
-# Disallow mock API endpoint
-Disallow: /api
-Disallow: /api/mock-csp
+# --- Error / system routes
+Disallow: /..404
+Disallow: /status
+
+# --- Optional: service utilities or PWA
+Disallow: /service-worker
+Disallow: /service-worker.js
+Disallow: /service-worker.d.ts
+
+# --- Futureproof catch-alls
+Disallow: /admin
+Disallow: /preview
+Disallow: /redirect
+Disallow: /mock-csp
+Disallow: /csp
 
 # Allow everything else
 Allow: /

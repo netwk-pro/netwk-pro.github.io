@@ -22,11 +22,42 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.24.4]
+
+### Documentation
+
+- Added a **Continuous Security & Dependency Checks** section to `README.md`, outlining the automated vulnerability and dependency analysis integrated into CI/CD workflows.
+
+### Added
+
+- Introduced **non-blocking** `npm audit` **step** in the `build-and-publish.yml` workflow to automatically detect known vulnerabilities during dependency installation.
+- Introduced **[Probely](https://probely.com/) Dynamic Application Security Testing (DAST)** integration via a new GitHub Actions workflow at `.github/workflows/probely-scan.yml`.
+  - Executes **weekly automated scans** of the `audit.netwk.pro` environment every Tuesday at 09:00 UTC.
+  - Authenticates securely using a scoped **API key** stored in GitHub Secrets (`PROBELY_API_KEY`).
+  - Polls the Probely API for scan completion and retrieves the full **HTML vulnerability report**.
+  - Uploads reports as workflow **artifacts** for maintainers to review.
+  - Includes a 60-minute timeout and supports manual triggering via `workflow_dispatch`.
+  - Configured for **read-only testing** against non-production environments to safely identify potential web and API vulnerabilities.
+  - Future updates will introduce automated issue creation and alerting for high-severity findings.
+
+### Changed
+
+- Updated `static/robots.txt` to exclude redirect routes and sensitive/internal endpoints (e.g., `/api`, `/relay-*`, `/consultation`, `/contact`, `/status`, etc.) from automated crawlers and vulnerability scanners.
+- Bumped project version to `v1.24.4`.
+
+### Security
+
+- Enhanced continuous security coverage through the addition of **Probely DAST** for dynamic web and API vulnerability testing.
+- Maintained and improved **GitLeaks** secret scanning across pull requests and scheduled full-history scans.
+- Together, these workflows now provide full-spectrum coverage across **SAST** (static analysis) and **DAST** (dynamic analysis) layers within the CI/CD pipeline.
+
+---
+
 ## [1.24.3]
 
 ### Changed
 
-- Bumped project version to `v.1.24.3`.
+- Bumped project version to `v1.24.3`.
 - Updated `.github/workflows/secret-scan.yml` to utilize a unique `CODEQL_ACTION_ANALYSIS_KEY` to avoid conflicts with CodeQL.
 - Updated `static/robots.txt` to disallow crawling of the `/api` route.
 
@@ -101,6 +132,12 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
   - `eslint` `^9.38.0` → `^9.39.0`
   - `globals` `^16.4.0` → `^16.5.0`
   - `posthog-js` `^1.282.0` → `^1.284.0`
+
+### Security
+
+- Added **automated SAST scanning** via GitLeaks to prevent secrets and credentials from being committed.
+- Implemented **security event reporting** via GitHub’s Code Scanning interface (SARIF upload supported).
+- Configured **automated notifications** for detected leaks via GitHub Issues and optional ntfy alerts.
 
 ---
 
@@ -1444,7 +1481,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.24.3...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.24.4...HEAD
+[1.24.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.4
 [1.24.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.3
 [1.24.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.2
 [1.24.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.1

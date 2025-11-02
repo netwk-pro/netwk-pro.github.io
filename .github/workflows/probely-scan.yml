@@ -1,0 +1,95 @@
+# .github/workflows/probely-scan.yml
+#
+# Copyright © 2025 Network Pro Strategies (Network Pro™)
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro
+
+name: Weekly DAST Scan (Probely)
+
+on:
+  schedule:
+    - cron: '0 9 * * 2' # Every Tuesday, 9 AM UTC
+  workflow_dispatch:
+
+jobs:
+  dast-scan:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: read
+      id-token: none
+
+    env:
+      PROBELY_API_KEY: ${{ secrets.PROBELY_API_KEY }}
+      TARGET_ID: 3by8xa6kzArN
+      API_BASE: https://api.probely.com/v2 # Always include /v2
+      MAX_WAIT_MINUTES: 60 # configurable
+
+    steps:
+      - name: Start Probely Scan
+        id: start-scan
+        run: |
+          echo "🧪 Triggering Probely scan for target $TARGET_ID ..."
+          response=$(curl -s -X POST "$API_BASE/targets/$TARGET_ID/scans/" \
+            -H "Authorization: JWT $PROBELY_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{}')
+
+          echo "Raw API response:"
+          echo "$response" | jq .
+
+          scan_id=$(echo "$response" | jq -r '.id // empty')
+
+          if [ -z "$scan_id" ]; then
+            echo "::error ::Failed to start scan — check API key, target ID, or base URL."
+            exit 1
+          fi
+
+          echo "scan_id=$scan_id" >> $GITHUB_ENV
+          echo "✅ Scan started with ID: $scan_id"
+
+      - name: Wait for Scan Completion
+        run: |
+          echo "⏳ Waiting for scan $scan_id to complete..."
+          elapsed=0
+          while [ $elapsed -lt $((MAX_WAIT_MINUTES * 60)) ]; do
+            status=$(curl -s "$API_BASE/scans/$scan_id/" \
+              -H "Authorization: JWT $PROBELY_API_KEY" | jq -r '.status // empty')
+
+            echo "⏱️  Status: $status (elapsed $elapsed sec)"
+
+            if [ "$status" = "completed" ]; then
+              echo "✅ Scan completed successfully."
+              break
+            elif [ "$status" = "failed" ]; then
+              echo "::error ::Scan failed."
+              exit 1
+            fi
+
+            sleep 60
+            elapsed=$((elapsed + 60))
+          done
+
+          if [ "$status" != "completed" ]; then
+            echo "::error ::Scan did not complete in time ($MAX_WAIT_MINUTES min timeout)."
+            exit 1
+          fi
+
+      - name: Download Probely HTML Report
+        run: |
+          echo "📥 Downloading report for scan $scan_id ..."
+          curl -s "$API_BASE/scans/$scan_id/report/" \
+            -H "Authorization: JWT $PROBELY_API_KEY" \
+            -o probely-report.html
+
+          if [ ! -s probely-report.html ]; then
+            echo "::error ::Report file is empty or missing."
+            exit 1
+          fi
+          echo "✅ Report saved as probely-report.html"
+
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: probely-report
+          path: probely-report.html
