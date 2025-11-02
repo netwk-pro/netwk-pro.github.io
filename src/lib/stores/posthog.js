@@ -44,7 +44,7 @@ export async function initPostHog() {
   if (initialized || typeof window === 'undefined') return;
   const isDev = import.meta.env.MODE === 'development';
   if (isDev) {
-    console.info(`[PostHog] Skipping init in development mode.`);
+    console.info('[PostHog] Skipping init in development mode.');
     return;
   }
 
