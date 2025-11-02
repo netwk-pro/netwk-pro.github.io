@@ -24,6 +24,10 @@ Disallow: /consultation
 Disallow: /links
 Disallow: /posts
 
+# Disallow mock API endpoint
+Disallow: /api
+Disallow: /api/mock-csp
+
 # Allow everything else
 Allow: /
 

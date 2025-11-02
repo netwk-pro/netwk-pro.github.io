@@ -22,6 +22,20 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.24.3]
+
+### Changed
+
+- Bumped project version to `v.1.24.3`.
+- Updated `.github/workflows/secret-scan.yml` to utilize a unique `CODEQL_ACTION_ANALYSIS_KEY` to avoid conflicts with CodeQL.
+- Updated `static/robots.txt` to disallow crawling of the `/api` route.
+
+### Fixed
+
+- Corrected naming of `static/7cbb39ce-750b-43da-83b8-8980e5554d4d.txt`.
+
+---
+
 ## [1.24.2]
 
 ### Added
@@ -1430,7 +1444,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.24.2...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.24.3...HEAD
+[1.24.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.3
 [1.24.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.2
 [1.24.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.1
 [1.24.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.0
