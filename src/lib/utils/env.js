@@ -26,39 +26,56 @@ This file is part of Network Pro.
 
 /**
  * @typedef {object} EnvironmentInfo
- * @property {string} mode - Active environment mode (e.g. 'dev', 'prod', 'audit').
- * @property {boolean} isDev - True when running in development mode.
- * @property {boolean} isProd - True when running in production mode.
- * @property {boolean} isAudit - True when running in the audit or staging environment.
- * @property {boolean} isCI - True when running in continuous integration (CI) pipelines.
- * @property {boolean} isTest - True when running under test or mock environments.
+ * @property {string} mode        - The build-time environment mode.
+ * @property {string} effective   - The environment actually being used (after host fallback).
+ * @property {boolean} isDev
+ * @property {boolean} isProd
+ * @property {boolean} isAudit
+ * @property {boolean} isCI
+ * @property {boolean} isTest
  */
 
 /**
- * Get the environment mode (frozen at build time).
- * This avoids Vercel runtime overriding import.meta.env.MODE.
- * @type {string}
+ * Build-time mode injected by Vite.
+ * Always baked into the client bundle.
+ * Falls back to 'production' if nothing else is defined.
  */
 export const BUILD_ENV_MODE =
   import.meta.env.PUBLIC_ENV_MODE || import.meta.env.MODE || 'production';
 
 /**
- * Detects the current environment with fallbacks for audit, CI, test, etc.
+ * Detects the current environment, combining build-time
+ * and runtime (hostname-based) checks.
+ * Works safely in both Node and browser contexts.
+ *
  * @returns {EnvironmentInfo}
  */
 export function detectEnvironment() {
   const mode = BUILD_ENV_MODE;
 
-  return {
-    mode,
-    isDev: ['development', 'dev'].includes(mode),
-    isProd: ['production', 'prod'].includes(mode),
-    isAudit:
-      mode === 'audit' ||
-      /(^|\.)audit\.netwk\.pro$/i.test(
-        typeof window !== 'undefined' ? window.location.hostname : '',
-      ),
-    isCI: mode === 'ci',
-    isTest: mode === 'test',
-  };
+  // Client-side fallback for audit/netwk environments
+  const host = typeof window !== 'undefined' ? window.location.hostname : '';
+
+  const hostIsAudit = /(^|\.)audit\.netwk\.pro$/i.test(host);
+
+  const isDev = ['development', 'dev'].includes(mode);
+  const isProd = ['production', 'prod'].includes(mode);
+  const isAudit = mode === 'audit' || hostIsAudit;
+  const isCI = mode === 'ci';
+  const isTest = mode === 'test';
+
+  // Prefer host-based detection if it disagrees with build-time
+  const effective = hostIsAudit && !isAudit ? 'audit(host)' : mode;
+
+  if (typeof window === 'undefined') {
+    // Only log on server / build to avoid client noise
+    console.log('[detectEnvironment] Build mode:', mode);
+    if (hostIsAudit && mode !== 'audit') {
+      console.log(
+        '[detectEnvironment] Host suggests audit, overriding build-time mode.',
+      );
+    }
+  }
+
+  return { mode, effective, isDev, isProd, isAudit, isCI, isTest };
 }
