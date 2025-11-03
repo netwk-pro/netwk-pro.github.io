@@ -22,6 +22,71 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.0]
+
+### Added
+
+- Introduced unified environment detection utility (`src/lib/utils/env.js`) with full **JSDoc typing**.
+  - Normalizes `process.env` and `import.meta.env` usage across SSR (Node) and client contexts.
+  - Safely handles browser environments where `process` is undefined.
+  - Provides standardized flags for:
+    - `isDev`, `isProd`, `isAudit`, `isCI`, and `isTest`
+  - Enables consistent environment checks across analytics, CSP, and runtime logic.
+
+- Added hybrid **environment + host-based analytics guard** in `src/lib/stores/posthog.js`.
+  - Automatically disables PostHog tracking in `audit` mode or when hostname matches `*.audit.netwk.pro`.
+  - Prevents analytics initialization during development and test contexts.
+  - Uses the shared `detectEnvironment()` utility for centralized logic.
+  - Improves runtime logging for environment-specific behavior.
+
+### Changed
+
+- Updated `hooks.server.js` to include a dedicated **audit environment block** for Content Security Policy (CSP).
+  - Hardened audit CSP by removing all analytics-related sources (`posthog.com`, `posthog-assets.com`).
+  - Redirects CSP violation reporting to the mock endpoint (`/api/mock-csp`) in audit mode.
+  - Preserves full HSTS and other production security headers for audit deployments.
+  - Added clear separation between `test`, `audit`, and `prod` security policies.
+  - Improved console debugging for environment detection (`NODE_ENV`, `ENV_MODE`).
+
+- Refactored **environment detection logic** for improved reliability across client and server contexts.
+  - Added unified environment resolver at `src/lib/utils/env.js` to standardize detection for `dev`, `prod`, `audit`, `ci`, and `test` modes.
+  - Ensures consistent handling of both `process.env.*` (Node/SSR) and `import.meta.env.*` (Vite/client) variables.
+  - Prevents mismatched behavior between browser-side analytics (`posthog.js`) and server-side policies (`hooks.server.js`).
+  - Automatically falls back to `'unknown'` if no explicit mode is set, avoiding build-time exceptions.
+
+- Refactored **Branch Guard** workflow (`.github/workflows/branch-guard.yml`) for improved accuracy and reduced noise.
+  - Adjusted detection logic to **ignore merge commits**, Dependabot updates, and automated actions.
+  - Ensures workflow warnings are shown **only for true direct commits** to protected branches (`master`, `main`).
+  - Simplified step output and summary formatting for clearer reporting in the Actions log and job summary.
+  - Maintains lightweight permissions (`contents: read`) and executes entirely without repository writes.
+  - Improves reliability of branch protection monitoring without affecting CI or merge operations.
+
+### Fixed
+
+- Resolved client-side crash in browser environments caused by `process.env` being undefined.
+  - Implemented defensive checks in `env.js` for `process` availability.
+  - Eliminated reference errors during client-side initialization of analytics.
+
+### Developer Experience
+
+- Simplified future configuration by consolidating environment checks into a single typed utility.
+- Improved maintainability and Vercel compatibility by ensuring `.env.audit` and `PUBLIC_ENV_MODE` variables propagate correctly to both client and server environments.
+
+### Developer Notes
+
+- When deploying audit builds, ensure Vercel environment variables include:
+
+```bash
+ENV_MODE=audit
+PUBLIC_ENV_MODE=audit
+```
+
+This enables analytics filtering and CSP hardening for the audit environment.
+
+- Audit deployments retain full HTTPS and security headers but omit telemetry and external CSP reporting.
+
+---
+
 ## [1.24.5]
 
 ### Added
@@ -53,6 +118,9 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 ### Notes
 
 - For instructions on installing and configuring the new dependencies, please see the **[Editor Configuration](https://github.com/netwk-pro/netwk-pro.github.io/wiki/Editor-Configuration#automation)** section of the [Wiki](https://github.com/netwk-pro/netwk-pro.github.io/wiki).
+
+> **Note:** Version `1.24.4` was merged but not tagged or released.  
+> Subsequent updates are reflected in `v1.24.5` and later.
 
 ---
 
@@ -1515,7 +1583,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.24.5...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.0...HEAD
+[1.25.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.0
 [1.24.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.5
 [1.24.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.4
 [1.24.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.3

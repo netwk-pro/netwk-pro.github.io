@@ -6,33 +6,25 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
+import { detectEnvironment } from '$lib/utils/env.js';
+
 /**
  * SvelteKit server hook to set Content Security Policy (CSP) header.
  * @type {import('@sveltejs/kit').Handle}
  */
 export async function handle({ event, resolve }) {
-  // Create the response
   const response = await resolve(event);
+  const { isAudit, isTest, isProd } = detectEnvironment();
 
-  // Determine environment flags
-  // Default to development policy if neither test nor prod
-  const isTestEnvironment =
-    process.env.NODE_ENV === 'development' ||
-    process.env.ENV_MODE === 'dev' ||
-    process.env.ENV_MODE === 'ci';
-  const isProdEnvironment =
-    process.env.NODE_ENV === 'production' || process.env.ENV_MODE === 'prod';
-
-  console.log('[CSP Debug] NODE_ENV:', process.env.NODE_ENV);
-  console.log('[CSP Debug] ENV_MODE:', process.env.ENV_MODE);
+  console.log('[CSP Debug ENV]', detectEnvironment());
 
   // Determine report URI
   const reportUri =
-    isProdEnvironment && !isTestEnvironment
+    isProd && !isTest && !isAudit
       ? 'https://csp.netwk.pro/.netlify/functions/csp-report'
       : '/api/mock-csp';
 
-  // Construct base policy
+  // Base hardened policy
   const cspDirectives = [
     "default-src 'self';",
     "script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com;",
@@ -45,40 +37,45 @@ export async function handle({ event, resolve }) {
     "object-src 'none';",
     "frame-ancestors 'none';",
     'upgrade-insecure-requests;',
-    // Report CSP violations to external endpoint hosted at csp.netwk.pro
-    `report-uri ${reportUri};`,
-    'report-to csp-endpoint;',
   ];
 
-  // Loosen up CSP for test environments (and allow local PostHog proxy)
-  if (isTestEnvironment) {
+  // 🧪 Looser CSP for local/CI test environments
+  if (isTest) {
     cspDirectives[1] =
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:* ws://localhost:*;";
-    cspDirectives[2] =
-      "script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:* ws://localhost:*;";
-    cspDirectives[3] = "style-src 'self' 'unsafe-inline' http://localhost:*;";
-    cspDirectives[4] = "img-src 'self' data: http://localhost:*;";
-    cspDirectives[5] =
+    cspDirectives[2] = "style-src 'self' 'unsafe-inline' http://localhost:*;";
+    cspDirectives[3] = "img-src 'self' data: http://localhost:*;";
+    cspDirectives[4] =
       "connect-src 'self' http://localhost:* ws://localhost:* https://us.i.posthog.com https://us-assets.i.posthog.com;";
   }
 
-  response.headers.set(
-    'Report-To',
-    JSON.stringify({
-      group: 'csp-endpoint',
-      max_age: 10886400, // 18 weeks
-      endpoints: [
-        {
-          url: 'https://csp.netwk.pro/.netlify/functions/csp-report',
-        },
-      ],
-      include_subdomains: true,
-    }),
-  );
+  // 🧩 Hardened CSP for audit environment — no analytics, no CSP reporting
+  if (isAudit) {
+    cspDirectives[1] = "script-src 'self' 'unsafe-inline';";
+    cspDirectives[2] = "style-src 'self' 'unsafe-inline';";
+    cspDirectives[3] = "img-src 'self' data:;";
+    cspDirectives[4] = "connect-src 'self';";
+  }
 
+  // 📋 Attach CSP report directives ONLY in production
+  if (isProd && !isAudit && !isTest) {
+    cspDirectives.push(`report-uri ${reportUri};`, 'report-to csp-endpoint;');
+
+    response.headers.set(
+      'Report-To',
+      JSON.stringify({
+        group: 'csp-endpoint',
+        max_age: 10886400, // 18 weeks
+        endpoints: [{ url: reportUri }],
+        include_subdomains: true,
+      }),
+    );
+  }
+
+  // ✅ Apply final CSP
   response.headers.set('Content-Security-Policy', cspDirectives.join(' '));
 
-  // Set other security headers
+  // Standard security headers
   response.headers.set(
     'Permissions-Policy',
     [
@@ -103,10 +100,10 @@ export async function handle({ event, resolve }) {
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
   response.headers.set('X-Frame-Options', 'DENY');
 
-  if (process.env.ENV_MODE !== 'test' && process.env.ENV_MODE !== 'ci') {
+  if (!isTest) {
     response.headers.set(
       'Strict-Transport-Security',
-      'max-age=31536000; includeSubDomains;', // No preload here
+      'max-age=31536000; includeSubDomains;',
     );
   }
 
@@ -120,8 +117,5 @@ export async function handle({ event, resolve }) {
 export function handleError({ error, event }) {
   console.error('🔴 SSR Error in route:', event.url.pathname);
   console.error(error);
-
-  return {
-    message: 'A server-side error occurred',
-  };
+  return { message: 'A server-side error occurred' };
 }
