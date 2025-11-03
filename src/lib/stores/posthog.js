@@ -51,16 +51,19 @@ export async function initPostHog() {
   const host = window.location.hostname;
   const isAuditHost = /(^|\.)audit\.netwk\.pro$/i.test(host);
   const effectiveAudit = isAudit || isAuditHost;
+  const isDebug = isDev || isTest;
 
   // 🧭 Log environment context before any conditional logic
-  console.info('[PostHog ENV]', {
-    buildMode: mode,
-    effectiveMode: effective,
-    host,
-    effectiveAudit,
-    isDev,
-    isTest,
-  });
+  if (isDebug) {
+    console.info('[PostHog ENV]', {
+      buildMode: mode,
+      effectiveMode: effective,
+      host,
+      effectiveAudit,
+      isDev,
+      isTest,
+    });
+  }
 
   // 🚫 Skip analytics in audit context
   if (effectiveAudit) {
@@ -71,7 +74,7 @@ export async function initPostHog() {
   }
 
   // 🧱 Skip entirely in dev/test contexts
-  if (isDev || isTest) {
+  if (isDebug) {
     console.info('[PostHog] Skipping init in dev/test mode.');
     return;
   }

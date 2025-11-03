@@ -22,7 +22,20 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
-## [1.25.2]
+## [1.25.3]
+
+### Changed
+
+- Updated `posthog.js` to display environmental context logs only in development and testing environments.
+- Bumped project version to `v1.25.3`.
+
+### Removed
+
+- Removed **Branch Guard** workflow (`.github/workflows/branch-guard.yml`), as it was resulting in mostly false positives.
+
+---
+
+## [1.25.2] - 2025-11-03
 
 ### Changed
 
@@ -46,7 +59,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
-## [1.25.1]
+## [1.25.1] - 2025-11-02
 
 ### Added
 
@@ -74,7 +87,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
-## [1.25.0]
+## [1.25.0] - 2025-11-02
 
 ### Added
 
@@ -1636,7 +1649,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.2...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.3...HEAD
+[1.25.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.3
 [1.25.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.2
 [1.25.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.1
 [1.25.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.0
