@@ -14,9 +14,9 @@ import { detectEnvironment } from '$lib/utils/env.js';
  */
 export async function handle({ event, resolve }) {
   const response = await resolve(event);
-  const { isAudit, isTest, isProd } = detectEnvironment();
 
-  console.log('[CSP Debug ENV]', detectEnvironment());
+  const { isAudit, isTest, isProd, effective, mode } = detectEnvironment();
+  console.log('[CSP Debug ENV]', { mode, effective, isProd, isAudit, isTest });
 
   // Determine report URI
   const reportUri =

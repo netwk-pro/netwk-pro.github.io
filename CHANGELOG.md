@@ -22,6 +22,33 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.1]
+
+### Added
+
+- Introduced new **environment diagnostics endpoint** at `src/routes/api/env-check/+server.js`.
+  - Returns resolved build and runtime environment data for verification.
+  - Useful for confirming `ENV_MODE` / `PUBLIC_ENV_MODE` propagation on Vercel builds.
+  - Helps troubleshoot environment mismatches between build-time and client-side contexts.
+
+### Changed
+
+- **vite.config.js**
+  - Enhanced configuration to log build mode and environment variables during bundling.
+  - Prints `mode`, `ENV_MODE`, `PUBLIC_ENV_MODE`, and `NODE_ENV` to aid CI/CD debugging.
+  - Uses color-coded console output for clear visibility in build logs.
+- **env.js**
+  - Simplified and stabilized environment detection logic for better cross-environment consistency.
+  - Removed redundant imports and corrected handling of static vs dynamic `BUILD_ENV_MODE`.
+  - Improved comments and type annotations for maintainability and IDE autocompletion.
+
+### Developer Experience
+
+- Build logs now clearly display environment information before bundling.
+- `env-check` API endpoint provides real-time environment inspection without rebuilding.
+
+---
+
 ## [1.25.0]
 
 ### Added
@@ -1583,7 +1610,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.1...HEAD
+[1.25.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.1
 [1.25.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.0
 [1.24.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.5
 [1.24.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.4

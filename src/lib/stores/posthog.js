@@ -45,15 +45,28 @@ let ph = null;
 export async function initPostHog() {
   if (initialized || typeof window === 'undefined') return;
 
-  const { isAudit, isDev, isTest, mode } = detectEnvironment();
+  const { isAudit, isDev, isTest, mode, effective } = detectEnvironment();
 
   // 🌐 Hybrid hostname + environment guard
   const host = window.location.hostname;
   const isAuditHost = /(^|\.)audit\.netwk\.pro$/i.test(host);
   const effectiveAudit = isAudit || isAuditHost;
 
+  // 🧭 Log environment context before any conditional logic
+  console.info('[PostHog ENV]', {
+    buildMode: mode,
+    effectiveMode: effective,
+    host,
+    effectiveAudit,
+    isDev,
+    isTest,
+  });
+
+  // 🚫 Skip analytics in audit context
   if (effectiveAudit) {
-    console.info(`[PostHog] Skipping analytics (${mode} mode, host: ${host}).`);
+    console.info(
+      `[PostHog] Skipping analytics (${effective} mode, host: ${host}).`,
+    );
     return;
   }
 

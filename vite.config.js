@@ -17,20 +17,42 @@ import tsconfigPaths from 'vite-tsconfig-paths'; // NEW: tsconfig/jsconfig alias
 // Compute absolute project root
 const projectRoot = fileURLToPath(new URL('.', import.meta.url));
 
-export default defineConfig({
-  plugins: [
-    tsconfigPaths(), // Insert before sveltekit()
-    devtoolsJson({
-      projectRoot: resolve(projectRoot), // Correct key name
-      normalizeForWindowsContainer: true, // optional, helps with path consistency on Windows or WSL
-      uuid: 'ad0db4f4-6172-4c1e-ae17-26b1bee53764',
-    }),
-    sveltekit(),
-    lightningcssPlugin({
-      minify: process.env.NODE_ENV === 'production',
-      pruneUnusedFontFaceRules: true,
-      pruneUnusedKeyframes: true,
-      removeUnusedFontFaces: true,
-    }),
-  ],
+export default defineConfig(({ mode }) => {
+  // --- 🧩 Log Build Environment Info -------------------------------------
+  console.log(
+    '\x1b[36m%s\x1b[0m',
+    '──────────────────────────────────────────────',
+  );
+  console.log('\x1b[33m%s\x1b[0m', `📦 Building Network Pro — mode: ${mode}`);
+  console.log(
+    '\x1b[36m%s\x1b[0m',
+    '──────────────────────────────────────────────',
+  );
+  console.log('ENV_MODE:', process.env.ENV_MODE);
+  console.log('PUBLIC_ENV_MODE:', process.env.PUBLIC_ENV_MODE);
+  console.log('NODE_ENV:', process.env.NODE_ENV);
+  console.log(
+    '\x1b[36m%s\x1b[0m',
+    '──────────────────────────────────────────────',
+  );
+
+  // -----------------------------------------------------------------------
+
+  return {
+    plugins: [
+      tsconfigPaths(),
+      devtoolsJson({
+        projectRoot: resolve(projectRoot),
+        normalizeForWindowsContainer: true,
+        uuid: 'ad0db4f4-6172-4c1e-ae17-26b1bee53764',
+      }),
+      sveltekit(),
+      lightningcssPlugin({
+        minify: process.env.NODE_ENV === 'production',
+        pruneUnusedFontFaceRules: true,
+        pruneUnusedKeyframes: true,
+        removeUnusedFontFaces: true,
+      }),
+    ],
+  };
 });

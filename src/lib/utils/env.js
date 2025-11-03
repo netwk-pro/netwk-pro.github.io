@@ -26,49 +26,56 @@ This file is part of Network Pro.
 
 /**
  * @typedef {object} EnvironmentInfo
- * @property {string} mode - The detected environment mode (`dev`, `prod`, `audit`, etc.).
- * @property {boolean} isDev - True when running in a development or local environment.
- * @property {boolean} isProd - True when running in production.
- * @property {boolean} isAudit - True when running in audit / staging environments.
- * @property {boolean} isCI - True when running in continuous integration (CI) pipelines.
- * @property {boolean} isTest - True when running under test or mock environments.
+ * @property {string} mode        - The build-time environment mode.
+ * @property {string} effective   - The environment actually being used (after host fallback).
+ * @property {boolean} isDev
+ * @property {boolean} isProd
+ * @property {boolean} isAudit
+ * @property {boolean} isCI
+ * @property {boolean} isTest
  */
 
 /**
- * Normalizes environment detection across client, SSR, and build contexts.
- * Uses `import.meta.env` for Vite build-time vars and `process.env` for runtime vars.
+ * Build-time mode injected by Vite.
+ * Always baked into the client bundle.
+ * Falls back to 'production' if nothing else is defined.
+ */
+export const BUILD_ENV_MODE =
+  import.meta.env.PUBLIC_ENV_MODE || import.meta.env.MODE || 'production';
+
+/**
+ * Detects the current environment, combining build-time
+ * and runtime (hostname-based) checks.
+ * Works safely in both Node and browser contexts.
  *
- * @returns {EnvironmentInfo} Normalized environment context flags.
+ * @returns {EnvironmentInfo}
  */
 export function detectEnvironment() {
-  /** @type {string | undefined} */
-  const viteMode = import.meta.env?.MODE;
-  /** @type {string | undefined} */
-  const publicEnvMode = import.meta.env?.PUBLIC_ENV_MODE;
+  const mode = BUILD_ENV_MODE;
 
-  /** @type {string | undefined} */
-  const nodeEnv =
-    typeof process !== 'undefined' && process?.env?.NODE_ENV
-      ? process.env.NODE_ENV
-      : undefined;
+  // Client-side fallback for audit/netwk environments
+  const host = typeof window !== 'undefined' ? window.location.hostname : '';
 
-  /** @type {string | undefined} */
-  const envMode =
-    typeof process !== 'undefined' && process?.env?.ENV_MODE
-      ? process.env.ENV_MODE
-      : undefined;
+  const hostIsAudit = /(^|\.)audit\.netwk\.pro$/i.test(host);
 
-  // Fallback order — guarantees a mode string even if nothing is set
-  /** @type {string} */
-  const mode = envMode || publicEnvMode || viteMode || nodeEnv || 'unknown';
+  const isDev = ['development', 'dev'].includes(mode);
+  const isProd = ['production', 'prod'].includes(mode);
+  const isAudit = mode === 'audit' || hostIsAudit;
+  const isCI = mode === 'ci';
+  const isTest = mode === 'test';
 
-  // Return a normalized, typed object
-  return {
-    mode,
-    isDev: ['development', 'dev'].includes(mode),
-    isProd: ['production', 'prod'].includes(mode),
-    isAudit: mode === 'audit',
-    isCI: mode === 'ci',
-    isTest: mode === 'test',
-  };
+  // Prefer host-based detection if it disagrees with build-time
+  const effective = hostIsAudit && !isAudit ? 'audit(host)' : mode;
+
+  if (typeof window === 'undefined') {
+    // Only log on server / build to avoid client noise
+    console.log('[detectEnvironment] Build mode:', mode);
+    if (hostIsAudit && mode !== 'audit') {
+      console.log(
+        '[detectEnvironment] Host suggests audit, overriding build-time mode.',
+      );
+    }
+  }
+
+  return { mode, effective, isDev, isProd, isAudit, isCI, isTest };
 }
