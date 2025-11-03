@@ -12,11 +12,11 @@ This file is part of Network Pro.
  * Logs runtime environment variables for debugging purposes.
  * This function executes on the server during SSR and is used to verify
  * that environment variables (e.g., ENV_MODE and NODE_ENV) are properly
- * injected and available during runtime in Netlify's SSR context.
+ * injected and available during runtime in Vercel's SSR context.
  *
  * @module src/routes/status
  * @author Scott Lopez
- * @updated 2025-05-31
+ * @updated 2025-11-03
  */
 
 export const prerender = false;

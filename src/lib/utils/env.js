@@ -16,7 +16,7 @@ This file is part of Network Pro.
  *
  * @module src/lib/utils
  * @author Scott Lopez
- * @updated 2025-11-02
+ * @updated 2025-11-03
  *
  * @example
  * import { detectEnvironment } from '$lib/utils/env.js';
@@ -44,17 +44,19 @@ export const BUILD_ENV_MODE =
   import.meta.env.PUBLIC_ENV_MODE || import.meta.env.MODE || 'production';
 
 /**
- * Detects the current environment, combining build-time
- * and runtime (hostname-based) checks.
- * Works safely in both Node and browser contexts.
+ * Detects the current environment, combining build-time and host-based checks.
+ * Supports browser, server, and build-time contexts.
  *
+ * @param {string} [hostOverride] Optional hostname to use for environment resolution (e.g., from event.url.hostname)
  * @returns {EnvironmentInfo}
  */
-export function detectEnvironment() {
+export function detectEnvironment(hostOverride) {
   const mode = BUILD_ENV_MODE;
 
-  // Client-side fallback for audit/netwk environments
-  const host = typeof window !== 'undefined' ? window.location.hostname : '';
+  // Determine host based on execution context
+  const host =
+    hostOverride ||
+    (typeof window !== 'undefined' ? window.location.hostname : '');
 
   const hostIsAudit = /(^|\.)audit\.netwk\.pro$/i.test(host);
 
@@ -64,16 +66,13 @@ export function detectEnvironment() {
   const isCI = mode === 'ci';
   const isTest = mode === 'test';
 
-  // Prefer host-based detection if it disagrees with build-time
   const effective = hostIsAudit && !isAudit ? 'audit(host)' : mode;
 
   if (typeof window === 'undefined') {
-    // Only log on server / build to avoid client noise
-    console.log('[detectEnvironment] Build mode:', mode);
+    console.log('[detectEnvironment] Server-side build mode:', mode);
+    console.log('[detectEnvironment] Hostname:', host || '(none)');
     if (hostIsAudit && mode !== 'audit') {
-      console.log(
-        '[detectEnvironment] Host suggests audit, overriding build-time mode.',
-      );
+      console.log('[detectEnvironment] Host suggests audit, overriding mode.');
     }
   }
 

@@ -22,6 +22,30 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.2]
+
+### Changed
+
+- **Unified Environment Detection (`env.js`)**
+  - Added support for server-side hostname injection via optional `hostOverride` parameter.
+  - Enables accurate audit environment detection on both server (`hooks.server.js`) and client.
+  - Logs the resolved environment and host when executed on the server.
+  - Maintains safe fallback behavior for client-only usage.
+
+- **CSP Handling (`hooks.server.js`)**
+  - Replaced reliance on `window.location` (unavailable on server) with `event.url.hostname` for host detection.
+  - Now correctly applies hardened audit-mode CSP in deployments matching `*.audit.netwk.pro`.
+  - Improved logging for audit/test/prod environment resolution during server request lifecycle.
+
+- **Build Diagnostics (`vite.config.js`)**
+  - Added `stderr` output for `audit` mode builds to ensure visibility in CI logs.
+  - Displays a prominent `🔒 Audit Mode Detected` tag during Vercel and local builds.
+  - Continues to log `ENV_MODE`, `PUBLIC_ENV_MODE`, and `NODE_ENV` for build-time inspection.
+
+- Bumped project version to `v1.25.2`.
+
+---
+
 ## [1.25.1]
 
 ### Added
@@ -41,6 +65,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
   - Simplified and stabilized environment detection logic for better cross-environment consistency.
   - Removed redundant imports and corrected handling of static vs dynamic `BUILD_ENV_MODE`.
   - Improved comments and type annotations for maintainability and IDE autocompletion.
+- Bumped project version to `v1.25.1`.
 
 ### Developer Experience
 
@@ -87,6 +112,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
   - Simplified step output and summary formatting for clearer reporting in the Actions log and job summary.
   - Maintains lightweight permissions (`contents: read`) and executes entirely without repository writes.
   - Improves reliability of branch protection monitoring without affecting CI or merge operations.
+- Bumped project version to `v1.25.0`.
 
 ### Fixed
 
@@ -1610,7 +1636,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.1...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.2...HEAD
+[1.25.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.2
 [1.25.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.1
 [1.25.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.0
 [1.24.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.5

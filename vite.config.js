@@ -31,6 +31,15 @@ export default defineConfig(({ mode }) => {
   console.log('ENV_MODE:', process.env.ENV_MODE);
   console.log('PUBLIC_ENV_MODE:', process.env.PUBLIC_ENV_MODE);
   console.log('NODE_ENV:', process.env.NODE_ENV);
+  if (
+    process.env.ENV_MODE === 'audit' ||
+    process.env.PUBLIC_ENV_MODE === 'audit' ||
+    mode === 'audit'
+  ) {
+    process.stderr.write(
+      '🔒 Audit Mode Detected — hardened CSP and no analytics will be applied.\n',
+    );
+  }
   console.log(
     '\x1b[36m%s\x1b[0m',
     '──────────────────────────────────────────────',
