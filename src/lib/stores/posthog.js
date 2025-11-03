@@ -80,9 +80,8 @@ export async function initPostHog() {
     ph = posthogModule.default;
 
     // ✅ Initialize PostHog
-    /* cspell:disable */
+    // cspell:disable-next-line
     ph.init('phc_Qshfo6AXzh4pS7aPigfqyeo4qj1qlyh7gDuHDeVMSR0', {
-      /* cspell:enable */
       api_host: '/relay-MSR0/',
       ui_host: 'https://us.posthog.com',
       autocapture: true,

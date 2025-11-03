@@ -26,43 +26,49 @@ This file is part of Network Pro.
 
 /**
  * @typedef {object} EnvironmentInfo
- * @property {string} mode - The resolved environment mode (from ENV_MODE or PUBLIC_ENV_MODE).
- * @property {string} nodeEnv - The Node environment ('development' or 'production').
- * @property {boolean} isDev - True if running in development mode.
- * @property {boolean} isProd - True if running in production mode.
- * @property {boolean} isAudit - True if running in audit mode.
- * @property {boolean} isCI - True if running in CI/CD environment.
- * @property {boolean} isTest - True if running in test/dev/CI contexts.
+ * @property {string} mode - The detected environment mode (`dev`, `prod`, `audit`, etc.).
+ * @property {boolean} isDev - True when running in a development or local environment.
+ * @property {boolean} isProd - True when running in production.
+ * @property {boolean} isAudit - True when running in audit / staging environments.
+ * @property {boolean} isCI - True when running in continuous integration (CI) pipelines.
+ * @property {boolean} isTest - True when running under test or mock environments.
  */
 
 /**
- * Detects and normalizes environment flags across Node and Vite contexts.
- * @returns {EnvironmentInfo} A structured object describing the current environment state.
+ * Normalizes environment detection across client, SSR, and build contexts.
+ * Uses `import.meta.env` for Vite build-time vars and `process.env` for runtime vars.
+ *
+ * @returns {EnvironmentInfo} Normalized environment context flags.
  */
 export function detectEnvironment() {
-  /** @type {ImportMetaEnv | Record<string, string>} */
-  const metaEnv =
-    typeof import.meta !== 'undefined' ? (import.meta.env ?? {}) : {};
+  /** @type {string | undefined} */
+  const viteMode = import.meta.env?.MODE;
+  /** @type {string | undefined} */
+  const publicEnvMode = import.meta.env?.PUBLIC_ENV_MODE;
 
-  // Guard for environments where process isn't defined (browser)
-  const safeProcessEnv =
-    typeof process !== 'undefined' && process.env ? process.env : {};
+  /** @type {string | undefined} */
+  const nodeEnv =
+    typeof process !== 'undefined' && process?.env?.NODE_ENV
+      ? process.env.NODE_ENV
+      : undefined;
 
-  // Safely resolve mode
-  const mode =
-    safeProcessEnv.ENV_MODE ||
-    metaEnv.PUBLIC_ENV_MODE ||
-    safeProcessEnv.NODE_ENV ||
-    metaEnv.MODE ||
-    'development';
+  /** @type {string | undefined} */
+  const envMode =
+    typeof process !== 'undefined' && process?.env?.ENV_MODE
+      ? process.env.ENV_MODE
+      : undefined;
 
-  const nodeEnv = safeProcessEnv.NODE_ENV || metaEnv.MODE || 'development';
+  // Fallback order — guarantees a mode string even if nothing is set
+  /** @type {string} */
+  const mode = envMode || publicEnvMode || viteMode || nodeEnv || 'unknown';
 
-  const isDev = nodeEnv === 'development';
-  const isProd = nodeEnv === 'production';
-  const isCI = mode === 'ci';
-  const isAudit = mode === 'audit';
-  const isTest = ['test', 'dev', 'ci'].includes(mode) || isDev;
-
-  return { mode, nodeEnv, isDev, isProd, isAudit, isCI, isTest };
+  // Return a normalized, typed object
+  return {
+    mode,
+    isDev: ['development', 'dev'].includes(mode),
+    isProd: ['production', 'prod'].includes(mode),
+    isAudit: mode === 'audit',
+    isCI: mode === 'ci',
+    isTest: mode === 'test',
+  };
 }
