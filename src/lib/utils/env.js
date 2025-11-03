@@ -33,6 +33,8 @@ This file is part of Network Pro.
  * @property {boolean} isAudit
  * @property {boolean} isCI
  * @property {boolean} isTest
+ * @property {boolean} isDebug    - True in dev or test mode (but not prod/audit)
+ * @property {boolean} isLocalhost - True if running on localhost (client context only)
  */
 
 /**
@@ -51,7 +53,7 @@ export const BUILD_ENV_MODE =
  * @returns {EnvironmentInfo}
  */
 export function detectEnvironment(hostOverride) {
-  const mode = BUILD_ENV_MODE;
+  const mode = (BUILD_ENV_MODE || '').toLowerCase();
 
   // Determine host based on execution context
   const host =
@@ -59,22 +61,35 @@ export function detectEnvironment(hostOverride) {
     (typeof window !== 'undefined' ? window.location.hostname : '');
 
   const hostIsAudit = /(^|\.)audit\.netwk\.pro$/i.test(host);
+  const isLocalhost = /^localhost$|^127\.0\.0\.1$/.test(host);
 
   const isDev = ['development', 'dev'].includes(mode);
   const isProd = ['production', 'prod'].includes(mode);
   const isAudit = mode === 'audit' || hostIsAudit;
   const isCI = mode === 'ci';
   const isTest = mode === 'test';
+  const isDebug = isDev || isTest;
 
   const effective = hostIsAudit && !isAudit ? 'audit(host)' : mode;
 
-  if (typeof window === 'undefined') {
-    console.log('[detectEnvironment] Server-side build mode:', mode);
-    console.log('[detectEnvironment] Hostname:', host || '(none)');
+  if (typeof window === 'undefined' && isDebug) {
+    console.log('🧭 [env] Server-side build mode:', mode);
+    console.log('🧭 [env] Hostname:', host || '(none)');
+    console.log('🧭 [env] Raw env:', import.meta.env);
     if (hostIsAudit && mode !== 'audit') {
-      console.log('[detectEnvironment] Host suggests audit, overriding mode.');
+      console.log('[env] Host suggests audit, overriding mode.');
     }
   }
 
-  return { mode, effective, isDev, isProd, isAudit, isCI, isTest };
+  return {
+    mode,
+    effective,
+    isDev,
+    isProd,
+    isAudit,
+    isCI,
+    isTest,
+    isDebug,
+    isLocalhost,
+  };
 }

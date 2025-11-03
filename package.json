@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.25.3",
+  "version": "1.25.4",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -38,7 +38,7 @@
     "dev:audit": "vite --mode audit",
     "start": "npm run dev",
     "dev:vercel": "vercel dev",
-    "build": "vite build",
+    "build": "vite build --mode production",
     "build:audit": "vite build --mode audit",
     "build:vercel": "vercel build",
     "preview": "vite preview",
