@@ -15,6 +15,7 @@ import {
   remindUserToReconsent,
   trackingPreferences,
 } from '$lib/stores/trackingPreferences.js';
+import { detectEnvironment } from '$lib/utils/env.js';
 import { get, writable } from 'svelte/store';
 
 /**
@@ -38,24 +39,39 @@ let ph = null;
 /**
  * Initializes the PostHog analytics client if tracking is permitted.
  * Uses dynamic import to avoid SSR failures.
+ *
  * @returns {Promise<void>}
  */
 export async function initPostHog() {
   if (initialized || typeof window === 'undefined') return;
-  const isDev = import.meta.env.MODE === 'development';
-  if (isDev) {
-    console.info('[PostHog] Skipping init in development mode.');
+
+  const { isAudit, isDev, isTest, mode } = detectEnvironment();
+
+  // 🌐 Hybrid hostname + environment guard
+  const host = window.location.hostname;
+  const isAuditHost = /(^|\.)audit\.netwk\.pro$/i.test(host);
+  const effectiveAudit = isAudit || isAuditHost;
+
+  if (effectiveAudit) {
+    console.info(`[PostHog] Skipping analytics (${mode} mode, host: ${host}).`);
     return;
   }
 
+  // 🧱 Skip entirely in dev/test contexts
+  if (isDev || isTest) {
+    console.info('[PostHog] Skipping init in dev/test mode.');
+    return;
+  }
+
+  // 🚀 Production analytics logic (with user consent)
   initialized = true;
 
   const { enabled } = get(trackingPreferences);
   trackingEnabled.set(enabled);
-  showReminder.set(get(remindUserToReconsent)); // use derived store instead
+  showReminder.set(get(remindUserToReconsent));
 
   if (!enabled) {
-    console.log('[PostHog] Tracking is disabled — skipping init.');
+    console.log('[PostHog] Tracking disabled — user opted out.');
     return;
   }
 
@@ -63,8 +79,10 @@ export async function initPostHog() {
     const posthogModule = await import('posthog-js');
     ph = posthogModule.default;
 
-    // cspell:disable-next-line
+    // ✅ Initialize PostHog
+    /* cspell:disable */
     ph.init('phc_Qshfo6AXzh4pS7aPigfqyeo4qj1qlyh7gDuHDeVMSR0', {
+      /* cspell:enable */
       api_host: '/relay-MSR0/',
       ui_host: 'https://us.posthog.com',
       autocapture: true,

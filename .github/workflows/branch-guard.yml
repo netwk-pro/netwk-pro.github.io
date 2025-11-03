@@ -24,14 +24,30 @@ jobs:
     steps:
       - name: Check commit source
         run: |
-          # Only trigger warning if commit wasn't from a merge or bot
-          if [[ "${{ github.event.head_commit.message }}" != *"Merge pull request"* ]] && \
-             [[ "${{ github.actor }}" != "dependabot[bot]" ]]; then
-            echo "::warning ::⚠️ Direct commit to ${GITHUB_REF##*/} by $GITHUB_ACTOR."
-            echo "### ⚠️ Direct Commit Detected" >> $GITHUB_STEP_SUMMARY
-            echo "A commit was pushed directly to \`${GITHUB_REF##*/}\` by **${GITHUB_ACTOR}**." >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "💡 It's recommended to use pull requests for traceability and CI validation." >> $GITHUB_STEP_SUMMARY
-          else
-            echo "✅ Merge or bot commit detected — no action needed."
+          commit_msg="${{ github.event.head_commit.message }}"
+          actor="${{ github.actor }}"
+          branch="${GITHUB_REF##*/}"
+
+          echo "📝 Commit message: $commit_msg"
+          echo "👤 Actor: $actor"
+          echo "🌿 Branch: $branch"
+
+          # Define known safe patterns (merge or bot commits)
+          if echo "$commit_msg" | grep -Eq "Merge pull request|See merge request|Merge branch|(#\d+)$"; then
+            echo "✅ Merge-related commit detected — no warning."
+            exit 0
           fi
+
+          if [[ "$actor" == "dependabot[bot]" ]] || [[ "$actor" == "renovate[bot]" ]] || [[ "$actor" == "github-actions[bot]" ]]; then
+            echo "🤖 Bot commit detected — skipping warning."
+            exit 0
+          fi
+
+          # Otherwise, warn for direct commits
+          echo "::warning ::⚠️ Direct commit to $branch by $actor."
+          {
+            echo "### ⚠️ Direct Commit Detected"
+            echo "A commit was pushed directly to \`$branch\` by **$actor**."
+            echo ""
+            echo "💡 It's recommended to use pull requests for traceability and CI validation."
+          } >> $GITHUB_STEP_SUMMARY
