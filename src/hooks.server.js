@@ -16,16 +16,19 @@ export async function handle({ event, resolve }) {
   const response = await resolve(event);
 
   const env = detectEnvironment(event.url.hostname);
-  const { isAudit, isTest, isProd, mode, effective } = env;
+  const { isAudit, isDebug, isTest, isProd, mode, effective } = env;
 
-  console.log('[CSP Debug ENV]', {
-    mode,
-    effective,
-    hostname: event.url.hostname,
-    isAudit,
-    isTest,
-    isProd,
-  });
+  // Show logs in dev only
+  if (isDebug) {
+    console.log('[CSP Debug ENV]', {
+      mode,
+      effective,
+      hostname: event.url.hostname,
+      isAudit,
+      isTest,
+      isProd,
+    });
+  }
 
   // Determine report URI
   const reportUri =
@@ -49,7 +52,7 @@ export async function handle({ event, resolve }) {
   ];
 
   // 🧪 Looser CSP for local/CI test environments
-  if (isTest) {
+  if (isDebug) {
     cspDirectives[1] =
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:* ws://localhost:*;";
     cspDirectives[2] = "style-src 'self' 'unsafe-inline' http://localhost:*;";

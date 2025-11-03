@@ -45,13 +45,13 @@ let ph = null;
 export async function initPostHog() {
   if (initialized || typeof window === 'undefined') return;
 
-  const { isAudit, isDev, isTest, mode, effective } = detectEnvironment();
+  const { isAudit, isDebug, isDev, isTest, mode, effective } =
+    detectEnvironment();
 
   // 🌐 Hybrid hostname + environment guard
   const host = window.location.hostname;
   const isAuditHost = /(^|\.)audit\.netwk\.pro$/i.test(host);
   const effectiveAudit = isAudit || isAuditHost;
-  const isDebug = isDev || isTest;
 
   // 🧭 Log environment context before any conditional logic
   if (isDebug) {
@@ -95,9 +95,17 @@ export async function initPostHog() {
     const posthogModule = await import('posthog-js');
     ph = posthogModule.default;
 
+    // ✅ Load public key from env
+    const key = import.meta.env.PUBLIC_POSTHOG_PROJECT_KEY;
+    //console.log('✅ Key in runtime:', key);
+
+    if (!key) {
+      console.warn('[PostHog] ⚠️ PUBLIC_POSTHOG_PROJECT_KEY is not set.');
+      return;
+    }
+
     // ✅ Initialize PostHog
-    // cspell:disable-next-line
-    ph.init('phc_Qshfo6AXzh4pS7aPigfqyeo4qj1qlyh7gDuHDeVMSR0', {
+    ph.init(key, {
       api_host: '/relay-MSR0/',
       ui_host: 'https://us.posthog.com',
       autocapture: true,

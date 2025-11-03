@@ -22,6 +22,45 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.4] - 2025-11-03
+
+### Added
+
+- `detectEnvironment()` now returns:
+  - `isDebug` boolean (true if `isDev` or `isTest`)
+  - `isLocalhost` (optional, in browser contexts)
+- Support for `PUBLIC_POSTHOG_PROJECT_KEY` using `import.meta.env`
+- Dynamic PostHog initialization (`initPostHog`) now uses env-based key injection
+- vite.config.js:
+  - `envPrefix: ['PUBLIC_']` added to expose public vars to client
+  - Console banner for `ENV_MODE`, `PUBLIC_ENV_MODE`, and audit-mode warning
+- CSP debug logs gated behind `isDebug` and server-only context
+- `.env.production` support via `--mode=production` guidance
+- Conditional `minify` flag for `lightningcssPlugin` based on `mode` (`production` or `audit`)
+
+### Changed
+
+- Environment detection (`env.js`) now respects hostname overrides and normalizes fallback logic for SSR/client consistency
+- Logs in `hooks.server.js` and PostHog analytics client are now gated by `isDebug` to avoid unnecessary noise in production
+- Better logging structure for PostHog initialization, including full `import.meta.env` dump in debug mode
+- Updated `engines.node` in `package.json` to require **Node.js** `>=24.0.0 <25`
+  - **Node.js v22** is no longer supported
+- Bumped project version to `v1.25.4`
+
+### Fixed
+
+- Broken or undefined env var behavior due to missing `envPrefix` in `vite.config.js`
+- Client-only `import.meta.env.PUBLIC_*` variables incorrectly resolving as `undefined` in production builds
+- CSP not reflecting audit context due to host-based detection mismatch
+
+### Developer Notes
+
+- `.env.production` is **now required** for full environment variable injection during `npm run build --mode=production` or Vercel deployments.
+  - Without it, `PUBLIC_` variables (e.g. `PUBLIC_POSTHOG_PROJECT_KEY`) may resolve as undefined in the client bundle.
+  - Local builds can still fall back to `.env` or `.env.development` by default.
+
+---
+
 ## [1.25.3] - 2025-11-03
 
 ### Changed
@@ -1649,7 +1688,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.3...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.4...HEAD
+[1.25.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.4
 [1.25.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.3
 [1.25.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.2
 [1.25.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.1

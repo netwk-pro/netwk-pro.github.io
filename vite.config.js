@@ -48,6 +48,7 @@ export default defineConfig(({ mode }) => {
   // -----------------------------------------------------------------------
 
   return {
+    envPrefix: ['PUBLIC_'],
     plugins: [
       tsconfigPaths(),
       devtoolsJson({
@@ -57,7 +58,7 @@ export default defineConfig(({ mode }) => {
       }),
       sveltekit(),
       lightningcssPlugin({
-        minify: process.env.NODE_ENV === 'production',
+        minify: ['production', 'audit'].includes(mode),
         pruneUnusedFontFaceRules: true,
         pruneUnusedKeyframes: true,
         removeUnusedFontFaces: true,
