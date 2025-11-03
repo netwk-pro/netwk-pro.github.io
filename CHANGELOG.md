@@ -43,8 +43,6 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 - Environment detection (`env.js`) now respects hostname overrides and normalizes fallback logic for SSR/client consistency
 - Logs in `hooks.server.js` and PostHog analytics client are now gated by `isDebug` to avoid unnecessary noise in production
 - Better logging structure for PostHog initialization, including full `import.meta.env` dump in debug mode
-- Updated `engines.node` in `package.json` to require **Node.js** `>=24.0.0 <25`
-  - **Node.js v22** is no longer supported
 - Bumped project version to `v1.25.4`
 
 ### Fixed
