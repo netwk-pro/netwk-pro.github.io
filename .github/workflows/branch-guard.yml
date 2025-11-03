@@ -1,0 +1,37 @@
+# .github/workflows/branch-guard.yml
+#
+# Copyright © 2025 Network Pro Strategies (Network Pro™)
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro
+#
+# Warns if commits are pushed directly to master/main instead of via PR.
+# Does NOT block the commit — it just posts a workflow summary and log warning.
+
+name: Branch Guard
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  warn-direct-commit:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check commit source
+        run: |
+          # Only trigger warning if commit wasn't from a merge or bot
+          if [[ "${{ github.event.head_commit.message }}" != *"Merge pull request"* ]] && \
+             [[ "${{ github.actor }}" != "dependabot[bot]" ]]; then
+            echo "::warning ::⚠️ Direct commit to ${GITHUB_REF##*/} by $GITHUB_ACTOR."
+            echo "### ⚠️ Direct Commit Detected" >> $GITHUB_STEP_SUMMARY
+            echo "A commit was pushed directly to \`${GITHUB_REF##*/}\` by **${GITHUB_ACTOR}**." >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "💡 It's recommended to use pull requests for traceability and CI validation." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ Merge or bot commit detected — no action needed."
+          fi

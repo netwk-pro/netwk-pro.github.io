@@ -22,6 +22,40 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.24.5]
+
+### Added
+
+- Introduced **Branch Guard workflow** (`.github/workflows/branch-guard.yml`) to automatically enforce branch protection policies.
+  - Ensures consistent branch naming conventions.
+  - Blocks direct pushes to protected branches (e.g., `master`, `main`, and `release/*`).
+  - Provides early validation for pull requests and feature branches to maintain repository integrity.
+- Introduced comprehensive pre-push checks for code consistency and style compliance.
+  - Added optional `simple-git-hooks` configuration to automate local linting before commits or pushes.
+  - Implemented `lint:all` script using `npm-run-all` for efficient, parallel execution of linters.
+  - Ensures **ESLint**, **Stylelint**, **Markdownlint**, and **Prettier** all run before code is committed, improving codebase hygiene and preventing formatting drift.
+  - Designed for **developer-side speed and reliability**, running linters in parallel while deferring `format` (Prettier) until after lint checks complete for safety.
+- Added **hybrid linting configuration**:
+  - Parallel execution for static lint tasks (`eslint`, `stylelint`, `markdownlint`).
+  - Sequential Prettier formatting step for deterministic, race-free execution.
+
+### Changed
+
+- Reorganized local linting commands for clarity and consistency, consolidating redundant sequential scripts into the `lint:all` aggregator.
+- Improved developer experience with faster pre-push validations and clearer script naming conventions.
+- Bumped project version to `v1.24.5`.
+
+### Developer Experience
+
+- Enhanced local development workflow by introducing **fast, parallel linting** and **optional pre-commit hooks**, reducing turnaround time for style and quality checks.
+- Simplified npm scripts for readability and maintainability by adopting `npm-run-all` as the central task runner.
+
+### Notes
+
+- For instructions on installing and configuring the new dependencies, please see the **[Editor Configuration](https://github.com/netwk-pro/netwk-pro.github.io/wiki/Editor-Configuration#automation)** section of the [Wiki](https://github.com/netwk-pro/netwk-pro.github.io/wiki).
+
+---
+
 ## [1.24.4]
 
 ### Documentation
@@ -250,7 +284,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 - Updated the text of `ServicesContent.svelte`.
 - Increased default Playwright test timeouts for navigation-sensitive suites (Desktop and Mobile) to improve stability under CI latency conditions.
 - Implemented `Promise.all()` pattern for combined click and navigation waits, reducing flakiness in route transition tests.
-- Updated the `'about' link` navigation tests in both Desktop and Mobile scenarios to include:
+- Updated the `about` link navigation tests in both Desktop and Mobile scenarios to include:
   - Explicit `page.waitForLoadState('domcontentloaded')` calls before assertions.
   - Extended per-suite timeouts (`90s`) using `test.setTimeout(90000)` for reliability on slower environments.
   - Added fallback `waitForURL('\*\*/about', { timeout: 60000 })` to ensure deterministic routing checks.
@@ -1481,7 +1515,8 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.24.4...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.24.5...HEAD
+[1.24.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.5
 [1.24.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.4
 [1.24.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.3
 [1.24.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.24.2
