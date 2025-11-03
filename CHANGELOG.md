@@ -52,8 +52,6 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
   - Ensures `vite --mode audit` and `PUBLIC_ENV_MODE=audit` behave consistently.
   - Enables audit deployments to simulate production behavior without telemetry or external reporting.
 
-### Changed
-
 - Refactored **Branch Guard** workflow (`.github/workflows/branch-guard.yml`) for improved accuracy and reduced noise.
   - Adjusted detection logic to **ignore merge commits**, Dependabot updates, and automated actions.
   - Ensures workflow warnings are shown **only for true direct commits** to protected branches (`master`, `main`).
