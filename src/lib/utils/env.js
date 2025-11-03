@@ -40,9 +40,7 @@ This file is part of Network Pro.
  * @type {string}
  */
 export const BUILD_ENV_MODE =
-  import.meta.env.PUBLIC_ENV_MODE ||
-  import.meta.env.MODE ||
-  'production';
+  import.meta.env.PUBLIC_ENV_MODE || import.meta.env.MODE || 'production';
 
 /**
  * Detects the current environment with fallbacks for audit, CI, test, etc.
