@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Sitemap last updated 2025-10-30 -->
+<!-- Sitemap last updated 2025-11-03 -->
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
@@ -125,9 +125,9 @@
 
   <url>
 
-    <loc>https://netwk.pro/bin/CC-BY-4.0.html</loc>
+    <loc>https://netwk.pro/bin/license/CC-BY-4.0.html</loc>
 
-    <lastmod>2025-06-10</lastmod>
+    <lastmod>2025-11-03</lastmod>
 
     <changefreq>yearly</changefreq>
 
@@ -137,9 +137,9 @@
 
   <url>
 
-    <loc>https://netwk.pro/bin/COPYING.html</loc>
+    <loc>https://netwk.pro/bin/license/COPYING.html</loc>
 
-    <lastmod>2025-06-10</lastmod>
+    <lastmod>2025-11-03</lastmod>
 
     <changefreq>yearly</changefreq>
 

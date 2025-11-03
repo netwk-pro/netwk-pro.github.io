@@ -9,6 +9,7 @@ This file is part of Network Pro.
 import adapter from '@sveltejs/adapter-vercel'; // Vercel adapter for deployment
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'; // Vite preprocessor for Svelte
 
+/** @type {import('@sveltejs/kit').Config} */
 const config = {
   // Only vitePreprocess with PostCSS
   preprocess: vitePreprocess({ postcss: true }),
