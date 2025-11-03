@@ -48,9 +48,11 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
   - Added clear separation between `test`, `audit`, and `prod` security policies.
   - Improved console debugging for environment detection (`NODE_ENV`, `ENV_MODE`).
 
-- Refined environment resolution logic to ensure accurate mode detection in both **local builds** and **Vercel deployments**.
-  - Ensures `vite --mode audit` and `PUBLIC_ENV_MODE=audit` behave consistently.
-  - Enables audit deployments to simulate production behavior without telemetry or external reporting.
+- Refactored **environment detection logic** for improved reliability across client and server contexts.
+  - Added unified environment resolver at `src/lib/utils/env.js` to standardize detection for `dev`, `prod`, `audit`, `ci`, and `test` modes.
+  - Ensures consistent handling of both `process.env.*` (Node/SSR) and `import.meta.env.*` (Vite/client) variables.
+  - Prevents mismatched behavior between browser-side analytics (`posthog.js`) and server-side policies (`hooks.server.js`).
+  - Automatically falls back to `'unknown'` if no explicit mode is set, avoiding build-time exceptions.
 
 - Refactored **Branch Guard** workflow (`.github/workflows/branch-guard.yml`) for improved accuracy and reduced noise.
   - Adjusted detection logic to **ignore merge commits**, Dependabot updates, and automated actions.
@@ -64,6 +66,11 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 - Resolved client-side crash in browser environments caused by `process.env` being undefined.
   - Implemented defensive checks in `env.js` for `process` availability.
   - Eliminated reference errors during client-side initialization of analytics.
+
+### Developer Experience
+
+- Simplified future configuration by consolidating environment checks into a single typed utility.
+- Improved maintainability and Vercel compatibility by ensuring `.env.audit` and `PUBLIC_ENV_MODE` variables propagate correctly to both client and server environments.
 
 ### Developer Notes
 
