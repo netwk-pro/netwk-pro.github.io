@@ -22,6 +22,22 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.5] - 2025-11-03
+
+### Added
+
+- Introduced `static/b173de6c44c144c1b186841b88d51c67.txt` for use with [IndexNow](https://www.indexnow.org) and Bing Webmaster Tools.
+
+### Changed
+
+- Bumped project version to `v1.25.5`.
+
+### Fixed
+
+- Corrected the URLs for the HTML versions of the licenses in `static/sitemap.xml`.
+
+---
+
 ## [1.25.4] - 2025-11-03
 
 ### Added
@@ -1686,7 +1702,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.4...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.5...HEAD
+[1.25.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.5
 [1.25.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.4
 [1.25.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.3
 [1.25.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.2
