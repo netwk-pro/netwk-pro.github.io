@@ -16,27 +16,15 @@ export async function handle({ event, resolve }) {
   const response = await resolve(event);
 
   const env = detectEnvironment(event.url.hostname);
-  const { isAudit, isDebug, isTest, isProd, mode, effective } = env;
+  const { isAudit, isDebug, isTest, isProd } = env;
 
-  // Show logs in dev only
-  if (isDebug) {
-    console.log('[CSP Debug ENV]', {
-      mode,
-      effective,
-      hostname: event.url.hostname,
-      isAudit,
-      isTest,
-      isProd,
-    });
-  }
-
-  // Determine report URI
   const reportUri =
     isProd && !isTest && !isAudit
       ? 'https://csp.netwk.pro/.netlify/functions/csp-report'
       : '/api/mock-csp';
 
-  // Base hardened policy
+  console.log('[CSP] Report URI set to:', reportUri);
+
   const cspDirectives = [
     "default-src 'self';",
     "script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com;",
@@ -69,8 +57,10 @@ export async function handle({ event, resolve }) {
     cspDirectives[4] = "connect-src 'self';";
   }
 
-  // 📋 Attach CSP report directives ONLY in production
-  if (isProd && !isAudit && !isTest) {
+  // 📋 Add reporting for environments that support it
+  const shouldReport = !isAudit && !isTest;
+
+  if (shouldReport) {
     cspDirectives.push(`report-uri ${reportUri};`, 'report-to csp-endpoint;');
 
     response.headers.set(
@@ -84,8 +74,20 @@ export async function handle({ event, resolve }) {
     );
   }
 
-  // ✅ Apply final CSP
-  response.headers.set('Content-Security-Policy', cspDirectives.join(' '));
+  // ✅ Apply CSP — enforce in prod or audit, report-only in dev/test
+  const cspHeader =
+    (isProd || isAudit) && !isTest
+      ? 'Content-Security-Policy'
+      : 'Content-Security-Policy-Report-Only';
+
+  response.headers.set(cspHeader, cspDirectives.join(' '));
+
+  // Log applied CSP headers in debug/audit/test
+  if (isDebug || isAudit) {
+    console.info(`[CSP] Applied header: ${cspHeader}`);
+    console.info(`[CSP] Policy:`, cspDirectives.join(' '));
+    console.info(`[CSP] Reporting to: ${reportUri}`);
+  }
 
   // Standard security headers
   response.headers.set(

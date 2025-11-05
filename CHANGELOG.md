@@ -22,6 +22,35 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.6] - 2025-11-04
+
+### Security
+
+- Hardened `Content-Security-Policy (CSP)` in `hooks.server.js`:
+  - Environment-specific policies for `production`, `audit`, `dev`, and `test`
+  - Added real CSP reporting endpoint (`csp.netwk.pro`) in production
+  - Report-only mode enabled in non-prod for safer diagnostics
+- Added `/api/mock-csp` endpoint to capture and log CSP violation reports in non-prod environments
+
+### Changed
+
+- Updated `README.md` with detailed explanation of the CSP enforcement strategy and future nonce-based roadmap
+- Moved inline styles from `Badges.svelte` and `Logo.svelte` to external stylesheet (`default.css`)
+- Regenerated `global.min.css` using LightningCSS to reflect updated external styles
+- Bumped project version to `v1.25.6`
+- Updated dependencies:
+  - `@eslint/js` `^9.39.0` → `^9.39.1`
+  - `eslint` `^9.39.0` → `^9.39.1`
+  - `eslint-plugin-jsdoc` `^61.1.11` → `^61.1.12`
+  - `svelte` `5.43.2` → `5.43.3`
+  - `posthog-js` `^1.284.0` → `^1.285.1`
+
+### Fixed
+
+- Updated `probely-scan.yml` GitHub workflow to utilize the correct API endpoint and cURL requests.
+
+---
+
 ## [1.25.5] - 2025-11-03
 
 ### Added
@@ -1702,7 +1731,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.5...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.6...HEAD
+[1.25.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.6
 [1.25.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.5
 [1.25.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.4
 [1.25.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.3

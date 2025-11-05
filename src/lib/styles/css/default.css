@@ -396,6 +396,8 @@ footer .container {
 
 .logo {
   display: block;
+  width: var(--logo-width, 250px);
+  height: var(--logo-height, 250px);
   margin-left: auto;
   margin-right: auto;
 }
@@ -708,4 +710,17 @@ footer .container {
 
 #toc a:hover {
   text-decoration: underline;
+}
+
+.badge {
+  display: inline-block;
+  height: 24px;
+}
+
+.badge--cc {
+  width: 160px;
+}
+
+.badge--gpl {
+  width: 120px;
 }

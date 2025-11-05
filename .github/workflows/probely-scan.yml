@@ -21,31 +21,50 @@ jobs:
 
     env:
       PROBELY_API_KEY: ${{ secrets.PROBELY_API_KEY }}
-      TARGET_ID: 3by8xa6kzArN
-      API_BASE: https://api.probely.com/v2 # Always include /v2
+      TARGET_ID: ${{ secrets.PROBELY_TARGET_ID }}
+      API_BASE: https://api.probely.com
       MAX_WAIT_MINUTES: 60 # configurable
 
     steps:
       - name: Start Probely Scan
         id: start-scan
         run: |
+          curl_retry() {
+            curl --fail-with-body --retry 3 --retry-delay 5 --retry-max-time 30 "$@"
+          }
+
           echo "🧪 Triggering Probely scan for target $TARGET_ID ..."
-          response=$(curl -s -X POST "$API_BASE/targets/$TARGET_ID/scans/" \
+
+          response_file=$(mktemp)
+          http_code=$(curl_retry -s -w "%{http_code}" -o "$response_file" -X POST "$API_BASE/targets/$TARGET_ID/scan_now/" \
             -H "Authorization: JWT $PROBELY_API_KEY" \
             -H "Content-Type: application/json" \
             -d '{}')
 
-          echo "Raw API response:"
-          echo "$response" | jq .
+          echo "🌐 HTTP status: $http_code"
+          echo "📄 Raw API response:"
+          cat "$response_file"
 
-          scan_id=$(echo "$response" | jq -r '.id // empty')
-
-          if [ -z "$scan_id" ]; then
-            echo "::error ::Failed to start scan — check API key, target ID, or base URL."
+          if [ "$http_code" -ne 201 ]; then
+            echo "::error ::Unexpected HTTP response from Probely API: $http_code"
             exit 1
           fi
 
-          echo "scan_id=$scan_id" >> $GITHUB_ENV
+          if ! jq . "$response_file" >/dev/null 2>&1; then
+            echo "::error ::Invalid JSON response from Probely API."
+            cat "$response_file"
+            exit 1
+          fi
+
+          jq . "$response_file"
+          scan_id=$(jq -r '.id // empty' "$response_file")
+
+          if [ -z "$scan_id" ]; then
+            echo "::error ::Scan ID not found in response. Check API key, target ID, or base URL."
+            exit 1
+          fi
+
+          echo "scan_id=$scan_id" >> "$GITHUB_ENV"
           echo "✅ Scan started with ID: $scan_id"
 
       - name: Wait for Scan Completion
@@ -53,7 +72,7 @@ jobs:
           echo "⏳ Waiting for scan $scan_id to complete..."
           elapsed=0
           while [ $elapsed -lt $((MAX_WAIT_MINUTES * 60)) ]; do
-            status=$(curl -s "$API_BASE/scans/$scan_id/" \
+            status=$(curl --fail-with-body -s "$API_BASE/targets/$TARGET_ID/scans/$scan_id/" \
               -H "Authorization: JWT $PROBELY_API_KEY" | jq -r '.status // empty')
 
             echo "⏱️  Status: $status (elapsed $elapsed sec)"
@@ -78,18 +97,19 @@ jobs:
       - name: Download Probely HTML Report
         run: |
           echo "📥 Downloading report for scan $scan_id ..."
-          curl -s "$API_BASE/scans/$scan_id/report/" \
+          curl -s "$API_BASE/targets/$TARGET_ID/scans/$scan_id/endpoints/" \
             -H "Authorization: JWT $PROBELY_API_KEY" \
-            -o probely-report.html
+            -o probely-scan-coverage.csv
 
-          if [ ! -s probely-report.html ]; then
+          if [ ! -s probely-scan-coverage.csv ]; then
             echo "::error ::Report file is empty or missing."
             exit 1
           fi
-          echo "✅ Report saved as probely-report.html"
+          echo "✅ Report saved as probely-scan-coverage.csv"
 
       - name: Upload report artifact
         uses: actions/upload-artifact@v5
         with:
-          name: probely-report
-          path: probely-report.html
+          name: probely-scan-coverage
+          path: probely-scan-coverage.csv
+# cspell:ignore mktemp
