@@ -7,8 +7,11 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
+  import { CONSTANTS } from '$lib';
   // Import logo images
   import { logoPng, logoWbp } from '$lib';
+
+  const { COMPANY_INFO } = CONSTANTS;
 
   /**
    * Decoding mode for the image.
@@ -23,16 +26,16 @@ This file is part of Network Pro.
   export let loading = 'eager';
 
   /**
-   * CSS class for the logo image.
+   * Optional extra CSS classes for the logo image.
    * @type {string}
    */
-  export let className = 'logo';
+  export let className = '';
 
   /**
    * Alt text for the logo image.
    * @type {string}
    */
-  export let alt = 'Network Pro Strategies';
+  export let alt = COMPANY_INFO.NAME;
 
   /**
    * First part of the company slogan.
@@ -59,18 +62,6 @@ This file is part of Network Pro.
   export let showTagline = true;
 
   /**
-   * Width of the logo in pixels.
-   * @type {string}
-   */
-  export let width = '250px';
-
-  /**
-   * Height of the logo in pixels.
-   * @type {string}
-   */
-  export let height = '250px';
-
-  /**
    * Fetch priority for the logo image.
    * @type {"high" | "low" | "auto"}
    */
@@ -83,12 +74,10 @@ This file is part of Network Pro.
   <img
     {decoding}
     {loading}
-    class={className}
+    class={`logo${className ? ` ${className}` : ''}`}
     src={logoPng}
     {alt}
-    {fetchpriority}
-    style:width
-    style:height />
+    {fetchpriority} />
 </picture>
 
 {#if showSlogan}

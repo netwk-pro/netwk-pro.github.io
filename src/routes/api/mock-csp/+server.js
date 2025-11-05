@@ -7,10 +7,19 @@ This file is part of Network Pro.
 ========================================================================== */
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function POST({ request }) {
-  console.log('🔶 [Mock CSP] Report received during dev/CI');
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
+}
 
-  // Optional: read/validate body for debugging
+/** @type {import('@sveltejs/kit').RequestHandler} */
+export async function POST({ request }) {
   try {
     const data = await request.json();
     console.log('🔶 [Mock CSP] Payload:', data);
@@ -18,5 +27,12 @@ export async function POST({ request }) {
     console.warn('⚠️ [Mock CSP] No JSON body provided.');
   }
 
-  return new Response(null, { status: 204 });
+  return new Response(null, {
+    status: 204,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
 }

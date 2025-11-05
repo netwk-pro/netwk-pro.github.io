@@ -29,8 +29,6 @@ This file is part of Network Pro.
    * @property {string} src - The source URL of the badge image.
    * @property {string} alt - The alt text for the badge image.
    * @property {string} [class] - The CSS class for styling the badge (optional).
-   * @property {string} width - The width of the badge (CSS value).
-   * @property {string} height - The height of the badge (CSS value).
    */
 
   /**
@@ -42,15 +40,13 @@ This file is part of Network Pro.
       href: ccbyLink,
       src: ccBadge,
       alt: 'Creative Commons BY',
-      width: '160px',
-      height: '24px',
+      class: 'badge badge--cc',
     },
     {
       href: gplLink,
       src: gplBadge,
       alt: 'GPL 3.0 or Later',
-      width: '120px',
-      height: '24px',
+      class: 'badge badge--gpl',
     },
   ];
 </script>
@@ -68,8 +64,7 @@ This file is part of Network Pro.
                 loading="lazy"
                 src={badge.src}
                 alt={badge.alt}
-                style:width={badge.width}
-                style:height={badge.height} />
+                class={badge.class} />
             </a>
           </td>
         {/each}

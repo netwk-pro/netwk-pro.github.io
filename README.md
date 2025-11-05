@@ -173,23 +173,55 @@ This project includes custom runtime configuration files for enhancing security,
 
 ### 🔐 `hooks.server.js`
 
-Located at `src/hooks.server.js`, this file is responsible for injecting dynamic security headers. It includes:
+Located at `src/hooks.server.js`, this file dynamically injects security headers depending on the environment. It includes:
 
-- A Content Security Policy (CSP) configured with relaxed directives to permit inline scripts and styles (`'unsafe-inline'`)
-- A Permissions Policy to explicitly disable unnecessary browser APIs
-- Standard security headers such as `X-Content-Type-Options`, `X-Frame-Options`, and `Referrer-Policy`
+- A **Content Security Policy (CSP)** with environment-based directives:
+  - **Production/Audit**: Enforced, hardened CSP
+  - **Test/Dev**: Uses `Content-Security-Policy-Report-Only` for safe diagnostics
+- A **Permissions Policy** that disables nonessential browser APIs
+- Standard HTTP security headers:
+  - `X-Content-Type-Options`
+  - `X-Frame-Options`
+  - `Referrer-Policy`
+  - `Strict-Transport-Security` (in non-test environments)
 
-> ℹ️ A stricter CSP (excluding `'unsafe-inline'`) was attempted but reverted due to framework-level and third-party script compatibility issues. The current policy allows inline scripts to ensure stability across SvelteKit and analytics features such as PostHog.
+---
 
-#### Future Improvements
+### ⚙️ CSP Behavior by Environment
 
-To implement a strict nonce-based CSP in the future:
+| Environment  | Header                                | Analytics Enabled | CSP Reporting |
+| ------------ | ------------------------------------- | ----------------- | ------------- |
+| `production` | `Content-Security-Policy`             | ✅ Yes            | ✅ Yes        |
+| `audit`      | `Content-Security-Policy`             | ❌ No             | ❌ No         |
+| `dev`        | `Content-Security-Policy-Report-Only` | ❌ No             | ✅ Yes (mock) |
+| `test`       | `Content-Security-Policy-Report-Only` | ❌ No             | ✅ Yes (mock) |
 
-1. Add nonce generation and injection logic in `hooks.server.js`
-2. Update all inline `<script>` tags (e.g. in `app.html`) to include `nonce="__cspNonce__"`
-3. Ensure any analytics libraries or dynamic scripts support nonced or external loading
+---
 
-Note: Strict CSP adoption may require restructuring third-party integrations and deeper framework coordination.
+### 🧪 Reporting & Debugging
+
+- In **non-production environments**, CSP headers are set to `report-only` mode.
+- Violations are POSTed to `/api/mock-csp`, which logs reports to the console.
+- In **production**, violations are sent to a real CSP collection endpoint (`https://csp.netwk.pro/.netlify/functions/csp-report`).
+
+---
+
+### ⚠️ Current Trade-Off
+
+> Due to limitations in PostHog and certain SvelteKit internals, the current policy allows `'unsafe-inline'` for scripts and styles. A strict CSP using nonces was previously attempted but blocked critical functionality.
+
+---
+
+### 📈 Future Improvements (Strict CSP Plan)
+
+To move toward a strict, nonce-based CSP:
+
+1. Ensure **all inline scripts** are updated to include injected nonces (`nonce="%nonce%"`)
+2. Confirm **PostHog** or future analytics platforms support nonced or external scripts/stylesheets
+3. Review and refactor any components that rely on dynamic `style=` or `<style>` blocks without support for CSP nonces
+4. Move third-party scripts out of inline `<script>` tags where possible
+
+> ℹ️ Nonce-based CSP is the most secure long-term path but requires cooperation from all dependencies — and possibly upstream fixes to analytics tooling or SvelteKit itself.
 
 &nbsp;
 

@@ -41,40 +41,5 @@
   "css.customData": [
     ".vscode/customData.json" // Path to your custom data file
   ],
-  "markdown.validate.enabled": false,
-  "markdown.validate.ignoredLinks": [
-    "#bugs",
-    "#features",
-    "#top",
-    "#ownership",
-    "#trademark",
-    "#branding",
-    "#licensed-material",
-    "#licenses",
-    "#dlnotes",
-    "#cc-by",
-    "#gnu-gpl",
-    "#third-party",
-    "#prohibited-uses",
-    "#disclaimer",
-    "#contact",
-    "#revisions",
-    "#pledge",
-    "#standards",
-    "#response",
-    "#enforce",
-    "#attribute",
-    "#version",
-    "#structure",
-    "#getting-started",
-    "#configuration",
-    "#sw-utilities",
-    "#cspreport",
-    "#testing",
-    "#toolchain",
-    "#toolconfig",
-    "#scripts",
-    "#license",
-    "#questions"
-  ]
+  "markdown.validate.enabled": false
 }
