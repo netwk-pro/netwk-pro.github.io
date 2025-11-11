@@ -6,8 +6,6 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== -->
 
-<!-- cspell:ignore tandc -->
-
 <script>
   import { base } from '$app/paths';
   import { CONSTANTS } from '$lib';
@@ -15,7 +13,7 @@ This file is part of Network Pro.
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
-  console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
+  //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
   const { COMPANY_INFO, PAGE, NAV } = CONSTANTS;
 
@@ -227,11 +225,12 @@ This file is part of Network Pro.
   <p class="bquote">
     <strong>Note:</strong> For more details regarding our privacy practices,
     refer to our
-    <a rel={PAGE.REL} href={privacyLink} target={PAGE.SELF}>Privacy Policy</a>.
-    For licensing terms and content usage rights, please visit our
-    <a rel={PAGE.REL} href={licenseLink} target={PAGE.SELF}
-      >Legal, Copyright, and Licensing</a>
+    <a href={privacyLink} target={PAGE.SELF}>Privacy Policy</a>. For licensing
+    terms and content usage rights, please visit our
+    <a href={licenseLink} target={PAGE.SELF}>Legal, Copyright, and Licensing</a>
     page.
   </p>
 </section>
 <!-- END TERMS OF USE -->
+
+<!-- cspell:ignore tandc -->

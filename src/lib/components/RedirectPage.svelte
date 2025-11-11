@@ -9,7 +9,7 @@ This file is part of Network Pro.
 <script>
   import { onMount } from 'svelte';
   import { redirectWithBrowserAwareness } from '$lib/utils/redirect.js';
-  import FullWidthSection from '$lib/components/FullWidthSection.svelte';
+  import { FullWidthSection } from '$lib/components';
 
   export let to;
   export let rel = ''; // Accepts optional rel value

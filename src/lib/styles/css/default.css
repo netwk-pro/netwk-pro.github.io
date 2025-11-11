@@ -724,3 +724,45 @@ footer .container {
 .badge--gpl {
   width: 120px;
 }
+
+/* From PWAInstallButton.svelte */
+
+.pwa-install-button {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  background-color: #ffc627;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+
+.pwa-install-button:hover {
+  background-color: #e6b300;
+}
+
+.pwa-install-button:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+/* From FossFeatures.svelte */
+
+.foss-features {
+  margin: 0;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.foss-features li {
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}

@@ -7,7 +7,7 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import RedirectPage from '$lib/components/RedirectPage.svelte';
+  import { RedirectPage } from '$lib/components';
   import { appendUTM } from '$lib/utils/utm.js';
   import { getUTMParams } from '$lib/utils/getUTMParams.js';
   import { trackingEnabled } from '$lib/stores/trackingPreferences';

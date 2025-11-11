@@ -57,12 +57,6 @@ This file is part of Network Pro.
   const loading = 'lazy';
 
   /**
-   * CSS class for styled horizontal rule
-   * @type {string}
-   */
-  const hrStyle = 'hr-styled';
-
-  /**
    * Navigation links for the page
    * @type {Array<{
    *   label: string,
@@ -241,7 +235,7 @@ This file is part of Network Pro.
 
 <div class="spacer"></div>
 
-<hr class={hrStyle} />
+<hr class="hr-styled" />
 
 <div class="spacer"></div>
 

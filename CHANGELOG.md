@@ -22,6 +22,45 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.7] - 2025-11-11
+
+### Added
+
+- Introduced `src/lib/security/probely.js` helper module to detect Probely vulnerability scanner requests via normalized IP and User-Agent matching.
+  - Supports case-insensitive substring matching for known Probely UA fragments (`ProbelySPDR/`, etc.).
+  - IP allowlisting based on published ranges: <https://help.probely.com/en/articles/5112461/>
+- Added unit test suite `tests/unit/server/lib/security/probely.test.js` to verify robustness of `isProbelyScanner()` logic against UA/IP variations and edge cases.
+
+### Changed
+
+- Updated `hooks.server.js` to integrate `isProbelyScanner()` as a drop-in replacement for inline Probely detection logic, improving clarity and testability.
+- Contact details and motto updated in `static/.well-known/humans.txt`.
+- Refreshed last modified dates in `static/sitemap.xml`.
+- Minor cosmetic changes to `static/robots.txt`.
+- Corrected fallback metadata in `+layout.svelte`.
+- Removed inline styles from `src/lib/components/PWAInstallButton.svelte` and `src/lib/components/foss/FossFeatures.svelte`.
+  - Moved styles to `src/lib/styles/css/default.css`.
+  - Regenerated `global.min.css` bundle with LightningCSS.
+- Minor optimizations and cleanup to several files:
+  - `src/lib/components/RedirectPage.svelte`
+  - `src/lib/components/layout/Footer.svelte`
+  - `src/lib/pages/AboutContent.svelte`
+  - `src/lib/pages/TermsConditionsContent.svelte`
+  - `src/lib/pages/TermsUseContent.svelte`
+  - `src/routes/contact/+page.svelte`
+  - `src/routes/posts/+page.svelte`
+  - `src/routes/privacy-rights/+page.svelte`
+- Bumped project version to `v1.25.7`.
+- Updated dependencies:
+  - `autoprefixer` `^10.4.21` → `^10.4.22`
+  - `browserslist` `^4.27.0` → `^4.28.0`
+  - `svelte` `5.43.3` → `5.43.6`
+  - `svelte-check` `^4.3.3` → `^4.3.4`
+  - `posthog-js` `^1.285.1` → `^1.290.0`
+  - `vite` `^7.1.12` → `^7.2.2`
+
+---
+
 ## [1.25.6] - 2025-11-04
 
 ### Security
@@ -1731,7 +1770,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.6...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.7...HEAD
+[1.25.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.7
 [1.25.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.6
 [1.25.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.5
 [1.25.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.4

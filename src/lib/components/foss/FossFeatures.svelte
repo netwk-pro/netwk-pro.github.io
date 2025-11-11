@@ -16,7 +16,7 @@ This file is part of Network Pro.
 
 <!-- BEGIN FOSS FEATURES -->
 {#if features && features.length > 0}
-  <ul>
+  <ul class="foss-features">
     {#each features as feature, index}
       <li class="emoji">
         {#if index === 0}
@@ -40,16 +40,3 @@ This file is part of Network Pro.
 {/if}
 
 <!-- END FOSS FEATURES -->
-
-<style>
-  ul {
-    margin: 0;
-    list-style-type: none;
-    padding-left: 0;
-  }
-
-  ul li {
-    font-weight: 600;
-    margin-bottom: 0.5em;
-  }
-</style>

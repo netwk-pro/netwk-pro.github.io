@@ -8,7 +8,7 @@
 
 User-agent: *
 
-# Disallow dev and CI/CD artifacts
+# --- Disallow dev and CI/CD artifacts
 Disallow: /tests/
 Disallow: /scripts/
 Disallow: /playwright-report/
@@ -34,7 +34,7 @@ Disallow: /privacy-rights
 Disallow: /..404
 Disallow: /status
 
-# --- Optional: service utilities or PWA
+# --- Service utilities or PWA
 Disallow: /service-worker
 Disallow: /service-worker.js
 Disallow: /service-worker.d.ts

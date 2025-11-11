@@ -30,11 +30,9 @@ This file is part of Network Pro.
   });
 
   // fallback values if data.meta not set
-  const metaTitle =
-    data?.meta?.title || 'Security, Networking, Privacy — Network Pro™';
+  const metaTitle = data?.meta?.title || 'Security, Networking, Privacy';
   const metaDescription =
-    data?.meta?.description ||
-    'Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies';
+    data?.meta?.description || 'Locking Down Networks, Unlocking Confidence™';
 </script>
 
 <!-- Injects proper <title> and <meta> tags -->

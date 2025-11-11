@@ -6,6 +6,7 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
+import { isProbelyScanner } from '$lib/security/probely.js';
 import { detectEnvironment } from '$lib/utils/env.js';
 
 /**
@@ -13,6 +14,29 @@ import { detectEnvironment } from '$lib/utils/env.js';
  * @type {import('@sveltejs/kit').Handle}
  */
 export async function handle({ event, resolve }) {
+  /**
+   * 🔍 Probely scanner allowlisting
+   * - Robust UA check (case‑insensitive)
+   * - Normalized X‑Forwarded‑For parsing
+   * - Avoids false positives
+   * @see https://help.probely.com/en/articles/5112461/
+   */
+
+  /** @type {string} */
+  const userAgent = event.request.headers.get('user-agent') || '';
+
+  /** @type {string} */
+  const remoteIp =
+    event.request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || '';
+
+  const isProbely = isProbelyScanner({ ua: userAgent, ip: remoteIp });
+
+  if (isProbely) {
+    console.info('[Probely Bypass] Matched scanner request:', {
+      ip: remoteIp,
+      ua: userAgent,
+    });
+  }
   const response = await resolve(event);
 
   const env = detectEnvironment(event.url.hostname);

@@ -22,10 +22,11 @@ export default defineConfig({
   ],
   test: {
     name: 'server',
+    globals: true,
     environment: 'node',
     include: ['tests/unit/server/**/*.test.{js,mjs}'],
     exclude: ['tests/unit/**/*.svelte.test.{js,mjs}'],
-    reporters: ['default', 'json'],
+    reporter: ['default', 'json'],
     testTimeout: 10000,
     outputFile: {
       json: './reports/server/results.json',

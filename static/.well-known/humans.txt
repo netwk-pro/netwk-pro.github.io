@@ -1,13 +1,13 @@
 /* TEAM */
 Organization: Network Pro Strategies (Network Pro™)
 URL: https://netwk.pro
-Contact: SunDevil311 (Scott Lopez)
+Contact: Scott Lopez (SunDevil311)
 GitHub: https://github.com/netwk-pro
-Email: support@neteng.pro
+Email: support@netwk.pro
 
 /* PGP */
 PGP Fingerprint: 6590 B992 E2E3 EFF1 2738 7BCE 2AF0 93E9 DEC6 1BA0
-PGP Key: https://netwk.pro/pgp/support@neteng.pro.asc
+PGP Key: https://netwk.pro/pgp/support@netwk.pro.asc
 
 /* SITE */
 Standards: HTML5, CSS3, SvelteKit, Markdown
@@ -15,7 +15,7 @@ Tools: GitHub, Material for MkDocs, Proton Mail
 Hosting: Decentralized / CDN-backed static infrastructure
 
 /* MOTTO */
-"Designed for professionals. Hardened for privacy. Built with intent."
+"Locking Down Networks, Unlocking Confidence™"
 
 /* LAST UPDATED */
-2025-06-11
+2025-11-09
