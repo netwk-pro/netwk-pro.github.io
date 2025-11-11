@@ -31,16 +31,17 @@ export async function handle({ event, resolve }) {
 
   const isProbely = isProbelyScanner({ ua: userAgent, ip: remoteIp });
 
-  if (isProbely) {
-    console.info('[Probely Bypass] Matched scanner request:', {
-      ip: remoteIp,
-      ua: userAgent,
-    });
-  }
   const response = await resolve(event);
 
   const env = detectEnvironment(event.url.hostname);
   const { isAudit, isDebug, isTest, isProd } = env;
+
+  if (isAudit && isProbely) {
+    console.info('[Audit Mode] Probely scanner detected:', {
+      ip: remoteIp,
+      ua: userAgent,
+    });
+  }
 
   const reportUri =
     isProd && !isTest && !isAudit
