@@ -4,7 +4,7 @@
 # has completed successfully.
 #
 # Version: v1.0.0
-# Maintainer: Scott Lopez <support@neteng.pro>
+# Maintainer: Scott Lopez <support@netwk.pro>
 # Usage: Copy to `.github/workflows/check-codeql.yml` in your repo or reference directly if shared centrally.
 #
 # Copyright © 2025 Network Pro Strategies (Network Pro™)
