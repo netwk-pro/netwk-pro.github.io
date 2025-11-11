@@ -1,0 +1,27 @@
+# .github/workflows/prevent-audit-merge.yml
+#
+# Copyright © 2025 Network Pro Strategies (Network Pro™)
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro
+
+name: Prevent audit merges into master
+
+on:
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  check-branch:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Fail if source is audit-netlify
+        run: |
+          SOURCE_BRANCH="${{ github.event.pull_request.head.ref }}"
+          echo "🔍 Checking source branch: $SOURCE_BRANCH"
+          if [[ "$SOURCE_BRANCH" == "audit-netlify" ]]; then
+            echo "❌ Merge from 'audit-netlify' to 'master' is prohibited."
+            exit 1
+          fi
