@@ -52,7 +52,7 @@ export default [
 
   // General JavaScript/Node.js configuration
   {
-    files: ['**/*.mjs', '**/*.js'],
+    files: ['**/*.mjs', '**/*.cjs', '**/*.js'],
     languageOptions: {
       globals: GLOBALS,
       ecmaVersion: 'latest',
