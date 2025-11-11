@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.25.7",
+  "version": "1.25.8",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -70,7 +70,7 @@
     "lint:fix": "eslint . --ext .js,.cjs,.mjs,.svelte --fix",
     "lint:jsdoc": "eslint . --ext .js,.cjs,.mjs,.svelte --max-warnings=0",
     "lint:css": "stylelint \"**/*.{css,svelte}\" --ignore-path .stylelintignore",
-    "lint:md": "npx markdownlint-cli2 \"**/*.{md,markdown}\" \"#node_modules/**\" \"#playwright-report/**\" \"#test-results/**\"",
+    "lint:md": "npx markdownlint-cli2 \"**/*.{md,markdown}\" \"#build/**\" \"#.netlify/**\" \"#node_modules/**\" \"#playwright-report/**\" \"#test-results/**\"",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint:all": "npm-run-all --parallel --print-label lint lint:md lint:css --sequential format",
