@@ -45,7 +45,7 @@ jobs:
           echo "📄 Raw API response:"
           cat "$response_file"
 
-          if [ "$http_code" -ne 201 ]; then
+          if [ "$http_code" -ne 201 ] && [ "$http_code" -ne 200 ]; then
             echo "::error ::Unexpected HTTP response from Probely API: $http_code"
             exit 1
           fi
@@ -60,7 +60,8 @@ jobs:
           scan_id=$(jq -r '.id // empty' "$response_file")
 
           if [ -z "$scan_id" ]; then
-            echo "::error ::Scan ID not found in response. Check API key, target ID, or base URL."
+            echo "::error ::Scan ID not found in response. Response content:"
+            cat "$response_file"
             exit 1
           fi
 
@@ -94,7 +95,7 @@ jobs:
             exit 1
           fi
 
-      - name: Download Probely HTML Report
+      - name: Download Probely CSV Report
         run: |
           echo "📥 Downloading report for scan $scan_id ..."
           curl -s "$API_BASE/targets/$TARGET_ID/scans/$scan_id/endpoints/" \

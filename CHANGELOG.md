@@ -22,6 +22,25 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.9] - 2025-11-11
+
+### Changed
+
+- Updated the support email address to `support@netwk.pro` in the following files:
+  - `README.md`
+  - `check-codeql.template.yml`
+  - `publish.template.yml`
+  - `contact.vcf`
+- Modified `eslint.config.mjs` to include `.cjs` files when linting JavaScript.
+- Bumped project version to `v1.25.9`.
+
+## Fixed
+
+- Modified `.github/workflows/probely-scan.yml` to accept either a 200 or 201 response.
+  - Workflow was correctly triggering scan, but then failed due to receiving a 200 response rather than the 201 that was expected.
+
+---
+
 ## [1.25.8] - 2025-11-11
 
 ### Added
@@ -56,6 +75,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 - Updated `lint:md` script to exclude the `build/` and `.netlify/` directories
 - Refined `svelte.config.js` to support alternate build targets (Vercel → Netlify via adapter switch)
 - Audit builds now use isolated `.env` config and a separate Netlify site token
+- Bumped project version to `v1.25.8`
 
 ---
 
@@ -1807,7 +1827,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.8...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.9...HEAD
+[1.25.9]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.9
 [1.25.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.8
 [1.25.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.7
 [1.25.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.6

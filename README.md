@@ -114,7 +114,7 @@ static/
 ├── pgp/
 │   ├── contact@s.neteng.pro.asc       # Public key for secure email
 │   ├── security@s.neteng.pro.asc      # Public key for security contact
-│   ├── support@neteng.pro.asc         # Public key for general support
+│   ├── support@netwk.pro.asc          # Public key for general support
 └── ...
 ```
 
@@ -533,7 +533,7 @@ Source code, branding, and visual assets are subject to reuse and distribution t
 
 ## 🙋‍♂️Questions?
 
-Reach out via our [Contact Form](https://netwk.pro/contact), open an issue on this repo, or email us directly at `support (at) neteng.pro`.
+Reach out via our [Contact Form](https://netwk.pro/contact), open an issue on this repo, or email us directly at `support (at) netwk.pro`.
 
 </section>
 
