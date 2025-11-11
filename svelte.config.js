@@ -6,7 +6,7 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================= */
 
-import adapter from '@sveltejs/adapter-vercel'; // Vercel adapter for deployment
+import adapter from '@sveltejs/adapter-netlify'; // Netlify adapter for audit deployment
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'; // Vite preprocessor for Svelte
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -15,10 +15,8 @@ const config = {
   preprocess: vitePreprocess({ postcss: true }),
 
   kit: {
-    // Vercel adapter configuration
-    adapter: adapter({
-      runtime: 'nodejs22.x',
-    }),
+    // Netlify adapter configuration (no runtime option needed)
+    adapter: adapter(),
 
     // Paths configuration for deployment
     paths: {
