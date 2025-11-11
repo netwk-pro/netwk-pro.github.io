@@ -27,7 +27,7 @@ export function GET(_event) {
       'X-Env': process.env.NODE_ENV ?? 'undefined',
       'X-Mode': process.env.ENV_MODE ?? 'unset',
       'X-Public-Mode': process.env.PUBLIC_ENV_MODE ?? 'unset',
-      'X-Check': 'audit-path-active'
-    }
+      'X-Check': 'audit-path-active',
+    },
   });
 }
