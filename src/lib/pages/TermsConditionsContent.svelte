@@ -21,7 +21,7 @@ This file is part of Network Pro.
    * URL to Terms of Use page, using the base path
    * @type {string}
    */
-  const termsLink = `${base}/terms-of-use/`;
+  const termsLink = `${base}/terms-of-use`;
 
   /**
    * Markdown version of the Terms and Conditions document

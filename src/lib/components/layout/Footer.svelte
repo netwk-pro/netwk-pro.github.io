@@ -8,7 +8,6 @@ This file is part of Network Pro.
 
 <script>
   import { base } from '$app/paths';
-  // Import icons for licenses
   import { bySvg, ccSvg } from '$lib';
   import { CONSTANTS } from '$lib';
 
