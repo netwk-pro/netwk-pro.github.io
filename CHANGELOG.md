@@ -22,6 +22,43 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.8] - 2025-11-11
+
+### Added
+
+- 🔐 **Branch protection rules** on `master`:
+  - Enforced pull requests for all changes
+  - Blocked force pushes
+  - Linear history requirement
+- 🚫 **CI workflow to prevent merges from `audit-netlify` to `master`**:
+  - PRs originating from `audit-netlify` targeting `master` are automatically rejected
+  - Triggered on `pull_request` events
+  - Uses `github.event.pull_request.head.ref` for precise branch detection
+- 🚀 **Netlify CI deployment** for audit-only branch:
+  - Workflow `.github/workflows/deploy-audit-netlify.yml` added
+  - Deploys `audit-netlify` to a separate Netlify site
+  - Uses environmental variables to trigger `vite build --mode audit`
+- 🌐 **`hooks.server.js` CSP hardening** for audit deployments:
+  - Probely scanner detection based on UA/IP added via `isProbelyScanner()`
+  - Audit-specific CSP disables analytics and CSP reporting endpoints
+  - Logs detailed CSP info when in `isAudit` or `isDebug` modes
+- 🛡️ Middleware improvements:
+  - User-agent/IP fingerprinting for Probely DAST
+  - Added logging for audit-mode scanner matches
+- 🧪 Support for per-environment `.env` files (e.g. `.env.audit`)
+- 🔄 Git helper scripts:
+  - Added bash script to sync `audit-netlify` with latest `master`
+  - Supports merge conflict resolution via VS Code diff viewer
+
+### Changed
+
+- Updated `.stylelintignore` to exclude `.netlify` directory
+- Updated `lint:md` script to exclude the `build/` and `.netlify/` directories
+- Refined `svelte.config.js` to support alternate build targets (Vercel → Netlify via adapter switch)
+- Audit builds now use isolated `.env` config and a separate Netlify site token
+
+---
+
 ## [1.25.7] - 2025-11-11
 
 ### Added
@@ -1770,7 +1807,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.7...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.8...HEAD
+[1.25.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.8
 [1.25.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.7
 [1.25.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.6
 [1.25.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.5
