@@ -1,3 +1,9 @@
+# .github/workflows/deploy-audit-netlify.yml
+#
+# Copyright © 2025 Network Pro Strategies (Network Pro™)
+# SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+# This file is part of Network Pro
+
 name: Deploy Audit to Netlify
 
 on:
@@ -5,12 +11,13 @@ on:
     branches:
       - audit-netlify
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-24.04
     env:
-      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_AUDIT_SITE_ID }}
-      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       ENV_MODE: audit
       PUBLIC_ENV_MODE: audit
 
@@ -19,22 +26,12 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version: 22
           cache: npm
           cache-dependency-path: package-lock.json
 
       - name: Install Dependencies
         run: npm ci
 
-      - name: Build with Audit Mode
-        run: |
-          npx vite build --mode audit
-          npx svelte-kit build --mode audit
-
-      - name: Deploy to Netlify
-        run: |
-          npx netlify deploy \
-            --prod \
-            --site=$NETLIFY_SITE_ID \
-            --auth=$NETLIFY_AUTH_TOKEN \
-            --dir=.svelte-kit/output
+      - name: Build in Audit Mode
+        run: npm run build:audit

@@ -17,18 +17,17 @@ This file is part of Network Pro.
  */
 
 /**
- * @param {import('@sveltejs/kit').RequestEvent} _event - Unused request event
- * @returns {Response} - A 204 response with environment-specific headers
+ * @param {import('@sveltejs/kit').RequestEvent} _event
+ * @returns {Response}
  */
 export function GET(_event) {
-  /** @type {HeadersInit} */
-  const headers = {
-    'X-Env': process.env.NODE_ENV ?? 'undefined',
-    'X-Check': 'audit-path-active',
-  };
-
   return new Response(null, {
     status: 204,
-    headers,
+    headers: {
+      'X-Env': process.env.NODE_ENV ?? 'undefined',
+      'X-Mode': process.env.ENV_MODE ?? 'unset',
+      'X-Public-Mode': process.env.PUBLIC_ENV_MODE ?? 'unset',
+      'X-Check': 'audit-path-active'
+    }
   });
 }
