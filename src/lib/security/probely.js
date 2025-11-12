@@ -26,8 +26,8 @@ export function isProbelyScanner({ ua, ip }) {
   const PROBELY_UA_FRAGMENTS = [
     'probelyspdr/',
     'probelyfp/',
-    'probelymrkt',
-    'probelysc',
+    'probelymrkt/',
+    'probelysc/',
     'python-httpx/',
   ];
   const PROBELY_IPS = [
