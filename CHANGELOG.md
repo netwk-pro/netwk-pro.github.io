@@ -22,6 +22,34 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.10] - 2025-11-12
+
+### Changed
+
+- Updated GitHub workflows to specify `ENV: ci` where appropriate:
+  - `templates/check-codeql.template.yml`
+  - `templates/publish.template.yml`
+  - `auto-assign.yml`
+  - `branch-backup.yml`
+  - `check-security-txt-expiry.yml`
+  - `dependency-review.yml`
+  - `meta-check.yml`
+  - `prevent-audit-merges.yml`
+  - `secret-scan.yml`
+- Added `@sveltejs/adapter-netlify` devDependency for smoother toggling between production and audit modes.
+  - Production uses `@sveltejs/adapter-vercel` only. `@sveltejs/adapter-netlify` exists solely to support the audit environment.
+- Bumped project version to `v1.25.10`.
+- Updated dependencies:
+  - `@testing-library/svelte` `^5.2.8` → `^5.2.9`
+  - `eslint-plugin-jsdoc` `^61.1.12` → `^61.2.0`
+  - `posthog-js` `^1.290.0` → `^1.292.0`
+
+## Removed
+
+- Removed unneeded comments in `build-and-publish.yml` workflow.
+
+---
+
 ## [1.25.9] - 2025-11-11
 
 ### Changed

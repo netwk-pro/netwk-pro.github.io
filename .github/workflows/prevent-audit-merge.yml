@@ -16,6 +16,9 @@ permissions:
 jobs:
   check-branch:
     runs-on: ubuntu-24.04
+    env:
+      ENV_MODE: ci
+
     steps:
       - name: Fail if source is audit-netlify
         run: |

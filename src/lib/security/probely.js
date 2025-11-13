@@ -15,7 +15,7 @@ This file is part of Network Pro.
  * @updated 2025-11-11
  */
 
-/** @typedef {{ ua: string, ip: string }} ScannerInput */
+/** @typedef {{ ua?: string, ip?: string }} ScannerInput */
 
 /**
  * Check if a request is likely from Probely.
@@ -23,7 +23,13 @@ This file is part of Network Pro.
  * @returns {boolean} - True if the request matches Probely’s fingerprint.
  */
 export function isProbelyScanner({ ua, ip }) {
-  const PROBELY_UA_FRAGMENT = 'probelyspdr/';
+  const PROBELY_UA_FRAGMENTS = [
+    'probelyspdr/',
+    'probelyfp/',
+    'probelymrkt/',
+    'probelysc/',
+    'python-httpx/',
+  ];
   const PROBELY_IPS = [
     '18.235.241.170',
     '52.65.214.19',
@@ -41,7 +47,10 @@ export function isProbelyScanner({ ua, ip }) {
   const normalizedIP = ip?.trim() ?? '';
 
   return (
-    normalizedUA.includes(PROBELY_UA_FRAGMENT) ||
-    PROBELY_IPS.includes(normalizedIP)
+    PROBELY_UA_FRAGMENTS.some((fragment) =>
+      normalizedUA.includes(fragment.toLowerCase()),
+    ) || PROBELY_IPS.includes(normalizedIP)
   );
 }
+
+// cspell:ignore probelyfp probelymrkt probelysc httpx

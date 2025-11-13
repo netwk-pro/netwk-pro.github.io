@@ -18,6 +18,9 @@ permissions:
 jobs:
   meta:
     runs-on: ubuntu-24.04
+    env:
+      ENV_MODE: ci
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v5
