@@ -42,11 +42,6 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
 
-      #- name: Show Node.js and npm versions
-      #  run: |
-      #    echo "Node.js version: $(node -v)"
-      #    echo "npm version: $(npm -v)"
-
       - name: Upgrade npm
         run: |
           corepack enable
@@ -132,11 +127,6 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
 
-      #- name: Show Node.js and npm versions
-      #  run: |
-      #    echo "Node.js version: $(node -v)"
-      #    echo "npm version: $(npm -v)"
-
       - name: Upgrade npm
         run: |
           corepack enable
@@ -192,11 +182,6 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           cache: npm
           cache-dependency-path: package-lock.json
-
-      #- name: Show Node.js and npm versions
-      #  run: |
-      #    echo "Node.js version: $(node -v)"
-      #    echo "npm version: $(npm -v)"
 
       - name: Upgrade npm
         run: |

@@ -22,6 +22,55 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.11] - 2025-11-12
+
+### Added
+
+- `gotoDesktop(page, path)` and `gotoMobile(page, path)` helper functions to streamline viewport + navigation setup.
+- `clickAndWaitForNavigation(page, locator, options)` utility for safe SPA or full-page navigation detection with optional URL pattern matching.
+- `DEBUG_LOGS` flag in `helpers.js` to allow toggling of console logs for test diagnostics.
+- Navigation debug logs to `getVisibleNav()` to indicate which navigation region was detected (when debugging is enabled).
+
+### Changed
+
+- Refactored all E2E tests to use `gotoDesktop()` and `gotoMobile()` for consistency and DRY principles.
+- Replaced brittle direct `waitForNavigation()` usages with `clickAndWaitForNavigation()` helper.
+- Updated mobile and desktop tests to improve consistency across specs and improve visibility assertions.
+
+### Removed
+
+- Legacy direct `setViewportSize()` and `page.goto()` calls from individual test blocks (now handled via `goto*()` helpers).
+
+---
+
+## [1.25.10] - 2025-11-12
+
+### Changed
+
+- Updated GitHub workflows to specify `ENV: ci` where appropriate:
+  - `templates/check-codeql.template.yml`
+  - `templates/publish.template.yml`
+  - `auto-assign.yml`
+  - `branch-backup.yml`
+  - `check-security-txt-expiry.yml`
+  - `dependency-review.yml`
+  - `meta-check.yml`
+  - `prevent-audit-merges.yml`
+  - `secret-scan.yml`
+- Added `@sveltejs/adapter-netlify` devDependency for smoother toggling between production and audit modes.
+  - Production uses `@sveltejs/adapter-vercel` only. `@sveltejs/adapter-netlify` exists solely to support the audit environment.
+- Bumped project version to `v1.25.10`.
+- Updated dependencies:
+  - `@testing-library/svelte` `^5.2.8` → `^5.2.9`
+  - `eslint-plugin-jsdoc` `^61.1.12` → `^61.2.0`
+  - `posthog-js` `^1.290.0` → `^1.292.0`
+
+## Removed
+
+- Removed unneeded comments in `build-and-publish.yml` workflow.
+
+---
+
 ## [1.25.9] - 2025-11-11
 
 ### Changed
@@ -1827,7 +1876,9 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.9...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.11...HEAD
+[1.25.11]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.11
+[1.25.10]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.10
 [1.25.9]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.9
 [1.25.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.8
 [1.25.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.7

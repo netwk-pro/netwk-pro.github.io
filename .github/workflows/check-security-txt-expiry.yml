@@ -12,6 +12,8 @@ jobs:
   check-expiry:
     runs-on: ubuntu-latest
     name: Validate .well-known/security.txt expiration
+    env:
+      ENV_MODE: ci
 
     steps:
       - name: Checkout repo
