@@ -25,6 +25,8 @@ on:
 jobs:
   auto-assign:
     runs-on: ubuntu-24.04
+    env:
+      ENV_MODE: ci
 
     steps:
       - name: 'Auto-assign issue or PR'

@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.25.9",
+  "version": "1.25.10",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -85,7 +85,7 @@
   },
   "dependencies": {
     "dompurify": "^3.3.0",
-    "posthog-js": "^1.290.0",
+    "posthog-js": "^1.292.0",
     "semver": "^7.7.3",
     "svelte": "5.43.6"
   },
@@ -94,17 +94,18 @@
     "@eslint/js": "^9.39.1",
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.56.1",
+    "@sveltejs/adapter-netlify": "^5.2.4",
     "@sveltejs/adapter-vercel": "^6.1.1",
     "@sveltejs/kit": "2.48.4",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
     "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/svelte": "^5.2.8",
+    "@testing-library/svelte": "^5.2.9",
     "@vitest/coverage-v8": "3.2.4",
     "autoprefixer": "^10.4.22",
     "browserslist": "^4.28.0",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-jsdoc": "^61.1.12",
+    "eslint-plugin-jsdoc": "^61.2.0",
     "eslint-plugin-svelte": "^3.13.0",
     "globals": "^16.5.0",
     "jsdom": "26.1.0",
