@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.25.10",
+  "version": "1.25.11",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advisory",
@@ -54,6 +54,7 @@
     "verify": "npm run checkout",
     "delete": "rm -rf .svelte-kit node_modules package-lock.json",
     "clean": "npm run delete && npm cache clean --force && npm install",
+    "repair": "npm run delete && npx playwright uninstall && rm -rf %LOCALAPPDATA%/ms-playwright && npm install && npx playwright install",
     "upgrade": "ncu -u --format group --color",
     "check:updates": "ncu --format group --color",
     "test": "npm run test:all",
