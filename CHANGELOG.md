@@ -22,6 +22,27 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.11] - 2025-11-12
+
+### Added
+
+- `gotoDesktop(page, path)` and `gotoMobile(page, path)` helper functions to streamline viewport + navigation setup.
+- `clickAndWaitForNavigation(page, locator, options)` utility for safe SPA or full-page navigation detection with optional URL pattern matching.
+- `DEBUG_LOGS` flag in `helpers.js` to allow toggling of console logs for test diagnostics.
+- Navigation debug logs to `getVisibleNav()` to indicate which navigation region was detected (when debugging is enabled).
+
+### Changed
+
+- Refactored all E2E tests to use `gotoDesktop()` and `gotoMobile()` for consistency and DRY principles.
+- Replaced brittle direct `waitForNavigation()` usages with `clickAndWaitForNavigation()` helper.
+- Updated mobile and desktop tests to improve consistency across specs and improve visibility assertions.
+
+### Removed
+
+- Legacy direct `setViewportSize()` and `page.goto()` calls from individual test blocks (now handled via `goto*()` helpers).
+
+---
+
 ## [1.25.10] - 2025-11-12
 
 ### Changed
@@ -1855,7 +1876,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.10...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.11...HEAD
+[1.25.11]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.11
 [1.25.10]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.10
 [1.25.9]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.9
 [1.25.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.8

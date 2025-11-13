@@ -11,19 +11,19 @@ This file is part of Network Pro.
  * @description Stores commonly used functions for importing into E2E tests.
  * @module tests/e2e/shared
  * @author Scott Lopez
- * @updated 2025-10-29
+ * @updated 2025-11-12
  */
 
-import { expect } from '@playwright/test';
+const DEBUG_LOGS = false; // set to true to enable console logs
 
 /**
- * @param {import('@playwright/test').Page} page - The Playwright page object.
+ * @param {import('@playwright/test').Page} page
  * @returns {Promise<void>}
- * @description Sets standard desktop viewport and waits for animations.
+ * @description Sets desktop viewport and allows layout to settle.
  */
 export async function setDesktopView(page) {
   await page.setViewportSize({ width: 1280, height: 720 });
-  await page.waitForTimeout(1500);
+  await page.waitForTimeout(1500); // Known-stable stabilization delay
 }
 
 /**
@@ -36,18 +36,47 @@ export async function setMobileView(page) {
 }
 
 /**
- * @param {import('@playwright/test').Page} page - The Playwright page object.
- * @returns {Promise<import('@playwright/test').Locator>} - A visible navigation locator.
- * @throws {Error} If no visible navigation is found.
+ * Navigate with desktop viewport + initial DOM load.
+ * @param {import('@playwright/test').Page} page
+ * @param {string} path
+ */
+export async function gotoDesktop(page, path = '/') {
+  await setDesktopView(page);
+  await page.goto(path, { waitUntil: 'domcontentloaded', timeout: 60000 });
+}
+
+/**
+ * Navigate with mobile viewport + initial DOM load.
+ * @param {import('@playwright/test').Page} page
+ * @param {string} path
+ */
+export async function gotoMobile(page, path = '/') {
+  await setMobileView(page);
+  await page.goto(path, { waitUntil: 'domcontentloaded', timeout: 60000 });
+}
+
+/**
+ * Returns the visible navigation region.
+ * @param {import('@playwright/test').Page} page
+ * @returns {Promise<import('@playwright/test').Locator>}
  */
 export async function getVisibleNav(page) {
   const navHome = page.getByRole('navigation', { name: 'Homepage navigation' });
   const navMain = page.getByRole('navigation', { name: 'Main navigation' });
 
-  if (await navHome.isVisible()) return navHome;
-  if (await navMain.isVisible()) return navMain;
+  const timeout = 5000;
 
-  throw new Error('No visible navigation element found.');
+  if (await navHome.isVisible({ timeout }).catch(() => false)) {
+    if (DEBUG_LOGS) console.log('✅ Detected visible nav: Homepage navigation');
+    return navHome;
+  }
+
+  if (await navMain.isVisible({ timeout }).catch(() => false)) {
+    if (DEBUG_LOGS) console.log('✅ Detected visible nav: Main navigation');
+    return navMain;
+  }
+
+  throw new Error('❌ No visible navigation element found within timeout.');
 }
 
 /**
@@ -59,37 +88,28 @@ export function getFooter(page) {
 }
 
 /**
- * @function clickAndWaitForNavigation
- * @description Clicks a link or button and waits for navigation or URL change.
- * Works for both SPA (client-side) and full-page navigations.
+ * Click + wait for SPA or full navigation event.
  *
  * @param {import('@playwright/test').Page} page
  * @param {import('@playwright/test').Locator} locator
- * @param {object} [options]
- * @param {string|RegExp} [options.urlPattern] - URL or regex to match
- * @param {number} [options.timeout=60000] - Max wait time
+ * @param {{ urlPattern?: string | RegExp, timeout?: number }} [options]
  */
 export async function clickAndWaitForNavigation(page, locator, options = {}) {
   const { urlPattern = /\/.*/, timeout = 60000 } = options;
 
-  // Ensure the element is ready for interaction
   await locator.scrollIntoViewIfNeeded();
-  await locator.waitFor({ state: 'visible', timeout: 10000 });
-  await locator.click({ trial: true });
+  await locator.waitFor({ state: 'visible', timeout: 60000 });
 
-  // Capture current URL to detect SPA navigation
-  const currentUrl = page.url();
+  const previousURL = page.url();
 
-  // Handle both SPA transitions and full page reloads
-  await Promise.all([
-    page.waitForURL(urlPattern, { timeout }).catch(() => {}),
-    page.waitForLoadState('load', { timeout }).catch(() => {}),
-    locator.click(),
+  const [, newURL] = await Promise.all([
+    page.waitForURL(
+      (url) =>
+        url.toString() !== previousURL && urlPattern.test(url.toString()),
+      { timeout },
+    ),
+    locator.click().then(() => page.url()),
   ]);
 
-  // Confirm the URL changed successfully
-  await expect(page).toHaveURL(urlPattern, { timeout });
-
-  // Optional: log navigation success (helps in CI)
-  console.log(`✅ Navigation from ${currentUrl} → ${page.url()}`);
+  console.log(`✅ Navigation from ${previousURL} → ${newURL}`);
 }
