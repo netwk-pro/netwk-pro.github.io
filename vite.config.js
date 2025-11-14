@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import devtoolsJson from 'vite-plugin-devtools-json';
 import lightningcssPlugin from 'vite-plugin-lightningcss';
-import tsconfigPaths from 'vite-tsconfig-paths'; // NEW: tsconfig/jsconfig alias support
+import tsconfigPaths from 'vite-tsconfig-paths'; // tsconfig/jsconfig alias support
 
 // Compute absolute project root
 const projectRoot = fileURLToPath(new URL('.', import.meta.url));
