@@ -33,7 +33,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 ### Changed
 
 - Modified `.node-version` and `.nvmrc` to utilize **Node.js** `24.11.1` (LTS).
-- Updated `.ncurc.cjs` to reject updates to `markdownlint-cli2`, due to discrepancies between editor linting errors and CLI linting errors.
+- Updated `.ncurc.cjs` to reject updates to `markdownlint-cli2`, due to discrepancies between in-editor and CLI linting errors.
 - Updated environment template (`.env.template`) to include `PUBLIC_ENV_MODE`, which is now required to build the proper environment (e.g., `dev`, `audit`, `production`).
 - Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.48.5**.
 - Bumped project version to `v1.25.12`.
