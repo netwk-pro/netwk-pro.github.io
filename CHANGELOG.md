@@ -22,6 +22,27 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.12] - 2025-11-14
+
+### Added
+
+- Added revised **QR code** image assets for **Vcard** information:
+  - `src/lib/img/qr/vcard.png`
+  - `src/lib/img/qr/vcard.webp`
+
+### Changed
+
+- Modified `.node-version` and `.nvmrc` to utilize **Node.js** `24.11.1` (LTS).
+- Updated `.ncurc.cjs` to reject updates to `markdownlint-cli2`, due to discrepancies between editor linting errors and CLI linting errors.
+- Updated environment template (`.env.template`) to include `PUBLIC_ENV_MODE`, which is now required to build the proper environment (e.g., `dev`, `audit`, `production`).
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.48.5**.
+- Bumped project version to `v1.25.12`.
+- Updated dependencies:
+  - `@sveltejs/kit` `2.48.4` → `2.48.5`
+  - `eslint-plugin-jsdoc` `^61.2.0` → `^61.2.1`
+
+---
+
 ## [1.25.11] - 2025-11-12
 
 ### Added
@@ -1876,7 +1897,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.11...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.12...HEAD
+[1.25.12]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.12
 [1.25.11]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.11
 [1.25.10]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.10
 [1.25.9]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.9
