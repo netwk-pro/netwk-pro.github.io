@@ -31,13 +31,7 @@ This file is part of Network Pro.
 /** @type {import('npm-check-updates').RunOptions} */
 module.exports = {
   // Ignore specific dependencies (prevent upgrades)
-  reject: [
-    'vitest',
-    '@vitest/coverage-v8',
-    'prettier',
-    'jsdom',
-    'markdownlint-cli2',
-  ],
+  reject: ['vitest', '@vitest/coverage-v8', 'prettier', 'jsdom'],
 
   // Always upgrade devDependencies as well
   dep: 'prod,dev',
