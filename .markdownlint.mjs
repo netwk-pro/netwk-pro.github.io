@@ -16,6 +16,7 @@ export default {
   customRules: [noSmartQuotes],
 
   // Rule exceptions
+  MD060: false, // Pointless style enforcement — doesn't affect render output
   MD041: false, // First line in file should be a top-level header
   MD033: false, // Allow inline HTML
   MD013: false, // Ignore line length

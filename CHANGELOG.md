@@ -22,6 +22,24 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.13] - 2025-11-16
+
+### Changed
+
+- Updated `.markdownlint.mjs` to ignore rule `MD060`, which is overly strict and unnecessary.
+- Bumped project version to `v1.25.13`.
+- Updated dependencies:
+  - `svelte` `5.43.6` → `5.43.7`
+  - `posthog-js` `^1.292.0` → `^1.293.0`
+  - `@eslint/compat` `^1.4.1` → `^2.0.0`
+  - `markdownlint-cli2` `0.18.1` → `0.19.0`
+
+### Fixed
+
+- Resolved prototype pollution vulnerability in transitive `js-yaml` dependency via `overrides`, due to outdated `@lhci/cli` dependency on `@lhci/utils`.
+
+---
+
 ## [1.25.12] - 2025-11-14
 
 ### Added
@@ -1897,7 +1915,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.12...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.13...HEAD
+[1.25.13]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.13
 [1.25.12]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.12
 [1.25.11]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.11
 [1.25.10]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.10
