@@ -22,6 +22,21 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.14] - 2025-11-18
+
+### Changed
+
+- Bumped project version to `v1.25.14`.
+- Updated dependencies:
+  - `svelte` `5.43.7` → `5.43.10`
+  - `posthog-js` `^1.293.0` → `^1.295.0`
+
+### Security
+
+- Added transitive dependency override for `glob` to `^11.1.0`, in order to address CVE-2025-64756.
+
+---
+
 ## [1.25.13] - 2025-11-16
 
 ### Changed
@@ -1915,7 +1930,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.13...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.14...HEAD
+[1.25.14]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.14
 [1.25.13]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.13
 [1.25.12]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.12
 [1.25.11]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.11
