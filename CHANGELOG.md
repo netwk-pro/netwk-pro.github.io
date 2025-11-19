@@ -22,6 +22,21 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.15] - 2025-11-18
+
+### Added
+
+- Added `https://vercel-insights.com` to `script-src` and `connect-src` in `hooks.server.js` to allow for Vercel Analytics.
+
+### Changed
+
+- Added `vercel-insights.com` to the `disallowedHosts` list in `service-worker.js`, in order to prevent SW caching.
+- Bumped project version to `v1.25.15`.
+- Updated dependencies:
+  - `svelte` `5.43.10` → `5.43.12`
+
+---
+
 ## [1.25.14] - 2025-11-18
 
 ### Changed
@@ -1930,7 +1945,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.14...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.15...HEAD
+[1.25.15]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.15
 [1.25.14]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.14
 [1.25.13]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.13
 [1.25.12]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.12

@@ -51,10 +51,10 @@ export async function handle({ event, resolve }) {
 
   const cspDirectives = [
     "default-src 'self';",
-    "script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com;",
+    "script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com https://vercel-insights.com;",
     "style-src 'self' 'unsafe-inline';",
     "img-src 'self' data:;",
-    "connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com;",
+    "connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com https://vercel-insights.com;",
     "font-src 'self' data:;",
     "form-action 'self';",
     "base-uri 'self';",
