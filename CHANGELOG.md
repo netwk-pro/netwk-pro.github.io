@@ -22,6 +22,22 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.16] - 2025-11-18
+
+### Changed
+
+- Removed `vercel-insights.com` from the `disallowedHosts` list in `service-worker.js`.
+
+### Removed
+
+- Removed `https://vercel-insights.com` from `script-src` and `connect-src` in `hooks.server.js`.
+
+### Notes
+
+- **Analytics:** Reverted Vercel Analytics integration due to inline script injection requirement. Continuing with PostHog Cloud until migration to CSP-compliant Matomo is feasible.
+
+---
+
 ## [1.25.15] - 2025-11-18
 
 ### Added
@@ -1945,7 +1961,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.15...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.16...HEAD
+[1.25.16]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.16
 [1.25.15]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.15
 [1.25.14]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.14
 [1.25.13]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.13

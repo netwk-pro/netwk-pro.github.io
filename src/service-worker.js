@@ -17,7 +17,6 @@ const isDev = location.hostname === 'localhost';
 const disallowedHosts = [
   'us.i.posthog.com', // Add PostHog to disallowed hosts
   'posthog.com', // Add PostHog to disallowed hosts
-  'vercel-insights.com', // Add Vercel to disallowed hosts
 ];
 
 import { build, files, version } from '$service-worker';
