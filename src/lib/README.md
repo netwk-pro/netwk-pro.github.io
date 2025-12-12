@@ -84,7 +84,7 @@ console.log(CONSTANTS.COMPANY_INFO.APP_NAME); // "Network Pro"
 | Key        | Description                  | Example                  |
 | ---------- | ---------------------------- | ------------------------ |
 | `NAME`     | Full company name            | `Network Pro Strategies` |
-| `APP_NAME` | Application or branding name | `Network Pro™`          |
+| `APP_NAME` | Application or branding name | `Network Pro™`           |
 | `YEAR`     | Copyright / app year         | `2025`                   |
 
 ### 📬 CONTACT
