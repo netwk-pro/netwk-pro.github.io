@@ -313,8 +313,8 @@ This file is part of Network Pro.
       </p>
 
       <p>
-        {COMPANY_INFO.APP_NAME} is free software: you can redistribute it and/or
-        modify it under the terms of the
+        {COMPANY_INFO.APP_NAME} is free software: you can redistribute it and/or modify
+        it under the terms of the
         <strong>GNU General Public License</strong> (GNU GPL) as published by
         the
         <a rel={PAGE.REL} href="https://fsf.org" target={PAGE.BLANK}

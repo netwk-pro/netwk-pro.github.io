@@ -163,8 +163,8 @@ This file is part of Network Pro.
         {COMPANY_INFO.NAME} ("Company," "we," "us," or "our") is committed to protecting
         the privacy of clients and website visitors. This Privacy Policy outlines
         how we collect, use, and safeguard your information when you interact with
-        our website or services, consistent with applicable U.S. federal law and
-        Arizona law, including Title 18, Chapter 5, Article 4 of the
+        our website or services, consistent with applicable U.S. federal law and Arizona
+        law, including Title 18, Chapter 5, Article 4 of the
         <strong>
           <a
             rel={PAGE.REL}
@@ -222,8 +222,8 @@ This file is part of Network Pro.
         opt-out and opt-in settings stored as browser cookies. These settings
         override any Do Not Track (DNT) or Global Privacy Control (GPC) signals. <strong
           >If you opt out, analytics tracking via PostHog is disabled entirely
-          until you change your preference.</strong> Your selection will persist
-        until manually updated.
+          until you change your preference.</strong> Your selection will persist until
+        manually updated.
       </p>
       <p class="emphasis">
         For convenient access, you can manage these settings through our <a
@@ -367,10 +367,10 @@ This file is part of Network Pro.
           <strong>Business Transfers</strong>: In the event of a merger,
           acquisition, or sale of assets, personal and business information may
           be transferred
-          <em>only if the receiving party provides written assurances</em> that:
-          (a) the information will not be sold or misused, (b) it will be handled
-          in a manner consistent with our privacy commitments, and (c) appropriate
-          technical and contractual safeguards are in place to protect it.
+          <em>only if the receiving party provides written assurances</em> that: (a)
+          the information will not be sold or misused, (b) it will be handled in a
+          manner consistent with our privacy commitments, and (c) appropriate technical
+          and contractual safeguards are in place to protect it.
         </li>
       </ul>
       <p>
@@ -402,8 +402,8 @@ This file is part of Network Pro.
 
       <ul>
         <li>
-          <strong>Access, correct, or delete</strong> your personal information,
-          subject to legal and contractual limitations;
+          <strong>Access, correct, or delete</strong> your personal information, subject
+          to legal and contractual limitations;
         </li>
         <li>
           <strong
@@ -445,10 +445,10 @@ This file is part of Network Pro.
       </p>
     {:else if link.id === 'disclaimers'}
       <p>
-        {COMPANY_INFO.NAME} offers informational content as a public service. No
-        warranties are made regarding the accuracy or completeness of such content.
-        Consulting services are governed by separate contracts. We disclaim liability
-        for third-party services integrated or referenced.
+        {COMPANY_INFO.NAME} offers informational content as a public service. No warranties
+        are made regarding the accuracy or completeness of such content. Consulting
+        services are governed by separate contracts. We disclaim liability for third-party
+        services integrated or referenced.
       </p>
     {:else if link.id === 'changes'}
       <p>
