@@ -2,11 +2,11 @@ BEGIN:VCARD
 VERSION:3.0
 FN:Scott Lopez
 N:Lopez;Scott
-TEL;TYPE=WORK,PREF=1:(623) 252-4350
+TEL;TYPE=WORK,PREF=1:(602) 428-5300
 EMAIL;TYPE=WORK:support@netwk.pro
 EMAIL;TYPE=Secure:business@s.neteng.pro
 ADR;TYPE=WORK:;;Peoria\, AZ 85382\nUS
 ORG:Network Pro Strategies
-TITLE:Network Engineer
+TITLE:Network Engineer and Consultant
 URL:https://netwk.pro
 END:VCARD
