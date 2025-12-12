@@ -22,6 +22,22 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.18] - 2025-12-11
+
+### Changed
+
+- Refreshed timestamp for root route in `sitemap.xml`.
+- Reformatted the following files with Prettier:
+  - `src/lib/README.md`
+  - `src/lib/pages/LicenseContent.svelte`
+  - `src/lib/pages/PrivacyContent.svelte`
+  - `src/lib/pages/TermsUseContent.svelte`
+- Bumped project version to `v1.25.18`.
+- Updated dependencies:
+  - `prettier` `3.6.2` → `3.7.4`
+
+---
+
 ## [1.25.17] - 2025-12-11
 
 ### Added
@@ -2024,7 +2040,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.17...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.18...HEAD
+[1.25.18]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.18
 [1.25.17]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.17
 [1.25.16]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.16
 [1.25.15]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.15

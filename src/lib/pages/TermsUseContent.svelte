@@ -197,8 +197,8 @@ This file is part of Network Pro.
       <p>
         {COMPANY_INFO.NAME} is based in Maricopa County, Arizona. Any legal action
         or dispute arising from these Terms of Use shall be subject to the exclusive
-        jurisdiction of the state and federal courts located in Maricopa County,
-        Arizona. These Terms shall be governed by the
+        jurisdiction of the state and federal courts located in Maricopa County, Arizona.
+        These Terms shall be governed by the
         <strong>Arizona Revised Statutes (A.R.S.)</strong> and applicable
         provisions of the <strong>United States Code (U.S.C.)</strong>.
       </p>
