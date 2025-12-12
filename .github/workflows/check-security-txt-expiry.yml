@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   check-expiry:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: Validate .well-known/security.txt expiration
     env:
       ENV_MODE: ci
