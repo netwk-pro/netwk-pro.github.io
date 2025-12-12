@@ -52,6 +52,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
   - Prevented false positives on intentionally unused error variables (e.g., `_err`).
   - Expanded ignore patterns to match project coding conventions.
 
+- Replaced `src/lib/img/qr/vcard.png` and `src/lib/img/qr/vcard.webp` with revised versions.
 - Updated GitHub workflows to utilize **npm** `11.7.0`.
 - Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.49.2**.
 - Updated `src/lib/README.md` to reflect the newly updated app constant.
