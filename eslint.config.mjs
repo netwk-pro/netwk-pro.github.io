@@ -65,14 +65,27 @@ export default [
       ...js.configs.recommended.rules, // ESLint's core recommended rules (scoped)
       ...eslintConfigPrettier.rules, // Prettier config to disable conflicting ESLint rules (scoped)
       ...ESLINT_RULES, // Additional custom rules
-      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // Ignore unused variables starting with an underscore
+
+      // Updated unused variable handling:
+      // - Ignore args starting with "_"
+      // - Ignore vars starting with "_"
+      // - Allow unused catch variables named "_err" or any "_*"
+      'no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrors: 'all',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
+
       'jsdoc/check-alignment': 'warn', // Ensure JSDoc block tags are aligned
       'jsdoc/check-param-names': 'warn', // Checks parameter names in JSDoc
-      // Updated rule to allow the @updated tag
       'jsdoc/check-tag-names': [
         'warn',
         {
-          definedTags: ['updated'],
+          definedTags: ['updated'], // Allow custom @updated tag
         },
       ],
       'jsdoc/check-types': 'warn', // Checks if types in JSDoc are defined correctly

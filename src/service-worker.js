@@ -6,18 +6,20 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
-/** @type {ServiceWorkerGlobalScope} */
+/// <reference lib="webworker" />
+/// <reference types="vite/client" />
+
+/**
+ * @type {ServiceWorkerGlobalScope}
+ */
 const sw = /** @type {ServiceWorkerGlobalScope} */ (
   /** @type {unknown} */ (self)
 );
 
-/// <reference types="vite/client" />
-
 const isDev = location.hostname === 'localhost';
-const disallowedHosts = [
-  'us.i.posthog.com', // Add PostHog to disallowed hosts
-  'posthog.com', // Add PostHog to disallowed hosts
-];
+
+/** @type {string[]} */
+const disallowedHosts = ['us.i.posthog.com', 'posthog.com'];
 
 import { build, files, version } from '$service-worker';
 
@@ -27,6 +29,7 @@ const CACHE = `cache-${version}`;
 /** @type {string[]} */
 const excludedAssets = [];
 
+/** @type {Set<string>} */
 const IGNORE_PATHS = new Set([
   '/.well-known/security.txt.sig',
   '/img/banner-1280x640.png',
@@ -76,6 +79,7 @@ const ASSETS = [
   ),
 ];
 
+/** @type {string[]} */
 const uniqueExcludedAssets = [...new Set(excludedAssets)].sort();
 
 /** @type {string[]} */
@@ -108,12 +112,12 @@ if (isDev) {
 }
 
 /**
- * Safely cache a list of assets, logging or throwing if required assets fail.
+ * Safely cache a list of assets.
  *
  * @param {Cache} cache
  * @param {string[]} assets
- * @param {string[]} required
- * @returns {Promise<string[]>} Cached asset paths
+ * @param {string[]} [required=[]]
+ * @returns {Promise<string[]>}
  */
 async function cacheAssetsSafely(cache, assets, required = []) {
   /** @type {string[]} */
@@ -150,6 +154,9 @@ async function cacheAssetsSafely(cache, assets, required = []) {
 }
 
 // 🔹 Install event
+/**
+ * @param {ExtendableEvent} event
+ */
 sw.addEventListener('install', (event) => {
   if (isDev) console.log('[SW] Install event');
 
@@ -160,9 +167,7 @@ sw.addEventListener('install', (event) => {
 
       try {
         cachedPaths = await cacheAssetsSafely(cache, ASSETS, REQUIRED_ASSETS);
-        if (isDev) {
-          console.log('[SW] Cached assets:', cachedPaths);
-        }
+        if (isDev) console.log('[SW] Cached assets:', cachedPaths);
       } catch (err) {
         if (isDev) throw err;
         console.warn('[SW] Error while precaching (non-fatal in prod):', err);
@@ -175,8 +180,12 @@ sw.addEventListener('install', (event) => {
 });
 
 // 🔹 Activate event
+/**
+ * @param {ExtendableEvent} event
+ */
 sw.addEventListener('activate', (event) => {
   if (isDev) console.log('[SW] Activate event');
+
   event.waitUntil(
     (async () => {
       const tasks = [];
@@ -210,9 +219,7 @@ sw.addEventListener('activate', (event) => {
 });
 
 /**
- * Determine if a request should be skipped by the service worker.
- * Specifically filters out dev/build files, module imports, and source files.
- * Only active in development mode.
+ * Determine if a request should be ignored during development.
  *
  * @param {URL} url
  * @returns {boolean}
@@ -230,13 +237,13 @@ function shouldSkipDevModule(url) {
 }
 
 // 🔹 Fetch event
+/**
+ * @param {FetchEvent} event
+ */
 sw.addEventListener('fetch', (event) => {
   const requestUrl = new URL(event.request.url);
 
-  // ✅ Skip cross-origin requests
   if (requestUrl.origin !== location.origin) return;
-
-  // ✅ Skip internal dev/module files (only in dev)
   if (shouldSkipDevModule(requestUrl)) return;
 
   if (isDev) console.log('[SW] Fetch intercepted:', event.request.url);
@@ -253,12 +260,8 @@ sw.addEventListener('fetch', (event) => {
         if (event.request.mode === 'navigate') {
           const preloadResponse = await event.preloadResponse;
           if (preloadResponse) {
-            if (isDev) {
-              console.log(
-                '[SW] Using preload response for:',
-                event.request.url,
-              );
-            }
+            if (isDev)
+              console.log('[SW] Using preload response:', event.request.url);
             return preloadResponse;
           }
         }
@@ -267,18 +270,17 @@ sw.addEventListener('fetch', (event) => {
           console.log('[SW] Fetching from network:', event.request.url);
 
         return await fetch(event.request);
-      } catch (err) {
-        if (isDev) {
+      } catch (_err) {
+        if (isDev)
           console.warn(
-            '[SW] Fetch failed; offline fallback used:',
+            '[SW] Fetch failed; offline fallback:',
             event.request.url,
-            err,
           );
-        }
 
         if (event.request.mode === 'navigate') {
           const offline = await caches.match('/offline.html');
           if (offline) return offline;
+
           return new Response('<h1>Offline</h1>', {
             headers: { 'Content-Type': 'text/html' },
           });
@@ -289,5 +291,3 @@ sw.addEventListener('fetch', (event) => {
     })(),
   );
 });
-
-// @cspell:ignore precaching

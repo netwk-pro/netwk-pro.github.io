@@ -62,7 +62,7 @@ export const CONSTANTS = {
     SECURE_LINK: 'contact@s.neteng.pro',
     PRIVACY: 'privacy (at) netwk.pro',
     PRIVACY_LINK: 'privacy@netwk.pro',
-    PHONE: '(623) 252-4350',
+    PHONE: '(602) 428-5300',
   },
   PAGE: {
     BLANK: '_blank',
