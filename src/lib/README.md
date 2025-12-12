@@ -97,7 +97,7 @@ console.log(CONSTANTS.COMPANY_INFO.APP_NAME); // "Network Pro"
 | `SECURE_LINK`  | Secure contact address (link)  | `contact@s.neteng.pro`      |
 | `PRIVACY`      | Privacy-related contact        | `privacy (at) netwk.pro`    |
 | `PRIVACY_LINK` | Privacy-related contact (link) | `privacy@netwk.pro`         |
-| `PHONE`        | Company phone number           | `(623) 252-4350`            |
+| `PHONE`        | Company phone number           | `(602) 428-5300`            |
 
 ### 🗂️ PAGE
 

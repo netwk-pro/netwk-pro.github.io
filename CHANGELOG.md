@@ -22,6 +22,67 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.17] - 2025-12-11
+
+### Added
+
+- Added SSR boundary protection test (`tests/unit/server/internal/ssrBoundary.test.js`):
+  - Detects Node-only imports (`jsdom`, `fs`, `path`, etc.) in client-visible modules.
+  - Ensures imports are properly gated behind `import.meta.env.SSR`.
+  - Prevents accidental SSR/client boundary violations in future code changes.
+- Added support for detecting SSR-safe code paths by allowing SSR-gated dynamic imports in shared modules.
+
+### Changed
+
+- Refactored `src/service-worker.js` for improved consistency, clarity, and lint compatibility:
+  - Removed unused function parameters (`_err`) and adjusted callback signatures to align with ESLint expectations.
+  - Replaced anonymous no-op parameters with explicitly ignored placeholders using the `_` naming convention.
+  - Improved async iteration patterns in asset caching logic for better readability and maintainability.
+  - Updated JSDoc annotations for accuracy and improved editor support.
+  - Ensured all cache operations conform to structured error-handling patterns consistent with the rest of the codebase.
+
+- Updated `src/lib/utils/purify.js`:
+  - Replaced `typeof window !== 'undefined'` guard with compile-time `import.meta.env.SSR`.
+  - Ensures Vite tree-shakes `jsdom` imports from client bundles.
+  - Fixed build failures caused by jsdom/cssstyle when bundled on the client.
+  - Preserves existing DOMPurify caching and SSR behavior.
+
+- Enhanced ESLint `no-unused-vars` rule in `eslint.config.mjs`:
+  - Added support for ignoring unused catch parameters via `caughtErrors` and `caughtErrorsIgnorePattern`.
+  - Prevented false positives on intentionally unused error variables (e.g., `_err`).
+  - Expanded ignore patterns to match project coding conventions.
+
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.49.2**.
+- Updated `src/lib/README.md` to reflect the newly updated app constant.
+- Updated contact information in `static/bin/contact.vcf`.
+- Updated `CONTACT.PHONE` app constant to reflect our new phone number, (602) 428-5300.
+- Removed `jsdom` from `.ncurc.cjs` `reject` list.
+- Bumped project version to `v1.25.17`.
+- Updated dependencies:
+  - `dompurify` `^3.3.0` → `^3.3.1`
+  - `posthog-js` `^1.295.0` → `^1.305.0`
+  - `svelte` `5.43.12` → `5.45.9`
+  - `@playwright/test` `^1.56.1` → `^1.57.0`
+  - `@sveltejs/adapter-vercel` `^6.1.1` → `^6.2.0`
+  - `@sveltejs/kit` `2.48.5` → `2.49.2`
+  - `browserslist` `^4.28.0` → `^4.28.1`
+  - `eslint-plugin-jsdoc` `^61.2.1` → `^61.5.0`
+  - `eslint-plugin-svelte` `^3.13.0` → `^3.13.1`
+  - `markdownlint` `^0.39.0` → `^0.40.0`
+  - `markdownlint-cli2` `0.19.0` → `0.20.0`
+  - `playwright` `^1.56.1` → `^1.57.0`
+  - `stylelint` `^16.25.0` → `^16.26.1`
+  - `svelte-eslint-parser` `^1.4.0` → `^1.4.1`
+  - `vite` `^7.2.2` → `^7.2.7`
+  - `jsdom` `26.1.0` → `27.3.0`
+
+### Fixed
+
+- Resolved client-side build failures caused by dynamic jsdom imports leaking into the Vite dependency graph.
+- Resolved false positive ESLint errors for unused catch bindings in JS modules.
+
+---
+
 ## [1.25.16] - 2025-11-18
 
 ### Changed
@@ -1961,7 +2022,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.16...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.17...HEAD
+[1.25.17]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.17
 [1.25.16]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.16
 [1.25.15]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.15
 [1.25.14]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.14

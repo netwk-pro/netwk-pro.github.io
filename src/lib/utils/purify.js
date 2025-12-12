@@ -10,9 +10,9 @@ This file is part of Network Pro.
  * @file purify.js
  * @description Universal DOMPurify instance for SSR + client with safe build support.
  * Secures untrusted HTML before injecting it into the DOM.
- * @module src/lib/utils/
+ * @module src/lib/utils
  * @author Scott Lopez
- * @updated 2025-06-01
+ * @updated 2025-12-11
  */
 
 import createDOMPurify from 'dompurify';
@@ -37,11 +37,11 @@ let jsdomWindow = null;
 export async function getDOMPurify() {
   if (DOMPurifyInstance) return DOMPurifyInstance;
 
-  if (typeof window !== 'undefined') {
+  if (!import.meta.env.SSR) {
     // ✅ Client-side: use native window
     DOMPurifyInstance = createDOMPurify(window);
   } else {
-    // ✅ SSR: dynamically import jsdom to avoid bundling
+    // ✅ SSR: dynamically import jsdom — gated so Vite will tree-shake it from the client bundle
     const { JSDOM } = await import('jsdom');
     jsdomWindow = jsdomWindow || new JSDOM('').window;
     DOMPurifyInstance = createDOMPurify(jsdomWindow);
