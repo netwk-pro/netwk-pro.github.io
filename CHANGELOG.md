@@ -22,7 +22,7 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
-## [1.25.19] - 2025-12-22
+## [1.25.19] - 2025-12-24
 
 ### Changed
 
