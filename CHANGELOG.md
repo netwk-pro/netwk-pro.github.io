@@ -22,6 +22,43 @@ This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en
 
 ---
 
+## [1.25.19] - 2025-12-22
+
+### Changed
+
+- Updated GitHub workflows to utilize `actions/checkout@v6`, `actions/upload-artifact@v6`, and `actions/download-artifact@v7`:
+  - `.github/workflows/templates/publish.template.yml`
+  - `.github/workflows/backup-branch.yml`
+  - `.github/workflows/build-and-publish.yml`
+  - `.github/workflows/dependency-review.yml`
+  - `.github/workflows/lighthouse.yml`
+  - `.github/workflows/meta-check.yml`
+  - `.github/workflows/playwright.yml`
+  - `.github/workflows/probely-scan.yml`
+  - `.github/workflows/publish-test.yml`
+  - `.github/workflows/secret-scan.yml`
+- Corrected `README.md` to properly state that subsites are hosted on Vercel and Netlify.
+- Updated `.node-version` and `.nvmrc` to utilize **Node.js** `v24.12.0`.
+- Bumped project version to `v1.25.19`.
+- Updated dependencies:
+  - `@eslint/js` `^9.39.1` → `^9.39.2`
+  - `@testing-library/svelte` `^5.2.9` → `^5.3.0`
+  - `autoprefixer` `^10.4.22` → `^10.4.23`
+  - `eslint` `^9.39.1` → `^9.39.2`
+  - `prettier-plugin-svelte` `^3.4.0` → `^3.4.1`
+  - `svelte-check` `^4.3.4` → `^4.3.5`
+  - `globby` `^16.0.0` → `^16.1.0`
+  - `posthog-js` `^1.305.0` → `^1.310.1`
+  - `svelte` `5.45.9` → `5.46.1`
+  - `vite` `^7.2.7` → `^7.3.0`
+  - `vite-tsconfig-paths` `^5.1.4` → `^6.0.3`
+
+## Removed
+
+- Removed `/* eslint-env vitest */` comment from `vitest-setup-client.js`, as it was causing an ESLint warning.
+
+---
+
 ## [1.25.18] - 2025-12-11
 
 ### Changed
@@ -2040,7 +2077,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.18...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.19...HEAD
+[1.25.19]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.19
 [1.25.18]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.18
 [1.25.17]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.17
 [1.25.16]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.16
