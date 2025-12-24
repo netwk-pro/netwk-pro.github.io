@@ -41,7 +41,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
         uses: actions/setup-node@v6
@@ -84,7 +84,7 @@ jobs:
 
       - name: Upload JSDoc results
         if: ${{ steps.jsdoc_lint.outputs.jsdoc_count != 0 }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: jsdoc-lint-results
           path: jsdoc-lint-output.txt
@@ -99,7 +99,7 @@ jobs:
         run: git archive --format=tar.gz --output=clean-source.tar.gz HEAD
 
       - name: Upload source archive
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: clean-source
           path: clean-source.tar.gz
@@ -112,7 +112,7 @@ jobs:
 
     steps:
       - name: Download clean source archive
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         with:
           name: clean-source
           path: ./
@@ -168,7 +168,7 @@ jobs:
 
     steps:
       - name: Download clean source archive
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         with:
           name: clean-source
           path: ./
