@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Sitemap last updated 2025-12-11 -->
+<!-- Sitemap last updated 2025-12-25 -->
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
@@ -7,23 +7,11 @@
 
     <loc>https://netwk.pro</loc>
 
-    <lastmod>2025-12-11</lastmod>
+    <lastmod>2025-12-25</lastmod>
 
     <changefreq>weekly</changefreq>
 
     <priority>1.0</priority>
-
-  </url>
-
-  <url>
-
-    <loc>https://netwk.pro/services</loc>
-
-    <lastmod>2025-11-09</lastmod>
-
-    <changefreq>monthly</changefreq>
-
-    <priority>0.8</priority>
 
   </url>
 
@@ -43,7 +31,7 @@
 
     <loc>https://netwk.pro/about</loc>
 
-    <lastmod>2025-11-09</lastmod>
+    <lastmod>2025-12-25</lastmod>
 
     <changefreq>monthly</changefreq>
 

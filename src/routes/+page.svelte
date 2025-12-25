@@ -18,7 +18,7 @@ This file is part of Network Pro.
 </script>
 
 <section id="home-page" data-testid="home-page">
-  <FullWidthSection>
+  <FullWidthSection containerClass="readable">
     <!-- BEGIN TITLE -->
     <section id="page-title">
       <Logo />

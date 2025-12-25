@@ -19,7 +19,7 @@ This file is part of Network Pro.
 
   const homeLink = base || '/';
   const aboutLink = `${base}/about`;
-  const servLink = `${base}/services`;
+  //const servLink = `${base}/services`;
   const lhubLink = `${base}/links`;
   const fossLink = `${base}/foss`;
   const discussLink =
@@ -42,7 +42,6 @@ This file is part of Network Pro.
   const nav = [
     { label: 'home', href: homeLink, target: PAGE.SELF, external: false },
     { label: 'about', href: aboutLink, target: PAGE.SELF, external: false },
-    { label: 'services', href: servLink, target: PAGE.SELF, external: false },
     {
       label: 'blog',
       href: LINKS.BLOG,
@@ -88,7 +87,7 @@ This file is part of Network Pro.
     {/if}
     <!-- Separator logic -->
     {#if index < nav.length - 1}
-      {#if label === 'blog'}
+      {#if label === 'foss'}
         <br />
       {:else}
         <span class="goldseparator">|</span>

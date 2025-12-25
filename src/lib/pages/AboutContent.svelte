@@ -30,7 +30,7 @@ This file is part of Network Pro.
    * URL to the Consultation route, using the base path
    * @type {string}
    */
-  const consultLink = `${base}/consultation`;
+  //const consultLink = `${base}/consultation`;
 
   /**
    * URL to the Services route, using the base path
@@ -121,7 +121,7 @@ This file is part of Network Pro.
 <div class="spacer"></div>
 
 <section id="subhead">
-  <h2>Security That Respects You</h2>
+  <h2>Security, with Intent</h2>
 </section>
 <!-- END TITLE -->
 
@@ -137,87 +137,76 @@ This file is part of Network Pro.
 </p>
 
 <p>
-  At <strong>{COMPANY_INFO.NAME} ({COMPANY_INFO.APP_NAME})</strong>, we deliver
-  network security and engineering, cybersecurity, and digital privacy
-  consulting with clarity, credibility, and care. We believe that real security
-  doesn't have to come at the cost of user autonomy, and that privacy-minded
-  solutions can be both practical and powerful.
+  At <strong>{COMPANY_INFO.NAME} ({COMPANY_INFO.APP_NAME})</strong>, our work
+  centers on advancing practical security, infrastructure resilience, and
+  digital privacy through research, development, education, and advocacy.
 </p>
 
 <p>
-  Our approach is built on a simple principle:
-  <strong>the best security is the one that fits.</strong> That means we don't
-  push ideologies—we apply what works. We advocate for and implement
-  <strong>free and open source solutions</strong>
-  where they offer competitive functionality, control, and visibility. When proprietary
-  platforms are better suited, we deploy them responsibly and securely—ensuring every
-  recommendation is grounded in
-  <strong>technical merit</strong>, <strong>scalability</strong>, and
-  <strong>client goals</strong>.
+  We design, operate, and study real-world systems with a focus on understanding
+  how security works in practice—not just in theory. Our goal is to produce
+  clear, credible guidance and tools that respect user autonomy, scale
+  responsibly, and reflect the realities of modern infrastructure.
+</p>
+
+<p>
+  Where appropriate, we also apply this work through limited consulting
+  engagements, offering focused expertise in network security, cybersecurity,
+  and privacy engineering for organizations seeking intentional, well-reasoned
+  solutions.
 </p>
 
 <h3>What We Do</h3>
+
 <p>
-  As a remote-first consultancy, we support clients across industries and
-  geographies with a focus on:
+  {COMPANY_INFO.APP_NAME} is focused on internal research, development, education,
+  and advocacy in the areas of network security, infrastructure design, and digital
+  privacy.
+</p>
+
+<p>
+  Our work centers on building and operating real-world systems, conducting
+  exploratory and applied research, developing proof-of-concept environments,
+  and publishing practical insights drawn from hands-on experience. These
+  efforts inform the tools, guidance, and educational content we share with the
+  broader community.
+</p>
+
+<p>
+  We also offer <strong
+    >limited consulting on a selective, case-by-case basis</strong
+  >, typically aligned with our research focus areas, including:
 </p>
 
 <ul>
-  <li><strong>Network Hardening & Perimeter Defense</strong></li>
-  <li><strong>Firewall Architecture & Policy Optimization</strong></li>
-  <li><strong>Zero Trust Implementation</strong></li>
-  <li><strong>Secure Infrastructure Design & Implementation</strong></li>
-  <li><strong>Risk Reduction & Security Posture Assessment</strong></li>
+  <li>Network Hardening & Perimeter Defense</li>
+  <li>Firewall Architecture & Policy Optimization</li>
+  <li>Zero Trust Design Principles</li>
+  <li>Secure Infrastructure Architecture</li>
+  <li>Risk Reduction & Security Posture Assessment</li>
 </ul>
 
 <p>
-  Our consulting engagements range from tactical one-off solutions to strategic,
-  long-term partnerships. Whether it's helping a business segment its internal
-  network, lock down its cloud footprint, or plan scalable defenses—we deliver
-  clear value, with zero fluff.
+  Rather than operating as a traditional consultancy, our engagement model
+  prioritizes depth, intent, and alignment. Consulting work is approached as an
+  extension of our internal projects and research—not as a volume-driven service
+  offering.
+</p>
+
+<p>
+  At Network Pro™, we believe strong security comes from understanding systems
+  deeply, communicating clearly, and designing with purpose. Our goal is not
+  scale for its own sake, but meaningful work that advances security practice,
+  privacy awareness, and resilient infrastructure.
 </p>
 
 <div class="spacer"></div>
 
 <p>
-  Additionally, {COMPANY_INFO.APP_NAME} provides
-  <a href={servLink} target={PAGE.SELF}>on-site services</a>
-  in the Greater Phoenix Metropolitan Area (Maricopa County, AZ). Our
-  <a href={servLink} target={PAGE.SELF}>on-site services</a> are available to both
-  consumers and businesses. In addition to consulting, we offer the following services:
-</p>
-
-<ul>
-  <li><strong>Home Modem Setup</strong></li>
-  <li><strong>Basic Router Setup</strong></li>
-  <li><strong>Wi-Fi and Wireless Networking Setup</strong></li>
-  <li><strong>Network Troubleshooting</strong></li>
-  <li><strong>Network Security Review</strong></li>
-  <li><strong>Add a Wi-Fi Device</strong></li>
-  <li><strong>Add or Configure a Printer</strong></li>
-</ul>
-
-<div class="spacer"></div>
-
-<p>
-  We also believe education is a core pillar of real-world security. That's why
-  we invest in raising awareness—across both technical and general audiences—on
-  best practices in digital privacy, secure design, and threat mitigation.
-</p>
-
-<p>
-  At {COMPANY_INFO.APP_NAME}, we deliver robust, intentional solutions for
-  individuals and organizations that prioritize integrity — without compromising
-  agility or trust. We don't just protect infrastructure. We protect peace of
-  mind.
-</p>
-
-<p>
-  Ready to take the next step? <a href={contactLink} target={PAGE.BLANK}
-    >Let's connect</a>
-  to explore how we can help fortify your home or business.
-  <a href={consultLink} target={PAGE.BLANK}
-    >Schedule a free, initial consultation</a> today and discover what's possible.
+  Interested in our work or exploring a potential collaboration? <a
+    href={contactLink}
+    target={PAGE.BLANK}>Let's connect</a
+  >.
 </p>
 
 <p>
