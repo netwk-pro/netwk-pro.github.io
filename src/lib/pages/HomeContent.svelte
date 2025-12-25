@@ -43,45 +43,45 @@ This file is part of Network Pro.
 </script>
 
 <!-- BEGIN HOME CONTENT -->
-<h3 class={classIndex}>🔒 Practical Cybersecurity. Trusted Expertise.</h3>
+<h3 class={classIndex}>🔐 Security, with Intent</h3>
 
 <p class={classCenter}>
-  At <strong>{COMPANY_INFO.NAME}</strong>, we specialize in network engineering
-  and security, cybersecurity, and digital privacy consulting that meets today's
-  real-world demands. Our remote-first approach combines technical depth with
-  practical solutions—leveraging a strategic mix of open source and proprietary
-  technologies based on performance, scalability, and trustworthiness.
+  At <strong>{COMPANY_INFO.NAME}</strong>, we advance practical cybersecurity,
+  resilient infrastructure, and digital privacy through hands-on research,
+  real-world engineering, education, and advocacy.
 </p>
 
 <p class={classCenter}>
-  From secure network design to cloud infrastructure and perimeter defense, we
-  help individuals and organizations build stronger, smarter security
-  postures—without compromising flexibility or transparency.
+  Our work centers on understanding how systems behave in practice—building,
+  testing, and operating secure environments to surface insights that are
+  grounded in reality, not ideology. We believe effective security respects
+  autonomy, scales responsibly, and is designed with purpose.
 </p>
 
 <p class={classCenter}>
-  📡
-  <em>
-    <strong>Stay informed:</strong> Follow our
-    <a href={LINKS.BLOG} target={PAGE.SELF}>blog</a>
-    and social channels for actionable insights, implementation guides, and the latest
-    cybersecurity developments.
-  </em>
+  A core part of our mission is education and awareness. Through published
+  research, technical writing, and community-focused content, we aim to make
+  security concepts more accessible, transparent, and actionable for both
+  technical and non-technical audiences.
+</p>
+
+<p class={classCenter}>
+  Where there is strong alignment, we also apply this work through <strong
+    >limited, selective consulting engagements</strong
+  >, offering focused expertise in network security, infrastructure design, and
+  privacy engineering.
 </p>
 
 <div class="spacer"></div>
 
 <p class={classCenter}>
-  <strong>{COMPANY_INFO.NAME}</strong><br />
-  📞 <strong>Phone:</strong>
-  {CONTACT.PHONE}<br />
-  📧 <strong>General Inquiries:</strong>
-  <a href={`mailto:${CONTACT.EMAIL_LINK}`} target={PAGE.BLANK}
-    >{CONTACT.EMAIL_LINK}</a
-  ><br />
-  🔐 <strong>Secure Email:</strong>
-  <a href={`mailto:${CONTACT.SECURE_LINK}`} target={PAGE.BLANK}
-    >{CONTACT.SECURE_LINK}</a>
+  📡 <strong>Stay informed</strong>.<br />
+  <em>
+    Follow our
+    <a href={LINKS.BLOG} target={PAGE.SELF}>work</a> for research findings, practical
+    guidance, and perspectives on security, infrastructure, and digital privacy—shared
+    openly and grounded in real-world experience.
+  </em>
 </p>
 
 &nbsp;

@@ -13,9 +13,9 @@ This file is part of Network Pro.
 
 &nbsp;
 
-[![Vercel](https://img.shields.io/github/deployments/netwk-pro/netwk-pro.github.io/Production?label=vercel&logo=vercel)](https://vercel.com) [![NPM Version](https://img.shields.io/npm/v/%40networkpro%2Fweb?registry_uri=https%3A%2F%2Fregistry.npmjs.com&style=flat&logo=npm&logoSize=auto&color=%23CB3837)](https://www.npmjs.com/package/@networkpro/web) [![Build and Publish to Registries](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/build-and-publish.yml)  
-[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier) [![stylelint](https://img.shields.io/badge/stylelint-%23747474?style=flat&logo=stylelint&logoSize=auto&labelColor=%23263238)](https://stylelint.io/)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/CODE_OF_CONDUCT.md)
+[![Vercel](https://img.shields.io/github/deployments/netwk-pro/netwk-pro.github.io/Production?label=vercel&logo=vercel 'Vercel')](https://vercel.com) [![NPM Version](https://img.shields.io/npm/v/%40networkpro%2Fweb?registry_uri=https%3A%2F%2Fregistry.npmjs.com&style=flat&logo=npm&logoSize=auto&color=%23CB3837 'NPM Version')](https://www.npmjs.com/package/@networkpro/web) [![Build and Publish to Registries](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/build-and-publish.yml/badge.svg 'Build and Publish to Registries')](https://github.com/netwk-pro/netwk-pro.github.io/actions/workflows/build-and-publish.yml)  
+[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat 'Code Style: Prettier')](https://github.com/prettier/prettier) [![stylelint](https://img.shields.io/badge/stylelint-%23747474?style=flat&logo=stylelint&logoSize=auto&labelColor=%23263238 'stylelint')](https://stylelint.io/)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg 'Contributor Covenant')](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/CODE_OF_CONDUCT.md)
 
 <section id="top">
 
@@ -53,7 +53,9 @@ All infrastructure and data flows are designed with **maximum transparency, self
 
 For a history of changes to the Network Pro&trade; Web Presence, see the **[CHANGELOG](https://github.com/netwk-pro/netwk-pro.github.io/blob/master/CHANGELOG.md)**. All notable updates are documented there.
 
-This project follows the principles of [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), though formatting and versioning may occasionally vary.
+This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+Version numbers use a **SemVer-inspired** `MAJOR.MINOR.PATCH` format, with
+version increments reflecting both user-visible and operational impact.
 
 </section>
 

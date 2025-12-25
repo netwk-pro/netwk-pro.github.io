@@ -14,11 +14,36 @@ This file is part of Network Pro.
 
 All notable changes to this project will be documented in this file.
 
-This project attempts to follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), though versioning and formatting may vary.
+This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+Version numbers use a **SemVer-inspired** `MAJOR.MINOR.PATCH` format, with
+version increments reflecting both user-visible and operational impact.
 
 ---
 
 ## [Unreleased]
+
+---
+
+## [1.25.20] - 2025-12-24
+
+### Added
+
+- Added `VERSIONING.md` to document the project’s versioning strategy.
+
+### Changed
+
+- Updated `.lighthouse.cjs` to utilize `https://netwk.pro` as the target.
+- Removed **Services** route from `sitemap.xml` and refreshed last modified timestamps.
+- Updated `README.md` to clarify the project's versioning strategy and changelog format.
+- Updated `src/routes/+page.svelte` to apply `containerClass="readable"` to `<FullWidthSection>` for improved readability.
+- Revised homepage and About page content (`HomeContent.svelte` and `AboutContent.svelte`) to better reflect the company’s current mission, focus, and messaging.
+- Bumped project version to `v1.25.20`.
+
+### Removed
+
+- Removed **Services** from primary navigation (`HeaderDefault.svelte` and `HeaderHome.svelte`).
+- Removed references to home implementation services from `AboutContent.svelte`.
+  - This change reflects a clarified focus on internal research, education, advocacy, and selectively aligned consulting, rather than broad outward-facing service offerings.
 
 ---
 
@@ -2077,7 +2102,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.19...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.20...HEAD
+[1.25.20]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.20
 [1.25.19]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.19
 [1.25.18]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.18
 [1.25.17]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.17
