@@ -19,7 +19,7 @@ This file is part of Network Pro.
 
   const aboutLink = `${base}/about`;
   const fossLink = `${base}/foss`;
-  const servLink = `${base}/services`;
+  //const servLink = `${base}/services`;
   const lhubLink = `${base}/links`;
   const discussLink =
     'https://github.com/netwk-pro/netwk-pro.github.io/discussions';
@@ -40,7 +40,6 @@ This file is part of Network Pro.
    */
   const nav = [
     { label: 'about', href: aboutLink, target: PAGE.SELF, external: false },
-    { label: 'services', href: servLink, target: PAGE.SELF, external: false },
     {
       label: 'blog',
       href: LINKS.BLOG,
@@ -86,7 +85,7 @@ This file is part of Network Pro.
     {/if}
     <!-- Separator logic -->
     {#if index < nav.length - 1}
-      {#if label === 'blog'}
+      {#if label === 'foss'}
         <br />
       {:else}
         <span class="goldseparator">|</span>
