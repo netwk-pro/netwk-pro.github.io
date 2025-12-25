@@ -32,6 +32,7 @@ version increments reflecting both user-visible and operational impact.
 
 ### Changed
 
+- Updated `.lighthouse.cjs` to utilize `https://netwk.pro` as the target.
 - Removed **Services** route from `sitemap.xml` and refreshed last modified timestamps.
 - Updated `README.md` to clarify the project's versioning strategy and changelog format.
 - Updated `src/routes/+page.svelte` to apply `containerClass="readable"` to `<FullWidthSection>` for improved readability.

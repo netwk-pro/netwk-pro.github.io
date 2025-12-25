@@ -9,7 +9,7 @@ This file is part of Network Pro.
 module.exports = {
   ci: {
     collect: {
-      url: ['https://audit.netwk.pro'],
+      url: ['https://netwk.pro'],
       numberOfRuns: 1,
       settings: {
         onlyCategories: [
