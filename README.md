@@ -21,7 +21,7 @@ This file is part of Network Pro.
 
 ## 🚀 Project Overview
 
-This GitHub repository powers the official web presence of **[Network Pro Strategies](https://netwk.pro/about)** — a privacy-first consultancy specializing in cybersecurity, network engineering, and information security. We also lead public advocacy efforts promoting digital privacy and responsible cyber policy.
+This GitHub repository powers the official web presence of **[Network Pro Strategies](https://netwk.pro/about)** — a research- and infrastructure-focused technology initiative working across cybersecurity, digital systems, and privacy. Our work spans applied research and development, experimental infrastructure, educational tools and publications, and public advocacy for security- and privacy-respecting technology.
 
 Built with [SvelteKit](https://kit.svelte.dev/) and deployed via [Vercel](https://vercel.com/).  
 [Blog](https://github.com/netwk-pro/blog) and [documentation](https://github.com/netwk-pro/docs) subsites built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and deployed via [Vercel](https://vercel.com/) and [Netlify](https://netlify.com/).
