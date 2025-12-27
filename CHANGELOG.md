@@ -24,6 +24,22 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.25.21] - 2025-12-27
+
+### Added
+
+- Added Mastodon verification to `src/routes/posts/+page.svelte` via `<svelte:head>`.
+
+### Changed
+
+- Updated intro paragraph of `README.md` to better reflect the company's current mission, focus, and messaging.
+- Bumped project version to `v1.25.21`.
+- Updated dependencies:
+  - `@testing-library/svelte` `^5.3.0` → `^5.3.1`
+  - `jsdom` `27.3.0` → `27.4.0`
+
+---
+
 ## [1.25.20] - 2025-12-24
 
 ### Added
@@ -2102,7 +2118,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.20...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.21...HEAD
+[1.25.21]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.21
 [1.25.20]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.20
 [1.25.19]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.19
 [1.25.18]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.18
