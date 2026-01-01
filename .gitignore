@@ -15,8 +15,7 @@ devices-list.json
 
 
 # SvelteKit
-.svelte-kit/*
-!.svelte-kit/tsconfig.json
+.svelte-kit
 
 # Lighthouse
 .lighthouseci
