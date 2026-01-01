@@ -26,8 +26,16 @@ version increments reflecting both user-visible and operational impact.
 
 ## [1.25.22] - 2026-01-01
 
+### Added
+
+- Conditional guards to ensure artifacts, issues, and external notifications are only created when workflows run in a trusted context (non-PR runs or PRs originating from the same repository).
+- Redacted, public-safe Gitleaks scan summaries in GitHub Actions step output to prevent accidental exposure of sensitive file paths or values.
+- Optional installation of `jq` gated to trusted execution contexts to support future structured output (e.g., SARIF) while preserving fork safety.
+
 ### Changed
 
+- Updated the Gitleaks secret scanning workflow to explicitly exclude Dependabot pull requests, avoiding failures caused by unavailable organization secrets in bot-triggered PRs.
+- Refined workflow trust boundaries to distinguish between forked pull requests and trusted repository contexts.
 - Updated `.gitignore` to stop tracking generated `.svelte-kit` files.
 - Bumped project version to `v1.25.22`.
 - Updated dependencies:
@@ -41,6 +49,8 @@ version increments reflecting both user-visible and operational impact.
 
 ### Security
 
+- Hardened secret-handling logic in CI by preventing the use of organization-level secrets, write permissions, and external notifications in untrusted pull request contexts.
+- Ensured Gitleaks license usage is restricted to safe execution paths, eliminating false-negative or false-positive failures caused by GitHub Actions secret scoping rules.
 - Added transitive dependency override for `qs` to `^6.14.1`, in order to address CVE-2025-15284.
 
 ---
