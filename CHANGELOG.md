@@ -24,6 +24,37 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.25.22] - 2026-01-01
+
+### Added
+
+- Conditional guards to ensure artifacts, issues, and external notifications are only created when workflows run in a trusted context (non-PR runs or PRs originating from the same repository).
+- Redacted, public-safe Gitleaks scan summaries in GitHub Actions step output to prevent accidental exposure of sensitive file paths or values.
+- Optional installation of `jq` gated to trusted execution contexts to support future structured output (e.g., SARIF) while preserving fork safety.
+
+### Changed
+
+- Updated the Gitleaks secret scanning workflow to explicitly exclude Dependabot pull requests, avoiding failures caused by unavailable organization secrets in bot-triggered PRs.
+- Refined workflow trust boundaries to distinguish between forked pull requests and trusted repository contexts.
+- Updated `.gitignore` to stop tracking generated `.svelte-kit` files.
+- Bumped project version to `v1.25.22`.
+- Updated dependencies:
+  - `stylelint-order` `^7.0.0` → `^7.0.1`
+  - `posthog-js` `^1.310.1` → `^1.313.0`
+  - `globals` `^16.5.0` → `^17.0.0`
+
+### Removed
+
+- Removed Mastodon verification in `src/routes/posts/+page.svelte`, as it was not functioning properly. This route will remain unverified.
+
+### Security
+
+- Hardened secret-handling logic in CI by preventing the use of organization-level secrets, write permissions, and external notifications in untrusted pull request contexts.
+- Ensured Gitleaks license usage is restricted to safe execution paths, eliminating false-negative or false-positive failures caused by GitHub Actions secret scoping rules.
+- Added transitive dependency override for `qs` to `^6.14.1`, in order to address CVE-2025-15284.
+
+---
+
 ## [1.25.21] - 2025-12-27
 
 ### Added
@@ -2090,7 +2121,7 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 ---
 
-## 1.12.0 – 2025-06-04
+## [1.12.0] – 2025-06-04
 
 ### Added
 
@@ -2118,7 +2149,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.21...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.22...HEAD
+[1.25.22]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.22
 [1.25.21]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.21
 [1.25.20]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.20
 [1.25.19]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.19
@@ -2190,5 +2222,6 @@ This enables analytics filtering and CSP hardening for the audit environment.
 [1.12.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.4
 [1.12.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.3
 [1.12.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.1
+[1.12.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.0
 
 <!-- cspell:ignore qrcode cryptom otphelp domcontentloaded -->
