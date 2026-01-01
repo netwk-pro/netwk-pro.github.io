@@ -45,13 +45,6 @@ This file is part of Network Pro.
   });
 </script>
 
-<svelte:head>
-  <a
-    rel="me"
-    href="https://noc.social/@neteng_pro"
-    aria-label="Mastodon profile"></a>
-</svelte:head>
-
 {#if show && target}
   <RedirectPage to={target} rel={PAGE.REL} />
 {:else}
