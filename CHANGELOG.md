@@ -24,6 +24,16 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.25.23] - 2026-01-04
+
+### Changed
+
+- Updated `README.md` to accurately reflect hosting.
+- Updated timestamp in `static/.well-known/security.txt` and created a new detached signature.
+- Bumped project version to `v1.25.23`.
+
+---
+
 ## [1.25.22] - 2026-01-01
 
 ### Added
