@@ -86,4 +86,3 @@ npx playwright install
 
 echo "✅ Setup complete!"
 echo "Next: run 'npm run dev' to start the development server."
-

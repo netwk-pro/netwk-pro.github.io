@@ -153,7 +153,7 @@ No need to modify imports when adding new images — just add them to `images.js
 
 <span style="font-size: 12px; text-align: center;">
 
-Copyright &copy; 2025-2026  
+Copyright &copy; 2025, 2026  
 **[Network Pro Strategies](https://netwk.pro) (Network Pro&trade;)**
 
 Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/legal#trademark) of Network Pro Strategies.

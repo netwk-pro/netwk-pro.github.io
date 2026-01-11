@@ -16,7 +16,7 @@ This file is part of Network Pro.
  * and re-exported here for flat `$lib` imports.
  * @module src/lib
  * @author Scott Lopez
- * @updated 2026-01-09
+ * @updated 2026-01-10
  */
 
 // Re-export all images so they can be imported directly from `$lib`
