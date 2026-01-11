@@ -1,7 +1,7 @@
 /* ==========================================================================
 .ncurc.cjs
 
-Copyright © 2025 Network Pro Strategies (Network Pro™)
+Copyright © 2025-2026 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================= */
@@ -31,7 +31,7 @@ This file is part of Network Pro.
 /** @type {import('npm-check-updates').RunOptions} */
 module.exports = {
   // Ignore specific dependencies (prevent upgrades)
-  reject: ['vitest', '@vitest/coverage-v8'],
+  reject: [],
 
   // Always upgrade devDependencies as well
   dep: 'prod,dev',

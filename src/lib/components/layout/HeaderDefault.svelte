@@ -1,7 +1,7 @@
 <!-- ==========================================================================
 src/lib/components/layout/HeaderDefault.svelte
 
-Copyright © 2025 Network Pro Strategies (Network Pro™)
+Copyright © 2025-2026 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== -->
@@ -76,23 +76,13 @@ This file is part of Network Pro.
 <nav class="center-nav" aria-label="Site navigation">
   {#each nav as { label, href, target, external, redirect }, index}
     <a {href} {target} rel={!redirect && external ? rel : undefined}>
-      {label}
-    </a>
-    {#if external}
-      <sup>
-        <span class="gold">
-          <i class="fas fa-arrow-up-right-from-square fa-2xs"></i>
-        </span>
-      </sup>
-    {/if}
-    <!-- Separator logic -->
-    {#if index < nav.length - 1}
-      {#if label === 'foss'}
-        <br />
-      {:else}
-        <span class="goldseparator">|</span>
-      {/if}
-    {/if}
+      {label}{#if external}<span class="gold external-icon">
+          <i class="fas fa-arrow-up-right-from-square fa-2xs" aria-hidden="true"
+          ></i>
+        </span>{/if}
+    </a>{#if index < nav.length - 1}{#if label === 'foss'}<br />{:else}<span
+          class="gold-separator">|</span
+        >{/if}{/if}
   {/each}
 </nav>
 <!-- END DEFAULT HEADER -->

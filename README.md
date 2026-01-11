@@ -1,7 +1,7 @@
 <!-- =====================================================================
 README.md
 
-Copyright © 2025 Network Pro Strategies (Network Pro™)
+Copyright © 2025-2026 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ====================================================================== -->
@@ -23,7 +23,7 @@ This file is part of Network Pro.
 
 This GitHub repository powers the official web presence of **[Network Pro Strategies](https://netwk.pro/about)** — a research- and infrastructure-focused technology initiative working across cybersecurity, digital systems, and privacy. Our work spans applied research and development, experimental infrastructure, educational tools and publications, and public advocacy for security- and privacy-respecting technology.
 
-Built with [SvelteKit](https://kit.svelte.dev/) and deployed via [Vercel](https://vercel.com/).  
+Built with [SvelteKit](https://svelte.dev/) and deployed via [Vercel](https://vercel.com/).  
 [Blog](https://github.com/netwk-pro/blog) and [documentation](https://github.com/netwk-pro/docs) subsites built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and deployed via [Vercel](https://vercel.com/).
 
 All infrastructure and data flows are designed with **maximum transparency, self-hosting, and user privacy** in mind.
@@ -32,6 +32,7 @@ All infrastructure and data flows are designed with **maximum transparency, self
 
 ### Table of Contents
 
+- [Template & Distribution Intent](#distribution)
 - [Changelog](#changelog)
 - [Repository Structure](#structure)
 - [Getting Started](#getting-started)
@@ -47,6 +48,30 @@ All infrastructure and data flows are designed with **maximum transparency, self
 
 ---
 
+<section id="distribution">
+
+## 📦 Template & Distribution Intent
+
+This repository serves multiple purposes:
+
+- It powers the official **Network Pro™ web presence**
+- It is distributed via **npm** and **GitHub Package Registry**
+- It is intentionally designed to function as a **reference implementation and starter template** for SvelteKit projects that emphasize security, documentation, and maintainability
+
+As a result, this codebase is treated as a **continuously maintained software project**, rather than a static website snapshot.
+
+### Copyright & Header Conventions
+
+Source code and configuration files in this repository use **copyright year ranges** (e.g. `© 2025–2026`) to reflect ongoing development over time. This approach aligns with common practice in actively maintained software projects and templates.
+
+User-facing content (such as pages, documentation, and rendered site output) may derive effective copyright years dynamically at runtime to more accurately reflect publication and revision timelines.
+
+These conventions are intentional and aim to balance legal clarity, maintainability, and practical reuse for downstream consumers of this project.
+
+</section>
+
+---
+
 <section id="changelog">
 
 ## 📝 Changelog
@@ -58,6 +83,8 @@ Version numbers use a **SemVer-inspired** `MAJOR.MINOR.PATCH` format, with
 version increments reflecting both user-visible and operational impact.
 
 </section>
+
+<sub>[Back to top](#top)</sub>
 
 ---
 
@@ -550,7 +577,7 @@ _Designed for professionals. Hardened for privacy. Built with intent._
 
 <span style="font-size: 12px; text-align: center;">
 
-Copyright &copy; 2025  
+Copyright &copy; 2025, 2026  
 **[Network Pro Strategies](https://netwk.pro) (Network Pro&trade;)**
 
 Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/legal#trademark) of Network Pro Strategies.

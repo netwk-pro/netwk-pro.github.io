@@ -1,10 +1,12 @@
 /* ==========================================================================
 src/lib/styles/default.css
 
-Copyright © 2025 Network Pro Strategies (Network Pro™)
+Copyright © 2025-2026 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
+
+/* NOTE: This file is bundled into global.min.css — changes require rebuild */
 
 /* ==========================================================================
    Document Spacing
@@ -517,7 +519,7 @@ footer .container {
   color: #cba557;
 }
 
-.goldseparator {
+.gold-separator {
   margin: 0 0.5rem;
   color: #ffc627;
 }
@@ -527,6 +529,13 @@ footer .container {
   font-size: 1rem;
   line-height: 1.5rem;
   text-align: center;
+}
+
+.center-nav .external-icon {
+  position: relative;
+  top: -0.3em;   /* try -0.25em to -0.35em */
+  font-size: 0.85em; /* tweak: 0.7–0.85em usually ideal */
+  margin-left: 0.3em;
 }
 
 /* code block for legal text */
