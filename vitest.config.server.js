@@ -1,7 +1,7 @@
 /* =========================================================================
 vitest.config.server.js
 
-Copyright © 2025 Network Pro Strategies (Network Pro™)
+Copyright © 2025-2026 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================= */
@@ -28,12 +28,13 @@ export default defineConfig({
     exclude: ['tests/unit/**/*.svelte.test.{js,mjs}'],
     reporter: ['default', 'json'],
     testTimeout: 10000,
+    restoreMocks: true,
     outputFile: {
       json: './reports/server/results.json',
     },
     coverage: {
       provider: 'v8',
-      reporter: ['html'],
+      reporter: ['html', 'text', 'lcov'],
       reportsDirectory: './reports/server/coverage',
     },
   },

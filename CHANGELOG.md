@@ -1,7 +1,7 @@
 <!-- =====================================================================
 CHANGELOG.md
 
-Copyright © 2025 Network Pro Strategies (Network Pro™)
+Copyright © 2025-2026-2026 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ====================================================================== -->
@@ -21,6 +21,32 @@ version increments reflecting both user-visible and operational impact.
 ---
 
 ## [Unreleased]
+
+---
+
+## [1.26.0] - 2026-01-10
+
+### Changed
+
+- Updated home page content to emphasize a focus on both security and privacy.
+- Refined header navigation styling to improve external link icon alignment and spacing consistency across layouts.
+- Updated `CONSTANTS.COMPANY_INFO.YEAR` in `src/lib/index.js` to reflect `2025, 2026`.
+- Updated copyright headers across all tracked source files to reflect effective copyright years.
+- Clarified repository distribution intent and reuse expectations in `README.md`, including documentation of copyright header conventions for this template project.
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.49.4**.
+- Bumped project version to `v1.26.0`.
+- Updated test tooling to support Vitest 4.x:
+  - Removed Vitest-related version constraints from update tooling.
+  - Updated Vitest configuration for compatibility with `vitest` and `@vitest/coverage-v8` v4.
+- Updated dependencies:
+  - `@eslint/compat` `^2.0.0` → `^2.0.1`
+  - `@sveltejs/kit` `2.49.3` → `2.49.4`
+  - `@sveltejs/vite-plugin-svelte` `^6.2.3` → `^6.2.4`
+  - `@vitest/coverage-v8` `3.2.4` → `4.0.16`
+  - `posthog-js` `^1.315.1` → `^1.318.1`
+  - `eslint-plugin-jsdoc` `^61.5.0` → `^62.0.0`
+  - `vite-tsconfig-paths` `^6.0.3` → `^6.0.4`
+  - `vitest` `3.2.4` → `4.0.16`
 
 ---
 
@@ -1109,8 +1135,7 @@ This enables analytics filtering and CSP hardening for the audit environment.
   - Corrected `isTestEnvironment` constant.
   - Relaxed CSP rules for development mode to support local PostHog proxy.
 - Updated `static/sitemap.xml` to include the `/services` route and refresh _Last Modified_ timestamps.
-- Updated author metadata (`@author`)
-  from **SunDevil311** → **Scott Lopez** across all relevant JS files, including scripts, libs, and tests.
+- Updated author metadata (`@author`) from **SunDevil311** → **Scott Lopez** across all relevant JS files, including scripts, libs, and tests.
 - Updated dependencies:
   - `dompurify` `^3.2.7` → `^3.3.0`
   - `posthog-js` `^1.271.0` → `^1.276.0`
@@ -2157,8 +2182,7 @@ This enables analytics filtering and CSP hardening for the audit environment.
 - Consent cookie logic added for first-time and returning users.
 - First iteration of PostHog integration.
 - `sr-only` utility class added to `global.min.css` for accessibility improvements.
-- Support disclaimer added to Legal, Copyright,
-  and Licensing section.
+- Support disclaimer added to Legal, Copyright, and Licensing section.
 - Privacy dashboard UI elements and opt-in interface.
 
 ### Changed
@@ -2175,7 +2199,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.25.24...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.0...HEAD
+[1.26.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.0
 [1.25.24]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.24
 [1.25.23]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.23
 [1.25.22]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.22

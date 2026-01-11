@@ -1,7 +1,7 @@
 /* ==========================================================================
 scripts/bundleCss.js
 
-Copyright © 2025 Network Pro Strategies (Network Pro™)
+Copyright © 2025-2026 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
@@ -12,30 +12,39 @@ This file is part of Network Pro.
  *
  * @module scripts/
  * @author Scott Lopez
- * @updated 2025-05-16
+ * @updated 2026-01-10
  */
 
 import fs from 'fs';
 import { bundle } from 'lightningcss';
 import path from 'path';
 
-// Define the path to your input CSS file
 const inputFilePath = path.resolve('src/lib/styles/css/global.css');
+const outputFilePath = path.resolve('src/lib/styles/global.min.css');
 
-// Define the path for the output CSS file
-const outputFilePath = path.resolve('src/lib/styles/css/global.min.css');
-
-// Bundle and minify the CSS
 const { code, map } = bundle({
   filename: inputFilePath,
   minify: true,
-  sourceMap: true,
+  sourceMap: false,
 });
 
-// Write the bundled CSS to the output file
-fs.writeFileSync(outputFilePath, code);
+// Ensure output directory exists
+fs.mkdirSync(path.dirname(outputFilePath), { recursive: true });
 
-// Only write the source map if it exists
+// Convert CSS bytes -> string so we can append the sourceMappingURL comment
+let cssText = Buffer.from(code).toString('utf8');
+
 if (map) {
-  fs.writeFileSync(`${outputFilePath}.map`, map);
+  const mapPath = `${outputFilePath}.map`;
+
+  // Write map as raw bytes (no encoding argument)
+  fs.writeFileSync(mapPath, Buffer.from(map));
+
+  // Link it from the CSS (DevTools uses this)
+  cssText += `\n/*# sourceMappingURL=${path.basename(mapPath)} */`;
 }
+
+// Write final CSS as UTF-8 text
+fs.writeFileSync(outputFilePath, cssText, 'utf8');
+
+console.log('CSS bundled →', outputFilePath);
