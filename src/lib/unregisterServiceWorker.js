@@ -1,15 +1,13 @@
 /* ==========================================================================
 src/lib/unregisterServiceWorker.js
 
-Copyright © 2025 Network Pro Strategies (Network Pro™)
+Copyright © 2025-2026 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
 /**
  * Allows for manual toggling of the service worker
- * DEV USE ONLY
- * @internal
  */
 export function unregisterServiceWorker() {
   if ('serviceWorker' in navigator) {

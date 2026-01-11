@@ -1,7 +1,7 @@
 <!-- ==========================================================================
 src/lib/pages/HomeContent.svelte
 
-Copyright © 2025 Network Pro Strategies (Network Pro™)
+Copyright © 2025-2026 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== -->
@@ -61,8 +61,8 @@ This file is part of Network Pro.
 <p class={classCenter}>
   A core part of our mission is education and awareness. Through published
   research, technical writing, and community-focused content, we aim to make
-  security concepts more accessible, transparent, and actionable for both
-  technical and non-technical audiences.
+  security and privacy concepts more accessible, transparent, and actionable for
+  both technical and non-technical audiences.
 </p>
 
 <p class={classCenter}>

@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.25.24",
+  "version": "1.26.0",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advocacy",
@@ -88,27 +88,27 @@
   },
   "dependencies": {
     "dompurify": "^3.3.1",
-    "posthog-js": "^1.315.1",
+    "posthog-js": "^1.318.1",
     "semver": "^7.7.3",
     "svelte": "5.46.1"
   },
   "devDependencies": {
-    "@eslint/compat": "^2.0.0",
+    "@eslint/compat": "^2.0.1",
     "@eslint/js": "^9.39.2",
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.57.0",
     "@sveltejs/adapter-netlify": "^5.2.4",
     "@sveltejs/adapter-vercel": "^6.3.0",
-    "@sveltejs/kit": "2.49.3",
-    "@sveltejs/vite-plugin-svelte": "^6.2.3",
+    "@sveltejs/kit": "2.49.4",
+    "@sveltejs/vite-plugin-svelte": "^6.2.4",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/svelte": "^5.3.1",
-    "@vitest/coverage-v8": "3.2.4",
+    "@vitest/coverage-v8": "4.0.16",
     "autoprefixer": "^10.4.23",
     "browserslist": "^4.28.1",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-jsdoc": "^61.5.0",
+    "eslint-plugin-jsdoc": "^62.0.0",
     "eslint-plugin-svelte": "^3.14.0",
     "globals": "^17.0.0",
     "globby": "^16.1.0",
@@ -133,8 +133,8 @@
     "vite": "^7.3.1",
     "vite-plugin-devtools-json": "^1.0.0",
     "vite-plugin-lightningcss": "^0.0.5",
-    "vite-tsconfig-paths": "^6.0.3",
-    "vitest": "3.2.4"
+    "vite-tsconfig-paths": "^6.0.4",
+    "vitest": "4.0.16"
   },
   "overrides": {
     "cookie": "^1.0.0",

@@ -1,7 +1,7 @@
 <!-- =====================================================================
 LICENSE.md
 
-Copyright © 2025 Network Pro Strategies (Network Pro™)
+Copyright © 2025-2026 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ====================================================================== -->
@@ -53,7 +53,7 @@ This document is provided for convenience only. In the event of any discrepancy,
 
 All content—including text, software, logos, graphics, documentation, and other materials—provided by **Network Pro Strategies** (“Network Pro&trade;”, “Company”, “Licensor”) is protected by U.S. and international copyright laws.
 
-Copyright &copy; 2025 **[Network Pro Strategies](https://netwk.pro)** (Network Pro&trade;)
+Copyright &copy; 2025, 2026 **[Network Pro Strategies](https://netwk.pro)** (Network Pro&trade;)
 
 <a name="trademark"></a>
 
@@ -243,7 +243,7 @@ The Company may be contacted via our [Contact Form](https://netwk.pro/contact) o
 
 <div style="font-size: 12px; text-align: center;">
 
-Copyright &copy; 2025  
+Copyright &copy; 2025, 2026  
 **[Network Pro Strategies](https://netwk.pro/)** (Network Pro&trade;)
 
 Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](#trademark) of Network Pro Strategies.

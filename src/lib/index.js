@@ -1,7 +1,7 @@
 /* ==========================================================================
 src/lib/index.js
 
-Copyright © 2025 Network Pro Strategies (Network Pro™)
+Copyright © 2025-2026 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
@@ -16,7 +16,7 @@ This file is part of Network Pro.
  * and re-exported here for flat `$lib` imports.
  * @module src/lib
  * @author Scott Lopez
- * @updated 2025-10-30
+ * @updated 2026-01-10
  */
 
 // Re-export all images so they can be imported directly from `$lib`
@@ -53,7 +53,7 @@ export const CONSTANTS = {
   COMPANY_INFO: {
     NAME: 'Network Pro Strategies',
     APP_NAME: 'Network Pro™',
-    YEAR: '2025',
+    YEAR: '2025, 2026',
   },
   CONTACT: {
     EMAIL: 'support (at) netwk.pro',
