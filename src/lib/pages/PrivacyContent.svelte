@@ -55,7 +55,7 @@ This file is part of Network Pro.
   ];
 
   /** @type {string} */
-  const effectiveDate = 'October 21, 2025';
+  const effectiveDate = 'January 11, 2026';
 
   /** @type {string} */
   const classSmall = 'small-text';
@@ -164,15 +164,15 @@ This file is part of Network Pro.
         the privacy of clients and website visitors. This Privacy Policy outlines
         how we collect, use, and safeguard your information when you interact with
         our website or services, consistent with applicable U.S. federal law and Arizona
-        law, including Title 18, Chapter 5, Article 4 of the
+        law, including
         <strong>
           <a
             rel={PAGE.REL}
             href="https://www.azleg.gov/arstitle"
             target={PAGE.BLANK}>
-            Arizona Revised Statutes
+            A.R.S.
           </a>
-        </strong> (A.R.S. §§ 18-551, 18-552).
+        </strong> §§ 18-551, 18-552.
       </p>
     {:else if link.id === 'collect'}
       <ul>
