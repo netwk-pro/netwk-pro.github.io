@@ -63,7 +63,7 @@ This file is part of Network Pro.
    * @type {{ effectiveDate: string, classSmall: string }}
    */
   const constants = {
-    effectiveDate: 'October 21, 2025',
+    effectiveDate: 'January 11, 2026',
     classSmall: 'small-text',
   };
 </script>
@@ -81,7 +81,7 @@ This file is part of Network Pro.
 </section>
 
 <section id="page-title">
-  <h1>Website Terms of Use</h1>
+  <h1>Terms of Use</h1>
   <p>
     <strong>{COMPANY_INFO.NAME}</strong><br />
     <strong>Effective Date:</strong>
@@ -130,7 +130,7 @@ This file is part of Network Pro.
 
     {#if link.id === 'introduction'}
       <p>
-        Welcome! By accessing or using any of the platforms operated by {COMPANY_INFO.NAME}
+        By accessing or using any of the platforms operated by {COMPANY_INFO.NAME}
         ("Company," "we," "us," or "our"), you agree to be bound by these Terms of
         Use ("Terms"). If you do not agree to these Terms, please refrain from using
         our services.
@@ -140,10 +140,9 @@ This file is part of Network Pro.
         These Terms of Use apply to all platforms associated with the Company,
         including but not limited to:
         <strong>
-          GitHub, our main website (hosted via Vercel and GitHub Pages), Stack
-          Overflow Teams, Nextcloud, communications on Discord and/or Slack, and
-          our social media presence (e.g., Facebook, Instagram, X, and similar
-          platforms).
+          GitHub, our websites (hosted via Vercel), Stack Internal, Nextcloud,
+          communications on Discord, and our social media presence (e.g.,
+          Facebook, Instagram, X, and similar platforms).
         </strong>
       </p>
     {:else if link.id === 'acceptable-use'}
