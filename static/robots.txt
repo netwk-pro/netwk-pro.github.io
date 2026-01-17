@@ -28,7 +28,6 @@ Disallow: /privacy-rights
 Disallow: /consultation
 Disallow: /links
 Disallow: /posts
-Disallow: /privacy-rights
 
 # --- Error / system routes
 Disallow: /..404

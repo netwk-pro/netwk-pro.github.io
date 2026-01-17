@@ -11,11 +11,11 @@ This file is part of Network Pro.
  * @description Unit test for src/lib/utils/purify.js
  * @module tests/unit/lib/util
  * @author Scott Lopez
- * @updated 2025-06-01
+ * @updated 2026-01-15
  */
 
+import { sanitizeHtml } from '$lib/utils/purify.js';
 import { describe, expect, it } from 'vitest';
-import { sanitizeHtml } from '../../../../../src/lib/utils/purify.js';
 
 describe('sanitizeHtml', () => {
   it('removes dangerous tags like <script>', async () => {

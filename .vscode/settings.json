@@ -20,7 +20,7 @@
   "eslint.workingDirectories": ["D:\\Netwk-Pro\\git\\netwk-pro.github.io"],
   "eslint.validate": ["svelte", "javascript", "javascriptreact"],
   "eslint.lintTask.enable": true,
-  "eslint.lintTask.options": ". --ext .mjs,.js,.svelte --config eslint.config.mjs",
+  "eslint.lintTask.options": ". --ext .mjs,.js,.cjs,.svelte --config eslint.config.mjs",
   "eslint.useESLintClass": true,
   "eslint.useFlatConfig": true,
   "eslint.codeActionsOnSave.mode": "problems",

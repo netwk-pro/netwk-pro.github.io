@@ -6,8 +6,16 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
+/**
+ * @file unregisterServiceWorker.test.js
+ * @description Unit test for unregisterServiceWorker.js
+ * @module tests/unit/client/lib
+ * @author Scott Lopez
+ * @updated 2026-01-15
+ */
+
+import { unregisterServiceWorker } from '$lib/unregisterServiceWorker.js';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { unregisterServiceWorker } from '../../../../src/lib/unregisterServiceWorker.js';
 
 describe('unregisterServiceWorker()', () => {
   beforeEach(() => {

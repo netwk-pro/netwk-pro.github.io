@@ -13,8 +13,6 @@ on:
     branches: [master]
   workflow_dispatch:
 
-# cspell:ignore tostring
-
 # Sets permissions of the GITHUB_TOKEN to allow read access to repo and write
 # permission for PRs for comment summary
 permissions:
@@ -160,3 +158,4 @@ jobs:
           path: .lighthouseci/
           include-hidden-files: true
           if-no-files-found: error
+# cspell:ignore tostring
