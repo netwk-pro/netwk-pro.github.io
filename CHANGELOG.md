@@ -24,6 +24,25 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.2] - 2026-01-17
+
+### Changed
+
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.50.0**.
+- Updated `.nvmrc` and `.node-version` to utilize **Node.js** `v24.13.0`.
+- Bumped project version to `v1.26.2`.
+- Updated dependencies:
+  - `@sveltejs/kit` `2.49.5` → `2.50.0`
+  - `posthog-js` `^1.323.0` → `^1.327.0`
+  - `eslint-plugin-jsdoc` `^62.0.0` → `^62.0.1`
+
+### Security
+
+- Updated transitive dependency override to address reported vulnerabilities:
+  - `tar@7.5.2` → `tar@7.5.3` (addresses CVE-2026-23745).
+
+---
+
 ## [1.26.1] - 2026-01-15
 
 ### Changed
@@ -2224,7 +2243,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.1...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.2...HEAD
+[1.26.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.2
 [1.26.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.1
 [1.26.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.0
 [1.25.24]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.25.24
