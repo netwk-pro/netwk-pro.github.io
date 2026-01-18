@@ -6,6 +6,14 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
+/**
+ * @file utm.test.js
+ * @description Unit test for UTM parameters
+ * @module tests/unit/client/lib/utils
+ * @author Scott Lopez
+ * @updated 2026-01-15
+ */
+
 // Mock SvelteKit environment and store
 vi.mock('$app/environment', () => ({ browser: true }));
 
