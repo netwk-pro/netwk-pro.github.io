@@ -22,7 +22,6 @@ devices-list.json
 
 # Scripts
 scripts/multipleBundleCss.js
-scripts/testRedirects.js.bak
 
 # Source maps
 *.map
@@ -45,6 +44,7 @@ Thumbs.db
 !.env.template
 !.env.example
 !.env.test
+!.env.codex
 
 # Vite
 vite.config.js.timestamp-*

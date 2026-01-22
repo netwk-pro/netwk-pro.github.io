@@ -49,6 +49,15 @@ export async function initPostHog() {
   const { isAudit, isDebug, isDev, isTest, mode, effective } =
     detectEnvironment();
 
+  const isCodex =
+    import.meta.env.PUBLIC_CODEX === 'true' || import.meta.env.CODEX === 'true';
+
+  // 🤖 Skip analytics entirely in Codex environments
+  if (isCodex) {
+    console.info('[PostHog] Skipping analytics (Codex environment).');
+    return;
+  }
+
   // 🌐 Hybrid hostname + environment guard
   const host = window.location.hostname;
   const isAuditHost = /(^|\.)audit\.netwk\.pro$/i.test(host);
