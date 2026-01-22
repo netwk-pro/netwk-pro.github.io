@@ -24,6 +24,40 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.3] - 2026-01-21
+
+### Added
+
+- **Codex-aware analytics guard** in `src/lib/stores/posthog.js` to explicitly skip PostHog initialization when the application is executed by automation or AI-assisted tooling.  
+  This prevents analytics side effects during non-interactive builds, cloud executions, and AI-driven analysis while preserving normal production behavior.
+- **`.env.codex` environment configuration** to support Codex and similar automation tools.  
+  This file defines a controlled, non-interactive execution context that mirrors production build semantics without enabling analytics or requiring secrets, enabling safe use of cloud-based AI and CI-style tooling.
+- **`CLAUDE.md` project guidance file** to provide persistent, repository-level instructions for Claude Code and other AI-assisted development tools.  
+  The file establishes clear expectations and constraints for AI usage, including:
+  - **AI guardrails** that prohibit changes to security posture, environment detection logic, deployment assumptions, or analytics behavior without explicit human approval.
+  - An explicit **Allowed AI Uses** section defining safe, permitted activities such as code comprehension, incremental feature development, bug fixing, testing, and documentation updates.
+
+### Changed
+
+- **Project version bumped** to `v1.26.3`.
+- **Dependency updates** to incorporate upstream fixes, improvements, and compatibility updates:
+  - `prettier` `3.8.0` → `3.8.1`
+  - `eslint-plugin-jsdoc` `^62.0.1` → `^62.3.0`
+  - `lightningcss` `^1.30.2` → `^1.31.1`
+  - `posthog-js` `^1.327.0` → `^1.334.0`
+  - `svelte` `5.46.4` → `5.48.0`
+
+### Security
+
+- **Updated transitive dependency override** to remediate a reported vulnerability:
+  - `tar` `7.5.3` → `7.5.6`  
+    _(addresses CVE-2026-23950)_
+- **Added transitive dependency override** to mitigate a reported vulnerability:
+  - `lodash` pinned to `4.17.23`  
+    _(addresses CVE-2025-13465)_
+
+---
+
 ## [1.26.2] - 2026-01-17
 
 ### Changed
@@ -2243,7 +2277,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.2...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.3...HEAD
+[1.26.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.3
 [1.26.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.2
 [1.26.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.1
 [1.26.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.0

@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.26.2",
+  "version": "1.26.3",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advocacy",
@@ -43,6 +43,8 @@
     "build": "vite build --mode production",
     "build:audit": "vite build --mode audit",
     "build:vercel": "vercel build",
+    "build:codex": "vite build --mode codex",
+    "dev:codex": "vite dev --mode codex",
     "preview": "vite preview",
     "css:bundle": "node scripts/bundleCss.js",
     "prepare": "svelte-kit sync && npx simple-git-hooks || echo ''",
@@ -88,9 +90,9 @@
   },
   "dependencies": {
     "dompurify": "^3.3.1",
-    "posthog-js": "^1.327.0",
+    "posthog-js": "^1.334.0",
     "semver": "^7.7.3",
-    "svelte": "5.46.4"
+    "svelte": "5.48.0"
   },
   "devDependencies": {
     "@eslint/compat": "^2.0.1",
@@ -108,18 +110,18 @@
     "browserslist": "^4.28.1",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-jsdoc": "^62.0.1",
+    "eslint-plugin-jsdoc": "^62.3.0",
     "eslint-plugin-svelte": "^3.14.0",
     "globals": "^17.0.0",
     "globby": "^16.1.0",
     "jsdom": "27.4.0",
-    "lightningcss": "^1.30.2",
+    "lightningcss": "^1.31.1",
     "markdownlint": "^0.40.0",
     "markdownlint-cli2": "0.20.0",
     "npm-run-all": "^4.1.5",
     "playwright": "^1.57.0",
     "postcss": "^8.5.6",
-    "prettier": "3.8.0",
+    "prettier": "3.8.1",
     "prettier-plugin-svelte": "^3.4.1",
     "simple-git-hooks": "^2.13.1",
     "stylelint": "^17.0.0",
@@ -140,8 +142,9 @@
     "cookie": "^1.0.0",
     "glob": "^11.1.0",
     "js-yaml": "^4.1.1",
+    "lodash": "^4.17.23",
     "qs": "^6.14.1",
-    "tar": "^7.5.3",
+    "tar": "^7.5.6",
     "tmp": "^0.2.4"
   }
 }
