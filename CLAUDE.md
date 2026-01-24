@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+For tool-neutral operational guidance for automated agents (e.g., Codex, CI bots), see `AGENTS.md`.
+
 <!-- markdownlint-disable -->
 
 ## Project Overview
