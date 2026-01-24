@@ -24,6 +24,40 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.4] - 2026-01-24
+
+### Added
+
+- Added `AGENTS.md` to provide operational, tool-neutral guidance for automated agents.
+
+### Changed
+
+- **Workflow tooling updates** to keep CI aligned with upstream releases:
+  - `npm` upgraded to `11.8.0` across build/test/publish workflows.
+  - `actions/checkout` `v5` → `v6`, `actions/upload-artifact` `v4` → `v6`, and `actions/github-script` `v7` → `v8`.
+  - Restored Node.js/npm version logging in `publish-test` workflow jobs.
+- **Documentation note added** in `CLAUDE.md` to point automation tools to `AGENTS.md`.
+- **Playwright E2E stabilization** (Firefox + SvelteKit SPA navigation):
+  - Updated the shared navigation helper (`tests/e2e/shared/helpers.js`) to prefer SPA-safe URL-change waiting (polling assertions) over navigation lifecycle events, improving Firefox stability.
+  - Strengthened the desktop “About link” test (`tests/e2e/app.spec.js`) with a stable `/about` page marker assertion (`"Security, with Intent"`) to reduce intermittent flakes.
+- Refreshed timestamp for root route in `static/sitemap.xml`.
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.50.1**.
+- **Project version bumped** to `v1.26.4`.
+- Updated dependencies:
+  - `@sveltejs/adapter-vercel` `^6.3.0` → `^6.3.1`
+  - `@sveltejs/kit` `2.50.0` → `2.50.1`
+  - `@vitest/coverage-v8` `4.0.17` → `4.0.18`
+  - `svelte` `5.48.0` → `5.48.2`
+  - `vite-tsconfig-paths` `^6.0.4` → `^6.0.5`
+  - `vitest` `4.0.17` → `4.0.18`
+  - `@playwright/test` `^1.57.0` → `^1.58.0`
+  - `eslint-plugin-jsdoc` `^62.3.0` → `^62.4.1`
+  - `globals` `^17.0.0` → `^17.1.0`
+  - `playwright` `^1.57.0` → `^1.58.0`
+  - `posthog-js` `^1.334.0` → `^1.335.2`
+
+---
+
 ## [1.26.3] - 2026-01-21
 
 ### Added
@@ -2277,7 +2311,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.3...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.4...HEAD
+[1.26.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.4
 [1.26.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.3
 [1.26.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.2
 [1.26.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.1

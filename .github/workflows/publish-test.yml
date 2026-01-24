@@ -40,15 +40,15 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
 
-      #- name: Show Node.js and npm versions
-      #  run: |
-      #    echo "Node.js version: $(node -v)"
-      #    echo "npm version: $(npm -v)"
+      - name: Show Node.js and npm versions
+        run: |
+          echo "Node.js version: $(node -v)"
+          echo "npm version: $(npm -v)"
 
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.7.0
+          npm install -g npm@11.8.0
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -126,15 +126,15 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
 
-      #- name: Show Node.js and npm versions
-      #  run: |
-      #    echo "Node.js version: $(node -v)"
-      #    echo "npm version: $(npm -v)"
+      - name: Show Node.js and npm versions
+        run: |
+          echo "Node.js version: $(node -v)"
+          echo "npm version: $(npm -v)"
 
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.7.0
+          npm install -g npm@11.8.0
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -187,15 +187,15 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
 
-      #- name: Show Node.js and npm versions
-      #  run: |
-      #    echo "Node.js version: $(node -v)"
-      #    echo "npm version: $(npm -v)"
+      - name: Show Node.js and npm versions
+        run: |
+          echo "Node.js version: $(node -v)"
+          echo "npm version: $(npm -v)"
 
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.7.0
+          npm install -g npm@11.8.0
 
       - name: Install Node.js dependencies
         run: npm ci

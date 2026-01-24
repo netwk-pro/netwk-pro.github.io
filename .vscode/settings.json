@@ -42,5 +42,5 @@
     ".vscode/customData.json" // Path to your custom data file
   ],
   "markdown.validate.enabled": false,
-  "chatgpt.openOnStartup": true
+  "chatgpt.openOnStartup": false
 }

@@ -69,7 +69,10 @@ test.describe('Desktop Tests', () => {
       timeout: 60000,
     });
 
-    await expect(page).toHaveURL(/\/about/);
+    // ✅ “ready” assertion to eliminate flake (SPA + Firefox)
+    await expect(
+      page.getByRole('heading', { name: 'Security, with Intent' }),
+    ).toBeVisible();
   });
 }); // End Desktop Tests
 
