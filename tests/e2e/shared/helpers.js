@@ -14,6 +14,8 @@ This file is part of Network Pro.
  * @updated 2025-11-12
  */
 
+import { expect } from '@playwright/test';
+
 const DEBUG_LOGS = false; // set to true to enable console logs
 
 /**
@@ -88,28 +90,28 @@ export function getFooter(page) {
 }
 
 /**
- * Click + wait for SPA or full navigation event.
+ * Clicks a locator and waits for a URL change (SPA-safe).
+ * This avoids relying on navigation lifecycle events (load/domcontentloaded),
+ * which can be flaky or aborted in SPA routing (notably in Firefox).
  *
  * @param {import('@playwright/test').Page} page
  * @param {import('@playwright/test').Locator} locator
- * @param {{ urlPattern?: string | RegExp, timeout?: number }} [options]
+ * @param {{ urlPattern?: RegExp, timeout?: number }} [options]
+ * @returns {Promise<void>}
  */
 export async function clickAndWaitForNavigation(page, locator, options = {}) {
   const { urlPattern = /\/.*/, timeout = 60000 } = options;
 
   await locator.scrollIntoViewIfNeeded();
-  await locator.waitFor({ state: 'visible', timeout: 60000 });
+  await locator.waitFor({ state: 'visible', timeout });
 
   const previousURL = page.url();
 
-  const [, newURL] = await Promise.all([
-    page.waitForURL(
-      (url) =>
-        url.toString() !== previousURL && urlPattern.test(url.toString()),
-      { timeout },
-    ),
-    locator.click().then(() => page.url()),
-  ]);
+  await locator.click();
 
+  // SPA-stable URL wait (polling) — does not depend on navigation lifecycle
+  await expect(page).toHaveURL(urlPattern, { timeout });
+
+  const newURL = page.url();
   console.log(`✅ Navigation from ${previousURL} → ${newURL}`);
 }
