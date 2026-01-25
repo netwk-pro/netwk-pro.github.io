@@ -32,6 +32,7 @@ version increments reflecting both user-visible and operational impact.
 
 ### Changed
 
+- `.github/workflows/deploy-audit-netlify.yml`: Added `workflow_dispatch` so the audit Netlify deployment can be triggered manually (e.g., when `audit-netlify` is already in sync and no new push occurs).
 - `package.json`: Updated `simple-git-hooks` configuration to run `bash scripts/hooks/pre-push.sh` on `pre-push` (alongside the existing `pre-commit` hook).
 - Bumped project version to `v1.26.5`.
 
