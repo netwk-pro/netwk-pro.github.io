@@ -10,6 +10,7 @@ on:
   push:
     branches:
       - audit-netlify
+  workflow_dispatch: {}
 
 permissions:
   contents: read
