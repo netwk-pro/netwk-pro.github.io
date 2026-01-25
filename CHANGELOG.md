@@ -24,6 +24,20 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.5]
+
+### Added
+
+- `.github/workflows/sync-audit-netlify.yml`: Manual GitHub Actions workflow (`workflow_dispatch`) to sync `audit-netlify` from `master`, including a run summary and a push to `audit-netlify` to trigger the Netlify audit deployment.
+- `scripts/hooks/pre-push.sh`: `simple-git-hooks` pre-push guard to prevent accidental pushes directly to `master`/`main` while preserving the existing `npm run checkout` pre-push behavior.
+
+### Changed
+
+- `package.json`: Updated `simple-git-hooks` configuration to run `bash scripts/hooks/pre-push.sh` on `pre-push` (alongside the existing `pre-commit` hook).
+- Bumped project version to `v1.26.5`.
+
+---
+
 ## [1.26.4] - 2026-01-24
 
 ### Added
@@ -2311,7 +2325,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.4...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.5...HEAD
+[1.26.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.5
 [1.26.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.4
 [1.26.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.3
 [1.26.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.2
