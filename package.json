@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.26.4",
+  "version": "1.26.5",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advocacy",
@@ -86,7 +86,7 @@
   },
   "simple-git-hooks": {
     "pre-commit": "if [ \"$CI\" = \"true\" ]; then exit 0; else npm run lint:all; fi",
-    "pre-push": "if [ \"$CI\" = \"true\" ]; then exit 0; else npm run checkout; fi"
+    "pre-push": "bash scripts/hooks/pre-push.sh"
   },
   "dependencies": {
     "dompurify": "^3.3.1",
