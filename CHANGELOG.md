@@ -28,7 +28,6 @@ version increments reflecting both user-visible and operational impact.
 
 ### Added
 
-- `.github/workflows/sync-audit-netlify.yml`: Manual GitHub Actions workflow (`workflow_dispatch`) to sync `audit-netlify` from `master`, including a run summary and a push to `audit-netlify` to trigger the Netlify audit deployment.
 - `scripts/hooks/pre-push.sh`: `simple-git-hooks` pre-push guard to prevent accidental pushes directly to `master`/`main` while preserving the existing `npm run checkout` pre-push behavior.
 
 ### Changed
