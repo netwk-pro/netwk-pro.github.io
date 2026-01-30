@@ -14,8 +14,6 @@ This file is part of Network Pro.
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
-  //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
-
   const { COMPANY_INFO, CONTACT, PAGE, NAV } = CONSTANTS;
 
   // Dynamic links for licensing and trademark
@@ -25,6 +23,9 @@ This file is part of Network Pro.
 
   /** @type {string} */
   const creatorUrl = 'https://netwk.pro';
+
+  /** @type {string} */
+  const businessName = 'Network Pro Strategies, LLC';
 
   /** @type {string} */
   const creatorSlogan = 'Locking Down Networks...';
@@ -96,7 +97,7 @@ This file is part of Network Pro.
       property="cc:attributionName"
       href={creatorUrl}
       target={PAGE.BLANK}>
-      <strong>{COMPANY_INFO.NAME}</strong>
+      <strong>{businessName}</strong>
     </a>
     ({COMPANY_INFO.APP_NAME})
   </p>
@@ -106,7 +107,7 @@ This file is part of Network Pro.
     {COMPANY_INFO.APP_NAME}, the shield logo, and the "{creatorSlogan}&trade;"
     slogan are
     <a href={trademarkLink} target={PAGE.SELF}>trademarks</a>
-    of {COMPANY_INFO.NAME}.
+    of {businessName}.
   </p>
 
   <!-- Licensing Section -->

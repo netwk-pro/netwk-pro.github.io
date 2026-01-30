@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.26.5",
+  "version": "1.26.6",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advocacy",
@@ -90,9 +90,9 @@
   },
   "dependencies": {
     "dompurify": "^3.3.1",
-    "posthog-js": "^1.335.2",
+    "posthog-js": "^1.336.2",
     "semver": "^7.7.3",
-    "svelte": "5.48.2"
+    "svelte": "5.49.0"
   },
   "devDependencies": {
     "@eslint/compat": "^2.0.1",
@@ -112,7 +112,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsdoc": "^62.4.1",
     "eslint-plugin-svelte": "^3.14.0",
-    "globals": "^17.1.0",
+    "globals": "^17.2.0",
     "globby": "^16.1.0",
     "jsdom": "27.4.0",
     "lightningcss": "^1.31.1",
@@ -144,7 +144,7 @@
     "js-yaml": "^4.1.1",
     "lodash": "^4.17.23",
     "qs": "^6.14.1",
-    "tar": "^7.5.6",
+    "tar": "^7.5.7",
     "tmp": "^0.2.4"
   }
 }
