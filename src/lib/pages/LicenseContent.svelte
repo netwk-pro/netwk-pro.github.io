@@ -14,8 +14,6 @@ This file is part of Network Pro.
   // Log the base path to verify its value
   //console.log("Base path:", base);
 
-  //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
-
   const { COMPANY_INFO, CONTACT, PAGE, LINKS, NAV } = CONSTANTS;
 
   /**
@@ -65,7 +63,7 @@ This file is part of Network Pro.
    * @type {{ effectiveDate: string, classSmall: string }}
    */
   const constants = {
-    effectiveDate: 'June 4, 2025',
+    effectiveDate: 'January 29, 2026',
     classSmall: 'small-text',
   };
 </script>
@@ -133,7 +131,9 @@ This file is part of Network Pro.
       <p>
         Copyright &copy; {COMPANY_INFO.YEAR}
         <strong>
-          <a href={homeLink} target={PAGE.BLANK}> {COMPANY_INFO.NAME} </a>
+          <a href={homeLink} target={PAGE.BLANK}>
+            Network Pro Strategies, LLC
+          </a>
         </strong>
         ({COMPANY_INFO.APP_NAME})
       </p>

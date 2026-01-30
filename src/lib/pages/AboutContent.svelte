@@ -210,7 +210,7 @@ This file is part of Network Pro.
 </p>
 
 <p>
-  <strong>{COMPANY_INFO.NAME}</strong><br />
+  <strong>Network Pro Strategies, LLC</strong><br />
   📞 Phone: {CONTACT.PHONE}<br />
   📧 General Inquiries:
   <a href={`mailto:${CONTACT.EMAIL_LINK}`} target={PAGE.BLANK}>

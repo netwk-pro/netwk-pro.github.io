@@ -1,4 +1,4 @@
-<!-- =====================================================================
+ <!-- =====================================================================
 CHANGELOG.md
 
 Copyright © 2025-2026-2026 Network Pro Strategies (Network Pro™)
@@ -24,7 +24,27 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
-## [1.26.5]
+## [1.26.6] - 2026-01-29
+
+### Changed
+
+- Added Prettier to the `npm-check-updates` ignore list (`.ncurc.cjs`) for deterministic formatting changes.
+- Updated the company name in `src/lib/pages/AboutContent.svelte` to the full, legal name.
+- Updated the copyright statement in `src/lib/pages/LicenseContent.svelte` to use the full, legal company name.
+- Updated the footer to display the full, legal company name.
+- Bumped project version to `v1.26.6`.
+- Updated dependencies:
+  - `globals` `^17.1.0` → `^17.2.0`
+  - `posthog-js` `^1.335.2` → `^1.336.2`
+  - `svelte` `5.48.2` → `5.49.0`
+
+### Security
+
+- Pinned the `tar` package to `^7.5.7` in transitive dependencies, in order to address CVE-2026-24842.
+
+---
+
+## [1.26.5] - 2026-01-24
 
 ### Added
 
@@ -2325,7 +2345,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.5...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.6...HEAD
+[1.26.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.6
 [1.26.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.5
 [1.26.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.4
 [1.26.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.3
