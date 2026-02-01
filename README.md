@@ -578,7 +578,7 @@ _Designed for professionals. Hardened for privacy. Built with intent._
 <span style="font-size: 12px; text-align: center;">
 
 Copyright &copy; 2025, 2026  
-**[Network Pro Strategies](https://netwk.pro) (Network Pro&trade;)**
+**[Network Pro Strategies, LLC](https://netwk.pro) (Network Pro&trade;)**
 
 Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/legal#trademark) of Network Pro Strategies.
 

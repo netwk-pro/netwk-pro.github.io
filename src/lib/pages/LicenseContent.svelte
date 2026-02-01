@@ -63,7 +63,7 @@ This file is part of Network Pro.
    * @type {{ effectiveDate: string, classSmall: string }}
    */
   const constants = {
-    effectiveDate: 'January 29, 2026',
+    effectiveDate: 'January 31, 2026',
     classSmall: 'small-text',
   };
 </script>
@@ -140,6 +140,7 @@ This file is part of Network Pro.
     {:else if link.id === 'trademark'}
       <p>The following trademarks are the exclusive property of the Company:</p>
       <ul>
+        <li><strong>Trade Name:</strong> {COMPANY_INFO.NAME}&trade;</li>
         <li><strong>Brand Name:</strong> {COMPANY_INFO.APP_NAME}</li>
         <li><strong>Domain Names:</strong> netwk.pro, neteng.pro, neteng.cc</li>
         <li

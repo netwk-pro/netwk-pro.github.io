@@ -1,10 +1,16 @@
+<!-- =====================================================================
+CLAUDE.md
+
+Copyright © 2025-2026 Network Pro Strategies (Network Pro™)
+SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
+This file is part of Network Pro.
+====================================================================== -->
+
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 For tool-neutral operational guidance for automated agents (e.g., Codex, CI bots), see `AGENTS.md`.
-
-<!-- markdownlint-disable -->
 
 ## Project Overview
 
@@ -160,7 +166,7 @@ The service worker is defined in `src/service-worker.js` and handles:
 
 ### Component Organization
 
-```
+```shell
 src/lib/
 ├── components/         # Reusable Svelte components
 │   ├── layout/        # Header, Footer
@@ -225,6 +231,7 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 
 1. Create `src/routes/your-route/+page.svelte`
 2. Create `src/routes/your-route/+page.server.js` for metadata:
+
    ```javascript
    export function load() {
      return {
@@ -235,6 +242,7 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
      };
    }
    ```
+
 3. Add corresponding E2E test in `tests/e2e/app.spec.js`
 4. Update sitemap at `static/sitemap.xml` if needed
 
