@@ -24,7 +24,7 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
-## [1.26.7] - 2026-01-31
+## [1.26.7] - 2026-02-01
 
 ### Changed
 

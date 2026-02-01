@@ -14,7 +14,7 @@ This file is part of Network Pro.
 # Legal, Copyright, and Licensing
 
 **Network Pro Strategies**  
-**Effective Date:** January 31, 2026
+**Effective Date:** February 1, 2026
 
 **Official Version Notice**  
 This document is provided for convenience only. In the event of any discrepancy, the authoritative version is the one published at [https://netwk.pro](https://netwk.pro).

@@ -63,7 +63,7 @@ This file is part of Network Pro.
    * @type {{ effectiveDate: string, classSmall: string }}
    */
   const constants = {
-    effectiveDate: 'January 31, 2026',
+    effectiveDate: 'February 1, 2026',
     classSmall: 'small-text',
   };
 </script>
