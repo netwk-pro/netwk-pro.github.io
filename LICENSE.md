@@ -14,7 +14,7 @@ This file is part of Network Pro.
 # Legal, Copyright, and Licensing
 
 **Network Pro Strategies**  
-**Effective Date:** June 4, 2025
+**Effective Date:** February 1, 2026
 
 **Official Version Notice**  
 This document is provided for convenience only. In the event of any discrepancy, the authoritative version is the one published at [https://netwk.pro](https://netwk.pro).
@@ -53,7 +53,7 @@ This document is provided for convenience only. In the event of any discrepancy,
 
 All content—including text, software, logos, graphics, documentation, and other materials—provided by **Network Pro Strategies** (“Network Pro&trade;”, “Company”, “Licensor”) is protected by U.S. and international copyright laws.
 
-Copyright &copy; 2025, 2026 **[Network Pro Strategies](https://netwk.pro)** (Network Pro&trade;)
+Copyright &copy; 2025, 2026 **[Network Pro Strategies, LLC](https://netwk.pro)** (Network Pro&trade;)
 
 <a name="trademark"></a>
 
@@ -61,6 +61,7 @@ Copyright &copy; 2025, 2026 **[Network Pro Strategies](https://netwk.pro)** (Net
 
 The following trademarks are the exclusive property of the Company:
 
+- **Trade Name:** Network Pro Strategies&trade;
 - **Brand Name:** Network Pro&trade;
 - **Domain Names:** netwk.pro, neteng.pro, neteng.cc
 - **Logo:** The shield logo displayed on our homepage
@@ -244,7 +245,7 @@ The Company may be contacted via our [Contact Form](https://netwk.pro/contact) o
 <div style="font-size: 12px; text-align: center;">
 
 Copyright &copy; 2025, 2026  
-**[Network Pro Strategies](https://netwk.pro/)** (Network Pro&trade;)
+**[Network Pro Strategies, LLC](https://netwk.pro/)** (Network Pro&trade;)
 
 Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](#trademark) of Network Pro Strategies.
 
