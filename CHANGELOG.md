@@ -24,6 +24,30 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.7] - 2026-02-01
+
+### Changed
+
+- Refreshed timestamp for `/legal` route in `static/sitemap.xml`.
+- Added standardized header to `AGENTS.md`, `CLAUDE.md`, `VERSIONING.md`, and `.github/COMMIT_GUIDE.md`, as well as all issue templates.
+- Updated footer of `LICENSE.md` and `README.md` to reflect the company's full legal name.
+- Refreshed **Effective Date** for Legal, Copyright, and Licensing route (`/legal`).
+- Updated `src/lib/pages/LicenseContent.svelte` to include our trade name.
+- Bumped project version to `v1.26.7`.
+- Updated dependencies:
+  - `@eslint/compat` `^2.0.1` → `^2.0.2`
+  - `@playwright/test` `^1.58.0` → `^1.58.1`
+  - `autoprefixer` `^10.4.23` → `^10.4.24`
+  - `playwright` `^1.58.0` → `^1.58.1`
+  - `posthog-js` `^1.336.2` → `^1.336.4`
+  - `svelte` `5.49.0` → `5.49.1`
+  - `svelte-check` `^4.3.5` → `^4.3.6`
+  - `eslint-plugin-jsdoc` `^62.4.1` → `^62.5.0`
+  - `globals` `^17.2.0` → `^17.3.0`
+  - `stylelint` `^17.0.0` → `^17.1.0`
+
+---
+
 ## [1.26.6] - 2026-01-29
 
 ### Changed
@@ -2345,7 +2369,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.6...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.7...HEAD
+[1.26.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.7
 [1.26.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.6
 [1.26.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.5
 [1.26.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.4
