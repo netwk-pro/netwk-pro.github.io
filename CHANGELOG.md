@@ -24,6 +24,28 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.8] - 2026-02-07
+
+### Changed
+
+- Refreshed timestamp for main route in `static/sitemap.xml`.
+- Updated all GitHub Actions workflows to utilize **npm 11.9.0**.
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.50.2**.
+- Added `eslint` and `@eslint/js` to `.ncurc.js` **reject** list, pinned `v9.39.2` in `package.json`.
+- Bumped project version to `v1.26.8`.
+- Updated dependencies:
+  - `posthog-js` `^1.336.4` → `^1.342.1`
+  - `semver` `^7.7.3` → `^7.7.4`
+  - `svelte` `5.49.1` → `5.50.0`
+  - `@playwright/test` `^1.58.1` → `^1.58.2`
+  - `@sveltejs/kit` `2.50.1` → `2.50.2`
+  - `eslint-plugin-doc` `^62.5.0` → `^62.5.3`
+  - `jsdom` `27.4.0` → `28.0.0`
+  - `playwright` `^1.58.1` → `^1.58.2`
+  - `stylelint` `^17.1.0` → `^17.1.1`
+
+---
+
 ## [1.26.7] - 2026-02-01
 
 ### Changed
@@ -2369,7 +2391,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.7...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.8...HEAD
+[1.26.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.8
 [1.26.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.7
 [1.26.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.6
 [1.26.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.5
