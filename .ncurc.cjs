@@ -31,7 +31,7 @@ This file is part of Network Pro.
 /** @type {import('npm-check-updates').RunOptions} */
 module.exports = {
   // Ignore specific dependencies (prevent upgrades)
-  reject: ['prettier'],
+  reject: ['eslint', '@eslint/js'],
 
   // Always upgrade devDependencies as well
   dep: 'prod,dev',
