@@ -48,7 +48,7 @@ jobs:
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.8.0
+          npm install -g npm@11.9.0
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -134,7 +134,7 @@ jobs:
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.8.0
+          npm install -g npm@11.9.0
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -195,7 +195,7 @@ jobs:
       - name: Upgrade npm
         run: |
           corepack enable
-          npm install -g npm@11.8.0
+          npm install -g npm@11.9.0
 
       - name: Install Node.js dependencies
         run: npm ci
