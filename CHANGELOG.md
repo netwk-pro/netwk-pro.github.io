@@ -2391,7 +2391,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.7...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.8...HEAD
+[1.26.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.8
 [1.26.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.7
 [1.26.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.6
 [1.26.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.5
