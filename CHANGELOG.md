@@ -1,7 +1,7 @@
  <!-- =====================================================================
 CHANGELOG.md
 
-Copyright © 2025-2026-2026 Network Pro Strategies (Network Pro™)
+Copyright © 2025-2026 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ====================================================================== -->
@@ -21,6 +21,43 @@ version increments reflecting both user-visible and operational impact.
 ---
 
 ## [Unreleased]
+
+---
+
+## [1.26.10] - 2026-02-21
+
+### Changed
+
+- Refactored PostHog store to centralize environment gating across `initPostHog()`, `capture()`, and `identify()` via a shared `shouldSkipAnalytics()` helper.
+- Cached environment detection results to avoid repeated evaluation and ensure consistent behavior across analytics APIs.
+- Reintroduced hostname-based audit detection (`audit.netwk.pro`) as a defense-in-depth fallback alongside environment-mode audit detection.
+- Removed unnecessary comments from `src/lib/stores/posthog.js` and `src/lib/pages/LicenseContent.svelte`.
+- Corrected `tests/unit/client/lib/utils/utm.test.js` to import `vi` variable before first use.
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.53.0**.
+- Bumped project version to `v1.26.10`.
+- Updated dependencies:
+  - `@sveltejs/adapter-netlify` `^6.0.0` → `^6.0.3`
+  - `@sveltejs/adapter-vercel` `^6.3.1` → `^6.3.2`
+  - `globby` `^16.1.0` → `^16.1.1`
+  - `@sveltejs/kit` `2.51.0` → `2.53.0`
+  - `eslint-plugin-jsdoc` `^62.5.4` → `^62.7.0`
+  - `jsdom` `28.0.0` → `28.1.0`
+  - `posthog-js` `^1.347.0` → `^1.352.0`
+  - `prettier-plugin-svelte` `^3.4.1` → `^3.5.0`
+  - `stylelint` `^17.2.0` → `^17.3.0`
+  - `svelte` `5.50.3` → `5.53.2`
+  - `svelte-check` `^4.3.6` → `^4.4.3`
+  - `markdownlint-cli2` `0.20.0` → `0.21.0`
+
+### Fixed
+
+- Prevented analytics gating logic from executing during SSR by adding an explicit `typeof window === 'undefined'` guard.
+- Improved test isolation by updating `\_resetPostHog()` to reset cached environment state and tracking-related stores.
+
+### Security
+
+- Pinned the `tar` package to `^7.5.9` in transitive dependencies, in order to address CVE-2026-26960.
+- Pinned transitive `minimatch` to `>=10.2.1` to address an `npm audit`-reported high-severity ReDoS/DoS issue in older minimatch versions.
 
 ---
 
@@ -58,7 +95,7 @@ version increments reflecting both user-visible and operational impact.
   - `svelte` `5.49.1` → `5.50.0`
   - `@playwright/test` `^1.58.1` → `^1.58.2`
   - `@sveltejs/kit` `2.50.1` → `2.50.2`
-  - `eslint-plugin-doc` `^62.5.0` → `^62.5.3`
+  - `eslint-plugin-jsdoc` `^62.5.0` → `^62.5.3`
   - `jsdom` `27.4.0` → `28.0.0`
   - `playwright` `^1.58.1` → `^1.58.2`
   - `stylelint` `^17.1.0` → `^17.1.1`
@@ -2410,7 +2447,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.9...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.10...HEAD
+[1.26.10]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.10
 [1.26.9]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.9
 [1.26.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.8
 [1.26.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.7
