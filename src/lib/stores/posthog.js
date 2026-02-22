@@ -9,7 +9,9 @@ This file is part of Network Pro.
 /**
  * @file posthog.js
  * @description Privacy-aware PostHog tracking store with reactive state and safe API surface.
+ * @author Scott Lopez
  * @module src/lib/stores
+ * @updated 2026-02-21
  */
 
 import {
@@ -38,6 +40,60 @@ let initialized = false;
 let ph = null;
 
 /**
+ * Cache environment detection so capture/identify/init share the same policy
+ * without duplicating logic or repeatedly re-evaluating.
+ * @type {ReturnType<typeof detectEnvironment> | null}
+ */
+let _env = null;
+
+/** @type {RegExp} Audit hostname matcher (defense-in-depth) */
+const AUDIT_HOST_RE = /(^|\.)audit\.netwk\.pro$/i;
+
+/**
+ * Returns (and caches) the environment detection result so all callers
+ * share the same policy without recomputing.
+ *
+ * @returns {ReturnType<typeof detectEnvironment>}
+ */
+function getEnv() {
+  if (_env) return _env;
+  _env = detectEnvironment();
+  return _env;
+}
+
+/**
+ * Determines whether this build/runtime is a Codex environment.
+ *
+ * @returns {boolean}
+ */
+function isCodexEnvironment() {
+  return (
+    import.meta.env.PUBLIC_CODEX === 'true' || import.meta.env.CODEX === 'true'
+  );
+}
+
+/**
+ * Central analytics gate:
+ * - Skip entirely in Codex
+ * - Skip in audit context (mode or audit hostname)
+ * - Skip in debug context (dev/test)
+ * - Skip during SSR
+ *
+ * @returns {boolean} True if analytics should be skipped in the current runtime.
+ */
+function shouldSkipAnalytics() {
+  // Explicit SSR guard: never attempt analytics server-side
+  if (typeof window === 'undefined') return true;
+
+  const { isAudit, isDebug } = getEnv();
+  const host = window.location?.hostname || '';
+  const isAuditHost = AUDIT_HOST_RE.test(host);
+  const effectiveAudit = isAudit || isAuditHost;
+
+  return isCodexEnvironment() || effectiveAudit || isDebug;
+}
+
+/**
  * Initializes the PostHog analytics client if tracking is permitted.
  * Uses dynamic import to avoid SSR failures.
  *
@@ -46,21 +102,16 @@ let ph = null;
 export async function initPostHog() {
   if (initialized || typeof window === 'undefined') return;
 
-  const { isAudit, isDebug, isDev, isTest, mode, effective } =
-    detectEnvironment();
-
-  const isCodex =
-    import.meta.env.PUBLIC_CODEX === 'true' || import.meta.env.CODEX === 'true';
+  const { isAudit, isDebug, isDev, isTest, mode, effective } = getEnv();
 
   // 🤖 Skip analytics entirely in Codex environments
-  if (isCodex) {
+  if (isCodexEnvironment()) {
     console.info('[PostHog] Skipping analytics (Codex environment).');
     return;
   }
 
-  // 🌐 Hybrid hostname + environment guard
   const host = window.location.hostname;
-  const isAuditHost = /(^|\.)audit\.netwk\.pro$/i.test(host);
+  const isAuditHost = AUDIT_HOST_RE.test(host);
   const effectiveAudit = isAudit || isAuditHost;
 
   // 🧭 Log environment context before any conditional logic
@@ -69,6 +120,8 @@ export async function initPostHog() {
       buildMode: mode,
       effectiveMode: effective,
       host,
+      isAudit,
+      isAuditHost,
       effectiveAudit,
       isDev,
       isTest,
@@ -107,7 +160,6 @@ export async function initPostHog() {
 
     // ✅ Load public key from env
     const key = import.meta.env.PUBLIC_POSTHOG_PROJECT_KEY;
-    //console.log('✅ Key in runtime:', key);
 
     if (!key) {
       console.warn('[PostHog] ⚠️ PUBLIC_POSTHOG_PROJECT_KEY is not set.');
@@ -145,8 +197,7 @@ export async function initPostHog() {
  * @param {Record<string, any>} [properties={}] - Optional event properties
  */
 export function capture(event, properties = {}) {
-  const isDev = import.meta.env.MODE === 'development';
-  if (isDev || ph === null || !get(trackingEnabled)) return;
+  if (shouldSkipAnalytics() || ph === null || !get(trackingEnabled)) return;
 
   try {
     ph.capture(event, properties);
@@ -161,8 +212,7 @@ export function capture(event, properties = {}) {
  * @param {Record<string, any>} [properties={}] - Optional user traits
  */
 export function identify(id, properties = {}) {
-  const isDev = import.meta.env.MODE === 'development';
-  if (isDev || ph === null || !get(trackingEnabled)) return;
+  if (shouldSkipAnalytics() || ph === null || !get(trackingEnabled)) return;
 
   try {
     ph.identify(id, properties);
@@ -184,4 +234,9 @@ export function _resetPostHog() {
 
   initialized = false;
   ph = null;
+  _env = null;
+
+  // Reset stores for clean test isolation
+  trackingEnabled.set(false);
+  showReminder.set(false);
 }

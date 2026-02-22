@@ -14,16 +14,15 @@ This file is part of Network Pro.
  * @updated 2026-01-15
  */
 
+import { writable } from 'svelte/store';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
 // Mock SvelteKit environment and store
 vi.mock('$app/environment', () => ({ browser: true }));
 
-import { writable } from 'svelte/store';
-
 vi.mock('$app/stores', () => {
   const mockPageStore = writable({
-    url: {
-      pathname: '/contact',
-    },
+    url: { pathname: '/contact' },
   });
 
   return {
@@ -33,16 +32,14 @@ vi.mock('$app/stores', () => {
   };
 });
 
+// Import *after* mocks
 import { appendUTM } from '$lib/utils/utm.js';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 describe('appendUTM', () => {
   const originalWindow = globalThis.window;
 
   beforeEach(() => {
-    globalThis.window = {
-      location: { search: '' },
-    };
+    globalThis.window = { location: { search: '' } };
   });
 
   afterEach(() => {
