@@ -24,6 +24,32 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.11] - 2026-02-28
+
+### Changed
+
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.53.4**.
+- Updated all GitHub Actions workflows to utilize **npm 11.11.0**.
+- Updated `.nvmrc` and `.node-version` to utilize **Node.js** `v24.14.0`.
+- Bumped project version to `v1.26.11`.
+- Updated dependencies:
+  - `@sveltejs/adapter-netlify` `^6.0.3` → `^6.0.4`
+  - `@sveltejs/adapter-vercel` `^6.3.2` → `^6.3.3`
+  - `@sveltejs/kit` `2.53.0` → `2.53.4`
+  - `autoprefixer` `^10.4.24` → `^10.4.27`
+  - `eslint-plugin-jsdoc` `^62.7.0` → `^62.7.1`
+  - `svelte` `5.53.2` → `5.53.6`
+  - `svelte-check` `^4.4.3` → `^4.4.4`
+  - `posthog-js` `^1.352.0` → `^1.356.1`
+  - `stylelint` `^17.3.0` → `^17.4.0`
+  - `svelte-eslint-parser` `^1.4.1` → `^1.5.1`
+
+### Security
+
+- Pinned transitive dependency `basic-ftp` to `^5.2.0` to mitigate CVE-2026-27699.
+
+---
+
 ## [1.26.10] - 2026-02-21
 
 ### Changed
@@ -2447,7 +2473,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.10...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.11...HEAD
+[1.26.11]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.11
 [1.26.10]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.10
 [1.26.9]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.9
 [1.26.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.8
