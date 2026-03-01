@@ -49,6 +49,14 @@ export default defineConfig(({ mode }) => {
 
   return {
     envPrefix: ['PUBLIC_'],
+    ssr: {
+      // posthog-js ships both CJS and ESM entries. Vite SSR externalizes it by
+      // default (it isn't pure-ESM), but Netlify's esbuild then resolves the
+      // module-field path (dist/module.js — ESM) and emits a CJS require() for
+      // that path, causing "SyntaxError: Unexpected token 'export'" at runtime.
+      // Bundling it here at Vite build time avoids that runtime resolution step.
+      noExternal: ['posthog-js'],
+    },
     plugins: [
       tsconfigPaths(),
       devtoolsJson({

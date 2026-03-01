@@ -12,7 +12,7 @@
 # ============================================================================
 
 [build]
-  command = "npm run build"
+  command = "npm run build:audit"
   publish = "build"
 
 # Enable SvelteKit SSR via Netlify Functions
