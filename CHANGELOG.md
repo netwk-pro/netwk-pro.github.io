@@ -24,6 +24,18 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.12] - 2026-03-04
+
+- Bumped project version to `v1.26.12`.
+- Updated dependencies:
+  - `postcss` `^8.5.6` → `^8.5.8`
+  - `prettier-plugin-svelte` `^3.5.0` → `^3.5.1`
+  - `svelte` `5.53.6` → `5.53.7`
+  - `globals` `^17.3.0` → `^17.4.0`
+  - `posthog-js` `^1.356.1` → `^1.358.1`
+
+---
+
 ## [1.26.11] - 2026-02-28
 
 ### Changed
@@ -2473,7 +2485,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.11...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.12...HEAD
+[1.26.12]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.12
 [1.26.11]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.11
 [1.26.10]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.10
 [1.26.9]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.9
