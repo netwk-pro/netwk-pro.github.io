@@ -26,6 +26,8 @@ version increments reflecting both user-visible and operational impact.
 
 ## [1.26.12] - 2026-03-04
 
+### Changed
+
 - Bumped project version to `v1.26.12`.
 - Updated dependencies:
   - `postcss` `^8.5.6` → `^8.5.8`
