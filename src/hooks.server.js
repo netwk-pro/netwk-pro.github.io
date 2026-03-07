@@ -51,7 +51,7 @@ export async function handle({ event, resolve }) {
 
   const cspDirectives = [
     "default-src 'self';",
-    "script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com;",
+    "script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com https://keepandroidopen.org;",
     "style-src 'self' 'unsafe-inline';",
     "img-src 'self' data:;",
     "connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com;",
@@ -66,7 +66,7 @@ export async function handle({ event, resolve }) {
   // 🧪 Looser CSP for local/CI test environments
   if (isDebug) {
     cspDirectives[1] =
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:* ws://localhost:*;";
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:* ws://localhost:* https://keepandroidopen.org;";
     cspDirectives[2] = "style-src 'self' 'unsafe-inline' http://localhost:*;";
     cspDirectives[3] = "img-src 'self' data: http://localhost:*;";
     cspDirectives[4] =
@@ -75,7 +75,8 @@ export async function handle({ event, resolve }) {
 
   // 🧩 Hardened CSP for audit environment — no analytics, no CSP reporting
   if (isAudit) {
-    cspDirectives[1] = "script-src 'self' 'unsafe-inline';";
+    cspDirectives[1] =
+      "script-src 'self' 'unsafe-inline' https://keepandroidopen.org;";
     cspDirectives[2] = "style-src 'self' 'unsafe-inline';";
     cspDirectives[3] = "img-src 'self' data:;";
     cspDirectives[4] = "connect-src 'self';";
