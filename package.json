@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.26.12",
+  "version": "1.26.13",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advocacy",
@@ -89,13 +89,13 @@
     "pre-push": "bash scripts/hooks/pre-push.sh"
   },
   "dependencies": {
-    "dompurify": "^3.3.1",
-    "posthog-js": "^1.358.1",
+    "dompurify": "^3.3.2",
+    "posthog-js": "^1.359.1",
     "semver": "^7.7.4",
     "svelte": "5.53.7"
   },
   "devDependencies": {
-    "@eslint/compat": "^2.0.2",
+    "@eslint/compat": "^2.0.3",
     "@eslint/js": "9.39.2",
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.58.2",
@@ -128,8 +128,8 @@
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended": "^18.0.0",
     "stylelint-order": "^7.0.1",
-    "svelte-check": "^4.4.4",
-    "svelte-eslint-parser": "^1.5.1",
+    "svelte-check": "^4.4.5",
+    "svelte-eslint-parser": "^1.6.0",
     "svelte-preprocess": "^6.0.3",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",

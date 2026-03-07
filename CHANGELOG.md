@@ -24,6 +24,24 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.13] - 2026-03-07
+
+### Changed
+
+- Bumped project version to `v1.26.13`.
+- Updated dependencies:
+  - `@eslint/compat` `^2.0.2` → `^2.0.3`
+  - `dompurify` `^3.3.1` → `^3.3.2`
+  - `svelte-check` `^4.4.4` → `^4.4.5`
+  - `posthog-js` `^1.358.1` → `^1.359.1`
+  - `svelte-eslint-parser` `^1.5.1` → `^1.6.0`
+
+### Security
+
+- Updated `dompurify` to `^3.3.2` to mitigate CVE-2026-0540.
+
+---
+
 ## [1.26.12] - 2026-03-04
 
 ### Changed
@@ -2487,7 +2505,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.12...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.13...HEAD
+[1.26.13]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.13
 [1.26.12]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.12
 [1.26.11]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.11
 [1.26.10]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.10
