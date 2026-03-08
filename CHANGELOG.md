@@ -24,6 +24,16 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.14] - 2026-03-07
+
+### Changed
+
+- Bumped project version to `v1.26.14`.
+- Added deferred script to `src/app.html` to display the Keep Android Open banner.
+- Allowed `https://keepandroidopen.org` in `Content-Security-Policy` `script-src` across production, audit, and dev/test modes to support the Keep Android Open banner script.
+
+---
+
 ## [1.26.13] - 2026-03-07
 
 ### Changed
@@ -2505,7 +2515,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.13...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.14...HEAD
+[1.26.14]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.14
 [1.26.13]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.13
 [1.26.12]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.12
 [1.26.11]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.11
