@@ -7,15 +7,14 @@ This file is part of Network Pro.
 ========================================================================= */
 
 import { sveltekit } from '@sveltejs/kit/vite';
-import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+//import { resolve } from 'node:path';
+//import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
-import devtoolsJson from 'vite-plugin-devtools-json';
+//import devtoolsJson from 'vite-plugin-devtools-json';
 import lightningcssPlugin from 'vite-plugin-lightningcss';
-import tsconfigPaths from 'vite-tsconfig-paths'; // tsconfig/jsconfig alias support
 
 // Compute absolute project root
-const projectRoot = fileURLToPath(new URL('.', import.meta.url));
+//const projectRoot = fileURLToPath(new URL('.', import.meta.url));
 
 export default defineConfig(({ mode }) => {
   // --- 🧩 Log Build Environment Info -------------------------------------
@@ -31,6 +30,7 @@ export default defineConfig(({ mode }) => {
   console.log('ENV_MODE:', process.env.ENV_MODE);
   console.log('PUBLIC_ENV_MODE:', process.env.PUBLIC_ENV_MODE);
   console.log('NODE_ENV:', process.env.NODE_ENV);
+
   if (
     process.env.ENV_MODE === 'audit' ||
     process.env.PUBLIC_ENV_MODE === 'audit' ||
@@ -40,6 +40,7 @@ export default defineConfig(({ mode }) => {
       '🔒 Audit Mode Detected — hardened CSP and no analytics will be applied.\n',
     );
   }
+
   console.log(
     '\x1b[36m%s\x1b[0m',
     '──────────────────────────────────────────────',
@@ -57,13 +58,15 @@ export default defineConfig(({ mode }) => {
       // Bundling it here at Vite build time avoids that runtime resolution step.
       noExternal: ['posthog-js'],
     },
+    resolve: {
+      tsconfigPaths: true,
+    },
     plugins: [
-      tsconfigPaths(),
-      devtoolsJson({
-        projectRoot: resolve(projectRoot),
-        normalizeForWindowsContainer: true,
-        uuid: 'ad0db4f4-6172-4c1e-ae17-26b1bee53764',
-      }),
+      //devtoolsJson({
+      //projectRoot: resolve(projectRoot),
+      //normalizeForWindowsContainer: true,
+      //uuid: 'ad0db4f4-6172-4c1e-ae17-26b1bee53764',
+      //}),
       sveltekit(),
       lightningcssPlugin({
         minify: ['production', 'audit'].includes(mode),
