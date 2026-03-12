@@ -46,6 +46,7 @@ const IGNORE_PATHS = new Set([
   '/webfonts/fa-brands-400.ttf',
   '/webfonts/fa-solid-900.ttf',
   '/7cbb39ce-750b-43da-83b8-8980e5554d4d.txt',
+  '/b173de6c44c144c1b186841b88d51c67.txt',
   '/robots.txt',
   '/sitemap.xml',
   '/CNAME',
@@ -73,7 +74,7 @@ const ASSETS = [
         if (isDev)
           console.warn('[SW] URL parse failed, skipping path:', path, err);
         excludedAssets.push(path);
-        return true;
+        return false;
       }
     }),
   ),
@@ -135,7 +136,9 @@ async function cacheAssetsSafely(cache, assets, required = []) {
             : `[SW] Failed to cache ${asset}: Unknown error`;
 
         if (isDev) {
-          throw new Error(msg);
+          throw err instanceof Error
+            ? new Error(msg, { cause: err })
+            : new Error(msg);
         } else {
           console.warn(msg);
         }
@@ -163,10 +166,13 @@ sw.addEventListener('install', (event) => {
   event.waitUntil(
     (async () => {
       const cache = await caches.open(CACHE);
-      let cachedPaths = [];
 
       try {
-        cachedPaths = await cacheAssetsSafely(cache, ASSETS, REQUIRED_ASSETS);
+        const cachedPaths = await cacheAssetsSafely(
+          cache,
+          ASSETS,
+          REQUIRED_ASSETS,
+        );
         if (isDev) console.log('[SW] Cached assets:', cachedPaths);
       } catch (err) {
         if (isDev) throw err;
