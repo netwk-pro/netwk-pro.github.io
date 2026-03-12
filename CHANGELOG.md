@@ -24,6 +24,45 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.15] - 2026-03-12
+
+### Changed
+
+- Updated `vite.config.js` to resolve tsconfig paths.
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.54.0**.
+- Updated all GitHub Actions workflows to utilize **npm** `11.11.1`.
+- Removed `@eslint/js` and `eslint` from `.ncurc.cjs` "reject" list.
+- Modified `vite.config.js` to comment out `vite-plugin-devtools-json` related entries until package is updated.
+- Updated `scripts/checkEnv.js` to satisfy newer ESLint rules by removing an unnecessary placeholder assignment and preserving existing validation behavior.
+- Updated `src/service-worker.js` to satisfy newer ESLint rules by preserving caught error context during precache failures and removing an unnecessary reassignment in the install handler.
+- Bumped project version to `v1.26.15`.
+- Updated dependencies:
+  - `dompurify` `^3.3.2` → `^3.3.3`
+  - `eslint-plugin-svelte` `^3.15.0` → `^3.15.2`
+  - `svelte` `5.53.7` → `5.53.11`
+  - `@sveltejs/kit` `2.53.4` → `2.54.0`
+  - `@vitest/coverage-v8` `4.0.18` → `4.1.0`
+  - `eslint-plugin-jsdoc` `^62.7.1` → `^62.8.0`
+  - `lightningcss` `^1.31.1` → `^1.32.0`
+  - `posthog-js` `^1.359.1` → `^1.360.1`
+  - `vitest` `4.0.18` → `4.1.0`
+  - `@sveltejs/vite-plugin-svelte` `^6.2.4` → `^7.0.0`
+  - `stylelint-order` `^7.0.1` → `^8.0.0`
+  - `vite` `^7.3.1` → `^8.0.0`
+  - `@eslint/js` `9.32.2` → `10.0.1`
+  - `eslint` `9.39.2` → `10.0.3`
+
+### Removed
+
+- Removed `vite-plugin-devtools-json`, as it is not compatible with Vite 8.
+- Removed `vite-tsconfig-paths`, as it is now included natively in Vite.
+
+### Security
+
+- Pinned transitive dependency `tar` to `^7.5.11` to mitigate CVE-2026-31802.
+
+---
+
 ## [1.26.14] - 2026-03-07
 
 ### Changed
@@ -2515,7 +2554,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.14...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.15...HEAD
+[1.26.15]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.15
 [1.26.14]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.14
 [1.26.13]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.13
 [1.26.12]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.12

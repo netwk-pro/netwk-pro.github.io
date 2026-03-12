@@ -12,10 +12,9 @@ This file is part of Network Pro.
  *
  * @module scripts/
  * @author Scott Lopez
- * @updated 2025-05-21
+ * @updated 2026-03-12
  */
 
-import { basename } from 'path';
 import { fileURLToPath } from 'url';
 
 const validEnvs = new Set(['dev', 'test', 'ci', 'prod', 'preview']);
@@ -30,9 +29,7 @@ const validEnvs = new Set(['dev', 'test', 'ci', 'prod', 'preview']);
  * }}
  */
 export function checkEnv() {
-  const current = process.env.ENV_MODE;
-  let mode = current;
-  let valid = false;
+  let mode = process.env.ENV_MODE;
   let wasDefaulted = false;
 
   if (!mode) {
@@ -42,14 +39,16 @@ export function checkEnv() {
     console.warn("⚠️ ENV_MODE not set. Defaulting to 'dev'.");
   }
 
-  valid = validEnvs.has(mode);
+  const allowed = [...validEnvs].sort();
+  const valid = validEnvs.has(mode);
 
   if (valid) {
-    const tag = wasDefaulted ? '[info]' : '[ok]';
-    console.log(`${tag} ENV_MODE is set to: "${mode}"`);
+    console.log(
+      `${wasDefaulted ? '[info]' : '[ok]'} ENV_MODE is set to: "${mode}"`,
+    );
   } else {
     console.error(
-      `❌ Invalid ENV_MODE "${mode}". Must be one of: ${[...validEnvs].join(', ')}`,
+      `❌ Invalid ENV_MODE "${mode}". Must be one of: ${allowed.join(', ')}`,
     );
   }
 
@@ -57,11 +56,12 @@ export function checkEnv() {
     mode,
     valid,
     wasDefaulted,
-    allowed: [...validEnvs].sort(),
+    allowed,
   };
 }
 
-// ✅ Run only if called directly via CLI
-if (basename(fileURLToPath(import.meta.url)) === basename(process.argv[1])) {
+const thisFile = fileURLToPath(import.meta.url);
+
+if (process.argv[1] && thisFile === process.argv[1]) {
   checkEnv();
 }
