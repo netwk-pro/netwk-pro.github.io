@@ -24,6 +24,27 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.16] - 2026-03-20
+
+### Changed
+
+- Updated size of **[Keep Android Open](https://keepandroidopen.org/)** banner in `src/app.html`.
+- Updated `svelte.config.js` to utilize the `nodejs24.x` runtime for `@sveltejs/adapter-vercel`.
+- Updated all **GitHub Actions** workflows to utilize **npm** `11.12.0`.
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.55.0**.
+- Bumped project version to `v1.26.16`.
+- Updated dependencies:
+  - `vite` `^8.0.0` → `^8.0.1`
+  - `@sveltejs/kit` `2.54.0` → `2.55.0`
+  - `eslint` `10.0.3` → `10.1.0`
+  - `posthog-js` `^1.360.1` → `^1.363.1`
+  - `stylelint` `^17.4.0` → `^17.5.0`
+  - `stylelint-order` `^8.0.0` → `^8.1.1`
+  - `svelte` `5.53.11` → `5.54.0`
+  - `jsdom` `28.1.0` → `29.0.1`
+
+---
+
 ## [1.26.15] - 2026-03-12
 
 ### Changed
@@ -2554,7 +2575,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.15...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.16...HEAD
+[1.26.16]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.16
 [1.26.15]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.15
 [1.26.14]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.14
 [1.26.13]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.13

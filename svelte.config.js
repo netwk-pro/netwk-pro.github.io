@@ -17,7 +17,7 @@ const config = {
   kit: {
     // Vercel adapter configuration
     adapter: adapter({
-      runtime: 'nodejs22.x',
+      runtime: 'nodejs24.x',
     }),
 
     // Paths configuration for deployment
