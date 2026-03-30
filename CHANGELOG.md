@@ -26,8 +26,6 @@ version increments reflecting both user-visible and operational impact.
 
 ## [1.26.17] - 2026-03-30
 
-## [Unreleased]
-
 ### Changed
 
 - Added `typescript` to the `npm-check-updates` reject list in `.ncurc.cjs` to prevent automatic upgrades to TypeScript 6 until SvelteKit supports it.
