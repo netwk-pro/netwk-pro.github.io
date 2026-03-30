@@ -24,6 +24,43 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.17] - 2026-03-30
+
+## [Unreleased]
+
+### Changed
+
+- Added `typescript` to the `npm-check-updates` reject list in `.ncurc.cjs` to prevent automatic upgrades to TypeScript 6 until SvelteKit supports it.
+- Updated all **GitHub Actions** workflows to utilize **npm** `11.12.1`.
+- Updated `.nvmrc` and `.node-version` to utilize **Node.js** `v24.14.1`.
+- Bumped project version to `v1.26.17`.
+- Re-added `vite-plugin-devtools-json` to `devDependencies`.
+- Added `vite-plugin-devtools-json` override section to allow the plugin to operate properly with **Vite 8**.
+- Restored pre-existing `vite-plugin-devtools-json` configuration in `vite.config.js`.
+- Updated dependencies:
+  - `@vitest/coverage-v8` `4.1.0` → `4.1.2`
+  - `eslint-plugin-jsdoc` `^62.8.0` → `^62.8.1`
+  - `vite` `^8.0.1` → `^8.0.3`
+  - `vitest` `4.1.0` → `4.1.2`
+  - `eslint-plugin-svelte` `^3.15.2` → `^3.16.0`
+  - `globby` `^16.1.1` → `^16.2.0`
+  - `posthog-js` `^1.363.1` → `^1.364.2`
+  - `stylelint` `^17.5.0` → `^17.6.0`
+  - `svelte` `5.54.0` → `5.55.1`
+  - `typescript` `^5.9.3` → `^6.0.2`
+  - `markdownlint-cli2` `0.21.0` → `0.22.0`
+
+### Fixed
+
+- Resolved an `npm audit` warning caused by the transitive `smol-toml` dependency used by `markdownlint-cli2` by adding an npm override to require `smol-toml >=1.6.1`.
+- Fixed an `npm install` dependency resolution failure by pinning `typescript` to `5.9.3`, which is compatible with `@sveltejs/kit@2.55.0`.
+
+### Security
+
+- Pinned transitive dependency `picomatch` to `>=4.0.4` to mitigate CVE-2026-33672.
+
+---
+
 ## [1.26.16] - 2026-03-20
 
 ### Changed
@@ -2575,7 +2612,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.16...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.17...HEAD
+[1.26.17]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.17
 [1.26.16]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.16
 [1.26.15]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.15
 [1.26.14]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.14

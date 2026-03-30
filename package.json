@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.26.16",
+  "version": "1.26.17",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advocacy",
@@ -90,9 +90,9 @@
   },
   "dependencies": {
     "dompurify": "^3.3.3",
-    "posthog-js": "^1.363.1",
+    "posthog-js": "^1.364.2",
     "semver": "^7.7.4",
-    "svelte": "5.54.0"
+    "svelte": "5.55.1"
   },
   "devDependencies": {
     "@eslint/compat": "^2.0.3",
@@ -105,36 +105,37 @@
     "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/svelte": "^5.3.1",
-    "@vitest/coverage-v8": "4.1.0",
+    "@vitest/coverage-v8": "4.1.2",
     "autoprefixer": "^10.4.27",
     "browserslist": "^4.28.1",
     "eslint": "10.1.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-jsdoc": "^62.8.0",
-    "eslint-plugin-svelte": "^3.15.2",
+    "eslint-plugin-jsdoc": "^62.8.1",
+    "eslint-plugin-svelte": "^3.16.0",
     "globals": "^17.4.0",
-    "globby": "^16.1.1",
+    "globby": "^16.2.0",
     "jsdom": "29.0.1",
     "lightningcss": "^1.32.0",
     "markdownlint": "^0.40.0",
-    "markdownlint-cli2": "0.21.0",
+    "markdownlint-cli2": "0.22.0",
     "npm-run-all": "^4.1.5",
     "playwright": "^1.58.2",
     "postcss": "^8.5.8",
     "prettier": "3.8.1",
     "prettier-plugin-svelte": "^3.5.1",
     "simple-git-hooks": "^2.13.1",
-    "stylelint": "^17.5.0",
+    "stylelint": "^17.6.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended": "^18.0.0",
     "stylelint-order": "^8.1.1",
     "svelte-check": "^4.4.5",
     "svelte-eslint-parser": "^1.6.0",
     "svelte-preprocess": "^6.0.3",
-    "typescript": "^5.9.3",
-    "vite": "^8.0.1",
+    "typescript": "5.9.3",
+    "vite": "^8.0.3",
+    "vite-plugin-devtools-json": "^1.0.0",
     "vite-plugin-lightningcss": "^0.0.5",
-    "vitest": "4.1.0"
+    "vitest": "4.1.2"
   },
   "overrides": {
     "basic-ftp": "^5.2.0",
@@ -143,8 +144,13 @@
     "js-yaml": "^4.1.1",
     "lodash": "^4.17.23",
     "minimatch": ">=10.2.1",
+    "picomatch": ">=4.0.4",
     "qs": "^6.14.1",
     "tar": "^7.5.11",
-    "tmp": "^0.2.4"
+    "tmp": "^0.2.4",
+    "smol-toml": ">=1.6.1",
+    "vite-plugin-devtools-json": {
+      "vite": "$vite"
+    }
   }
 }
