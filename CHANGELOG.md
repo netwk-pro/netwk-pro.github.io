@@ -24,6 +24,21 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.18] - 2026-03-30
+
+### Changed
+
+- Adjusted `engines.node` in `CHANGELOG.md` to allow only `>=24.0.0 <25`, as **Node.js** `v24` is now the current LTS release.
+- Bumped project version to `v1.26.18`.
+- Updated dependencies:
+  - `svelte-check` `^4.4.5` → `^4.4.6`
+
+### Fixed
+
+- Removed `typescript` from the list of updated dependencies in release `v1.26.17`, as it was not updated due to a lack of SvelteKit support.
+
+---
+
 ## [1.26.17] - 2026-03-30
 
 ### Changed
@@ -45,7 +60,6 @@ version increments reflecting both user-visible and operational impact.
   - `posthog-js` `^1.363.1` → `^1.364.2`
   - `stylelint` `^17.5.0` → `^17.6.0`
   - `svelte` `5.54.0` → `5.55.1`
-  - `typescript` `^5.9.3` → `^6.0.2`
   - `markdownlint-cli2` `0.21.0` → `0.22.0`
 
 ### Fixed
@@ -2610,7 +2624,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.17...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.18...HEAD
+[1.26.18]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.18
 [1.26.17]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.17
 [1.26.16]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.16
 [1.26.15]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.15
