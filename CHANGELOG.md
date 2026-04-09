@@ -24,11 +24,40 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.19] - 2026-04-09
+
+### Changed
+
+- Bumped project version to `v1.25.19`.
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.57.1**.
+- Updated dependencies:
+  - `@eslint/compat` `^2.0.3` → `^2.0.5`
+  - `@vitest/coverage-v8` `4.1.2` → `4.1.4`
+  - `browserslist` `^4.28.1` → `^4.28.2`
+  - `jsdom` `29.0.1` → `29.0.2`
+  - `postcss` `^8.5.8` → `^8.5.9`
+  - `svelte` `5.55.1` → `5.55.2`
+  - `vite` `^8.0.3` → `^8.0.8`
+  - `vitest` `4.1.2` → `4.1.4`
+  - `@playwright/test` `^1.58.2` → `^1.59.1`
+  - `@sveltejs/kit` `2.55.0` → `2.57.1`
+  - `eslint` `10.1.0` → `10.2.0`
+  - `eslint-plugin-jsdoc` `^62.8.1` → `^62.9.0`
+  - `eslint-plugin-svelte` `^3.16.0` → `^3.17.0`
+  - `playwright` `^1.58.2` → `^1.59.1`
+  - `posthog-js` `^1.364.2` → `^1.367.0`
+
+## Security
+
+- Added transitive dependency override for `lodash-es` `v4.18.1` in order to mitigate CVE-2026-4800 and CVE-2026-2950.
+- Updated transitive dependency override for `basic-ftp` to `v5.2.1` in order to mitigate CVE-2026-39983.
+
+---
+
 ## [1.26.18] - 2026-03-30
 
 ### Changed
 
-- Adjusted `engines.node` in `CHANGELOG.md` to allow only `>=24.0.0 <25`, as **Node.js** `v24` is now the current LTS release.
 - Bumped project version to `v1.26.18`.
 - Updated dependencies:
   - `svelte-check` `^4.4.5` → `^4.4.6`
@@ -2624,7 +2653,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.18...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.19...HEAD
+[1.26.19]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.19
 [1.26.18]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.18
 [1.26.17]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.17
 [1.26.16]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.16
