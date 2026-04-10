@@ -29,6 +29,7 @@ version increments reflecting both user-visible and operational impact.
 ### Changed
 
 - Bumped project version to `v1.25.19`.
+- Modified Node.js version to `24` in `.github/workflows/playwright.yml`.
 - Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.57.1**.
 - Updated dependencies:
   - `@eslint/compat` `^2.0.3` → `^2.0.5`
