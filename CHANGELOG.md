@@ -24,6 +24,23 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.20] - 2026-04-10
+
+### Changed
+
+- Bumped project version to `v1.26.20`.
+- Updated dependencies:
+  - `prettier` `3.8.1` → `3.8.2`
+  - `svelte` `5.55.2` → `5.55.3`
+
+### Fixed
+
+- Removed an unused `window` mock from the UTM unit test to better reflect the current `appendUTM` implementation.
+- Stabilized SPA navigation E2E helpers by relying on Playwright click actionability instead of a separate `scrollIntoViewIfNeeded()` call, with a single retry for transient no-op clicks.
+- Updated the navigation link assertion to compare the resolved `pathname` instead of the raw `href` attribute for better cross-browser consistency.
+
+---
+
 ## [1.26.19] - 2026-04-09
 
 ### Changed

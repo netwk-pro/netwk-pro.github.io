@@ -56,12 +56,12 @@ export default defineConfig({
       },
     },
     // FIXME: Webkit and Safari consistently failing, disabled for now
-    //    {
-    //      name: "webkit",
-    //      use: {
-    //        ...devices["Desktop Safari"], // Use default WebKit settings
-    //      },
-    //    },
+    //{
+    //  name: 'webkit',
+    //  use: {
+    //    ...devices['Desktop Safari'], // Use default WebKit settings
+    //  },
+    //},
 
     // Mobile Browsers
     {
@@ -72,12 +72,12 @@ export default defineConfig({
       },
     },
     // FIXME: Webkit and Safari consistently failing, disabled for now
-    //    {
-    //      name: "Mobile Safari",
-    //      use: {
-    //        ...devices["iPhone 14"], // Use the iPhone 14 device profile
-    //      },
-    //    },
+    //{
+    //  name: 'Mobile Safari',
+    //  use: {
+    //    ...devices['iPhone 14'], // Use the iPhone 14 device profile
+    //  },
+    //},
   ],
 
   /* Run your local preview server before starting the tests */
