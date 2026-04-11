@@ -11,11 +11,11 @@ This file is part of Network Pro.
  * @description Unit test for UTM parameters
  * @module tests/unit/client/lib/utils
  * @author Scott Lopez
- * @updated 2026-01-15
+ * @updated 2026-04-10
  */
 
 import { writable } from 'svelte/store';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 // Mock SvelteKit environment and store
 vi.mock('$app/environment', () => ({ browser: true }));
@@ -36,16 +36,6 @@ vi.mock('$app/stores', () => {
 import { appendUTM } from '$lib/utils/utm.js';
 
 describe('appendUTM', () => {
-  const originalWindow = globalThis.window;
-
-  beforeEach(() => {
-    globalThis.window = { location: { search: '' } };
-  });
-
-  afterEach(() => {
-    globalThis.window = originalWindow;
-  });
-
   it('should return URL with utm parameters for /contact', () => {
     const url = 'https://example.com';
     const result = appendUTM(url);

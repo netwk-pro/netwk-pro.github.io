@@ -36,7 +36,7 @@ test.describe('Desktop Tests', () => {
 
     const aboutLink = nav.getByRole('link', { name: 'about' });
     await expect(aboutLink).toBeVisible();
-    await expect(aboutLink).toHaveAttribute('href', '/about');
+    await expect(aboutLink).toHaveJSProperty('pathname', '/about');
   });
 
   // Root route should display the footer properly

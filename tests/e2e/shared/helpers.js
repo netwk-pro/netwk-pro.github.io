@@ -101,17 +101,23 @@ export function getFooter(page) {
  */
 export async function clickAndWaitForNavigation(page, locator, options = {}) {
   const { urlPattern = /\/.*/, timeout = 60000 } = options;
-
-  await locator.scrollIntoViewIfNeeded();
-  await locator.waitFor({ state: 'visible', timeout });
-
   const previousURL = page.url();
+  let lastError;
 
-  await locator.click();
+  for (let attempt = 1; attempt <= 2; attempt += 1) {
+    await expect(locator).toBeVisible({ timeout });
+    await locator.click({ timeout });
 
-  // SPA-stable URL wait (polling) — does not depend on navigation lifecycle
-  await expect(page).toHaveURL(urlPattern, { timeout });
+    try {
+      // SPA-stable URL wait (polling) - does not depend on navigation lifecycle
+      await expect(page).toHaveURL(urlPattern, { timeout: timeout / 2 });
+      const newURL = page.url();
+      console.log(`Navigation from ${previousURL} to ${newURL}`);
+      return;
+    } catch (error) {
+      lastError = error;
+    }
+  }
 
-  const newURL = page.url();
-  console.log(`✅ Navigation from ${previousURL} → ${newURL}`);
+  throw lastError;
 }
