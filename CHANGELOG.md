@@ -30,7 +30,6 @@ version increments reflecting both user-visible and operational impact.
 
 - Bumped project version to `v1.26.21`.
 - Updated `npm run dev` and `npm run preview` to open the local browser automatically.
-- Removed `typescript` from the `npm-check-updates` reject list in `.ncurc.cjs`, allowing TypeScript 6 updates.
 - Updated dependencies:
   - `eslint` `10.2.0` → `10.2.1`
   - `postcss` `^8.5.9` → `^8.5.10`
@@ -41,8 +40,11 @@ version increments reflecting both user-visible and operational impact.
   - `globals` `^17.4.0` → `^17.5.0`
   - `posthog-js` `^1.367.0` → `^1.369.3`
   - `stylelint` `^17.6.0` → `^17.8.0`
-  - `typescript` `5.9.3` → `^6.0.3`
 - Normalized transitive dependency override ranges for `minimatch`, `picomatch`, and `smol-toml` to caret ranges.
+
+### Fixed
+
+- Kept `typescript` pinned to `5.9.3` and retained it in the `npm-check-updates` reject list because `svelte-preprocess` does not yet accept TypeScript 6.
 
 ### Security
 

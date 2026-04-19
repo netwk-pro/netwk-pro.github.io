@@ -131,7 +131,7 @@
     "svelte-check": "^4.4.6",
     "svelte-eslint-parser": "^1.6.0",
     "svelte-preprocess": "^6.0.3",
-    "typescript": "^6.0.3",
+    "typescript": "5.9.3",
     "vite": "^8.0.8",
     "vite-plugin-devtools-json": "^1.0.0",
     "vite-plugin-lightningcss": "^0.0.5",
