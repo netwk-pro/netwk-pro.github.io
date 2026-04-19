@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "svelte": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "@sveltejs/mcp"]
+    }
+  }
+}

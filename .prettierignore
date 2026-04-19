@@ -5,8 +5,10 @@
 # This file is part of Network Pro.
 
 # Custom ignores
-.markdownlint.jsonc
 
+
+# Claude Code
+.claude
 
 # Licenses
 static/bin/license

@@ -55,29 +55,15 @@ export default defineConfig({
         ...devices['Desktop Firefox'], // Use default Firefox settings
       },
     },
-    // FIXME: Webkit and Safari consistently failing, disabled for now
-    //{
-    //  name: 'webkit',
-    //  use: {
-    //    ...devices['Desktop Safari'], // Use default WebKit settings
-    //  },
-    //},
 
     // Mobile Browsers
     {
       name: 'Mobile Chrome',
       use: {
-        ...devices['Galaxy S9+'], // Use the Galaxy S9+ device profile
+        ...devices['Pixel 7'], // Use the Galaxy S9+ device profile
         headless: true, // Enable true headless mode
       },
     },
-    // FIXME: Webkit and Safari consistently failing, disabled for now
-    //{
-    //  name: 'Mobile Safari',
-    //  use: {
-    //    ...devices['iPhone 14'], // Use the iPhone 14 device profile
-    //  },
-    //},
   ],
 
   /* Run your local preview server before starting the tests */

@@ -24,6 +24,37 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.22] - 2026-04-19
+
+### Added
+
+- Added project Svelte MCP configuration via `.mcp.json`.
+- Added Svelte MCP usage guidance to `AGENTS.md` and `CLAUDE.md`, including documentation lookup, autofix, and playground-link expectations.
+- Added project-local Claude Code Svelte skills under `.claude/skills/` for reproducible Svelte 5 code-writing and best-practice guidance.
+- Added `.markdownlint-cli2.mjs` to centralize Markdown lint globs and ignore patterns.
+- Added `Mcpjson` to the cspell project dictionary.
+- Added README documentation noting that WebKit/Safari E2E coverage is not part of the default Playwright matrix.
+- Added unit test coverage for `ENV_MODE` alias normalization in `scripts/checkEnv.js`.
+
+### Changed
+
+- Bumped project version to `v1.26.22`.
+- Updated README technology-stack wording to explicitly reference Svelte 5, SvelteKit, Vercel, and the separate Netlify audit environment.
+- Simplified `npm run lint:md` to rely on the centralized `markdownlint-cli2` configuration.
+- Updated Playwright mobile Chrome coverage from the `Galaxy S9+` profile to the `Pixel 7` profile.
+- Updated `.env.codex` comments to document production-like Codex builds and corrected the analytics stub to `PUBLIC_POSTHOG_PROJECT_KEY`.
+- Updated `scripts/checkEnv.js` to normalize `development` to `dev` and `production` to `prod`.
+- Clarified the intentional use of Vite `envPrefix` for `import.meta.env.PUBLIC_*` access.
+- Updated `.gitattributes` to normalize text files to LF line endings by default.
+- Refreshed `package-lock.json` for the `v1.26.22` version bump and dependency metadata changes.
+
+### Removed
+
+- Removed the direct `markdownlint` dev dependency, since `markdownlint-cli2` already provides the required linting engine.
+- Removed disabled WebKit and Mobile Safari Playwright project blocks from the default E2E configuration.
+
+---
+
 ## [1.26.21] - 2026-04-18
 
 ### Changed
@@ -2699,7 +2730,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.21...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.22...HEAD
+[1.26.22]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.22
 [1.26.21]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.21
 [1.26.20]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.20
 [1.26.19]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.19
