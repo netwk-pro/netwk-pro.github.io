@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.26.20",
+  "version": "1.26.21",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advocacy",
@@ -36,7 +36,7 @@
     "npm": ">=10.0.0 <12"
   },
   "scripts": {
-    "dev": "vite dev",
+    "dev": "vite dev --open",
     "dev:audit": "vite --mode audit",
     "start": "npm run dev",
     "dev:vercel": "vercel dev",
@@ -45,7 +45,7 @@
     "build:vercel": "vercel build",
     "build:codex": "vite build --mode codex",
     "dev:codex": "vite dev --mode codex",
-    "preview": "vite preview",
+    "preview": "vite preview --open",
     "css:bundle": "node scripts/bundleCss.js",
     "prepare": "svelte-kit sync && npx simple-git-hooks || echo ''",
     "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
@@ -89,10 +89,10 @@
     "pre-push": "bash scripts/hooks/pre-push.sh"
   },
   "dependencies": {
-    "dompurify": "^3.3.3",
-    "posthog-js": "^1.367.0",
+    "dompurify": "^3.4.0",
+    "posthog-js": "^1.369.3",
     "semver": "^7.7.4",
-    "svelte": "5.55.3"
+    "svelte": "5.55.4"
   },
   "devDependencies": {
     "@eslint/compat": "^2.0.5",
@@ -106,13 +106,13 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/svelte": "^5.3.1",
     "@vitest/coverage-v8": "4.1.4",
-    "autoprefixer": "^10.4.27",
+    "autoprefixer": "^10.5.0",
     "browserslist": "^4.28.2",
-    "eslint": "10.2.0",
+    "eslint": "10.2.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsdoc": "^62.9.0",
     "eslint-plugin-svelte": "^3.17.0",
-    "globals": "^17.4.0",
+    "globals": "^17.5.0",
     "globby": "^16.2.0",
     "jsdom": "29.0.2",
     "lightningcss": "^1.32.0",
@@ -120,11 +120,11 @@
     "markdownlint-cli2": "0.22.0",
     "npm-run-all": "^4.1.5",
     "playwright": "^1.59.1",
-    "postcss": "^8.5.9",
-    "prettier": "3.8.2",
+    "postcss": "^8.5.10",
+    "prettier": "3.8.3",
     "prettier-plugin-svelte": "^3.5.1",
     "simple-git-hooks": "^2.13.1",
-    "stylelint": "^17.6.0",
+    "stylelint": "^17.8.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended": "^18.0.0",
     "stylelint-order": "^8.1.1",
@@ -144,12 +144,13 @@
     "js-yaml": "^4.1.1",
     "lodash": "^4.18.1",
     "lodash-es": "^4.18.1",
-    "minimatch": ">=10.2.1",
-    "picomatch": ">=4.0.4",
+    "minimatch": "^10.2.1",
+    "picomatch": "^4.0.4",
+    "protobufjs": "^7.5.5",
     "qs": "^6.14.1",
     "tar": "^7.5.11",
     "tmp": "^0.2.4",
-    "smol-toml": ">=1.6.1",
+    "smol-toml": "^1.6.1",
     "vite-plugin-devtools-json": {
       "vite": "$vite"
     }
