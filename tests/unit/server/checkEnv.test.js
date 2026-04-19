@@ -40,6 +40,22 @@ describe('checkEnv()', () => {
     expect(result.wasDefaulted).toBe(false);
   });
 
+  it('should normalize development alias to dev', () => {
+    process.env.ENV_MODE = 'development';
+    const result = checkEnv();
+    expect(result.mode).toBe('dev');
+    expect(result.valid).toBe(true);
+    expect(process.env.ENV_MODE).toBe('dev');
+  });
+
+  it('should normalize production alias to prod', () => {
+    process.env.ENV_MODE = 'production';
+    const result = checkEnv();
+    expect(result.mode).toBe('prod');
+    expect(result.valid).toBe(true);
+    expect(process.env.ENV_MODE).toBe('prod');
+  });
+
   it('should return invalid for an unknown ENV_MODE', () => {
     process.env.ENV_MODE = 'banana';
     const result = checkEnv();
