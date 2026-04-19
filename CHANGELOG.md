@@ -24,6 +24,32 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.26.21] - 2026-04-18
+
+### Changed
+
+- Bumped project version to `v1.26.21`.
+- Updated `npm run dev` and `npm run preview` to open the local browser automatically.
+- Removed `typescript` from the `npm-check-updates` reject list in `.ncurc.cjs`, allowing TypeScript 6 updates.
+- Updated dependencies:
+  - `eslint` `10.2.0` → `10.2.1`
+  - `postcss` `^8.5.9` → `^8.5.10`
+  - `prettier` `3.8.2` → `3.8.3`
+  - `svelte` `5.55.3` → `5.55.4`
+  - `autoprefixer` `^10.4.27` → `^10.5.0`
+  - `dompurify` `^3.3.3` → `^3.4.0`
+  - `globals` `^17.4.0` → `^17.5.0`
+  - `posthog-js` `^1.367.0` → `^1.369.3`
+  - `stylelint` `^17.6.0` → `^17.8.0`
+  - `typescript` `5.9.3` → `^6.0.3`
+- Normalized transitive dependency override ranges for `minimatch`, `picomatch`, and `smol-toml` to caret ranges.
+
+### Security
+
+- Added transitive dependency for `protobufjs` `v7.5.5` in order to mitigate CVE-2026-41242.
+
+---
+
 ## [1.26.20] - 2026-04-10
 
 ### Changed
@@ -65,7 +91,7 @@ version increments reflecting both user-visible and operational impact.
   - `playwright` `^1.58.2` → `^1.59.1`
   - `posthog-js` `^1.364.2` → `^1.367.0`
 
-## Security
+### Security
 
 - Added transitive dependency override for `lodash-es` `v4.18.1` in order to mitigate CVE-2026-4800 and CVE-2026-2950.
 - Updated transitive dependency override for `basic-ftp` to `v5.2.1` in order to mitigate CVE-2026-39983.
@@ -2671,7 +2697,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.20...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.21...HEAD
+[1.26.21]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.21
 [1.26.20]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.20
 [1.26.19]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.19
 [1.26.18]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.18
