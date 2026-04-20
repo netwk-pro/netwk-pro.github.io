@@ -49,6 +49,10 @@ export default defineConfig(({ mode }) => {
   // -----------------------------------------------------------------------
 
   return {
+    // Keep PUBLIC_* available through import.meta.env.PUBLIC_*.
+    // SvelteKit's kit.env.publicPrefix controls $env/static/public and
+    // $env/dynamic/public instead; this app currently uses Vite env access
+    // in env/analytics code, so this is intentional.
     envPrefix: ['PUBLIC_'],
     ssr: {
       // posthog-js ships both CJS and ESM entries. Vite SSR externalizes it by

@@ -23,7 +23,10 @@ This file is part of Network Pro.
 
 This GitHub repository powers the official web presence of **[Network Pro Strategies](https://netwk.pro/about)** — a research- and infrastructure-focused technology initiative working across cybersecurity, digital systems, and privacy. Our work spans applied research and development, experimental infrastructure, educational tools and publications, and public advocacy for security- and privacy-respecting technology.
 
-Built with [SvelteKit](https://svelte.dev/) and deployed via [Vercel](https://vercel.com/).  
+### Technology Stack
+
+Built with [Svelte 5](https://svelte.dev/) and [SvelteKit](https://svelte.dev/docs/kit/), deployed primarily on [Vercel](https://vercel.com/), with a separate hardened audit environment on [Netlify](https://www.netlify.com/).
+
 [Blog](https://github.com/netwk-pro/blog) and [documentation](https://github.com/netwk-pro/docs) subsites built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and deployed via [Vercel](https://vercel.com/).
 
 All infrastructure and data flows are designed with **maximum transparency, self-hosting, and user privacy** in mind.
@@ -157,6 +160,8 @@ static/
 ### E2E Test Structure
 
 End-to-end tests are located in `tests/e2e/` and organized by feature or route:
+
+> **Note:** WebKit/Safari E2E coverage is currently not part of the default Playwright matrix. Previous attempts to enable it produced unstable failures; revisit with a dedicated macOS/WebKit stabilization pass if Safari coverage becomes a release requirement.
 
 ```bash
 tests/
