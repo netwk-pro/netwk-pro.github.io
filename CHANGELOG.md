@@ -31,6 +31,7 @@ version increments reflecting both user-visible and operational impact.
 - Bumped project version to `v1.27.0`.
 - Moved Content Security Policy selection into SvelteKit `kit.csp`, keyed from `PUBLIC_ENV_MODE`/Vite mode so SvelteKit can manage CSP hashes and nonces.
 - Kept `src/hooks.server.js` focused on request-time security headers, production `Report-To` metadata, Probely diagnostics, and audit-hostname mismatch warnings.
+- Restored CSP selection diagnostics after moving CSP construction to SvelteKit configuration.
 - Updated audit CSP behavior to remain enforced without analytics or external CSP reporting allowances.
 - Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.58.0**.
 - Updated local Node version files from `24.14.1` to `24.15.0`.
@@ -50,6 +51,9 @@ version increments reflecting both user-visible and operational impact.
 ### Fixed
 
 - Corrected the Playwright mobile Chrome device-profile comment to match the current `Pixel 7` profile.
+- Restored dev/test `Content-Security-Policy-Report-Only` behavior by preserving development mode fallback and local CSP reporting.
+- Corrected audit hostname diagnostics to avoid implying that hostname detection overrides `PUBLIC_ENV_MODE`.
+- Limited Probely scanner diagnostics to audit mode and removed the misleading bypass log label.
 - Added `Prerendered` to the cspell dictionary for the new SvelteKit CSP comments.
 
 ### Security

@@ -17,14 +17,8 @@ const cspReportUri = 'https://csp.netwk.pro/.netlify/functions/csp-report';
  * @type {import('@sveltejs/kit').Handle}
  */
 export async function handle({ event, resolve }) {
-  /**
-   * 🔍 Probely scanner allowlisting
-   * - Robust UA check (case‑insensitive)
-   * - Normalized X‑Forwarded‑For parsing
-   * - Avoids false positives
-   * @see https://help.probely.com/en/articles/5112461/
-   */
-
+  // Probely scanner detection is diagnostic only. Audit mode may use this log
+  // to confirm scanner traffic without changing the request handling path.
   /** @type {string} */
   const userAgent = event.request.headers.get('user-agent') || '';
 
@@ -34,16 +28,16 @@ export async function handle({ event, resolve }) {
 
   const isProbely = isProbelyScanner({ ua: userAgent, ip: remoteIp });
 
-  if (isProbely) {
-    console.info('[Probely Bypass] Matched scanner request:', {
+  const response = await resolve(event);
+  const env = detectEnvironment(event.url.hostname);
+  const { isAudit, isProd, isTest, mode } = env;
+
+  if (isAudit && isProbely) {
+    console.info('[Audit Mode] Probely scanner detected:', {
       ip: remoteIp,
       ua: userAgent,
     });
   }
-
-  const response = await resolve(event);
-  const env = detectEnvironment(event.url.hostname);
-  const { isAudit, isProd, isTest, mode } = env;
 
   if (event.url.hostname.endsWith('audit.netwk.pro') && mode !== 'audit') {
     console.warn(
