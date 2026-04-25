@@ -24,6 +24,40 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.27.0] - 2026-04-24
+
+### Changed
+
+- Bumped project version to `v1.27.0`.
+- Moved Content Security Policy selection into SvelteKit `kit.csp`, keyed from `PUBLIC_ENV_MODE`/Vite mode so SvelteKit can manage CSP hashes and nonces.
+- Kept `src/hooks.server.js` focused on request-time security headers, production `Report-To` metadata, Probely diagnostics, and audit-hostname mismatch warnings.
+- Updated audit CSP behavior to remain enforced without analytics or external CSP reporting allowances.
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.58.0**.
+- Updated local Node version files from `24.14.1` to `24.15.0`.
+- Updated GitHub Actions npm bootstrap steps from `npm@11.12.1` to `npm@11.13.0`.
+- Updated dependencies:
+  - `@vitest/coverage-v8` `4.1.4` → `4.1.5`
+  - `@sveltejs/kit` `2.57.1` → `2.58.0`
+  - `dompurify` `^3.4.0` → `^3.4.1`
+  - `eslint-plugin-svelte` `^3.17.0` → `^3.17.1`
+  - `markdownlint-cli2` `0.22.0` → `0.22.1`
+  - `posthog-js` `^1.369.3` → `^1.372.1`
+  - `stylelint` `^17.8.0` → `^17.9.0`
+  - `svelte` `5.55.4` → `5.55.5`
+  - `vite` `^8.0.8` → `^8.0.10`
+  - `vitest` `4.1.4` → `4.1.5`
+
+### Fixed
+
+- Corrected the Playwright mobile Chrome device-profile comment to match the current `Pixel 7` profile.
+- Added `Prerendered` to the cspell dictionary for the new SvelteKit CSP comments.
+
+### Security
+
+- Added a transitive dependency override for `uuid` at `^14.0.0` to mitigate known vulnerabilities.
+
+---
+
 ## [1.26.22] - 2026-04-19
 
 ### Added
@@ -79,7 +113,7 @@ version increments reflecting both user-visible and operational impact.
 
 ### Security
 
-- Added transitive dependency for `protobufjs` `v7.5.5` in order to mitigate CVE-2026-41242.
+- Added transitive dependency override for `protobufjs` `v7.5.5` in order to mitigate CVE-2026-41242.
 
 ---
 
@@ -2730,7 +2764,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.26.22...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.27.0...HEAD
+[1.27.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.0
 [1.26.22]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.22
 [1.26.21]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.21
 [1.26.20]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.20
