@@ -24,6 +24,21 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.27.1] - 2026-04-25
+
+### Changed
+
+- Bumped project version to `v1.27.1`.
+
+### Fixed
+
+- Replaced the third-party Keep Android Open banner script with a first-party Svelte banner component to avoid unstable inline-script CSP violations.
+- Removed Keep Android Open script host and inline helper hash allowances from CSP.
+- Restored temporary production `script-src 'unsafe-inline'` compatibility while PostHog remains in use.
+- Updated README and agent guidance to reflect that CSP policy selection now lives in SvelteKit `kit.csp` instead of `src/hooks.server.js`.
+
+---
+
 ## [1.27.0] - 2026-04-24
 
 ### Changed
@@ -2768,7 +2783,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.27.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.27.1...HEAD
+[1.27.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.1
 [1.27.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.0
 [1.26.22]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.22
 [1.26.21]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.21

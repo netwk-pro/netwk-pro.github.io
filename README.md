@@ -111,9 +111,9 @@ version increments reflecting both user-visible and operational impact.
   │   │   ├── data/                 # Custom data (e.g. JSON, metadata, constants)
   │   │   └── utils/                # Helper utilities
   │   ├── routes/                   # SvelteKit pages (+page.svelte, +server.js)
-  │   ├── app.html                  # Entry HTML (CSP meta, bootstrapping)
+  │   ├── app.html                  # Entry HTML template and bootstrapping
   │   ├── hooks.client.ts           # Client-side error handling
-  │   ├── hooks.server.js           # Injects CSP headers and permissions policy
+  │   ├── hooks.server.js           # Request-time security headers and diagnostics
   │   └── service-worker.js         # Custom PWA service worker
   ├── static/                       # Public assets served at site root
   │   ├── pgp/                      # PGP keys
@@ -205,15 +205,19 @@ npx playwright install
 
 This project includes custom runtime configuration files for enhancing security, error handling, and PWA functionality. These modules are used by the framework during server- and client-side lifecycle hooks.
 
-### 🔐 `hooks.server.js`
+### 🔐 Security Headers and CSP
 
-Located at `src/hooks.server.js`, this file dynamically injects security headers depending on the environment. It includes:
+Security headers are split between SvelteKit configuration and request-time server hooks:
 
-- A **Content Security Policy (CSP)** with environment-based directives:
+- `svelte.config.js` defines `kit.csp` with environment-based directives:
   - **Production/Audit**: Enforced, hardened CSP
   - **Test/Dev**: Uses `Content-Security-Policy-Report-Only` for safe diagnostics
-- A **Permissions Policy** that disables nonessential browser APIs
-- Standard HTTP security headers:
+- `src/hooks.server.js` adds request-time headers and diagnostics:
+  - `Report-To` metadata for production CSP reporting
+  - Probely scanner diagnostics in audit mode
+  - Audit-hostname mismatch warnings when `PUBLIC_ENV_MODE` is not `audit`
+- Standard HTTP security headers are also set in `src/hooks.server.js`:
+  - `Permissions-Policy`
   - `X-Content-Type-Options`
   - `X-Frame-Options`
   - `Referrer-Policy`
@@ -234,15 +238,17 @@ Located at `src/hooks.server.js`, this file dynamically injects security headers
 
 ### 🧪 Reporting & Debugging
 
-- In **non-production environments**, CSP headers are set to `report-only` mode.
+- In **dev/test environments**, CSP headers are set to `report-only` mode.
 - Violations are POSTed to `/api/mock-csp`, which logs reports to the console.
 - In **production**, violations are sent to a real CSP collection endpoint (`https://csp.netwk.pro/.netlify/functions/csp-report`).
+- CSP selection is made at build/config time from `PUBLIC_ENV_MODE`, Vite mode, and local command fallbacks.
+- Requests for `audit.netwk.pro` are logged as diagnostics if the build was not produced with `PUBLIC_ENV_MODE=audit`.
 
 ---
 
 ### ⚠️ Current Trade-Off
 
-> Due to limitations in PostHog and certain SvelteKit internals, the current policy allows `'unsafe-inline'` for scripts and styles. A strict CSP using nonces was previously attempted but blocked critical functionality.
+> SvelteKit manages CSP hashes/nonces for framework-generated inline scripts. The current production policy temporarily allows `'unsafe-inline'` for scripts while PostHog remains in use, and still allows `'unsafe-inline'` for styles because Svelte transitions can generate inline styles at runtime. The Keep Android Open banner is implemented first-party as a Svelte component to avoid third-party inline script injection.
 
 ---
 
@@ -250,12 +256,13 @@ Located at `src/hooks.server.js`, this file dynamically injects security headers
 
 To move toward a strict, nonce-based CSP:
 
-1. Ensure **all inline scripts** are updated to include injected nonces (`nonce="%nonce%"`)
-2. Confirm **PostHog** or future analytics platforms support nonced or external scripts/stylesheets
-3. Review and refactor any components that rely on dynamic `style=` or `<style>` blocks without support for CSP nonces
-4. Move third-party scripts out of inline `<script>` tags where possible
+1. Keep CSP policy construction in `svelte.config.js` so SvelteKit can manage framework hashes/nonces.
+2. Keep third-party scripts out of `app.html` unless they work with the current CSP without inline script injection.
+3. Replace **PostHog** with a CSP-compatible analytics stack, then remove the temporary production `script-src 'unsafe-inline'` allowance.
+4. Review and refactor any components that rely on dynamic `style=` or `<style>` blocks without support for CSP nonces.
+5. Move third-party scripts out of inline `<script>` tags where possible
 
-> ℹ️ Nonce-based CSP is the most secure long-term path but requires cooperation from all dependencies — and possibly upstream fixes to analytics tooling or SvelteKit itself.
+> ℹ️ Nonce-based CSP remains a long-term goal for dynamic pages, but prerendered pages use hashes. A fully strict policy still requires cooperation from third-party scripts and style-generating runtime behavior.
 
 &nbsp;
 
@@ -397,8 +404,8 @@ The endpoint receives Content Security Policy (CSP) violation reports and logs d
 
 ### Usage
 
-To enable reporting, make sure your CSP headers include both the legacy `report-uri` and the modern `report-to` directives.  
-This project’s `hooks.server.js` already configures both, along with the required `Report-To` header:
+To enable reporting, make sure your CSP policy includes both the legacy `report-uri` and the modern `report-to` directives.  
+This project configures those directives in `svelte.config.js` for production CSP, while `src/hooks.server.js` adds the required `Report-To` response header:
 
 ```http
 # Example response headers
