@@ -9,8 +9,11 @@ This file is part of Network Pro.
 import { isProbelyScanner } from '$lib/security/probely.js';
 import { detectEnvironment } from '$lib/utils/env.js';
 
+const cspReportUri = 'https://csp.netwk.pro/.netlify/functions/csp-report';
+
 /**
- * SvelteKit server hook to set Content Security Policy (CSP) header.
+ * SvelteKit server hook to set request-time security headers.
+ * CSP is configured in svelte.config.js so SvelteKit can manage nonces/hashes.
  * @type {import('@sveltejs/kit').Handle}
  */
 export async function handle({ event, resolve }) {
@@ -37,81 +40,28 @@ export async function handle({ event, resolve }) {
       ua: userAgent,
     });
   }
+
   const response = await resolve(event);
-
   const env = detectEnvironment(event.url.hostname);
-  const { isAudit, isDebug, isTest, isProd } = env;
+  const { isAudit, isProd, isTest, mode } = env;
 
-  const reportUri =
-    isProd && !isTest && !isAudit
-      ? 'https://csp.netwk.pro/.netlify/functions/csp-report'
-      : '/api/mock-csp';
-
-  console.log('[CSP] Report URI set to:', reportUri);
-
-  const cspDirectives = [
-    "default-src 'self';",
-    "script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://us-assets.i.posthog.com https://keepandroidopen.org;",
-    "style-src 'self' 'unsafe-inline';",
-    "img-src 'self' data:;",
-    "connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com;",
-    "font-src 'self' data:;",
-    "form-action 'self';",
-    "base-uri 'self';",
-    "object-src 'none';",
-    "frame-ancestors 'none';",
-    'upgrade-insecure-requests;',
-  ];
-
-  // 🧪 Looser CSP for local/CI test environments
-  if (isDebug) {
-    cspDirectives[1] =
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:* ws://localhost:* https://keepandroidopen.org;";
-    cspDirectives[2] = "style-src 'self' 'unsafe-inline' http://localhost:*;";
-    cspDirectives[3] = "img-src 'self' data: http://localhost:*;";
-    cspDirectives[4] =
-      "connect-src 'self' http://localhost:* ws://localhost:* https://us.i.posthog.com https://us-assets.i.posthog.com;";
+  if (event.url.hostname.endsWith('audit.netwk.pro') && mode !== 'audit') {
+    console.warn(
+      `[CSP] Audit hostname requested with PUBLIC_ENV_MODE=${mode}; ` +
+        'SvelteKit CSP is selected at build time from PUBLIC_ENV_MODE.',
+    );
   }
 
-  // 🧩 Hardened CSP for audit environment — no analytics, no CSP reporting
-  if (isAudit) {
-    cspDirectives[1] =
-      "script-src 'self' 'unsafe-inline' https://keepandroidopen.org;";
-    cspDirectives[2] = "style-src 'self' 'unsafe-inline';";
-    cspDirectives[3] = "img-src 'self' data:;";
-    cspDirectives[4] = "connect-src 'self';";
-  }
-
-  // 📋 Add reporting for environments that support it
-  const shouldReport = !isAudit && !isTest;
-
-  if (shouldReport) {
-    cspDirectives.push(`report-uri ${reportUri};`, 'report-to csp-endpoint;');
-
+  if (isProd && !isTest && !isAudit) {
     response.headers.set(
       'Report-To',
       JSON.stringify({
         group: 'csp-endpoint',
         max_age: 10886400, // 18 weeks
-        endpoints: [{ url: reportUri }],
+        endpoints: [{ url: cspReportUri }],
         include_subdomains: true,
       }),
     );
-  }
-
-  // ✅ Apply CSP — enforce in prod or audit, report-only in dev/test
-  const cspHeader =
-    (isProd || isAudit) && !isTest
-      ? 'Content-Security-Policy'
-      : 'Content-Security-Policy-Report-Only';
-
-  response.headers.set(cspHeader, cspDirectives.join(' '));
-
-  // Log applied CSP headers in debug/audit/test
-  if (isDebug || isAudit) {
-    console.info(`[CSP] Applied header: ${cspHeader}`);
-    console.info(`[CSP] Policy:`, cspDirectives.join(' '));
-    console.info(`[CSP] Reporting to: ${reportUri}`);
   }
 
   // Standard security headers

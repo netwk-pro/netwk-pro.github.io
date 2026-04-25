@@ -60,7 +60,7 @@ export default defineConfig({
     {
       name: 'Mobile Chrome',
       use: {
-        ...devices['Pixel 7'], // Use the Galaxy S9+ device profile
+        ...devices['Pixel 7'], // Use the Pixel 7 device profile
         headless: true, // Enable true headless mode
       },
     },
