@@ -20,12 +20,16 @@ function getCliMode() {
 }
 
 // PUBLIC_ENV_MODE is the deployment contract; other sources are only fallbacks
-// for local commands and compatibility with existing scripts.
+// for local commands and compatibility with existing scripts. Plain `vite dev`
+// does not pass `--mode`, so NODE_ENV preserves report-only CSP for dev.
+const fallbackMode =
+  process.env.NODE_ENV === 'development' ? 'development' : 'production';
+
 const envMode = (
   process.env.PUBLIC_ENV_MODE ||
   process.env.MODE ||
   getCliMode() ||
-  'production'
+  fallbackMode
 ).toLowerCase();
 
 const isAudit = envMode === 'audit';
@@ -74,7 +78,8 @@ const auditCspDirectives = {
 };
 
 // Dev and test use report-only CSP so local tooling, HMR, and diagnostics can
-// surface violations without blocking the developer workflow.
+// surface violations without blocking the developer workflow. SvelteKit requires
+// report-only policies to include a reporting directive.
 const debugCspDirectives = {
   ...sharedCspDirectives,
   'script-src': [
@@ -93,6 +98,7 @@ const debugCspDirectives = {
     'https://us.i.posthog.com',
     'https://us-assets.i.posthog.com',
   ],
+  'report-uri': ['/api/mock-csp'],
 };
 
 // SvelteKit augments these policies with hashes/nonces for framework-generated
@@ -103,6 +109,16 @@ const csp = {
     ? { reportOnly: debugCspDirectives }
     : { directives: isAudit ? auditCspDirectives : productionCspDirectives }),
 };
+
+if (isDebug || isAudit) {
+  console.info(
+    `[CSP] SvelteKit configured ${
+      isDebug
+        ? 'Content-Security-Policy-Report-Only'
+        : 'Content-Security-Policy'
+    } for ${envMode} mode.`,
+  );
+}
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {

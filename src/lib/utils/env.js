@@ -77,7 +77,9 @@ export function detectEnvironment(hostOverride) {
     console.log('🧭 [env] Hostname:', host || '(none)');
     console.log('🧭 [env] Raw env:', import.meta.env);
     if (hostIsAudit && mode !== 'audit') {
-      console.log('[env] Host suggests audit, overriding mode.');
+      console.log(
+        '[env] Audit hostname detected; PUBLIC_ENV_MODE is still the build-time source of truth.',
+      );
     }
   }
 
