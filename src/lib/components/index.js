@@ -21,6 +21,7 @@ export { default as CodeBlock } from './CodeBlock.svelte';
 export { default as ContainerSection } from './ContainerSection.svelte';
 export * from './foss/index.js';
 export { default as FullWidthSection } from './FullWidthSection.svelte';
+export { default as KeepAndroidOpenBanner } from './KeepAndroidOpenBanner.svelte';
 export * from './layout/index.js';
 export { default as LegalNav } from './LegalNav.svelte';
 export { default as Logo } from './Logo.svelte';

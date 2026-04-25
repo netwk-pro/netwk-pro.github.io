@@ -248,7 +248,7 @@ Security headers are split between SvelteKit configuration and request-time serv
 
 ### ⚠️ Current Trade-Off
 
-> SvelteKit manages CSP hashes/nonces for framework-generated inline scripts. The current policy still allows `'unsafe-inline'` for styles because Svelte transitions can generate inline styles at runtime. The temporary Keep Android Open banner is allowed by host and by a specific inline helper-script hash.
+> SvelteKit manages CSP hashes/nonces for framework-generated inline scripts. The current production policy temporarily allows `'unsafe-inline'` for scripts while PostHog remains in use, and still allows `'unsafe-inline'` for styles because Svelte transitions can generate inline styles at runtime. The Keep Android Open banner is implemented first-party as a Svelte component to avoid third-party inline script injection.
 
 ---
 
@@ -257,8 +257,8 @@ Security headers are split between SvelteKit configuration and request-time serv
 To move toward a strict, nonce-based CSP:
 
 1. Keep CSP policy construction in `svelte.config.js` so SvelteKit can manage framework hashes/nonces.
-2. Remove third-party inline-script hash allowances when the related integrations are removed or replaced.
-3. Confirm **PostHog** or future analytics platforms support nonced or external scripts/stylesheets.
+2. Keep third-party scripts out of `app.html` unless they work with the current CSP without inline script injection.
+3. Replace **PostHog** with a CSP-compatible analytics stack, then remove the temporary production `script-src 'unsafe-inline'` allowance.
 4. Review and refactor any components that rely on dynamic `style=` or `<style>` blocks without support for CSP nonces.
 5. Move third-party scripts out of inline `<script>` tags where possible
 

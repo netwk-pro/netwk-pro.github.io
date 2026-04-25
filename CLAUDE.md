@@ -161,7 +161,7 @@ CSP is configured in `svelte.config.js` via SvelteKit `kit.csp`, based on build/
 
 `src/hooks.server.js` no longer constructs or emits CSP headers directly. It still sets request-time security headers, emits the production `Report-To` header, logs audit hostname mismatches, and records audit-mode Probely diagnostics.
 
-**Current Trade-off**: SvelteKit manages hashes/nonces for framework-generated inline scripts. The policy still allows `unsafe-inline` for styles because Svelte transitions can generate inline styles at runtime, and it includes a targeted inline-script hash for the temporary Keep Android Open banner helper.
+**Current Trade-off**: SvelteKit manages hashes/nonces for framework-generated inline scripts. The production policy temporarily allows `unsafe-inline` for scripts while PostHog remains in use, and it still allows `unsafe-inline` for styles because Svelte transitions can generate inline styles at runtime. The Keep Android Open banner is implemented first-party as a Svelte component to avoid third-party inline script injection.
 
 **Probely Scanner Diagnostics**: `hooks.server.js` detects Probely DAST scanners using `isProbelyScanner()` from `src/lib/security/probely.js`, but this is diagnostic-only and does not bypass request handling.
 
@@ -303,7 +303,7 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 ### Security Considerations
 
 - **Never commit sensitive data**: Use `.env` for local secrets, never `.env.template`
-- **CSP compliance**: Prefer SvelteKit-managed hashes/nonces, avoid broad `unsafe-inline` for scripts, and document any third-party inline-script hash allowances
+- **CSP compliance**: Prefer SvelteKit-managed hashes/nonces, avoid broad `unsafe-inline` for scripts, and document any temporary production relaxations or third-party inline-script hash allowances
 - **Service worker**: Analytics domains (PostHog) are explicitly excluded from SW caching
 - **PGP keys**: `.asc` files in `static/pgp/` are served directly, not precached
 
