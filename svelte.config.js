@@ -35,6 +35,8 @@ const envMode = (
 const isAudit = envMode === 'audit';
 const isDebug = ['development', 'dev', 'test'].includes(envMode);
 const cspReportUri = 'https://csp.netwk.pro/.netlify/functions/csp-report';
+const keepAndroidOpenInlineScriptHash =
+  'sha256-gAA4T5XSwCePGDSr0Je3M/ZkeT+K5RVOOz2l084JX8=';
 
 // Directives shared by every environment. `style-src 'unsafe-inline'` remains
 // because Svelte transitions can create inline style elements at runtime.
@@ -59,6 +61,7 @@ const productionCspDirectives = {
     'https://us.i.posthog.com',
     'https://us-assets.i.posthog.com',
     'https://keepandroidopen.org',
+    keepAndroidOpenInlineScriptHash,
   ],
   'connect-src': [
     'self',
@@ -73,7 +76,11 @@ const productionCspDirectives = {
 // Keep Android Open banner allowed.
 const auditCspDirectives = {
   ...sharedCspDirectives,
-  'script-src': ['self', 'https://keepandroidopen.org'],
+  'script-src': [
+    'self',
+    'https://keepandroidopen.org',
+    keepAndroidOpenInlineScriptHash,
+  ],
   'connect-src': ['self'],
 };
 

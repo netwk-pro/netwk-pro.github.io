@@ -121,8 +121,9 @@ Agents MUST NOT change the following without explicit human approval:
 
 - **Environment detection logic** (notably `src/lib/utils/env.js`) or introduce
   new environment modes.
-- **Content Security Policy** generation/behavior (`src/hooks.server.js`) in a
-  way that weakens enforcement.
+- **Content Security Policy** generation/behavior (`svelte.config.js` `kit.csp`
+  plus related `src/hooks.server.js` reporting headers) in a way that weakens
+  enforcement.
 - **Audit-mode guarantees**: audit must remain hardened (no analytics, no
   external reporting, strict CSP).
 - **Analytics gating**: tracking must remain consent-based and
@@ -178,12 +179,12 @@ These areas are high-impact. Changes are allowed, but require extra care and
 usually a quick human check:
 
 - `src/lib/utils/env.js` (environment resolution)
-- `src/hooks.server.js` (CSP / security headers)
+- `svelte.config.js` (`kit.csp`, adapters, build-time mode handling)
+- `src/hooks.server.js` (request-time security headers / diagnostics)
 - `src/service-worker.js` and SW registration logic
 - `src/lib/stores/posthog.js` and analytics init/gating
 - Auth, redirects, proxy/relay routes under `src/routes/relay-*`
-- Build tooling (`vite.config.js`, `svelte.config.js`, CI workflows, deploy
-  scripts)
+- Build tooling (`vite.config.js`, CI workflows, deploy scripts)
 
 When editing these, prefer:
 

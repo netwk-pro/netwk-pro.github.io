@@ -136,32 +136,34 @@ npx playwright test tests/e2e/app.spec.js
 
 ### Environment Management
 
-The project uses a sophisticated multi-environment setup with behavior controlled by `ENV_MODE` and `PUBLIC_ENV_MODE`:
+The project uses a multi-environment setup with behavior controlled primarily by `PUBLIC_ENV_MODE`, with Vite mode and local command fallbacks used where needed:
 
-- **`development` / `dev`**: Local development with relaxed CSP, no analytics
+- **`development` / `dev`**: Local development with report-only CSP, no analytics
 - **`production` / `prod`**: Full CSP enforcement, PostHog analytics enabled, CSP reporting to production endpoint
-- **`audit`**: Hardened environment for security testing—no analytics, no external connections, strict CSP
-- **`test`**: CI/test mode with relaxed CSP for automation
+- **`audit`**: Hardened environment for security testing: no analytics, no external CSP reporting, strict CSP
+- **`test`**: CI/test mode with report-only CSP for automation
 - **`codex`**: Special mode for Claude Code development
 
 **Critical**: Environment detection happens in two places:
 
-1. **Build-time**: Via `import.meta.env.MODE` or `PUBLIC_ENV_MODE` (baked into bundle)
-2. **Runtime**: Via hostname detection in `src/lib/utils/env.js` (e.g., `audit.netwk.pro` triggers audit mode)
+1. **Build/config time**: `PUBLIC_ENV_MODE` is the primary contract. `svelte.config.js` also falls back to Vite mode and `NODE_ENV=development` so normal `vite dev` uses report-only CSP.
+2. **Runtime**: `src/lib/utils/env.js` exposes environment flags to app code. The `audit.netwk.pro` hostname remains a belt-and-suspenders signal and diagnostic, but policy selection must come from the build mode.
 
 The `detectEnvironment()` function in `src/lib/utils/env.js` unifies this logic and is used throughout the app.
 
 ### Content Security Policy (CSP)
 
-CSP headers are dynamically generated in `src/hooks.server.js` based on environment:
+CSP is configured in `svelte.config.js` via SvelteKit `kit.csp`, based on build/config-time environment selection:
 
 - **Production**: Strict CSP with `Content-Security-Policy` header, real CSP reporting endpoint
 - **Audit**: Hardened CSP with no analytics domains, no CSP reporting
 - **Dev/Test**: Report-only mode (`Content-Security-Policy-Report-Only`) for debugging
 
-**Current Trade-off**: The CSP allows `unsafe-inline` for scripts and styles due to PostHog and SvelteKit limitations. Moving to nonce-based CSP is a documented future goal (see README.md).
+`src/hooks.server.js` no longer constructs or emits CSP headers directly. It still sets request-time security headers, emits the production `Report-To` header, logs audit hostname mismatches, and records audit-mode Probely diagnostics.
 
-**Probely Scanner Allowlisting**: The `hooks.server.js` includes logic to detect and bypass security checks for Probely DAST scanners using `isProbelyScanner()` from `src/lib/security/probely.js`.
+**Current Trade-off**: SvelteKit manages hashes/nonces for framework-generated inline scripts. The policy still allows `unsafe-inline` for styles because Svelte transitions can generate inline styles at runtime, and it includes a targeted inline-script hash for the temporary Keep Android Open banner helper.
+
+**Probely Scanner Diagnostics**: `hooks.server.js` detects Probely DAST scanners using `isProbelyScanner()` from `src/lib/security/probely.js`, but this is diagnostic-only and does not bypass request handling.
 
 ### Service Worker & PWA
 
@@ -246,7 +248,7 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 
 ## Configuration Files
 
-- **`svelte.config.js`**: SvelteKit config with Vercel adapter, prerender error handling
+- **`svelte.config.js`**: SvelteKit config with Vercel adapter, `kit.csp`, mode selection, and prerender error handling
 - **`vite.config.js`**: Vite config with SvelteKit, LightningCSS, devtools-json plugins
 - **`vitest.config.client.js`**: Client-side unit test config (jsdom environment)
 - **`vitest.config.server.js`**: Server-side unit test config (node environment)
@@ -285,7 +287,7 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 
 ### Modifying CSP
 
-1. Edit `src/hooks.server.js` and update `cspDirectives` array
+1. Edit `svelte.config.js` and update the appropriate `kit.csp` directive set
 2. Test in audit mode: `npm run dev:audit`
 3. Check CSP violations in browser console or `/api/mock-csp` logs
 4. Update tests if needed
@@ -301,7 +303,7 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 ### Security Considerations
 
 - **Never commit sensitive data**: Use `.env` for local secrets, never `.env.template`
-- **CSP compliance**: All inline scripts/styles must work with `unsafe-inline` or be refactored for nonces
+- **CSP compliance**: Prefer SvelteKit-managed hashes/nonces, avoid broad `unsafe-inline` for scripts, and document any third-party inline-script hash allowances
 - **Service worker**: Analytics domains (PostHog) are explicitly excluded from SW caching
 - **PGP keys**: `.asc` files in `static/pgp/` are served directly, not precached
 
@@ -328,7 +330,7 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 ## Common Gotchas
 
 1. **Service Worker Caching**: Use `?nosw` query param to bypass SW for testing
-2. **Environment Detection**: Remember that `audit.netwk.pro` hostname overrides build mode
+2. **Environment Detection**: `PUBLIC_ENV_MODE` is the build-time source of truth; `audit.netwk.pro` hostname detection is diagnostic/defense-in-depth
 3. **CSP Violations**: Check browser console in dev mode; violations are logged to `/api/mock-csp`
 4. **PostHog Initialization**: Happens asynchronously; use `$isInitialized` store to check status
 5. **Static Asset Imports**: Use Vite's `import` syntax (e.g., `import logo from '$lib/img/logo.png'`)
@@ -353,7 +355,7 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 - **Audit**
   - URL: `https://audit.netwk.pro`
   - Hosting: **Netlify**
-  - Purpose: Hardened security environment (strict CSP, no analytics, no external reporting)
+  - Purpose: Hardened security environment (strict CSP, no analytics, no external CSP reporting)
   - Deployment model:
     - Built and deployed via a GitHub Actions workflow
     - Workflow file: `.github/workflows/deploy-audit-netlify.yml`
