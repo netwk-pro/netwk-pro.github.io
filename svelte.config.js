@@ -35,8 +35,6 @@ const envMode = (
 const isAudit = envMode === 'audit';
 const isDebug = ['development', 'dev', 'test'].includes(envMode);
 const cspReportUri = 'https://csp.netwk.pro/.netlify/functions/csp-report';
-const keepAndroidOpenInlineScriptHash =
-  'sha256-gAA4T5XSwCePGDSr0Je3M/ZkeT+K5RVOOz2l084JX8=';
 
 // Directives shared by every environment. `style-src 'unsafe-inline'` remains
 // because Svelte transitions can create inline style elements at runtime.
@@ -52,16 +50,14 @@ const sharedCspDirectives = {
   'upgrade-insecure-requests': true,
 };
 
-// Production permits the current analytics and banner sources, and sends CSP
-// violations to the external report collector.
+// Production permits the current analytics sources, and sends CSP violations to
+// the external report collector.
 const productionCspDirectives = {
   ...sharedCspDirectives,
   'script-src': [
     'self',
     'https://us.i.posthog.com',
     'https://us-assets.i.posthog.com',
-    'https://keepandroidopen.org',
-    keepAndroidOpenInlineScriptHash,
   ],
   'connect-src': [
     'self',
@@ -72,15 +68,10 @@ const productionCspDirectives = {
   'report-to': ['csp-endpoint'],
 };
 
-// Audit mode removes analytics and reporting egress while keeping the temporary
-// Keep Android Open banner allowed.
+// Audit mode removes analytics and reporting egress.
 const auditCspDirectives = {
   ...sharedCspDirectives,
-  'script-src': [
-    'self',
-    'https://keepandroidopen.org',
-    keepAndroidOpenInlineScriptHash,
-  ],
+  'script-src': ['self'],
   'connect-src': ['self'],
 };
 
@@ -94,7 +85,6 @@ const debugCspDirectives = {
     'unsafe-eval',
     'http://localhost:*',
     'ws://localhost:*',
-    'https://keepandroidopen.org',
   ],
   'style-src': ['self', 'unsafe-inline', 'http://localhost:*'],
   'img-src': ['self', 'data:', 'http://localhost:*'],

@@ -775,3 +775,98 @@ footer .container {
   font-weight: 600;
   margin-bottom: 0.5em;
 }
+
+/* From KeepAndroidOpenBanner.svelte */
+
+.kao-banner {
+  position: relative;
+  padding: 0.25rem 2rem;
+  margin: -10px -10px 0;
+  font-size: 0.8rem;
+  font-weight: 900;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  color: #fff !important;
+  text-align: center;
+  background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
+  animation: kao-pulse 2s infinite;
+  border-bottom: 2px solid #801313;
+  box-sizing: border-box;
+  font-family: 'Arial Black', Impact, sans-serif;
+  font-variant-numeric: tabular-nums;
+  text-shadow:
+    0 1px 0 #9e1a1a,
+    0 2px 0 #8a1515,
+    0 3px 5px rgb(0 0 0 / 40%);
+  text-transform: uppercase;
+}
+
+.kao-banner__link,
+.kao-banner__link:visited,
+.kao-banner__link:hover,
+.kao-banner__link:focus {
+  color: #fff !important;
+  background-color: transparent;
+}
+
+.kao-banner__link {
+  text-decoration: none;
+}
+
+.kao-banner__link:hover,
+.kao-banner__link:focus {
+  text-decoration: underline;
+}
+
+.kao-banner__countdown {
+  color: #fff !important;
+  white-space: nowrap;
+}
+
+.kao-banner__close {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border: 0;
+  font-size: 0.8em;
+  line-height: 1;
+  color: #fff !important;
+  background: none;
+  opacity: 0.75;
+  transform: translateY(-50%);
+  cursor: pointer;
+  text-shadow: none;
+}
+
+.kao-banner__close:hover,
+.kao-banner__close:focus {
+  opacity: 1;
+}
+
+@keyframes kao-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(211 47 47 / 70%);
+  }
+
+  70% {
+    box-shadow: 0 0 0 15px rgb(211 47 47 / 0%);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgb(211 47 47 / 0%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kao-banner {
+    animation: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .kao-banner {
+    padding-left: 0.75rem;
+    padding-right: 2.25rem;
+  }
+}

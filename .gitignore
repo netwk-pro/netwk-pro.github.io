@@ -9,6 +9,7 @@
 
 ### Custom ###
 .orig/
+.backup/
 *.local
 list-devices.js
 devices-list.json

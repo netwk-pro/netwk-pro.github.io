@@ -13,6 +13,7 @@ This file is part of Network Pro.
   import { showReminder } from '$lib/stores/posthog';
   import {
     ContainerSection,
+    KeepAndroidOpenBanner,
     MetaTags,
     PWAInstallButton,
   } from '$lib/components';
@@ -53,6 +54,8 @@ This file is part of Network Pro.
 
   <!-- Static moved to app.html 2025-05-21 -->
 </svelte:head>
+
+<KeepAndroidOpenBanner />
 
 <!-- BEGIN HEADER -->
 <header id="header-nav">
