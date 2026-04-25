@@ -50,12 +50,14 @@ const sharedCspDirectives = {
   'upgrade-insecure-requests': true,
 };
 
-// Production permits the current analytics sources, and sends CSP violations to
-// the external report collector.
+// Production temporarily permits inline scripts while the current analytics
+// stack is still PostHog-based, and sends CSP violations to the external report
+// collector.
 const productionCspDirectives = {
   ...sharedCspDirectives,
   'script-src': [
     'self',
+    'unsafe-inline',
     'https://us.i.posthog.com',
     'https://us-assets.i.posthog.com',
   ],

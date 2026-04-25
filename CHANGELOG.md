@@ -34,6 +34,7 @@ version increments reflecting both user-visible and operational impact.
 
 - Replaced the third-party Keep Android Open banner script with a first-party Svelte banner component to avoid unstable inline-script CSP violations.
 - Removed Keep Android Open script host and inline helper hash allowances from CSP.
+- Restored temporary production `script-src 'unsafe-inline'` compatibility while PostHog remains in use.
 - Updated README and agent guidance to reflect that CSP policy selection now lives in SvelteKit `kit.csp` instead of `src/hooks.server.js`.
 
 ---
