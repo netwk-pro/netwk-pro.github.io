@@ -11,7 +11,7 @@ This file is part of Network Pro.
  * @description Data for FOSS Spotlight route
  * @module src/lib/data
  * @author Scott Lopez
- * @updated 2025-10-20
+ * @updated 2026-04-25
  */
 
 // Import FOSS images
@@ -315,7 +315,7 @@ export const fossData = [
     links: [
       {
         label: "GitHub",
-        href: "https://github.com/Helium314/HeliBoard",
+        href: "https://github.com/HeliBorg/HeliBoard",
       },
       {
         label: "F-Droid",

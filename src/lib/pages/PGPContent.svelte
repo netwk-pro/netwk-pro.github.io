@@ -11,11 +11,6 @@ This file is part of Network Pro.
   import { CodeBlock } from '$lib/components';
   import { base } from '$app/paths';
 
-  // Log the base path to verify its value
-  //console.log("Base path:", base);
-
-  //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
-
   const { CONTACT, PAGE } = CONSTANTS;
 
   /**
