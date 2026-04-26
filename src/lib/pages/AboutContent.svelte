@@ -10,11 +10,6 @@ This file is part of Network Pro.
   import { CONSTANTS, getQR, PGP_KEYS } from '$lib';
   import { base } from '$app/paths';
 
-  // Log the base path to verify its value
-  //console.log("Base path:", base);
-
-  //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
-
   const { COMPANY_INFO, CONTACT, PAGE } = CONSTANTS;
   const pgpKeys = PGP_KEYS.filter(
     (k) => k.id === 'pgp-support' || k.id === 'pgp-contact',

@@ -11,9 +11,6 @@ This file is part of Network Pro.
   import { bySvg, ccSvg } from '$lib';
   import { CONSTANTS } from '$lib';
 
-  // Log the base path to verify its value
-  //console.log("Base path:", base);
-
   const { COMPANY_INFO, CONTACT, PAGE, NAV } = CONSTANTS;
 
   // Dynamic links for licensing and trademark
