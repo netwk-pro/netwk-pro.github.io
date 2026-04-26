@@ -11,8 +11,6 @@ This file is part of Network Pro.
   import FossItemContent from '$lib/components/foss/FossItemContent.svelte';
   import { CONSTANTS } from '$lib';
 
-  //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
-
   const { PAGE } = CONSTANTS;
 
   /**

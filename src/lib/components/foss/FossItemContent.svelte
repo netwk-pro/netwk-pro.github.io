@@ -19,8 +19,6 @@ This file is part of Network Pro.
 
   import { CONSTANTS } from '$lib';
 
-  //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
-
   const { PAGE, NAV } = CONSTANTS;
 
   /** @type {"async"} */

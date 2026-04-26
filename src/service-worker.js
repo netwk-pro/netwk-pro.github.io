@@ -49,7 +49,6 @@ const IGNORE_PATHS = new Set([
   '/b173de6c44c144c1b186841b88d51c67.txt',
   '/robots.txt',
   '/sitemap.xml',
-  '/CNAME',
 ]);
 
 /** @type {string[]} */

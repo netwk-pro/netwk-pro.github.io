@@ -24,6 +24,28 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.27.2] - 2026-04-25
+
+### Added
+
+- Added a site-wide W3C Do Not Track tracking status resource at `/.well-known/dnt`.
+- Added the DNT tracking status resource to `sitemap.xml`.
+
+### Changed
+
+- Bumped project version to `v1.27.2`.
+- Updated `npm run dev` and `npm run preview` so they start local servers without automatically opening a browser.
+- Refreshed sitemap metadata for updated public pages and privacy well-known resources.
+- Updated the HeliBoard FOSS Spotlight GitHub link to the current `HeliBorg/HeliBoard` repository.
+- Excluded the human-readable DNT policy text file from Prettier formatting.
+
+### Removed
+
+- Removed stale commented debug logging from shared layout, metadata, legal, FOSS, PGP, services, terms, and home page components.
+- Removed `/CNAME` from the service worker ignored-path list.
+
+---
+
 ## [1.27.1] - 2026-04-25
 
 ### Changed
@@ -2779,11 +2801,10 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 - Deprecated `shouldTrackUser()` logic and legacy cookie checks.
 
----
-
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.27.1...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.27.2...HEAD
+[1.27.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.2
 [1.27.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.1
 [1.27.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.0
 [1.26.22]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.26.22
@@ -2885,4 +2906,4 @@ This enables analytics filtering and CSP hardening for the audit environment.
 [1.12.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.1
 [1.12.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.0
 
-<!-- cspell:ignore qrcode cryptom otphelp domcontentloaded -->
+<!-- cspell:ignore qrcode cryptom otphelp domcontentloaded heli -->

@@ -10,11 +10,6 @@ This file is part of Network Pro.
   import { base } from '$app/paths';
   import { CONSTANTS } from '$lib';
 
-  // Log the base path to verify its value
-  //console.log("Base path:", base);
-
-  //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
-
   const { PAGE, LINKS } = CONSTANTS;
 
   const aboutLink = `${base}/about`;

@@ -12,11 +12,6 @@ This file is part of Network Pro.
   import { ccBadge, gplBadge } from '$lib';
   import { CONSTANTS } from '$lib';
 
-  // Log the base path to verify its value
-  //console.log("Base path:", base);
-
-  //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
-
   const { PAGE } = CONSTANTS;
 
   const ccbyLink = `${base}/legal#cc-by`;
