@@ -24,6 +24,25 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.27.3] - 2026-05-02
+
+### Changed
+
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.59.0**.
+- Bumped project version to `v1.27.3`.
+- Upgraded dependencies:
+  - `dompurify` `^3.4.1` → `^3.4.2`
+  - `postcss` `^8.5.10` → `^8.5.13`
+  - `posthog-js` `^1.372.1` → `^1.372.6`
+  - `stylelint` `^17.9.0` → `^17.9.1`
+  - `svelte-check` `^4.4.6` → `^4.4.7`
+  - `@sveltejs/kit` `2.58.0` → `2.59.0`
+  - `eslint` `10.2.1` → `10.3.0`
+  - `globals` `^17.5.0` → `^17.6.0`
+  - `jsdom` `29.0.2` → `29.1.1`
+
+---
+
 ## [1.27.2] - 2026-04-25
 
 ### Added
@@ -2803,7 +2822,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.27.2...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.27.3...HEAD
+[1.27.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.3
 [1.27.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.2
 [1.27.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.1
 [1.27.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.0
