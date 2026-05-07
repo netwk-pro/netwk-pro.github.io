@@ -24,6 +24,18 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.28.1] - 2026-05-06
+
+### Changed
+
+- Bumped project version to `v1.28.1`.
+
+### Fixed
+
+- Regenerated `package-lock.json` by using the `npm install` command.
+
+---
+
 ## [1.28.0] - 2026-05-06
 
 ### Added
@@ -2879,7 +2891,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.1...HEAD
+[1.28.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.1
 [1.28.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.0
 [1.27.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.3
 [1.27.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.2
