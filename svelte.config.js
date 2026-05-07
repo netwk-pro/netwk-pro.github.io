@@ -84,10 +84,10 @@ const debugCspDirectives = {
   'report-uri': ['/api/mock-csp'],
 };
 
-// SvelteKit augments these policies with hashes/nonces for framework-generated
-// inline code. Prerendered pages use hashes; dynamic pages use nonces.
+// Use hashes for framework-generated inline code so prerendered/static pages
+// cannot be served with a mismatched per-request nonce header.
 const csp = {
-  mode: 'auto',
+  mode: 'hash',
   ...(isDebug
     ? { reportOnly: debugCspDirectives }
     : { directives: isAudit ? auditCspDirectives : productionCspDirectives }),

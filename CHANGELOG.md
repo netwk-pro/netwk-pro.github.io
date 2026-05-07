@@ -51,6 +51,12 @@ version increments reflecting both user-visible and operational impact.
   - `@sveltejs/vite-plugin-svelte` `^7.0.0` → `^7.1.1`
   - `stylelint` `^17.9.1` → `^17.11.0`
 
+### Fixed
+
+- Switched SvelteKit CSP generation from `auto` to hash mode so
+  prerendered/static pages are not served with mismatched nonce-based CSP
+  headers that block framework-generated inline bootstrap scripts.
+
 ### Removed
 
 - Removed the `posthog-js` runtime dependency and related PostHog transitive
