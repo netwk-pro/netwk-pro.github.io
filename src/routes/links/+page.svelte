@@ -15,18 +15,17 @@ This file is part of Network Pro.
   import { onMount } from 'svelte';
   import { browser } from '$app/environment';
   import { CONSTANTS } from '$lib';
-
-  import posthog from 'posthog-js';
+  import { capture } from '$lib/stores/posthog';
 
   //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 
   const { PAGE } = CONSTANTS;
 
   /** @type {string | null} */
-  let target = null;
+  let target = $state(null);
 
   /** @type {boolean} */
-  let show = false;
+  let show = $state(false);
 
   onMount(() => {
     if (!browser) return;
@@ -35,7 +34,7 @@ This file is part of Network Pro.
 
     if (get(trackingEnabled)) {
       const utm = getUTMParams(url);
-      posthog.capture('redirect_to_linktree', {
+      capture('redirect_to_linktree', {
         target_url: url,
         ...utm,
       });

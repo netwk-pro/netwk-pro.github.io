@@ -7,7 +7,7 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from '$app/paths';
+  import { resolve } from '$app/paths';
   import { onMount } from 'svelte';
   import {
     trackingPreferences,
@@ -20,13 +20,16 @@ This file is part of Network Pro.
   const { COMPANY_INFO, CONTACT, PAGE, NAV } = CONSTANTS;
 
   /** @type {string} */
-  const prightsLink = `${base}/privacy-rights`;
+  const prightsLink = resolve('/privacy-rights', {});
 
   /** @type {string} */
-  const contactLink = `${base}/contact`;
+  const contactLink = resolve('/contact', {});
 
   /** @type {string} */
-  const pdashLink = `${base}/privacy-dashboard`;
+  const pdashLink = resolve('/privacy-dashboard', {});
+
+  /** @type {string} */
+  const topLink = resolve('/privacy#top', {});
 
   /** @type {string} */
   const privacyLink = 'https://docs.netwk.pro/privacy';
@@ -61,16 +64,13 @@ This file is part of Network Pro.
   const classSmall = 'small-text';
 
   /** @type {boolean} */
-  let optedOut;
+  let optedOut = $derived($trackingPreferences.optedOut);
 
   /** @type {boolean} */
-  let optedIn;
+  let optedIn = $derived($trackingPreferences.optedIn);
 
   /** @type {string} */
-  let trackingStatus;
-
-  // Reactive assignments from the store
-  $: ({ optedOut, optedIn, status: trackingStatus } = $trackingPreferences);
+  let trackingStatus = $derived($trackingPreferences.status);
 
   /**
    * Toggle tracking opt-out setting.
@@ -133,8 +133,8 @@ This file is part of Network Pro.
 <h3>Table of Contents</h3>
 <nav id="toc">
   <ol>
-    {#each tocLinks as link}
-      <li><a href={'#' + link.id}>{link.text}</a></li>
+    {#each tocLinks as link (link.id)}
+      <li><a href={resolve('/privacy#' + link.id, {})}>{link.text}</a></li>
     {/each}
   </ol>
 </nav>
@@ -153,7 +153,7 @@ This file is part of Network Pro.
 </section>
 
 <!-- POLICY SECTIONS -->
-{#each tocLinks as link, i}
+{#each tocLinks as link, i (link.id)}
   <section id={link.id}>
     <h2>{i + 1}. {link.text}</h2>
 
@@ -192,13 +192,12 @@ This file is part of Network Pro.
       </ul>
     {:else if link.id === 'tracking'}
       <p>
-        To better understand visitor behavior and optimize website
-        functionality, we use <strong>PostHog Cloud</strong>, a hosted version
-        of the open-source PostHog analytics platform. This tool helps us
-        evaluate site performance and user engagement through the collection of
-        non-personally identifiable technical data.
+        Website analytics collection is currently disabled and is not connected
+        to a third-party analytics provider. We preserve local preference
+        controls so visitors can express consent choices before any future
+        analytics provider is added.
       </p>
-      <p> PostHog Cloud may collect and process information such as: </p>
+      <p> If analytics are enabled in the future, they may include: </p>
       <ul>
         <li>Pages visited and navigation behavior</li>
         <li>Device type, browser version, and operating system</li>
@@ -209,21 +208,20 @@ This file is part of Network Pro.
         <li>General geolocation (approximate, based on IP address)</li>
       </ul>
       <p>
-        We configure PostHog to prioritize user privacy. <strong
-          >Analytics tracking is automatically disabled when a user's browser
+        We configure analytics preferences to prioritize user privacy. <strong
+          >Analytics preference state automatically honors when a user's browser
           sends a "Do Not Track" (DNT) or <a
             rel={PAGE.REL}
             href={gpcLink}
             target={PAGE.BLANK}>"Global Privacy Control" (GPC / Sec-GPC)</a> signal.</strong>
-        No further action is required—your browser settings are honored by default.
+        No further action is required-your browser settings are honored by default.
       </p>
       <p>
         You can view your current tracking status below, along with manual
         opt-out and opt-in settings stored as browser cookies. These settings
         override any Do Not Track (DNT) or Global Privacy Control (GPC) signals. <strong
-          >If you opt out, analytics tracking via PostHog is disabled entirely
-          until you change your preference.</strong> Your selection will persist until
-        manually updated.
+          >If you opt out, analytics tracking remains disabled if a provider is
+          added later.</strong> Your selection will persist until manually updated.
       </p>
       <p class="emphasis">
         For convenient access, you can manage these settings through our <a
@@ -257,7 +255,7 @@ This file is part of Network Pro.
             checked={optedOut}
             disabled={optedIn}
             aria-describedby="tracking-status"
-            on:change={(e) =>
+            onchange={(e) =>
               toggleTracking(
                 /** @type {HTMLInputElement} */ (e.target).checked,
               )} />
@@ -273,7 +271,7 @@ This file is part of Network Pro.
             checked={optedIn}
             disabled={optedOut}
             aria-describedby="tracking-status"
-            on:change={(e) =>
+            onchange={(e) =>
               toggleOptIn(
                 /** @type {HTMLInputElement} */ (e.target).checked,
               )} />
@@ -284,13 +282,8 @@ This file is part of Network Pro.
       <div class="spacer"></div>
 
       <p>
-        PostHog Cloud is a third-party service, but we deploy it in a
-        privacy-conscious manner that avoids intrusive profiling and aligns with
-        data protection best practices. For more information, please refer to <a
-          rel={PAGE.REL}
-          href="https://posthog.com/privacy"
-          target={PAGE.BLANK}>PostHog's Privacy Policy</a
-        >.
+        No third-party analytics provider currently receives analytics events
+        from this website.
       </p>
       <p>
         In addition to analytics tools, we also use security measures to protect
@@ -471,7 +464,7 @@ This file is part of Network Pro.
 
     <!-- Back to Top Link -->
     <span class={classSmall}>
-      <a href={NAV.HREFTOP}>{NAV.BACKTOP}</a>
+      <a href={topLink}>{NAV.BACKTOP}</a>
     </span>
   </section>
 {/each}

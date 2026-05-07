@@ -11,16 +11,16 @@ This file is part of Network Pro.
   import { appendUTM } from '$lib/utils/utm.js';
   import { getUTMParams } from '$lib/utils/getUTMParams.js';
   import { trackingEnabled } from '$lib/stores/trackingPreferences';
-  import posthog from 'posthog-js';
+  import { capture } from '$lib/stores/posthog';
   import { get } from 'svelte/store';
   import { onMount } from 'svelte';
   import { browser } from '$app/environment';
 
   /** @type {string | null} */
-  let target = null;
+  let target = $state(null);
 
   /** @type {boolean} */
-  let show = false;
+  let show = $state(false);
 
   onMount(() => {
     if (!browser) return;
@@ -31,7 +31,7 @@ This file is part of Network Pro.
 
     if (get(trackingEnabled)) {
       const utm = getUTMParams(url);
-      posthog.capture('redirect_to_contact', {
+      capture('redirect_to_contact', {
         target_url: url,
         ...utm,
       });

@@ -22,7 +22,7 @@ import { registerServiceWorker } from '$lib/registerServiceWorker.js';
 import { capture, initPostHog } from '$lib/stores/posthog';
 
 /**
- * Initializes analytics and telemetry (e.g., PostHog tracking, asset preload).
+ * Initializes analytics compatibility hooks and asset preload.
  * Should be called once per app mount (e.g., from +layout.svelte).
  *
  * @returns {() => void} Cleanup function to unregister global event listeners
@@ -39,7 +39,7 @@ export function initAnalytics() {
     capture('$pageview');
   });
 
-  // Track $pageleave
+  // Preserve the existing analytics event hook for future providers.
   let hasFiredLeave = false;
   const sendPageLeave = () => {
     if (hasFiredLeave) return;

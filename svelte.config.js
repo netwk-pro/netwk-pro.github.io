@@ -50,22 +50,11 @@ const sharedCspDirectives = {
   'upgrade-insecure-requests': true,
 };
 
-// Production temporarily permits inline scripts while the current analytics
-// stack is still PostHog-based, and sends CSP violations to the external report
-// collector.
+// Production sends CSP violations to the external report collector.
 const productionCspDirectives = {
   ...sharedCspDirectives,
-  'script-src': [
-    'self',
-    'unsafe-inline',
-    'https://us.i.posthog.com',
-    'https://us-assets.i.posthog.com',
-  ],
-  'connect-src': [
-    'self',
-    'https://us.i.posthog.com',
-    'https://us-assets.i.posthog.com',
-  ],
+  'script-src': ['self'],
+  'connect-src': ['self'],
   'report-uri': [cspReportUri],
   'report-to': ['csp-endpoint'],
 };
@@ -90,13 +79,7 @@ const debugCspDirectives = {
   ],
   'style-src': ['self', 'unsafe-inline', 'http://localhost:*'],
   'img-src': ['self', 'data:', 'http://localhost:*'],
-  'connect-src': [
-    'self',
-    'http://localhost:*',
-    'ws://localhost:*',
-    'https://us.i.posthog.com',
-    'https://us-assets.i.posthog.com',
-  ],
+  'connect-src': ['self', 'http://localhost:*', 'ws://localhost:*'],
   'report-uri': ['/api/mock-csp'],
 };
 

@@ -139,7 +139,7 @@ npx playwright test tests/e2e/app.spec.js
 The project uses a multi-environment setup with behavior controlled primarily by `PUBLIC_ENV_MODE`, with Vite mode and local command fallbacks used where needed:
 
 - **`development` / `dev`**: Local development with report-only CSP, no analytics
-- **`production` / `prod`**: Full CSP enforcement, PostHog analytics enabled, CSP reporting to production endpoint
+- **`production` / `prod`**: Full CSP enforcement, analytics disabled until a future provider is added, CSP reporting to production endpoint
 - **`audit`**: Hardened environment for security testing: no analytics, no external CSP reporting, strict CSP
 - **`test`**: CI/test mode with report-only CSP for automation
 - **`codex`**: Special mode for Claude Code development
@@ -161,7 +161,7 @@ CSP is configured in `svelte.config.js` via SvelteKit `kit.csp`, based on build/
 
 `src/hooks.server.js` no longer constructs or emits CSP headers directly. It still sets request-time security headers, emits the production `Report-To` header, logs audit hostname mismatches, and records audit-mode Probely diagnostics.
 
-**Current Trade-off**: SvelteKit manages hashes/nonces for framework-generated inline scripts. The production policy temporarily allows `unsafe-inline` for scripts while PostHog remains in use, and it still allows `unsafe-inline` for styles because Svelte transitions can generate inline styles at runtime. The Keep Android Open banner is implemented first-party as a Svelte component to avoid third-party inline script injection.
+**Current Trade-off**: SvelteKit manages hashes/nonces for framework-generated inline scripts. The production policy keeps scripts restricted to `self`, and still allows `unsafe-inline` for styles because Svelte transitions can generate inline styles at runtime. The Keep Android Open banner is implemented first-party as a Svelte component to avoid third-party inline script injection.
 
 **Probely Scanner Diagnostics**: `hooks.server.js` detects Probely DAST scanners using `isProbelyScanner()` from `src/lib/security/probely.js`, but this is diagnostic-only and does not bypass request handling.
 
@@ -171,7 +171,6 @@ The service worker is defined in `src/service-worker.js` and handles:
 
 - Precaching of build artifacts and static files
 - Runtime caching strategies (cache-first, network-first)
-- Analytics domain blocking (PostHog never cached)
 - Cache versioning and cleanup
 
 **Registration**: `src/lib/registerServiceWorker.js` handles:
@@ -194,7 +193,6 @@ The service worker is defined in `src/service-worker.js` and handles:
 
 - `/pgp/[key]/+server.js`: Dynamic PGP key serving with proper Content-Type headers
 - `/api/mock-csp/+server.js`: Mock CSP violation reporting endpoint for dev/test
-- `/relay-[slug]/[...catchall]/+server.js`: Dynamic redirect handler
 
 ### Component Organization
 
@@ -216,16 +214,14 @@ src/lib/
 
 ### Analytics & Tracking
 
-PostHog is initialized in `src/lib/stores/posthog.js` and conditionally loaded based on:
-
-- Environment (disabled in audit, test, dev)
-- User consent (tracked in `trackingPreferences.js` store)
-- Browser support
+Third-party analytics are currently disabled. The compatibility helper at
+`src/lib/stores/posthog.js` preserves the existing app-facing API while events
+no-op until a future provider is added.
 
 **Key Functions**:
 
-- `initPostHog()`: Initializes PostHog with consent checking
-- `capture(event)`: Wrapper for PostHog event capture
+- `initPostHog()`: Initializes local tracking preference state
+- `capture(event)`: Compatibility no-op for analytics event capture
 - `showReminder`: Svelte store for tracking consent banner state
 
 Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called from `+layout.svelte`.
@@ -296,7 +292,7 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 
 1. Import `capture` from `$lib/stores/posthog`
 2. Call `capture('event_name', { properties })` in client-side code
-3. Events are automatically gated by consent and environment checks
+3. Events no-op until a future analytics provider is added
 
 ## Important Constraints
 
@@ -304,7 +300,6 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 
 - **Never commit sensitive data**: Use `.env` for local secrets, never `.env.template`
 - **CSP compliance**: Prefer SvelteKit-managed hashes/nonces, avoid broad `unsafe-inline` for scripts, and document any temporary production relaxations or third-party inline-script hash allowances
-- **Service worker**: Analytics domains (PostHog) are explicitly excluded from SW caching
 - **PGP keys**: `.asc` files in `static/pgp/` are served directly, not precached
 
 ### Code Quality Standards
@@ -332,7 +327,7 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 1. **Service Worker Caching**: Use `?nosw` query param to bypass SW for testing
 2. **Environment Detection**: `PUBLIC_ENV_MODE` is the build-time source of truth; `audit.netwk.pro` hostname detection is diagnostic/defense-in-depth
 3. **CSP Violations**: Check browser console in dev mode; violations are logged to `/api/mock-csp`
-4. **PostHog Initialization**: Happens asynchronously; use `$isInitialized` store to check status
+4. **Analytics Initialization**: The compatibility helper initializes preference state but does not send events
 5. **Static Asset Imports**: Use Vite's `import` syntax (e.g., `import logo from '$lib/img/logo.png'`)
 6. **Prerendering**: Some routes are prerendered at build time; check `svelte.config.js` error handlers
 

@@ -90,7 +90,6 @@
   },
   "dependencies": {
     "dompurify": "^3.4.2",
-    "posthog-js": "^1.372.6",
     "semver": "^7.7.4",
     "svelte": "5.55.5"
   },

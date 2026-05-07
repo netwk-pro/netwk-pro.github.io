@@ -32,15 +32,5 @@
       "destination": "/foss/:path*",
       "permanent": true
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/relay-MSR0/static/(.*)",
-      "destination": "https://us-assets.i.posthog.com/static/$1"
-    },
-    {
-      "source": "/relay-MSR0/(.*)",
-      "destination": "https://us.i.posthog.com/$1"
-    }
   ]
 }

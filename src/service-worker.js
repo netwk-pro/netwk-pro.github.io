@@ -18,9 +18,6 @@ const sw = /** @type {ServiceWorkerGlobalScope} */ (
 
 const isDev = location.hostname === 'localhost';
 
-/** @type {string[]} */
-const disallowedHosts = ['us.i.posthog.com', 'posthog.com'];
-
 import { build, files, version } from '$service-worker';
 
 /** @type {string} */
@@ -56,15 +53,11 @@ const ASSETS = [
   ...new Set(
     [...build, ...files, '/offline.html'].filter((path) => {
       try {
-        const url = new URL(path, location.origin);
-        const hostname = url.hostname;
+        new URL(path, location.origin);
 
         const shouldExclude =
           path.startsWith('http') ||
           path.startsWith('/bin/') ||
-          disallowedHosts.some(
-            (host) => hostname === host || hostname.endsWith(`.${host}`),
-          ) ||
           IGNORE_PATHS.has(path);
 
         if (shouldExclude) excludedAssets.push(path);
