@@ -58,7 +58,7 @@ This file is part of Network Pro.
   ];
 
   /** @type {string} */
-  const effectiveDate = 'January 11, 2026';
+  const effectiveDate = 'May 6, 2026';
 
   /** @type {string} */
   const classSmall = 'small-text';
