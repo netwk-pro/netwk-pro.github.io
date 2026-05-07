@@ -56,6 +56,11 @@ version increments reflecting both user-visible and operational impact.
 - Switched SvelteKit CSP generation from `auto` to hash mode so
   prerendered/static pages are not served with mismatched nonce-based CSP
   headers that block framework-generated inline bootstrap scripts.
+- Changed service-worker navigation handling to fetch HTML from the network
+  before falling back to cached core pages (`/`, `/about`, `/contact`) or the
+  offline page, balancing CSP freshness with limited offline navigation.
+- Updated the `?nosw` diagnostic script to unregister service workers and clear
+  caches before app bootstrapping completes.
 
 ### Removed
 

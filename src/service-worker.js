@@ -23,6 +23,9 @@ import { build, files, version } from '$service-worker';
 /** @type {string} */
 const CACHE = `cache-${version}`;
 
+/** @type {Set<string>} */
+const OFFLINE_NAVIGATION_PATHS = new Set(['/', '/about', '/contact']);
+
 /** @type {string[]} */
 const excludedAssets = [];
 
@@ -234,6 +237,59 @@ function shouldSkipDevModule(url) {
   );
 }
 
+/**
+ * Normalize a navigation path for route-level offline caching.
+ *
+ * @param {URL} url
+ * @returns {string}
+ */
+function getNavigationPath(url) {
+  if (url.pathname === '/') return '/';
+  return url.pathname.replace(/\/$/, '');
+}
+
+/**
+ * Determine if a route document should be cached for offline navigation.
+ *
+ * @param {URL} url
+ * @returns {boolean}
+ */
+function shouldCacheNavigation(url) {
+  return OFFLINE_NAVIGATION_PATHS.has(getNavigationPath(url));
+}
+
+/**
+ * Build a stable cache key for a route document.
+ *
+ * @param {URL} url
+ * @returns {Request}
+ */
+function getNavigationCacheKey(url) {
+  return new Request(`${url.origin}${getNavigationPath(url)}`);
+}
+
+/**
+ * Cache an allowed route document without blocking the navigation response.
+ *
+ * @param {URL} url
+ * @param {Response} response
+ * @returns {Promise<void>}
+ */
+async function cacheNavigationResponse(url, response) {
+  if (
+    !shouldCacheNavigation(url) ||
+    !response.ok ||
+    response.type === 'opaque'
+  ) {
+    return;
+  }
+
+  const cache = await caches.open(CACHE);
+  await cache.put(getNavigationCacheKey(url), response.clone());
+
+  if (isDev) console.log('[SW] Cached navigation:', url.pathname);
+}
+
 // 🔹 Fetch event
 /**
  * @param {FetchEvent} event
@@ -248,6 +304,50 @@ sw.addEventListener('fetch', (event) => {
 
   event.respondWith(
     (async () => {
+      if (event.request.mode === 'navigate') {
+        try {
+          const preloadResponse = await event.preloadResponse;
+          if (preloadResponse) {
+            if (isDev)
+              console.log('[SW] Using preload response:', event.request.url);
+            event.waitUntil(
+              cacheNavigationResponse(requestUrl, preloadResponse.clone()),
+            );
+            return preloadResponse;
+          }
+
+          if (isDev)
+            console.log(
+              '[SW] Fetching navigation from network:',
+              event.request.url,
+            );
+
+          const response = await fetch(event.request);
+          event.waitUntil(
+            cacheNavigationResponse(requestUrl, response.clone()),
+          );
+          return response;
+        } catch (_err) {
+          if (isDev)
+            console.warn(
+              '[SW] Navigation failed; checking route cache:',
+              event.request.url,
+            );
+
+          const cachedNavigation = await caches.match(
+            getNavigationCacheKey(requestUrl),
+          );
+          if (cachedNavigation) return cachedNavigation;
+
+          const offline = await caches.match('/offline.html');
+          if (offline) return offline;
+
+          return new Response('<h1>Offline</h1>', {
+            headers: { 'Content-Type': 'text/html' },
+          });
+        }
+      }
+
       const cached = await caches.match(event.request);
       if (cached) {
         if (isDev) console.log('[SW] Serving from cache:', event.request.url);
@@ -255,15 +355,6 @@ sw.addEventListener('fetch', (event) => {
       }
 
       try {
-        if (event.request.mode === 'navigate') {
-          const preloadResponse = await event.preloadResponse;
-          if (preloadResponse) {
-            if (isDev)
-              console.log('[SW] Using preload response:', event.request.url);
-            return preloadResponse;
-          }
-        }
-
         if (isDev)
           console.log('[SW] Fetching from network:', event.request.url);
 
@@ -274,15 +365,6 @@ sw.addEventListener('fetch', (event) => {
             '[SW] Fetch failed; offline fallback:',
             event.request.url,
           );
-
-        if (event.request.mode === 'navigate') {
-          const offline = await caches.match('/offline.html');
-          if (offline) return offline;
-
-          return new Response('<h1>Offline</h1>', {
-            headers: { 'Content-Type': 'text/html' },
-          });
-        }
 
         return Response.error();
       }
