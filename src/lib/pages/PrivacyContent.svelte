@@ -192,12 +192,11 @@ This file is part of Network Pro.
       </ul>
     {:else if link.id === 'tracking'}
       <p>
-        Website analytics collection is currently disabled and is not connected
-        to a third-party analytics provider. We preserve local preference
-        controls so visitors can express consent choices before any future
-        analytics provider is added.
+        Website analytics collection is provided through Matomo at
+        analytics.netwk.pro when analytics are allowed by your tracking
+        preferences and browser privacy signals.
       </p>
-      <p> If analytics are enabled in the future, they may include: </p>
+      <p> When analytics are enabled, they may include: </p>
       <ul>
         <li>Pages visited and navigation behavior</li>
         <li>Device type, browser version, and operating system</li>
@@ -220,8 +219,8 @@ This file is part of Network Pro.
         You can view your current tracking status below, along with manual
         opt-out and opt-in settings stored as browser cookies. These settings
         override any Do Not Track (DNT) or Global Privacy Control (GPC) signals. <strong
-          >If you opt out, analytics tracking remains disabled if a provider is
-          added later.</strong> Your selection will persist until manually updated.
+          >If you opt out, analytics tracking remains disabled.</strong> Your selection
+        will persist until manually updated.
       </p>
       <p class="emphasis">
         For convenient access, you can manage these settings through our <a
@@ -282,8 +281,8 @@ This file is part of Network Pro.
       <div class="spacer"></div>
 
       <p>
-        No third-party analytics provider currently receives analytics events
-        from this website.
+        Matomo receives pageview and limited event analytics only when tracking
+        is enabled. User identification is not enabled.
       </p>
       <p>
         In addition to analytics tools, we also use security measures to protect

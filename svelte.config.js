@@ -35,6 +35,7 @@ const envMode = (
 const isAudit = envMode === 'audit';
 const isDebug = ['development', 'dev', 'test'].includes(envMode);
 const cspReportUri = 'https://csp.netwk.pro/.netlify/functions/csp-report';
+const matomoOrigin = 'https://analytics.netwk.pro';
 
 // Directives shared by every environment. `style-src 'unsafe-inline'` remains
 // because Svelte transitions can create inline style elements at runtime.
@@ -53,8 +54,8 @@ const sharedCspDirectives = {
 // Production sends CSP violations to the external report collector.
 const productionCspDirectives = {
   ...sharedCspDirectives,
-  'script-src': ['self'],
-  'connect-src': ['self'],
+  'script-src': ['self', matomoOrigin],
+  'connect-src': ['self', matomoOrigin],
   'report-uri': [cspReportUri],
   'report-to': ['csp-endpoint'],
 };

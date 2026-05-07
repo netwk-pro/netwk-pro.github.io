@@ -140,8 +140,8 @@ This file is part of Network Pro.
     You can view your current tracking status below, along with manual opt-out
     and opt-in settings stored as browser cookies. These settings override any
     Do Not Track (DNT) or Global Privacy Control (GPC) signals. <strong
-      >If you opt out, analytics tracking remains disabled if a provider is
-      added later.</strong> Your selection will persist until manually updated.
+      >If you opt out, Matomo analytics tracking remains disabled.</strong> Your selection
+    will persist until manually updated.
   </p>
 
   &nbsp;
@@ -190,9 +190,9 @@ This file is part of Network Pro.
   <div class={spaceStyle}></div>
 
   <p>
-    Analytics collection is currently disabled and is not connected to a
-    third-party provider. These controls preserve your preference for any future
-    analytics provider.
+    Analytics collection uses Matomo at analytics.netwk.pro when tracking is
+    enabled. Pageview and limited event analytics may be sent; user
+    identification is not enabled.
   </p>
 </section>
 

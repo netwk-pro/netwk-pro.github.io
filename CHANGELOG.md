@@ -24,6 +24,52 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.28.0] - 2026-05-06
+
+### Added
+
+- Added consent-gated Matomo analytics behind the existing `$lib/stores/posthog`
+  compatibility helper, preserving current app call sites while enabling
+  pageview and limited event capture.
+- Added production CSP allowances for `https://analytics.netwk.pro` so Matomo
+  can load and send tracking requests without inline scripts.
+
+### Changed
+
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.59.1**.
+- Bumped project version to `v1.28.0`.
+- Updated analytics privacy documentation and dashboard copy to describe
+  Matomo pageview/event analytics, browser privacy signal handling, opt-out
+  behavior, and disabled user identification.
+- Updated repo guidance to reflect the Matomo-backed compatibility helper and
+  the current production CSP trade-off.
+- Updated dependencies:
+  - `@sveltejs/kit` `2.59.0` → `2.59.1`
+  - `postcss` `^8.5.13` → `^8.5.14`
+  - `svelte-check` `^4.4.7` → `^4.4.8`
+  - `svelte-eslint-parser` `^1.6.0` → `^1.6.1`
+  - `@sveltejs/vite-plugin-svelte` `^7.0.0` → `^7.1.1`
+  - `stylelint` `^17.9.1` → `^17.11.0`
+
+### Removed
+
+- Removed the `posthog-js` runtime dependency and related PostHog transitive
+  packages from the lockfile.
+- Removed PostHog initialization, capture calls, environment keys, relay
+  rewrites, relay route handling, CSP allowances, and service-worker
+  analytics-host exclusions while preserving the existing analytics helper API.
+
+### Security
+
+- Updated the transitive `basic-ftp` override to `^5.3.0` to mitigate
+  CVE-2026-44240.
+- Added a transitive `ip-address` override at `^10.1.0` to mitigate
+  CVE-2026-42338.
+- Kept audit-mode CSP hardened with no analytics egress while production
+  analytics are limited to the Matomo origin.
+
+---
+
 ## [1.27.3] - 2026-05-02
 
 ### Changed
@@ -2822,7 +2868,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.27.3...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.0...HEAD
+[1.28.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.0
 [1.27.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.3
 [1.27.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.2
 [1.27.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.1

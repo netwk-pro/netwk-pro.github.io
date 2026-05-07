@@ -139,7 +139,7 @@ npx playwright test tests/e2e/app.spec.js
 The project uses a multi-environment setup with behavior controlled primarily by `PUBLIC_ENV_MODE`, with Vite mode and local command fallbacks used where needed:
 
 - **`development` / `dev`**: Local development with report-only CSP, no analytics
-- **`production` / `prod`**: Full CSP enforcement, analytics disabled until a future provider is added, CSP reporting to production endpoint
+- **`production` / `prod`**: Full CSP enforcement, consent-gated Matomo analytics, CSP reporting to production endpoint
 - **`audit`**: Hardened environment for security testing: no analytics, no external CSP reporting, strict CSP
 - **`test`**: CI/test mode with report-only CSP for automation
 - **`codex`**: Special mode for Claude Code development
@@ -161,7 +161,7 @@ CSP is configured in `svelte.config.js` via SvelteKit `kit.csp`, based on build/
 
 `src/hooks.server.js` no longer constructs or emits CSP headers directly. It still sets request-time security headers, emits the production `Report-To` header, logs audit hostname mismatches, and records audit-mode Probely diagnostics.
 
-**Current Trade-off**: SvelteKit manages hashes/nonces for framework-generated inline scripts. The production policy keeps scripts restricted to `self`, and still allows `unsafe-inline` for styles because Svelte transitions can generate inline styles at runtime. The Keep Android Open banner is implemented first-party as a Svelte component to avoid third-party inline script injection.
+**Current Trade-off**: SvelteKit manages hashes/nonces for framework-generated inline scripts. The production policy keeps scripts restricted to `self` plus the Matomo origin, and still allows `unsafe-inline` for styles because Svelte transitions can generate inline styles at runtime. The Keep Android Open banner is implemented first-party as a Svelte component to avoid third-party inline script injection.
 
 **Probely Scanner Diagnostics**: `hooks.server.js` detects Probely DAST scanners using `isProbelyScanner()` from `src/lib/security/probely.js`, but this is diagnostic-only and does not bypass request handling.
 
@@ -214,14 +214,14 @@ src/lib/
 
 ### Analytics & Tracking
 
-Third-party analytics are currently disabled. The compatibility helper at
-`src/lib/stores/posthog.js` preserves the existing app-facing API while events
-no-op until a future provider is added.
+Matomo analytics are loaded through the compatibility helper at
+`src/lib/stores/posthog.js`. The legacy path and app-facing API are preserved
+while the provider is consent-gated and environment-aware.
 
 **Key Functions**:
 
-- `initPostHog()`: Initializes local tracking preference state
-- `capture(event)`: Compatibility no-op for analytics event capture
+- `initPostHog()`: Initializes local tracking preference state and loads Matomo when allowed
+- `capture(event)`: Sends pageviews and limited event captures to Matomo when allowed
 - `showReminder`: Svelte store for tracking consent banner state
 
 Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called from `+layout.svelte`.
@@ -292,7 +292,7 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 
 1. Import `capture` from `$lib/stores/posthog`
 2. Call `capture('event_name', { properties })` in client-side code
-3. Events no-op until a future analytics provider is added
+3. Only pageviews and limited event fields are sent; user identification remains disabled
 
 ## Important Constraints
 
