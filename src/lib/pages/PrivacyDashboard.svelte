@@ -7,7 +7,7 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from '$app/paths';
+  import { resolve } from '$app/paths';
   import { onMount } from 'svelte';
 
   import {
@@ -22,10 +22,19 @@ This file is part of Network Pro.
   const { CONTACT, PAGE, NAV } = CONSTANTS;
 
   /** @type {string} */
-  const privacyPolicy = `${base}/privacy`;
+  const privacyPolicy = resolve('/privacy', {});
 
   /** @type {string} */
-  const prightsLink = `${base}/privacy-rights`;
+  const prightsLink = resolve('/privacy-rights', {});
+
+  /** @type {string} */
+  const trackingLink = resolve('/privacy-dashboard#tracking', {});
+
+  /** @type {string} */
+  const rightsLink = resolve('/privacy-dashboard#rights', {});
+
+  /** @type {string} */
+  const topLink = resolve('/privacy-dashboard#top', {});
 
   /** @type {string} */
   const classSmall = 'small-text';
@@ -34,16 +43,13 @@ This file is part of Network Pro.
   const spaceStyle = 'spacer';
 
   /** @type {boolean} */
-  let optedOut;
+  let optedOut = $derived($trackingPreferences.optedOut);
 
   /** @type {boolean} */
-  let optedIn;
+  let optedIn = $derived($trackingPreferences.optedIn);
 
   /** @type {string} */
-  let trackingStatus;
-
-  // Reactive assignments from the store
-  $: ({ optedOut, optedIn, status: trackingStatus } = $trackingPreferences);
+  let trackingStatus = $derived($trackingPreferences.status);
 
   /**
    * Toggle tracking opt-out setting.
@@ -100,8 +106,8 @@ This file is part of Network Pro.
 
 <nav class="tracking-nav">
   <ul>
-    <li><a href="#tracking" target={PAGE.SELF}>Tracking Preferences</a></li>
-    <li><a href="#rights" target={PAGE.SELF}>Your Rights and Choices</a></li>
+    <li><a href={trackingLink} target={PAGE.SELF}>Tracking Preferences</a></li>
+    <li><a href={rightsLink} target={PAGE.SELF}>Your Rights and Choices</a></li>
   </ul>
 </nav>
 
@@ -134,9 +140,8 @@ This file is part of Network Pro.
     You can view your current tracking status below, along with manual opt-out
     and opt-in settings stored as browser cookies. These settings override any
     Do Not Track (DNT) or Global Privacy Control (GPC) signals. <strong
-      >If you opt out, analytics tracking via PostHog is disabled entirely until
-      you change your preference.</strong> Your selection will persist until manually
-    updated.
+      >If you opt out, Matomo analytics tracking remains disabled.</strong> Your selection
+    will persist until manually updated.
   </p>
 
   &nbsp;
@@ -162,7 +167,7 @@ This file is part of Network Pro.
         checked={optedOut}
         disabled={optedIn}
         aria-describedby="tracking-status"
-        on:change={(e) =>
+        onchange={(e) =>
           toggleTracking(/** @type {HTMLInputElement} */ (e.target).checked)} />
       <strong>&nbsp;Disable analytics tracking (opt-out)</strong>
     </label>
@@ -176,7 +181,7 @@ This file is part of Network Pro.
         checked={optedIn}
         disabled={optedOut}
         aria-describedby="tracking-status"
-        on:change={(e) =>
+        onchange={(e) =>
           toggleOptIn(/** @type {HTMLInputElement} */ (e.target).checked)} />
       <strong>&nbsp;Enable analytics tracking (opt-in)</strong>
     </label>
@@ -185,13 +190,14 @@ This file is part of Network Pro.
   <div class={spaceStyle}></div>
 
   <p>
-    Analytics are used to understand how the site is used. No personally
-    identifiable information is tracked.
+    Analytics collection uses Matomo at analytics.netwk.pro when tracking is
+    enabled. Pageview and limited event analytics may be sent; user
+    identification is not enabled.
   </p>
 </section>
 
 <span class={classSmall}>
-  <a href={NAV.HREFTOP} target={PAGE.SELF}>{NAV.BACKTOP}</a>
+  <a href={topLink} target={PAGE.SELF}>{NAV.BACKTOP}</a>
 </span>
 
 <div class={spaceStyle}></div>
@@ -249,7 +255,7 @@ This file is part of Network Pro.
 </section>
 
 <span class={classSmall}>
-  <a href={NAV.HREFTOP} target={PAGE.SELF}>{NAV.BACKTOP}</a>
+  <a href={topLink} target={PAGE.SELF}>{NAV.BACKTOP}</a>
 </span>
 
 <!-- cspell:ignore prefs prights -->

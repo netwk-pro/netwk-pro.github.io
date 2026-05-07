@@ -35,6 +35,7 @@ const envMode = (
 const isAudit = envMode === 'audit';
 const isDebug = ['development', 'dev', 'test'].includes(envMode);
 const cspReportUri = 'https://csp.netwk.pro/.netlify/functions/csp-report';
+const matomoOrigin = 'https://analytics.netwk.pro';
 
 // Directives shared by every environment. `style-src 'unsafe-inline'` remains
 // because Svelte transitions can create inline style elements at runtime.
@@ -50,22 +51,11 @@ const sharedCspDirectives = {
   'upgrade-insecure-requests': true,
 };
 
-// Production temporarily permits inline scripts while the current analytics
-// stack is still PostHog-based, and sends CSP violations to the external report
-// collector.
+// Production sends CSP violations to the external report collector.
 const productionCspDirectives = {
   ...sharedCspDirectives,
-  'script-src': [
-    'self',
-    'unsafe-inline',
-    'https://us.i.posthog.com',
-    'https://us-assets.i.posthog.com',
-  ],
-  'connect-src': [
-    'self',
-    'https://us.i.posthog.com',
-    'https://us-assets.i.posthog.com',
-  ],
+  'script-src': ['self', matomoOrigin],
+  'connect-src': ['self', matomoOrigin],
   'report-uri': [cspReportUri],
   'report-to': ['csp-endpoint'],
 };
@@ -90,20 +80,14 @@ const debugCspDirectives = {
   ],
   'style-src': ['self', 'unsafe-inline', 'http://localhost:*'],
   'img-src': ['self', 'data:', 'http://localhost:*'],
-  'connect-src': [
-    'self',
-    'http://localhost:*',
-    'ws://localhost:*',
-    'https://us.i.posthog.com',
-    'https://us-assets.i.posthog.com',
-  ],
+  'connect-src': ['self', 'http://localhost:*', 'ws://localhost:*'],
   'report-uri': ['/api/mock-csp'],
 };
 
-// SvelteKit augments these policies with hashes/nonces for framework-generated
-// inline code. Prerendered pages use hashes; dynamic pages use nonces.
+// Use hashes for framework-generated inline code so prerendered/static pages
+// cannot be served with a mismatched per-request nonce header.
 const csp = {
-  mode: 'auto',
+  mode: 'hash',
   ...(isDebug
     ? { reportOnly: debugCspDirectives }
     : { directives: isAudit ? auditCspDirectives : productionCspDirectives }),

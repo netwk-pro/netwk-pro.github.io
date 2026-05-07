@@ -11,10 +11,38 @@ This file is part of Network Pro.
  * @description Allows for Service Worker to be disabled for debugging by appending ?nosw to the path.
  * @module static
  * @author Scott Lopez
- * @updated 2025-10-05
+ * @updated 2026-05-06
  */
 
 if (location.search.includes('nosw')) {
   window.__DISABLE_SW__ = true;
-  console.warn('🧪 Service worker disabled via ?nosw flag in URL.');
+  console.warn('[SW] Service worker disabled via ?nosw flag in URL.');
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .getRegistrations()
+      .then((registrations) =>
+        Promise.all(
+          registrations.map((registration) => registration.unregister()),
+        ),
+      )
+      .then((results) => {
+        console.warn('[SW] Service workers unregistered via ?nosw:', results);
+      })
+      .catch((err) => {
+        console.warn('[SW] Service worker unregister failed via ?nosw:', err);
+      });
+  }
+
+  if ('caches' in window) {
+    caches
+      .keys()
+      .then((keys) => Promise.all(keys.map((key) => caches.delete(key))))
+      .then((results) => {
+        console.warn('[SW] Caches cleared via ?nosw:', results);
+      })
+      .catch((err) => {
+        console.warn('[SW] Cache cleanup failed via ?nosw:', err);
+      });
+  }
 }

@@ -9,7 +9,7 @@ This file is part of Network Pro.
 /**
  * @file getUTMParams.js
  * @description Utility to extract UTM parameters from a URL.
- * Useful for analytics platforms like PostHog or GA4.
+ * Useful for analytics event properties.
  *
  * @module src/lib/utils/
  * @author Scott Lopez
