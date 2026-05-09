@@ -84,10 +84,10 @@ const debugCspDirectives = {
   'report-uri': ['/api/mock-csp'],
 };
 
-// Use hashes for framework-generated inline code so prerendered/static pages
-// cannot be served with a mismatched per-request nonce header.
+// Let SvelteKit choose hashes for prerendered output and nonces for dynamic
+// responses, avoiding stale nonce headers while still testing nonce-based CSP.
 const csp = {
-  mode: 'hash',
+  mode: 'auto',
   ...(isDebug
     ? { reportOnly: debugCspDirectives }
     : { directives: isAudit ? auditCspDirectives : productionCspDirectives }),
@@ -143,5 +143,5 @@ const config = {
 export default config;
 
 // PostCSS configuration is handled separately in postcss.config.cjs
-// Consult https://svelte.dev/docs#compile-time-svelte-preprocess
+// Consult https://svelte.dev/docs/kit/integrations
 // for more information about preprocessors

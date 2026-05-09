@@ -11,16 +11,16 @@ This file is part of Network Pro.
  *  npm-check-updates Configuration
  *  ----------------------------------------------------------
  *  This file defines upgrade behavior for project dependencies.
- *  It ensures consistent updates while protecting pinned tools
- *  that are known to break between major versions.
+ *  It ensures consistent updates while preserving project-specific
+ *  upgrade behavior.
  *
  *  🔧 Usage:
  *    - Run `npm run check:updates` to preview safe upgrades
  *    - Run `npm run upgrade` to apply upgrades (respects these rules)
  *
  *  📜 Notes for Contributors:
- *    - Do NOT remove entries from "reject" unless a maintainer
- *      confirms the dependency has been tested and verified.
+ *    - Add entries to "reject" only when a maintainer confirms
+ *      an upgrade is incompatible or requires coordinated work.
  *    - This config is automatically used by npm-check-updates (NCU)
  *      and requires no command-line flags.
  *
@@ -30,9 +30,6 @@ This file is part of Network Pro.
 
 /** @type {import('npm-check-updates').RunOptions} */
 module.exports = {
-  // Ignore specific dependencies (prevent upgrades)
-  reject: ['typescript'],
-
   // Always upgrade devDependencies as well
   dep: 'prod,dev',
 
