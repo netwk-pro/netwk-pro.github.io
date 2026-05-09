@@ -24,6 +24,27 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.28.2] - 2026-05-08
+
+### Changed
+
+- Bumped project version to `v1.28.2`.
+- Changed SvelteKit CSP generation from hash mode to `auto` mode so dynamic
+  responses can use nonce-based CSP while prerendered output continues to use
+  hashes.
+- Removed the unused `svelte-preprocess` dev dependency because the project
+  uses `vitePreprocess` from `@sveltejs/vite-plugin-svelte`.
+- Removed the `typescript` npm-check-updates reject entry after clearing the
+  stale `svelte-preprocess` peer constraint.
+- Updated dependencies:
+  - `@sveltejs/vite-plugin-svelte` `^7.1.1` → `^7.1.2`
+  - `vite` `^8.0.10` → `^8.0.11`
+  - `@eslint/compat` `^2.0.5` → `^2.1.0`
+  - `semver` `^7.7.4` → `^7.8.0`
+  - `typescript` `5.9.3` → `6.0.3`
+
+---
+
 ## [1.28.1] - 2026-05-06
 
 ### Changed
@@ -2891,7 +2912,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.1...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.2...HEAD
+[1.28.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.2
 [1.28.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.1
 [1.28.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.0
 [1.27.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.27.3
