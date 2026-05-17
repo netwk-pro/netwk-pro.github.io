@@ -24,18 +24,36 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.28.3] - 2026-05-16
+
+### Changed
+
+- Updated GitHub Actions npm bootstrap steps from `npm@11.13.0` to `npm@11.14.1`..
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.60.1**.
+- Bumped project version to `v1.28.3`.
+- Updated dependencies:
+  - `@vitest/coverage-v8` `4.1.5` → `4.1.6`
+  - `dompurify` `^3.4.2` → `^3.4.3`
+  - `prettier-plugin-svelte` `^3.5.1` → `^3.5.2`
+  - `stylelint` `^17.11.0` → `^17.11.1`
+  - `svelte` `5.55.5` → `5.55.7`
+  - `vite` `^8.0.11` → `^8.0.13`
+  - `vitest` `4.1.5` → `4.1.6`
+  - `@playwright/test` `^1.59.1` → `^1.60.0`
+  - `@sveltejs/kit` `2.59.1` → `2.60.1`
+  - `eslint` `10.3.0` → `10.4.0`
+  - `playwright` `^1.59.1` → `^1.60.0`
+
+---
+
 ## [1.28.2] - 2026-05-08
 
 ### Changed
 
 - Bumped project version to `v1.28.2`.
-- Changed SvelteKit CSP generation from hash mode to `auto` mode so dynamic
-  responses can use nonce-based CSP while prerendered output continues to use
-  hashes.
-- Removed the unused `svelte-preprocess` dev dependency because the project
-  uses `vitePreprocess` from `@sveltejs/vite-plugin-svelte`.
-- Removed the `typescript` npm-check-updates reject entry after clearing the
-  stale `svelte-preprocess` peer constraint.
+- Changed SvelteKit CSP generation from hash mode to `auto` mode so dynamic responses can use nonce-based CSP while prerendered output continues to use hashes.
+- Removed the unused `svelte-preprocess` dev dependency because the project uses `vitePreprocess` from `@sveltejs/vite-plugin-svelte`.
+- Removed the `typescript` npm-check-updates reject entry after clearing the stale `svelte-preprocess` peer constraint.
 - Updated dependencies:
   - `@sveltejs/vite-plugin-svelte` `^7.1.1` → `^7.1.2`
   - `vite` `^8.0.10` → `^8.0.11`
@@ -2912,7 +2930,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.2...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.3...HEAD
+[1.28.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.3
 [1.28.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.2
 [1.28.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.1
 [1.28.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.0
