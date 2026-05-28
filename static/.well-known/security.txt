@@ -1,3 +1,6 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
 # Addresses under the s.neteng.pro domain are powered by Proton Mail.
 # These accounts support built-in encryption and default end-to-end protection.
 Contact: mailto:security@s.neteng.pro
@@ -6,7 +9,12 @@ Acknowledgments: https://github.com/netwk-pro/netwk-pro.github.io/security/polic
 Policy: https://github.com/netwk-pro/netwk-pro.github.io/security/policy
 Preferred-Languages: en
 Canonical: https://netwk.pro/.well-known/security.txt
-Signature: https://netwk.pro/.well-known/security.txt.sig
-# This file is authenticated using a detached GPG signature:
-# https://netwk.pro/.well-known/security.txt.sig
 Expires: 2026-12-31T23:59:59Z
+-----BEGIN PGP SIGNATURE-----
+
+iKgEARYIAFAWIQS3/h1ObKs+cUqf325Iy3KQwA0NpQUCahe4VxsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwyLDEWHHNlY3VyaXR5QHMubmV0ZW5nLnBybwAKCRBIy3KQ
+wA0NpUnJAP9wL0cX0ilvZ81DmuN0Lum/CQ7K2hhtTUsAw8jUonUUbgD+KSboCCN3
+Dfxx0NoZtDW7H1VacoTOlHACgrfm+GRR+Ao=
+=o1Yd
+-----END PGP SIGNATURE-----

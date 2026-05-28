@@ -31,7 +31,6 @@ const excludedAssets = [];
 
 /** @type {Set<string>} */
 const IGNORE_PATHS = new Set([
-  '/.well-known/security.txt.sig',
   '/img/banner-1280x640.png',
   '/img/banner-og-1200x630.png',
   '/img/fb-banner.png',
