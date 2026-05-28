@@ -24,11 +24,40 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.28.4] - 2026-05-27
+
+### Changed
+
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.61.1**.
+- Updated all GitHub Actions workflows to utilize **npm** `11.16.0`.
+- Updated `.nvmrc` and `.node-version` to utilize **Node.js** `v24.16.0`.
+- Bumped project version to `1.28.4`.
+- Updated dependencies:
+  - `@vitest/coverage-v8` `4.1.6` → `4.1.7`
+  - `dompurify` `^3.4.3` → `^3.4.7`
+  - `postcss` `^8.5.14` → `^8.5.15`
+  - `semver` `^7.8.0` → `^7.8.1`
+  - `svelte` `5.55.7` → `5.55.10`
+  - `vite` `^8.0.13`→`^8.0.14`
+  - `vitest` `4.1.6` → `4.1.7`
+  - `@sveltejs/kit` `2.60.1` → `2.61.1`
+  - `eslint-plugin-svelte` `^3.17.1` → `^3.18.0`
+  - `stylelint` `^17.11.1` → `^17.12.0`
+  - `eslint-plugin-jsdoc` `^62.9.0` → `^63.0.0`
+  - `prettier-plugin-svelte` `^3.5.2` → `^4.0.1`
+
+### Security
+
+- Updated transitive dependency override for `tmp` to `^0.2.7` to mitigate CVE-2026-44705.
+- Added npm `allowScripts` approvals for `esbuild@0.25.12` and `simple-git-hooks@2.13.1` so install-time scripts remain explicit under the current npm guidance.
+
+---
+
 ## [1.28.3] - 2026-05-16
 
 ### Changed
 
-- Updated GitHub Actions npm bootstrap steps from `npm@11.13.0` to `npm@11.14.1`..
+- Updated GitHub Actions npm bootstrap steps from `npm@11.13.0` to `npm@11.14.1`.
 - Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.60.1**.
 - Bumped project version to `v1.28.3`.
 - Updated dependencies:
@@ -2930,7 +2959,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.3...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.4...HEAD
+[1.28.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.4
 [1.28.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.3
 [1.28.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.2
 [1.28.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.1
