@@ -28,6 +28,7 @@ version increments reflecting both user-visible and operational impact.
 
 ### Changed
 
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.61.1**.
 - Updated all GitHub Actions workflows to utilize **npm** `11.16.0`.
 - Updated `.nvmrc` and `.node-version` to utilize **Node.js** `v24.16.0`.
 - Bumped project version to `1.28.4`.
