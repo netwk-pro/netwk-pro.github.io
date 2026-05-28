@@ -48,6 +48,7 @@ version increments reflecting both user-visible and operational impact.
 
 ### Security
 
+- Converted `static/.well-known/security.txt` to an inline PGP clear-signed file and removed the retired detached `security.txt.asc` signature.
 - Updated transitive dependency override for `tmp` to `^0.2.7` to mitigate CVE-2026-44705.
 - Added npm `allowScripts` approvals for `esbuild@0.25.12` and `simple-git-hooks@2.13.1` so install-time scripts remain explicit under the current npm guidance.
 
