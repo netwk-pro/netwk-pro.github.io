@@ -22,8 +22,6 @@ version increments reflecting both user-visible and operational impact.
 
 ## [Unreleased]
 
-### Security
-
 ---
 
 ## [1.28.4] - 2026-05-27
