@@ -24,6 +24,33 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.28.5] - 2026-06-06
+
+### Added
+
+- Added `static/.well-known/webfinger` to publish the `acct:support@netwk.pro` OpenID Connect issuer discovery metadata.
+
+### Changed
+
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.63.0**.
+- Bumped project version to `v1.28.5`.
+- Updated dependencies:
+  - `@vitest/coverage-v8` `4.1.7` → `4.1.8`
+  - `dompurify` `^3.4.7` → `^3.4.8`
+  - `eslint` `10.4.0` → `10.4.1`
+  - `eslint-plugin-jsdoc` `^63.0.0` → `^63.0.2`
+  - `semver` `^7.8.1` → `^7.8.2`
+  - `vite` `^8.0.14` → `^8.0.16`
+  - `vitest` `4.1.7` → `4.1.8`
+  - `@sveltejs/kit` `2.61.1` → `2.63.0`
+  - `eslint-plugin-svelte` `^3.18.0` → `^3.19.0`
+  - `prettier-plugin-svelte` `^4.0.1` → `^4.1.0`
+  - `svelte` `5.55.10` → `5.56.2`
+  - `svelte-check` `^4.4.8` → `^4.6.0`
+  - `svelte-eslint-parser` `^1.6.1` → `^1.8.0`
+
+---
+
 ## [1.28.4] - 2026-05-27
 
 ### Changed
@@ -2960,7 +2987,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.4...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.5...HEAD
+[1.28.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.5
 [1.28.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.4
 [1.28.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.3
 [1.28.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.2
