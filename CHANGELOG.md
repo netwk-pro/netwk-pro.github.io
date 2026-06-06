@@ -28,7 +28,7 @@ version increments reflecting both user-visible and operational impact.
 
 ### Added
 
-- Added `static/.well-known/webfinger` to publish the `acct:support@netwk.pro` OpenID Connect issuer discovery metadata.
+- Added `static/.well-known/webfinger` to publish the `acct:scott@netwk.pro` OpenID Connect issuer discovery metadata.
 
 ### Changed
 
