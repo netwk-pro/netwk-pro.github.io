@@ -1,0 +1,9 @@
+{
+  "subject": "acct:scott@netwk.pro",
+  "links": [
+    {
+      "rel": "http://openid.net/specs/connect/1.0/issuer",
+      "href": "https://sso-ddd23012.sso.duosecurity.com/oidc/DI0QE6LD8YZY3EII5JBH"
+    }
+  ]
+}
