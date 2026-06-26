@@ -11,6 +11,9 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+
 jobs:
   lockfile:
     runs-on: ubuntu-24.04
