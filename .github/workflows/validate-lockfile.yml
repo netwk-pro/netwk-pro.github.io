@@ -34,7 +34,4 @@ jobs:
         run: npm run check:node
 
       - name: Check lockfile
-        run: npm install --package-lock-only --ignore-scripts
-
-      - name: Require committed lockfile
-        run: git diff --exit-code -- package-lock.json
+        run: npm ci --ignore-scripts --dry-run
