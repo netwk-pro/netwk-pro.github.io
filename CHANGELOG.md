@@ -24,6 +24,44 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.28.6] - 2026-06-25
+
+### Changed
+
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.68.0**.
+- Updated all GitHub Actions workflows to utilize **npm** `11.17.0`.
+- Updated `.nvmrc` and `.node-version` to utilize **Node.js** `v24.18.0`.
+- Bumped project version to `v1.28.6`.
+- Updated the allowed install scripts list to include `esbuild@0.28.1`.
+- Updated dependencies:
+  - `@sveltejs/adapter-vercel` `^6.3.3` → `^6.3.4`
+  - `@vitest/coverage-v8` `4.1.8` → `4.1.9`
+  - `autoprefixer` `^10.5.0` → `^10.5.2`
+  - `browserslist` `^4.28.2` → `^4.28.4`
+  - `dompurify` `^3.4.8` → `^3.4.11`
+  - `eslint-plugin-jsdoc` `^63.0.2` → `^63.0.8`
+  - `prettier` `3.8.3` → `3.8.4`
+  - `prettier-plugin-svelte` `^4.1.0` → `^4.1.1`
+  - `semver` `^7.8.2` → `^7.8.5`
+  - `svelte` `5.56.2` → `5.56.4`
+  - `vitest` `4.1.8` → `4.1.9`
+  - `@playwright/test` `^1.60.0` → `^1.61.1`
+  - `@sveltejs/kit` `2.63.0` → `2.68.0`
+  - `@testing-library/svelte` `^5.3.1` → `^5.4.2`
+  - `eslint` `10.4.1` → `10.5.0`
+  - `globals` `^17.6.0` → `^17.7.0`
+  - `playwright` `^1.60.0` → `^1.61.1`
+  - `stylelint` `^17.12.0` → `^17.14.0`
+  - `svelte-check` `^4.6.0` → `^4.7.1`
+  - `vite` `^8.0.16` → `^8.1.0`
+
+### Security
+
+- Added transitive dependency override for `undici` to `^7.28.0` to mitigate several vulnerabilities.
+- Added transitive dependency override for `markdown-it` to `^14.2.0` to mitigate CVE-2026-48988.
+
+---
+
 ## [1.28.5] - 2026-06-06
 
 ### Added
@@ -2987,7 +3025,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.5...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.6...HEAD
+[1.28.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.6
 [1.28.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.5
 [1.28.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.4
 [1.28.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.3
