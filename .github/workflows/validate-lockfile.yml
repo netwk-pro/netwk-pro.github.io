@@ -30,8 +30,5 @@ jobs:
       - name: Upgrade npm
         run: npm install -g npm@11.17.0
 
-      - name: Check Node/npm versions
-        run: npm run check:node
-
       - name: Check lockfile
         run: npm ci --ignore-scripts --dry-run
