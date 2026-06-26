@@ -26,12 +26,17 @@ version increments reflecting both user-visible and operational impact.
 
 ## [1.28.6] - 2026-06-25
 
+### Added
+
+- Added `.github/workflows/validate-lockfile.yml` to catch npm lockfile drift on pull requests targeting `master`.
+
 ### Changed
 
 - Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.68.0**.
 - Updated all GitHub Actions workflows to utilize **npm** `11.17.0`.
 - Updated `.nvmrc` and `.node-version` to utilize **Node.js** `v24.18.0`.
 - Bumped project version to `v1.28.6`.
+- Added `check:lockfile` to the `checkout` and `verify` path so full local verification fails when `package-lock.json` is stale.
 - Updated the allowed install scripts list to include `esbuild@0.28.1`.
 - Updated dependencies:
   - `@sveltejs/adapter-vercel` `^6.3.3` → `^6.3.4`
