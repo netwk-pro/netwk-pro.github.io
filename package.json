@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.28.5",
+  "version": "1.28.6",
   "description": "Locking Down Networks, Unlocking Confidence™ | Security, Networking, Privacy — Network Pro Strategies",
   "keywords": [
     "advocacy",
@@ -89,50 +89,50 @@
     "pre-push": "bash scripts/hooks/pre-push.sh"
   },
   "dependencies": {
-    "dompurify": "^3.4.8",
-    "semver": "^7.8.2",
-    "svelte": "5.56.2"
+    "dompurify": "^3.4.11",
+    "semver": "^7.8.5",
+    "svelte": "5.56.4"
   },
   "devDependencies": {
     "@eslint/compat": "^2.1.0",
     "@eslint/js": "10.0.1",
     "@lhci/cli": "^0.15.1",
-    "@playwright/test": "^1.60.0",
+    "@playwright/test": "^1.61.1",
     "@sveltejs/adapter-netlify": "^6.0.4",
-    "@sveltejs/adapter-vercel": "^6.3.3",
-    "@sveltejs/kit": "2.63.0",
+    "@sveltejs/adapter-vercel": "^6.3.4",
+    "@sveltejs/kit": "2.68.0",
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/svelte": "^5.3.1",
-    "@vitest/coverage-v8": "4.1.8",
-    "autoprefixer": "^10.5.0",
-    "browserslist": "^4.28.2",
-    "eslint": "10.4.1",
+    "@testing-library/svelte": "^5.4.2",
+    "@vitest/coverage-v8": "4.1.9",
+    "autoprefixer": "^10.5.2",
+    "browserslist": "^4.28.4",
+    "eslint": "10.5.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-jsdoc": "^63.0.2",
+    "eslint-plugin-jsdoc": "^63.0.8",
     "eslint-plugin-svelte": "^3.19.0",
-    "globals": "^17.6.0",
+    "globals": "^17.7.0",
     "globby": "^16.2.0",
     "jsdom": "29.1.1",
     "lightningcss": "^1.32.0",
     "markdownlint-cli2": "0.22.1",
     "npm-run-all": "^4.1.5",
-    "playwright": "^1.60.0",
+    "playwright": "^1.61.1",
     "postcss": "^8.5.15",
-    "prettier": "3.8.3",
-    "prettier-plugin-svelte": "^4.1.0",
+    "prettier": "3.8.4",
+    "prettier-plugin-svelte": "^4.1.1",
     "simple-git-hooks": "^2.13.1",
-    "stylelint": "^17.12.0",
+    "stylelint": "^17.14.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended": "^18.0.0",
     "stylelint-order": "^8.1.1",
-    "svelte-check": "^4.6.0",
+    "svelte-check": "^4.7.1",
     "svelte-eslint-parser": "^1.8.0",
     "typescript": "6.0.3",
-    "vite": "^8.0.16",
+    "vite": "^8.1.0",
     "vite-plugin-devtools-json": "^1.0.0",
     "vite-plugin-lightningcss": "^0.0.5",
-    "vitest": "4.1.8"
+    "vitest": "4.1.9"
   },
   "overrides": {
     "basic-ftp": "^5.3.0",
@@ -142,6 +142,7 @@
     "js-yaml": "^4.1.1",
     "lodash": "^4.18.1",
     "lodash-es": "^4.18.1",
+    "markdown-it": "^14.2.0",
     "minimatch": "^10.2.1",
     "picomatch": "^4.0.4",
     "protobufjs": "^7.5.5",
@@ -149,13 +150,15 @@
     "tar": "^7.5.11",
     "tmp": "^0.2.7",
     "smol-toml": "^1.6.1",
+    "undici": "^7.28.0",
     "uuid": "^14.0.0",
     "vite-plugin-devtools-json": {
       "vite": "$vite"
     }
   },
   "allowScripts": {
-    "esbuild@0.25.12": true,
-    "simple-git-hooks@2.13.1": true
+    "esbuild@0.28.1": true,
+    "simple-git-hooks@2.13.1": true,
+    "esbuild@0.25.12": true
   }
 }
