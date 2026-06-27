@@ -24,6 +24,25 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.28.7] - 2026-06-26
+
+### Changed
+
+- Made Vitest run, watch, and coverage scripts explicit to avoid npm argument-forwarding ambiguity.
+- Updated `delete`, `clean`, and `repair` scripts for Windows-compatible environment resets that preserve the existing `package-lock.json` and reinstall dependencies with `npm ci`.
+- Bumped project version to `v1.28.7`.
+- Updated dependencies:
+  - `eslint-plugin-jsdoc` `^63.0.8` → `^63.0.9`
+  - `prettier` `3.8.4` → `3.8.5`
+  - `eslint` `10.5.0` → `10.6.0`
+  - `eslint-plugin-svelte` `^3.19.0` → `^3.20.0`
+
+### Fixed
+
+- Corrected [Contributor Covenant](https://github.com/netwk-pro/.github/blob/master/.github/CODE_OF_CONDUCT.md) link in [`README.md`](./README.md).
+
+---
+
 ## [1.28.6] - 2026-06-25
 
 ### Added
@@ -3030,7 +3049,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.6...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.7...HEAD
+[1.28.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.7
 [1.28.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.6
 [1.28.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.5
 [1.28.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.4
