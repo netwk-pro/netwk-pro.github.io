@@ -306,15 +306,37 @@ footer .container {
     width: auto !important;
   }
 
+  .pgp,
+  .pgp tbody,
+  .pgp tr,
+  .pgp td {
+    display: block;
+  }
+
   .pgp col {
     width: auto !important;
+  }
+
+  .pgp tr {
+    margin-bottom: 2rem;
+  }
+
+  .pgp td {
+    overflow: visible;
+    overflow-wrap: anywhere;
+  }
+
+  .pgp .pgp-col1,
+  .pgp .pgp-col2 {
+    padding: 0.5rem 0;
+    text-align: center;
   }
 
   .pgp-wrap {
     margin: auto 0;
     margin-top: 2rem;
     -webkit-overflow-scrolling: touch;
-    overflow-x: auto;
+    overflow-x: visible;
   }
 }
 
@@ -570,6 +592,13 @@ footer .container {
 .pgp-image {
   width: 150px;
   height: 150px;
+}
+
+@media screen and (width <= 767px) {
+  .pgp-image {
+    width: min(150px, 72vw);
+    height: auto;
+  }
 }
 
 .spacer {

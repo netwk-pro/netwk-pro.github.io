@@ -7,8 +7,8 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
+  import { resolve } from '$app/paths';
   import { CONSTANTS, getQR, PGP_KEYS } from '$lib';
-  import { base } from '$app/paths';
 
   const { COMPANY_INFO, CONTACT, PAGE } = CONSTANTS;
   const pgpKeys = PGP_KEYS.filter(
@@ -16,28 +16,28 @@ This file is part of Network Pro.
   );
 
   /**
-   * URL to the Contact Form route, using the base path
+   * URL to the Contact Form route
    * @type {string}
    */
-  const contactLink = `${base}/contact`;
+  const contactLink = resolve('/contact', {});
 
   /**
-   * URL to the Consultation route, using the base path
+   * URL to the Consultation route
    * @type {string}
    */
-  //const consultLink = `${base}/consultation`;
+  //const consultLink = resolve('/consultation', {});
 
   /**
-   * URL to the Services route, using the base path
+   * URL to the Services route
    * @type {string}
    */
-  const servLink = `${base}/services`;
+  const servLink = resolve('/services', {});
 
   /**
-   * URL to the PGP route, using the base path
+   * URL to the PGP route
    * @type {string}
    */
-  const pgpLink = `${base}/pgp`;
+  const pgpLink = resolve('/pgp', {});
 
   /**
    * HTML attribute for async image decoding
@@ -91,8 +91,8 @@ This file is part of Network Pro.
     contactAsc: '/pgp/contact@s.neteng.pro.asc',
   };
 
-  $: supportFp = pgpKeys[0]?.fingerprint?.split(' ') ?? [];
-  $: contactFp = pgpKeys[1]?.fingerprint?.split(' ') ?? [];
+  const supportFp = pgpKeys[0]?.fingerprint?.split(' ') ?? [];
+  const contactFp = pgpKeys[1]?.fingerprint?.split(' ') ?? [];
 </script>
 
 <!-- BEGIN TITLE -->
@@ -189,10 +189,10 @@ This file is part of Network Pro.
 </p>
 
 <p>
-  At Network Pro™, we believe strong security comes from understanding systems
-  deeply, communicating clearly, and designing with purpose. Our goal is not
-  scale for its own sake, but meaningful work that advances security practice,
-  privacy awareness, and resilient infrastructure.
+  At {COMPANY_INFO.APP_NAME}, we believe strong security comes from
+  understanding systems deeply, communicating clearly, and designing with
+  purpose. Our goal is not scale for its own sake, but meaningful work that
+  advances security practice, privacy awareness, and resilient infrastructure.
 </p>
 
 <div class="spacer"></div>

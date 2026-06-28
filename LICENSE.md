@@ -149,9 +149,9 @@ You should have received a copy of the GNU General Public License along with thi
 <code style="background: none; border: none; border-radius: 0; height: 50vh; outline: none; resize: none; width: 100%;">
 
 - SPDX Reference:  
-   [https://spdx.org/licenses/GPL-3.0-or-later.html](https://spdx.org/licenses/GPL-3.0-or-later.html)
+  [https://spdx.org/licenses/GPL-3.0-or-later.html](https://spdx.org/licenses/GPL-3.0-or-later.html)
 - Canonical URL:  
-   [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)
+  [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)
 
 </code>
 

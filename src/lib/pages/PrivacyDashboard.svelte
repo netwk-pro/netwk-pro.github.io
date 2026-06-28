@@ -36,12 +36,6 @@ This file is part of Network Pro.
   /** @type {string} */
   const topLink = resolve('/privacy-dashboard#top', {});
 
-  /** @type {string} */
-  const classSmall = 'small-text';
-
-  /** @type {string} */
-  const spaceStyle = 'spacer';
-
   /** @type {boolean} */
   let optedOut = $derived($trackingPreferences.optedOut);
 
@@ -88,7 +82,7 @@ This file is part of Network Pro.
 </script>
 
 <section id="top">
-  <span class={classSmall}>
+  <span class="small-text">
     <a
       rel={PAGE.REL}
       href="https://spdx.dev/learn/handling-license-info"
@@ -100,7 +94,7 @@ This file is part of Network Pro.
 
 <h1>Privacy Dashboard</h1>
 
-<div class={spaceStyle}></div>
+<div class="spacer"></div>
 
 <h2>Take Control of Your Data</h2>
 
@@ -117,11 +111,11 @@ This file is part of Network Pro.
   >.
 </p>
 
-<div class={spaceStyle}></div>
+<div class="spacer"></div>
 
 <hr />
 
-<div class={spaceStyle}></div>
+<div class="spacer"></div>
 
 <section id="tracking">
   <h3>Tracking Preferences</h3>
@@ -187,24 +181,25 @@ This file is part of Network Pro.
     </label>
   </fieldset>
 
-  <div class={spaceStyle}></div>
+  <div class="spacer"></div>
 
   <p>
-    Analytics collection uses Matomo at analytics.netwk.pro when tracking is
-    enabled. Pageview and limited event analytics may be sent; user
-    identification is not enabled.
+    Analytics are collected through our Matomo instance only when tracking is
+    enabled. When enabled, Matomo may receive pageview and limited event
+    analytics, but we do not use it to identify individual users. IP addresses
+    are partially masked before storage.
   </p>
 </section>
 
-<span class={classSmall}>
+<span class="small-text">
   <a href={topLink} target={PAGE.SELF}>{NAV.BACKTOP}</a>
 </span>
 
-<div class={spaceStyle}></div>
+<div class="spacer"></div>
 
 <hr class="hr-styled" />
 
-<div class={spaceStyle}></div>
+<div class="spacer"></div>
 
 <section id="rights">
   <h3>Your Rights and Choices</h3>
@@ -254,7 +249,7 @@ This file is part of Network Pro.
   </p>
 </section>
 
-<span class={classSmall}>
+<span class="small-text">
   <a href={topLink} target={PAGE.SELF}>{NAV.BACKTOP}</a>
 </span>
 

@@ -24,6 +24,30 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.28.8] - 2026-06-28
+
+### Changed
+
+- Simplified [About](https://netwk.pro/about) page PGP fingerprint setup by deriving fingerprint chunks from constants instead of legacy reactive statements.
+- Updated [About](https://netwk.pro/about) page internal route links to use SvelteKit `resolve(...)` and replaced a hard-coded brand reference with `COMPANY_INFO.APP_NAME`.
+- Refreshed timestamps in `static/sitemap.xml`.
+- Tightened wording regarding Matomo usage in the [Privacy Dashboard](http://netwk.pro/privacy-dashboard).
+- Simplified [Privacy Dashboard](http://netwk.pro/privacy-dashboard) markup by using literal utility class names instead of local class constants.
+- Updated the [Privacy Policy](https://netwk.pro/privacy) effective date to `2026-06-28`.
+- Clarified Matomo usage in the **Web Analytics and Tracking** section of the [Privacy Policy](https://netwk.pro/privacy).
+- Cleaned up Markdown indentation for GPL reference links in `LICENSE.md`.
+- Bumped project version to `v1.28.8`.
+- Updated dependencies:
+  - `eslint-plugin-jsdoc` `^63.0.9` → `^63.0.10`
+  - `prettier` `3.8.5` → `3.9.1`
+
+### Fixed
+
+- Improved [About](https://netwk.pro/about) page PGP and vCard QR display on mobile by stacking table cells, centering content, wrapping long fingerprint/email text, and constraining QR images to the viewport.
+- Corrected the target date in the **Keep Android Open** banner to `2026-09-30`.
+
+---
+
 ## [1.28.7] - 2026-06-26
 
 ### Changed
@@ -3049,7 +3073,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.7...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.8...HEAD
+[1.28.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.8
 [1.28.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.7
 [1.28.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.6
 [1.28.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.5

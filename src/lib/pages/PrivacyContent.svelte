@@ -37,6 +37,9 @@ This file is part of Network Pro.
   /** @type {string} */
   const gpcLink = 'https://globalprivacycontrol.org/';
 
+  /** @type {string} */
+  const matomoLink = 'https://matomo.org/';
+
   /**
    * Table of Contents sections and their headings.
    * @type {{ id: string, text: string }[]}
@@ -58,7 +61,7 @@ This file is part of Network Pro.
   ];
 
   /** @type {string} */
-  const effectiveDate = 'May 6, 2026';
+  const effectiveDate = 'June 28, 2026';
 
   /** @type {string} */
   const classSmall = 'small-text';
@@ -192,9 +195,12 @@ This file is part of Network Pro.
       </ul>
     {:else if link.id === 'tracking'}
       <p>
-        Website analytics collection is provided through Matomo at
-        analytics.netwk.pro when analytics are allowed by your tracking
-        preferences and browser privacy signals.
+        Website analytics are collected through <a
+          rel={PAGE.REL}
+          href={matomoLink}
+          target={PAGE.BLANK}>Matomo</a
+        >, which runs on our own infrastructure, only when permitted by your
+        tracking preferences and browser privacy signals.
       </p>
       <p> When analytics are enabled, they may include: </p>
       <ul>
@@ -208,12 +214,12 @@ This file is part of Network Pro.
       </ul>
       <p>
         We configure analytics preferences to prioritize user privacy. <strong
-          >Analytics preference state automatically honors when a user's browser
-          sends a "Do Not Track" (DNT) or <a
+          >When your browser sends a "Do Not Track" (DNT) or <a
             rel={PAGE.REL}
             href={gpcLink}
-            target={PAGE.BLANK}>"Global Privacy Control" (GPC / Sec-GPC)</a> signal.</strong>
-        No further action is required-your browser settings are honored by default.
+            target={PAGE.BLANK}>"Global Privacy Control" (GPC/Sec-GPC)</a> signal,
+          we automatically honor that preference.</strong> No further action is required;
+        your browser settings are respected by default.
       </p>
       <p>
         You can view your current tracking status below, along with manual
@@ -282,7 +288,8 @@ This file is part of Network Pro.
 
       <p>
         Matomo receives pageview and limited event analytics only when tracking
-        is enabled. User identification is not enabled.
+        is enabled. We do not use Matomo to identify individual users, and IP
+        addresses are partially masked before storage.
       </p>
       <p>
         In addition to analytics tools, we also use security measures to protect
@@ -374,7 +381,7 @@ This file is part of Network Pro.
     {:else if link.id === 'security'}
       <p>
         We implement industry-standard security measures to protect your data.
-        However, no method of transmission over the Internet or electronic
+        However, no method of transmission over the internet or electronic
         storage is completely secure, and we cannot guarantee absolute security.
         In compliance with <strong>A.R.S. § 18-552</strong>, we will notify
         affected individuals in the event of a data breach involving personal
