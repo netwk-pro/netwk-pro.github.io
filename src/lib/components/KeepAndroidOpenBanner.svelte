@@ -12,7 +12,7 @@ This file is part of Network Pro.
 
   const storageKey = 'kao-banner-hidden';
   const dismissDays = 30;
-  const targetDate = new Date('2026-09-01T00:00:00');
+  const targetDate = new Date('2026-09-30T00:00:00');
 
   let visible = $state(false);
   let remaining = $state('');
