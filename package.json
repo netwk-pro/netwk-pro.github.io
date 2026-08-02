@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.30.1",
+  "version": "1.30.2",
   "description": "This package powers the official web presence of Network Pro Strategies — a research- and infrastructure-focused technology initiative working across cybersecurity, digital systems, and privacy.",
   "keywords": [
     "advocacy",
@@ -113,7 +113,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsdoc": "^63.3.2",
     "eslint-plugin-svelte": "^3.22.0",
-    "globals": "^17.8.0",
+    "globals": "^17.9.0",
     "globby": "^16.2.2",
     "jsdom": "30.0.1",
     "lightningcss": "^1.33.0",

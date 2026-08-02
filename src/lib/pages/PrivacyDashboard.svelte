@@ -127,15 +127,17 @@ This file is part of Network Pro.
         rel={PAGE.REL}
         href="https://globalprivacycontrol.org/"
         target={PAGE.BLANK}>"Global Privacy Control" (GPC / Sec-GPC)</a> signal.</strong>
-    No further action is required—your browser settings are honored by default.
+    Your browser settings are honored by default. If you make a manual tracking choice
+    on this site, that choice is stored in a browser cookie and takes precedence over
+    the browser signal.
   </p>
 
   <p>
     You can view your current tracking status below, along with manual opt-out
-    and opt-in settings stored as browser cookies. These settings override any
-    Do Not Track (DNT) or Global Privacy Control (GPC) signals. <strong
-      >If you opt out, Matomo analytics tracking remains disabled.</strong> Your selection
-    will persist until manually updated.
+    and opt-in settings. <strong
+      >If you opt out, Matomo analytics tracking remains disabled; if you opt
+      in, analytics tracking is enabled.</strong> Your selection will persist until
+    manually updated.
   </p>
 
   &nbsp;
