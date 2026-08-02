@@ -24,6 +24,70 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.30.0] - 2026-08-01
+
+### Added
+
+- Added direct `@testing-library/dom` and `postcss-html` dev dependencies to satisfy peer requirements for updated testing and Stylelint tooling.
+- Added `linkify` and `precached` to the cspell project dictionary for dependency and service-worker terminology.
+- Added npm overrides for `body-parser`, `brace-expansion`, `fast-uri`, and `linkify-it` to mitigate known CVEs.
+- Added client unit coverage using real application route fixtures for service-worker navigation eligibility, waiting-worker activation requests, and multi-tab fallback behavior.
+
+### Changed
+
+- Disabled SvelteKit automatic registration of service worker in `svelte.config.js`.
+- Reworked service-worker precaching to strictly install all versioned SvelteKit build assets and required offline resources, cache optional PWA assets independently, and keep versioned asset and page caches separate.
+- Restricted service-worker request handling to same-origin `GET` navigations and explicitly precached assets; API, relay, cross-origin, non-`GET`, and other application requests now retain normal network behavior.
+- Limited cached offline pages to `/`, `/about`, and `/pgp`, removed the external `/contact` redirect from offline caching, and added validation to prevent redirects, private responses, non-HTML documents, and mismatched URLs from entering the page cache.
+- Changed service-worker updates to install fully and wait, then activate automatically on an eligible internal link or `goto` navigation only when the requesting page is the sole top-level tab. Denied multi-tab activations resume through SvelteKit, while accepted activations continue to the requested destination after `controllerchange`.
+- Refined manual service-worker registration to honor diagnostic `?nosw` requests, support already-loaded documents and development module workers, avoid first-install reloads, and remove the former update confirmation prompt and broad client-side cache deletion.
+- Integrated waiting-worker activation with the root SvelteKit `beforeNavigate` hook.
+- Updated `engines.npm` in `package.json` to accept versions `>=10.0.0 <13`.
+- Updated `engines.node` in `package.json` to **require** versions `>=24.15.0 <25`.
+- Updated `.nvmrc` and `.node-version` to pin **Node.js** `24.18.1`.
+- Updated GitHub Actions workflows to use **npm** `12.0.2` and remove the previous Corepack-based npm upgrade step.
+- Updated the audit Netlify workflow to run on **Node.js** `24`.
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.70.2**.
+- Scoped Stylelint HTML-like parsing to Svelte files by keeping only `stylelint-config-html/svelte`.
+- Refreshed npm dependency overrides for `js-yaml` and `tar`.
+- Removed obsolete overrides for `basic-ftp`, `glob`, `ip-address`, `lodash`, `lodash-es`, `markdown-it`, `minimatch`, `picomatch`, `protobufjs`, `qs`, `smol-toml`, `undici`, and `vite-plugin-devtools-json`, restoring parent-compatible transitive dependency versions while preserving an audit-clean dependency tree.
+- Bumped project version to `v1.30.0`.
+- Updated dependencies:
+  - `@testing-library/dom` `^10.4.1`
+  - `postcss-html` `^2.0.0`
+  - `@vitest/coverage-v8` `4.1.9` → `4.1.10`
+  - `autoprefixer` `^10.5.2` → `^10.5.4`
+  - `browserslist` `^4.28.4` → `^4.28.7`
+  - `dompurify` `^3.4.11` → `^3.4.12`
+  - `globby` `^16.2.0` → `^16.2.2`
+  - `postcss` `^8.5.15` → `^8.5.25`
+  - `prettier` `3.9.1` → `3.9.6`
+  - `stylelint` `^17.14.0` → `^17.14.1`
+  - `svelte` `5.56.4` → `5.56.8`
+  - `svelte-check` `^4.7.1` → `^4.7.4`
+  - `vitest` `4.1.9` → `4.1.10`
+  - `@playwright/test` `^1.61.1` → `^1.62.1`
+  - `@sveltejs/kit` `2.68.0` → `2.70.2`
+  - `@sveltejs/vite-plugin-svelte` `^7.1.2` → `^7.2.0`
+  - `eslint` `10.6.0` → `10.8.0`
+  - `eslint-plugin-jsdoc` `^63.0.10` → `^63.3.2`
+  - `eslint-plugin-svelte` `^3.20.0` → `^3.22.0`
+  - `globals` `^17.7.0` → `^17.8.0`
+  - `lightningcss` `^1.32.0` → `^1.33.0`
+  - `playwright` `^1.61.1` → `^1.62.1`
+  - `vite` `^8.1.0` → `^8.2.0`
+  - `vite-plugin-devtools-json` `^1.0.0` → `^1.1.0`
+  - `@testing-library/jest-dom` `^6.9.1` → `^7.0.0`
+  - `jsdom` `29.1.1` → `30.0.1`
+  - `stylelint-config-html` `^1.1.0` → `^2.0.0`
+  - `markdownlint-cli2` `0.22.1` → `0.23.2`
+
+### Notes
+
+- Held back the TypeScript major-version upgrade; the project remains pinned to `6.0.3` pending compatibility validation across the SvelteKit tooling stack.
+
+---
+
 ## [1.28.8] - 2026-06-28
 
 ### Changed
@@ -3073,7 +3137,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.28.8...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.30.0...HEAD
+[1.30.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.0
 [1.28.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.8
 [1.28.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.7
 [1.28.6]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.6
@@ -3186,4 +3251,4 @@ This enables analytics filtering and CSP hardening for the audit environment.
 [1.12.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.1
 [1.12.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.0
 
-<!-- cspell:ignore qrcode cryptom otphelp domcontentloaded heli -->
+<!-- cspell:ignore qrcode cryptom otphelp domcontentloaded heli controllerchange -->

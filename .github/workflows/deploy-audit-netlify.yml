@@ -27,9 +27,12 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
           cache-dependency-path: package-lock.json
+
+      - name: Upgrade npm
+        run: npm install -g npm@12.0.2
 
       - name: Install Dependencies
         run: npm ci

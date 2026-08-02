@@ -10,9 +10,7 @@ This file is part of Network Pro
 export default {
   extends: [
     'stylelint-config-recommended', // Base recommended config
-    'stylelint-config-html/html', // For linting HTML files
     'stylelint-config-html/svelte', // For linting HTML within Svelte or similar frameworks
-    'stylelint-config-html', // For linting HTML files
   ],
   plugins: ['stylelint-order'], // Add stylelint-order plugin
   ignoreFiles: [
