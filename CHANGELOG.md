@@ -24,6 +24,24 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.30.2] - 2026-08-02
+
+### Added
+
+- Added server unit coverage for the site-wide tracking status resource, including browser-signal and preference-cookie precedence, response metadata, and cache controls.
+
+### Changed
+
+- Updated the [`/.well-known/dnt`](https://netwk.pro/.well-known/dnt) tracking status resource to return `N` for manual opt-outs or honored DNT/GPC signals, `C` for manual opt-ins, and `T` when no tracking preference is expressed.
+- Made the tracking status response user-specific with private, non-stored caching, appropriate `Vary` headers, a correctly structured controller list, and an absolute tracking-preference configuration link.
+- Clarified in the [Privacy Policy](https://netwk.pro/privacy) and [Privacy Dashboard](https://netwk.pro/privacy-dashboard) that browser DNT/GPC signals are honored by default while a manually selected preference stored in a browser cookie takes precedence.
+- Updated the [Privacy Policy](https://netwk.pro/privacy) effective date to `2026-08-02`.
+- Bumped project version to `v1.30.2`.
+- Updated dependencies:
+  - `globals` `^17.8.0` → `^17.9.0`
+
+---
+
 ## [1.30.1] - 2026-08-02
 
 ### Changed
@@ -3149,7 +3167,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.30.1...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.30.2...HEAD
+[1.30.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.2
 [1.30.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.1
 [1.30.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.0
 [1.28.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.8

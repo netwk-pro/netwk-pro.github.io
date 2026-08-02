@@ -61,7 +61,7 @@ This file is part of Network Pro.
   ];
 
   /** @type {string} */
-  const effectiveDate = 'June 28, 2026';
+  const effectiveDate = 'August 2, 2026';
 
   /** @type {string} */
   const classSmall = 'small-text';
@@ -218,15 +218,16 @@ This file is part of Network Pro.
             rel={PAGE.REL}
             href={gpcLink}
             target={PAGE.BLANK}>"Global Privacy Control" (GPC/Sec-GPC)</a> signal,
-          we automatically honor that preference.</strong> No further action is required;
-        your browser settings are respected by default.
+          we honor that preference by default.</strong> If you make a manual tracking
+        choice on this site, that choice is stored in a browser cookie and takes precedence
+        over the browser signal.
       </p>
       <p>
         You can view your current tracking status below, along with manual
-        opt-out and opt-in settings stored as browser cookies. These settings
-        override any Do Not Track (DNT) or Global Privacy Control (GPC) signals. <strong
-          >If you opt out, analytics tracking remains disabled.</strong> Your selection
-        will persist until manually updated.
+        opt-out and opt-in settings. <strong
+          >If you opt out, analytics tracking remains disabled; if you opt in,
+          analytics tracking is enabled.</strong> Your selection will persist until
+        manually updated.
       </p>
       <p class="emphasis">
         For convenient access, you can manage these settings through our <a
