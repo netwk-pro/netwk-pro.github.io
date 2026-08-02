@@ -5,10 +5,14 @@ Copyright © 2025-2026 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== -->
-
 <script>
   export let data;
+  import { beforeNavigate } from '$app/navigation';
   import { onMount } from 'svelte';
+  import {
+    activateWaitingServiceWorkerForNavigation,
+    shouldInterceptServiceWorkerNavigation,
+  } from '$lib/registerServiceWorker';
   import { initAnalytics } from '$lib/utils/initAnalytics';
   import { showReminder } from '$lib/stores/posthog';
   import {
@@ -24,6 +28,17 @@ This file is part of Network Pro.
   import '$lib/styles/fa-global.css';
 
   $: shouldShowReminder = $showReminder;
+
+  beforeNavigate((navigation) => {
+    if (!shouldInterceptServiceWorkerNavigation(navigation)) return;
+
+    const destination = navigation.to?.url;
+    if (!destination) return;
+
+    if (activateWaitingServiceWorkerForNavigation(destination)) {
+      navigation.cancel();
+    }
+  });
 
   onMount(() => {
     const cleanup = initAnalytics();

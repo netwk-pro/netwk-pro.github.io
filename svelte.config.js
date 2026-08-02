@@ -117,6 +117,12 @@ const config = {
       base: '', // Always deploy to the root of the domain
     },
 
+    // Disable automatic registration of service worker
+    // Registration is handled by src/lib/registerServiceWorker.js
+    serviceWorker: {
+      register: false,
+    },
+
     csp,
 
     prerender: {
