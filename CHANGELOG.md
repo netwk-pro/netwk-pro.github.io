@@ -51,7 +51,7 @@ version increments reflecting both user-visible and operational impact.
 - Scoped Stylelint HTML-like parsing to Svelte files by keeping only `stylelint-config-html/svelte`.
 - Refreshed npm dependency overrides for `js-yaml` and `tar`.
 - Removed obsolete overrides for `basic-ftp`, `glob`, `ip-address`, `lodash`, `lodash-es`, `markdown-it`, `minimatch`, `picomatch`, `protobufjs`, `qs`, `smol-toml`, `undici`, and `vite-plugin-devtools-json`, restoring parent-compatible transitive dependency versions while preserving an audit-clean dependency tree.
-- Bumped project version to `v1.28.9`.
+- Bumped project version to `v1.30.0`.
 - Updated dependencies:
   - `@testing-library/dom` `^10.4.1`
   - `postcss-html` `^2.0.0`
