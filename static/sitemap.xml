@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Sitemap last updated 2026-06-27 -->
+<!-- Sitemap last updated 2026-08-02 -->
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
@@ -7,7 +7,7 @@
 
     <loc>https://netwk.pro</loc>
 
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-08-02</lastmod>
 
     <changefreq>monthly</changefreq>
 
@@ -190,6 +190,18 @@
     <lastmod>2025-11-09</lastmod>
 
     <changefreq>yearly</changefreq>
+
+    <priority>0.1</priority>
+
+  </url>
+
+  <url>
+
+    <loc>https://netwk.pro/.well-known/webfinger</loc>
+
+    <lastmod>2025-08-03</lastmod>
+
+    <changefreq>monthly</changefreq>
 
     <priority>0.1</priority>
 
