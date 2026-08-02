@@ -33,6 +33,9 @@ module.exports = {
   // Always upgrade devDependencies as well
   dep: 'prod,dev',
 
+  // Reject list
+  reject: ['typescript'],
+
   // Show a summary table
   format: ['group', 'table'],
 
