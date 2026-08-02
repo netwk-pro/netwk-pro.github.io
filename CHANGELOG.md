@@ -24,7 +24,19 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
-## [1.30.0] - 2026-08-01
+## [1.30.1] - 2026-08-02
+
+### Changed
+
+- Added `typescript` to `npm-check-updates` reject list in `.ncurc.cjs`.
+- Updated `README.md` to document the current service-worker precache, cache ownership, request interception, offline routing, manual registration, sole-tab activation lifecycle, and `?nosw` behavior.
+- Refreshed setup, testing, and diagnostic guidance for the enforced Node.js/npm versions, reproducible `npm ci` installs, supported Lighthouse commands, and current `?debug=true` behavior.
+- Updated the countdown date for the **[Keep Android Open](https://keepandroidopen.org/)** banner to `2027-01-01`, the date of the global rollout of [Android developer verification](https://developer.android.com/developer-verification/guides/faq).
+- Bumped project version to `v1.30.1`.
+
+---
+
+## [1.30.0] - 2026-08-02
 
 ### Added
 
@@ -3137,7 +3149,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.30.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.30.1...HEAD
+[1.30.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.1
 [1.30.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.0
 [1.28.8]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.8
 [1.28.7]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.28.7
