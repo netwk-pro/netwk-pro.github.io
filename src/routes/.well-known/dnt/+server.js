@@ -12,25 +12,37 @@ This file is part of Network Pro.
  * @see https://w3c.github.io/dnt/drafts/tracking-dnt.html#status-representation
  * @module src/routes/.well-known/dnt
  * @author Scott Lopez
- * @updated 2026-04-25
+ * @updated 2026-08-02
  */
 
 /**
  * @type {import('./$types').RequestHandler}
  */
-export function GET() {
+export function GET({ cookies, request }) {
+  const dnt = request.headers.get('DNT');
+  const hasPrivacySignal =
+    dnt?.startsWith('1') === true || request.headers.get('Sec-GPC') === '1';
+  const optedIn = cookies.get('enable_tracking') === 'true';
+  const optedOut = cookies.get('disable_tracking') === 'true';
+  let tracking = 'T';
+
+  if (optedOut) tracking = 'N';
+  else if (optedIn) tracking = 'C';
+  else if (hasPrivacySignal) tracking = 'N';
+
   return new Response(
-    // `N` signals that data collected by this origin is not used for tracking.
     JSON.stringify({
-      tracking: 'N',
+      tracking,
+      controller: ['/'],
       policy: '/.well-known/dnt-policy.txt',
-      config: '/privacy#tracking',
+      config: 'https://netwk.pro/privacy#tracking',
     }),
     {
       headers: {
         'Content-Type': 'application/tracking-status+json',
-        // W3C TSR clients may cache stable site-wide status for preflight checks.
-        'Cache-Control': 'public, max-age=86400',
+        // The status varies by user-specific signals and preference cookies.
+        'Cache-Control': 'private, no-store',
+        Vary: 'Cookie, DNT, Sec-GPC',
       },
     },
   );
