@@ -51,9 +51,7 @@ jobs:
           cache-dependency-path: package-lock.json
 
       - name: Upgrade npm
-        run: |
-          corepack enable
-          npm install -g npm@11.17.0
+        run: npm install -g npm@12.0.2
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -132,9 +130,7 @@ jobs:
           cache-dependency-path: package-lock.json
 
       - name: Upgrade npm
-        run: |
-          corepack enable
-          npm install -g npm@11.17.0
+        run: npm install -g npm@12.0.2
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -188,9 +184,7 @@ jobs:
           cache-dependency-path: package-lock.json
 
       - name: Upgrade npm
-        run: |
-          corepack enable
-          npm install -g npm@11.17.0
+        run: npm install -g npm@12.0.2
 
       - name: Install Node.js dependencies
         run: npm ci

@@ -9,6 +9,8 @@ This file is part of Network Pro.
 /// <reference lib="webworker" />
 /// <reference types="vite/client" />
 
+import { build, version } from '$service-worker';
+
 /**
  * @type {ServiceWorkerGlobalScope}
  */
@@ -16,224 +18,131 @@ const sw = /** @type {ServiceWorkerGlobalScope} */ (
   /** @type {unknown} */ (self)
 );
 
-const isDev = location.hostname === 'localhost';
-
-import { build, files, version } from '$service-worker';
-
-/** @type {string} */
-const CACHE = `cache-${version}`;
+const isDev = import.meta.env.DEV;
+const CACHE_PREFIX = 'cache-networkpro-';
+const ASSET_CACHE = `${CACHE_PREFIX}assets-${version}`;
+const PAGE_CACHE = `${CACHE_PREFIX}pages-${version}`;
 
 /** @type {Set<string>} */
-const OFFLINE_NAVIGATION_PATHS = new Set(['/', '/about', '/contact']);
+const OFFLINE_NAVIGATION_PATHS = new Set(['/', '/about', '/pgp']);
 
+// Only static files with a specific offline or PWA purpose are precached. Build
+// assets remain safe to include as a group because SvelteKit generates and
+// versions that finite list for this deployment.
 /** @type {string[]} */
-const excludedAssets = [];
-
-/** @type {Set<string>} */
-const IGNORE_PATHS = new Set([
-  '/img/banner-1280x640.png',
-  '/img/banner-og-1200x630.png',
-  '/img/fb-banner.png',
-  '/img/logo-transparent.png',
-  '/img/logo.png',
-  '/img/svelte.png',
-  '/pgp/contact@s.neteng.pro.asc',
-  '/pgp/github@sl.neteng.cc.asc',
-  '/pgp/security@s.neteng.pro.asc',
-  '/pgp/support@netwk.pro.asc',
-  '/screenshots/desktop-foss.png',
-  '/webfonts/fa-brands-400.ttf',
-  '/webfonts/fa-solid-900.ttf',
-  '/7cbb39ce-750b-43da-83b8-8980e5554d4d.txt',
-  '/b173de6c44c144c1b186841b88d51c67.txt',
-  '/robots.txt',
-  '/sitemap.xml',
-]);
-
-/** @type {string[]} */
-const ASSETS = [
-  ...new Set(
-    [...build, ...files, '/offline.html'].filter((path) => {
-      try {
-        new URL(path, location.origin);
-
-        const shouldExclude =
-          path.startsWith('http') ||
-          path.startsWith('/bin/') ||
-          IGNORE_PATHS.has(path);
-
-        if (shouldExclude) excludedAssets.push(path);
-        return !shouldExclude;
-      } catch (err) {
-        if (isDev)
-          console.warn('[SW] URL parse failed, skipping path:', path, err);
-        excludedAssets.push(path);
-        return false;
-      }
-    }),
-  ),
+const REQUIRED_STATIC_ASSETS = [
+  '/disableSw.js',
+  '/offline.html',
+  '/offline.min.css',
 ];
 
 /** @type {string[]} */
-const uniqueExcludedAssets = [...new Set(excludedAssets)].sort();
-
-/** @type {string[]} */
-const REQUIRED_ASSETS = [
-  '/disableSw.js',
+const OPTIONAL_STATIC_ASSETS = [
   '/favicon.ico',
   '/icon-192x192.png',
   '/icon-512x512-maskable.png',
   '/icon-512x512.png',
   '/icon-about.png',
   '/icon-contact.png',
-  '/icon-services.png',
   '/icon-splash.png',
   '/manifest.json',
-  '/offline.html',
-  '/offline.min.css',
-  '/screenshots/desktop-about.png',
-  '/screenshots/desktop-home.png',
-  '/screenshots/mobile-foss.png',
-  '/screenshots/mobile-home.png',
   '/webfonts/fa-brands-400.woff2',
   '/webfonts/fa-solid-900.woff2',
-  '/.well-known/dnt-policy.txt',
-  '/.well-known/gpc.json',
 ];
 
+/** @type {string[]} */
+const REQUIRED_ASSETS = [...new Set([...build, ...REQUIRED_STATIC_ASSETS])];
+
+/** @type {string[]} */
+const OPTIONAL_ASSETS = [...new Set(OPTIONAL_STATIC_ASSETS)];
+
+/** @type {Set<string>} */
+const PRECACHED_PATHS = new Set([...REQUIRED_ASSETS, ...OPTIONAL_ASSETS]);
+
 if (isDev) {
-  console.log('[SW] Assets to precache:', ASSETS);
-  console.log('[SW] Excluded assets:', uniqueExcludedAssets);
+  console.log('[SW] Required precache assets:', REQUIRED_ASSETS);
+  console.log('[SW] Optional precache assets:', OPTIONAL_ASSETS);
 }
 
 /**
- * Safely cache a list of assets.
+ * Cache optional assets independently so one unavailable file does not prevent
+ * an otherwise valid worker from installing.
  *
  * @param {Cache} cache
  * @param {string[]} assets
- * @param {string[]} [required=[]]
- * @returns {Promise<string[]>}
+ * @returns {Promise<void>}
  */
-async function cacheAssetsSafely(cache, assets, required = []) {
-  /** @type {string[]} */
-  const cachedPaths = [];
-
-  await Promise.all(
-    assets.map(async (asset) => {
-      try {
-        await cache.add(asset);
-        cachedPaths.push(asset);
-      } catch (err) {
-        const msg =
-          err instanceof Error
-            ? `[SW] Failed to cache ${asset}: ${err.message}`
-            : `[SW] Failed to cache ${asset}: Unknown error`;
-
-        if (isDev) {
-          throw err instanceof Error
-            ? new Error(msg, { cause: err })
-            : new Error(msg);
-        } else {
-          console.warn(msg);
-        }
-      }
-    }),
+async function cacheOptionalAssets(cache, assets) {
+  const results = await Promise.allSettled(
+    assets.map((asset) => cache.add(asset)),
   );
 
-  const missing = required.filter((req) => !cachedPaths.includes(req));
-  if (missing.length > 0) {
-    const errorMsg = `[SW] ⚠️ Missing required assets: ${missing.join(', ')}`;
-    if (isDev) throw new Error(errorMsg);
-    console.error(errorMsg);
-  }
-
-  return cachedPaths;
+  results.forEach((result, index) => {
+    if (result.status === 'rejected') {
+      console.warn(
+        `[SW] Optional asset was not precached: ${assets[index]}`,
+        result.reason,
+      );
+    }
+  });
 }
 
-// 🔹 Install event
 /**
- * @param {ExtendableEvent} event
- */
-sw.addEventListener('install', (event) => {
-  if (isDev) console.log('[SW] Install event');
-
-  event.waitUntil(
-    (async () => {
-      const cache = await caches.open(CACHE);
-
-      try {
-        const cachedPaths = await cacheAssetsSafely(
-          cache,
-          ASSETS,
-          REQUIRED_ASSETS,
-        );
-        if (isDev) console.log('[SW] Cached assets:', cachedPaths);
-      } catch (err) {
-        if (isDev) throw err;
-        console.warn('[SW] Error while precaching (non-fatal in prod):', err);
-      }
-
-      await sw.skipWaiting();
-      if (isDev) console.log('[SW] skipWaiting() called');
-    })(),
-  );
-});
-
-// 🔹 Activate event
-/**
- * @param {ExtendableEvent} event
- */
-sw.addEventListener('activate', (event) => {
-  if (isDev) console.log('[SW] Activate event');
-
-  event.waitUntil(
-    (async () => {
-      const tasks = [];
-
-      if (sw.registration.navigationPreload) {
-        tasks.push(sw.registration.navigationPreload.enable());
-        if (isDev) console.log('[SW] Navigation preload enabled');
-      }
-
-      tasks.push(
-        caches.keys().then((keys) =>
-          Promise.all(
-            keys
-              .filter((key) => key !== CACHE)
-              .map((key) => {
-                if (isDev) console.log('[SW] Deleting old cache:', key);
-                return caches.delete(key);
-              }),
-          ),
-        ),
-      );
-
-      await Promise.all(tasks);
-      await sw.clients.claim();
-      if (isDev) {
-        console.log('[SW] clients.claim() called');
-        console.log('[SW] Scope:', sw.registration.scope);
-      }
-    })(),
-  );
-});
-
-/**
- * Determine if a request should be ignored during development.
+ * Install a complete required precache before allowing this worker to advance.
  *
- * @param {URL} url
- * @returns {boolean}
+ * @returns {Promise<void>}
  */
-function shouldSkipDevModule(url) {
-  if (!isDev) return false;
+async function installWorker() {
+  const cache = await caches.open(ASSET_CACHE);
 
-  return (
-    url.pathname.startsWith('/@fs') ||
-    url.pathname.startsWith('/node_modules') ||
-    url.pathname.includes('.vite') ||
-    url.pathname.includes('.svelte-kit') ||
-    !!url.pathname.match(/\.(js|ts|svelte)$/)
+  try {
+    // Cache.addAll is atomic: any missing required asset rejects installation.
+    await cache.addAll(REQUIRED_ASSETS);
+    await cacheOptionalAssets(cache, OPTIONAL_ASSETS);
+  } catch (error) {
+    await caches.delete(ASSET_CACHE);
+    throw error;
+  }
+
+  if (isDev) console.log('[SW] Precache completed');
+}
+
+/**
+ * Remove only old caches owned by this worker.
+ *
+ * @returns {Promise<void>}
+ */
+async function deleteOldCaches() {
+  const currentCaches = new Set([ASSET_CACHE, PAGE_CACHE]);
+  const cacheNames = await caches.keys();
+
+  await Promise.all(
+    cacheNames
+      .filter(
+        (cacheName) =>
+          cacheName.startsWith(CACHE_PREFIX) && !currentCaches.has(cacheName),
+      )
+      .map((cacheName) => {
+        if (isDev) console.log('[SW] Deleting old cache:', cacheName);
+        return caches.delete(cacheName);
+      }),
   );
+}
+
+/**
+ * Enable navigation preload when the browser supports it.
+ *
+ * @returns {Promise<void>}
+ */
+async function enableNavigationPreload() {
+  if (!sw.registration.navigationPreload) return;
+
+  try {
+    await sw.registration.navigationPreload.enable();
+    if (isDev) console.log('[SW] Navigation preload enabled');
+  } catch (error) {
+    console.warn('[SW] Navigation preload could not be enabled:', error);
+  }
 }
 
 /**
@@ -258,7 +167,7 @@ function shouldCacheNavigation(url) {
 }
 
 /**
- * Build a stable cache key for a route document.
+ * Build a stable, query-free cache key for a route document.
  *
  * @param {URL} url
  * @returns {Request}
@@ -268,105 +177,223 @@ function getNavigationCacheKey(url) {
 }
 
 /**
- * Cache an allowed route document without blocking the navigation response.
+ * Determine whether a navigation response is safe to retain.
+ *
+ * @param {URL} requestUrl
+ * @param {Response} response
+ * @returns {boolean}
+ */
+function isCacheableNavigationResponse(requestUrl, response) {
+  if (
+    !shouldCacheNavigation(requestUrl) ||
+    response.status !== 200 ||
+    response.type === 'opaque' ||
+    response.redirected
+  ) {
+    return false;
+  }
+
+  const contentType = response.headers.get('content-type')?.toLowerCase();
+  if (!contentType?.includes('text/html')) return false;
+
+  const cacheControl = response.headers.get('cache-control')?.toLowerCase();
+  if (cacheControl?.includes('no-store') || cacheControl?.includes('private')) {
+    return false;
+  }
+
+  try {
+    const responseUrl = new URL(response.url);
+    return (
+      responseUrl.origin === requestUrl.origin &&
+      getNavigationPath(responseUrl) === getNavigationPath(requestUrl)
+    );
+  } catch (_error) {
+    return false;
+  }
+}
+
+/**
+ * Cache an approved route document.
  *
  * @param {URL} url
  * @param {Response} response
  * @returns {Promise<void>}
  */
 async function cacheNavigationResponse(url, response) {
-  if (
-    !shouldCacheNavigation(url) ||
-    !response.ok ||
-    response.type === 'opaque'
-  ) {
-    return;
-  }
+  if (!isCacheableNavigationResponse(url, response)) return;
 
-  const cache = await caches.open(CACHE);
-  await cache.put(getNavigationCacheKey(url), response.clone());
+  const cache = await caches.open(PAGE_CACHE);
+  await cache.put(getNavigationCacheKey(url), response);
 
   if (isDev) console.log('[SW] Cached navigation:', url.pathname);
 }
 
-// 🔹 Fetch event
 /**
+ * Cache a navigation response without allowing a cache write failure to affect
+ * the response already being returned to the browser.
+ *
  * @param {FetchEvent} event
+ * @param {URL} url
+ * @param {Response} response
  */
-sw.addEventListener('fetch', (event) => {
-  const requestUrl = new URL(event.request.url);
+function cacheNavigationInBackground(event, url, response) {
+  event.waitUntil(
+    cacheNavigationResponse(url, response.clone()).catch((error) => {
+      console.warn('[SW] Navigation response was not cached:', error);
+    }),
+  );
+}
 
-  if (requestUrl.origin !== location.origin) return;
-  if (shouldSkipDevModule(requestUrl)) return;
+/**
+ * Return an approved cached route or the generic offline document.
+ *
+ * @param {URL} url
+ * @returns {Promise<Response>}
+ */
+async function getOfflineNavigationResponse(url) {
+  if (shouldCacheNavigation(url)) {
+    const pageCache = await caches.open(PAGE_CACHE);
+    const cachedNavigation = await pageCache.match(getNavigationCacheKey(url));
+    if (cachedNavigation) return cachedNavigation;
+  }
 
-  if (isDev) console.log('[SW] Fetch intercepted:', event.request.url);
+  const assetCache = await caches.open(ASSET_CACHE);
+  const offline = await assetCache.match('/offline.html');
+  if (offline) return offline;
 
-  event.respondWith(
+  return new Response('<h1>Offline</h1>', {
+    status: 503,
+    headers: {
+      'Cache-Control': 'no-store',
+      'Content-Type': 'text/html; charset=utf-8',
+    },
+  });
+}
+
+/**
+ * Use network-first handling for document navigations.
+ *
+ * @param {FetchEvent} event
+ * @param {URL} url
+ * @returns {Promise<Response>}
+ */
+async function handleNavigation(event, url) {
+  try {
+    const preloadResponse = await event.preloadResponse;
+    if (preloadResponse) {
+      cacheNavigationInBackground(event, url, preloadResponse);
+      return preloadResponse;
+    }
+
+    const response = await fetch(event.request);
+    cacheNavigationInBackground(event, url, response);
+    return response;
+  } catch (error) {
+    if (isDev) {
+      console.warn(
+        '[SW] Navigation failed; using an offline response:',
+        event.request.url,
+        error,
+      );
+    }
+
+    return getOfflineNavigationResponse(url);
+  }
+}
+
+/**
+ * Use cache-first handling only for explicitly precached asset paths.
+ *
+ * @param {Request} request
+ * @param {URL} url
+ * @returns {Promise<Response>}
+ */
+async function handlePrecachedAsset(request, url) {
+  const cache = await caches.open(ASSET_CACHE);
+  const cached = await cache.match(url.pathname);
+  if (cached) return cached;
+
+  return fetch(request);
+}
+
+/**
+ * Determine whether a same-origin request must remain network-only.
+ *
+ * @param {URL} url
+ * @returns {boolean}
+ */
+function isNetworkOnlyPath(url) {
+  return (
+    url.pathname === '/api' ||
+    url.pathname.startsWith('/api/') ||
+    url.pathname.startsWith('/relay-')
+  );
+}
+
+/**
+ * Activate an installed update only when the requesting page is the sole
+ * top-level window for this origin.
+ *
+ * @param {ExtendableMessageEvent} event
+ * @returns {Promise<void>}
+ */
+async function activateIfSoleWindowClient(event) {
+  const windowClients = /** @type {readonly WindowClient[]} */ (
+    await sw.clients.matchAll({
+      includeUncontrolled: true,
+      type: 'window',
+    })
+  );
+  const topLevelClients = windowClients.filter(
+    (client) => client.frameType === 'top-level',
+  );
+  const willActivate = topLevelClients.length <= 1;
+
+  event.ports[0]?.postMessage({
+    type: 'SOLE_CLIENT_ACTIVATION_RESULT',
+    willActivate,
+  });
+
+  if (willActivate) await sw.skipWaiting();
+}
+
+sw.addEventListener('install', (event) => {
+  event.waitUntil(installWorker());
+});
+
+sw.addEventListener('activate', (event) => {
+  event.waitUntil(
     (async () => {
-      if (event.request.mode === 'navigate') {
-        try {
-          const preloadResponse = await event.preloadResponse;
-          if (preloadResponse) {
-            if (isDev)
-              console.log('[SW] Using preload response:', event.request.url);
-            event.waitUntil(
-              cacheNavigationResponse(requestUrl, preloadResponse.clone()),
-            );
-            return preloadResponse;
-          }
-
-          if (isDev)
-            console.log(
-              '[SW] Fetching navigation from network:',
-              event.request.url,
-            );
-
-          const response = await fetch(event.request);
-          event.waitUntil(
-            cacheNavigationResponse(requestUrl, response.clone()),
-          );
-          return response;
-        } catch (_err) {
-          if (isDev)
-            console.warn(
-              '[SW] Navigation failed; checking route cache:',
-              event.request.url,
-            );
-
-          const cachedNavigation = await caches.match(
-            getNavigationCacheKey(requestUrl),
-          );
-          if (cachedNavigation) return cachedNavigation;
-
-          const offline = await caches.match('/offline.html');
-          if (offline) return offline;
-
-          return new Response('<h1>Offline</h1>', {
-            headers: { 'Content-Type': 'text/html' },
-          });
-        }
-      }
-
-      const cached = await caches.match(event.request);
-      if (cached) {
-        if (isDev) console.log('[SW] Serving from cache:', event.request.url);
-        return cached;
-      }
-
-      try {
-        if (isDev)
-          console.log('[SW] Fetching from network:', event.request.url);
-
-        return await fetch(event.request);
-      } catch (_err) {
-        if (isDev)
-          console.warn(
-            '[SW] Fetch failed; offline fallback:',
-            event.request.url,
-          );
-
-        return Response.error();
-      }
+      await Promise.all([deleteOldCaches(), enableNavigationPreload()]);
+      await sw.clients.claim();
     })(),
   );
+});
+
+// Updated workers remain waiting until a controlled client begins an eligible
+// internal navigation. That client requests activation, then completes the
+// navigation after controllerchange.
+sw.addEventListener('message', (event) => {
+  if (event.data?.type !== 'ACTIVATE_IF_SOLE_CLIENT') return;
+  event.waitUntil(activateIfSoleWindowClient(event));
+});
+
+sw.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
+
+  const requestUrl = new URL(event.request.url);
+
+  // Cross-origin requests include analytics and other third-party traffic.
+  // They must never enter this worker's caches.
+  if (requestUrl.origin !== location.origin) return;
+  if (isNetworkOnlyPath(requestUrl)) return;
+
+  if (event.request.mode === 'navigate') {
+    event.respondWith(handleNavigation(event, requestUrl));
+    return;
+  }
+
+  if (PRECACHED_PATHS.has(requestUrl.pathname)) {
+    event.respondWith(handlePrecachedAsset(event.request, requestUrl));
+  }
 });
