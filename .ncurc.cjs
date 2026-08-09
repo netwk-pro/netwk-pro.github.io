@@ -30,11 +30,11 @@ This file is part of Network Pro.
 
 /** @type {import('npm-check-updates').RunOptions} */
 module.exports = {
-  // Always upgrade devDependencies as well
-  dep: 'prod,dev',
-
   // Reject list
   reject: ['typescript'],
+
+  // Always upgrade devDependencies as well
+  dep: 'prod,dev',
 
   // Show a summary table
   format: ['group', 'table'],
@@ -44,7 +44,4 @@ module.exports = {
 
   // Display upgraded dependencies as JSON (optional for automation)
   jsonUpgraded: false,
-
-  // Enable readable colors when supported
-  color: true, // harmless, but CLI-only
 };
