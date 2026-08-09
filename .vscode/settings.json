@@ -36,7 +36,7 @@
   // Stylelint configuration
   "stylelint.configBasedir": "D:\\Netwk-Pro\\git\\netwk-pro.github.io",
   "stylelint.configFile": "stylelint.config.js",
-  "stylelint.validate": ["css", "postcss", "html", "svelte"],
+  "stylelint.validate": ["css", "postcss", "svelte"],
   // Custom CSS data for FontAwesome classes
   "css.customData": [
     ".vscode/customData.json" // Path to your custom data file

@@ -12,12 +12,11 @@ This file is part of Network Pro.
  *
  * @module src/lib/utils
  * @author Scott Lopez
- * @updated 2025-10-17
+ * @updated 2026-08-09
  */
 
 import { browser } from '$app/environment';
 import { afterNavigate } from '$app/navigation';
-import { appleTouchIcon, faviconSvg, logoPng, logoWbp } from '$lib';
 import { registerServiceWorker } from '$lib/registerServiceWorker.js';
 import { capture, initPostHog } from '$lib/stores/posthog';
 
@@ -60,12 +59,6 @@ export function initAnalytics() {
     console.log('isDev =', isDev);
     console.log('debug param =', debug);
   }
-
-  // Preload logo assets
-  [logoPng, logoWbp, faviconSvg, appleTouchIcon].forEach((src) => {
-    const img = new Image();
-    img.src = src;
-  });
 
   // Clean up listeners when component is destroyed
   return () => {
