@@ -59,7 +59,12 @@ This file is part of Network Pro.
 
 <svelte:head>
   <!-- Dynamic preloads only, meta moved to $lib/components/MetaTags.svelte -->
-  <link rel="preload" href={logoWbp} as="image" type="image/webp" />
+  <link
+    rel="preload"
+    href={logoWbp}
+    as="image"
+    type="image/webp"
+    fetchpriority="high" />
   <link rel="preload" href={logoPng} as="image" type="image/png" />
   <link rel="preload" href={faviconSvg} as="image" type="image/svg+xml" />
   <link rel="preload" href={appleTouchIcon} as="image" type="image/png" />

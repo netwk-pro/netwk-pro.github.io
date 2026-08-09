@@ -818,7 +818,6 @@ footer .container {
   color: #fff !important;
   text-align: center;
   background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
-  animation: kao-pulse 2s infinite;
   border-bottom: 2px solid #801313;
   box-sizing: border-box;
   font-family: 'Arial Black', Impact, sans-serif;
@@ -828,6 +827,19 @@ footer .container {
     0 2px 0 #8a1515,
     0 3px 5px rgb(0 0 0 / 40%);
   text-transform: uppercase;
+}
+
+.kao-banner::after {
+  position: absolute;
+  box-shadow:
+    inset 0 0 8px rgb(255 198 39 / 35%),
+    0 0 8px rgb(211 47 47 / 65%);
+  transform: scaleY(1);
+  animation: kao-glow 2s ease-in-out infinite;
+  content: '';
+  inset: 0;
+  pointer-events: none;
+  transform-origin: center;
 }
 
 .kao-banner__link,
@@ -852,43 +864,21 @@ footer .container {
   white-space: nowrap;
 }
 
-.kao-banner__close {
-  position: absolute;
-  top: 50%;
-  right: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  border: 0;
-  font-size: 0.8em;
-  line-height: 1;
-  color: #fff !important;
-  background: none;
-  opacity: 0.75;
-  transform: translateY(-50%);
-  cursor: pointer;
-  text-shadow: none;
-}
-
-.kao-banner__close:hover,
-.kao-banner__close:focus {
-  opacity: 1;
-}
-
-@keyframes kao-pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgb(211 47 47 / 70%);
-  }
-
-  70% {
-    box-shadow: 0 0 0 15px rgb(211 47 47 / 0%);
-  }
-
+@keyframes kao-glow {
+  0%,
   100% {
-    box-shadow: 0 0 0 0 rgb(211 47 47 / 0%);
+    opacity: 0.35;
+    transform: scaleY(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1.18);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .kao-banner {
+  .kao-banner::after {
     animation: none;
   }
 }
