@@ -24,6 +24,35 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.30.3] - 2026-08-09
+
+### Added
+
+- Added `userinfo` to the cspell project dictionary.
+
+### Changed
+
+- Updated `.nvmrc` and `.node-version` to pin **Node.js** `24.19.0`.
+- Refreshed **npm** dependency overrides by adding `ip-address` and removing `body-parser`, `brace-expansion`, `fast-uri`, `js-yaml`, `linkify-it`, and `tar`.
+- Refreshed timestamps in `sitemap.xml`.
+- Bumped project version to `v1.30.3`.
+- Updated dependencies:
+  - `browserslist` `^4.28.7` → `^4.28.8`
+  - `dompurify` `^3.4.12` → `^3.4.13`
+  - `eslint` `10.8.0` → `10.8.1`
+  - `globby` `^16.2.2` → `^16.2.3`
+  - `postcss` `^8.5.25` → `^8.5.26`
+  - `svelte-check` `^4.7.4` → `^4.7.5`
+  - `vite` `^8.2.0` → `^8.2.1`
+  - `@sveltejs/vite-plugin-svelte` `^7.2.0` → `^7.3.0`
+  - `eslint-plugin-jsdoc` `^63.3.2` → `^64.0.1`
+
+### Fixed
+
+- Corrected the Duo OpenID Connect issuer identifier in `/.well-known/webfinger`.
+
+---
+
 ## [1.30.2] - 2026-08-02
 
 ### Added
@@ -3167,7 +3196,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.30.2...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.30.3...HEAD
+[1.30.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.3
 [1.30.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.2
 [1.30.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.1
 [1.30.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.0
