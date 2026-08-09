@@ -24,6 +24,19 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.30.4] - 2026-08-09
+
+### Changed
+
+- Updated the **Keep Android Open** banner to render persistently in the initial server response without client-side dismissal storage, and replaced its repaint-heavy shadow pulse with a compositor-friendly glow.
+
+### Fixed
+
+- Added high fetch priority to the hero logo preload and removed redundant client-side asset preloading from analytics initialization.
+- Stopped the VS Code Stylelint extension from parsing `src/app.html` as CSS by limiting validation to CSS, PostCSS, and Svelte files.
+
+---
+
 ## [1.30.3] - 2026-08-09
 
 ### Added
@@ -3196,7 +3209,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.30.3...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.30.4...HEAD
+[1.30.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.4
 [1.30.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.3
 [1.30.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.2
 [1.30.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.1
