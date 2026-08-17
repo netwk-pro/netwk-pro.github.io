@@ -61,11 +61,6 @@ const meta = {
     description:
       'Public encryption keys for secure communication',
   },
-  '/services': {
-    title: "On-Site Services",
-    description:
-      'On-Site Services'
-  },
   // Excludes redirect-only routes like /contact, /consultation, /privacy-rights
 };
 

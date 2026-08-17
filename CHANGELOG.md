@@ -24,6 +24,48 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.30.5] - 2026-08-16
+
+### Changed
+
+- Bumped project version to `v1.30.5`.
+- Added `controllerchange` to the `README.md` cspell ignore list for the
+  documented service-worker lifecycle event.
+- Refreshed timestamps in `static/sitemap.xml`.
+- Updated GitHub Actions dependencies across CI, security, audit, test, and
+  publishing workflows:
+  - `actions/checkout` `v6` → `v7`
+  - `actions/setup-node` `v6` → `v7`
+  - `actions/upload-artifact` `v6` → `v7`
+  - `actions/dependency-review-action` `v4` → `v5`
+  - `actions/github-script` `v8` → `v9`
+  - `gitleaks/gitleaks-action` `v2` → `v3`
+  - `pozil/auto-assign-issue` `v2` → `v4`
+- Made the Gitleaks workflow install `jq` in every execution context so its
+  redacted scan summary remains available for forked pull requests.
+- Scoped the `tmp` and `uuid` npm overrides to the development-only Lighthouse
+  CI dependency tree, removed the obsolete `ip-address` override, and refreshed
+  the lockfile for the resulting direct and transitive dependency updates.
+- Updated the npm install-script allowlist for `esbuild` `0.28.1` → `0.28.2`.
+- Updated dependencies:
+  - `@testing-library/jest-dom` `^7.0.0` → `^7.0.1`
+  - `svelte` `5.56.8` → `5.56.9`
+  - `svelte-check` `^4.7.5` → `^4.7.6`
+  - `svelte-eslint-parser` `^1.8.0` → `^1.8.1`
+  - `eslint-plugin-jsdoc` `^64.0.1` → `^64.2.0`
+  - `eslint-plugin-svelte` `^3.22.0` → `^3.23.0`
+  - `globals` `^17.9.0` → `^17.11.0`
+
+### Removed
+
+- Removed the obsolete `/services` page route, server-side loader, and metadata definition from `src/lib/meta.js`.
+
+### Security
+
+- Recorded a temporary exception for `GHSA-jmr9-qjv8-65gv` / CVE-2026-56876 in the development-only Lighthouse CI dependency chain. No patched `extract-zip` release is available, production dependencies remain audit-clean, and the Lighthouse workflow supplies a separately installed Chrome binary without invoking Puppeteer's browser ZIP extraction path; npm's proposed forced downgrade of `@lhci/cli` from `0.15.1` to `0.12.0` was therefore rejected pending a compatible upstream fix.
+
+---
+
 ## [1.30.4] - 2026-08-09
 
 ### Changed
@@ -3209,7 +3251,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.30.4...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.30.5...HEAD
+[1.30.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.5
 [1.30.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.4
 [1.30.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.3
 [1.30.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.2
@@ -3327,4 +3370,4 @@ This enables analytics filtering and CSP hardening for the audit environment.
 [1.12.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.1
 [1.12.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.0
 
-<!-- cspell:ignore qrcode cryptom otphelp domcontentloaded heli controllerchange -->
+<!-- cspell:ignore qrcode cryptom otphelp domcontentloaded heli controllerchange ghsa pozil -->
