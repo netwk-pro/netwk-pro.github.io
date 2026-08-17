@@ -599,4 +599,4 @@ Licensed under **[CC BY 4.0](https://netwk.pro/legal#cc-by)** and the **[GNU GPL
 
 </span>
 
-<!-- cspell:ignore cspreport toolconfig -->
+<!-- cspell:ignore cspreport toolconfig controllerchange -->
