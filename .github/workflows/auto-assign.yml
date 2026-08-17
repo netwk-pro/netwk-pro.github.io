@@ -29,8 +29,8 @@ jobs:
       ENV_MODE: ci
 
     steps:
-      - name: 'Auto-assign issue or PR'
-        uses: pozil/auto-assign-issue@v2
+      - name: 'Auto-assign issue'
+        uses: pozil/auto-assign-issue@v4
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           assignees: SunDevil311
