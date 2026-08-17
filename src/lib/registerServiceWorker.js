@@ -8,7 +8,7 @@ This file is part of Network Pro.
 
 import { unregisterServiceWorker } from '$lib/unregisterServiceWorker';
 
-const ACTIVATION_TIMEOUT_MS = 5000;
+const ACTIVATION_TIMEOUT_MS = 2000;
 const ACTIVATE_WAITING_WORKER_MESSAGE = { type: 'ACTIVATE_WAITING_WORKER' };
 
 /** @type {ServiceWorkerRegistration | null} */
