@@ -6,10 +6,10 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
-import { goto } from '$app/navigation';
 import { unregisterServiceWorker } from '$lib/unregisterServiceWorker';
 
-const ACTIVATION_TIMEOUT_MS = 5000;
+const ACTIVATION_TIMEOUT_MS = 2000;
+const ACTIVATE_WAITING_WORKER_MESSAGE = { type: 'ACTIVATE_WAITING_WORKER' };
 
 /** @type {ServiceWorkerRegistration | null} */
 let serviceWorkerRegistration = null;
@@ -22,12 +22,6 @@ let pendingNavigationUrl = null;
 
 /** @type {number | undefined} */
 let activationTimeoutId;
-
-/** @type {MessagePort | null} */
-let activationResponsePort = null;
-
-/** @type {string | null} */
-let bypassNavigationUrl = null;
 
 let activationInProgress = false;
 let controllerTrackingInitialized = false;
@@ -42,9 +36,6 @@ function clearActivationRequest() {
     window.clearTimeout(activationTimeoutId);
     activationTimeoutId = undefined;
   }
-
-  activationResponsePort?.close();
-  activationResponsePort = null;
 }
 
 /**
@@ -74,6 +65,7 @@ function handleControllerChange() {
   // That initial transition does not require a reload.
   if (!hadController || reloading) return;
 
+  console.log('[SW-CLIENT] Updated service worker is active');
   clearActivationRequest();
 
   if (pendingNavigationUrl) {
@@ -83,45 +75,6 @@ function handleControllerChange() {
 
   reloading = true;
   window.location.reload();
-}
-
-/**
- * Resume the canceled navigation through SvelteKit when another top-level tab
- * prevents safe activation.
- */
-function resumePendingSvelteKitNavigation() {
-  if (!pendingNavigationUrl || reloading) return;
-
-  activationInProgress = false;
-  const destination = pendingNavigationUrl;
-  pendingNavigationUrl = null;
-  bypassNavigationUrl = destination;
-
-  void goto(destination).catch((error) => {
-    bypassNavigationUrl = null;
-    console.warn(
-      '[SW-CLIENT] Could not resume client navigation; using full navigation',
-      error,
-    );
-    window.location.assign(destination);
-  });
-}
-
-/**
- * Process the waiting worker's sole-client activation decision.
- *
- * @param {MessageEvent} event
- */
-function handleActivationDecision(event) {
-  if (event.data?.type !== 'SOLE_CLIENT_ACTIVATION_RESULT') return;
-
-  activationResponsePort?.close();
-  activationResponsePort = null;
-
-  if (event.data.willActivate) return;
-
-  clearActivationRequest();
-  resumePendingSvelteKitNavigation();
 }
 
 /**
@@ -141,6 +94,13 @@ function observeInstallingWorker(registration) {
         '[SW-CLIENT] New service worker state:',
         installingWorker.state,
       );
+
+      if (
+        installingWorker.state === 'installed' &&
+        navigator.serviceWorker.controller
+      ) {
+        console.log('[SW-CLIENT] Updated service worker is waiting');
+      }
     });
   });
 }
@@ -168,7 +128,10 @@ async function registerWorker() {
     );
 
     if (registration.waiting) {
-      console.log('[SW-CLIENT] An update is waiting for the next navigation');
+      console.log(
+        '[SW-CLIENT] Activating an already-waiting service worker',
+      );
+      registration.waiting.postMessage(ACTIVATE_WAITING_WORKER_MESSAGE);
     }
   } catch (error) {
     console.error('[SW-CLIENT] Service worker registration failed:', error);
@@ -193,11 +156,6 @@ export function shouldInterceptServiceWorkerNavigation(navigation) {
     return false;
   }
 
-  if (bypassNavigationUrl === navigation.to.url.href) {
-    bypassNavigationUrl = null;
-    return false;
-  }
-
   if (!navigation.from) return true;
 
   const currentUrl = navigation.from.url;
@@ -211,10 +169,9 @@ export function shouldInterceptServiceWorkerNavigation(navigation) {
 }
 
 /**
- * Ask a waiting worker to activate before an internal navigation, but only if
- * this is the sole top-level tab. Returns true when the caller should cancel
- * the current navigation while the worker decides. A denied request resumes
- * through SvelteKit; controllerchange completes an accepted request.
+ * Ask a waiting worker to activate before an internal navigation. Returns true
+ * when the caller should cancel the current navigation; controllerchange then
+ * completes that navigation and reloads other controlled tabs.
  *
  * @param {URL} destination
  * @returns {boolean}
@@ -230,13 +187,8 @@ export function activateWaitingServiceWorkerForNavigation(destination) {
   pendingNavigationUrl = destination.href;
 
   try {
-    const messageChannel = new MessageChannel();
-    activationResponsePort = messageChannel.port1;
-    activationResponsePort.onmessage = handleActivationDecision;
-    waitingWorker.postMessage(
-      { type: 'ACTIVATE_IF_SOLE_CLIENT' },
-      [messageChannel.port2],
-    );
+    console.log('[SW-CLIENT] Activating waiting worker before navigation');
+    waitingWorker.postMessage(ACTIVATE_WAITING_WORKER_MESSAGE);
   } catch (error) {
     clearActivationRequest();
     activationInProgress = false;
@@ -247,8 +199,6 @@ export function activateWaitingServiceWorkerForNavigation(destination) {
 
   activationTimeoutId = window.setTimeout(() => {
     activationTimeoutId = undefined;
-    activationResponsePort?.close();
-    activationResponsePort = null;
     continuePendingNavigation();
   }, ACTIVATION_TIMEOUT_MS);
 
@@ -257,8 +207,8 @@ export function activateWaitingServiceWorkerForNavigation(destination) {
 
 /**
  * Register the service worker and install-prompt lifecycle listeners.
- * Updated workers wait until an eligible internal navigation requests
- * activation; otherwise normal browser lifecycle behavior applies.
+ * Workers already waiting after registration activate immediately. Later
+ * updates activate when an eligible internal navigation requests activation.
  */
 export function registerServiceWorker() {
   const disableSW = window.__DISABLE_SW__ || location.search.includes('nosw');

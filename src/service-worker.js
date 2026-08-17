@@ -330,33 +330,6 @@ function isNetworkOnlyPath(url) {
   );
 }
 
-/**
- * Activate an installed update only when the requesting page is the sole
- * top-level window for this origin.
- *
- * @param {ExtendableMessageEvent} event
- * @returns {Promise<void>}
- */
-async function activateIfSoleWindowClient(event) {
-  const windowClients = /** @type {readonly WindowClient[]} */ (
-    await sw.clients.matchAll({
-      includeUncontrolled: true,
-      type: 'window',
-    })
-  );
-  const topLevelClients = windowClients.filter(
-    (client) => client.frameType === 'top-level',
-  );
-  const willActivate = topLevelClients.length <= 1;
-
-  event.ports[0]?.postMessage({
-    type: 'SOLE_CLIENT_ACTIVATION_RESULT',
-    willActivate,
-  });
-
-  if (willActivate) await sw.skipWaiting();
-}
-
 sw.addEventListener('install', (event) => {
   event.waitUntil(installWorker());
 });
@@ -371,11 +344,11 @@ sw.addEventListener('activate', (event) => {
 });
 
 // Updated workers remain waiting until a controlled client begins an eligible
-// internal navigation. That client requests activation, then completes the
-// navigation after controllerchange.
+// internal navigation. That navigation activates the update for every tab;
+// controllerchange then reloads each tab under the new worker.
 sw.addEventListener('message', (event) => {
-  if (event.data?.type !== 'ACTIVATE_IF_SOLE_CLIENT') return;
-  event.waitUntil(activateIfSoleWindowClient(event));
+  if (event.data?.type !== 'ACTIVATE_WAITING_WORKER') return;
+  event.waitUntil(sw.skipWaiting());
 });
 
 sw.addEventListener('fetch', (event) => {
