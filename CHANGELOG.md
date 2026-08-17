@@ -24,6 +24,30 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.31.0] - 2026-08-16
+
+### Added
+
+- Added client lifecycle diagnostics for updated workers waiting behind an
+  existing controller and for update activation transitions.
+- Added focused client unit coverage for registration-time and
+  navigation-triggered activation, first-install controller changes, and
+  existing controlled-tab reloads.
+
+### Changed
+
+- Bumped project version to `v1.31.0`.
+- Changed waiting service workers to activate immediately when registration
+  finds an existing update or on the next eligible internal navigation when an
+  update begins waiting later, regardless of other open tabs.
+  Navigation-triggering tabs continue to their destinations while existing
+  `controllerchange` handlers reload all other controlled tabs under the new
+  deployment.
+- Updated `README.md` with the immediate registration-time activation,
+  navigation-triggered activation, and per-tab `controllerchange` lifecycle.
+
+---
+
 ## [1.30.5] - 2026-08-16
 
 ### Changed
@@ -3251,7 +3275,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.30.5...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.31.0...HEAD
+[1.31.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.31.0
 [1.30.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.5
 [1.30.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.4
 [1.30.3]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.3

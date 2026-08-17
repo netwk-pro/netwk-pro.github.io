@@ -333,12 +333,13 @@ Once the browser discovers a new worker, it must complete the entire required pr
 
 The root layout uses `beforeNavigate` to coordinate activation:
 
-1. Only SvelteKit-owned link and `goto` navigations are eligible. Forms, browser history traversal, external or unloading navigations, and hash-only changes proceed normally.
-2. If an update is waiting, the page asks it to count all top-level window clients for the origin.
-3. With one top-level tab, the waiting worker calls `skipWaiting()`. After `controllerchange`, the page performs a full navigation to the destination originally requested.
-4. With multiple top-level tabs, activation is deferred and the canceled navigation resumes through SvelteKit. Browser-default activation remains available after the old worker no longer controls any open tabs.
+1. If registration returns an already-waiting worker, the client immediately asks it to call `skipWaiting()`.
+2. Workers that begin waiting later can also activate on the next eligible SvelteKit-owned link or `goto` navigation. Forms, browser history traversal, external or unloading navigations, and hash-only changes proceed normally.
+3. For navigation-triggered activation, the page cancels the eligible client-side navigation and records its destination before requesting activation regardless of other open tabs.
+4. The activated worker deletes obsolete worker-owned caches, enables navigation preload, and calls `clients.claim()` so every controlled tab receives `controllerchange`.
+5. A navigation-triggering tab performs a full navigation to its recorded destination. Every other controlled tab, including the tab that requested page-load activation, independently reloads its current URL under the new worker.
 
-A five-second fallback completes the requested navigation if the activation handshake stalls. First-time installation claims the page without forcing a reload.
+A five-second fallback completes the requested navigation if activation stalls. First-time installation claims the page without forcing a reload, and a per-tab reload guard prevents repeated `controllerchange` reloads.
 
 ### ✅ `registerServiceWorker.js`
 
