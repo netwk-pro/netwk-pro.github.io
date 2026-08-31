@@ -24,6 +24,17 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.31.2] - 2026-08-30
+
+### Fixed
+
+- Pinned the deployment-blocking CodeQL status check to the established Code
+  Scanning workflow ID so GitHub's separate dynamic workflows with the same
+  `CodeQL` display name cannot make the lookup ambiguous, and corrected the
+  workflow's source-file header.
+
+---
+
 ## [1.31.1] - 2026-08-30
 
 ### Added
@@ -3319,7 +3330,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.31.1...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.31.2...HEAD
+[1.31.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.31.2
 [1.31.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.31.1
 [1.31.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.31.0
 [1.30.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.5
