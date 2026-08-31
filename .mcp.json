@@ -3,6 +3,17 @@
     "svelte": {
       "command": "cmd",
       "args": ["/c", "npx", "-y", "@sveltejs/mcp"]
+    },
+    "context7": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@upstash/context7-mcp",
+        "--api-key",
+        "${CONTEXT7_API_KEY}"
+      ]
     }
   }
 }

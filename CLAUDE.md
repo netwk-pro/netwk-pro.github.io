@@ -18,49 +18,124 @@ This is a **SvelteKit-based web presence** for Network Pro Strategies, deployed 
 
 ## AI Guardrails
 
-This repository may be worked on using AI-assisted tools (e.g., Claude Code). When doing so, the following guardrails apply:
+This repository may be worked on using AI-assisted tools such as Claude Code.
+The following guardrails apply:
 
-- **Do not introduce new environment modes** or alter environment-detection logic (`src/lib/utils/env.js`) without explicit human approval.
-- **Do not weaken security posture**: CSP rules, analytics gating, service worker exclusions, and audit-mode behavior must not be relaxed for convenience.
-- **Do not invent or assume CI/CD workflows**: Deployment behavior must match existing infrastructure (Vercel for production, Netlify for audit via branch-scoped workflow).
-- **Do not add or modify analytics, telemetry, or external network calls** without confirming consent and environment gating logic.
-- **Do not refactor for style or abstraction alone** if it obscures intent, security checks, or explicit control flow.
-- **Do not commit secrets or sensitive data**; environment files are strictly separated by purpose.
-- **Prefer explicit, readable code over "clever" optimizations**, especially in security- or environment-related paths.
+- **Do not introduce new environment modes** or alter environment-detection logic
+  (`src/lib/utils/env.js`) without explicit human approval.
+- **Do not weaken security posture**: CSP rules, analytics gating, service worker
+  exclusions, and audit-mode behavior must not be relaxed for convenience.
+- **Do not invent or assume CI/CD workflows**: deployment behavior must match
+  existing infrastructure and committed configuration.
+- **Do not add or modify analytics, telemetry, or external network calls** without
+  confirming consent and environment-gating behavior.
+- **Do not refactor for style or abstraction alone** if doing so obscures intent,
+  security checks, or explicit control flow.
+- **Do not commit secrets or sensitive data**; environment files are strictly
+  separated by purpose.
+- **Prefer explicit, readable code over clever optimizations**, especially in
+  security- or environment-related paths.
+- For version-sensitive third-party behavior, verify against current
+  documentation rather than relying solely on model memory.
 
-If a change would materially affect security, deployment behavior, environment resolution, or privacy guarantees, **pause and ask for confirmation** before proceeding.
+If a change would materially affect security, deployment behavior, environment
+resolution, or privacy guarantees, **stop and ask for confirmation** before
+proceeding.
 
-AI tools should treat this file (`CLAUDE.md`) as authoritative guidance and defer to existing documentation and code comments where conflicts arise.
+Claude Code should treat `AGENTS.md` as the authoritative source for
+tool-neutral operational guidance. This file provides Claude-specific project
+context and tool guidance.
 
 ## Svelte MCP Server
 
-Claude Code can use the Svelte MCP server, which provides comprehensive Svelte 5 and SvelteKit documentation. Use the available tools as follows:
+Claude Code may use the Svelte MCP server for current Svelte 5 and SvelteKit
+documentation, implementation guidance, and code validation.
 
 ### Available Svelte MCP Tools
 
 #### 1. `list-sections`
 
-Use this FIRST to discover all available documentation sections. It returns a structured list with titles, use cases, and paths.
+Use this when documentation lookup is needed and the relevant documentation
+section is not already known.
 
-When asked about Svelte or SvelteKit topics, ALWAYS use this tool at the start of the chat to find relevant sections.
+Do not call `list-sections` automatically for every Svelte-related task if the
+task can be completed directly from repository context or if the relevant
+documentation path is already known.
 
 #### 2. `get-documentation`
 
-Retrieves full documentation content for specific sections. It accepts single or multiple sections.
+Use this to retrieve the documentation sections relevant to the task.
 
-After calling `list-sections`, Claude Code MUST analyze the returned documentation sections, especially the `use_cases` field, and then use `get-documentation` to fetch ALL documentation sections that are relevant for the user's task.
+When documentation lookup is required:
+
+1. Identify the relevant sections using `list-sections` when necessary.
+2. Review section titles and `use_cases`.
+3. Fetch the specific documentation sections needed for the task.
+
+Prefer current Svelte MCP documentation over remembered framework behavior when
+working with version-sensitive Svelte or SvelteKit APIs.
 
 #### 3. `svelte-autofixer`
 
-Analyzes Svelte code and returns issues and suggestions.
+Use this whenever creating or materially modifying Svelte component code.
 
-Claude Code MUST use this tool whenever writing Svelte code before sending it to the user. Keep calling it until no issues or suggestions are returned.
+Run the tool before considering Svelte code complete, and address relevant
+issues or suggestions it reports.
+
+Do not repeatedly invoke it when no Svelte code has changed since the previous
+clean result.
 
 #### 4. `playground-link`
 
-Generates a Svelte Playground link with the provided code.
+Use this only when a standalone Svelte Playground would materially help the
+user.
 
-After completing the code, ask the user if they want a playground link. Only call this tool after user confirmation and NEVER if code was written to files in their project.
+Do not generate a playground link when:
+
+- code has already been written directly to project files, or
+- the user has not asked for or indicated a need for a standalone reproduction.
+
+If a playground would be useful, offer it after the implementation is complete.
+
+## Context7 Documentation Lookup
+
+Claude Code may use Context7 to retrieve current, version-specific documentation
+for third-party libraries, frameworks, CLIs, build tools, and development
+platforms.
+
+Use Context7 when:
+
+- Current or version-specific behavior may affect the implementation.
+- Working with recently changed APIs, configuration formats, or CLI options.
+- Performing major-version migrations or dependency upgrades.
+- Verifying exact function signatures, configuration keys, command-line flags,
+  deprecations, or replacement APIs.
+- The repository's installed dependency version may differ from remembered
+  model knowledge.
+- A task depends on fast-moving tooling such as Vite, Vitest, ESLint, npm,
+  GitHub Actions, Playwright, or similar ecosystems.
+
+Prefer authoritative project documentation returned through Context7 over
+remembered API behavior when the two may differ.
+
+Do not use Context7 merely for:
+
+- Generic programming concepts.
+- Stable language syntax or standard-library behavior.
+- Repository-local implementation details that can be determined directly from
+  the codebase.
+- Questions already answered conclusively by committed repository
+  documentation or configuration.
+
+When dependency behavior is version-sensitive, first inspect the repository's
+actual dependency and version constraints, such as `package.json`,
+`package-lock.json`, and relevant tool configuration, then query Context7 for
+documentation applicable to that version.
+
+If Context7 documentation conflicts with the repository's current
+implementation, do not silently modernize or rewrite the implementation.
+Call out the discrepancy and preserve existing behavior unless the task
+explicitly requires a migration or correction.
 
 ## Allowed AI Uses
 
@@ -72,7 +147,9 @@ AI-assisted tools may be used in this repository for the following purposes:
 - **Test creation and improvement**: Writing or extending unit tests, integration tests, and E2E tests consistent with existing testing architecture.
 - **Refactoring for clarity**: Improving readability, structure, or maintainability _without altering behavior, security posture, or environment semantics_.
 - **Documentation updates**: Improving README files, comments, JSDoc, and other documentation to better reflect current behavior.
-- **Dependency and configuration review**: Highlighting outdated dependencies, misconfigurations, or potential risks (without making changes unilaterally).
+- **Dependency and configuration review**: Highlighting outdated dependencies,
+  misconfigurations, or potential risks, with documentation-backed notes for
+  breaking or version-sensitive changes, without making changes unilaterally.
 - **Accessibility and standards compliance**: Suggesting improvements related to a11y, web standards, or best practices, subject to review.
 - **Clarifying questions**: Asking for confirmation when intent, risk, or trade-offs are unclear.
 
@@ -88,6 +165,13 @@ npm run dev:audit          # Dev server in audit mode (hardened CSP, no analytic
 npm run build              # Production build
 npm run build:audit        # Audit build (for testing hardened CSP)
 npm run preview            # Preview production build locally
+```
+
+### Agent / Codex
+
+```bash
+npm run dev:codex          # Production-like dev mode with agent context enabled
+npm run build:codex        # Production-like build with agent context enabled
 ```
 
 ### Testing
@@ -136,13 +220,16 @@ npx playwright test tests/e2e/app.spec.js
 
 ### Environment Management
 
-The project uses a multi-environment setup with behavior controlled primarily by `PUBLIC_ENV_MODE`, with Vite mode and local command fallbacks used where needed:
+The project uses a multi-environment setup with application behavior controlled
+primarily by `PUBLIC_ENV_MODE`. Agent execution context, when applicable, is
+signaled separately and must not alter environment classification.
 
 - **`development` / `dev`**: Local development with report-only CSP, no analytics
-- **`production` / `prod`**: Full CSP enforcement, consent-gated Matomo analytics, CSP reporting to production endpoint
-- **`audit`**: Hardened environment for security testing: no analytics, no external CSP reporting, strict CSP
+- **`production` / `prod`**: Full CSP enforcement, consent-gated Matomo analytics,
+  CSP reporting to the production endpoint
+- **`audit`**: Hardened environment for security testing: no analytics, no external
+  CSP reporting, strict CSP
 - **`test`**: CI/test mode with report-only CSP for automation
-- **`codex`**: Special mode for Claude Code development
 
 **Critical**: Environment detection happens in two places:
 
@@ -150,6 +237,37 @@ The project uses a multi-environment setup with behavior controlled primarily by
 2. **Runtime**: `src/lib/utils/env.js` exposes environment flags to app code. The `audit.netwk.pro` hostname remains a belt-and-suspenders signal and diagnostic, but policy selection must come from the build mode.
 
 The `detectEnvironment()` function in `src/lib/utils/env.js` unifies this logic and is used throughout the app.
+
+### Agent Execution Context
+
+The repository provides a dedicated Vite `codex` mode for agent-managed
+development and validation.
+
+Use the existing scripts:
+
+- `npm run dev:codex`
+- `npm run build:codex`
+
+These commands run Vite with `--mode codex`, which loads `.env.codex`.
+
+The file intentionally sets:
+
+- `ENV_MODE=production`
+- `PUBLIC_ENV_MODE=production`
+
+so agent runs exercise production-like application behavior.
+
+It also sets:
+
+- `CODEX=true`
+- `PUBLIC_CODEX=true`
+
+to identify agent-managed execution. `PUBLIC_CODEX` is consumed by application
+code to suppress analytics in Codex/agent contexts.
+
+The `codex` Vite mode is an execution context, not a separate application
+environment classification. Agents must not use it to weaken security controls,
+bypass production behavior, or assume sandbox isolation.
 
 ### Content Security Policy (CSP)
 

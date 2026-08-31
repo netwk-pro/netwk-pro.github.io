@@ -105,12 +105,18 @@ jobs:
   publish-npmjs:
     needs: build
     runs-on: ubuntu-24.04
+
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+
     env:
       ENV_MODE: ci
 
     steps:
       - name: Download clean source archive
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: clean-source
           path: ./
@@ -153,8 +159,6 @@ jobs:
 
       - name: Publish package to npmjs
         run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_NETPRO }}
 
   publish-gpr:
     needs: build
@@ -164,7 +168,7 @@ jobs:
 
     steps:
       - name: Download clean source archive
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: clean-source
           path: ./
