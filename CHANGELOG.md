@@ -24,6 +24,50 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.31.1] - 2026-08-30
+
+### Added
+
+- Added a Context7 MCP server configuration using the `CONTEXT7_API_KEY`
+  environment variable for current, version-specific documentation lookup.
+
+### Changed
+
+- Bumped project version to `v1.31.1`.
+- Updated generator metadata in `src/app.html` to reflect **SvelteKit 2.70.3**.
+- Updated `.nvmrc` and `.node-version` to pin **Node.js** `24.20.0`.
+- Updated `actions/download-artifact` `v7` → `v8` across the live, test, and
+  template publishing workflows.
+- Expanded `AGENTS.md` and `CLAUDE.md` with current Svelte MCP and Context7
+  usage, production-like Codex development commands and execution-context
+  guidance, and clearer security, environment, and deployment guardrails.
+- Refined `README.md` infrastructure and security claims, corrected the
+  repository tree and CSP description, standardized the Gitleaks name, added
+  links to the automated-agent guidance, and restored the intended Markdownlint
+  directive scope.
+- Refreshed `package-lock.json` for the direct and transitive dependency updates
+  and updated the npm install-script allowlist for `simple-git-hooks` `2.13.1` →
+  `2.14.0`.
+- Updated dependencies:
+  - `@sveltejs/kit` `2.70.2` → `2.70.3`
+  - `@vitest/coverage-v8` `4.1.10` → `4.1.11`
+  - `dompurify` `^3.4.13` → `^3.4.14`
+  - `eslint` `10.8.1` → `10.9.1`
+  - `eslint-plugin-jsdoc` `^64.2.0` → `^64.3.2`
+  - `globby` `^16.2.3` → `^16.2.4`
+  - `simple-git-hooks` `^2.13.1` → `^2.14.0`
+  - `svelte` `5.56.9` → `5.57.0`
+  - `vite` `^8.2.1` → `^8.2.2`
+  - `vitest` `4.1.10` → `4.1.11`
+
+### Security
+
+- Changed the npmjs publish jobs to request narrowly scoped GitHub OIDC
+  permissions for npm trusted publishing and removed the long-lived
+  `NPM_NETPRO` token from the live, test, and template workflows.
+
+---
+
 ## [1.31.0] - 2026-08-16
 
 ### Added
@@ -3275,7 +3319,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.31.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.31.1...HEAD
+[1.31.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.31.1
 [1.31.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.31.0
 [1.30.5]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.5
 [1.30.4]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.30.4

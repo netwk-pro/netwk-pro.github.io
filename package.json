@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.31.0",
+  "version": "1.31.1",
   "description": "This package powers the official web presence of Network Pro Strategies — a research- and infrastructure-focused technology initiative working across cybersecurity, digital systems, and privacy.",
   "keywords": [
     "advocacy",
@@ -90,9 +90,9 @@
     "pre-push": "bash scripts/hooks/pre-push.sh"
   },
   "dependencies": {
-    "dompurify": "^3.4.13",
+    "dompurify": "^3.4.14",
     "semver": "^7.8.5",
-    "svelte": "5.56.9"
+    "svelte": "5.57.0"
   },
   "devDependencies": {
     "@eslint/compat": "^2.1.0",
@@ -101,20 +101,20 @@
     "@playwright/test": "^1.62.1",
     "@sveltejs/adapter-netlify": "^6.0.4",
     "@sveltejs/adapter-vercel": "^6.3.4",
-    "@sveltejs/kit": "2.70.2",
+    "@sveltejs/kit": "2.70.3",
     "@sveltejs/vite-plugin-svelte": "^7.3.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/svelte": "^5.4.2",
-    "@vitest/coverage-v8": "4.1.10",
+    "@vitest/coverage-v8": "4.1.11",
     "autoprefixer": "^10.5.4",
     "browserslist": "^4.28.8",
-    "eslint": "10.8.1",
+    "eslint": "10.9.1",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-jsdoc": "^64.2.0",
+    "eslint-plugin-jsdoc": "^64.3.2",
     "eslint-plugin-svelte": "^3.23.0",
     "globals": "^17.11.0",
-    "globby": "^16.2.3",
+    "globby": "^16.2.4",
     "jsdom": "30.0.1",
     "lightningcss": "^1.33.0",
     "markdownlint-cli2": "0.23.2",
@@ -124,7 +124,7 @@
     "postcss-html": "^2.0.0",
     "prettier": "3.9.6",
     "prettier-plugin-svelte": "^4.1.1",
-    "simple-git-hooks": "^2.13.1",
+    "simple-git-hooks": "^2.14.0",
     "stylelint": "^17.14.1",
     "stylelint-config-html": "^2.0.0",
     "stylelint-config-recommended": "^18.0.0",
@@ -132,10 +132,10 @@
     "svelte-check": "^4.7.6",
     "svelte-eslint-parser": "^1.8.1",
     "typescript": "6.0.3",
-    "vite": "^8.2.1",
+    "vite": "^8.2.2",
     "vite-plugin-devtools-json": "^1.1.0",
     "vite-plugin-lightningcss": "^0.0.5",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   },
   "overrides": {
     "cookie": "^1.1.1",
@@ -145,8 +145,8 @@
     }
   },
   "allowScripts": {
-    "simple-git-hooks@2.13.1": true,
     "esbuild@0.25.12": true,
-    "esbuild@0.28.2": true
+    "esbuild@0.28.2": true,
+    "simple-git-hooks@2.14.0": true
   }
 }
