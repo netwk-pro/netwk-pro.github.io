@@ -29,7 +29,7 @@ Built with [Svelte 5](https://svelte.dev/) and [SvelteKit](https://svelte.dev/do
 
 [Blog](https://github.com/netwk-pro/blog) and [documentation](https://github.com/netwk-pro/docs) subsites built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and deployed via [Vercel](https://vercel.com/).
 
-All infrastructure and data flows are designed with **maximum transparency, self-hosting, and user privacy** in mind.
+Infrastructure and data flows are designed with **transparency, privacy, and self-hosting** where practical as core considerations.
 
 </section>
 
@@ -126,10 +126,12 @@ version increments reflecting both user-visible and operational impact.
   │   ├── meta/                       # Metadata end-to-end CI tests
   │   └── unit/                       # Vitest unit tests
   │       ├── client/                 # Client-side (jsdom) unit tests
-  │       ├── server/                 # Server-side (node) unit tests
-  │       │   └── internal/           # Internal audit/test helpers
-  │       │       └── auditCoverage.test.js  # Warns about untested source modules
+  │       └── server/                 # Server-side (node) unit tests
+  │           └── internal/           # Internal audit/test helpers
+  │               └── auditCoverage.test.js  # Warns about untested source modules
+  ├── AGENTS.md                     # Tool-neutral automated-agent guidance
   ├── CHANGELOG.md                  # Chronological record of notable project changes
+  ├── CLAUDE.md                     # Claude Code project/tool guidance
   ├── vercel.json                   # Vercel configuration
   ├── package.json                  # Project manifest (scripts, deps, etc.)
   └── ...
@@ -250,7 +252,12 @@ Security headers are split between SvelteKit configuration and request-time serv
 
 ### ⚠️ Current Trade-Off
 
-> SvelteKit manages CSP hashes/nonces for framework-generated inline scripts. The production policy keeps scripts restricted to `'self'`, while `style-src 'unsafe-inline'` remains because Svelte transitions can generate inline styles at runtime. The Keep Android Open banner is implemented first-party as a Svelte component to avoid third-party inline script injection.
+> SvelteKit manages CSP hashes/nonces for framework-generated inline scripts.
+> The production policy keeps scripts restricted to `'self'` plus the Matomo
+> origin, while `style-src 'unsafe-inline'` remains because Svelte transitions
+> can generate inline styles at runtime. The Keep Android Open banner is
+> implemented first-party as a Svelte component to avoid third-party inline
+> script injection.
 
 ---
 
@@ -288,14 +295,16 @@ Client-side PWA logic (such as handling the `beforeinstallprompt` event, checkin
 
 Network Pro&trade; automatically performs dependency and vulnerability checks as part of its CI/CD pipeline:
 
-- **GitLeaks Secret Scanning** — detects potential secrets and credentials in commits, pull requests, and full-history scans.
+- **Gitleaks Secret Scanning** — detects potential secrets and credentials in commits, pull requests, and full-history scans.
 - **CodeQL Analysis** — runs static code scanning to detect code-level vulnerabilities.
 - **Probely DAST Scans** — executes weekly external scans on the audit deployment (`audit.netwk.pro`) to identify web application vulnerabilities.
 - **npm Audit** — runs during the build phase to detect known vulnerabilities in installed dependencies (`npm audit --audit-level=moderate`).
 - **Dependabot** — automatically monitors and updates outdated dependencies via pull requests.
 - **ESLint, Prettier, etc. (Local)** — enforces code quality and consistency during local development before commits.
 
-Each tool is configured to run in a safe, non-production environment to ensure reliability and protect sensitive data.
+Security and dependency checks are designed to avoid requiring production
+credentials or production-side execution. External DAST scanning targets the
+dedicated audit deployment rather than the production site.
 
 </section>
 
@@ -528,7 +537,7 @@ You can also audit locally using Chrome DevTools → Lighthouse tab for on-the-f
 > cat .lighthouseci/chrome-version.txt
 > ```
 
-<!-- markdownlint-disable MD028 -->
+<!-- markdownlint-enable MD028 -->
 
 </section>
 
@@ -547,6 +556,16 @@ Refer to the Wiki for:
 - Recommended toolchain
 - Configuration file overview
 - CLI script usage and automation
+
+### AI-Assisted Development
+
+The repository includes guidance for AI-assisted development:
+
+- [`AGENTS.md`](./AGENTS.md) — tool-neutral operational guidance for automated agents
+- [`CLAUDE.md`](./CLAUDE.md) — Claude Code-specific project context and tool guidance
+
+Agent-assisted changes are expected to follow the same security, privacy,
+testing, and deployment constraints as human-authored changes.
 
 </section>
 
