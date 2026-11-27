@@ -14,26 +14,19 @@ This file is part of Network Pro.
  * @updated 2026-04-10
  */
 
-import { writable } from 'svelte/store';
 import { describe, expect, it, vi } from 'vitest';
 
-// Mock SvelteKit environment and store
-vi.mock('$app/environment', () => ({ browser: true }));
+// Mock SvelteKit environment and page state
+vi.mock('$app/env', () => ({ browser: true }));
 
-vi.mock('$app/stores', () => {
-  const mockPageStore = writable({
-    url: { pathname: '/contact' },
-  });
-
-  return {
-    getStores: () => ({
-      page: mockPageStore,
-    }),
-  };
-});
+vi.mock('$app/state', () => ({
+  page: {
+    url: new URL('https://netwk.pro/contact'),
+  },
+}));
 
 // Import *after* mocks
-import { appendUTM } from '$lib/utils/utm.js';
+import { appendUTM } from '#lib/utils/utm.js';
 
 describe('appendUTM', () => {
   it('should return URL with utm parameters for /contact', () => {

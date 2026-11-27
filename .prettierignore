@@ -6,9 +6,8 @@
 
 # Custom ignores
 static/.well-known/dnt-policy.txt
-
-# Claude Code
-.claude
+.claude/settings.local.json
+.claude/skills
 
 # Licenses
 static/bin/license

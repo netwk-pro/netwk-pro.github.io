@@ -8,8 +8,8 @@ This file is part of Network Pro.
 
 <script>
   import { onMount } from 'svelte';
-  import { redirectWithBrowserAwareness } from '$lib/utils/redirect.js';
-  import { FullWidthSection } from '$lib/components';
+  import { redirectWithBrowserAwareness } from '#lib/utils/redirect.js';
+  import { FullWidthSection } from '#lib/components/index.js';
 
   export let to;
   export let rel = ''; // Accepts optional rel value

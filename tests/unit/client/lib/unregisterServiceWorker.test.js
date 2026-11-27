@@ -14,7 +14,7 @@ This file is part of Network Pro.
  * @updated 2026-01-15
  */
 
-import { unregisterServiceWorker } from '$lib/unregisterServiceWorker.js';
+import { unregisterServiceWorker } from '#lib/unregisterServiceWorker.js';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 describe('unregisterServiceWorker()', () => {

@@ -15,26 +15,26 @@ This file is part of Network Pro.
     setOptIn,
     setOptOut,
     clearPrefs,
-  } from '$lib/stores/trackingPreferences.js';
+  } from '#lib/stores/trackingPreferences.js';
 
-  import { CONSTANTS } from '$lib';
+  import { CONSTANTS } from '#lib';
 
   const { CONTACT, PAGE, NAV } = CONSTANTS;
 
   /** @type {string} */
-  const privacyPolicy = resolve('/privacy', {});
+  const privacyPolicy = resolve('/privacy');
 
   /** @type {string} */
-  const prightsLink = resolve('/privacy-rights', {});
+  const prightsLink = resolve('/privacy-rights');
 
   /** @type {string} */
-  const trackingLink = resolve('/privacy-dashboard#tracking', {});
+  const trackingLink = resolve('/privacy-dashboard#tracking');
 
   /** @type {string} */
-  const rightsLink = resolve('/privacy-dashboard#rights', {});
+  const rightsLink = resolve('/privacy-dashboard#rights');
 
   /** @type {string} */
-  const topLink = resolve('/privacy-dashboard#top', {});
+  const topLink = resolve('/privacy-dashboard#top');
 
   /** @type {boolean} */
   let optedOut = $derived($trackingPreferences.optedOut);
@@ -100,15 +100,13 @@ This file is part of Network Pro.
 
 <nav class="tracking-nav">
   <ul>
-    <li><a href={trackingLink} target={PAGE.SELF}>Tracking Preferences</a></li>
-    <li><a href={rightsLink} target={PAGE.SELF}>Your Rights and Choices</a></li>
+    <li><a href={trackingLink}>Tracking Preferences</a></li>
+    <li><a href={rightsLink}>Your Rights and Choices</a></li>
   </ul>
 </nav>
 
 <p class="bquote">
-  For full details, please see our <a href={privacyPolicy} target={PAGE.SELF}
-    >Privacy Policy</a
-  >.
+  For full details, please see our <a href={privacyPolicy}>Privacy Policy</a>.
 </p>
 
 <div class="spacer"></div>
@@ -194,7 +192,7 @@ This file is part of Network Pro.
 </section>
 
 <span class="small-text">
-  <a href={topLink} target={PAGE.SELF}>{NAV.BACKTOP}</a>
+  <a href={topLink}>{NAV.BACKTOP}</a>
 </span>
 
 <div class="spacer"></div>
@@ -252,7 +250,7 @@ This file is part of Network Pro.
 </section>
 
 <span class="small-text">
-  <a href={topLink} target={PAGE.SELF}>{NAV.BACKTOP}</a>
+  <a href={topLink}>{NAV.BACKTOP}</a>
 </span>
 
 <!-- cspell:ignore prefs prights -->

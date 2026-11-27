@@ -7,9 +7,9 @@ This file is part of Network Pro.
 =========================================================================== -->
 
 <script>
-  import { base } from '$app/paths';
-  import { CONSTANTS } from '$lib';
-  import { ServiceSummaryTable } from '$lib/components';
+  import { resolve } from '$app/paths';
+  import { CONSTANTS } from '#lib';
+  import { ServiceSummaryTable } from '#lib/components/index.js';
 
   const { COMPANY_INFO, CONTACT, PAGE, LINKS, NAV } = CONSTANTS;
 
@@ -17,8 +17,8 @@ This file is part of Network Pro.
    * URLs using the base path
    * @type {string}
    */
-  const contactLink = `${base}/contact`;
-  const consultLink = `${base}/consultation`;
+  const contactLink = resolve('/contact');
+  const consultLink = resolve('/consultation');
 
   /**
    * Table of Contents Links

@@ -36,7 +36,6 @@ Disallow: /status
 # --- Service utilities or PWA
 Disallow: /service-worker
 Disallow: /service-worker.js
-Disallow: /service-worker.d.ts
 
 # --- Futureproof catch-alls
 Disallow: /admin

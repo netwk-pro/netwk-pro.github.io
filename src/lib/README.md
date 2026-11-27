@@ -13,15 +13,34 @@ It acts as the project’s _internal library_.
 
 ---
 
-## 📦 Importing from `$lib`
+## 📦 Importing from `#lib`
 
-SvelteKit automatically aliases `$lib` → `src/lib/`, allowing you to import from this directory anywhere in the project:
+SvelteKit 3 no longer generates the `$lib` alias. This project declares a
+`#lib` [package subpath import](https://nodejs.org/api/packages.html#subpath-imports)
+in `package.json`, which Vite, Vitest, TypeScript, and Node resolve natively:
 
-```js
-import { something } from '$lib';
+```json
+"imports": {
+  "#lib": "./src/lib/index.js",
+  "#lib/*": "./src/lib/*"
+}
 ```
 
-> 💡 You don’t need to use relative paths like `../../../lib/...`; the `$lib` alias handles that automatically.
+Import the main export hub with `#lib`, or a specific module with its
+**explicit file extension**:
+
+```js
+import { something } from '#lib';
+import { detectEnvironment } from '#lib/utils/env.js';
+import { Footer } from '#lib/components/layout/index.js';
+```
+
+> 💡 You don’t need relative paths like `../../../lib/...`. Subpath imports
+> do not add extensions or resolve directories, so always include `.js`,
+> `.svelte`, or `/index.js`.
+>
+> Vite's `import.meta.glob()` cannot use `#lib`; use a path relative to the
+> importing file instead (see `images.js`).
 
 ---
 
@@ -40,19 +59,19 @@ src/lib/
 
 ## 🖼️ Image Imports
 
-All image assets are re-exported via `images.js` and then made available in `$lib/index.js`.
+All image assets are re-exported via `images.js` and then made available in `src/lib/index.js`.
 
-This allows images to be imported directly from `$lib`:
+This allows images to be imported directly from `#lib`:
 
 ```js
-import { logoPng, faviconSvg } from '$lib';
+import { logoPng, faviconSvg } from '#lib';
 ```
 
 **Example (Svelte component):**
 
 ```svelte
 <script>
-  import { logoPng } from '$lib';
+  import { logoPng } from '#lib';
 </script>
 
 <img src={logoPng} alt="Network Pro Logo" />
@@ -61,7 +80,7 @@ import { logoPng, faviconSvg } from '$lib';
 If you prefer, you can still import by full path:
 
 ```js
-import logoPng from '$lib/img/logo-web.png';
+import logoPng from '#lib/img/logo-web.png';
 ```
 
 Both are valid — the re-exports simply make imports cleaner and centralized.
@@ -74,7 +93,7 @@ Both are valid — the re-exports simply make imports cleaner and centralized.
 These are grouped into logical categories for easy reference.
 
 ```js
-import { CONSTANTS } from '$lib';
+import { CONSTANTS } from '#lib';
 
 console.log(CONSTANTS.COMPANY_INFO.APP_NAME); // "Network Pro"
 ```
@@ -107,6 +126,10 @@ console.log(CONSTANTS.COMPANY_INFO.APP_NAME); // "Network Pro"
 | `REL`   | Default rel attribute | `noopener noreferrer` |
 | `SELF`  | Opens in same tab     | `_self`               |
 
+> ⚠️ Do not put `target={PAGE.SELF}` on internal links. SvelteKit treats any
+> link with a `target` attribute as external, which forces a full page reload
+> and bypasses client-side routing. Omit `target` for internal routes.
+
 ### 🧭 NAV
 
 | Key       | Description             | Example       |
@@ -131,7 +154,7 @@ extend `CONSTANTS` here and update this table for quick reference.
 Reusable components can also be exported from this directory:
 
 ```js
-import { Logo } from '$lib';
+import { Logo } from '#lib';
 ```
 
 If you add more UI components later, re-export them from `index.js` for easy access.
@@ -140,8 +163,8 @@ If you add more UI components later, re-export them from `index.js` for easy acc
 
 ## 🧠 Developer Notes
 
-`$lib` is an alias — not a relative path.
-It points directly to `src/lib/`.
+`#lib` is a package subpath import declared in `package.json`, not a relative
+path. It points directly to `src/lib/`.
 
 `export * from './images.js';` re-exports all image imports so you can reference them easily.
 

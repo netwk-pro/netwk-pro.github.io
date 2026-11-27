@@ -15,6 +15,6 @@ export default {
     'node_modules/**',
     'playwright-report/**',
     'test-results/**',
-    '.claude/**',
+    '.claude/skills/**',
   ],
 };

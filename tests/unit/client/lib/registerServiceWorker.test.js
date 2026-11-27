@@ -92,7 +92,7 @@ describe('service worker navigation lifecycle', () => {
 
   it('intercepts only owned link and goto route navigations', async () => {
     const { shouldInterceptServiceWorkerNavigation } =
-      await import('$lib/registerServiceWorker.js');
+      await import('#lib/registerServiceWorker.js');
 
     expect(shouldInterceptServiceWorkerNavigation(createNavigation())).toBe(
       true,
@@ -142,7 +142,7 @@ describe('service worker navigation lifecycle', () => {
       waiting: waitingWorker,
     });
     const { registerServiceWorker } =
-      await import('$lib/registerServiceWorker.js');
+      await import('#lib/registerServiceWorker.js');
 
     registerServiceWorker();
     await vi.waitFor(() => {
@@ -155,6 +155,88 @@ describe('service worker navigation lifecycle', () => {
     });
   });
 
+  it('asks the controlling worker to cache client-routed navigations only', async () => {
+    const controller = { postMessage: vi.fn() };
+    createServiceWorkerLifecycle({ controller });
+    const { cacheClientNavigation } =
+      await import('#lib/registerServiceWorker.js');
+    const origin = window.location.origin;
+
+    cacheClientNavigation(
+      /** @type {any} */ ({
+        type: 'link',
+        to: { url: new URL('/about', origin) },
+      }),
+    );
+    cacheClientNavigation(
+      /** @type {any} */ ({ type: 'enter', to: { url: new URL('/', origin) } }),
+    );
+    cacheClientNavigation(
+      /** @type {any} */ ({
+        type: 'link',
+        to: { url: new URL('https://example.com/elsewhere') },
+      }),
+    );
+
+    expect(controller.postMessage).toHaveBeenCalledOnce();
+    expect(controller.postMessage).toHaveBeenCalledWith({
+      type: 'CACHE_NAVIGATION',
+      url: `${origin}/about`,
+    });
+  });
+
+  it('does nothing when no service worker controls the page', async () => {
+    createServiceWorkerLifecycle({ controller: null });
+    const { cacheClientNavigation } =
+      await import('#lib/registerServiceWorker.js');
+
+    expect(() =>
+      cacheClientNavigation(
+        /** @type {any} */ ({
+          type: 'link',
+          to: { url: new URL('/about', window.location.origin) },
+        }),
+      ),
+    ).not.toThrow();
+  });
+
+  it('registers the SvelteKit 3 service worker as an ES module', async () => {
+    const { serviceWorkerContainer } = createServiceWorkerLifecycle();
+    const { registerServiceWorker } =
+      await import('#lib/registerServiceWorker.js');
+
+    registerServiceWorker();
+    await vi.waitFor(() => {
+      expect(serviceWorkerContainer.register).toHaveBeenCalledOnce();
+    });
+
+    expect(serviceWorkerContainer.register).toHaveBeenCalledWith(
+      '/service-worker.js',
+      { type: 'module' },
+    );
+  });
+
+  it('degrades gracefully when module registration is unsupported', async () => {
+    const { serviceWorkerContainer } = createServiceWorkerLifecycle();
+    const unsupported = new TypeError('Module service workers unsupported');
+    /** @type {ReturnType<typeof vi.fn>} */ (
+      /** @type {unknown} */ (serviceWorkerContainer.register)
+    ).mockRejectedValueOnce(unsupported);
+    const consoleError = vi
+      .spyOn(console, 'error')
+      .mockImplementation(() => {});
+    const { registerServiceWorker } =
+      await import('#lib/registerServiceWorker.js');
+
+    expect(() => registerServiceWorker()).not.toThrow();
+    await vi.waitFor(() => {
+      expect(consoleError).toHaveBeenCalledWith(
+        '[SW-CLIENT] Service worker registration failed:',
+        unsupported,
+      );
+    });
+  });
+
   it('activates a waiting worker before an internal navigation', async () => {
     const waitingWorker = {
       postMessage: vi.fn(),
@@ -162,7 +244,7 @@ describe('service worker navigation lifecycle', () => {
     const { assign, registration, reload, serviceWorkerContainer } =
       createServiceWorkerLifecycle();
     const { activateWaitingServiceWorkerForNavigation, registerServiceWorker } =
-      await import('$lib/registerServiceWorker.js');
+      await import('#lib/registerServiceWorker.js');
 
     registerServiceWorker();
     await vi.waitFor(() => {
@@ -188,7 +270,7 @@ describe('service worker navigation lifecycle', () => {
     const { assign, reload, serviceWorkerContainer } =
       createServiceWorkerLifecycle({ controller: null });
     const { registerServiceWorker } =
-      await import('$lib/registerServiceWorker.js');
+      await import('#lib/registerServiceWorker.js');
 
     registerServiceWorker();
     await vi.waitFor(() => {
@@ -206,7 +288,7 @@ describe('service worker navigation lifecycle', () => {
     const { assign, reload, serviceWorkerContainer } =
       createServiceWorkerLifecycle();
     const { registerServiceWorker } =
-      await import('$lib/registerServiceWorker.js');
+      await import('#lib/registerServiceWorker.js');
 
     registerServiceWorker();
     await vi.waitFor(() => {
@@ -227,7 +309,7 @@ describe('service worker navigation lifecycle', () => {
       createServiceWorkerLifecycle();
     const log = vi.spyOn(console, 'log').mockImplementation(() => {});
     const { registerServiceWorker } =
-      await import('$lib/registerServiceWorker.js');
+      await import('#lib/registerServiceWorker.js');
 
     registerServiceWorker();
     await vi.waitFor(() => {

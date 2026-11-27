@@ -13,7 +13,7 @@ This file is part of Network Pro.
   export let image = `${url}/img/banner-og-1200x630.png`;
   export let pathname = '';
 
-  import { CONSTANTS } from '$lib';
+  import { CONSTANTS } from '#lib';
 
   const { COMPANY_INFO, LINKS } = CONSTANTS;
 

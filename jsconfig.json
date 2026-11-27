@@ -1,5 +1,5 @@
 {
-  "extends": "./.svelte-kit/tsconfig.json",
+  "extends": "$app/tsconfig",
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
@@ -11,6 +11,6 @@
     "strict": true,
     "moduleResolution": "bundler"
   },
-  "exclude": ["vite.config.js"],
-  "include": ["src", "src/global.d.ts", "src/service-worker.js"]
+  "exclude": ["vite.config.js", "src/service-worker"],
+  "include": ["src", "config"]
 }

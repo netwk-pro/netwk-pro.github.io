@@ -14,7 +14,7 @@ This file is part of Network Pro.
  * @updated 2026-01-15
  */
 
-import { sanitizeHtml } from '$lib/utils/purify.js';
+import { sanitizeHtml } from '#lib/utils/purify.js';
 import { describe, expect, it } from 'vitest';
 
 describe('sanitizeHtml', () => {

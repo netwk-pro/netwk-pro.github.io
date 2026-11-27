@@ -7,15 +7,15 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { RedirectPage } from '$lib/components';
-  import { appendUTM } from '$lib/utils/utm.js';
-  import { getUTMParams } from '$lib/utils/getUTMParams.js';
-  import { trackingEnabled } from '$lib/stores/trackingPreferences';
-  import { capture } from '$lib/stores/posthog';
+  import { RedirectPage } from '#lib/components/index.js';
+  import { appendUTM } from '#lib/utils/utm.js';
+  import { getUTMParams } from '#lib/utils/getUTMParams.js';
+  import { trackingEnabled } from '#lib/stores/trackingPreferences.js';
+  import { capture } from '#lib/stores/posthog.js';
   import { get } from 'svelte/store';
   import { onMount } from 'svelte';
-  import { browser } from '$app/environment';
-  import { CONSTANTS } from '$lib';
+  import { browser } from '$app/env';
+  import { CONSTANTS } from '#lib';
 
   //console.log(CONSTANTS.COMPANY_INFO.APP_NAME);
 

@@ -7,8 +7,8 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from '$app/paths';
-  import { CONSTANTS } from '$lib';
+  import { resolve } from '$app/paths';
+  import { CONSTANTS } from '#lib';
 
   const { COMPANY_INFO, PAGE, NAV } = CONSTANTS;
 
@@ -16,19 +16,19 @@ This file is part of Network Pro.
    * URL to Terms and Conditions page, using the base path
    * @type {string}
    */
-  const tandcLink = `${base}/terms-conditions`;
+  const tandcLink = resolve('/terms-conditions');
 
   /**
    * URL to Privacy Policy page, using the base path
    * @type {string}
    */
-  const privacyLink = `${base}/privacy`;
+  const privacyLink = resolve('/privacy');
 
   /**
    * URL to License page, using the base path
    * @type {string}
    */
-  const licenseLink = `${base}/legal`;
+  const licenseLink = resolve('/legal');
 
   /**
    * Markdown version of the Terms of Use document
@@ -102,7 +102,7 @@ This file is part of Network Pro.
   available via this website and its associated web properties. For provisions
   governing our consulting and implementation services, please refer to the
   applicable
-  <a href={tandcLink} target={PAGE.SELF}>Terms and Conditions</a>.
+  <a href={tandcLink}>Terms and Conditions</a>.
 </p>
 
 <hr />
@@ -219,9 +219,9 @@ This file is part of Network Pro.
   <p class="bquote">
     <strong>Note:</strong> For more details regarding our privacy practices,
     refer to our
-    <a href={privacyLink} target={PAGE.SELF}>Privacy Policy</a>. For licensing
-    terms and content usage rights, please visit our
-    <a href={licenseLink} target={PAGE.SELF}>Legal, Copyright, and Licensing</a>
+    <a href={privacyLink}>Privacy Policy</a>. For licensing terms and content
+    usage rights, please visit our
+    <a href={licenseLink}>Legal, Copyright, and Licensing</a>
     page.
   </p>
 </section>

@@ -99,7 +99,7 @@ If a playground would be useful, offer it after the implementation is complete.
 
 ## Context7 Documentation Lookup
 
-Claude Code may use Context7 to retrieve current, version-specific documentation
+Agents may use Context7 to retrieve current, version-specific documentation
 for third-party libraries, frameworks, CLIs, build tools, and development
 platforms.
 
@@ -233,7 +233,7 @@ signaled separately and must not alter environment classification.
 
 **Critical**: Environment detection happens in two places:
 
-1. **Build/config time**: `PUBLIC_ENV_MODE` is the primary contract. `svelte.config.js` also falls back to Vite mode and `NODE_ENV=development` so normal `vite dev` uses report-only CSP.
+1. **Build/config time**: `resolveEnvironment()` in `config/env.js` selects the environment with the precedence `PUBLIC_ENV_MODE` → `MODE` → Vite mode → `production`, so plain `vite dev` (Vite mode `development`) uses report-only CSP. `ENV_MODE` is logged for diagnostics only and never influences CSP selection.
 2. **Runtime**: `src/lib/utils/env.js` exposes environment flags to app code. The `audit.netwk.pro` hostname remains a belt-and-suspenders signal and diagnostic, but policy selection must come from the build mode.
 
 The `detectEnvironment()` function in `src/lib/utils/env.js` unifies this logic and is used throughout the app.
@@ -271,7 +271,7 @@ bypass production behavior, or assume sandbox isolation.
 
 ### Content Security Policy (CSP)
 
-CSP is configured in `svelte.config.js` via SvelteKit `kit.csp`, based on build/config-time environment selection:
+CSP is defined in `config/csp.js` (`createCsp()`) and passed to the `sveltekit()` Vite plugin through `config/sveltekit.js` in `vite.config.js`. SvelteKit 3 no longer reads `svelte.config.js`. The policy is chosen from the build/config-time environment:
 
 - **Production**: Strict CSP with `Content-Security-Policy` header, real CSP reporting endpoint
 - **Audit**: Hardened CSP with no analytics domains, no CSP reporting
@@ -285,19 +285,22 @@ CSP is configured in `svelte.config.js` via SvelteKit `kit.csp`, based on build/
 
 ### Service Worker & PWA
 
-The service worker is defined in `src/service-worker.js` and handles:
+The service worker is defined in `src/service-worker/index.js`. It is a separate TypeScript project (`src/service-worker/tsconfig.json` extends `$app/tsconfig/service-worker`), excluded from `jsconfig.json` and checked by `npm run check:sw`. It uses `version` from `$app/env` and `immutable` from `$app/manifest`, and handles:
 
-- Precaching of build artifacts and static files
-- Runtime caching strategies (cache-first, network-first)
-- Cache versioning and cleanup
+- Precaching of build artifacts and required/optional static files
+- Runtime caching strategies (cache-first for precached assets, network-first for navigations)
+- Cache versioning and cleanup of obsolete `cache-networkpro-` caches on activation
+- Caching offline-approved routes reached through client-side navigation (`CACHE_NAVIGATION` message)
 
 **Registration**: `src/lib/registerServiceWorker.js` handles:
 
-- SW registration and update lifecycle
-- Cache cleanup (removes non-prefixed caches)
+- SW registration (always `type: 'module'`) and update lifecycle
+- `cacheClientNavigation()`, registered with `afterNavigate()` in `src/routes/+layout.svelte`
 - Install prompt support (`beforeinstallprompt` event)
-- Firefox localhost compatibility skip
+- Firefox development skip
 - `?nosw` query parameter bypass via `static/disableSw.js`
+
+**Offline client navigation**: `handleError` in `src/hooks.client.ts` falls back to a full-page navigation when a client-side navigation fails because the network is unavailable, so the worker can serve a cached page or the offline document.
 
 ### Route Structure
 
@@ -328,7 +331,9 @@ src/lib/
 └── security/          # Security utilities (probely.js)
 ```
 
-**Import Pattern**: Use `$lib` alias for all internal imports (configured in `jsconfig.json` via `vite-tsconfig-paths`).
+**Import Pattern**: Use the `#lib` package subpath import for internal imports, declared in `package.json` `imports` (SvelteKit 3 no longer provides `$lib`). Include the file extension, e.g. `#lib/utils/env.js` or `#lib/components/index.js`. `import.meta.glob()` cannot use `#lib`; use a path relative to the importing file.
+
+**Internal links**: Do not add `target="_self"` (`PAGE.SELF`) to internal links. SvelteKit treats any link with a `target` as external, which forces a full reload instead of client-side routing.
 
 ### Analytics & Tracking
 
@@ -362,13 +367,17 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 
 ## Configuration Files
 
-- **`svelte.config.js`**: SvelteKit config with Vercel adapter, `kit.csp`, mode selection, and prerender error handling
-- **`vite.config.js`**: Vite config with SvelteKit, LightningCSS, devtools-json plugins
-- **`vitest.config.client.js`**: Client-side unit test config (jsdom environment)
-- **`vitest.config.server.js`**: Server-side unit test config (node environment)
+- **`vite.config.js`**: Vite config with SvelteKit, LightningCSS, devtools-json plugins; passes the SvelteKit options from `config/sveltekit.js` to `sveltekit()`
+- **`config/env.js`**: Build-time environment resolution and build diagnostics logging
+- **`config/csp.js`**: Environment-specific CSP directives (`createCsp()`)
+- **`config/sveltekit.js`**: SvelteKit plugin options (Vercel adapter, paths, manual service worker registration, CSP, `version.pollInterval: 0`, prerender error handling)
+- **`jsconfig.json`**: Extends `$app/tsconfig`; excludes the service worker project
+- **`src/service-worker/tsconfig.json`**: Separate service worker TypeScript project
+- **`vitest.config.client.js`**: Client-side unit test config (jsdom environment); uses the shared SvelteKit config with a fixed `test` environment
+- **`vitest.config.server.js`**: Server-side unit test config (node environment); uses the shared SvelteKit config with a fixed `test` environment
 - **`playwright.config.js`**: E2E test config (Chromium, Firefox, WebKit)
 - **`.lighthouserc.cjs`**: Lighthouse CI audit configuration
-- **`postcss.config.cjs`**: PostCSS with autoprefixer
+- **`postcss.config.mjs`**: PostCSS with autoprefixer
 - **`vercel.json`**: Vercel deployment config
 
 ## Development Workflows
@@ -397,18 +406,18 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 1. Create component in `src/lib/components/YourComponent.svelte`
 2. Export from `src/lib/components/index.js` if it's shared
 3. Add unit test in `tests/unit/client/components/YourComponent.test.js`
-4. Use `$lib/components` alias for imports
+4. Use `#lib/components/index.js` (or the component's `.svelte` path) for imports
 
 ### Modifying CSP
 
-1. Edit `svelte.config.js` and update the appropriate `kit.csp` directive set
+1. Edit `config/csp.js` and update the appropriate directive set (and its tests in `tests/unit/server/config/csp.test.js`)
 2. Test in audit mode: `npm run dev:audit`
 3. Check CSP violations in browser console or `/api/mock-csp` logs
 4. Update tests if needed
 
 ### Adding Analytics Events
 
-1. Import `capture` from `$lib/stores/posthog`
+1. Import `capture` from `#lib/stores/posthog.js`
 2. Call `capture('event_name', { properties })` in client-side code
 3. Only pageviews and limited event fields are sent; user identification remains disabled
 
@@ -430,8 +439,8 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 
 ### Build Requirements
 
-- **Node.js**: >= 22.0.0, < 25
-- **npm**: >= 10.0.0, < 12
+- **Node.js**: >= 24.15.0, < 27 (`.nvmrc` / `.node-version` pin 26.13.1; CI uses Node 26)
+- **npm**: >= 11, < 13
 - Enforced via `engines` in `package.json` and `scripts/checkNode.js`
 
 ### Testing Requirements
@@ -445,9 +454,9 @@ Analytics initialization happens in `src/lib/utils/initAnalytics.js`, called fro
 1. **Service Worker Caching**: Use `?nosw` query param to bypass SW for testing
 2. **Environment Detection**: `PUBLIC_ENV_MODE` is the build-time source of truth; `audit.netwk.pro` hostname detection is diagnostic/defense-in-depth
 3. **CSP Violations**: Check browser console in dev mode; violations are logged to `/api/mock-csp`
-4. **Analytics Initialization**: The compatibility helper initializes preference state but does not send events
-5. **Static Asset Imports**: Use Vite's `import` syntax (e.g., `import logo from '$lib/img/logo.png'`)
-6. **Prerendering**: Some routes are prerendered at build time; check `svelte.config.js` error handlers
+4. **Analytics Initialization**: `initAnalytics()` initializes preference state; pageviews are recorded by `trackPageview()`, which `+layout.svelte` registers with `afterNavigate()` during component initialization. Do not register `afterNavigate()` from inside `onMount` in the legacy-mode layout; the callback never runs.
+5. **Static Asset Imports**: Use Vite's `import` syntax (e.g., `import logo from '#lib/img/logo.png'`)
+6. **Prerendering**: Some routes are prerendered at build time; check the `prerender` options in `config/sveltekit.js`
 
 ## Debugging Tips
 

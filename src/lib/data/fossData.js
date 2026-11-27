@@ -15,7 +15,7 @@ This file is part of Network Pro.
  */
 
 // Import FOSS images
-import { acodePng, acodeWbp, cryptomPng, cryptomWbp, eauthPng, eauthWbp, hboardPng, hboardWbp, lsheetPng, lsheetWbp, otphelpPng, otphelpWbp, pmxPng, pmxWbp, squirclePng, squircleWbp, tosPng, tosWbp, urlPng, urlWbp } from "$lib";
+import { acodePng, acodeWbp, cryptomPng, cryptomWbp, eauthPng, eauthWbp, hboardPng, hboardWbp, lsheetPng, lsheetWbp, otphelpPng, otphelpWbp, pmxPng, pmxWbp, squirclePng, squircleWbp, tosPng, tosWbp, urlPng, urlWbp } from "#lib";
 
 // cspell:disable
 /**

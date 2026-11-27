@@ -17,52 +17,54 @@ This file is part of Network Pro.
  */
 
 // Import favicon images
-import faviconSvg from '$lib/img/favicon.svg';
-import appleTouchIcon from '$lib/img/icon-180x180.png';
+import faviconSvg from '#lib/img/favicon.svg';
+import appleTouchIcon from '#lib/img/icon-180x180.png';
 
 // Import logo image
-import logoPng from '$lib/img/logo-web.png';
-import logoWbp from '$lib/img/logo-web.webp';
+import logoPng from '#lib/img/logo-web.png';
+import logoWbp from '#lib/img/logo-web.webp';
 
 // Import badges
-import ccBadge from '$lib/img/badges/cc-by-badge.png';
-import gplBadge from '$lib/img/badges/gpl-badge.svg';
+import ccBadge from '#lib/img/badges/cc-by-badge.png';
+import gplBadge from '#lib/img/badges/gpl-badge.svg';
 
 // Import general images
-import bySvg from '$lib/img/by.svg';
-import ccSvg from '$lib/img/cc.svg';
-import obtainiumPng from '$lib/img/obtainium.png';
-import obtainiumWbp from '$lib/img/obtainium.webp';
-import protonPower from '$lib/img/powered-by-proton.svg';
+import bySvg from '#lib/img/by.svg';
+import ccSvg from '#lib/img/cc.svg';
+import obtainiumPng from '#lib/img/obtainium.png';
+import obtainiumWbp from '#lib/img/obtainium.webp';
+import protonPower from '#lib/img/powered-by-proton.svg';
 
 // Import images for posts
-import acodePng from '$lib/img/posts/acode.png';
-import acodeWbp from '$lib/img/posts/acode.webp';
-import cryptomPng from "$lib/img/posts/cryptomator.png";
-import cryptomWbp from "$lib/img/posts/cryptomator.webp";
-import eauthPng from '$lib/img/posts/eauth.png';
-import eauthWbp from '$lib/img/posts/eauth.webp';
-import hboardPng from '$lib/img/posts/hboard.png';
-import hboardWbp from '$lib/img/posts/hboard.webp';
-import lsheetPng from '$lib/img/posts/linksheet.png';
-import lsheetWbp from '$lib/img/posts/linksheet.webp';
-import otphelpPng from '$lib/img/posts/otp-helper.png';
-import otphelpWbp from '$lib/img/posts/otp-helper.webp';
-import pmxPng from '$lib/img/posts/pmx.png';
-import pmxWbp from '$lib/img/posts/pmx.webp';
-import squirclePng from '$lib/img/posts/squircle.png';
-import squircleWbp from '$lib/img/posts/squircle.webp';
-import tosPng from '$lib/img/posts/tosdr.png';
-import tosWbp from '$lib/img/posts/tosdr.webp';
-import urlPng from '$lib/img/posts/urlcheck.png';
-import urlWbp from '$lib/img/posts/urlcheck.webp';
+import acodePng from '#lib/img/posts/acode.png';
+import acodeWbp from '#lib/img/posts/acode.webp';
+import cryptomPng from "#lib/img/posts/cryptomator.png";
+import cryptomWbp from "#lib/img/posts/cryptomator.webp";
+import eauthPng from '#lib/img/posts/eauth.png';
+import eauthWbp from '#lib/img/posts/eauth.webp';
+import hboardPng from '#lib/img/posts/hboard.png';
+import hboardWbp from '#lib/img/posts/hboard.webp';
+import lsheetPng from '#lib/img/posts/linksheet.png';
+import lsheetWbp from '#lib/img/posts/linksheet.webp';
+import otphelpPng from '#lib/img/posts/otp-helper.png';
+import otphelpWbp from '#lib/img/posts/otp-helper.webp';
+import pmxPng from '#lib/img/posts/pmx.png';
+import pmxWbp from '#lib/img/posts/pmx.webp';
+import squirclePng from '#lib/img/posts/squircle.png';
+import squircleWbp from '#lib/img/posts/squircle.webp';
+import tosPng from '#lib/img/posts/tosdr.png';
+import tosWbp from '#lib/img/posts/tosdr.webp';
+import urlPng from '#lib/img/posts/urlcheck.png';
+import urlWbp from '#lib/img/posts/urlcheck.webp';
 
 // ================================================================
 // Dynamic QR code image imports
 // ================================================================
 
-// Dynamically import all QR code images in src/lib/img/qr
-const qrModules = import.meta.glob('$lib/img/qr/*.{png,webp}', { eager: true });
+// Dynamically import all QR code images in src/lib/img/qr.
+// Vite glob patterns cannot use package subpath imports (#lib), so this
+// pattern is relative to this file. Only the basename of each key is used.
+const qrModules = import.meta.glob('./img/qr/*.{png,webp}', { eager: true });
 
 /**
  * Aggregated QR code image lookup.

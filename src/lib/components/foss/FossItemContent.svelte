@@ -10,14 +10,14 @@ This file is part of Network Pro.
   /* at-html is sanitized by DOMPurify */
   /* eslint-disable svelte/no-at-html-tags */
 
-  import ObtainiumBlock from '$lib/components/foss/ObtainiumBlock.svelte';
-  import FossFeatures from '$lib/components/foss/FossFeatures.svelte';
+  import ObtainiumBlock from '#lib/components/foss/ObtainiumBlock.svelte';
+  import FossFeatures from '#lib/components/foss/FossFeatures.svelte';
 
   import { onMount } from 'svelte';
-  import { sanitizeHtml } from '$lib/utils/purify.js';
-  import { obtainiumPng, obtainiumWbp } from '$lib';
+  import { sanitizeHtml } from '#lib/utils/purify.js';
+  import { obtainiumPng, obtainiumWbp } from '#lib';
 
-  import { CONSTANTS } from '$lib';
+  import { CONSTANTS } from '#lib';
 
   const { PAGE, NAV } = CONSTANTS;
 
@@ -27,9 +27,9 @@ This file is part of Network Pro.
   /** @type {"lazy"} */
   const loading = 'lazy';
 
-  /// <reference path="$lib/types/fossTypes.js" />
-
-  /** @type {FossItem} */
+  // $app/tsconfig sets moduleDetection: "force", so typedefs in
+  // fossTypes.js are no longer global and must be imported explicitly.
+  /** @type {import('#lib/types/fossTypes.js').FossItem} */
   export let fossItem;
 
   /**
