@@ -174,13 +174,9 @@ No need to modify imports when adding new images — just add them to `images.js
 
 ---
 
-<span style="font-size: 12px; text-align: center;">
-
 Copyright &copy; 2025, 2026  
-**[Network Pro Strategies](https://netwk.pro) (Network Pro&trade;)**
+**[Network Pro Strategies, LLC](https://netwk.pro) (Network Pro&trade;)**
 
-Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/legal#trademark) of Network Pro Strategies.
+Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/legal#trademark) of Network Pro Strategies, LLC.
 
 Licensed under **[CC BY 4.0](https://netwk.pro/legal#cc-by)** and the **[GNU GPL](https://netwk.pro/legal#gnu-gpl)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
-
-</span>

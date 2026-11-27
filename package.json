@@ -1,7 +1,7 @@
 {
   "name": "@networkpro/web",
   "private": false,
-  "version": "1.32.0",
+  "version": "1.32.1",
   "description": "This package powers the official web presence of Network Pro Strategies — a research- and infrastructure-focused technology initiative working across cybersecurity, digital systems, and privacy.",
   "keywords": [
     "advocacy",
@@ -62,8 +62,8 @@
     "checkout": "npm-run-all check:node check:lockfile test:all lint:all check",
     "verify": "npm run checkout",
     "delete": "rmdir /s /q .svelte-kit 2>nul & rmdir /s /q node_modules 2>nul",
-    "clean": "npm run delete && npm cache clean --force && npm ci",
-    "repair": "npm run delete && npx playwright uninstall & rmdir /s /q \"%LOCALAPPDATA%\\ms-playwright\" 2>nul & npm cache clean --force && npm ci && npx playwright install",
+    "clean": "npm run delete && npm cache clean --force && npm install",
+    "repair": "npm run delete && npx playwright uninstall & rmdir /s /q \"%LOCALAPPDATA%\\ms-playwright\" 2>nul & npm cache clean --force && npm install && npx playwright install",
     "upgrade": "ncu -u --format group --color",
     "check:updates": "ncu --format group --color",
     "test": "npm run test:all",
@@ -149,8 +149,6 @@
     "shell-quote": "^1.12.0"
   },
   "allowScripts": {
-    "esbuild@0.25.12": true,
-    "esbuild@0.28.2": true,
     "simple-git-hooks@2.14.0": true
   }
 }
