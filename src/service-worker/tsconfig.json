@@ -1,0 +1,10 @@
+{
+  "extends": "$app/tsconfig/service-worker",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "strict": true
+  },
+  "include": ["."]
+}

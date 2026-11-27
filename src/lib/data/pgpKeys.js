@@ -14,7 +14,7 @@ This file is part of Network Pro.
  * @updated 2025-10-20
  */
 
-import { getQR } from '$lib';
+import { getQR } from '#lib';
 
 /**
  * @typedef {{ png?: string; webp?: string }} QrImagePair

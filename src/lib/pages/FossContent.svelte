@@ -7,9 +7,9 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { fossData } from '$lib/data/fossData.js';
-  import FossItemContent from '$lib/components/foss/FossItemContent.svelte';
-  import { CONSTANTS } from '$lib';
+  import { fossData } from '#lib/data/fossData.js';
+  import FossItemContent from '#lib/components/foss/FossItemContent.svelte';
+  import { CONSTANTS } from '#lib';
 
   const { PAGE } = CONSTANTS;
 

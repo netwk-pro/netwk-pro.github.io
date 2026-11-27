@@ -10,28 +10,28 @@ This file is part of Network Pro.
  * Library index file
  *
  * @file index.js
- * @description  Main export hub for $lib modules
+ * @description  Main export hub for #lib modules
  *
  * Components, images, and utilities are organized in submodules
- * and re-exported here for flat `$lib` imports.
+ * and re-exported here for flat `#lib` imports.
  * @module src/lib
  * @author Scott Lopez
  * @updated 2026-01-10
  */
 
-// Re-export all images so they can be imported directly from `$lib`
+// Re-export all images so they can be imported directly from `#lib`
 // Example usage:
-//   import { logoPng } from '$lib';
+//   import { logoPng } from '#lib';
 export * from './images.js';
 
-// Re-export all components so they can be imported directly from `$lib`
+// Re-export all components so they can be imported directly from `#lib`
 export * from './components/index.js';
 
-// Re-export all pages so they can be imported directly from `$lib`
+// Re-export all pages so they can be imported directly from `#lib`
 export * from './pages/index.js';
 
-// Re-export `pgpKeys` data so it can be imported directly from `$lib`
-export { PGP_KEYS } from '$lib/data/pgpKeys.js';
+// Re-export `pgpKeys` data so it can be imported directly from `#lib`
+export { PGP_KEYS } from '#lib/data/pgpKeys.js';
 
 // Export utility functions
 // Uncomment and adjust these as needed for your project

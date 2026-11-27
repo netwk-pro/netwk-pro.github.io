@@ -7,9 +7,9 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { CONSTANTS } from '$lib';
+  import { CONSTANTS } from '#lib';
   // Import logo images
-  import { logoPng, logoWbp } from '$lib';
+  import { logoPng, logoWbp } from '#lib';
 
   const { COMPANY_INFO } = CONSTANTS;
 

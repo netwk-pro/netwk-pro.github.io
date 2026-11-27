@@ -19,7 +19,7 @@ This file is part of Network Pro.
  * @module src/lib/stores
  */
 
-import { browser } from '$app/environment';
+import { browser } from '$app/env';
 import { derived, writable } from 'svelte/store';
 
 /**

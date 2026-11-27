@@ -13,8 +13,8 @@ This file is part of Network Pro.
     LegalNav,
     Logo,
     SocialMedia,
-  } from '$lib/components';
-  import { HomeContent } from '$lib/pages';
+  } from '#lib/components/index.js';
+  import { HomeContent } from '#lib/pages/index.js';
 </script>
 
 <section id="home-page" data-testid="home-page">

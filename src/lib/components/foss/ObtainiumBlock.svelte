@@ -9,13 +9,13 @@ This file is part of Network Pro.
 <!-- Encapsulated UI block for Obtainium deep-link + manual config download. -->
 
 <script>
-  /// <reference path="$lib/types/fossTypes.js" />
+  /// <reference path="#lib/types/fossTypes.js" />
   /** @type {{ href: string; download: string; label: string; isFirst?: boolean }} */
   export let obtainium;
   export let isFirst = false;
 
-  import { obtainiumPng, obtainiumWbp } from '$lib';
-  import { CONSTANTS } from '$lib';
+  import { obtainiumPng, obtainiumWbp } from '#lib';
+  import { CONSTANTS } from '#lib';
 
   const { PAGE } = CONSTANTS;
 

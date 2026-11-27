@@ -8,21 +8,19 @@ This file is part of Network Pro.
 
 <script>
   /**
-   * @typedef {Object} Error
-   * @property {string} [message] - The message explaining the error.
+   * SvelteKit 3 passes the error to error pages as an `error` prop. It is an
+   * `App.Error`, which always includes the HTTP `status` (e.g. 404, 500) and a
+   * safe `message` that has already passed through the `handleError` hook.
+   *
+   * @type {{ error: App.Error }}
    */
+  let { error } = $props();
 
   /**
    * The HTTP status code of the error (e.g., 404, 500).
    * @type {number}
    */
-  export let status;
-
-  /**
-   * The error object, containing details about what went wrong.
-   * @type {Error}
-   */
-  export let error;
+  const status = $derived(error.status);
 
   const centerText = 'center-text';
 

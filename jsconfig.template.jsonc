@@ -11,7 +11,9 @@ This file is part of Network Pro.
 ========================================================================= */
 
 {
-  "extends": "./.svelte-kit/tsconfig.json",
+  // SvelteKit 3 generates the base config at $app/tsconfig (no longer
+  // ./.svelte-kit/tsconfig.json). It does not define include/exclude.
+  "extends": "$app/tsconfig",
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
@@ -23,12 +25,15 @@ This file is part of Network Pro.
     "strict": true,
     "moduleResolution": "bundler"
   },
-  "exclude": ["vite.config.js"], // Exclude the config file if needed
-  "include": ["src", "src/global.d.ts", "src/service-worker.js"]
+  // The service worker is a separate TypeScript project
+  // (src/service-worker/tsconfig.json extends $app/tsconfig/service-worker),
+  // so it must be excluded here. Check it with `npm run check:sw`.
+  "exclude": ["vite.config.js", "src/service-worker"],
+  // config/ holds the SvelteKit, CSP, and environment modules used by
+  // vite.config.js.
+  "include": ["src", "config"]
 
-  // Path aliases are handled by https://svelte.dev/docs/kit/configuration#alias
-  // except $lib which is handled by https://svelte.dev/docs/kit/configuration#files
-
-  // If you want to overwrite includes/excludes, make sure to copy over the relevant includes/excludes
-  // from the referenced tsconfig.json - TypeScript does not merge them in
+  // Internal imports use the #lib package subpath import declared in
+  // package.json "imports" (https://svelte.dev/docs/kit/$lib), with explicit
+  // file extensions, e.g. `import { x } from '#lib/utils/env.js'`.
 }

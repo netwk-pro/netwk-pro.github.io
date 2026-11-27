@@ -19,7 +19,7 @@ This file is part of Network Pro.
  * @updated 2025-11-03
  *
  * @example
- * import { detectEnvironment } from '$lib/utils/env.js';
+ * import { detectEnvironment } from '#lib/utils/env.js';
  * const { isAudit, isProd } = detectEnvironment();
  * if (isAudit) console.log('Running in audit mode');
  */

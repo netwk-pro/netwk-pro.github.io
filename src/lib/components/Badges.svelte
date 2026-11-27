@@ -7,15 +7,12 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from '$app/paths';
+  import { resolve } from '$app/paths';
   // Import badges for licenses
-  import { ccBadge, gplBadge } from '$lib';
-  import { CONSTANTS } from '$lib';
+  import { ccBadge, gplBadge } from '#lib';
 
-  const { PAGE } = CONSTANTS;
-
-  const ccbyLink = `${base}/legal#cc-by`;
-  const gplLink = `${base}/legal#gnu-gpl`;
+  const ccbyLink = resolve('/legal#cc-by');
+  const gplLink = resolve('/legal#gnu-gpl');
 
   /**
    * Badge link object.
@@ -53,7 +50,7 @@ This file is part of Network Pro.
       <tr>
         {#each badges as badge}
           <td class="bnav2-nav">
-            <a href={badge.href} target={PAGE.SELF}>
+            <a href={badge.href}>
               <img
                 decoding="async"
                 loading="lazy"

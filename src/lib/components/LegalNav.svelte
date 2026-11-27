@@ -7,15 +7,12 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from '$app/paths';
-  import { CONSTANTS } from '$lib';
+  import { resolve } from '$app/paths';
 
-  const { PAGE } = CONSTANTS;
-
-  const termsLink = `${base}/terms-of-use`;
-  const privacyLink = `${base}/privacy`;
-  const licenseLink = `${base}/legal`;
-  const pdashLink = `${base}/privacy-dashboard`;
+  const termsLink = resolve('/terms-of-use');
+  const privacyLink = resolve('/privacy');
+  const licenseLink = resolve('/legal');
+  const pdashLink = resolve('/privacy-dashboard');
 
   /**
    * Navigation link object.
@@ -62,7 +59,7 @@ This file is part of Network Pro.
           <tr>
             {#each row as link}
               <td class="bnav-cell" colspan={link.colspan || 1}>
-                <a href={link.href} target={PAGE.SELF}>
+                <a href={link.href}>
                   {link.text}
                 </a>
               </td>

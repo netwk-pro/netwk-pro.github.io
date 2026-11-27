@@ -17,8 +17,8 @@ This file is part of Network Pro.
 import {
   remindUserToReconsent,
   trackingPreferences,
-} from '$lib/stores/trackingPreferences.js';
-import { detectEnvironment } from '$lib/utils/env.js';
+} from '#lib/stores/trackingPreferences.js';
+import { detectEnvironment } from '#lib/utils/env.js';
 import { get, writable } from 'svelte/store';
 
 const MATOMO_BASE_URL = 'https://analytics.netwk.pro/';
@@ -50,6 +50,12 @@ let matomoConfigured = false;
 
 /** @type {Promise<void> | null} Internal script load promise */
 let matomoLoadPromise = null;
+
+/** @type {boolean | null} Last consent state mirrored into Matomo */
+let mirroredConsent = null;
+
+/** @type {(() => void) | null} Unsubscribes the consent mirror */
+let unsubscribeConsent = null;
 
 /**
  * @typedef {Window & { _paq?: unknown[] }} MatomoWindow
@@ -118,6 +124,48 @@ function loadMatomoScript() {
 }
 
 /**
+ * Mirrors the site's tracking preference into the loaded Matomo tracker.
+ *
+ * Matomo's link tracking (`enableLinkTracking`) runs inside matomo.js and
+ * does not pass through `capture()`. With client-side routing the document,
+ * and therefore the loaded tracker, persists across pages, so revoking
+ * consent must also stop Matomo itself. This uses Matomo's documented
+ * `optUserOut` / `forgetUserOptOut` API. The site's tracking preference
+ * remains the single source of truth; this only keeps Matomo in step.
+ *
+ * The initial (already-consented) state is only reconciled if Matomo still
+ * holds an opt-out from an earlier revocation, which can only have been set
+ * by this function.
+ *
+ * @param {{ enabled: boolean }} prefs - The current tracking preferences.
+ * @returns {void}
+ */
+function mirrorConsentToMatomo({ enabled }) {
+  if (enabled === mirroredConsent) return;
+
+  const isInitialState = mirroredConsent === null;
+  mirroredConsent = enabled;
+  const queue = getMatomoQueue();
+
+  if (!enabled) {
+    queue.push(['optUserOut']);
+    return;
+  }
+
+  if (isInitialState) {
+    queue.push([
+      /** @this {{ isUserOptedOut(): boolean, forgetUserOptOut(): void }} */
+      function () {
+        if (this.isUserOptedOut()) this.forgetUserOptOut();
+      },
+    ]);
+    return;
+  }
+
+  queue.push(['forgetUserOptOut']);
+}
+
+/**
  * Initializes Matomo queue settings from the provided site snippet.
  * @returns {Promise<void>}
  */
@@ -131,6 +179,9 @@ async function initMatomo() {
     queue.push(['setTrackerUrl', MATOMO_TRACKER_URL]);
     queue.push(['setSiteId', MATOMO_SITE_ID]);
     matomoConfigured = true;
+
+    // Keep Matomo's own opt-out state in step with later consent changes.
+    unsubscribeConsent = trackingPreferences.subscribe(mirrorConsentToMatomo);
   }
 
   try {
@@ -159,6 +210,11 @@ export async function initPostHog() {
 
 /**
  * Tracks a pageview or event through Matomo when analytics are allowed.
+ *
+ * For `$pageview`, pass `properties.referrer` (the previous page URL) on
+ * client-side navigations, following Matomo's single-page-app guidance.
+ * Omit it on the initial page load so Matomo uses the browser's referrer.
+ *
  * @param {string} event - The event name to track
  * @param {Record<string, any>} [properties={}] - Optional event properties
  * @returns {void}
@@ -171,6 +227,9 @@ export function capture(event, properties = {}) {
   const queue = getMatomoQueue();
 
   if (event === '$pageview') {
+    if (typeof properties.referrer === 'string') {
+      queue.push(['setReferrerUrl', properties.referrer]);
+    }
     queue.push(['setCustomUrl', window.location.href]);
     queue.push(['setDocumentTitle', document.title]);
     queue.push(['trackPageView']);
@@ -228,6 +287,9 @@ export function _resetPostHog() {
   matomoReady = false;
   matomoConfigured = false;
   matomoLoadPromise = null;
+  unsubscribeConsent?.();
+  unsubscribeConsent = null;
+  mirroredConsent = null;
 
   // Reset stores for clean test isolation
   trackingEnabled.set(false);

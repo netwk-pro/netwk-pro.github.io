@@ -14,22 +14,22 @@ This file is part of Network Pro.
     setOptIn,
     setOptOut,
     clearPrefs,
-  } from '$lib/stores/trackingPreferences.js';
-  import { CONSTANTS } from '$lib';
+  } from '#lib/stores/trackingPreferences.js';
+  import { CONSTANTS } from '#lib';
 
   const { COMPANY_INFO, CONTACT, PAGE, NAV } = CONSTANTS;
 
   /** @type {string} */
-  const prightsLink = resolve('/privacy-rights', {});
+  const prightsLink = resolve('/privacy-rights');
 
   /** @type {string} */
-  const contactLink = resolve('/contact', {});
+  const contactLink = resolve('/contact');
 
   /** @type {string} */
-  const pdashLink = resolve('/privacy-dashboard', {});
+  const pdashLink = resolve('/privacy-dashboard');
 
   /** @type {string} */
-  const topLink = resolve('/privacy#top', {});
+  const topLink = resolve('/privacy#top');
 
   /** @type {string} */
   const privacyLink = 'https://docs.netwk.pro/privacy';
@@ -137,7 +137,7 @@ This file is part of Network Pro.
 <nav id="toc">
   <ol>
     {#each tocLinks as link (link.id)}
-      <li><a href={resolve('/privacy#' + link.id, {})}>{link.text}</a></li>
+      <li><a href={resolve(`/privacy#${link.id}`)}>{link.text}</a></li>
     {/each}
   </ol>
 </nav>
@@ -231,8 +231,7 @@ This file is part of Network Pro.
       </p>
       <p class="emphasis">
         For convenient access, you can manage these settings through our <a
-          href={pdashLink}
-          target={PAGE.SELF}>Privacy Dashboard</a
+          href={pdashLink}>Privacy Dashboard</a
         >.
       </p>
 

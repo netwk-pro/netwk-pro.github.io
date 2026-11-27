@@ -3,7 +3,7 @@
 # Reusable GitHub Actions workflow to build and publish a package to npmjs and
 # GPR.
 #
-# Version: v1.1.0
+# Version: v1.1.1
 # Maintainer: Scott Lopez <support@netwk.pro>
 # Usage: Copy to `.github/workflows/publish.yml` in your repo or reference
 # directly if shared centrally.
@@ -46,12 +46,12 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 26
           cache: npm
           cache-dependency-path: package-lock.json
 
       - name: Upgrade npm
-        run: npm install -g npm@12.0.2
+        run: npm install -g npm@12.2.3
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -130,13 +130,13 @@ jobs:
       - name: Set up Node.js for npmjs
         uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 26
           registry-url: https://registry.npmjs.org/
           cache: npm
           cache-dependency-path: package-lock.json
 
       - name: Upgrade npm
-        run: npm install -g npm@12.0.2
+        run: npm install -g npm@12.2.3
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -182,13 +182,13 @@ jobs:
       - name: Set up Node.js for GPR
         uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 26
           registry-url: https://npm.pkg.github.com/
           cache: npm
           cache-dependency-path: package-lock.json
 
       - name: Upgrade npm
-        run: npm install -g npm@12.0.2
+        run: npm install -g npm@12.2.3
 
       - name: Install Node.js dependencies
         run: npm ci

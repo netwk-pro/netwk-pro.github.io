@@ -24,6 +24,212 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.32.0] - 2026-11-26
+
+### Added
+
+- Added `.github/ACTIONS.md`, an inventory of the actions, reusable workflows,
+  tools, Node.js versions, external services, and runner images used by the
+  GitHub Actions workflows.
+- Added project-scoped Svelte AI tooling for Claude Code and compatible agents:
+  `.claude/settings.json` enables the `svelte@svelte` plugin, and
+  `.claude/README.md` documents the tooling with attribution and a disclaimer.
+  The bundled skills' MIT license from `sveltejs/ai-tools` is now included in
+  `.claude/skills/LICENSE`.
+- Added `npm run check:sw`, which type-checks the service worker project.
+  `npm run check` and `npm run type-check` now run it as well.
+- Added regression tests for build-time environment resolution
+  (`tests/unit/server/config/env.test.js`), CSP selection
+  (`tests/unit/server/config/csp.test.js`), the server and client
+  `handleError` hooks, `+error.svelte`, pageview tracking
+  (`initAnalytics.test.js`), and the Matomo consent mirror
+  (`tests/unit/client/lib/stores/posthog.test.js`). Service worker
+  registration tests now cover module registration, unsupported-browser
+  fallback, and client-navigation caching.
+
+### Changed
+
+- Migrated to SvelteKit 3. Project configuration moved from `svelte.config.js`
+  into the `sveltekit()` Vite plugin (`vite.config.js` with `config/env.js`,
+  `config/csp.js`, and `config/sveltekit.js`). `$lib` imports were replaced by
+  the `#lib` package subpath import, and `$app/stores`, `$app/environment`,
+  `base` from `$app/paths`, and `$service-worker` were replaced by their
+  SvelteKit 3 equivalents.
+- Moved the service worker to `src/service-worker/index.js` with its own strict
+  TypeScript project (checked by `npm run check:sw`) and registered it as an ES
+  module.
+- Restored the previous environment precedence for CSP selection
+  (`PUBLIC_ENV_MODE`, `MODE`, Vite mode, then `production`). `ENV_MODE` is
+  diagnostic only and can no longer downgrade an audit build to report-only.
+- Disabled SvelteKit 3's hourly version polling (`version.pollInterval: 0`) to
+  keep the existing service worker update flow.
+- Updated the server and client `handleError` hooks for SvelteKit 3's error
+  kinds. Unexpected errors remain logged and sanitized.
+- Build diagnostics are now logged only for the primary configuration pass, so
+  audit and codex builds no longer report `production` from SvelteKit's
+  post-build worker passes. The banner also shows `MODE` and the resolved
+  environment, and the audit notice now follows the resolved environment
+  instead of `ENV_MODE`.
+- Added JSDoc to the Vite configuration function in `vite.config.js`.
+- `jsconfig.json` now extends `$app/tsconfig` (previously
+  `./.svelte-kit/tsconfig.json`), includes `config/`, and excludes the service
+  worker, which has its own TypeScript project.
+- Removed redundant `target="_self"` attributes from internal links so SvelteKit
+  handles them with client-side routing.
+- Updated `engines` in `package.json` to accept Node.js `>=24.15.0 <27`
+  (previously `<25`) and npm `>=11 <13` (previously `>=10.0.0`), and updated
+  `.nvmrc` and `.node-version` from `24.20.0` to `26.13.1`.
+- Updated the Vercel adapter runtime from `nodejs24.x` to `nodejs26.x`.
+- The Vitest client and server configurations now pass a fixed `test`
+  environment to the shared SvelteKit configuration, so inherited
+  `PUBLIC_ENV_MODE` or `MODE` values cannot change the configuration under
+  test.
+- Markdownlint and Prettier now check `.claude/` (excluding the third-party
+  `.claude/skills/` and the local `.claude/settings.local.json`).
+- Updated the `generator` meta tag in `src/app.html` to `SvelteKit 3.4.1`.
+- Updated GitHub Actions workflows (CI, audit deploy, Lighthouse, metadata
+  check, Playwright, lockfile validation, and publishing):
+  - Node.js `24` → `26`
+  - npm `12.0.2` → `12.2.3`
+  - `actions/download-artifact` `v7` → `v8` in `publish-test.yml`
+  - Bumped `templates/publish.template.yml` to `v1.1.1`.
+- Updated the bundled `svelte-code-writer` and `svelte-core-bestpractices`
+  skills from `sveltejs/ai-tools`, renaming the `$inspect.md`, `@attach.md`, and
+  `@render.md` references to `inspect.md`, `attach.md`, and `render.md`.
+- Updated `README.md`, `CLAUDE.md`, `AGENTS.md`, `src/lib/README.md`, and
+  `jsconfig.template.jsonc` for SvelteKit 3: the new configuration and service
+  worker locations, `#lib` imports, Node.js and npm requirements, CSP and
+  environment selection, and analytics consent behavior. `CLAUDE.md` now
+  refers to "agents" rather than Claude Code in its Context7 guidance.
+- Removed the obsolete `Disallow: /service-worker.d.ts` rule from
+  `static/robots.txt`.
+- Added `pozil` to the `cspell.json` word list.
+- Corrected the bundled `svelte-core-bestpractices` skill to place
+  `compilerOptions.experimental.async` in the `sveltekit()` plugin options in
+  `vite.config.js`, since SvelteKit 3 no longer reads `svelte.config.js`.
+  `.claude/README.md` lists these modifications to the upstream skills.
+- Updated `lastmod` dates in `static/sitemap.xml` for pages whose content
+  changed after their recorded date: `/about`, both license pages,
+  `security.txt`, and `webfinger`.
+- Bumped project version to `v1.32.0`.
+- Updated dependencies:
+  - `@eslint/compat` `^2.1.0` → `^2.1.1`
+  - `@sveltejs/vite-plugin-svelte` `^7.3.0` → `^7.3.2`
+  - `@testing-library/dom` `^10.4.1` → `^10.4.2`
+  - `postcss` `^8.5.26` → `^8.5.33`
+  - `postcss-html` `^2.0.0` → `^2.0.1`
+  - `semver` `^7.8.5` → `^7.8.6`
+  - `svelte-check` `^4.7.6` → `^4.7.8`
+  - `vite-plugin-devtools-json` `^1.1.0` → `^1.1.2`
+  - `@playwright/test` `^1.62.1` → `^1.65.1`
+  - `autoprefixer` `^10.5.4` → `^10.7.0`
+  - `browserslist` `^4.28.8` → `^4.29.6`
+  - `dompurify` `^3.4.14` → `^3.5.0`
+  - `eslint` `10.9.1` → `10.15.0`
+  - `eslint-plugin-svelte` `^3.23.0` → `^3.24.1`
+  - `globals` `^17.11.0` → `^17.14.0`
+  - `playwright` `^1.62.1` → `^1.65.1`
+  - `prettier` `3.9.6` → `3.10.1`
+  - `prettier-plugin-svelte` `^4.1.1` → `^4.2.0`
+  - `svelte` `5.57.0` → `5.59.2`
+  - `svelte-eslint-parser` `^1.8.1` → `^1.12.0`
+  - `vite` `^8.2.2` → `^8.3.8`
+  - `@sveltejs/adapter-netlify` `^6.0.4` → `^7.1.0`
+  - `@sveltejs/adapter-vercel` `^6.3.4` → `^7.0.5`
+  - `@sveltejs/kit` `2.70.3` → `3.4.1`
+  - `@testing-library/jest-dom` `^7.0.1` → `^8.0.0`
+  - `@vitest/coverage-v8` `4.1.11` → `5.1.2`
+  - `eslint-plugin-jsdoc` `^64.3.2` → `^65.5.5`
+  - `jsdom` `30.0.1` → `31.0.1`
+  - `stylelint` `^17.14.1` → `^18.1.0`
+  - `stylelint-config-recommended` `^18.0.0` → `^19.1.0`
+  - `stylelint-order` `^8.1.1` → `^9.0.0`
+  - `vitest` `4.1.11` → `5.1.2`
+  - `@lhci/cli` `^0.15.1` → `^0.16.1`
+  - `markdownlint-cli2` `0.23.2` → `0.24.2`
+
+### Removed
+
+- Removed `svelte.config.js` (replaced by the `sveltekit()` plugin options) and
+  `src/service-worker.d.ts` (replaced by the service worker TypeScript
+  project).
+- Removed the previous npm `overrides` for `cookie`, and for `tmp` and `uuid`
+  under `@lhci/cli`, to start the override list fresh. With the updated
+  dependencies, `tmp` is no longer installed, `uuid` resolves to `14.0.3`, and
+  `cookie` resolves to `2.0.2` (SvelteKit) and `0.7.2` (Express, via
+  `@lhci/cli`).
+- Removed the `browsing-topics=()` directive from the `Permissions-Policy`
+  header set in `src/hooks.server.js`.
+- Removed the project-scoped Context7 MCP server from `.mcp.json`.
+
+### Fixed
+
+Pre-existing defects discovered during the SvelteKit 3 migration (present
+before it, not regressions introduced by it):
+
+- Matomo pageviews were never recorded. `afterNavigate()` was registered from
+  inside the legacy-mode layout's `onMount`, so its callback never ran. It is
+  now registered during layout initialization and records one pageview per page
+  load and per page transition (none for same-page or hash-only links), with
+  the previous page as the referrer on client-side navigation.
+- Internal links used `target="_self"`, which SvelteKit treats as external, so
+  every internal link caused a full page reload.
+
+Follow-on corrections required by restoring client-side routing:
+
+- The page title and description now update on client-side navigation.
+- A client-side navigation that fails because the network is unavailable falls
+  back to a full-page load, so the service worker serves the cached page or the
+  offline document instead of an error page. Server errors are still shown.
+- Offline-approved routes reached through client-side navigation are now cached
+  for offline use, using the service worker's existing allowlist and checks.
+- `+error.svelte` reads the status from SvelteKit 3's `error` prop.
+
+Test fixes:
+
+- `redirect.test.js` stubs `navigator.userAgent` with a getter spy, because
+  jsdom 31 no longer allows `navigator` to be replaced.
+- `utm.test.js` mocks `$app/state` instead of the removed `$app/stores`, and
+  the coverage audit no longer expects `svelte.config.js`.
+
+### Security
+
+- Added npm `overrides` for vulnerable transitive development dependencies,
+  each set to the latest release in the patched line. `npm audit` now reports
+  0 vulnerabilities (previously 9: 1 critical, 1 high, 3 moderate, 4 low):
+  - `shell-quote` `1.9.0` → `^1.12.0` (via `npm-run-all`;
+    [GHSA-pqg4-j6r4-53mv](https://github.com/advisories/GHSA-pqg4-j6r4-53mv),
+    fixed in `1.11.0`)
+  - `brace-expansion@1` `1.1.18` → `^1.1.22` (via `minimatch@3`;
+    [GHSA-q2hr-2g5m-vwhr](https://github.com/advisories/GHSA-q2hr-2g5m-vwhr),
+    [GHSA-qhr7-859c-m2p7](https://github.com/advisories/GHSA-qhr7-859c-m2p7),
+    and [GHSA-6j4f-fj2g-mc7p](https://github.com/advisories/GHSA-6j4f-fj2g-mc7p),
+    fixed in `1.1.21`)
+  - `@vercel/nft` `1.10.2` → `^1.11.15` (via `@sveltejs/adapter-vercel`), which
+    moves its `glob` from `13.0.6` to `14.0.6` and `minimatch` from `10.2.6` to
+    `11.0.9`
+    ([GHSA-3g3m-2fjr-6pw4](https://github.com/advisories/GHSA-3g3m-2fjr-6pw4),
+    fixed after `glob` `14.0.1`;
+    [GHSA-g3hv-75wg-m249](https://github.com/advisories/GHSA-g3hv-75wg-m249),
+    fixed in `minimatch` `11.0.1`)
+  - `katex` `0.16.47` → `^0.18.11` (via `markdownlint`;
+    [GHSA-238p-pmpm-9mq7](https://github.com/advisories/GHSA-238p-pmpm-9mq7),
+    fixed in `0.18.2`). `markdownlint` uses only the math syntax extension and
+    never calls KaTeX's renderer.
+- Revoking analytics consent now also opts Matomo out (`optUserOut`), stopping
+  its link tracking in the open page. Re-granting consent calls
+  `forgetUserOptOut`. Nothing from the opted-out period is recorded or replayed.
+
+### Known Issues
+
+- Pre-existing (also reproduced on 1.31.1 with SvelteKit 2): in automated
+  Chromium tests using Playwright's offline emulation, loading a cached page
+  while the offline document is shown occasionally reloads the offline document
+  instead. It is not caused by application JavaScript and is still being
+  investigated.
+
+---
+
 ## [1.31.2] - 2026-08-30
 
 ### Fixed
@@ -3330,7 +3536,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.31.2...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.32.0...HEAD
+[1.32.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.32.0
 [1.31.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.31.2
 [1.31.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.31.1
 [1.31.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.31.0
@@ -3452,4 +3659,4 @@ This enables analytics filtering and CSP hardening for the audit environment.
 [1.12.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.1
 [1.12.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.0
 
-<!-- cspell:ignore qrcode cryptom otphelp domcontentloaded heli controllerchange ghsa pozil -->
+<!-- cspell:ignore qrcode cryptom otphelp domcontentloaded heli controllerchange ghsa pozil bestpractices lastmod katex vwhr pmpm -->

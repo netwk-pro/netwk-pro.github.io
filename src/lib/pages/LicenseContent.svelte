@@ -7,9 +7,9 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from '$app/paths';
-  import { ccSvg, bySvg } from '$lib';
-  import { CONSTANTS } from '$lib';
+  import { resolve } from '$app/paths';
+  import { ccSvg, bySvg } from '#lib';
+  import { CONSTANTS } from '#lib';
 
   const { COMPANY_INFO, CONTACT, PAGE, LINKS, NAV } = CONSTANTS;
 
@@ -17,8 +17,8 @@ This file is part of Network Pro.
    * URLs using the base path
    * @type {string}
    */
-  const homeLink = base || '/';
-  const contactLink = `${base}/contact`;
+  const homeLink = resolve('/');
+  const contactLink = resolve('/contact');
 
   /**
    * Icons for Creative Commons
@@ -452,8 +452,7 @@ This file is part of Network Pro.
         not limited to license terms, policies, notices, or agreements—the
         version published on the Company's primary website at <a
           rel={PAGE.REL}
-          href={homeLink}
-          target={PAGE.SELF}>{LINKS.HOME}</a>
+          href={homeLink}>{LINKS.HOME}</a>
         shall be deemed the official and controlling version.
       </p>
 

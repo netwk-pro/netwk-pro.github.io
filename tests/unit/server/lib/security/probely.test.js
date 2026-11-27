@@ -16,7 +16,7 @@ This file is part of Network Pro.
  * @updated 2025-11-11
  */
 
-import { isProbelyScanner } from '$lib/security/probely.js';
+import { isProbelyScanner } from '#lib/security/probely.js';
 
 describe('isProbelyScanner', () => {
   it('detects known user-agent', () => {

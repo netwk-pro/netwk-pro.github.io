@@ -7,8 +7,8 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from '$app/paths';
-  import { CONSTANTS } from '$lib';
+  import { resolve } from '$app/paths';
+  import { CONSTANTS } from '#lib';
 
   const { COMPANY_INFO, PAGE, NAV } = CONSTANTS;
 
@@ -16,7 +16,7 @@ This file is part of Network Pro.
    * URL to Terms of Use page, using the base path
    * @type {string}
    */
-  const termsLink = `${base}/terms-of-use`;
+  const termsLink = resolve('/terms-of-use');
 
   /**
    * Markdown version of the Terms and Conditions document
@@ -92,7 +92,7 @@ This file is part of Network Pro.
   These Terms and Conditions apply exclusively to the provision of our
   consulting and implementation services. For all other uses of our website and
   associated platforms, please refer to the applicable
-  <a href={termsLink} target={PAGE.SELF}> Website Terms of Use </a>.
+  <a href={termsLink}> Website Terms of Use </a>.
 </p>
 
 <hr />

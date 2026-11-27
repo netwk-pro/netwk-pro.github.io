@@ -53,7 +53,6 @@ describe('auditCoverage', () => {
       'checkNode.js',
       'auditScripts.js',
       'vite.config.js',
-      'svelte.config.js',
     ]);
 
     const srcFiles = getAllJsFiles(path.resolve('src'));
