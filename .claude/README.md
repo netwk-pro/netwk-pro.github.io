@@ -11,21 +11,24 @@ This file is part of Network Pro.
 This project ships Svelte-focused AI tooling for **[Claude Code](https://claude.com/claude-code)** and compatible
 agents.
 
-Please refer to the [official Svelte instructions](https://svelte.dev/docs/ai/overview) for the proper use of these tools with your agent.
+Please refer to the [official Svelte instructions](https://svelte.dev/docs/ai/overview) for the appropriate use of these tools with your agent.
 
-| Component     | Location                                                                   | Purpose                                            |
-| ------------- | -------------------------------------------------------------------------- | -------------------------------------------------- |
-| Instructions  | [`AGENTS.md`](../AGENTS.md), [`CLAUDE.md`](../CLAUDE.md)                   | Project rules and guardrails for agents            |
-| Svelte MCP    | [`.mcp.json`](../.mcp.json)                                                | Svelte 5 / SvelteKit docs and code checks (stdio)  |
-| Svelte plugin | [`settings.json`](./settings.json)                                         | Enables the `svelte@svelte` Claude Code plugin     |
-| Skill         | [`svelte-code-writer`](./skills/svelte-code-writer/SKILL.md)               | Svelte docs lookup and code analysis via CLI       |
-| Skill         | [`svelte-core-bestpractices`](./skills/svelte-core-bestpractices/SKILL.md) | Guidance for writing modern, idiomatic Svelte code |
+The Svelte MCP server is provided through the Claude Code plugin. If you use
+another agent, add the server by following Svelte's
+[local setup guide](https://svelte.dev/docs/ai/local-setup).
+
+| Component     | Location                                                                   | Purpose                                                                                      |
+| ------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Instructions  | [`AGENTS.md`](../AGENTS.md), [`CLAUDE.md`](../CLAUDE.md)                   | Project rules and guardrails for agents                                                      |
+| Svelte plugin | [`settings.json`](./settings.json)                                         | Enables the `svelte@svelte` Claude Code plugin (Svelte MCP server, skills, and editor agent) |
+| Skill         | [`svelte-code-writer`](./skills/svelte-code-writer/SKILL.md)               | Svelte docs lookup and code analysis via CLI                                                 |
+| Skill         | [`svelte-core-bestpractices`](./skills/svelte-core-bestpractices/SKILL.md) | Guidance for writing modern, idiomatic Svelte code                                           |
 
 ## Attribution
 
 The `svelte-code-writer` and `svelte-core-bestpractices` skills in
 [`skills/`](./skills/) are from
-[sveltejs/ai-tools](https://github.com/sveltejs/ai-tools), Copyright (c) 2026
+[sveltejs/ai-tools](https://github.com/sveltejs/ai-tools), Copyright © 2026
 [Svelte Contributors](https://github.com/sveltejs/ai-tools/graphs/contributors),
 and are redistributed under the MIT License. The full license text is in
 [`skills/LICENSE`](./skills/LICENSE).
@@ -68,5 +71,14 @@ AI-generated output may be inaccurate, incomplete, or insecure. Contributors
 are responsible for reviewing, testing, and validating all AI-assisted
 changes before submitting them. See [`AGENTS.md`](../AGENTS.md) for the
 project's guardrails.
+
+---
+
+Copyright &copy; 2025, 2026  
+**[Network Pro Strategies, LLC](https://netwk.pro) (Network Pro&trade;)**
+
+Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/legal#trademark) of Network Pro Strategies, LLC.
+
+Licensed under **[CC BY 4.0](https://netwk.pro/legal#cc-by)** and the **[GNU GPL](https://netwk.pro/legal#gnu-gpl)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
 
 <!-- cspell:ignore bestpractices -->

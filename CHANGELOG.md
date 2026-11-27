@@ -24,6 +24,42 @@ version increments reflecting both user-visible and operational impact.
 
 ---
 
+## [1.32.1] - 2026-11-27
+
+### Changed
+
+- `.claude/settings.json` now registers the `sveltejs/ai-tools` marketplace
+  (`extraKnownMarketplaces`), so contributors who trust the project can install
+  the `svelte@svelte` plugin it enables. The plugin provides the Svelte MCP
+  server for Claude Code.
+- `.claude/README.md` now describes the plugin as the source of the Svelte MCP
+  server and links Svelte's local setup guide for other agents. It also gains
+  the project copyright, trademark, and license footer, uses `©` in the skills
+  attribution, and refers to the "appropriate" (previously "proper") use of the
+  tools.
+- The `clean` and `repair` npm scripts now reinstall dependencies with
+  `npm install` instead of `npm ci`.
+- Removed the inline `<span style="font-size: 12px; text-align: center;">`
+  wrapper from the copyright footers in `README.md` and `src/lib/README.md`.
+  The `src/lib/README.md` footer now names Network Pro Strategies, LLC.
+- Added `katex` and `prerender` to the `cspell.json` word list.
+- Bumped project version to `v1.32.1`.
+
+### Removed
+
+- Removed `.mcp.json`. Its Svelte MCP server duplicated the one provided by the
+  `svelte@svelte` plugin, and its `cmd /c` command only worked on Windows.
+- Removed the `esbuild@0.25.12` and `esbuild@0.28.2` entries from
+  `allowScripts` in `package.json`. `esbuild` is not installed in the
+  dependency tree.
+
+### Fixed
+
+- `README.md` now states that CI workflows use Node.js 26 (it said Node.js 24),
+  and spells "analyze" consistently.
+
+---
+
 ## [1.32.0] - 2026-11-26
 
 ### Added
@@ -114,39 +150,39 @@ version increments reflecting both user-visible and operational impact.
 - Bumped project version to `v1.32.0`.
 - Updated dependencies:
   - `@eslint/compat` `^2.1.0` → `^2.1.1`
+  - `@lhci/cli` `^0.15.1` → `^0.16.1`
+  - `@playwright/test` `^1.62.1` → `^1.65.1`
+  - `@sveltejs/adapter-netlify` `^6.0.4` → `^7.1.0`
+  - `@sveltejs/adapter-vercel` `^6.3.4` → `^7.0.5`
+  - `@sveltejs/kit` `2.70.3` → `3.4.1`
   - `@sveltejs/vite-plugin-svelte` `^7.3.0` → `^7.3.2`
   - `@testing-library/dom` `^10.4.1` → `^10.4.2`
-  - `postcss` `^8.5.26` → `^8.5.33`
-  - `postcss-html` `^2.0.0` → `^2.0.1`
-  - `semver` `^7.8.5` → `^7.8.6`
-  - `svelte-check` `^4.7.6` → `^4.7.8`
-  - `vite-plugin-devtools-json` `^1.1.0` → `^1.1.2`
-  - `@playwright/test` `^1.62.1` → `^1.65.1`
+  - `@testing-library/jest-dom` `^7.0.1` → `^8.0.0`
+  - `@vitest/coverage-v8` `4.1.11` → `5.1.2`
   - `autoprefixer` `^10.5.4` → `^10.7.0`
   - `browserslist` `^4.28.8` → `^4.29.6`
   - `dompurify` `^3.4.14` → `^3.5.0`
   - `eslint` `10.9.1` → `10.15.0`
+  - `eslint-plugin-jsdoc` `^64.3.2` → `^65.5.5`
   - `eslint-plugin-svelte` `^3.23.0` → `^3.24.1`
   - `globals` `^17.11.0` → `^17.14.0`
+  - `jsdom` `30.0.1` → `31.0.1`
+  - `markdownlint-cli2` `0.23.2` → `0.24.2`
   - `playwright` `^1.62.1` → `^1.65.1`
+  - `postcss` `^8.5.26` → `^8.5.33`
+  - `postcss-html` `^2.0.0` → `^2.0.1`
   - `prettier` `3.9.6` → `3.10.1`
   - `prettier-plugin-svelte` `^4.1.1` → `^4.2.0`
-  - `svelte` `5.57.0` → `5.59.2`
-  - `svelte-eslint-parser` `^1.8.1` → `^1.12.0`
-  - `vite` `^8.2.2` → `^8.3.8`
-  - `@sveltejs/adapter-netlify` `^6.0.4` → `^7.1.0`
-  - `@sveltejs/adapter-vercel` `^6.3.4` → `^7.0.5`
-  - `@sveltejs/kit` `2.70.3` → `3.4.1`
-  - `@testing-library/jest-dom` `^7.0.1` → `^8.0.0`
-  - `@vitest/coverage-v8` `4.1.11` → `5.1.2`
-  - `eslint-plugin-jsdoc` `^64.3.2` → `^65.5.5`
-  - `jsdom` `30.0.1` → `31.0.1`
+  - `semver` `^7.8.5` → `^7.8.6`
   - `stylelint` `^17.14.1` → `^18.1.0`
   - `stylelint-config-recommended` `^18.0.0` → `^19.1.0`
   - `stylelint-order` `^8.1.1` → `^9.0.0`
+  - `svelte` `5.57.0` → `5.59.2`
+  - `svelte-check` `^4.7.6` → `^4.7.8`
+  - `svelte-eslint-parser` `^1.8.1` → `^1.12.0`
+  - `vite` `^8.2.2` → `^8.3.8`
+  - `vite-plugin-devtools-json` `^1.1.0` → `^1.1.2`
   - `vitest` `4.1.11` → `5.1.2`
-  - `@lhci/cli` `^0.15.1` → `^0.16.1`
-  - `markdownlint-cli2` `0.23.2` → `0.24.2`
 
 ### Removed
 
@@ -198,24 +234,16 @@ Test fixes:
   each set to the latest release in the patched line. `npm audit` now reports
   0 vulnerabilities (previously 9: 1 critical, 1 high, 3 moderate, 4 low):
   - `shell-quote` `1.9.0` → `^1.12.0` (via `npm-run-all`;
-    [GHSA-pqg4-j6r4-53mv](https://github.com/advisories/GHSA-pqg4-j6r4-53mv),
-    fixed in `1.11.0`)
+    CVE-2026-102422, fixed in `1.11.0`)
   - `brace-expansion@1` `1.1.18` → `^1.1.22` (via `minimatch@3`;
-    [GHSA-q2hr-2g5m-vwhr](https://github.com/advisories/GHSA-q2hr-2g5m-vwhr),
-    [GHSA-qhr7-859c-m2p7](https://github.com/advisories/GHSA-qhr7-859c-m2p7),
-    and [GHSA-6j4f-fj2g-mc7p](https://github.com/advisories/GHSA-6j4f-fj2g-mc7p),
-    fixed in `1.1.21`)
+    CVE-2026-102277, CVE-2026-102278, and CVE-2026-102276, fixed in `1.1.21`)
   - `@vercel/nft` `1.10.2` → `^1.11.15` (via `@sveltejs/adapter-vercel`), which
     moves its `glob` from `13.0.6` to `14.0.6` and `minimatch` from `10.2.6` to
     `11.0.9`
-    ([GHSA-3g3m-2fjr-6pw4](https://github.com/advisories/GHSA-3g3m-2fjr-6pw4),
-    fixed after `glob` `14.0.1`;
-    [GHSA-g3hv-75wg-m249](https://github.com/advisories/GHSA-g3hv-75wg-m249),
-    fixed in `minimatch` `11.0.1`)
+    (CVE-2026-118773, fixed after `glob` `14.0.1`;
+    CVE-2026-118764, fixed in `minimatch` `11.0.1`)
   - `katex` `0.16.47` → `^0.18.11` (via `markdownlint`;
-    [GHSA-238p-pmpm-9mq7](https://github.com/advisories/GHSA-238p-pmpm-9mq7),
-    fixed in `0.18.2`). `markdownlint` uses only the math syntax extension and
-    never calls KaTeX's renderer.
+    CVE-2026-103923, fixed in `0.18.2`). `markdownlint` uses only the math syntax extension and never calls KaTeX's renderer.
 - Revoking analytics consent now also opts Matomo out (`optUserOut`), stopping
   its link tracking in the open page. Re-granting consent calls
   `forgetUserOptOut`. Nothing from the opted-out period is recorded or replayed.
@@ -3536,7 +3564,8 @@ This enables analytics filtering and CSP hardening for the audit environment.
 
 <!-- Link references -->
 
-[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.32.0...HEAD
+[Unreleased]: https://github.com/netwk-pro/netwk-pro.github.io/compare/v1.32.1...HEAD
+[1.32.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.32.1
 [1.32.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.32.0
 [1.31.2]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.31.2
 [1.31.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.31.1
@@ -3659,4 +3688,4 @@ This enables analytics filtering and CSP hardening for the audit environment.
 [1.12.1]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.1
 [1.12.0]: https://github.com/netwk-pro/netwk-pro.github.io/releases/tag/v1.12.0
 
-<!-- cspell:ignore qrcode cryptom otphelp domcontentloaded heli controllerchange ghsa pozil bestpractices lastmod katex vwhr pmpm -->
+<!-- cspell:ignore qrcode cryptom otphelp domcontentloaded heli controllerchange ghsa pozil bestpractices lastmod vwhr pmpm -->
