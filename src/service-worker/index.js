@@ -1,22 +1,18 @@
 /* ==========================================================================
-src/service-worker.js
+src/service-worker/index.js
 
 Copyright © 2025-2026 Network Pro Strategies (Network Pro™)
 SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
-/// <reference lib="webworker" />
 /// <reference types="vite/client" />
 
-import { build, version } from '$service-worker';
-
-/**
- * @type {ServiceWorkerGlobalScope}
- */
-const sw = /** @type {ServiceWorkerGlobalScope} */ (
-  /** @type {unknown} */ (self)
-);
+// Type checking for this file is governed by src/service-worker/tsconfig.json,
+// which extends $app/tsconfig/service-worker (WebWorker lib, no DOM).
+import { version } from '$app/env';
+import { immutable } from '$app/manifest';
+import { self as sw } from '$app/service-worker';
 
 const isDev = import.meta.env.DEV;
 const CACHE_PREFIX = 'cache-networkpro-';
@@ -50,8 +46,18 @@ const OPTIONAL_STATIC_ASSETS = [
   '/webfonts/fa-solid-900.woff2',
 ];
 
+// $app/manifest lists Vite build files as `{ path }` objects relative to the
+// base path, without a leading slash. The site always deploys at the domain
+// root (paths.base is ''), so prefixing `/` yields the same root-relative
+// pathnames the former `$service-worker` `build` export provided. These must
+// match `url.pathname` for the PRECACHED_PATHS lookup in the fetch handler.
 /** @type {string[]} */
-const REQUIRED_ASSETS = [...new Set([...build, ...REQUIRED_STATIC_ASSETS])];
+const BUILD_ASSETS = immutable.map(({ path }) => `/${path}`);
+
+/** @type {string[]} */
+const REQUIRED_ASSETS = [
+  ...new Set([...BUILD_ASSETS, ...REQUIRED_STATIC_ASSETS]),
+];
 
 /** @type {string[]} */
 const OPTIONAL_ASSETS = [...new Set(OPTIONAL_STATIC_ASSETS)];
@@ -343,12 +349,54 @@ sw.addEventListener('activate', (event) => {
   );
 });
 
+/**
+ * Cache an approved route document reached through client-side routing.
+ *
+ * Client-side navigations fetch only route data, so the fetch handler never
+ * sees a document request for them. Without this, an offline-approved route
+ * would only be cached when it was loaded as a full page. The same allowlist
+ * and cacheability checks apply as for navigation requests.
+ *
+ * @param {unknown} href - The visited URL reported by the client
+ * @returns {Promise<void>}
+ */
+async function cacheClientNavigation(href) {
+  if (typeof href !== 'string') return;
+
+  /** @type {URL} */
+  let url;
+  try {
+    url = new URL(href);
+  } catch (_error) {
+    return;
+  }
+
+  if (url.origin !== location.origin || !shouldCacheNavigation(url)) return;
+
+  try {
+    const response = await fetch(getNavigationCacheKey(url).url, {
+      headers: { Accept: 'text/html' },
+    });
+    await cacheNavigationResponse(url, response);
+  } catch (error) {
+    console.warn('[SW] Client navigation was not cached:', error);
+  }
+}
+
 // Updated workers remain waiting until a controlled client begins an eligible
 // internal navigation. That navigation activates the update for every tab;
 // controllerchange then reloads each tab under the new worker.
 sw.addEventListener('message', (event) => {
-  if (event.data?.type !== 'ACTIVATE_WAITING_WORKER') return;
-  event.waitUntil(sw.skipWaiting());
+  const type = event.data?.type;
+
+  if (type === 'ACTIVATE_WAITING_WORKER') {
+    event.waitUntil(sw.skipWaiting());
+    return;
+  }
+
+  if (type === 'CACHE_NAVIGATION') {
+    event.waitUntil(cacheClientNavigation(event.data.url));
+  }
 });
 
 sw.addEventListener('fetch', (event) => {

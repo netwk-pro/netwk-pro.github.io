@@ -7,16 +7,16 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from '$app/paths';
-  import { bySvg, ccSvg } from '$lib';
-  import { CONSTANTS } from '$lib';
+  import { resolve } from '$app/paths';
+  import { bySvg, ccSvg } from '#lib';
+  import { CONSTANTS } from '#lib';
 
   const { COMPANY_INFO, CONTACT, PAGE, NAV } = CONSTANTS;
 
   // Dynamic links for licensing and trademark
-  const ccbyLink = `${base}/legal#cc-by`;
-  const gnugplLink = `${base}/legal#gnu-gpl`;
-  const trademarkLink = `${base}/legal#trademark`;
+  const ccbyLink = resolve('/legal#cc-by');
+  const gnugplLink = resolve('/legal#gnu-gpl');
+  const trademarkLink = resolve('/legal#trademark');
 
   /** @type {string} */
   const creatorUrl = 'https://netwk.pro';
@@ -103,7 +103,7 @@ This file is part of Network Pro.
   <p>
     {COMPANY_INFO.APP_NAME}, the shield logo, and the "{creatorSlogan}&trade;"
     slogan are
-    <a href={trademarkLink} target={PAGE.SELF}>trademarks</a>
+    <a href={trademarkLink}>trademarks</a>
     of {businessName}.
   </p>
 
@@ -112,7 +112,7 @@ This file is part of Network Pro.
     Licensed under
     {#each licenses as license, index}
       {#if license.type === 'CC BY 4.0'}
-        <a href={license.url} target={PAGE.SELF} rel={relLicense}>
+        <a href={license.url} rel={relLicense}>
           <strong>{license.type}</strong>
         </a>
         {#if license.icons}
@@ -128,7 +128,7 @@ This file is part of Network Pro.
           {/each}
         {/if}
       {:else}
-        <a href={license.url} target={PAGE.SELF} rel={relLicense}>
+        <a href={license.url} rel={relLicense}>
           <strong>{license.type}</strong>
         </a>, as published by the
         <a rel={PAGE.REL} href={license.externalUrl} target={PAGE.BLANK}

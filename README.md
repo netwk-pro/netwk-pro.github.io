@@ -25,7 +25,7 @@ This GitHub repository powers the official web presence of **[Network Pro Strate
 
 ### Technology Stack
 
-Built with [Svelte 5](https://svelte.dev/) and [SvelteKit](https://svelte.dev/docs/kit/), deployed primarily on [Vercel](https://vercel.com/), with a separate hardened audit environment on [Netlify](https://www.netlify.com/).
+Built with [Svelte 5](https://svelte.dev/) and [SvelteKit 3](https://svelte.dev/docs/kit/) on [Vite 8](https://vite.dev/), deployed primarily on [Vercel](https://vercel.com/), with a separate hardened audit environment on [Netlify](https://www.netlify.com/).
 
 [Blog](https://github.com/netwk-pro/blog) and [documentation](https://github.com/netwk-pro/docs) subsites built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and deployed via [Vercel](https://vercel.com/).
 
@@ -104,17 +104,23 @@ version increments reflecting both user-visible and operational impact.
   │   ├── extensions.json           # Recommended VS Code / VSCodium extensions
   │   ├── extensions.jsonc          # Commented version of extensions.json
   │   └── settings.json             # Workspace settings
+  ├── config/                       # SvelteKit configuration modules (used by vite.config.js)
+  │   ├── csp.js                    # Environment-specific Content Security Policy
+  │   ├── env.js                    # Build-time environment resolution and diagnostics
+  │   └── sveltekit.js              # sveltekit() plugin options (adapter, CSP, SW, prerender)
   ├── scripts/                      # General-purpose utility scripts
   ├── src/
-  │   ├── lib/                      # Components, utilities, types, styles
+  │   ├── lib/                      # Components, utilities, types, styles (imported as #lib)
   │   │   ├── components/           # Svelte components
   │   │   ├── data/                 # Custom data (e.g. JSON, metadata, constants)
   │   │   └── utils/                # Helper utilities
   │   ├── routes/                   # SvelteKit pages (+page.svelte, +server.js)
+  │   ├── service-worker/
+  │   │   ├── index.js              # Custom PWA service worker
+  │   │   └── tsconfig.json         # Separate service worker TypeScript project
   │   ├── app.html                  # Entry HTML template and bootstrapping
-  │   ├── hooks.client.ts           # Client-side error handling
-  │   ├── hooks.server.js           # Request-time security headers and diagnostics
-  │   └── service-worker.js         # Custom PWA service worker
+  │   ├── hooks.client.ts           # Client-side error handling and offline fallback
+  │   └── hooks.server.js           # Request-time security headers and diagnostics
   ├── static/                       # Public assets served at site root
   │   ├── pgp/                      # PGP keys
   │   ├── disableSw.js              # Service worker bypass (via ?nosw param)
@@ -127,13 +133,18 @@ version increments reflecting both user-visible and operational impact.
   │   └── unit/                       # Vitest unit tests
   │       ├── client/                 # Client-side (jsdom) unit tests
   │       └── server/                 # Server-side (node) unit tests
+  │           ├── config/             # Environment resolution and CSP regression tests
   │           └── internal/           # Internal audit/test helpers
   │               └── auditCoverage.test.js  # Warns about untested source modules
   ├── AGENTS.md                     # Tool-neutral automated-agent guidance
   ├── CHANGELOG.md                  # Chronological record of notable project changes
   ├── CLAUDE.md                     # Claude Code project/tool guidance
+  ├── jsconfig.json                 # Extends $app/tsconfig; excludes the service worker project
+  ├── package.json                  # Project manifest (scripts, deps, #lib imports)
   ├── vercel.json                   # Vercel configuration
-  ├── package.json                  # Project manifest (scripts, deps, etc.)
+  ├── vite.config.js                # Vite + sveltekit() plugin (SvelteKit 3 has no svelte.config.js)
+  ├── vitest.config.client.js       # Client (jsdom) unit test config
+  ├── vitest.config.server.js       # Server (node) unit test config
   └── ...
 ```
 
@@ -141,7 +152,7 @@ version increments reflecting both user-visible and operational impact.
 
 ### 🔐 `static/pgp/` Directory Structure
 
-This directory contains public PGP key files. Their corresponding QR code images are now loaded dynamically from `src/lib/img/qr`. A dynamic QR code import utility in `src/lib/images.js` allows these files to be imported directly from `$lib`.
+This directory contains public PGP key files. Their corresponding QR code images are now loaded dynamically from `src/lib/img/qr`. A dynamic QR code import utility in `src/lib/images.js` allows these files to be imported directly from `#lib`.
 
 ```bash
 static/
@@ -187,7 +198,7 @@ tests/
 
 For full setup guidance, including environment setup, version enforcement, and local tooling, refer to the 📚 [Environment Requirements Wiki](https://github.com/netwk-pro/netwk-pro.github.io/wiki/Environment-Requirements).
 
-The project requires **Node.js** `>=24.15.0 <25` and **npm** `>=10.0.0 <13`. The repository pins Node.js `24.18.1` in `.nvmrc` and `.node-version`; CI currently uses npm `12.0.2`.
+The project requires **Node.js** `>=24.15.0 <27` and **npm** `>=11 <13`. The repository pins Node.js `26.13.1` in `.nvmrc` and `.node-version`; CI workflows currently use Node.js 24 with npm `12.2.3`. The Vercel functions runtime is set in `config/sveltekit.js`.
 
 ```bash
 git clone https://github.com/netwk-pro/netwk-pro.github.io.git
@@ -196,6 +207,10 @@ cp .env.template .env
 npm ci
 npx playwright install
 ```
+
+Internal modules are imported through the `#lib` package subpath import declared in `package.json` (for example `import { CONSTANTS } from '#lib'` or `'#lib/utils/env.js'`, with explicit file extensions). See [`src/lib/README.md`](./src/lib/README.md).
+
+> **Windows builds:** `@sveltejs/adapter-vercel` creates symbolic links in `.vercel/output`, so local builds on Windows require [Developer Mode](https://learn.microsoft.com/windows/apps/get-started/enable-your-device-for-development) (or an elevated shell). The Vercel output produced on Windows is for local verification only; do not deploy it with `vercel deploy --prebuilt`. Production builds run on Vercel's Linux build infrastructure.
 
 </section>
 
@@ -213,9 +228,10 @@ This project includes custom runtime configuration files for enhancing security,
 
 Security headers are split between SvelteKit configuration and request-time server hooks:
 
-- `svelte.config.js` defines `kit.csp` with environment-based directives:
-  - **Production/Audit**: Enforced, hardened CSP
+- `config/csp.js` defines the environment-based CSP directives, which `config/sveltekit.js` passes to the `sveltekit()` plugin in `vite.config.js` (SvelteKit 3 no longer reads `svelte.config.js`):
+  - **Production/Audit/Codex**: Enforced, hardened CSP
   - **Test/Dev**: Uses `Content-Security-Policy-Report-Only` for safe diagnostics
+  - SvelteKit adds hashes for prerendered pages (delivered via `<meta>`) and nonces for dynamically rendered pages
 - `src/hooks.server.js` adds request-time headers and diagnostics:
   - `Report-To` metadata for production CSP reporting
   - Probely scanner diagnostics in audit mode
@@ -231,12 +247,13 @@ Security headers are split between SvelteKit configuration and request-time serv
 
 ### ⚙️ CSP Behavior by Environment
 
-| Environment  | Header                                | Analytics Enabled | CSP Reporting |
-| ------------ | ------------------------------------- | ----------------- | ------------- |
-| `production` | `Content-Security-Policy`             | ✅ Yes            | ✅ Yes        |
-| `audit`      | `Content-Security-Policy`             | ❌ No             | ❌ No         |
-| `dev`        | `Content-Security-Policy-Report-Only` | ❌ No             | ✅ Yes (mock) |
-| `test`       | `Content-Security-Policy-Report-Only` | ❌ No             | ✅ Yes (mock) |
+| Environment  | Header                                | Analytics Enabled      | CSP Reporting |
+| ------------ | ------------------------------------- | ---------------------- | ------------- |
+| `production` | `Content-Security-Policy`             | ✅ Yes (consent-gated) | ✅ Yes        |
+| `audit`      | `Content-Security-Policy`             | ❌ No                  | ❌ No         |
+| `codex`      | `Content-Security-Policy` (prod)      | ❌ No (`PUBLIC_CODEX`) | ✅ Yes        |
+| `dev`        | `Content-Security-Policy-Report-Only` | ❌ No                  | ✅ Yes (mock) |
+| `test`       | `Content-Security-Policy-Report-Only` | ❌ No                  | ✅ Yes (mock) |
 
 ---
 
@@ -245,7 +262,9 @@ Security headers are split between SvelteKit configuration and request-time serv
 - In **dev/test environments**, CSP headers are set to `report-only` mode.
 - Violations are POSTed to `/api/mock-csp`, which logs reports to the console.
 - In **production**, violations are sent to a real CSP collection endpoint (`https://csp.netwk.pro/.netlify/functions/csp-report`).
-- CSP selection is made at build/config time from `PUBLIC_ENV_MODE`, Vite mode, and local command fallbacks.
+- CSP selection is made at build/config time by `resolveEnvironment()` in `config/env.js`, using the first value set among `PUBLIC_ENV_MODE`, `MODE`, and the Vite mode (`--mode`), falling back to `production`. Unrecognized modes receive the enforced production policy.
+- `ENV_MODE` is logged for diagnostics only and never influences CSP selection, so a shell setting such as `ENV_MODE=dev` cannot downgrade `npm run build:audit`.
+- The build log prints the resolved mode once per build. SvelteKit's post-build analyse/prerender steps reload the config in worker threads and are not logged; they only read environment-independent options.
 - Requests for `audit.netwk.pro` are logged as diagnostics if the build was not produced with `PUBLIC_ENV_MODE=audit`.
 
 ---
@@ -265,7 +284,7 @@ Security headers are split between SvelteKit configuration and request-time serv
 
 To move toward a strict, nonce-based CSP:
 
-1. Keep CSP policy construction in `svelte.config.js` so SvelteKit can manage framework hashes/nonces.
+1. Keep CSP policy construction in `config/csp.js` (passed to the `sveltekit()` plugin) so SvelteKit can manage framework hashes/nonces.
 2. Keep third-party scripts out of `app.html` unless they work with the current CSP without inline script injection.
 3. Add a CSP-compatible analytics stack only after consent, audit-mode, and deployment behavior are reviewed.
 4. Review and refactor any components that rely on dynamic `style=` or `<style>` blocks without support for CSP nonces.
@@ -275,9 +294,18 @@ To move toward a strict, nonce-based CSP:
 
 &nbsp;
 
+### 📈 Analytics and Consent
+
+Matomo analytics are loaded through the compatibility helper in `src/lib/stores/posthog.js` and are consent-gated. They never load in audit, dev, test, CI, or codex builds or on `localhost`, and they do not load for visitors who have opted out or who send DNT/GPC without an explicit opt-in.
+
+- `trackPageview()` (`src/lib/utils/initAnalytics.js`) is registered with `afterNavigate()` during root layout initialization. It records one pageview per initial page load and per genuine page transition (pathname or query change). Same-page links and hash-only navigation are not recorded. Client-side transitions send the previous page as the referrer, following Matomo's single-page-app guidance.
+- Revoking consent after Matomo has loaded pushes Matomo's `optUserOut`, which also stops its link tracking in the open page. Re-granting consent pushes `forgetUserOptOut`. Nothing from the opted-out period is recorded or replayed.
+
+&nbsp;
+
 ### 🧭 `hooks.client.ts`
 
-Located at `src/hooks.client.ts`, this file is currently limited to handling uncaught client-side errors via the `handleError()` lifecycle hook.
+Located at `src/hooks.client.ts`, this file handles client-side errors via the `handleError()` lifecycle hook. Only unexpected errors are logged. When a client-side navigation fails because the network is unavailable, it falls back to a full-page navigation so the service worker can serve a cached page or the offline document. It never does this for the current page, which prevents reload loops, and genuine server errors still render the error page.
 
 Client-side PWA logic (such as handling the `beforeinstallprompt` event, checking browser compatibility, and manually registering the service worker) lives in `src/lib/registerServiceWorker.js`. The root layout's `beforeNavigate` hook coordinates activation of an installed update with eligible internal navigation. SvelteKit's automatic service-worker registration is disabled so diagnostic bypass logic runs before registration.
 
@@ -316,13 +344,15 @@ dedicated audit deployment rather than the production site.
 
 ## ⚙️ Service Worker Architecture
 
-The project uses a custom service worker for bounded offline support and PWA assets. SvelteKit bundles `src/service-worker.js`, but automatic registration is disabled in `svelte.config.js`; `src/lib/registerServiceWorker.js` owns registration and update behavior instead.
+The project uses a custom service worker for bounded offline support and PWA assets. SvelteKit bundles `src/service-worker/index.js` as an ES module and serves it at `/service-worker.js`. Automatic registration is disabled in `config/sveltekit.js`; `src/lib/registerServiceWorker.js` owns registration and update behavior instead.
 
-### 🗄️ `service-worker.js`
+The worker is a separate TypeScript project: `src/service-worker/tsconfig.json` extends `$app/tsconfig/service-worker` (WebWorker types), it is excluded from `jsconfig.json`, and `npm run check` type-checks it through `npm run check:sw`.
+
+### 🗄️ `src/service-worker/index.js`
 
 #### Precache and cache ownership
 
-- Every versioned file generated by SvelteKit's `$service-worker.build` list is a **required** precache asset.
+- Every versioned build file listed by SvelteKit's `immutable` export from `$app/manifest` is a **required** precache asset. The cache version comes from `version` in `$app/env`.
 - `/disableSw.js`, `/offline.html`, and `/offline.min.css` are also required. If any required asset cannot be cached, installation fails and the incomplete asset cache is removed.
 - PWA icons, the web manifest, and the two Font Awesome WOFF2 files are **optional** precache assets. They are cached independently so one unavailable optional file does not invalidate an otherwise complete worker.
 - Other files in `static/` are not automatically precached. This keeps screenshots, PGP files, large images, crawler metadata, and unrelated downloads out of Cache Storage unless they become explicit offline requirements.
@@ -332,7 +362,8 @@ The project uses a custom service worker for bounded offline support and PWA ass
 
 - Same-origin document navigations use a **network-first** strategy with navigation preload when supported.
 - Only successful, same-origin HTML responses for `/`, `/about`, and `/pgp` can enter the page cache. Redirected, opaque, private, `no-store`, non-HTML, and URL-mismatched responses are rejected.
-- When navigation fails, an approved cached route is returned when available; otherwise the worker serves `/offline.html` and finally a minimal `503` response if that file is unavailable.
+- Internal links are handled by SvelteKit's client-side router, which fetches only route data, so the worker does not see a document request for them. After each client-side navigation, the root layout sends the worker a `CACHE_NAVIGATION` message, and the worker fetches and caches that route under the same allowlist and checks. Other URLs, other origins, and malformed messages are ignored.
+- When navigation fails, an approved cached route is returned when available; otherwise the worker serves `/offline.html` and finally a minimal `503` response if that file is unavailable. A client-side navigation that fails offline falls back to a full navigation (see `hooks.client.ts`), so it reaches this handling too.
 - Explicitly precached assets use a **cache-first** strategy.
 - Non-`GET`, cross-origin, `/api`, `/api/*`, `/relay-*`, and non-precached same-origin asset requests are not intercepted. This keeps analytics, third-party traffic, APIs, relays, and ordinary runtime requests out of service-worker caches.
 
@@ -348,14 +379,15 @@ The root layout uses `beforeNavigate` to coordinate activation:
 4. The activated worker deletes obsolete worker-owned caches, enables navigation preload, and calls `clients.claim()` so every controlled tab receives `controllerchange`.
 5. A navigation-triggering tab performs a full navigation to its recorded destination. Every other controlled tab, including the tab that requested page-load activation, independently reloads its current URL under the new worker.
 
-A five-second fallback completes the requested navigation if activation stalls. First-time installation claims the page without forcing a reload, and a per-tab reload guard prevents repeated `controllerchange` reloads.
+A two-second fallback completes the requested navigation if activation stalls. First-time installation claims the page without forcing a reload, and a per-tab reload guard prevents repeated `controllerchange` reloads.
 
 ### ✅ `registerServiceWorker.js`
 
 Located at `src/lib/registerServiceWorker.js`, this module:
 
-- Registers `/service-worker.js` once, after the document is loaded, using module format in development and classic format in production.
+- Registers `/service-worker.js` once, after the document is loaded, with `type: 'module'` (SvelteKit 3 bundles the worker as an ES module). Browsers without module service worker support reject registration; the error is caught and the site works without offline caching.
 - Tracks installing and waiting workers and coordinates `controllerchange` behavior.
+- Exports `cacheClientNavigation()`, registered with `afterNavigate()` in the root layout, which sends the `CACHE_NAVIGATION` message described above.
 - Dispatches `pwa-install-available` for the custom install UI when the browser emits `beforeinstallprompt`.
 - Skips registration and unregisters existing workers when `?nosw` or `window.__DISABLE_SW__` is present.
 - Unregisters workers instead of registering during Firefox development.
@@ -416,7 +448,7 @@ The endpoint receives Content Security Policy (CSP) violation reports and logs d
 ### Usage
 
 To enable reporting, make sure your CSP policy includes both the legacy `report-uri` and the modern `report-to` directives.  
-This project configures those directives in `svelte.config.js` for production CSP, while `src/hooks.server.js` adds the required `Report-To` response header:
+This project configures those directives in `config/csp.js` for production CSP, while `src/hooks.server.js` adds the required `Report-To` response header:
 
 ```http
 # Example response headers
@@ -462,10 +494,12 @@ This project uses a mix of automated performance, accessibility, and end-to-end 
 
 ### Testing Configuration Files
 
-| File                   | Description                                                              | Usage Context |
-| ---------------------- | ------------------------------------------------------------------------ | ------------- |
-| `playwright.config.js` | Configures Playwright test environment (browsers, timeouts, base URL)    | Local + CI    |
-| `.lighthouserc.cjs`    | Lighthouse CI config for defining audit targets, budgets, and assertions | CI            |
+| File                      | Description                                                                         | Usage Context |
+| ------------------------- | ----------------------------------------------------------------------------------- | ------------- |
+| `vitest.config.client.js` | Client (jsdom) unit tests; uses the shared SvelteKit config with a fixed `test` env | Local + CI    |
+| `vitest.config.server.js` | Server (node) unit tests; uses the shared SvelteKit config with a fixed `test` env  | Local + CI    |
+| `playwright.config.js`    | Configures Playwright test environment (browsers, timeouts, base URL)               | Local + CI    |
+| `.lighthouserc.cjs`       | Lighthouse CI config for defining audit targets, budgets, and assertions            | CI            |
 
 &nbsp;
 
@@ -498,6 +532,8 @@ npm run test:all        # Run full test suite
 npm run test:watch      # Watch mode for client tests
 npm run test:coverage   # Collect code coverage reports
 npm run test:e2e        # Runs Playwright E2E tests (with one retry on failure)
+npm run check           # Type-check the app and the service worker project
+npm run checkout        # Full verification (lockfile, unit tests, linters, type-check)
 ```
 
 <!-- markdownlint-disable MD028 -->
@@ -613,7 +649,7 @@ _Designed for professionals. Hardened for privacy. Built with intent._
 Copyright &copy; 2025, 2026  
 **[Network Pro Strategies, LLC](https://netwk.pro) (Network Pro&trade;)**
 
-Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/legal#trademark) of Network Pro Strategies.
+Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/legal#trademark) of Network Pro Strategies, LLC.
 
 Licensed under **[CC BY 4.0](https://netwk.pro/legal#cc-by)** and the **[GNU GPL](https://netwk.pro/legal#gnu-gpl)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
 

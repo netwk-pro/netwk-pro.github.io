@@ -7,16 +7,15 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from '$app/paths';
-  import { CONSTANTS } from '$lib';
+  import { resolve } from '$app/paths';
+  import { CONSTANTS } from '#lib';
 
   const { PAGE, LINKS } = CONSTANTS;
 
-  const homeLink = base || '/';
-  const aboutLink = `${base}/about`;
-  //const servLink = `${base}/services`;
-  const lhubLink = `${base}/links`;
-  const fossLink = `${base}/foss`;
+  const homeLink = resolve('/');
+  const aboutLink = resolve('/about');
+  const lhubLink = resolve('/links');
+  const fossLink = resolve('/foss');
   const discussLink =
     'https://github.com/netwk-pro/netwk-pro.github.io/discussions';
 
@@ -25,7 +24,7 @@ This file is part of Network Pro.
    * @typedef {Object} NavItem
    * @property {string} label - The text displayed for the link.
    * @property {string} href - The URL or anchor the link points to.
-   * @property {string} target - Specifies where to open the link (e.g., "_self" or "_blank").
+   * @property {string} [target] - Specifies where to open the link (e.g., "_blank"). Omitted for internal routes so SvelteKit handles them client-side.
    * @property {boolean} external - Whether the link points to an external resource.
    * @property {boolean} [redirect=false] - Indicates whether the external link is actually an internal redirect.
    */
@@ -35,15 +34,15 @@ This file is part of Network Pro.
    * @type {NavItem[]}
    */
   const nav = [
-    { label: 'home', href: homeLink, target: PAGE.SELF, external: false },
-    { label: 'about', href: aboutLink, target: PAGE.SELF, external: false },
+    { label: 'home', href: homeLink, external: false },
+    { label: 'about', href: aboutLink, external: false },
     {
       label: 'blog',
       href: LINKS.BLOG,
       target: PAGE.SELF,
       external: false,
     },
-    { label: 'foss', href: fossLink, target: PAGE.SELF, external: false },
+    { label: 'foss', href: fossLink, external: false },
     {
       label: 'discussions',
       href: discussLink,

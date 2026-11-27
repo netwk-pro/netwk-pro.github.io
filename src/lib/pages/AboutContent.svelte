@@ -8,7 +8,7 @@ This file is part of Network Pro.
 
 <script>
   import { resolve } from '$app/paths';
-  import { CONSTANTS, getQR, PGP_KEYS } from '$lib';
+  import { CONSTANTS, getQR, PGP_KEYS } from '#lib';
 
   const { COMPANY_INFO, CONTACT, PAGE } = CONSTANTS;
   const pgpKeys = PGP_KEYS.filter(
@@ -19,25 +19,19 @@ This file is part of Network Pro.
    * URL to the Contact Form route
    * @type {string}
    */
-  const contactLink = resolve('/contact', {});
+  const contactLink = resolve('/contact');
 
   /**
    * URL to the Consultation route
    * @type {string}
    */
-  //const consultLink = resolve('/consultation', {});
-
-  /**
-   * URL to the Services route
-   * @type {string}
-   */
-  const servLink = resolve('/services', {});
+  //const consultLink = resolve('/consultation');
 
   /**
    * URL to the PGP route
    * @type {string}
    */
-  const pgpLink = resolve('/pgp', {});
+  const pgpLink = resolve('/pgp');
 
   /**
    * HTML attribute for async image decoding
@@ -225,9 +219,8 @@ This file is part of Network Pro.
 
 <p>
   You can find our PGP keys and a downloadable vCard with contact information
-  below. For a complete list of public keys, visit the <a
-    href={pgpLink}
-    target={PAGE.SELF}>dedicated PGP page</a
+  below. For a complete list of public keys, visit the <a href={pgpLink}
+    >dedicated PGP page</a
   >.
 </p>
 

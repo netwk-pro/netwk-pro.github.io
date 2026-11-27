@@ -7,9 +7,8 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { CONSTANTS, protonPower, getQR, PGP_KEYS as keys } from '$lib';
-  import { CodeBlock } from '$lib/components';
-  import { base } from '$app/paths';
+  import { CONSTANTS, protonPower, getQR, PGP_KEYS as keys } from '#lib';
+  import { CodeBlock } from '#lib/components/index.js';
 
   const { CONTACT, PAGE } = CONSTANTS;
 

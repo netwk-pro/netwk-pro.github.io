@@ -14,7 +14,7 @@ This file is part of Network Pro.
  * @updated 2025-10-05
  */
 
-import PWAInstallButton from '$lib/components/PWAInstallButton.svelte';
+import PWAInstallButton from '#lib/components/PWAInstallButton.svelte';
 import { fireEvent, render, waitFor } from '@testing-library/svelte';
 import { describe, expect, it, vi } from 'vitest';
 

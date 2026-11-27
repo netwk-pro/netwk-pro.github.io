@@ -14,9 +14,8 @@ This file is part of Network Pro.
  * @updated 2025-10-10
  */
 
-import { browser } from '$app/environment';
-import { getStores } from '$app/stores';
-import { get } from 'svelte/store';
+import { browser } from '$app/env';
+import { page } from '$app/state';
 
 /**
  * @param {string} url - The target URL to append UTM parameters to
@@ -25,8 +24,7 @@ import { get } from 'svelte/store';
 export function appendUTM(url) {
   if (!browser) return url;
 
-  const { page } = getStores();
-  const pathname = get(page).url.pathname;
+  const pathname = page.url.pathname;
 
   let campaign = 'internal'; // default fallback
 

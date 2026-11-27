@@ -7,25 +7,30 @@ This file is part of Network Pro.
 ========================================================================== -->
 <script>
   export let data;
-  import { beforeNavigate } from '$app/navigation';
+  import { afterNavigate, beforeNavigate } from '$app/navigation';
   import { onMount } from 'svelte';
   import {
     activateWaitingServiceWorkerForNavigation,
+    cacheClientNavigation,
     shouldInterceptServiceWorkerNavigation,
-  } from '$lib/registerServiceWorker';
-  import { initAnalytics } from '$lib/utils/initAnalytics';
-  import { showReminder } from '$lib/stores/posthog';
+  } from '#lib/registerServiceWorker.js';
+  import { initAnalytics, trackPageview } from '#lib/utils/initAnalytics.js';
+  import { showReminder } from '#lib/stores/posthog.js';
   import {
     ContainerSection,
     KeepAndroidOpenBanner,
     MetaTags,
     PWAInstallButton,
-  } from '$lib/components';
-  import { Footer, HeaderDefault, HeaderHome } from '$lib/components/layout';
-  import { appleTouchIcon, faviconSvg, logoPng, logoWbp } from '$lib';
+  } from '#lib/components/index.js';
+  import {
+    Footer,
+    HeaderDefault,
+    HeaderHome,
+  } from '#lib/components/layout/index.js';
+  import { appleTouchIcon, faviconSvg, logoPng, logoWbp } from '#lib';
 
-  import '$lib/styles/global.min.css';
-  import '$lib/styles/fa-global.css';
+  import '#lib/styles/global.min.css';
+  import '#lib/styles/fa-global.css';
 
   $: shouldShowReminder = $showReminder;
 
@@ -40,14 +45,22 @@ This file is part of Network Pro.
     }
   });
 
+  // Must be registered during component initialization, not inside onMount:
+  // a nested onMount in this legacy-mode layout never runs (see trackPageview).
+  afterNavigate(trackPageview);
+
+  // Keep offline-approved routes cached when reached via client-side routing.
+  afterNavigate(cacheClientNavigation);
+
   onMount(() => {
     const cleanup = initAnalytics();
     return cleanup;
   });
 
-  // fallback values if data.meta not set
-  const metaTitle = data?.meta?.title || 'Security, Networking, Privacy';
-  const metaDescription =
+  // fallback values if data.meta not set. Reactive so the title and
+  // description follow client-side navigation (the layout stays mounted).
+  $: metaTitle = data?.meta?.title || 'Security, Networking, Privacy';
+  $: metaDescription =
     data?.meta?.description || 'Locking Down Networks, Unlocking Confidence™';
 </script>
 
@@ -58,7 +71,7 @@ This file is part of Network Pro.
   pathname={data.pathname} />
 
 <svelte:head>
-  <!-- Dynamic preloads only, meta moved to $lib/components/MetaTags.svelte -->
+  <!-- Dynamic preloads only, meta moved to #lib/components/MetaTags.svelte -->
   <link
     rel="preload"
     href={logoWbp}

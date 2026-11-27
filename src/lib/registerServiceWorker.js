@@ -6,10 +6,11 @@ SPDX-License-Identifier: CC-BY-4.0 OR GPL-3.0-or-later
 This file is part of Network Pro.
 ========================================================================== */
 
-import { unregisterServiceWorker } from '$lib/unregisterServiceWorker';
+import { unregisterServiceWorker } from '#lib/unregisterServiceWorker.js';
 
 const ACTIVATION_TIMEOUT_MS = 2000;
 const ACTIVATE_WAITING_WORKER_MESSAGE = { type: 'ACTIVATE_WAITING_WORKER' };
+const CACHE_NAVIGATION_MESSAGE_TYPE = 'CACHE_NAVIGATION';
 
 /** @type {ServiceWorkerRegistration | null} */
 let serviceWorkerRegistration = null;
@@ -112,10 +113,14 @@ function observeInstallingWorker(registration) {
  */
 async function registerWorker() {
   try {
+    // SvelteKit 3 bundles the service worker as an ES module in every mode,
+    // so it must always be registered with type 'module'. Browsers without
+    // module service worker support reject here; the catch below keeps the
+    // site fully functional without offline caching.
     const registration = await navigator.serviceWorker.register(
       '/service-worker.js',
       {
-        type: import.meta.env.DEV ? 'module' : 'classic',
+        type: 'module',
       },
     );
 
@@ -143,7 +148,7 @@ async function registerWorker() {
  * Only application-owned link and goto navigations are eligible. External
  * links, forms, history traversal, unloads, and hash-only changes are ignored.
  *
- * @param {import('@sveltejs/kit').BeforeNavigate} navigation
+ * @param {import('$app/navigation').BeforeNavigate} navigation
  * @returns {boolean}
  */
 export function shouldInterceptServiceWorkerNavigation(navigation) {
@@ -203,6 +208,33 @@ export function activateWaitingServiceWorkerForNavigation(destination) {
   }, ACTIVATION_TIMEOUT_MS);
 
   return true;
+}
+
+/**
+ * Ask the controlling service worker to cache the document for a route that
+ * was reached through client-side routing.
+ *
+ * Client-side navigations only fetch route data, so the worker's navigation
+ * handler never sees them. This preserves offline support for the worker's
+ * approved routes, which previously were cached when loaded as full pages.
+ * The worker applies its own allowlist and cacheability checks. Initial page
+ * loads (`enter`) are skipped because the worker already sees that request.
+ *
+ * @param {import('$app/navigation').AfterNavigate} navigation - The completed
+ *   navigation.
+ * @returns {void}
+ */
+export function cacheClientNavigation(navigation) {
+  if (navigation.type === 'enter' || !navigation.to) return;
+
+  const controller = navigator.serviceWorker?.controller;
+  const url = navigation.to.url;
+  if (!controller || url.origin !== window.location.origin) return;
+
+  controller.postMessage({
+    type: CACHE_NAVIGATION_MESSAGE_TYPE,
+    url: url.href,
+  });
 }
 
 /**

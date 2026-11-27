@@ -7,8 +7,8 @@ This file is part of Network Pro.
 ========================================================================== -->
 
 <script>
-  import { base } from '$app/paths';
-  import { CONSTANTS } from '$lib';
+  import { resolve } from '$app/paths';
+  import { CONSTANTS } from '#lib';
 
   const { COMPANY_INFO, CONTACT, LINKS, PAGE, NAV } = CONSTANTS;
 
@@ -16,7 +16,7 @@ This file is part of Network Pro.
    * URL to the FOSS Spotlight page, using the base path
    * @type {string}
    */
-  const spotlightLink = `${base}/foss`;
+  const spotlightLink = resolve('/foss');
 
   /**
    * CSS class for the index headings.
@@ -91,7 +91,7 @@ This file is part of Network Pro.
 
 <p class={classLarge}>
   <strong>
-    <a href={spotlightLink} target={PAGE.SELF}>FOSS Spotlight</a>
+    <a href={spotlightLink}>FOSS Spotlight</a>
   </strong>
 </p>
 

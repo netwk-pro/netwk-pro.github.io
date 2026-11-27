@@ -12,7 +12,7 @@ This file is part of Network Pro.
  * @property {string} description - The description of the page
  */
 
-import { meta as routeMeta } from '$lib/meta.js'; // Import meta from $lib/meta.js and alias it
+import { meta as routeMeta } from '#lib/meta.js'; // Import meta from #lib/meta.js and alias it
 
 /**
  * Fallback metadata to satisfy typing in +layout.svelte and +page.svelte.

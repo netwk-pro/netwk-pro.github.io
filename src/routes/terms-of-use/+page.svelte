@@ -12,8 +12,8 @@ This file is part of Network Pro.
     FullWidthSection,
     LegalNav,
     SocialMedia,
-  } from '$lib/components';
-  import { TermsUseContent } from '$lib/pages';
+  } from '#lib/components/index.js';
+  import { TermsUseContent } from '#lib/pages/index.js';
 </script>
 
 <section id="terms-of-use">

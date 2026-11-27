@@ -12,8 +12,8 @@ This file is part of Network Pro.
     FullWidthSection,
     LegalNav,
     SocialMedia,
-  } from '$lib/components';
-  import { AboutContent } from '$lib/pages';
+  } from '#lib/components/index.js';
+  import { AboutContent } from '#lib/pages/index.js';
 </script>
 
 <section id="about">

@@ -15,14 +15,58 @@ This file is part of Network Pro.
  * @updated 2026-08-09
  */
 
-import { browser } from '$app/environment';
-import { afterNavigate } from '$app/navigation';
-import { registerServiceWorker } from '$lib/registerServiceWorker.js';
-import { capture, initPostHog } from '$lib/stores/posthog';
+import { browser } from '$app/env';
+import { registerServiceWorker } from '#lib/registerServiceWorker.js';
+import { capture, initPostHog } from '#lib/stores/posthog.js';
+
+/**
+ * Records a pageview for a completed SvelteKit navigation.
+ *
+ * Register this with `afterNavigate()` during component initialization (see
+ * src/routes/+layout.svelte). It must not be registered from inside an
+ * `onMount` callback: in a legacy-mode component, the nested `onMount` that
+ * `afterNavigate` uses internally is appended to the mount-callback list
+ * while that list is already running, so it never runs and no pageview is
+ * ever recorded.
+ *
+ * Exactly one pageview is recorded for:
+ * - the initial page load (`type: 'enter'`), using the browser's own
+ *   referrer; and
+ * - each genuine page transition, i.e. the pathname or query string changed,
+ *   with the previous page's URL as the referrer.
+ *
+ * Same-page links, hash-only navigation, and refreshes of the current URL are
+ * ignored so they never produce duplicate pageviews. Consent, privacy, and
+ * environment restrictions are enforced by `capture()`.
+ *
+ * @param {import('$app/navigation').AfterNavigate} navigation - The completed
+ *   navigation.
+ * @returns {void}
+ */
+export function trackPageview(navigation) {
+  if (!browser) return;
+
+  const { type, from, to } = navigation;
+  if (!to) return;
+
+  if (type === 'enter' || !from) {
+    capture('$pageview');
+    return;
+  }
+
+  const isSamePage =
+    from.url.pathname === to.url.pathname && from.url.search === to.url.search;
+  if (isSamePage) return;
+
+  capture('$pageview', { referrer: from.url.href });
+}
 
 /**
  * Initializes analytics compatibility hooks and asset preload.
  * Should be called once per app mount (e.g., from +layout.svelte).
+ *
+ * Pageviews are recorded separately by {@link trackPageview}, which the
+ * layout registers with `afterNavigate()` during component initialization.
  *
  * @returns {() => void} Cleanup function to unregister global event listeners
  */
@@ -33,10 +77,6 @@ export function initAnalytics() {
 
   registerServiceWorker();
   initPostHog();
-
-  afterNavigate(() => {
-    capture('$pageview');
-  });
 
   // Preserve the existing analytics event hook for future providers.
   let hasFiredLeave = false;
