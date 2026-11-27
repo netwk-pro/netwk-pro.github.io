@@ -198,7 +198,7 @@ tests/
 
 For full setup guidance, including environment setup, version enforcement, and local tooling, refer to the 📚 [Environment Requirements Wiki](https://github.com/netwk-pro/netwk-pro.github.io/wiki/Environment-Requirements).
 
-The project requires **Node.js** `>=24.15.0 <27` and **npm** `>=11 <13`. The repository pins Node.js `26.13.1` in `.nvmrc` and `.node-version`; CI workflows currently use Node.js 24 with npm `12.2.3`. The Vercel functions runtime is set in `config/sveltekit.js`.
+The project requires **Node.js** `>=24.15.0 <27` and **npm** `>=11 <13`. The repository pins Node.js `26.13.1` in `.nvmrc` and `.node-version`; CI workflows currently use Node.js 26 with npm `12.2.3`. The Vercel functions runtime is set in `config/sveltekit.js`.
 
 ```bash
 git clone https://github.com/netwk-pro/netwk-pro.github.io.git
@@ -264,7 +264,7 @@ Security headers are split between SvelteKit configuration and request-time serv
 - In **production**, violations are sent to a real CSP collection endpoint (`https://csp.netwk.pro/.netlify/functions/csp-report`).
 - CSP selection is made at build/config time by `resolveEnvironment()` in `config/env.js`, using the first value set among `PUBLIC_ENV_MODE`, `MODE`, and the Vite mode (`--mode`), falling back to `production`. Unrecognized modes receive the enforced production policy.
 - `ENV_MODE` is logged for diagnostics only and never influences CSP selection, so a shell setting such as `ENV_MODE=dev` cannot downgrade `npm run build:audit`.
-- The build log prints the resolved mode once per build. SvelteKit's post-build analyse/prerender steps reload the config in worker threads and are not logged; they only read environment-independent options.
+- The build log prints the resolved mode once per build. SvelteKit's post-build analyze/prerender steps reload the config in worker threads and are not logged; they only read environment-independent options.
 - Requests for `audit.netwk.pro` are logged as diagnostics if the build was not produced with `PUBLIC_ENV_MODE=audit`.
 
 ---
@@ -644,15 +644,11 @@ _Designed for professionals. Hardened for privacy. Built with intent._
 
 ---
 
-<span style="font-size: 12px; text-align: center;">
-
 Copyright &copy; 2025, 2026  
 **[Network Pro Strategies, LLC](https://netwk.pro) (Network Pro&trade;)**
 
 Network Pro&trade;, the shield logo, and the "Locking Down Networks...&trade;" slogan are [trademarks](https://netwk.pro/legal#trademark) of Network Pro Strategies, LLC.
 
 Licensed under **[CC BY 4.0](https://netwk.pro/legal#cc-by)** and the **[GNU GPL](https://netwk.pro/legal#gnu-gpl)**, as published by the [Free Software Foundation](https://www.fsf.org), either version 3 of the License, or (at your option) any later version.
-
-</span>
 
 <!-- cspell:ignore cspreport toolconfig controllerchange -->
